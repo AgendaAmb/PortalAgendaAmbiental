@@ -1,0 +1,13 @@
+#header{
+    background-color:#115089;
+    height: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+#header img{
+    margin: 15px;
+}
+
+

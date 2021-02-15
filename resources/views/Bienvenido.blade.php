@@ -8,7 +8,7 @@
         @include('header')
     </header>
     <nav>
-        @include('navbar')
+
     </nav>
 
     <footer>
