@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @include('head')
+    @include('Parciales.head')
 </head>
 <body>
     <header>
-        @include('header')
+        @include('Parciales.header')
     </header>
     <nav>
-        @include('navbar')
+        @include('Parciales.navbar')
     </nav>
 
     <footer>
-        @include('footer')
+        @include('Parciales.footer')
     </footer>
 </body>
 </html>
