@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 
 class Slider extends Component
 {
+    public $idSlider;
     public $imagenes;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($rutaImagenes)
+    public function __construct($idSlider, $rutaImagenes)
     {
+        $this->idSlider = $idSlider;
         $this->imagenes = array_map
         (
             fn($imagen) => Storage::url($imagen),

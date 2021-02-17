@@ -36,6 +36,19 @@
     font-size: 15pt;
 }
 
+.descripcion
+{
+    font-family: 'Myraid light';
+    font-size: 14px;
+}
+
+.descripcion h2
+{
+    font-family: 'Myraid Pro Bold';
+    color: #115080;
+    font-weight: 300;
+}
+
 /*
     Estilos para los diferentes tipos
     de letra.

@@ -18,7 +18,7 @@ class Acordeon extends Component
      */
     public function __construct($idAcordeon, $tituloAcordeon)
     {
-        $json = Storage::disk('local')->get('InformacionAcordeones/Acordeones.json');
+        $json = Storage::disk('local')->get('InformacionComponentes/Acordeones.json');
 
         $this->idAcordeon = $idAcordeon;
         $this->tituloAcordeon = $tituloAcordeon;

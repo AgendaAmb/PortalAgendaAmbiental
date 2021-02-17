@@ -12,7 +12,7 @@
         {{-- @include('Parciales.navbar') --}}
     </nav>
     <main class="container-fluid">
-        @yield('Corpus');
+        @yield('Corpus')
     </main>
     <footer>
         @include('Parciales.footer')

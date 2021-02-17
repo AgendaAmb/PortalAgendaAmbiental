@@ -20,7 +20,8 @@
         </article>
     </div>
     <div class="col-md-7">
-        <x-slider :rutaImagenes="'imagenes/introduccion'"></x-slider>
+        <x-slider   :idSlider="'sliderIntroduccion'"
+                    :rutaImagenes="'imagenes/introduccion'"></x-slider>
     </div>
 </div>
 
@@ -32,7 +33,7 @@
         <x-acordeon :idAcordeon="'acordeonProgramasInstitucionales'" 
                     :tituloAcordeon="'PROGRAMAS INSTITUCIONALES'">
         </x-acordeon>
-        <x-acordeon :idAcordeon="'acordeonAccesos'" :
+        <x-acordeon :idAcordeon="'acordeonAccesos'" 
                     :tituloAcordeon="'ACCESOS'">
         </x-acordeon>
     </div>

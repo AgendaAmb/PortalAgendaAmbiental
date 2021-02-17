@@ -1,0 +1,25 @@
+{
+    "botonesGestionInstitucional":
+    {
+        "programaUniversitarioAgua":
+        {
+            "FotoBoton" : "imagenes/botones/ProgramaUniversitarioAgua.png"
+        },
+        "programaUniversitarioEnergia":
+        {
+            "FotoBoton" : "imagenes/botones/ProgramaUniversitarioEnergia.png"
+        },
+        "programaUniversitarioBiodiversidad":
+        {
+            "FotoBoton" : "imagenes/botones/TodosNosCuidamos.png"
+        },
+        "programaUniversitarioResiduos":
+        {
+            "FotoBoton" : "imagenes/botones/UnidosContraElAcoso.png"
+        },
+        "programaUniversitarioGestionResiduos":
+        {
+            "FotoBoton" : "imagenes/botones/DirectorioInvestigadores.png"
+        }
+    }
+}

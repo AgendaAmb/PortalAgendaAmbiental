@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('Introduccion');
 });
 
+Route::get('/gestion', fn() => view('GestionInstitucional'));
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
