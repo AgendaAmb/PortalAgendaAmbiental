@@ -1,0 +1,99 @@
+{
+    "acordeonProgramasInstitucionales":
+    {
+        "unisalud":
+        {
+            "TextoComponente": "",
+            "FotoComponente" : "imagenes/componentesAcordeones/UniSalud.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "agendaAmbiental":
+        {
+            "TextoComponente": "",
+            "FotoComponente" : "imagenes/componentesAcordeones/AgendaAmbiental.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "todosNosCuidamos":
+        {
+            "TextoComponente": "",
+            "FotoComponente" : "imagenes/componentesAcordeones/TodosNosCuidamos.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "unidosContraElAcoso":
+        {
+            "TextoComponente": "",
+            "FotoComponente" : "imagenes/componentesAcordeones/UnidosContraElAcoso.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "directorioInvestigadores":
+        {
+            "TextoComponente": "",
+            "FotoComponente" : "imagenes/componentesAcordeones/DirectorioInvestigadores.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        }
+    },
+    "acordeonAccesos":
+    {
+        "admision": 
+        {
+            "TextoComponente": "Proceso de Admisión 2020-2021",
+            "FotoComponente" : "imagenes/componentesAcordeones/Admision.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "comSocial": 
+        {
+            "TextoComponente": "Comunicación Social",
+            "FotoComponente" : "imagenes/componentesAcordeones/ComunicacionSocial.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "radYTel": 
+        {
+            "TextoComponente": "Radio y Televisión",
+            "FotoComponente" : "imagenes/componentesAcordeones/RadioYTelevision.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "proteccionCivil": 
+        {
+            "TextoComponente": "Protección Civil",
+            "FotoComponente" : "imagenes/componentesAcordeones/ProteccionCivil.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "contraloriaSocial": 
+        {
+            "TextoComponente": "Contraloría Social",
+            "FotoComponente" : "imagenes/componentesAcordeones/ContraloriaSocial.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "codigoEtica": 
+        {
+            "TextoComponente": "Código de Ética",
+            "FotoComponente" : "imagenes/componentesAcordeones/CodigoEtica.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "unicorreo": 
+        {
+            "TextoComponente": "Unicorreo",
+            "FotoComponente" : "imagenes/componentesAcordeones/Unicorreo.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "directorio": 
+        {
+            "TextoComponente": "Directorio",
+            "FotoComponente" : "imagenes/componentesAcordeones/Directorio.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "comentarios": 
+        {
+            "TextoComponente": "Comentarios",
+            "FotoComponente" : "imagenes/componentesAcordeones/Comentarios.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "calendario": 
+        {
+            "TextoComponente": "Calendario Escolar",
+            "FotoComponente" : "imagenes/componentesAcordeones/CalendarioEscolar.png",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        }
+    }
+    
+}
