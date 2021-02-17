@@ -11,6 +11,32 @@
 }
 
 /*
+    Estilos para el corpus de la página.
+ */
+#textoInicio
+{
+    font-family: 'Myraid light';
+    font-size: 14px;
+}
+
+.botonLeerMas
+{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 13px;
+    background-color: #96A834;
+    color: white;
+}
+
+.textoAcordeon
+{
+    color: gray;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+}
+
+/*
     Estilos para los diferentes tipos
     de letra.
  */

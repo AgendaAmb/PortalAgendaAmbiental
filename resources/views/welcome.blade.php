@@ -5,12 +5,15 @@
 </head>
 <body>
     <header>
-        @include('Parciales.header')
+         @include('Parciales.header') 
     </header>
+    
     <nav>
-        @include('Parciales.navbar')
+        {{-- @include('Parciales.navbar') --}}
     </nav>
-
+    <main class="container-fluid">
+        @yield('Corpus');
+    </main>
     <footer>
         @include('Parciales.footer')
     </footer>
