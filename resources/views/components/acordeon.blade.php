@@ -16,10 +16,10 @@
         
         @foreach($componentesAcordeon as $nombreComponente => $detallesComponente)
         
-            <x-itemAcordeon :fotoItem="$detallesComponente['FotoComponente']"
+            <x-botonAcordeon :fotoItem="$detallesComponente['FotoComponente']"
                 :textoItem="$detallesComponente['TextoComponente']"
                 :linkReferencia="$detallesComponente['LinkReferencia']">
-            </x-itemAcordeon>
+            </x-botonAcordeon>
         
         @endforeach
         </div>

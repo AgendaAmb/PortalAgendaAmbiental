@@ -1,6 +1,6 @@
-@extends('welcome')
+@extends('Bienvenido')
 
-@section('Corpus')
+@section('ContenidoPrincipal')
 <div class="row justify-content-center my-3">
     <div class="col-md-4">
 

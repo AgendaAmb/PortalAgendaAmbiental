@@ -9,6 +9,12 @@ class Slider extends Component
 {
     public $idSlider;
     public $imagenes;
+
+    function obtenUrlImagen($rutaImagen)
+    {
+        return Storage::url($rutaImagen);
+    }
+
     /**
      * Create a new component instance.
      *
@@ -19,7 +25,7 @@ class Slider extends Component
         $this->idSlider = $idSlider;
         $this->imagenes = array_map
         (
-            fn($imagen) => Storage::url($imagen),
+            array($this, 'obtenUrlImagen'), 
             Storage::disk('public')->allFiles($rutaImagenes)
         );
     }

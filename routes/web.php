@@ -14,10 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Introduccion');
+    return view('Introduccion.vista');
 });
 
-Route::get('/gestion', fn() => view('GestionInstitucional'));
+Route::get('/gestion', function () {
+    return view('Gestion.vista');
+});
+
+Route::get('/educacion', function () {
+    return view('Educacion.vista');
+});
+
+Route::get('/vinculacion', function () {
+    return view('Vinculacion.vista');
+});
+
+Route::get('/comunicacion', function () {
+    return view('Comunicacion.vista');
+});
+
 
 
 Auth::routes();
