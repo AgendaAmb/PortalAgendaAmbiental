@@ -24,15 +24,22 @@
           </li>
           <div>
             <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Buscar</button>
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+              <!--
+                <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Buscar</button>
+              -->
+              <input class="form-control mt-1 mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             </form>
           </div>
           <div>
-            <span>ESPAÑOL/INGLES</span>
+            <button type="button" class="btn btn-light">ESPAÑOL/INGLES</button>
+            
           </div>
-          <div>
+          <button type ="button" class=" btn btn-primary btn-sm">
+             <img src="storage/imagenes/Logos/UBICACION-1.png" alt="" srcset="">
             <span>MI PORTAL</span>
+          </button>
+          <div>
+           
           </div>
       </ul>
     </div>

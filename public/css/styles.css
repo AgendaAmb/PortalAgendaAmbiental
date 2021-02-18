@@ -55,6 +55,34 @@ background-color: #96A834;
     background-color: #96A834;
     color: white;
 }
+.con-btn{
+    margin-right: 20px;
+    font-size: 1.0rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+   
+}
+.navbar .form-inline .form-control{
+border-radius: 20px;
+height: 30px;
+}
+.btn-sm{
+    width: 10%;
+    background-color: transparent;
+    border: transparent;
+}
+.btn-sm:hover{
+   
+    background-color: transparent;
+    border: transparent;
+}
+.btn img{
+    height: auto;
+    width:20%;
+    
+}
 
 /*
  * El menú desplegable está restringido 
