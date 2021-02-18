@@ -17,7 +17,7 @@
             
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href="#">GESTION INSTITUCIONAL</a></li>
-              <li><a class="dropdown-item" href="#">EDUCAIÓN E INVESTIGACIÓN</a></li>
+              <li><a class="dropdown-item" href="#">EDUCAIÓN  E INVESTIGACIÓN</a></li>
               <li><a class="dropdown-item" href="#">VINCULACIÓN</a></li>
               <li><a class="dropdown-item" href="#">COMUNICACIÓN</a></li>
             </ul>

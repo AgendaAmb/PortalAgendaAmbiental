@@ -1,3 +1,4 @@
+
 #header{
     background-color:#115089;
     height: 148px;
@@ -193,7 +194,7 @@ footer
     height: 100%;
 }
 
-@media (min-width: 768px) 
+@media only screen and (min-width: 200px) and (max-width: 767px)
 {
     footer {  grid-template-columns: repeat(2, 1fr); }
     
@@ -208,14 +209,51 @@ footer
     
     ul.dropdown-menu {
         margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
     }
-
+    .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+      
+    }
     ul.dropdown-menu > li {
         display: inline-block;
     }
+    body{
+        background-color: yellow;
+    }
+    
+    .navbar-brand{
+        display: flex;
+    }
 }
-
-@media (min-width: 1200px) 
+@media only screen and (max-width: 991px) and (min-width: 768px){
+    .navbar-brand{
+        display: none;
+    }
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+      
+    }
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    
+}
+@media only screen and (max-width: 2000px) and (min-width: 992px)
 {
     footer { grid-template-columns: repeat(3, 1fr); }
     .mapa
@@ -223,8 +261,24 @@ footer
         grid-column-start: 3;
         grid-column-end: 4;
     }
-    
+  
     .navbar-brand{
         display: none;
+    }
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+      
+    }
+    ul.dropdown-menu > li {
+        display: inline-block;
     }
 }
