@@ -61,30 +61,29 @@ background-color: #96A834;
  */
 ul.dropdown-menu 
 {
-    /*margin-right:-2000px;*/
     margin-right:0px;
 }
 
 ul.dropdown-menu > li 
 {
-    /*display: inline-block;*/
     display: block;
 }
 
 /*
-    Estilos para el corpus de la página.
+    Estilos para el contenido principal de la 
+    página.
  */
 #textoInicio
 {
     font-family: 'Myraid light';
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .botonLeerMas
 {
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 13px;
+    font-family: 'Arial';
+    font-weight: 1000;
+    font-size: 14px;
     background-color: #96A834;
     color: white;
 }
@@ -125,7 +124,7 @@ ul.dropdown-menu > li
 
 @font-face 
 { 
-    font-family:Myraid Pro Bold;
+    font-family:'Myraid Pro Bold';
     src: url(/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
     font-display: auto;
 }	
@@ -164,10 +163,18 @@ footer
 {
     font-family: inherit;
     font-size: 18px;
-    width: 220px;
+    width: 240px;
+    height: 25px;
     display: inline-block;
     text-align: start;
 }
+
+.redSocial svg
+{
+    display: inline;
+    float: right;
+}
+
 
 .detalleUbicacion
 {
@@ -184,17 +191,6 @@ footer
 {
     width: 100%;
     height: 100%;
-}
-
-@media (max-width: 576px)
-{
-    footer {  grid-template-columns: repeat(2, 1fr); }
-    
-    .mapa
-    {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
 }
 
 @media (min-width: 768px) 
@@ -219,17 +215,6 @@ footer
     }
 }
 
-@media (max-width: 992px) 
-{
-    footer {  grid-template-columns: repeat(2, 1fr); }
-    
-    .mapa
-    {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-}
-
 @media (min-width: 1200px) 
 {
     footer { grid-template-columns: repeat(3, 1fr); }
@@ -239,7 +224,7 @@ footer
         grid-column-end: 4;
     }
     
-.navbar-brand{
-    display: none;
-}
+    .navbar-brand{
+        display: none;
+    }
 }

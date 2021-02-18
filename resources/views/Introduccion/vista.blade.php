@@ -1,8 +1,8 @@
 @extends('Bienvenido')
 
 @section('Introduccion')
-<div class="mt-5 row justify-content-center">
-    <div class="col-md-4">
+<div class="mt-3 row justify-content-center">
+    <div class="my-4 col-md-4">
         <article>
             <p class="text-justify" id="textoInicio">  
                 El primer antecedente de la Agenda Ambiental es la Comisión 
@@ -19,7 +19,7 @@
             </a>
         </article>
     </div>
-    <div class="col-md-7">
+    <div class="my-4 col-md-7">
         <x-slider   :idSlider="'sliderIntroduccion'"
                     :rutaImagenes="'imagenes/introduccion'"></x-slider>
     </div>
