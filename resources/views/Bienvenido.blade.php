@@ -8,14 +8,10 @@
         @include('Parciales.header')
     </header>
     <nav>
-        
+        @include('Parciales.navbar')
     </nav>
 
     <main class="container-fluid">
-        <!--
-            El contenido principal de las páginas se colocará 
-            en esta sección.
-        -->
         @yield('ContenidoPrincipal')
     </main>
 
