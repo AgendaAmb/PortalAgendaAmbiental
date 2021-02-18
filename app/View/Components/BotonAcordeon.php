@@ -29,6 +29,6 @@ class BotonAcordeon extends Component
      */
     public function render()
     {
-        return view('components.item-acordeon');
+        return view('components.boton-acordeon');
     }
 }

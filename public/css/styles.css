@@ -56,6 +56,22 @@ background-color: #96A834;
 }
 
 /*
+ * El menú desplegable está restringido 
+ * por el ancho de su contenedor li.
+ */
+ul.dropdown-menu 
+{
+    /*margin-right:-2000px;*/
+    margin-right:0px;
+}
+
+ul.dropdown-menu > li 
+{
+    /*display: inline-block;*/
+    display: block;
+}
+
+/*
     Estilos para el corpus de la página.
  */
 #textoInicio
@@ -169,6 +185,7 @@ footer
     width: 100%;
     height: 100%;
 }
+
 @media (max-width: 576px)
 {
     footer {  grid-template-columns: repeat(2, 1fr); }
@@ -178,8 +195,8 @@ footer
         grid-column-start: 1;
         grid-column-end: 3;
     }
-    
 }
+
 @media (min-width: 768px) 
 {
     footer {  grid-template-columns: repeat(2, 1fr); }
@@ -193,6 +210,13 @@ footer
         display: none;
     }
     
+    ul.dropdown-menu {
+        margin-right: -2000px;
+    }
+
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
 }
 
 @media (max-width: 992px) 
@@ -204,7 +228,6 @@ footer
         grid-column-start: 1;
         grid-column-end: 3;
     }
-    
 }
 
 @media (min-width: 1200px) 

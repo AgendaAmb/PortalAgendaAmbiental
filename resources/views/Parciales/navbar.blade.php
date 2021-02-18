@@ -14,6 +14,7 @@
             <a class="nav-link dropdown" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
               EJES DE TRABAJO
             </a>
+            
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href="#">GESTION INSTITUCIONAL</a></li>
               <li><a class="dropdown-item" href="#">EDUCAIÓN E INVESTIGACIÓN</a></li>
@@ -34,10 +35,7 @@
             <span>MI PORTAL</span>
           </div>
       </ul>
-      
     </div>
-   
-   
   </nav>
  
   

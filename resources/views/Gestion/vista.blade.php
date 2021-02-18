@@ -1,6 +1,6 @@
 @extends('Bienvenido')
 
-@section('ContenidoPrincipal')
+@section('Descripcion')
 <div class="row justify-content-center my-3">
     <div class="col-md-4">
 
@@ -43,32 +43,4 @@
     </div>
 </div>
 <x-contenedor-botones :idContenedor="'botonesGestionInstitucional'"></x-contenedor-botones>
-<!--
-<div class="row justify-content-start mx-1 my-3">
-    <div class="col-xs-1 my-2"> 
-        <button class="px-1 btn btn-link shadow-none" id="BotonAgua">
-            <img src="../../wp-content/uploads/2020/06/AGUA-VERDE.png" width="204">
-        </button>
-    </div>
-    <div class="col-xs-1 my-2">  
-        <button class="px-1 btn btn-link shadow-none" id="BotonEnergia">
-            <img src="../../wp-content/uploads/2020/06/ENERGIA-VERDE.png" width="204">
-        </button>
-    </div>
-    <div class="col-xs-1 my-2"> 
-        <button class="px-1 btn btn-link shadow-none" id="BotonBiodiversidad">
-            <img src="../../wp-content/uploads/2020/06/BIO-VERDE.png" width="204">
-        </button>
-    </div>
-    <div class="col-xs-1 my-2"> 
-        <button class="px-1 btn btn-link shadow-none" id="BotonResiduos">
-            <img src="../../wp-content/uploads/2020/06/RESIDUOS-GRIS.png" width="204">
-        </button>
-    </div>
-    <div class="col-xs-1 my-2"> 
-        <button class="px-1 btn btn-link shadow-none" id="BotonGestionRiesgos">
-            <img src="../../wp-content/uploads/2020/06/RIESGOS-VERDE.png" width="204">
-        </button>
-    </div>
-</div>-->
 @endsection

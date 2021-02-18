@@ -11,15 +11,15 @@
         },
         "programaUniversitarioBiodiversidad":
         {
-            "FotoBoton" : "imagenes/botones/TodosNosCuidamos.png"
+            "FotoBoton" : "imagenes/botones/ProgramaUniversitarioBiodiversidad.png"
         },
         "programaUniversitarioResiduos":
         {
-            "FotoBoton" : "imagenes/botones/UnidosContraElAcoso.png"
+            "FotoBoton" : "imagenes/botones/ProgramaUniversitarioResiduos.png"
         },
         "programaUniversitarioGestionResiduos":
         {
-            "FotoBoton" : "imagenes/botones/DirectorioInvestigadores.png"
+            "FotoBoton" : "imagenes/botones/ProgramaRiesgos.png"
         }
     }
 }

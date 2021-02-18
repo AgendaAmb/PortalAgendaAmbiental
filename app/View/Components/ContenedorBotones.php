@@ -17,14 +17,19 @@ class ContenedorBotones extends Component
 
     public function __construct($idContenedor)
     {
-        $json = Storage::disk('local')->get('InformacionComponentes/Botones.json');
-
-        $this->idContenedor = $idContenedor;$this->informacionBotones = [];
-        /*$this->informacionBotones = array_map
+        $this->idContenedor = $idContenedor;
+        $this->informacionBotones = json_decode
         (
-            fn($informacionBoton) => Storage::url($informacionBoton[0]),
-            json_decode($json, true)[$idContenedor]
-        );*/
+            Storage::disk('local')->get('InformacionComponentes/Botones.json'),
+            true
+        )[$idContenedor];
+
+        foreach ($this->informacionBotones as $nombreBoton => $contenidos)
+        {
+            $contenidos['FotoBoton'] = Storage::url($contenidos['FotoBoton']);
+            $this->informacionBotones[$nombreBoton] = $contenidos;
+        }
+        
     }
 
     /**
