@@ -32,11 +32,150 @@
                 width="518" 
                 id="circuloODS"
                 usemap="#circuloODS">
+            <a href="#">
+                <img class="img-fluid seccionODS" 
+                    src="storage/imagenes/ods/gestion.png" 
+                    id="gestion"
+                    width="270">
+            </a>
+            <a href="#">
+                <img class="img-fluid seccionODS" 
+                    src="storage/imagenes/ods/educacion.png" 
+                    id="educacion"
+                    width="270">
+            </a>
 
-            <img class="img-fluid" 
-                src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png" 
-                id="circuloUaslp"
-                width="228">
+            <a href="#">
+                <img class="img-fluid seccionODS" 
+                    src="storage/imagenes/ods/vinculacion.png" 
+                    id="vinculacion"
+                    width="270">
+            </a>
+
+            <a href="#">
+                <img class="img-fluid seccionODS" 
+                    src="storage/imagenes/ods/comunicacion.png" 
+                    id="comunicacion"
+                    width="270">
+            </a>
+
+            <a href="http://www.uaslp.mx">
+                <img class="img-fluid" 
+                    src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png" 
+                    id="circuloUaslp"
+                    width="228">
+            </a>
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/1.png"
+                    width="131"
+                    id="ods1">
+            </a>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/2.png"
+                    width="131"
+                    id="ods2">
+            </a>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/3.png"
+                    width="131"
+                    id="ods3">
+            </a> 
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/4.png"
+                    width="131"
+                    id="ods4">
+            </a> 
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/5.png"
+                    width="131"
+                    id="ods5">
+            </a> 
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/6.png"
+                    width="131"
+                    id="ods6">
+            </a> 
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/7.png"
+                    width="131"
+                    id="ods7">
+            </a>  
+                
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/8.png"
+                    width="103"
+                    id="ods8">
+            </a>
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/9.png"
+                    width="103"
+                    id="ods9">
+            </a>
+
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/10.png"
+                    width="131"
+                    id="ods10">
+            </a> 
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/11.png"
+                    width="131"
+                    id="ods11">
+            </a> 
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/12.png"
+                    width="131"
+                    id="ods12">
+
+            </a>   
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/13.png"
+                    width="131"
+                    id="ods13">
+            </a>   
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/14.png"
+                    width="131"
+                    id="ods14">
+            </a>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/15.png"
+                    width="131"
+                    id="ods15">
+            </a>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/16.png"
+                    width="131"
+                    id="ods16">
+            </a>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">
+                <img class="img-fluid seccionODS"
+                    src="storage/imagenes/ods/17.png"
+                    width="131"
+                    id="ods17">
+            </a>
         </div>
     </div>
     <div class="col-md-4">
