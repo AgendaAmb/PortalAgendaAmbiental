@@ -143,18 +143,8 @@ ul.dropdown-menu > li
  */
 .envoltorioCirculoODS
 {
-    display: flex;
     position: relative;
-    top: 0;
-    left: 0;
     max-width: 518px;
-}
-
-#circuloODS
-{
-    position: relative;
-    top: 0;
-    left: 0;
 }
 
 #circuloUaslp

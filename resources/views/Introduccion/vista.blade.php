@@ -24,8 +24,8 @@
                     :rutaImagenes="'imagenes/introduccion'"></x-slider>
     </div>
 </div>
-<div class="mt-3 row justify-content-between">
-    <div class="col-md-6">
+<div class="mt-3 row justify-content-end">
+    <div class="col-md-5">
         <div class="envoltorioCirculoODS">
             <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.jpg"
                 class="img-fluid"
