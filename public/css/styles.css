@@ -143,10 +143,11 @@ ul.dropdown-menu > li
  */
 .envoltorioCirculoODS
 {
+    display: flex;
     position: relative;
     top: 0;
     left: 0;
-    width: 518px;
+    max-width: 518px;
 }
 
 #circuloODS
@@ -159,9 +160,14 @@ ul.dropdown-menu > li
 #circuloUaslp
 {
     position: absolute;
-    text-align: center;
-    top: 28%;
-    left: 28.3%;
+    left: 5px;
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+    width: 43%;
+    height: 44%;
 }
 
 /*
