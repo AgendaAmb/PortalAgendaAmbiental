@@ -42,16 +42,31 @@
                                 data-id="10878d5" data-element_type="widget"
                                 id="rangoODS" data-widget_type="html.default">
                                 <div class="elementor-widget-container">
+                                    <div class="envoltorioCirculoODS">
+                                        <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.jpg"
+                                        width="518px" id="circuloODS"
+                                        usemap="#circuloODS">
+
+                                        <img class="img-fluid"
+                                            src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png"
+                                            id="circuloUaslp">
+                                    </div>
+
+
+                                    <!--
+
                                     <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.jpg"
                                         width="518px" id="circuloODS"
                                         usemap="#circuloODS">
+
                                     <a href="http://www.uaslp.mx"
-                                        target="_blank"><img class="img-fluid"
+                                        target="_blank">
+                                        <img class="img-fluid"
                                             src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png"
                                             id="circuloUaslp"></a>
 
 
-
+                                    -->
                                     <a
                                         href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/"><img
                                             src="storage/imagenes/ods/4.png"

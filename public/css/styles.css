@@ -139,6 +139,32 @@ ul.dropdown-menu > li
 }
 
 /*
+    Estilos del círculo de la ODS.
+ */
+.envoltorioCirculoODS
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 518px;
+}
+
+#circuloODS
+{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#circuloUaslp
+{
+    position: absolute;
+    text-align: center;
+    top: 28%;
+    left: 28.3%;
+}
+
+/*
     Estilos para los diferentes tipos
     de letra.
  */
