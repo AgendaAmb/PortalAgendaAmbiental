@@ -7,11 +7,11 @@
     <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
       <ul class="navbar-nav w-100 justify-content-md-around">
         <li class="nav-item active">
-          <a class="nav-link" href="#">NOSOTROS <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href={{route('Nosotros')}}>NOSOTROS <span class="sr-only">(current)</span></a>
         </li>
        
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
+            <a class="nav-link dropdown Ejes"  href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
               EJES DE TRABAJO
             </a>
             
@@ -23,18 +23,18 @@
             </ul>
           </li>
           <div>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0 ESINbnt">
               <!--
                 <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Buscar</button>
               -->
               <input class="form-control mt-1 mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             </form>
           </div>
-          <div>
-            <button type="button" class="btn btn-light">ESPAÑOL/INGLES</button>
+          <div class="ESINbnt">
+            <button type="button" class="btn">ESPAÑOL/INGLES</button>
             
           </div>
-          <button type ="button" class=" btn btn-primary btn-sm">
+          <button type ="button" class=" btn btn-primary btn-sm MiPortal">
              <img src="storage/imagenes/Logos/UBICACION-1.png" alt="" srcset="">
             <span>MI PORTAL</span>
           </button>

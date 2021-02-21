@@ -19,19 +19,22 @@ Route::get('/', function () {
 
 Route::get('/gestion', function () {
     return view('Gestion.vista');
-});
+})->name('Gestion');
 
 Route::get('/educacion', function () {
     return view('Educacion.vista');
-});
+})->name('Educacion');
 
 Route::get('/vinculacion', function () {
     return view('Vinculacion.vista');
-});
+})->name('Vinculacion');
 
 Route::get('/comunicacion', function () {
     return view('Comunicacion.vista');
-});
+})->name('Comunicacion');
+Route::get('/Nosotros', function () {
+    return view('Nosotros.Nosotros');
+})->name('Nosotros');
 
 
 

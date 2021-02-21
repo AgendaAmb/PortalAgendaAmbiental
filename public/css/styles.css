@@ -1,4 +1,7 @@
 
+body{
+    max-width: 1250px;
+}
 #header{
     background-color:#115089;
     height: 148px;
@@ -16,12 +19,12 @@
     width: auto;
 }
 .navbar{
-    
     background-color: gray;
-    padding: 0%;
+    padding: 0%; 
 }
 .navbar .nav-item:hover{
 background-color: #96A834;
+
 }
 
 .navbar .nav-item .dropdown-menu{ 
@@ -30,9 +33,12 @@ background-color: #96A834;
 }
 .navbar .nav-item:hover .nav-link{ 
     color: white;  
+    font-weight: bolder;
+    
  }
  .navbar .nav-item .nav-link{ 
     color: white;  
+    font-weight: bolder;
  }
 .navbar .nav-item:hover .dropdown-menu{ 
     display: block; 
@@ -41,6 +47,7 @@ background-color: #96A834;
 .dropdown-item:hover, .dropdown-item:focus{
     color: white;
     background-color: #97a83480;
+    font-weight: bold;
 }
 .dropdown-item, .dropdown-item{
     color: gray;
@@ -235,7 +242,9 @@ footer
     text-align: start;
     color: white;
 }
-
+.MiPortal{
+    width: 150px;
+}
 .mapa { display: inline-grid; }
 
 .mapa iframe
@@ -243,7 +252,35 @@ footer
     width: 100%;
     height: 100%;
 }
-
+.Ejes{
+    display: none;
+}
+.ESINbnt .btn{
+    color: white;
+    background-color: transparent;
+    border:transparent;
+    border: 0px solid transparent;
+}
+/*
+    Estilos de la página Nosotros
+*/
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: gray;
+}
+.nav-pills .nav-link{
+    background-color: #8a9b37;
+    color: white;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-weight:bold;
+    font-size: 18px;
+    border-radius: 20px 0px 0px 20px;
+   
+}
+.tab-content > .active{
+    text-align: justify;
+}
+/*Termina estilos de la página Nosotros*/
 @media only screen and (min-width: 200px) and (max-width: 767px)
 {
     footer {  grid-template-columns: repeat(2, 1fr); }
@@ -252,6 +289,7 @@ footer
     {
         grid-column-start: 1;
         grid-column-end: 3;
+        
     }
     .navbar-brand{
         display: none;
@@ -273,15 +311,29 @@ footer
     ul.dropdown-menu > li {
         display: inline-block;
     }
-    body{
-        background-color: yellow;
-    }
-    
     .navbar-brand{
         display: flex;
     }
+    .EjesTrabajo{
+        display: flex;
+    }
+    .Ejes{
+        display: none;
+    }
+    .MiPortal{
+        margin-left: 2%;
+        width: 140px;
+        height: 50px;
+    }
+    .navbar .nav-item .nav-link{
+        margin-left: 5%;
+    }
+    .ESINbnt{
+        margin-left: 5%;
+    }
+    
 }
-@media only screen and (max-width: 991px) and (min-width: 768px){
+@media only screen and (max-width: 991px) and (min-width: 766px){
     .navbar-brand{
         display: none;
     }
@@ -300,6 +352,15 @@ footer
     }
     ul.dropdown-menu > li {
         display: inline-block;
+    }
+    .Ejes{
+        display: none;
+    }
+    .EjesTrabajo{
+        display: flex;
+    }
+    .ESINbnt{
+        margin-top: 6px;
     }
     
 }
@@ -330,5 +391,15 @@ footer
     }
     ul.dropdown-menu > li {
         display: inline-block;
+    }
+    .EjesTrabajo{
+        display: none;
+    }
+    .Ejes{
+        display: flex;
+    }
+    
+    .navbar{
+       height: 60px;
     }
 }

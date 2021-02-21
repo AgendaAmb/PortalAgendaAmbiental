@@ -5,8 +5,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{config('app.name', 'Portal Agenda Ambiental') }}</title>
+    <!--Icono de la aplicación-->
+    <link rel="shortcut icon" href="{{ asset('img/cropped-UASLPAgendaAmbiental-32x32.png') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
  

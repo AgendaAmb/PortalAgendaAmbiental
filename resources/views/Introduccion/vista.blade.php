@@ -2,6 +2,7 @@
 
 @section('Introduccion')
 <div class="mt-3 row justify-content-center">
+  
     <div class="my-4 col-md-4">
         <article>
             <p class="text-justify" id="textoInicio">  
@@ -24,7 +25,14 @@
                     :rutaImagenes="'imagenes/introduccion'"></x-slider>
     </div>
 </div>
-<div class="mt-3 row justify-content-end">
+<div class="justify-content-around EjesTrabajo">
+    <button type="button" class="btn btn-success m-2">GESTION INSTITUCIONAL</button>
+    <button type="button" class="btn btn-warning   m-2">VINCULACIÓN</button>
+    <button type="button" class="btn btn-danger  m-2">COMUNICACIÓN</button>
+    <button type="button" class="btn btn-info m-2">EDUCACIÓN E INVESTIGACIÓN</button>
+   
+</div>
+<div class="mt-3 row justify-content-end Ejes">
     <div class="col-md-5">
         <div class="envoltorioCirculoODS">
             <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.jpg"
