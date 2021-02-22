@@ -15,9 +15,9 @@
             <div class="col-xl-12 ">
                 <img src="storage/imagenes/Nosotros/portada.jpg" class="img-fluid" alt="" srcset="">
             </div>
-            <div class="container-fluid mt-4">
+            <div class="container-fluid mt-4 ">
                 <div class="row">
-                    <div class="col-8 ml-5">
+                    <div class="col-xl-8 ml-5 col-lg-7 col-md-7 col-sm-12">
                       <div class="tab-content" id="tab-content-nosotros">
                         <div class="tab-pane fade show active" id="Historia" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <h2 class="font-weight-bold" style="color:#616a7ad5;">HISTORIA</h2>
