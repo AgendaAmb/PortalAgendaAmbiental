@@ -37,8 +37,6 @@ Route::get('/Nosotros', function () {
     return view('Nosotros.Contenido');
 })->name('Nosotros');
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

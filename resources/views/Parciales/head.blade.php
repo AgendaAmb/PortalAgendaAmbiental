@@ -25,4 +25,3 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-   

@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('head')
+@include('Parciales.head')
 <body>
-  @include('header')
+  @include('Parciales.header')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -60,7 +60,7 @@
         </main>
     </div>
         <footer>
-        @include('footer')
+        @include('Parciales.footer')
         </footer>
 </body>
 </html>
