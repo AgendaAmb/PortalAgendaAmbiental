@@ -347,9 +347,7 @@
                                             </tr>
                                           </tbody>
                                         </table>
-                                      </div>
-
-                        
+                                      </div>               
                         </div>
                         
                         <div class="tab-pane fade" id="CONTACTO" role="tabpanel" aria-labelledby="v-pills-settings-tab">
