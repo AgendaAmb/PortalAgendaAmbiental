@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('Introduccion.vista');
-});
+})->name('Index');
 
 Route::get('/gestion', function () {
     return view('Gestion.vista');

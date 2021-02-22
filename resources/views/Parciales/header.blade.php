@@ -1,7 +1,7 @@
 <nav id="header">
     <div>
 
-        <a href="http://ambiental.uaslp.mx"><img src={{ asset('storage/imagenes/Logos/INICIO-AGENDA-300x127.png')}} class="imagenAgenda"></a>
+        <a href={{route('Index')}}><img src={{ asset('storage/imagenes/Logos/INICIO-AGENDA-300x127.png')}} class="imagenAgenda"></a>
                 
     </div>
     <div>

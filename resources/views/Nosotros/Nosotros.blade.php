@@ -11,13 +11,13 @@
         @include('Parciales.navbar')
     </nav>
 
-    <main class="container-fluid">
+    <main class="container-fluid justify-content-between">
             <div class="col-xl-12 ">
                 <img src="storage/imagenes/Nosotros/portada.jpg" class="img-fluid" alt="" srcset="">
             </div>
-            <div class="container-fluid mt-4 ">
-                <div class="row">
-                    <div class="col-xl-8 ml-5 col-lg-7 col-md-7 col-sm-12">
+            <div class="container-fluid mt-4">
+                <div class="row justify-content-between">
+                    <div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 ml-4 contenidoNosotros order-2 order-sm-2 order-md-1">
                       <div class="tab-content" id="tab-content-nosotros">
                         <div class="tab-pane fade show active" id="Historia" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <h2 class="font-weight-bold" style="color:#616a7ad5;">HISTORIA</h2>
@@ -100,8 +100,7 @@
                                <br>
                                
                                 www.uaslp.mx</div>
-                        </div>
-                        
+                        </div>               
                         <div class="tab-pane fade " id="QUIENESSOMOS" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                             <h2 style="color:#616A7A;">¿QUIÉNES SOMOS?
                             </h2>
@@ -349,7 +348,6 @@
                                         </table>
                                       </div>               
                         </div>
-                        
                         <div class="tab-pane fade" id="CONTACTO" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                             <h2 style="color:#616A7A;">¿Qué podemos hacer por ti?</h2>
                             <br>
@@ -362,7 +360,7 @@
                             </center></div>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-4 ml-5">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 botonesNosotros order-1  order-sm-1 order-md-2">
                         <div class="nav flex-column nav-pills" id="tab-nosotros" role="tablist" aria-orientation="vertical">
                           <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#Historia" role="tab" aria-controls="v-pills-home" aria-selected="true">HISTORIA</a>
                           <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#QUIENESSOMOS" role="tab" aria-controls="v-pills-profile" aria-selected="false">¿QUIENES SOMOS?</a>
