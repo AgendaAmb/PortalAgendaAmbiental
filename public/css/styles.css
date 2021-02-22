@@ -463,18 +463,24 @@ footer
 .tab-content > .active{
     text-align: justify;
 }
+
+
+
 /*Termina estilos de la página Nosotros*/
-@media only screen and (min-width: 200px) and (max-width: 767px)
+@media only screen and (min-width: 638px) and (max-width: 765px)
 {
     
     footer {  grid-template-columns: repeat(2, 1fr); }
-    
+
     .mapa
     {
         grid-column-start: 1;
-        grid-column-end: 3;
-        
+        grid-column-end: 3;       
     }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px)
+{   
     .navbar-brand{
         display: none;
     }
@@ -547,6 +553,11 @@ footer
         margin-top: 6px;
     }
     
+    .mapa
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;       
+    }
 }
 @media only screen and (max-width: 2000px) and (min-width: 992px)
 {
