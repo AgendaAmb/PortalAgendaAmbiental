@@ -388,6 +388,7 @@ footer
     text-align: center;
     display: inline-grid;
     list-style: none;
+    margin: 25px auto;
     width: 300px;
     height: 120px;
     font-family:Myraid light;
@@ -427,7 +428,10 @@ footer
 .MiPortal{
     width: 150px;
 }
-.mapa { display: inline-grid; }
+.mapa
+{ 
+    display: inline-grid; 
+}
 
 .mapa iframe
 {
@@ -473,7 +477,13 @@ footer
     .mapa
     {
         grid-column-start: 1;
-        grid-column-end: 3;       
+        grid-column-end: 3;   
+    }
+
+    .seccionFooter 
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;
     }
 }
 
@@ -519,8 +529,8 @@ footer
     .ESINbnt{
         margin-left: 5%;
     }
-    
 }
+
 @media only screen and (max-width: 991px) and (min-width: 766px){
     .navbar-brand{
         display: none;
@@ -556,6 +566,8 @@ footer
         grid-column-start: 1;
         grid-column-end: 3;       
     }
+
+    .seccionFooter { margin: none; }
 }
 @media only screen and (max-width: 2000px) and (min-width: 992px)
 {
