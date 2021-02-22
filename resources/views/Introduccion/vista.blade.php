@@ -35,7 +35,7 @@
 <div class="mt-3 row justify-content-end Ejes">
     <div class="col-md-5">
         <div class="envoltorioCirculoODS">
-            <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.jpg"
+            <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.png"
                 class="img-fluid"
                 width="518" 
                 id="circuloODS"

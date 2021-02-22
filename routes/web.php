@@ -32,8 +32,9 @@ Route::get('/vinculacion', function () {
 Route::get('/comunicacion', function () {
     return view('Comunicacion.vista');
 })->name('Comunicacion');
+
 Route::get('/Nosotros', function () {
-    return view('Nosotros.Nosotros');
+    return view('Nosotros.Contenido');
 })->name('Nosotros');
 
 

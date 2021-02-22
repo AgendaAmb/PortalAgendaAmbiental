@@ -16,10 +16,10 @@
             </a>
             
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">GESTION INSTITUCIONAL</a></li>
-              <li><a class="dropdown-item" href="#">EDUCAIÓN  E INVESTIGACIÓN</a></li>
-              <li><a class="dropdown-item" href="#">VINCULACIÓN</a></li>
-              <li><a class="dropdown-item" href="#">COMUNICACIÓN</a></li>
+              <li><a class="dropdown-item" href={{route('Gestion')}}>GESTION INSTITUCIONAL</a></li>
+              <li><a class="dropdown-item" href={{route('Educacion')}}>EDUCAIÓN  E INVESTIGACIÓN</a></li>
+              <li><a class="dropdown-item" href={{route('Vinculacion')}}>VINCULACIÓN</a></li>
+              <li><a class="dropdown-item" href={{route('Comunicacion')}}>COMUNICACIÓN</a></li>
             </ul>
           </li>
           <div>
@@ -34,10 +34,11 @@
             <button type="button" class="btn">ESPAÑOL/INGLES</button>
             
           </div>
-          <button type ="button" class=" btn btn-primary btn-sm MiPortal">
-             <img src="storage/imagenes/Logos/UBICACION-1.png" alt="" srcset="">
-            <span>MI PORTAL</span>
-          </button>
+          <a class="btn btn-primary btn-sm MiPortal" href={{route('login')}} role="button">
+            <img src="storage/imagenes/Logos/UBICACION-1.png" alt="" srcset="">
+            MI PORTAL
+          </a>
+         
           <div>
            
           </div>

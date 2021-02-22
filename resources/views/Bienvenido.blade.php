@@ -12,6 +12,7 @@
     </nav>
 
     <main class="container-fluid">
+        
         @yield('Introduccion')
         @yield('ContenidoPrincipal')
     </main>
