@@ -1,6 +1,7 @@
 @extends('Bienvenido')
 
 @php 
+    $titulo = '<strong> ¿Qué hacemos? </strong>';
     $texto = 'El Sistema de Gestión Ambiental (SGA) busca mejorar
         el desempeño ambiental de la UASLP como organización
         en todas sus funciones sustantivas para transformarla
@@ -38,7 +39,7 @@
 
     </div>
     <div class="col-md-7">
-        <x-ejeTrabajo :titulo="'¿Qué hacemos?'"
+        <x-ejeTrabajo :titulo="$titulo"
                       :descripcion="$texto"
                       :imagen="'noHayxd.png'">
         
