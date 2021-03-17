@@ -1,7 +1,7 @@
-@extends('Bienvenido')
-
-@php 
-    $texto = 'El Sistema de Gestión Ambiental (SGA) busca mejorar
+<div class="descripcion">
+    <h2 style="color: #115080;"><strong> ¿Qué hacemos? </strong></h2>
+    <p class="text-justify">
+        El Sistema de Gestión Ambiental (SGA) busca mejorar
         el desempeño ambiental de la UASLP como organización
         en todas sus funciones sustantivas para transformarla
         en una institución ambiental y socialmente sostenible
@@ -29,20 +29,6 @@
         medibles y valorables de los módulos del SGA. Éstos pueden
         contener a su vez comisiones interdisciplinarias, lineamientos,
         procedimientos, formatos, actividades programadas e indicadores
-        propios.';
-@endphp
-
-@section('ContenidoPrincipal')
-<div class="row justify-content-center my-3">
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-7">
-        <x-ejeTrabajo :titulo="'¿Qué hacemos?'"
-                      :descripcion="$texto"
-                      :imagen="'noHayxd.png'">
-        
-        </x-ejeTrabajo>
-    </div>
+        propios.
+    </p>
 </div>
-@endsection

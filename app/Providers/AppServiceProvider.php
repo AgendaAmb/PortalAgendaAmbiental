@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('acordeon', \App\View\Components\Acordeon::class);
         Blade::component('botonAcordeon', \App\View\Components\BotonAcordeon::class);
         Blade::component('contenedor-botones', \App\View\Components\ContenedorBotones::class);
+        Blade::component('ejeTrabajo', \App\View\Components\EjeDeTrabajo::class);
     }
 }
