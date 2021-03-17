@@ -17,7 +17,7 @@
             
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href={{route('Gestion')}}>GESTION INSTITUCIONAL</a></li>
-              <li><a class="dropdown-item" href={{route('Educacion')}}>EDUCAIÓN  E INVESTIGACIÓN</a></li>
+              <li><a class="dropdown-item" href={{route('Educacion')}}>EDUCACIÓN  E INVESTIGACIÓN</a></li>
               <li><a class="dropdown-item" href={{route('Vinculacion')}}>VINCULACIÓN</a></li>
               <li><a class="dropdown-item" href={{route('Comunicacion')}}>COMUNICACIÓN</a></li>
             </ul>
@@ -29,7 +29,6 @@
           </div>
           <div class="ESINbnt">
             <button type="button" class="btn">ESPAÑOL/INGLES</button>
-            
           </div>
           <a class="btn btn-primary btn-sm MiPortal" href={{route('login')}} role="button">
             <img src="storage/imagenes/Logos/UBICACION-1.png" alt="" srcset="">
