@@ -24,9 +24,6 @@
           </li>
           <div>
             <form class="form-inline my-2 my-lg-0 ESINbnt">
-              <!--
-                <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Buscar</button>
-              -->
               <input class="form-control mt-1 mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             </form>
           </div>
