@@ -16,13 +16,8 @@ universitarias.';
 
 @section('ContenidoPrincipal')
 <div class="row justify-content-center my-3">
-    <div class="col-md-4">
+    <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'">
 
-    </div>
-    <div class="col-md-7">
-        <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'">
-
-        </x-ejeTrabajo>
-    </div>
+    </x-ejeTrabajo>
 </div>
 @endsection
