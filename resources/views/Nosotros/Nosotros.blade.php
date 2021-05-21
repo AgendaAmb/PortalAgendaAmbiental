@@ -11,7 +11,7 @@
         @include('Parciales.navbar')
     </nav>
 
-    <main class="container-fluid justify-content-between">
+    <main class="container-fluid p-0">
       @yield('Contenido-Nosotros')
     </main>
 

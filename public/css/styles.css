@@ -1,6 +1,7 @@
 
 body{
-    max-width: 1250px;
+    max-width: 2050px;
+   
 }
 #header{
     background-color:#115089;
@@ -18,6 +19,11 @@ body{
     margin-left: 3vw;
     width: auto;
 }
+.imagenAgenda_uaslp{
+    height: auto;
+    width: auto;
+    display: none;
+  }
 .navbar{
     background-color: gray;
     padding: 0%; 
@@ -115,6 +121,19 @@ ul.dropdown-menu > li
     Estilos para el contenido principal de la 
     página.
  */
+ #odsHeader{
+    background-color: #115089;
+    height: 15%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+ }
+ .imgODS{
+     width: 90%;
+     height: auto;
+ }
+ 
 #textoInicio
 {
     font-family: 'Myraid light';
@@ -479,7 +498,22 @@ footer
 .tab-content > .active{
     text-align: justify;
 }
-
+#btnGestion{
+background-color: #68a945;
+border-color: #68a945;
+}
+#btnVinculacion{
+    background-color: #f4bd43;
+    border-color: #f4bd43;
+}
+#btnComunicacion{
+    background-color: #e0553b;
+    border-color:#e0553b ;
+}
+#btnEduInv{
+    background-color:#3c91c3 ;
+    border-color: #3c91c3;
+}
 
 /*Termina estilos de la página Nosotros*/
 @media only screen and (min-width: 638px) and (max-width: 765px)
@@ -498,12 +532,26 @@ footer
         grid-column-start: 1;
         grid-column-end: 3;
     }
+    
 }
-
-@media only screen and (min-width: 200px) and (max-width: 767px)
+@media only screen and (min-width: 200px) and (max-width: 575px){
+    .imagenAgenda_uaslp{
+        display: flex;
+      }
+      .imagenUASLP{
+    display: none;
+      }
+      .imagenAgenda{
+    display: none;
+      }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px)
 {   
     .navbar-brand{
         display: none;
+    }
+    #odsHeader{
+display: flow-root;
     }
     
     ul.dropdown-menu {
@@ -542,11 +590,23 @@ footer
     .ESINbnt{
         margin-left: 5%;
     }
+    .imagenAgenda_uaslp{
+        display: flex;
+      }
+      .imagenUASLP{
+    display: none;
+      }
+      .imagenAgenda{
+    display: none;
+      }
 }
 
 @media only screen and (max-width: 991px) and (min-width: 766px){
     .navbar-brand{
         display: none;
+    }
+    #col-18{
+        max-width: 8.8%;
     }
     ul.dropdown-menu {
         margin-right: -2000px;
@@ -570,6 +630,7 @@ footer
     .EjesTrabajo{
         display: flex;
     }
+   
     .ESINbnt{
         margin-top: 6px;
     }

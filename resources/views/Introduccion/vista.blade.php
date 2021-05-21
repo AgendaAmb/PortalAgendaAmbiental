@@ -1,13 +1,15 @@
 @extends('Bienvenido')
 
 @section('Introduccion')
-<div class="justify-content-around EjesTrabajo col-md-12 col-sm-">
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-success m-2">GESTION INSTITUCIONAL</button>
-        <button type="button" class="btn btn-warning   m-2">VINCULACIÓN</button>
-        <button type="button" class="btn btn-danger  m-2">COMUNICACIÓN</button>
-        <button type="button" class="btn btn-info m-2">EDUCACIÓN E INVESTIGACIÓN</button>
+<div class="container EjesTrabajo col-md-12 col-sm-12">
+    <div class="btn-group flex-wrap" role="group" aria-label="Basic example">
+        <a class="btn btn-primary m-1" href="#" role="button" id="btnGestion">GESTION INSTITUCIONAL</a>
+        <a class="btn btn-primary m-1" href="#" role="button" id="btnVinculacion">VINCULACIÓN</a>
+        <a class="btn btn-primary  m-1" href="#" role="button" id="btnComunicacion">COMUNICACIÓN</a>
+        <a class="btn btn-primary m-1" href="#" role="button" id="btnEduInv">EDUCACIÓN E INVESTIGACIÓN</a>
     </div>
+
+
 </div>
 <div class="mt-3 row justify-content-center">
 
