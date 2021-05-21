@@ -126,14 +126,23 @@ ul.dropdown-menu > li
     height: 15%;
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
  }
  .imgODS{
-     width: 90%;
+     width: 80%;
      height: auto;
  }
- 
+ #od3{
+    width: 95%;
+    height: auto;
+  
+ }
+ #odespe{
+    width: 95%;
+    height: auto;
+  
+ }
 #textoInicio
 {
     font-family: 'Myraid light';
@@ -544,6 +553,26 @@ border-color: #68a945;
       .imagenAgenda{
     display: none;
       }
+      .odsDNone{
+       display: none;
+    }
+    #od3{
+        width: 80%;
+        height: auto;
+       
+     }
+     #odespe{
+        width: 30%;
+        height: auto;
+        margin-left: 35%;
+        margin-right:35%;
+       
+     }
+    
+     #odsHeader{
+         display: flex;
+         justify-content: space-between;
+     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
 {   
