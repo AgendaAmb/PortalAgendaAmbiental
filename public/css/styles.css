@@ -143,6 +143,11 @@ ul.dropdown-menu > li
     height: auto;
 
  }
+ 
+ .img-slider{
+     height: auto;
+     width: 100%;
+ }
 #textoInicio
 {
     font-family: 'Myraid light';
@@ -546,7 +551,9 @@ border-color: #68a945;
     background-color:#3c91c3 ;
     border-color: #3c91c3;
 }
-
+#imgODSLogo{
+    display: none;
+}
 /*Termina estilos de la página Nosotros*/
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
@@ -567,6 +574,11 @@ border-color: #68a945;
 
 }
 @media only screen and (min-width: 200px) and (max-width: 575px){
+    .img-slider{
+        height: 350px;
+        width: inherit;
+
+    }
     .imagenAgenda_uaslp{
         display: flex;
       }
@@ -596,9 +608,24 @@ border-color: #68a945;
          display: flex;
          justify-content: space-between;
      }
+     #imgODSLogo{
+        display: block;
+    }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
+<<<<<<< HEAD
 {
+=======
+{   
+    .img-slider{
+        height: auto;
+        width: inherit;
+
+    }
+    #imgODSLogo{
+        display: block;
+    }
+>>>>>>> b2202dd9351b364e3b4f6cf628604fd2d4cfa6c9
     .navbar-brand{
         display: none;
     }

@@ -7,7 +7,7 @@
         @foreach ($imagenes as $imagen)
 
         <div class="carousel-item @if ($loop->first) active @endif">
-            <img class="img-fluid w-100 " src="{{ $imagen }}" alt="">
+            <img class="img-slider " src="{{ $imagen }}" alt="">
         </div>
 
         @endforeach
