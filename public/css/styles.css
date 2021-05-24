@@ -1,7 +1,7 @@
 
 body{
     max-width: 2050px;
-   
+
 }
 #header{
     background-color:#115089;
@@ -26,7 +26,7 @@ body{
   }
 .navbar{
     background-color: gray;
-    padding: 0%; 
+    padding: 0%;
 }
 .navbar .nav-item:hover{
 background-color: #96A834;
@@ -34,25 +34,25 @@ height: 34px;
 
 }
 
-.navbar .nav-item .dropdown-menu{ 
-    display: none; 
+.navbar .nav-item .dropdown-menu{
+    display: none;
     flex-direction: column;
 }
-.navbar .nav-item:hover .nav-link{ 
-    color: white;  
+.navbar .nav-item:hover .nav-link{
+    color: white;
     font-weight: bolder;
-    
+
  }
- .navbar .nav-item .nav-link{ 
-    color: white;  
+ .navbar .nav-item .nav-link{
+    color: white;
     font-weight: bolder;
     padding-left: 0.2rem;
     padding-bottom: 0%;
     padding-right: 0.2rem;
     padding-top: 0.5rem;
  }
-.navbar .nav-item:hover .dropdown-menu{ 
-    display: block; 
+.navbar .nav-item:hover .dropdown-menu{
+    display: block;
     background-color: white;
 }
 .dropdown-item:hover, .dropdown-item:focus{
@@ -64,7 +64,7 @@ height: 34px;
     color: gray;
 }
 .navbar .nav-item .dropdown-menu{
-    margin-top:0; 
+    margin-top:0;
  }
  .navbar-brand{
     color: white;
@@ -80,7 +80,7 @@ height: 34px;
     align-items: center;
     justify-content: flex-start;
     background-color: transparent;
-   
+
 }
 .navbar .form-inline .form-control{
 border-radius: 20px;
@@ -93,32 +93,32 @@ margin-bottom: 0.1rem;
     border: transparent;
 }
 .btn-sm:hover{
-   
+
     background-color: transparent;
     border: transparent;
 }
 .btn img{
     height: auto;
     width:20%;
-    
+
 }
 
 /*
- * El menú desplegable está restringido 
+ * El menú desplegable está restringido
  * por el ancho de su contenedor li.
  */
-ul.dropdown-menu 
+ul.dropdown-menu
 {
     margin-right:0px;
 }
 
-ul.dropdown-menu > li 
+ul.dropdown-menu > li
 {
     display: block;
 }
 
 /*
-    Estilos para el contenido principal de la 
+    Estilos para el contenido principal de la
     página.
  */
  #odsHeader{
@@ -136,12 +136,12 @@ ul.dropdown-menu > li
  #od3{
     width: 95%;
     height: auto;
-  
+
  }
  #odespe{
     width: 95%;
     height: auto;
-  
+
  }
 #textoInicio
 {
@@ -384,25 +384,48 @@ img.img-fluid.seccionODS
     left: -22%;
 }
 /*
+    Estilos para la rueda ODS y los ejes institucionales
+    de Agenda ambiental.
+*/
+.ruedaODS
+{
+    position: relative;
+    height: 350px;
+}
+
+.ejeTrabajo
+{
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+/*
     Estilos para los diferentes tipos
     de letra.
  */
 
-@font-face 
-{ 
+@font-face
+{
     font-family:Myraid light;
     src: url(/TiposDeLetra/MyriadPro-Light.otf) format('opentype');
     font-display: auto;
 }
 
 
-@font-face 
-{ 
+@font-face
+{
     font-family:'Myraid Pro Bold';
     src: url(/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
     font-display: auto;
-}	
- 
+}
+
 /*
     Estilos para el pie de página.
  */
@@ -464,8 +487,8 @@ footer
     width: 150px;
 }
 .mapa
-{ 
-    display: inline-grid; 
+{
+    display: inline-grid;
 }
 
 .mapa iframe
@@ -502,7 +525,7 @@ footer
     font-weight:bold;
     font-size: 18px;
     border-radius: 20px 0px 0px 20px;
-   
+
 }
 .tab-content > .active{
     text-align: justify;
@@ -527,21 +550,21 @@ border-color: #68a945;
 /*Termina estilos de la página Nosotros*/
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
-    
+
     footer {  grid-template-columns: repeat(2, 1fr); }
 
     .mapa
     {
         grid-column-start: 1;
-        grid-column-end: 3;   
+        grid-column-end: 3;
     }
 
-    .seccionFooter 
+    .seccionFooter
     {
         grid-column-start: 1;
         grid-column-end: 3;
     }
-    
+
 }
 @media only screen and (min-width: 200px) and (max-width: 575px){
     .imagenAgenda_uaslp{
@@ -559,30 +582,30 @@ border-color: #68a945;
     #od3{
         width: 80%;
         height: auto;
-       
+
      }
      #odespe{
         width: 30%;
         height: auto;
         margin-left: 35%;
         margin-right:35%;
-       
+
      }
-    
+
      #odsHeader{
          display: flex;
          justify-content: space-between;
      }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
-{   
+{
     .navbar-brand{
         display: none;
     }
     #odsHeader{
 display: flow-root;
     }
-    
+
     ul.dropdown-menu {
         margin-right: -2000px;
         padding: 0%;
@@ -594,7 +617,7 @@ display: flow-root;
     }
     .dropdown-menu .dropdown-item{
        padding: 0.1rem 0.5rem;
-      
+
     }
     ul.dropdown-menu > li {
         display: inline-block;
@@ -648,7 +671,7 @@ display: flow-root;
     }
     .dropdown-menu .dropdown-item{
        padding: 0.1rem 0.5rem;
-      
+
     }
     ul.dropdown-menu > li {
         display: inline-block;
@@ -659,15 +682,15 @@ display: flow-root;
     .EjesTrabajo{
         display: flex;
     }
-   
+
     .ESINbnt{
         margin-top: 6px;
     }
-    
+
     .mapa
     {
         grid-column-start: 1;
-        grid-column-end: 3;       
+        grid-column-end: 3;
     }
 
     .seccionFooter { margin: none; }
@@ -680,7 +703,7 @@ display: flow-root;
         grid-column-start: 3;
         grid-column-end: 4;
     }
-  
+
     .navbar-brand{
         display: none;
     }
@@ -695,7 +718,7 @@ display: flow-root;
     }
     .dropdown-menu .dropdown-item{
        padding: 0.1rem 0.5rem;
-      
+
     }
     ul.dropdown-menu > li {
         display: inline-block;
@@ -706,7 +729,7 @@ display: flow-root;
     .Ejes{
         display: flex;
     }
-    
+
     .navbar{
        height: 34px;
     }

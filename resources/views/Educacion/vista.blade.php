@@ -38,6 +38,7 @@ gestión y vinculación con la sociedad.';
 
 @section('ContenidoPrincipal')
 <div class="row justify-content-center my-3">
+    <x-o-d-s-wheel/>
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'">
 
     </x-ejeTrabajo>

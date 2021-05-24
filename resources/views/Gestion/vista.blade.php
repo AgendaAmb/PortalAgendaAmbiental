@@ -1,6 +1,6 @@
 @extends('Bienvenido')
 
-@php 
+@php
     $titulo = '<strong> ¿Qué hacemos? </strong>';
     $texto = 'El Sistema de Gestión Ambiental (SGA) busca mejorar
         el desempeño ambiental de la UASLP como organización
@@ -35,10 +35,11 @@
 
 @section('ContenidoPrincipal')
 <div class="row justify-content-center my-3">
+    <x-o-d-s-wheel/>
     <x-ejeTrabajo :titulo="$titulo"
                     :descripcion="$texto"
                     :imagen="'noHayxd.png'">
-        
+
     </x-ejeTrabajo>
 </div>
 @endsection
