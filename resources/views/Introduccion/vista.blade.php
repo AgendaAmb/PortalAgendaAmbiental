@@ -23,8 +23,9 @@
             </a>
         </article>
     </div>
-    <div class="my-4 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
-        <x-slider :idSlider="'sliderIntroduccion'" :rutaImagenes="'imagenes/introduccion'"></x-slider>
+    <div class="my-lg-4 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
+        <x-slider :idSlider="'sliderIntroduccion'" :rutaImagenes="'imagenes/introduccion'">
+        </x-slider>
     </div>
 </div>
 
