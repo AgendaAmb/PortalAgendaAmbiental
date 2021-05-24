@@ -143,7 +143,7 @@ ul.dropdown-menu > li
     height: auto;
 
  }
- 
+
  .img-slider{
      height: auto;
      width: 100%;
@@ -613,10 +613,7 @@ border-color: #68a945;
     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
-<<<<<<< HEAD
 {
-=======
-{   
     .img-slider{
         height: auto;
         width: inherit;
@@ -625,7 +622,6 @@ border-color: #68a945;
     #imgODSLogo{
         display: block;
     }
->>>>>>> b2202dd9351b364e3b4f6cf628604fd2d4cfa6c9
     .navbar-brand{
         display: none;
     }
