@@ -36,6 +36,9 @@ Route::get('/comunicacion', function () {
 Route::get('/Nosotros', function () {
     return view('Nosotros.Contenido');
 })->name('Nosotros');
+Route::get('/Unibici', function () {
+    return view('Unibici.index');
+})->name('Unibici');
 
 Auth::routes();
 

@@ -16,11 +16,11 @@
             </a>
         </div>
     
-        <div @if (route('Gestion')==url()->full()||route('Educacion')==url()->full())
+        <div @if (route('Gestion')==url()->full()||route('Educacion')==url()->full()||route('Unibici')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/health/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS3_Salud_Bienestar.png')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()?"id=od3":"class=imgODS"}}>
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS3_Salud_Bienestar.png')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()||route('Unibici')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
         
@@ -71,18 +71,18 @@
                 <img src={{ asset('storage/imagenes/ods/Iconos/ODS10_Reduccion_Desigualdades.png')}} class="imgODS">
             </a>
         </div>
-        <div  @if (route('Gestion')==url()->full() ||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full())
+        <div  @if (route('Gestion')==url()->full() ||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/cities/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.png')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()?"id=od3":"class=imgODS"}}>
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.png')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
-        <div  @if (route('Gestion')==url()->full()|| route('Vinculacion')==url()->full())
+        <div  @if (route('Gestion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS12_Produccion.png')}} {{route('Gestion')==url()->full()|| route('Vinculacion')==url()->full()?"id=od3":"class=imgODS"}}>
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS12_Produccion.png')}} {{route('Gestion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
        

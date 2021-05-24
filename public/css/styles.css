@@ -1,6 +1,6 @@
 
 body{
-    max-width: 2050px;
+    max-width: 3050px;
 
 }
 #header{
@@ -718,7 +718,7 @@ display: flow-root;
 
     .seccionFooter { margin: none; }
 }
-@media only screen and (max-width: 2000px) and (min-width: 992px)
+@media only screen and (max-width: 3000px) and (min-width: 992px)
 {
     footer { grid-template-columns: repeat(3, 1fr); }
     .mapa
