@@ -563,6 +563,9 @@ border-color: #68a945;
 .modal-content{
     background-color: gray;
 }
+.imgCaoursel{
+    width: 48%;
+}
 .close{
 background-color: gray;
 }

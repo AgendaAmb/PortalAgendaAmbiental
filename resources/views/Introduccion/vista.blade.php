@@ -23,12 +23,81 @@
             </a>
         </article>
     </div>
-    <div class="my-lg-4 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
-        <x-slider :idSlider="'sliderIntroduccion'" :rutaImagenes="'imagenes/introduccion'">
-        </x-slider>
-    </div>
-</div>
+   
+<div class="my-lg-4 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
+    
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-none d-lg-block">
+              <div class="slide-box">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}" class="imgCaoursel pr-2" alt="First slide">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+               
+              </div>
+            </div>
+            <div class="d-none d-md-block d-lg-none">
+              <div class="slide-box">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}" class="imgCaoursel pr-2" alt="First slide">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+              </div>
+            </div>
+            <div class="d-none d-sm-block d-md-none">
+              <div class="slide-box">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}"  class="imgCaoursel pr-2" alt="First slide">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+              </div>
+            </div>
+            <div class="d-block d-sm-none">
+                    <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"  class="w-100" alt="First slide">
+            </div>
+            
+            
+          </div>
+          <div class="carousel-item">
+            <div class="d-none d-lg-block">
+              <div class="slide-box">
+                <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+               <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+              
+              </div>
+            </div>
+            <div class="d-none d-md-block d-lg-none">
+              <div class="slide-box">
+               
+                <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+              </div>
+            </div>
+            <div class="d-none d-sm-block d-md-none">
+              <div class="slide-box">
+                <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}"  class="imgCaoursel pl-2" alt="First slide">
+              </div>
+            </div>
+            <div class="d-block d-sm-none">
+                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}" class="w-100" alt="First slide">
+            </div>
+          </div>
+        </div>
 
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    
+  </div>
+    </div>
+  
 <div class="mt-3 row justify-content-end Ejes">
     <div class="col-md-5">
         <div class="envoltorioCirculoODS">

@@ -1,4 +1,4 @@
-<div id="{{ $idSlider }}" class="carousel slide" data-ride="carousel">
+<div id="{{ $idSlider }}" class="carousel slide" data-touch="false" data-interval="false">
     
     <!--
         Contenido del slider (imágenes).
@@ -7,7 +7,7 @@
         @foreach ($imagenes as $imagen)
 
         <div class="carousel-item @if ($loop->first) active @endif">
-            <img class="img-slider " src="{{ $imagen }}" alt="">
+            <img class="w-50" src="{{ $imagen }}" alt="">
         </div>
 
         @endforeach
