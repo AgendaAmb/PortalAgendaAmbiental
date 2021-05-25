@@ -554,6 +554,21 @@ border-color: #68a945;
 #imgODSLogo{
     display: none;
 }
+.btnCur{
+    background-color:#01548a ;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border-radius: 1.1rem;
+}
+.modal-content{
+    background-color: gray;
+}
+.close{
+background-color: gray;
+}
+.btnCur:hover{
+    background-color: #01548a;
+}
 /*Termina estilos de la página Nosotros*/
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {

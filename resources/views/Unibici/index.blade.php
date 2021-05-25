@@ -23,5 +23,37 @@
         promueve los derechos del peatón, el derecho a la ciudad y por supuesto la movilidad urbana sostenible.
     </p>
     </div>
+    <div class="col-12 justify-content-between">
+        <img src="{{asset('storage/imagenes/Unibici/BI_Unibici.png')}}" class="img-fluid" alt="" srcset="">
+        <button type="button" class="btn btnCur m-2" data-toggle="modal" data-target="#exampleModalCenter" >
+            <p class="p-2 m-0 text-white">UNIRODADA <br> 30 DE ABRIL</p>
+          </button>
+    </div>
+   
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+              <div class="col-12 mb-4">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseModal">
+                  <span aria-hidden="true">X</span>
+                </button>
+              </div>
+             
+             
+              <div class="row justify-content-center">
+                <div class="col-11">
+                  <img src="{{asset('storage/imagenes/Unibici/Unirodada.png')}}"class="img-fluid" alt="">
+                </div>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
 </div>
 @endsection
