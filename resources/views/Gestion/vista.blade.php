@@ -42,4 +42,12 @@
 
     </x-ejeTrabajo>
 </div>
+
+<x-botones-eje-trabajo :nRenglones="1" :nColumnas="6" :nPaginas="1">
+    <x-slot name="botones">
+        <x-boton-eje-trabajo :idBoton="'boton1'" :nombreBoton="'Botón 1'" :idSlider="'slider1'"/>
+        <x-boton-eje-trabajo :idBoton="'boton2'" :nombreBoton="'Botón 2'" :idSlider="'slider2'"/>
+        <x-boton-eje-trabajo :idBoton="'boton3'" :nombreBoton="'Botón 3'" :idSlider="'slider3'"/>
+    </x-slot>
+</x-botones-eje-trabajo>
 @endsection
