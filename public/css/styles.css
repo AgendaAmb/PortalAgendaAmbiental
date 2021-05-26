@@ -1,7 +1,7 @@
 
 body{
     max-width: 3050px;
-
+    font-family: 'Myraid light';
 }
 #header{
     background-color:#115089;
@@ -150,8 +150,8 @@ ul.dropdown-menu > li
  }
 #textoInicio
 {
-    font-family: 'Myraid light';
-    font-size: 20px;
+    
+    font-size: 18px;
 }
 
 .botonLeerMas
@@ -536,18 +536,24 @@ footer
 #btnGestion{
 background-color: #68a945;
 border-color: #68a945;
+height: auto;
+font-weight: bold;
 }
 #btnVinculacion{
     background-color: #f4bd43;
     border-color: #f4bd43;
+   font-weight: bold;
 }
 #btnComunicacion{
     background-color: #e0553b;
     border-color:#e0553b ;
+    font-weight: bold;
 }
 #btnEduInv{
     background-color:#3c91c3 ;
     border-color: #3c91c3;
+    height: auto;
+    font-weight: bold;
 }
 #imgODSLogo{
     display: none;
@@ -625,7 +631,7 @@ background-color: gray;
          justify-content: space-between;
      }
      #imgODSLogo{
-        display: block;
+        display: flex;
     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
@@ -636,7 +642,7 @@ background-color: gray;
 
     }
     #imgODSLogo{
-        display: block;
+        display: flex;
     }
     .navbar-brand{
         display: none;
@@ -729,8 +735,13 @@ display: flow-root;
     }
 
     .seccionFooter { margin: none; }
+    #textoInicio
+{
+    
+    font-size: 14px;
 }
-@media only screen and (max-width: 3000px) and (min-width: 992px)
+}
+@media only screen and (max-width: 1800px) and (min-width: 992px)
 {
     footer { grid-template-columns: repeat(3, 1fr); }
     .mapa
@@ -742,6 +753,53 @@ display: flow-root;
     .navbar-brand{
         display: none;
     }
+    #textoInicio
+{
+    
+    font-size: 18px;
+}
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+
+    }
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    .EjesTrabajo{
+        display: none;
+    }
+    
+
+    .navbar{
+       height: 34px;
+    }
+}
+@media only screen and (max-width: 3000px) and (min-width: 1801px)
+{
+    footer { grid-template-columns: repeat(3, 1fr); }
+    .mapa
+    {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+    #textoInicio
+{
+    
+    font-size: 25px;
+}
     ul.dropdown-menu {
         margin-right: -2000px;
         padding: 0%;

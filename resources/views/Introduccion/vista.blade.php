@@ -24,7 +24,7 @@
     </article>
   </div>
 
-  <div class="my-lg-4 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
+  <div class="my-lg-2 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -209,7 +209,7 @@
   </div>
 </div>
 
-<div class="mt-3 row justify-content-xl-end justify-content-md-between Ejes d-none d-xl-flex d-lg-flex d-md-flex">
+<div class="mt-3 row justify-content-xl-end justify-content-md-around Ejes d-none d-xl-flex d-lg-flex d-md-flex">
   <div class="col-md-5">
     <div class="envoltorioCirculoODS">
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.png" class="img-fluid" width="518" id="circuloODS"
