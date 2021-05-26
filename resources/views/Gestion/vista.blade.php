@@ -48,6 +48,29 @@
         <x-boton-eje-trabajo :idBoton="'boton1'" :nombreBoton="'Botón 1'" :idSlider="'slider1'"/>
         <x-boton-eje-trabajo :idBoton="'boton2'" :nombreBoton="'Botón 2'" :idSlider="'slider2'"/>
         <x-boton-eje-trabajo :idBoton="'boton3'" :nombreBoton="'Botón 3'" :idSlider="'slider3'"/>
+        <x-boton-eje-trabajo :idBoton="'boton4'" :nombreBoton="'Botón 4'" :idSlider="'slider4'"/>
+        <x-boton-eje-trabajo :idBoton="'boton5'" :nombreBoton="'Botón 5'" :idSlider="'slider5'"/>
+    </x-slot>
+    <x-slot name="sliders">
+        <x-slider idSlider="s1" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-agua"
+                :sliderTabPane="true" class="tab-pane fade show active" id="slider1" role="tabpanel"
+                aria-labelledby="nav-home-tab"/>
+
+        <x-slider idSlider="s2" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-biodiversidad"
+                :sliderTabPane="true" class="tab-pane fade show active" id="slider2" role="tabpanel"
+                aria-labelledby="nav-home-tab"/>
+
+        <x-slider idSlider="s3" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-energia"
+                :sliderTabPane="true" class="tab-pane fade show active" id="slider3" role="tabpanel"
+                aria-labelledby="nav-home-tab"/>
+
+        <x-slider idSlider="s4" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-residuos"
+                :sliderTabPane="true" class="tab-pane fade show active" id="slider3" role="tabpanel"
+                aria-labelledby="nav-home-tab"/>
+
+        <x-slider idSlider="s5" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-riesgos"
+                :sliderTabPane="true" class="tab-pane fade show active" id="slider3" role="tabpanel"
+                aria-labelledby="nav-home-tab"/>
     </x-slot>
 </x-botones-eje-trabajo>
 @endsection

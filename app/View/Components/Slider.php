@@ -9,25 +9,18 @@ class Slider extends Component
 {
     public $idSlider;
     public $imagenes;
-
-    function obtenUrlImagen($rutaImagen)
-    {
-        return Storage::url($rutaImagen);
-    }
+    public $sliderTabPane;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($idSlider, $rutaImagenes)
+    public function __construct($idSlider, $rutaImagenes, $sliderTabPane = false)
     {
         $this->idSlider = $idSlider;
-        $this->imagenes = array_map
-        (
-            array($this, 'obtenUrlImagen'), 
-            Storage::disk('public')->allFiles($rutaImagenes)
-        );
+        $this->imagenes = Storage::files($rutaImagenes);
+        $this->sliderTabPane = $sliderTabPane;
     }
 
     /**
