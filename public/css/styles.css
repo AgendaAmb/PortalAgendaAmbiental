@@ -10,6 +10,7 @@ body{
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    
 }
 .imagenUASLP{
    margin-right: 3vw;
@@ -151,7 +152,7 @@ ul.dropdown-menu > li
 #textoInicio
 {
     
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .botonLeerMas
@@ -445,6 +446,10 @@ footer
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+#footerR{
+    background-color: #115089;
+    width: auto;
+}
 
 .seccionFooter
 {
@@ -601,6 +606,11 @@ background-color: gray;
         width: inherit;
 
     }
+    #textoInicio
+{
+    
+    font-size: 13px;
+}
     .imagenAgenda_uaslp{
         display: flex;
       }
@@ -756,7 +766,7 @@ display: flow-root;
     #textoInicio
 {
     
-    font-size: 18px;
+    font-size: 16px;
 }
     ul.dropdown-menu {
         margin-right: -2000px;
