@@ -21,8 +21,6 @@ class Slider extends Component
         $this->idSlider = $idSlider;
         $this->imagenes = Storage::files($rutaImagenes);
         $this->sliderTabPane = $sliderTabPane;
-
-        dd($this->imagenes);
     }
 
     /**
