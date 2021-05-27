@@ -3,7 +3,7 @@
 @section('Contenido-Nosotros')
 
      <div class="col-xl-12 p-0">
-        <img src="storage/imagenes/Nosotros/portada.jpg" class="img-fluid mx-auto d-block" alt="" srcset="">
+        <img src="storage/imagenes/Nosotros/portada.jpg" class="img-fluid mx-auto d-block my-2" alt="" srcset="">
       </div>
       <x-btns-ejes>
 

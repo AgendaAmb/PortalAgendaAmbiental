@@ -446,6 +446,12 @@ footer
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+.h3Title{
+    color: #5c94d7;
+}
+.pSize{
+    font-size: 14px;
+}
 #footerR{
     background-color: #115089;
     width: auto;
@@ -569,8 +575,13 @@ font-weight: bold;
     font-weight: 900;
     border-radius: 1.1rem;
 }
+.downloadBtn{
+border-radius: 20px;
+height: 35px;
+font-weight: 900;
+}
 .modal-content{
-    background-color: gray;
+    background-color: #616a7a;
 }
 .imgCaoursel{
     width: 48%;
@@ -606,10 +617,25 @@ background-color: gray;
         width: inherit;
 
     }
+    .downloadBtn{
+        border-radius: 20px;
+        height: 25px;
+        font-size: 10px;
+        padding: 5%;
+      
+        }
+       
+        .modal{
+width: 90%;
+        }
     #textoInicio
 {
     
     font-size: 13px;
+}
+.pSize{
+    font-size: 14px;
+    padding: 0px 15px;
 }
     .imagenAgenda_uaslp{
         display: flex;
@@ -792,6 +818,9 @@ display: flow-root;
     .navbar{
        height: 34px;
     }
+    .pSize{
+        font-size: 16px;
+    }
 }
 @media only screen and (max-width: 3000px) and (min-width: 1801px)
 {
@@ -809,6 +838,10 @@ display: flow-root;
 {
     
     font-size: 25px;
+}
+
+.pSize{
+    font-size: 24px;
 }
     ul.dropdown-menu {
         margin-right: -2000px;
