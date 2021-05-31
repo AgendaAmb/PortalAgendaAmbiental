@@ -37,8 +37,14 @@ Route::get('/Nosotros', function () {
     return view('Nosotros.Contenido');
 })->name('Nosotros');
 Route::get('/Unibici', function () {
-    return view('Unibici.index');
+    return view('Unibici.Contenido');
 })->name('Unibici');
+Route::get('/Unihuerto', function () {
+    return view('Unihuerto.Contenido');
+})->name('Unihuerto');
+Route::get('/Proserem', function () {
+    return view('Proserem.Contenido');
+})->name('Proserem');
 
 Auth::routes();
 

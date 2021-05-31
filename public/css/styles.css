@@ -569,11 +569,22 @@ font-weight: bold;
 #imgODSLogo{
     display: none;
 }
+.btn-groupP{
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
 .btnCur{
     background-color:#01548a ;
     font-size: 1.2rem;
     font-weight: 900;
     border-radius: 1.1rem;
+    color: white;
+    
+}
+.btnCur:hover{
+    color: white;
+    
 }
 .downloadBtn{
 border-radius: 20px;
@@ -616,6 +627,10 @@ background-color: gray;
         height: 350px;
         width: inherit;
 
+    }
+    .btnCur{
+        font-size: 0.5rem;
+       
     }
     .downloadBtn{
         border-radius: 20px;

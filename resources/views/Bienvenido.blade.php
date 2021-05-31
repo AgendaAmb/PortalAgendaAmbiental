@@ -25,7 +25,7 @@
         @if (route('Gestion')==url()->full()||route('Educacion')==url()->full()||
         route('Vinculacion')==url()->full()|| route('Comunicacion')==url()->full()
         ||
-        route('Unibici')==url()->full())
+        route('Unibici')==url()->full()||route('Unihuerto')==url()->full())
         <x-navbar-o-d-s>
 
         </x-navbar-o-d-s>
