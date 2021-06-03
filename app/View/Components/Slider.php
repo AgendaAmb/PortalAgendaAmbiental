@@ -19,7 +19,7 @@ class Slider extends Component
     public function __construct($idSlider, $rutaImagenes, $sliderTabPane = false)
     {
         $this->idSlider = $idSlider;
-        $this->imagenes = Storage::files($rutaImagenes);
+        $this->imagenes = Storage::disk('public')->files($rutaImagenes);
         $this->sliderTabPane = $sliderTabPane;
     }
 

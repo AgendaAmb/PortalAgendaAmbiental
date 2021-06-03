@@ -571,6 +571,12 @@ background-color: gray;
     background-color: #01548a;
 }
 /*Termina estilos de la página Nosotros*/
+
+/* Estilos de la página Gestión */
+a.nav-item.nav-link.nav-button{
+    font-size: 12px;
+}
+
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
 
@@ -667,7 +673,7 @@ display: flow-root;
     .EjesTrabajo{
         display: flex;
     }
-    
+
     .MiPortal{
         margin-left: 2%;
         width: 140px;
@@ -713,7 +719,7 @@ display: flow-root;
     ul.dropdown-menu > li {
         display: inline-block;
     }
-    
+
     .EjesTrabajo{
         display: flex;
     }
@@ -761,7 +767,7 @@ display: flow-root;
     .EjesTrabajo{
         display: none;
     }
-    
+
 
     .navbar{
        height: 34px;
