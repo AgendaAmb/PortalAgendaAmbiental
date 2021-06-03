@@ -46,6 +46,13 @@ Route::get('/Proserem', function () {
     return view('Proserem.Contenido');
 })->name('Proserem');
 
+Route::get('/DateUnRespiro', function () {
+    return view('DateUnRespiro.Contenido');
+})->name('DateUnRespiro');
+Route::get('/MovilidadUrbanaSostenible', function () {
+    return view('mmus.Contenido');
+})->name('mmus');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

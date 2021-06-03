@@ -586,6 +586,9 @@ font-weight: bold;
     color: white;
     
 }
+#CICLO{
+    border-radius: 1.1rem;
+}
 .downloadBtn{
 border-radius: 20px;
 height: 35px;
