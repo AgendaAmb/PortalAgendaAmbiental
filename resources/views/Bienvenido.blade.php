@@ -10,10 +10,13 @@
         
         @include('Parciales.header')
         @if (route('Index')==url()->full())
-        <div class="row">
-            <a href="https://www.un.org/sustainabledevelopment/es/"> <img src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid p-4" alt="" srcset="" id="imgODSLogo"></a>
+      
+            <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
+
+                <a href="https://www.un.org/sustainabledevelopment/es/"> <img src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset="" id="imgODSLogo"></a>
+            </div>
             
-        </div>
+        
     @endif
     </header>
     <nav>
@@ -22,7 +25,7 @@
         @if (route('Gestion')==url()->full()||route('Educacion')==url()->full()||
         route('Vinculacion')==url()->full()|| route('Comunicacion')==url()->full()
         ||
-        route('Unibici')==url()->full())
+        route('Unibici')==url()->full()||route('Unihuerto')==url()->full())
         <x-navbar-o-d-s>
 
         </x-navbar-o-d-s>
@@ -43,6 +46,7 @@
     <footer>
         @include('Parciales.footer')
     </footer>
+   
 </body>
 
 </html>

@@ -8,7 +8,7 @@
 
   <div class="my-4 col-md-5 order-2 .order-xl-1 order-lg-1 order-md-1 order-sm-2">
     <article>
-      <p class="text-justify" id="textoInicio">
+      <p class="text-justify px-0" id="textoInicio">
         El primer antecedente de la Agenda Ambiental es la Comisión
         de Medio Ambiente de la Universidad Autónoma de San Luis Potosí
         que nace en 1992 por iniciativa de profesores de las Facultades
@@ -18,13 +18,16 @@
         Ambiental y Ecología, que lleva la multidisciplina hacia una
         propuesta formal de los estudios ambientales.
       </p>
-      <a href="#">
-        <button type="button" class="btn botonLeerMas"> Leer más </button>
-      </a>
+      <div class="row justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start justify-content-xl-start mx-1">
+        <a href="#">
+          <button type="button" class="btn botonLeerMas"> Leer más </button>
+        </a>
+      </div>
+     
     </article>
   </div>
 
-  <div class="my-lg-4 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1">
+  <div class="my-lg-2 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1 px-2">
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -128,7 +131,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none"
+    <div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
       data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselResponse" data-slide-to="0" class="active"></li>
@@ -152,43 +155,43 @@
         <div class="carousel-item">
           <div class="slide-box">
             <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"
-              class="imgCaoursel pl-2 w-100" alt="First slide">
+              class="imgCaoursel pl-2 w-100 p-0 p-0" alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/CicloAgua.png')}}" class="imgCaoursel pl-2 w-100"
+            <img src="{{ asset('storage/imagenes/introduccion/CicloAgua.png')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel pl-2 w-100"
+            <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2 w-100"
+            <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}" class="imgCaoursel pl-2 w-100"
+            <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
             <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}"
-              class="imgCaoursel pl-2 w-100" alt="First slide">
+              class="imgCaoursel pl-2 w-100 p-0" alt="First slide">
 
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="imgCaoursel pl-2 w-100"
+            <img src="{{ asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
@@ -209,7 +212,7 @@
   </div>
 </div>
 
-<div class="mt-3 row justify-content-xl-end justify-content-md-between Ejes d-none d-xl-flex d-lg-flex d-md-flex">
+<div class="mt-3 row justify-content-around  Ejes d-none d-xl-flex d-lg-flex d-md-flex">
   <div class="col-md-5">
     <div class="envoltorioCirculoODS">
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.png" class="img-fluid" width="518" id="circuloODS"

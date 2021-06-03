@@ -1,7 +1,7 @@
 
 body{
     max-width: 3050px;
-
+    font-family: 'Myraid light';
 }
 #header{
     background-color:#115089;
@@ -10,6 +10,7 @@ body{
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    
 }
 .imagenUASLP{
    margin-right: 3vw;
@@ -150,8 +151,8 @@ ul.dropdown-menu > li
  }
 #textoInicio
 {
-    font-family: 'Myraid light';
-    font-size: 20px;
+    
+    font-size: 16px;
 }
 
 .botonLeerMas
@@ -445,6 +446,16 @@ footer
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+.h3Title{
+    color: #5c94d7;
+}
+.pSize{
+    font-size: 14px;
+}
+#footerR{
+    background-color: #115089;
+    width: auto;
+}
 
 .seccionFooter
 {
@@ -536,30 +547,55 @@ footer
 #btnGestion{
 background-color: #68a945;
 border-color: #68a945;
+height: auto;
+font-weight: bold;
 }
 #btnVinculacion{
     background-color: #f4bd43;
     border-color: #f4bd43;
+   font-weight: bold;
 }
 #btnComunicacion{
     background-color: #e0553b;
     border-color:#e0553b ;
+    font-weight: bold;
 }
 #btnEduInv{
     background-color:#3c91c3 ;
     border-color: #3c91c3;
+    height: auto;
+    font-weight: bold;
 }
 #imgODSLogo{
     display: none;
+}
+.btn-groupP{
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
 }
 .btnCur{
     background-color:#01548a ;
     font-size: 1.2rem;
     font-weight: 900;
     border-radius: 1.1rem;
+    color: white;
+    
+}
+.btnCur:hover{
+    color: white;
+    
+}
+#CICLO{
+    border-radius: 1.1rem;
+}
+.downloadBtn{
+border-radius: 20px;
+height: 35px;
+font-weight: 900;
 }
 .modal-content{
-    background-color: gray;
+    background-color: #616a7a;
 }
 .imgCaoursel{
     width: 48%;
@@ -601,6 +637,30 @@ a.nav-item.nav-link.nav-button{
         width: inherit;
 
     }
+    .btnCur{
+        font-size: 0.5rem;
+       
+    }
+    .downloadBtn{
+        border-radius: 20px;
+        height: 25px;
+        font-size: 10px;
+        padding: 5%;
+      
+        }
+       
+        .modal{
+width: 90%;
+        }
+    #textoInicio
+{
+    
+    font-size: 13px;
+}
+.pSize{
+    font-size: 14px;
+    padding: 0px 15px;
+}
     .imagenAgenda_uaslp{
         display: flex;
       }
@@ -631,7 +691,7 @@ a.nav-item.nav-link.nav-button{
          justify-content: space-between;
      }
      #imgODSLogo{
-        display: block;
+        display: flex;
     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px)
@@ -642,7 +702,7 @@ a.nav-item.nav-link.nav-button{
 
     }
     #imgODSLogo{
-        display: block;
+        display: flex;
     }
     .navbar-brand{
         display: none;
@@ -735,8 +795,13 @@ display: flow-root;
     }
 
     .seccionFooter { margin: none; }
+    #textoInicio
+{
+    
+    font-size: 14px;
 }
-@media only screen and (max-width: 3000px) and (min-width: 992px)
+}
+@media only screen and (max-width: 1800px) and (min-width: 992px)
 {
     footer { grid-template-columns: repeat(3, 1fr); }
     .mapa
@@ -748,6 +813,60 @@ display: flow-root;
     .navbar-brand{
         display: none;
     }
+    #textoInicio
+{
+    
+    font-size: 16px;
+}
+    ul.dropdown-menu {
+        margin-right: -2000px;
+        padding: 0%;
+        border-color: transparent;
+        border-style: none;
+        background-color: transparent;
+        font-size: 12px;
+        height: auto;
+    }
+    .dropdown-menu .dropdown-item{
+       padding: 0.1rem 0.5rem;
+
+    }
+    ul.dropdown-menu > li {
+        display: inline-block;
+    }
+    .EjesTrabajo{
+        display: none;
+    }
+    
+
+    .navbar{
+       height: 34px;
+    }
+    .pSize{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 3000px) and (min-width: 1801px)
+{
+    footer { grid-template-columns: repeat(3, 1fr); }
+    .mapa
+    {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .navbar-brand{
+        display: none;
+    }
+    #textoInicio
+{
+    
+    font-size: 25px;
+}
+
+.pSize{
+    font-size: 24px;
+}
     ul.dropdown-menu {
         margin-right: -2000px;
         padding: 0%;
