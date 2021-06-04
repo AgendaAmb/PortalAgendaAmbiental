@@ -117,7 +117,16 @@ ul.dropdown-menu > li
 {
     display: block;
 }
-
+.descripionP{
+    background-color: rgba(250, 250, 250, .8); 
+    color: black; 
+    font-size: 14px; 
+    border: 0px; 
+    position: absolute; 
+    top: 50%; 
+    left: 40%; 
+    padding: 15px 25px;
+}
 /*
     Estilos para el contenido principal de la
     página.
@@ -528,18 +537,15 @@ footer
 /*
     Estilos de la página Nosotros
 */
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
-    background-color: gray;
-}
-.nav-pills .nav-link{
-    background-color: #8a9b37;
+
+#navPillsGestion{
+    background-color: red;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
     font-weight:bold;
     font-size: 18px;
     border-radius: 20px 0px 0px 20px;
-
 }
 .tab-content > .active{
     text-align: justify;

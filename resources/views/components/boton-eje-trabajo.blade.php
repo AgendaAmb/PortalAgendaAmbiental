@@ -1,11 +1,6 @@
-<div class="col-md-3 col-lg-2">
-    <a class="nav-item nav-link mx-3"
-        id="{{ $idBoton }}"
-        data-toggle="tab"
-        href="{{ $idSlider }}"
-        role="tab"
-        aria-controls="nav-contact"
-        aria-selected="false">
-        {{ $nombreBoton }}
-    </a>
-</div>
+
+<a @if ($idBoton=="v-pills-boton1" ) class="nav-link active  " @else class="nav-link  " @endif
+    id="{{ $idBoton."-tab" }}" data-toggle="pill" href="{{ $idSlider }}" role="tab" aria-controls="{{$idBoton}}"
+    aria-selected="true">
+    {{ $nombreBoton }}
+</a>

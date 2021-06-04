@@ -25,3 +25,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+
+    @if (route('Nosotros')==url()->full())
+    <link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
+    @endif
+    @if (route('Gestion')==url()->full())
+    <link href="{{ asset('css/nav-pill_Gestion.css') }}" rel="stylesheet" type="text/css">
+    @endif
+    @if (route('Educacion')==url()->full())
+    <link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
+    @endif
+    @if (route('Vinculacion')==url()->full())
+    <link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
+    @endif
+    @if (route('Comunicacion')==url()->full())
+    <link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
+    @endif
+    
+

@@ -11,9 +11,14 @@
         @foreach ($imagenes as $imagen)
 
         <div class="carousel-item @if ($loop->first) active @endif">
-            <img class="img-slider" src="{{ asset('storage/'.$imagen) }}" alt="">
+            <img class=" img-fluid" src="{{ asset('storage/'.$imagen) }}" alt="">
         </div>
+       
         @endforeach
+        <div class="container">
+            <p class="descripionP"><b>{{$titulo}}</b>
+               <br> {{$descripcion}}<br>
+        </div>
     </div>
 
     {{--
@@ -36,3 +41,4 @@
 @if($sliderTabPane === true)
 </div>
 @endif
+
