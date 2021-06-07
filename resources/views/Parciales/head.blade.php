@@ -41,5 +41,6 @@
     @if (route('Comunicacion')==url()->full())
     <link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
     @endif
+   @stack('Styles')
     
 
