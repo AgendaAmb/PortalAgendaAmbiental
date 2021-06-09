@@ -43,7 +43,7 @@ Route::get('/Unihuerto', function () {
     return view('Unihuerto.Contenido');
 })->name('Unihuerto');
 Route::get('/Proserem', function () {
-    return view('Proserem.Contenido');
+    return view('Proserem.contenido');
 })->name('Proserem');
 
 Route::get('/DateUnRespiro', function () {

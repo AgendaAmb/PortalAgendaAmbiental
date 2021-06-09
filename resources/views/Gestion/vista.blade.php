@@ -43,8 +43,7 @@ propios.';
 
 
 
-<x-botones-eje-trabajo :nRenglones="1" :nColumnas="6" :nPaginas="1">
-
+<x-botones-eje-trabajo :contieneImagenes="true">
     <x-slot name="botones">
         <x-boton-eje-trabajo idBoton="v-pills-boton1" nombreBoton="PROGRAMA UNIVERSITARIO DE AGUA" idSlider="slider1" />
         <x-boton-eje-trabajo idBoton="v-pills-boton2" nombreBoton="PROGRAMA UNIVERSITARIO DE ENERGÍA"
@@ -65,22 +64,22 @@ propios.';
             aria-labelledby="nav-home-tab" />
 
         <x-slider idSlider="s2" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-energia"
-            :sliderTabPane="true" descripcion="Implementa el buen uso de la energía 
-                promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la 
-                estrategia para la transición hacia las energías renovables; tomando en 
-                cuenta las instalaciones, los equipos, la operación, el uso de energías 
-                renovables y la iluminación eficiente, buscando no causar 
+            :sliderTabPane="true" descripcion="Implementa el buen uso de la energía
+                promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la
+                estrategia para la transición hacia las energías renovables; tomando en
+                cuenta las instalaciones, los equipos, la operación, el uso de energías
+                renovables y la iluminación eficiente, buscando no causar
                 impacto ambiental negativo y cumpliendo con estándares y criterios."
             titulo="PROGRAMA UNIVERSITARIO DE ENERGÍA" class="tab-pane fade show" id="slider2" role="tabpanel"
             aria-labelledby="nav-home-tab" />
 
         <x-slider idSlider="s3" descripcion="Integra el manejo de la flora y fauna de los campus
          universitarios para que sean congruentes con la ecología del entorno, funcionales, con arquitectura
-          del paisaje que incluya las especies endémicas y que se promueva la interacción, respeto y sana 
+          del paisaje que incluya las especies endémicas y que se promueva la interacción, respeto y sana
           convivencia recreativa y académica. Los jardines universitarios deben basarse en un diseño de acuerdo
            a las características bioclimáticas de cada región de nuestros campus universitarios. Los huertos urbanos
-            aportan al sistema ecológico beneficios ambientales como regulación de la temperatura, promoción de la 
-            biodiversidad vegetal y de fauna, con especial énfasis en los polinizadores, y el campo de experimentación 
+            aportan al sistema ecológico beneficios ambientales como regulación de la temperatura, promoción de la
+            biodiversidad vegetal y de fauna, con especial énfasis en los polinizadores, y el campo de experimentación
         para estrategias de producción sostenible de hortalizas y una cultura de alimentación sana."
             titulo="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
             rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-biodiversidad"
@@ -88,9 +87,9 @@ propios.';
             aria-labelledby="nav-home-tab" />
 
         <x-slider idSlider="s4" rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-residuos"
-            :sliderTabPane="true" descripcion="Busca el manejo apropiado de las sustancias y 
+            :sliderTabPane="true" descripcion="Busca el manejo apropiado de las sustancias y
                 materiales reguladas, residuos peligrosos, residuos de manejo especial, residuos sólidos urbanos,
-                 emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y 
+                 emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y
                  administrativas para garantizar la seguridad,
                  salud, prevención de contaminación al ambiente y el cumplimiento legal."
             titulo="PROGRAMA UNIVERSITARIO DE RESIDUOS" class="tab-pane fade show" id="slider4" role="tabpanel"
@@ -101,6 +100,20 @@ propios.';
             titulo="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGO"
             rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-riesgos" :sliderTabPane="true"
             class="tab-pane fade show" id="slider5" role="tabpanel" aria-labelledby="nav-home-tab" />
+    </x-slot>
+    <x-slot name="parteInferiorSlider">
+        <div class="col-10 col-sm-5 col-md-3 my-5 mx-auto">
+            <x-imagen :linkImagen="asset('images/Gestion/proserem.png')" :linkRedireccion="route('Proserem')"/>
+        </div>
+        <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
+            <x-imagen :linkImagen="asset('images/Gestion/ECR.png')"/>
+        </div>
+        <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
+            <x-imagen :linkImagen="asset('images/Gestion/REUTRONIC.png')"/>
+        </div>
+        <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
+            <x-imagen :linkImagen="asset('images/Gestion/CAMBALACHE.png')"/>
+        </div>
     </x-slot>
 </x-botones-eje-trabajo>
 @endsection

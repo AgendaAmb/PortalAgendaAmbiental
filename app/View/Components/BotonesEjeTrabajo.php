@@ -6,25 +6,30 @@ use Illuminate\View\Component;
 
 class BotonesEjeTrabajo extends Component
 {
-    // Número de renglones para los botones.
-    public $nRenglones;
+    /**
+     * Bandera para determinar si la parte inferior del componente
+     * contendrá imágenes.
+     * @property bool
+     */
+    public $contieneImagenes;
 
-    // Número de columnas para los botones.
-    public $nColumnas;
+    /**
+     * Bandera para determinar si la parte inferior del componente
+     * contendrá texto.
+     * @property bool
+     */
+    public $contieneTexto;
 
-    // Número de páginas por botón.
-    public $nPaginas;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($nRenglones, $nColumnas, $nPaginas)
+    public function __construct($contieneImagenes = false, $contieneTexto = false)
     {
-        $this->nRenglones = $nRenglones;
-        $this->nColumnas = $nColumnas;
-        $this->nPaginas = $nPaginas;
+        $this->contieneImagenes = $contieneImagenes;
+        $this->contieneTexto = $contieneTexto;
     }
 
     /**
