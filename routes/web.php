@@ -33,8 +33,8 @@ Route::get('/comunicacion', function () {
     return view('Comunicacion.vista');
 })->name('Comunicacion');
 
-Route::get('/Nosotros', function () {
-    return view('Nosotros.Contenido');
+Route::get('/Nosotros/{id?}', function ($id=null) {
+    return view('Nosotros.Contenido')->with('id',$id);
 })->name('Nosotros');
 Route::get('/Unibici', function () {
     return view('Unibici.Contenido');
