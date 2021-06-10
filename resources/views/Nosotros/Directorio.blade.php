@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="DIRECTORIO" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+<div @if ($id=="Directorio")class="tab-pane fade show active" @else class="tab-pane fade" @endif  id="DIRECTORIO" role="tabpanel" aria-labelledby="v-pills-settings-tab">
   <h2 style="color:#616A7A;">DIRECTORIO</h2>
   <br>
   Para llamar desde fuera se puede marcar (444) 826-2300 seguido del número de
