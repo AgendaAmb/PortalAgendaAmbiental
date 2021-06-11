@@ -36,13 +36,8 @@ propios.';
 @section('ContenidoPrincipal')
 <div class="row justify-content-around my-3">
     <x-o-d-s-wheel />
-    <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'">
-
-    </x-ejeTrabajo>
+    <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
-
-
-
 <x-botones-eje-trabajo :contieneImagenes="true">
     <x-slot name="botones">
         <x-boton-eje-trabajo idBoton="v-pills-boton1" nombreBoton="PROGRAMA UNIVERSITARIO DE AGUA" idSlider="slider1" />
