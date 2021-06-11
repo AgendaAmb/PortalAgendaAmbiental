@@ -96,19 +96,5 @@ propios.';
             rutaImagenes="imagenes/sliders/ejes-de-trabajo/gestion/programa-universitario-riesgos" :sliderTabPane="true"
             class="tab-pane fade show" id="slider5" role="tabpanel" aria-labelledby="nav-home-tab" />
     </x-slot>
-    <x-slot name="parteInferiorSlider">
-        <div class="col-10 col-sm-5 col-md-3 my-3 mx-auto">
-            <x-imagen :linkImagen="asset('/storage/imagenes/Gestion/proserem.png')" :linkRedireccion="route('Proserem')"/>
-        </div>
-        <div class="col-10 col-sm-6 col-md-3 my-3 mx-auto">
-            <x-imagen :linkImagen="asset('/storage/imagenes/Gestion/ECR.png')"/>
-        </div>
-        <div class="col-10 col-sm-6 col-md-3 my-3 mx-auto">
-            <x-imagen :linkImagen="asset('/storage/imagenes/Gestion/REUTRONIC.png')"/>
-        </div>
-        <div class="col-10 col-sm-6 col-md-3 my-3 mx-auto">
-            <x-imagen :linkImagen="asset('/storage/imagenes/Gestion/CAMBALACHE.png')"/>
-        </div>
-    </x-slot>
 </x-botones-eje-trabajo>
 @endsection
