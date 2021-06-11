@@ -4,12 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-/**
- * Componente que representa una imagen. Puede contener un link hacia
- * otra página.
- */
-class Imagen extends Component
+class ImagenSlider extends Component
 {
+    /**
+     * Determina si la imagen es la primer imagen del slider
+     * @property bool
+     */
+    public $primerImagen;
+
     /**
      * Link al cual lleva la imagen, cuando se le da clic
      * @property string
@@ -39,12 +41,13 @@ class Imagen extends Component
      *
      * @return void
      */
-    public function __construct($linkRedireccion = '#', $linkImagen, $ancho = null, $alto = null)
+    public function __construct($primerImagen = false, $linkRedireccion = null, $linkImagen, $ancho = null, $alto = null)
     {
+        $this->primerImagen = $primerImagen;
         $this->linkRedireccion = $linkRedireccion;
         $this->linkImagen = $linkImagen;
-        $this->alto = $alto;
         $this->ancho = $ancho;
+        $this->alto = $alto;
     }
 
     /**
@@ -54,6 +57,6 @@ class Imagen extends Component
      */
     public function render()
     {
-        return view('components.imagen');
+        return view('components.imagen-slider');
     }
 }
