@@ -481,7 +481,7 @@ footer
 .seccionFooter li
 {
     height: 25px;
-    width: 280px;
+    width: auto;
 }
 
 .redSocial
@@ -511,6 +511,7 @@ footer
 }
 .MiPortal{
     width: 150px;
+    font-weight: 900;
 }
 .mapa
 {
@@ -528,6 +529,7 @@ footer
     background-color: transparent;
     border:transparent;
     border: 0px solid transparent;
+    font-weight: 900;
 }
 .btn-group .btn{
     color: white;

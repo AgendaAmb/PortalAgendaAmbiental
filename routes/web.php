@@ -39,9 +39,11 @@ Route::get('/Nosotros/{id?}', function ($id=null) {
 Route::get('/Unibici', function () {
     return view('Unibici.Contenido');
 })->name('Unibici');
+
 Route::get('/Unihuerto', function () {
     return view('Unihuerto.Contenido');
 })->name('Unihuerto');
+
 Route::get('/Proserem', function () {
     return view('Proserem.contenido');
 })->name('Proserem');
@@ -49,6 +51,7 @@ Route::get('/Proserem', function () {
 Route::get('/DateUnRespiro', function () {
     return view('DateUnRespiro.Contenido');
 })->name('DateUnRespiro');
+
 Route::get('/MovilidadUrbanaSostenible', function () {
     return view('mmus.Contenido');
 })->name('mmus');
