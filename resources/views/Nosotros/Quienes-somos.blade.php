@@ -1,4 +1,7 @@
-<div class="tab-pane fade " id="QUIENESSOMOS" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+
+
+<div @if ($id=="QuienesSomos")class="tab-pane fade show active" @else class="tab-pane fade" @endif  id="QUIENESSOMOS" role="tabpanel" aria-labelledby="v-pills-profile-tab">
 <h2 style="color:#616A7A;" class="font-weight-bold">¿QUIÉNES SOMOS?</h2>
 <br>
 Desde 1998, la Universidad Autónoma de San Luis Potosí, cuenta con la Agenda

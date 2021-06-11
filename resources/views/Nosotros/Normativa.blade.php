@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="Normativa" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+<div @if ($id=="Normativa")class="tab-pane fade show active" @else class="tab-pane fade" @endif  id="Normativa" role="tabpanel" aria-labelledby="v-pills-settings-tab">
 <h2 style="color:#616A7A;">NORMATIVA UNIVERSITARIA</h2>
 <br>
 La Universidad Autónoma de San Luis Potosí, ha establecido un plan de trabajo para

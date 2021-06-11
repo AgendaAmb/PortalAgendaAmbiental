@@ -1,5 +1,5 @@
 <a href="{{ $linkRedireccion }}">
-    <img class="img-fluid" src="{{ $linkImagen }}"
+    <img class="img-fluid p-xl-4" src="{{ $linkImagen }}"
         {{--
             Si se especificó la anchura de la imagen, entonces
             se le asigna la anchura a la propiedad width.
