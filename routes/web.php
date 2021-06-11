@@ -17,19 +17,19 @@ Route::get('/', function () {
     return view('Introduccion.vista');
 })->name('Index');
 
-Route::get('/gestion', function () {
+Route::get('/gestión', function () {
     return view('Gestion.vista');
 })->name('Gestion');
 
-Route::get('/educacion', function () {
+Route::get('/educación', function () {
     return view('Educacion.vista');
 })->name('Educacion');
 
-Route::get('/vinculacion', function () {
+Route::get('/vinculación', function () {
     return view('Vinculacion.vista');
 })->name('Vinculacion');
 
-Route::get('/comunicacion', function () {
+Route::get('/comunicación', function () {
     return view('Comunicacion.vista');
 })->name('Comunicacion');
 

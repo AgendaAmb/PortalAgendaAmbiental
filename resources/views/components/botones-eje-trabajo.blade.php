@@ -12,7 +12,9 @@
         </nav>
         <div class="tab-content" id="nav-tabContent">
             {{ $sliders }}
+            
         </div>
+        
 
         {{--
             Determina si en la parte inferior del slider se agregará un
