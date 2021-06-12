@@ -48,6 +48,15 @@ universitarias.';
                 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-ESTATAL.png')" />
             </x-slider>
+            <x-tab-panel-footer class="row justify-content-center">
+                <x-tab-panel-text class="col-12 col-lg-11 my-5" text='Entre las colaboraciones actuales están:<br><br>
+
+                <strong> RedCIS Red Ciudadana para la Sostenibilidad de la Zona Metropolitana de San Luis Potosí </strong><br>
+                La RED forma una interacción entre ciudadanos de diversas disciplinas y sectores (académica, ONG, gobierno, industria, individual). El objetivo es proponer proyectos integrales que aporten al desarrollo sostenible de la Zona Metropolitana de San Luis Potosí en (ZMSLP), para mantener el bienestar del ser humano y las funciones del ecosistema, tomando en cuenta las opiniones y necesidades de diferentes actores. La RED busca una forma de establecer una comunicación continua con el gobierno, realizar propuestas de proyectos según las competencias y conocimientos de cada actor, identificar los problemas como ciudadanos y proponer soluciones; también estrechar la comunicación entre los diferentes actores para potencializar el impacto de proyectos ejecutados de forma aislada. Cada 2 meses reunión de la RED y cada mes reunión de una comisión.<br><br>
+                
+                <strong>Consejo de Administración del Área Natural Protegida "Sitio Sagrado Natural de Wirikuta y la Ruta Histórico Cultural del Pueblo Wixárika"</strong><br>
+                La UASLP pertenece desde 2012 a este Consejo junto con autoridades estatales y presidentes municipales, el Insituto del Desarrollo Humano y Social de los Pueblos Indígenas, la Comisión Nacional para el Desarrollo de los Pueblos Indígenas. El objetivo de este Consejo y la Secretaría de Desarrollo Agropecuario y Recursos Hidráulicos. Se busca coadyuvar en este esfuerzo para armonizar el desarrollo de la Ruta Histórico Cultural del Pueblo Wixárika. ' />
+            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -61,8 +70,6 @@ universitarias.';
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-NACIONAL.png')" />
             </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
-            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -76,7 +83,15 @@ universitarias.';
             
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-INTERNACIONAL.png')" />
             </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
+            <x-tab-panel-footer class="row justify-content-center">
+                <x-tab-panel-text class="col-12 col-lg-11 my-5" text='
+                <strong>Centers for Natural Resources and Development (CNRD)</strong><br>
+                El CNRD se basa en un enfoqueinterdisciplinario e internacional, que vincula a socios de diferentes regiones y diferentes antecedentes profesionales. Se realiza una reunión cada año con los integrantes de la red y se lanza convocatoria para becas semestralmente que incluye el pago de boletos de avión y visa para Alemania.<br><br>
+                
+                Entre las colaboraciones actuales se tiene:<br><br>
+                
+                <strong>CUMMINS, La Pila: Modelo de sostenibilidad para la gobernanza de comunidades vulnerables </strong><br>
+                El proyecto obedece a la inquietud de la UASLP por llevar fuera de los muros de la universidad estrategias, experiencias y aprendizajes que permitan a las comunidades vulnerables hacer uso eficiente de sus recursos naturales, cambiar hábitos, comportamientos, estilos de vida y con ello, en el mediano plazo, mejorar sus niveles de bienestar. El objetivo del proyecto es que, a través de procesos y metodologías participativas la comunidad diseñe y construya un conjunto de ecotécnicas que le permitan dar solución a algunas de las principales problemáticas identificadas; paralelamente se guía a la comunidad escolar, por medio de la impartición de talleres, para que puedan desarrollar habilidades de autogestión, competencias para la práctica docente, habilidades para mejorar las capacidades cognitivas de los niños, planes para mejorar hábitos alimenticios, estilos de vida y con ello alcancen mejores niveles de bienestar. ' />
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
@@ -91,8 +106,6 @@ universitarias.';
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-LOCAL.png')" />
             </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
-            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -107,8 +120,6 @@ universitarias.';
                 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-INSTITUCIONAL.png')" />
             </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
-            </x-tab-panel-footer>
         </x-tab-panel-content>
     </x-slot>
 </x-tab-panel>

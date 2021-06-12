@@ -64,6 +64,23 @@ sostenibilidad sea
 parte de la vida
 universitaria.
 ';
+/*
+// Establece la zona horaria
+\Carbon\Carbon::setLocale('es-mx');
+
+// Obtiene el intervalo de meses, entre la fecha de inicio de los eventos y la
+// fecha del día de hoy.
+$monthPeriod = \Carbon\CarbonPeriod::create('2019-01-01', \Carbon\Carbon::now())->month();
+
+// Crea un arreglo, para almacenar los meses del intervalo establecido.
+$months = [];
+
+// Mapea los meses del intervalo en un arreglo.
+foreach ($monthPeriod as $month){
+    $date = \Carbon\Carbon::parse($month);
+    $date = strtoupper($date->monthName);
+    $months[] = $date;
+}*/
 @endphp
 
 @section('ContenidoPrincipal')
@@ -73,4 +90,17 @@ universitaria.
 
     </x-ejeTrabajo>
 </div>
+
+{{-- 
+    Tabs del programa de Comunicación.    
+--}}
+<x-tab-panel>
+    {{-- 
+        Grupo de botones de los tabs. 
+    
+    --}}
+    <x-slot name="tabButtons"> 
+    </x-slot>
+
+</x-tab-panel>
 @endsection
