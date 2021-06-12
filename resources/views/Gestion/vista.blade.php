@@ -38,9 +38,13 @@ propios.';
     <x-o-d-s-wheel />
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
+
+{{-- 
+    Tabs de Gestión Institucional.    
+--}}
 <x-tab-panel>
     {{-- 
-        Grupo de botones de los tabs    
+        Grupo de botones de los tabs. 
     --}}
     <x-slot name="tabButtons"> 
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" class="nav-link active" />
@@ -50,9 +54,6 @@ propios.';
         <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS" class="nav-link" />
     </x-slot>
 
-    {{-- 
-        Tabs de Gestión Institucional.    
-    --}}
     <x-slot name="tabContent">
 
         {{-- 
@@ -81,6 +82,10 @@ propios.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/energia1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" />
             </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/UNIBICI.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/AUTO-COMPARTIDO.png')" />
+            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -95,6 +100,11 @@ propios.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/biodiversidad1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/biodiversidad2.png')" />
             </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/Bn_Unihuerto.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/Bn_biblioteca.png')" />
+            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -109,6 +119,12 @@ propios.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/residuos1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/residuos2.png')" />
             </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/proserem.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />
+            </x-tab-panel-footer>
         </x-tab-panel-content>
 
         {{-- 
@@ -123,8 +139,18 @@ propios.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/riesgos1.jpg')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/riesgos2.png')" />
             </x-slider>
-
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/DATE-UN-RESPIRO.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
+            </x-tab-panel-footer>
         </x-tab-panel-content>
     </x-slot>
 </x-tab-panel>
 @endsection
+
+{{-- 
+    Hace push a las hojas de estilo, para indicar el estilo y color de los botones del nav-tab    
+--}}
+@push('stylesheets')
+<link href="{{ asset('css/nav-pill_Gestion.css') }}" rel="stylesheet" type="text/css">
+@endpush

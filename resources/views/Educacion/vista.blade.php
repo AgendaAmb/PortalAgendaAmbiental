@@ -39,50 +39,60 @@ gestión y vinculación con la sociedad.';
 @section('ContenidoPrincipal')
 <div class="row justify-content-center my-3">
     <x-o-d-s-wheel/>
-    <x-botones-eje-trabajo :contieneImagenes="true">
-        <x-slot name="botones">
-            <x-boton-eje-trabajo idBoton="v-pills-boton1" nombreBoton="PROGRAMA UNIVERSITARIO DE AGUA" idSlider="slider1" />
-            <x-boton-eje-trabajo idBoton="v-pills-boton2" nombreBoton="PROGRAMA UNIVERSITARIO DE ENERGÍA"
-                idSlider="slider2" />
-            <x-boton-eje-trabajo idBoton="v-pills-boton3" nombreBoton="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
-                idSlider="slider3" />
-            <x-boton-eje-trabajo idBoton="v-pills-boton4" nombreBoton="PROGRAMA UNIVERSITARIO DE RESIDUOS"
-                idSlider="slider4" />
-            <x-boton-eje-trabajo idBoton="v-pills-boton5" nombreBoton="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS"
-                idSlider="slider5" />
-        </x-slot>
-        <x-slot name="sliders">
-            <x-slider idSlider="s1" rutaImagenes="imagenes/sliders/ejes-de-trabajo/educacion/educacion-formal"
-                :sliderTabPane="true"
-                descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
-                titulo="PROGRAMA UNIVERSITARIO DE AGUA" class="tab-pane fade show active" id="slider1" role="tabpanel"
-                aria-labelledby="nav-home-tab" />
-
-            <x-slider idSlider="s2" rutaImagenes="imagenes/sliders/ejes-de-trabajo/educación/educacion-no-energia"
-                :sliderTabPane="true" descripcion="Implementa el buen uso de la energía
-                    promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la
-                    estrategia para la transición hacia las energías renovables; tomando en
-                    cuenta las instalaciones, los equipos, la operación, el uso de energías
-                    renovables y la iluminación eficiente, buscando no causar
-                    impacto ambiental negativo y cumpliendo con estándares y criterios."
-                titulo="PROGRAMA UNIVERSITARIO DE ENERGÍA" class="tab-pane fade show" id="slider2" role="tabpanel"
-                aria-labelledby="nav-home-tab" />
-
-        </x-slot>
-        <x-slot name="parteInferiorSlider">
-            <div class="col-10 col-sm-5 col-md-3 my-5 mx-auto">
-                <x-imagen :linkImagen="asset('images/Gestion/proserem.png')" :linkRedireccion="route('Proserem')"/>
-            </div>
-            <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
-                <x-imagen :linkImagen="asset('images/Gestion/ECR.png')"/>
-            </div>
-            <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
-                <x-imagen :linkImagen="asset('images/Gestion/REUTRONIC.png')"/>
-            </div>
-            <div class="col-10 col-sm-6 col-md-3 my-5 mx-auto">
-                <x-imagen :linkImagen="asset('images/Gestion/CAMBALACHE.png')"/>
-            </div>
-        </x-slot>
-    </x-botones-eje-trabajo>
+    <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
+
+{{-- 
+    Tabs de Gestión Institucional.    
+--}}
+<x-tab-panel>
+    {{-- 
+        Grupo de botones de los tabs. 
+    --}}
+    <x-slot name="tabButtons"> 
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="EDUCACIÓN FORMAL" class="nav-link active" />
+        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="EDUCACIÓN NO FORMAL" class="nav-link" />
+    </x-slot>
+
+    <x-slot name="tabContent">
+
+        {{-- 
+            Tab correspondiente a EDUCACIÓN FORMAL.
+        --}}
+        <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-1" role="tabpanel" aria-labelledby="nav-home-tab">
+            <x-slider idSlider="s1" 
+                        titulo="EDUCACIÓN FORMAL"
+                        descripcion="Se refiere a procesos educativos normados que tienen una intención deliberada, que se concretiza en un currículo oficial y se estructura en función de: objetivos, métodos y evaluación. La conclusión del programa académico conduce a la obtención de un certificado. Ejemplos de ello son: diplomados, cursos de actualización y estudios de posgrado."
+                        class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+                
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCACION-FORMAL1.png')" />
+                <x-imagen-slider :linkImagen="asset('img/Educacion/EDUCACION-FORMAL2.png')" />
+            </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/imarec-logo.png')" />
+            </x-tab-panel-footer>
+        </x-tab-panel-content>
+
+        {{-- 
+            Tab correspondiente a EDUCACIÓN NO FORMAL.
+        --}}
+        <x-tab-panel-content class="tab-pane fade show" id="tab-panel-2" role="tabpanel" aria-labelledby="nav-home-tab">
+            <x-slider idSlider="s2" 
+                        titulo="EDUCACIÓN NO FORMAL" 
+                        descripcion="Se da en aquéllos contextos en los que, existiendo una intencionalidad educativa y una planificación de las experiencias de enseñanza-aprendizaje, estas ocurren fuera del ámbito del sistema escolarizado. Ejemplos de ello pueden ser: conferencias, conversatorios, coloquios, simposios, talleres."
+                        class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" >
+
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
+            </x-slider>
+        </x-tab-panel-content>
+    </x-slot>
+</x-tab-panel>
 @endsection
+
+{{-- 
+    Hace push a las hojas de estilo, para indicar el estilo y color de los botones del nav-tab    
+--}}
+@push('stylesheets')
+<link href="{{ asset('css/nav-pill_Educacion.css') }}" rel="stylesheet" type="text/css">
+@endpush
