@@ -2,11 +2,15 @@
     background-color: gray;
 }
 .nav-pills .nav-link{
-    background-color: #1f638c;
+    background-color: #de3043;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
     font-weight:bold;
     font-size: 12px;
     border-radius: 20px 20px 20px 20px;
+    width: 15%;
+    margin: 0.5rem 0.5rem;
+    text-align: center;
+  
 }

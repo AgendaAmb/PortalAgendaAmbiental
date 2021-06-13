@@ -11,15 +11,18 @@ class TabPanelImage extends Component
      * @property string
      */
     public $imageURL;
-
+    public $urlhref;
+    public $isBlank;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($imageURL = null)
+    public function __construct($imageURL = null,$urlhref = null,$isBlank=false )
     {
         $this->imageURL = $imageURL;
+        $this->urlhref=$urlhref;
+        $this->isBlank=$isBlank;
     }
 
     /**

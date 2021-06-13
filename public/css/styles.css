@@ -1,7 +1,8 @@
 
 body{
-    max-width: 3050px;
+    max-width: 1750px;
     font-family: 'Myraid light';
+   margin: auto;
 }
 #header{
     background-color:#115089;

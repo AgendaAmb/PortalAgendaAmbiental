@@ -43,3 +43,6 @@
 </div>
 </div>
 @endsection
+@push('stylesheets')
+    <link rel="stylesheet"href="{{ asset('css/nav-pill_Nosotros.css') }}">
+@endpush

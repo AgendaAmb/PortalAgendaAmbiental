@@ -23,28 +23,4 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 @stack('stylesheets')
-
-
-
-<!--Comparacion de parametro opcional para poder poner la hoja de estilos correspondiente-->
-@if (route('Nosotros')==url()->full()
-||
-route('Nosotros',['id'=> 'Historia'])==url()->full()
-||
-route('Nosotros',['id'=> 'QuienesSomos'])==url()->full()
-||
-route('Nosotros',['id'=> 'Normativa'])==url()->full()
-||
-route('Nosotros',['id'=> 'MisiónVisión'])==url()->full()
-||
-route('Nosotros',['id'=> 'Directorio'])==url()->full()
-||
-route('Nosotros',['id'=> 'Contacto'])==url()->full()
-)
-<!--Condiciones para poner el estilo de los nav-pill correspondiente en cada una de sus vistas-->
-<link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
-@endif
-@if (route('Comunicacion')==url()->full())
-<link href="{{ asset('css/nav-pill_Nosotros.css') }}" rel="stylesheet" type="text/css">
-@endif
 @stack('Styles')
