@@ -42,7 +42,7 @@ Route::get('/Unibici', function () {
 })->name('Unibici');
 
 Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
-    return view('Unihuerto.Contenido')->with('NombreM',$NombreM);
+    return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
 
 Route::get('/FotografiaPorLaSostenibilidad', function () {
@@ -50,7 +50,7 @@ Route::get('/FotografiaPorLaSostenibilidad', function () {
 })->name('FotografiaS');
 
 Route::get('/Cineminuto', function () {
-    return view('Cineminuto.Contenido');
+    return view('Cineminuto.contenido');
 })->name('Cineminuto');
 
 Route::get('/Proserem/{nombreModal?}', function ($NombreM=null) {
@@ -70,7 +70,7 @@ Route::get('/MovilidadUrbanaSostenible', function () {
 })->name('mmus');
 
 Route::get('/CicloDeConferencias', function () {
-    return view('Conferencias.Contenido');
+    return view('Conferencias.contenido');
 })->name('CicloConf');
 
 Auth::routes();
