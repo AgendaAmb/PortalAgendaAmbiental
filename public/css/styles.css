@@ -591,6 +591,8 @@ font-weight: bold;
     font-weight: 900;
     border-radius: 1.1rem;
     color: white;
+    text-align: center;
+    vertical-align: middle;
     
 }
 .btnCur:hover{
@@ -599,6 +601,10 @@ font-weight: bold;
 }
 #CICLO{
     border-radius: 1.1rem;
+}
+#CICLOCON{
+    border-radius: 1.1rem;
+    font-size: 12px;
 }
 .downloadBtn{
 border-radius: 20px;
@@ -662,6 +668,7 @@ a.nav-item.nav-link.nav-button{
    
     .btnCur{
         font-size: 0.5rem;
+       
        
     }
     .downloadBtn{
@@ -744,7 +751,7 @@ display: flow-root;
         height: auto;
     }
     .dropdown-menu .dropdown-item{
-       padding: 0.1rem 0.5rem;
+       padding: 0.6rem 0.6rem;
 
     }
     ul.dropdown-menu > li {
@@ -805,7 +812,7 @@ display: flow-root;
         height: auto;
     }
     .dropdown-menu .dropdown-item{
-       padding: 0.1rem 0.5rem;
+       padding: 0.6rem 0.6rem;
 
     }
     ul.dropdown-menu > li {
@@ -860,7 +867,7 @@ display: flow-root;
         height: auto;
     }
     .dropdown-menu .dropdown-item{
-       padding: 0.1rem 0.5rem;
+       padding: 0.6rem 0.6rem;
 
     }
     ul.dropdown-menu > li {
@@ -909,7 +916,7 @@ display: flow-root;
         height: auto;
     }
     .dropdown-menu .dropdown-item{
-       padding: 0.1rem 0.5rem;
+       padding: 0.6rem 0.6rem;
 
     }
     ul.dropdown-menu > li {

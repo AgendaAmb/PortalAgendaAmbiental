@@ -225,7 +225,7 @@ $months[] = $date;
             <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                        <a href="{{route('CicloConf')}}">
                             <img class="d-block w-100" src="{{ asset('img/Comunicacion/2020/abril1.png') }}" alt="First slide">
                         </a>
                     </div>
