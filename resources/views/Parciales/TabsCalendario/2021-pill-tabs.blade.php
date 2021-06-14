@@ -1,11 +1,11 @@
 <nav class="nav flex-row nav-pills" id="v-pills-tab" role="tablist">
-    <a class="nav-link active" id="v-pills-boton1-tab" data-toggle="pill" href="#enero2" role="tab" aria-controls="v-pills-boton1" aria-selected="true">
+    <a class="nav-link " id="v-pills-boton1-tab" data-toggle="pill" href="#enero2" role="tab" aria-controls="v-pills-boton1" aria-selected="true">
         Enero
     </a>
     <a class="nav-link" id="v-pills-boton2-tab" data-toggle="pill" href="#febrero2" role="tab" aria-controls="v-pills-boton2" aria-selected="true">
         Febrero
     </a>
-    <a class="nav-link" id="v-pills-boton3-tab" data-toggle="pill" href="#marzo2" role="tab" aria-controls="v-pills-boton3" aria-selected="true">
+    <a class="nav-link active" id="v-pills-boton3-tab" data-toggle="pill" href="#marzo2" role="tab" aria-controls="v-pills-boton3" aria-selected="true">
         Marzo
     </a>
     <a class="nav-link" id="v-pills-boton4-tab" data-toggle="pill" href="#abril2" role="tab" aria-controls="v-pills-boton4" aria-selected="true">

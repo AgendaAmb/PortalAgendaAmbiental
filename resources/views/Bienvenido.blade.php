@@ -22,12 +22,18 @@
     <nav>
         @include('Parciales.navbar')
 
-        @if (route('Gestion')==url()->full()||route('Educacion')==url()->full()||
-        route('Vinculacion')==url()->full()|| route('Comunicacion')==url()->full()
-        ||
-        route('Unibici')==url()->full()||route('Unihuerto')==url()->full())
-        <x-navbar-o-d-s>
+        @if (route('Gestion')==url()->full()
+        ||route('Educacion')==url()->full()
+        ||route('Vinculacion')==url()->full()
+        || route('Comunicacion')==url()->full()
+        ||route('Unibici')==url()->full()
+        ||route('Unihuerto')==url()->full()
+        ||route('Cineminuto')==url()->full()
+        ||route('FotografiaS')==url()->full()
+        ||route('DateUnRespiro')==url()->full()
 
+        )
+        <x-navbar-o-d-s>
         </x-navbar-o-d-s>
         <x-btns-ejes>
         </x-btns-ejes>

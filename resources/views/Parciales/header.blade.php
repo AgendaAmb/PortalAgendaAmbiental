@@ -13,9 +13,6 @@
 {{-- 
     Páginas pendientes de Comunicación:
  
-    1.- http://ambiental.uaslp.mx/cineminuto/index.html 
-        Tercer concurso de Cineminuto, 
-        Marzo del 2021.
 
 
     2.- http://ambiental.uaslp.mx/conferencias/index.html
