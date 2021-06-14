@@ -17,6 +17,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
     integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
 </script>
+
+
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <script src="{{asset('js/ods.js') }}"></script>
@@ -30,3 +32,6 @@
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 @stack('stylesheets')
 @stack('Styles')
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
