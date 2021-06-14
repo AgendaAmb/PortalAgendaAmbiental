@@ -30,6 +30,7 @@
         ||route('Unihuerto')==url()->full()
         ||route('Cineminuto')==url()->full()
         ||route('FotografiaS')==url()->full()
+        ||route('DateUnRespiro')==url()->full()
 
         )
         <x-navbar-o-d-s>
