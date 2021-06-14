@@ -9,3 +9,18 @@
         <a href="http://www.uaslp.mx"><img src={{ asset('storage/imagenes/Logos/LOGO_UASLP-300x116.png')}} class="imagenUASLP px-5 pt-4 px-xl-5 px-lg-5 px-md-1"></a>
     </div>
 </nav>
+
+{{-- 
+    Páginas pendientes de Comunicación:
+ 
+    1.- http://ambiental.uaslp.mx/cineminuto/index.html 
+        Tercer concurso de Cineminuto, 
+        Marzo del 2021.
+
+
+    2.- http://ambiental.uaslp.mx/conferencias/index.html
+        Ciclo de conferencias a distancia, 
+        Abril del 2020.
+
+    3.- 
+--}}
