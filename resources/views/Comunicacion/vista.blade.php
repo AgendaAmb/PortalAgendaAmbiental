@@ -100,9 +100,9 @@ $months[] = $date;
 --}}
 
 
-<div class="elementor-widget-container">
-    <div class="row" style="margin-left: 38px !important;">
-        <div id="hide-me" style="padding: 35px 0">
+
+    <div class="row">
+        <div id="hide-me" class="ml-2 ml-xl-5 ml-lg-5  ml-md-5  py-5">
             <a id="left" href="#multi-item-example" data-slide="prev">
                 <i class="iconos fas fa-angle-left"></i>
             </a>
@@ -142,7 +142,7 @@ $months[] = $date;
                 </div>
             </div>
         </div>
-        <div id="obj2" style="padding: 35px 0">
+        <div id="obj2" class="py-5">
             <a id="right" href="#multi-item-example" data-slide="next">
                 <i class="iconos2 fas fa-angle-right"></i>
             </a>
@@ -331,7 +331,7 @@ $months[] = $date;
         </div>
         <div class="tab-pane fade" id="diciembre1" role="tabpanel" aria-labelledby="diciembre1-tab"></div>
     </div>
-</div>
+
 
 @endsection
 
