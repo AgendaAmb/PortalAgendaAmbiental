@@ -49,6 +49,10 @@ Route::get('/FotografiaPorLaSostenibilidad', function () {
     return view('FotografiaSostenibilidad.Contenido');
 })->name('FotografiaS');
 
+Route::get('/Cineminuto', function () {
+    return view('Cineminuto.Contenido');
+})->name('Cineminuto');
+
 Route::get('/Proserem', function () {
     return view('Proserem.contenido');
 })->name('Proserem');

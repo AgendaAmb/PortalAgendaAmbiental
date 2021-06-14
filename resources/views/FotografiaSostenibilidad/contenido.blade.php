@@ -56,10 +56,9 @@
         <a class="btn btnCur m-2 " href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia" role="button group" data-toggle="modal" data-target="#modalTallerUnihuerto">
             REGISTRATE
         </a>
-        <a class="btn btnCur m-2 "  role="button group" data-toggle="modal"">
-           CARTEL GENERAL
-        </a>
-
+     
+        <a href="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}" class="btn btnCur m-2 " href="#"
+        role="button group" download="B_ConcursoFotografia.png">CARTEL GENERAL </a>
     </div>
 
 

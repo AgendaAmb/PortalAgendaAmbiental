@@ -156,7 +156,7 @@ $months[] = $date;
             <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="http://ambiental.uaslp.mx/cineminuto/index.html"><img class="d-block w-100"
+                        <a href="{{route('Cineminuto')}}"><img class="d-block w-100"
                                 src="{{ asset('img/Comunicacion/2021/B_Cineminuto.png') }}" alt="First slide"></a>
                     </div>
                 </div>
