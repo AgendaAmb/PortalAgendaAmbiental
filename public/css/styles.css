@@ -3,6 +3,7 @@ body{
     max-width: 1750px;
     font-family: 'Myraid light';
    margin: auto;
+   min-width: 320px;
 }
 #header{
     background-color:#115089;
@@ -641,7 +642,7 @@ a.nav-item.nav-link.nav-button{
     }
 
 }
-@media only screen and (min-width: 200px) and (max-width: 575px){
+@media only screen and (min-width: 10px) and (max-width: 575px){
     .descripionP{
         background-color: rgba(250, 250, 250, .8); 
         color: black; 

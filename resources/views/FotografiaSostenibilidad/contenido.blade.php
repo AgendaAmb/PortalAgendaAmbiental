@@ -50,14 +50,14 @@
 
 
 <div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
+    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-center  justify-content-lg-center  justify-content-md-start justify-content-around">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
         <a class="btn btnCur m-2 " href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia" role="button group" data-toggle="modal" data-target="#modalTallerUnihuerto">
             REGISTRATE
         </a>
      
-        <a href="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}" class="btn btnCur m-2 " href="#"
+        <a href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}" class="btn btnCur m-2 " href="#"
         role="button group" download="B_ConcursoFotografia.png">CARTEL GENERAL </a>
     </div>
 
