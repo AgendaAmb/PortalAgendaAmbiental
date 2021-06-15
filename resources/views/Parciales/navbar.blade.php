@@ -61,7 +61,7 @@
   </div>
 
 </nav>
-<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-expand-md d-flex d-lg-flex d-md-flex d-xl-flexs">
+<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-expand-md d-flex d-lg-flex d-md-flex d-xl-flex">
 
   <a class="btn btn-primary btn-sm MiPortal navbar-brand" href={{route('login')}} role="button">
     <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
@@ -75,7 +75,9 @@
   </button>
 
   <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-    <ul class="navbar-nav w-100 justify-content-md-around">
+    <div class="container justify-content-start">
+
+    <ul class="navbar-nav w-100 justify-content-md-start">
       <li class="nav-item active">
         <a class="nav-link" href={{route('Nosotros')}}>NOSOTROS <span class="sr-only">(current)</span></a>
       </li>
@@ -93,12 +95,14 @@
           <li><a class="dropdown-item" href={{route('Comunicacion')}}>COMUNICACIÓN</a></li>
         </ul>
       </li>
-      <div>
-        <form class="form-inline my-2 my-lg-0 ESINbnt">
+      
+    </div>
+      <div class="container justify-content-end">
+        <form class="form-inline my-2 my-lg-0 ESINbnt d-none">
           <input class="form-control mt-1 mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
         </form>
       </div>
-      <div class="ESINbnt">
+      <div class="ESINbnt ">
         <button type="button" class="btn">ESPAÑOL/INGLES</button>
       </div>
 

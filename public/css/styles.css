@@ -428,11 +428,10 @@ img.img-fluid.seccionODS
     Estilos para los diferentes tipos
     de letra.
  */
-/*
+
 @font-face
 {
-    font-family:Myraid light;
-    
+    font-family:'Myraid light';
     src: url(/TiposDeLetra/MyriadPro-Light.otf) format('opentype');
     font-display: auto;
 }
@@ -441,11 +440,10 @@ img.img-fluid.seccionODS
 @font-face
 {
     font-family:'Myraid Pro Bold';
-
     src: url(/TiposDeLetra/MyriadPro-Bold.otf) format('opentype');
     font-display: auto;
 }
-*/
+
 /*
     Estilos para el pie de página.
  */
