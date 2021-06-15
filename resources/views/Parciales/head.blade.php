@@ -17,8 +17,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
     integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
 </script>
-
-
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <script src="{{asset('js/ods.js') }}"></script>
@@ -26,13 +24,13 @@
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 @stack('stylesheets')
 @stack('Styles')
-<!--pruebas de servidor--->
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
+<!--pruebas de servidor
+    --->
+<link rel="stylesheet " href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
+<link rel="stylesheet " href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
+<link rel="stylesheet" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
