@@ -1,9 +1,10 @@
 
 body{
-    max-width: 1750px;
+    max-width: 1600px;
     font-family: 'Myraid light';
    margin: auto;
    min-width: 320px;
+   background-color: white;
 }
 #header{
     background-color:#115089;
@@ -904,7 +905,7 @@ display: flow-root;
 }
 
 .pSize{
-    font-size: 24px;
+    font-size: 15px;
 }
     ul.dropdown-menu {
         margin-right: -2000px;
