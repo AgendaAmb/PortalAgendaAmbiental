@@ -8,7 +8,7 @@ $(function(){
     });
 
     $('#imgEducacion').on('mouseover', function(){
-        scaleImage('#imgEducacion', 1.2, -12, 11);
+        scaleImage('#imgEducacion', 1.2, -11, 11);
     });
 
     $('#imgEducacion').on('mouseout', function(){
@@ -16,10 +16,10 @@ $(function(){
     });
 
     $('#imgComunicacion').on('mouseover', function(){
-        scaleImage('#imgComunicacion', 1.2, 10, 14);
+        scaleImage('#imgComunicacion', 1.08, 10, 11);
     });
 
     $('#imgComunicacion').on('mouseout', function(){
-        scaleImage('#imgComunicacion', 1.0, 0, 0);
+        scaleImage('#imgComunicacion', 0.91, 0, 0);
     });
 });

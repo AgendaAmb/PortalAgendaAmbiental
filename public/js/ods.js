@@ -52,47 +52,6 @@ function animaRuedaODS()
     });
 }
 
-function animaRuedaEjesDeTrabajo()
-{
-    /*
-    $('#imgGestion').on('mouseover', function(){
-        scaleImage('#imgGestion', 1.2, -12, -11);
-        scaleImage('#imgEducacion', 1.0, 0, 0);
-        scaleImage('#imgVinculacion', 1.0, 0, 0);
-        scaleImage('#imgComunicacion', 1.0, 0, 0);
-    });
-
-    $('#imgGestion').on('mouseout', function(){
-        scaleImage('#imgGestion', 1.2, -12, -11);
-        scaleImage('#imgEducacion', 1.0, 0, 0);
-        scaleImage('#imgVinculacion', 1.0, 0, 0);
-        scaleImage('#imgComunicacion', 1.0, 0, 0);
-    });
-
-    $('#imgEducacion').on('mouseover', function(){
-        scaleImage('#imgGestion', 1.0, 0, 0);
-        scaleImage('#imgEducacion', 1.2, -12, 11);
-        scaleImage('#imgVinculacion', 1.0, 0, 0);
-        scaleImage('#imgComunicacion', 1.0, 0, 0);
-    });
-
-
-    $('#imgVinculacion').on('mouseover', function(){
-        scaleImage('#imgGestion', 1.0, 0, 0);
-        scaleImage('#imgEducacion', 1.0, 0, 0);
-        scaleImage('#imgVinculacion', 1.2, 10, -14);
-        scaleImage('#imgComunicacion', 1.0, 0, 0);
-    });
-
-
-    $('#imgComunicacion').on('mouseover', function(){
-        scaleImage('#imgGestion', 1.0, 0, 0);
-        scaleImage('#imgEducacion', 1.0, 0, 0);
-        scaleImage('#imgVinculacion', 1.0, 0, 0);
-        scaleImage('#imgComunicacion', 1.2, 10, 14);
-    });*/
-}
-
 $(function()
 {
     animaRuedaODS();
