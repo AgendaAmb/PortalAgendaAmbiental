@@ -25,7 +25,7 @@
 
 @section('BannerBotones')
 <div
-    class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
+    class="mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

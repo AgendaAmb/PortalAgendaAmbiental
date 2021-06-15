@@ -31,6 +31,7 @@
         ||route('Cineminuto')==url()->full()
         ||route('FotografiaS')==url()->full()
         ||route('DateUnRespiro')==url()->full()
+        ||route('Proserem')==url()->full()
 
         )
         <x-navbar-o-d-s>
