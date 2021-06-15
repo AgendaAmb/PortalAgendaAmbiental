@@ -35,3 +35,4 @@
 <link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
 <link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
 <link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
+<!--pruebas de servidor--->
