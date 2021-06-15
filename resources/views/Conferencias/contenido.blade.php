@@ -32,35 +32,35 @@
 
 
 <div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-center  justify-content-lg-start  justify-content-md-center justify-content-center mx-auto ">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
+    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-around  justify-content-lg-start  justify-content-md-center ">
+    <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group flex-wrap justify-content-between   " role="group" aria-label="Basic example">
+            <a class="btn btnCur  mx-5 my-2  " href="#" role="button group" data-toggle="modal" data-target="#SaludMental"
+                id="CICLOCON">
+                LA SALUD MENTAL <br> DESDE LA PERPECTIVA <br> DE LOS DERECHOS HUMANOS <br> Y LOS OBJETIVOS DEL <br>
+                DESARROLLO SUSTENTABLE
+            </a>
+            <a class="btn btnCur  mx-5 my-2 " href="#" role="button group" data-toggle="modal" data-target="#Lasostenibilidad"
+                id="CICLOCON">
+                "LA SOSTENIBILIDAD" <br> EL APRENDIZAJE DE LA <br> CONTINGENCIA GLOBAL
+            </a>
+            <a class="btn btnCur  mx-5 my-2 " href="#" role="button group" data-toggle="modal" data-target="#Justicia"
+                id="CICLOCON">
+                JUSTICIA Y GÉNERO: <br> UNO DE LOS ODS DESDE EL <br> ENFOQUE DE DERECHOS <br> HUMANOS UNIVERSITARIOS
+            </a>
+            <a class="btn btnCur  mx-5 my-2 " href="#" role="button group" data-toggle="modal" data-target="#Cultura"
+                id="CICLOCON">
+                LA CULTURA, ELEMENTO <br> CENTRAL DE LOS ODS
+            </a>
+            <a class="btn btnCur  mx-5 my-2 " href="#" role="button group" data-toggle="modal" data-target="#Arte"
+                id="CICLOCON">
+                EL ARTE COMO MEDIO PARA <br> INTEGRAR LA SOSTENIBILIDAD <br> EN EL DESARROLLO <br> UNIVERSITARIO
+            </a>
+    
+        </div>
 
     </div>
-    <div class="btn-group flex-wrap " role="group" aria-label="Basic example">
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#SaludMental"
-            id="CICLOCON">
-            LA SALUD MENTAL <br> DESDE LA PERPECTIVA <br> DE LOS DERECHOS HUMANOS <br> Y LOS OBJETIVOS DEL <br>
-            DESARROLLO SUSTENTABLE
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#Lasostenibilidad"
-            id="CICLOCON">
-            "LA SOSTENIBILIDAD" <br> EL APRENDIZAJE DE LA <br> CONTINGENCIA GLOBAL
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#Justicia"
-            id="CICLOCON">
-            JUSTICIA Y GÉNERO: <br> UNO DE LOS ODS DESDE EL <br> ENFOQUE DE DERECHOS <br> HUMANOS UNIVERSITARIOS
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#Cultura"
-            id="CICLOCON">
-            LA CULTURA, ELEMENTO <br> CENTRAL DE LOS ODS
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#Arte"
-            id="CICLOCON">
-            EL ARTE COMO MEDIO PARA <br> INTEGRAR LA SOSTENIBILIDAD <br> EN EL DESARROLLO <br> UNIVERSITARIO
-        </a>
-
-    </div>
+    
 
 </div>
 
