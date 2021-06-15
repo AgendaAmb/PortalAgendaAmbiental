@@ -26,7 +26,7 @@
 
 @section('BannerBotones')
 <div
-    class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
+    class=" mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -53,7 +53,7 @@
 
 
 <div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
+    class="row mt-1 col-md-12  col-sm-12 pl-xl-5 ml-xl-5 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
         <a class="btn btnCur m-2 " 

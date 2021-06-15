@@ -1,4 +1,4 @@
-<nav class="nav flex-row nav-pills" id="v-pills-tab" role="tablist">
+<nav class="nav flex-row nav-pills justify-content-center" id="v-pills-tab" role="tablist">
     <a class="nav-link"id="v-pills-boton13-tab" data-toggle="pill"href="#enero1" role="tab" aria-controls="v-pills-boton13" aria-selected="true">
        Enero
     </a>
