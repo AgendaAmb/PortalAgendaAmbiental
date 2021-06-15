@@ -22,17 +22,17 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <script src="{{asset('js/ods.js') }}"></script>
-
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
+<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
 <!-- Fonts -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 @stack('stylesheets')
 @stack('Styles')
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Bold.otf')}}" as="style">
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Light.otf')}}" as="style">
-<link rel="preload" href="{{asset('TiposDeLetra/MyriadPro-Regular.otf')}}" as="style">
 <!--pruebas de servidor--->
