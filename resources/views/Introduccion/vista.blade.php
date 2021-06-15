@@ -18,7 +18,7 @@
         propuesta formal de los estudios ambientales.
       </p>
       <div class="row justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start justify-content-xl-start mx-1">
-        <a href="#">
+        <a href="{{route('Nosotros')}}">
           <button type="button" class="btn botonLeerMas"> Leer más </button>
         </a>
       </div>
@@ -40,11 +40,14 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/B_Marroquineria1.png')}}" class="imgCaoursel pr-2"
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.jpg')}}" class="imgCaoursel pr-2"
                 alt="First slide">
               </a>
-              <img src="{{ asset('storage/imagenes/UPCYCLE/B_Marroquineria2.png')}}" class="imgCaoursel pl-2"
-                alt="First slide">
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
+                  alt="First slide">
+
+              </a>
             </div>
           </div>
 
@@ -127,7 +130,7 @@
               <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}" class="imgCaoursel pl-2"
                 alt="First slide">
                 <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="imgCaoursel pl-2"
+                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.png')}}" class="imgCaoursel pl-2"
                   alt="First slide">
                 </a>
             </div>
@@ -138,7 +141,7 @@
               <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}" class="imgCaoursel pl-2"
                 alt="First slide">
                 <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="imgCaoursel pl-2"
+                  <img src="{{ asset('storage/imagenes/introduccion/date-respiro.png')}}" class="imgCaoursel pl-2"
                   alt="First slide">
                 </a>
             </div>
@@ -172,9 +175,9 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
-            <a href="#" data-toggle="modal" data-target="#modalCursoUnihuerto">
-              <img src="{{ asset('storage/imagenes/UPCYCLE/B_Marroquineria.png')}}" class="imgCaoursel pr-2 w-100"
-              alt="First slide">
+            <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
+                alt="First slide">
             </a>
           </div>
         </div>
@@ -217,8 +220,10 @@
         </div>
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}"
-              class="imgCaoursel pl-2 w-100 p-0" alt="First slide">
+            <a href="{{route('DateUnRespiro')}}">
+              <img src="{{ asset('storage/imagenes/introduccion/daterespiro.png')}}" class="imgCaoursel pl-2"
+              alt="First slide">
+            </a>
 
           </div>
         </div>

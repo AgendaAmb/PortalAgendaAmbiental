@@ -3,9 +3,11 @@
         Botón principal del acordeón.
     -->
     
-    <a class="btn btn-secondary w-100 font-weight-bold " data-toggle="collapse" 
+    <a class="btn btn-secondary w-100 font-weight-bolder " data-toggle="collapse" 
         href="{{ '#'.$idAcordeon }}" role="button">
-        {{ $tituloAcordeon }}
+     
+            {{ $tituloAcordeon }}
+
     </a>
 
     <!--

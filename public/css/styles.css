@@ -54,6 +54,7 @@ height: 34px;
     padding-bottom: 0%;
     padding-right: 0.2rem;
     padding-top: 0.5rem;
+    font-size: 18px;
  }
 .navbar .nav-item:hover .dropdown-menu{
     display: block;
@@ -857,7 +858,7 @@ display: flow-root;
     #textoInicio
 {
     
-    font-size: 16px;
+    font-size: 15px;
 }
     ul.dropdown-menu {
         margin-right: -2000px;

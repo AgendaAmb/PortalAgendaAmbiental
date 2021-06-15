@@ -2,10 +2,10 @@
 <h2 style="color:#616A7A;">¿Qué podemos hacer por ti?</h2>
 <br>
 En Agenda Ambiental nos preocupamos por ti, es por eso que ponemos a tu
-disposición nuestro buzón de contacto, el cual puedes acceder <a
+disposición nuestro buzón de contacto, el cual puedes acceder <a target="blank"
   href="//a.uaslp.mx/ContactaCAA">AQUÍ</a> o en el URL: //a.uaslp.mx/ContactaCAA
 <br><br>
 <center>
-  <img src="../../wp-content/uploads/2020/06/qr.jpg" width="200px">
+  <img src="{{asset('storage/imagenes/Logos/qr.jpg')}}" width="200px">
 </center>
 </div>

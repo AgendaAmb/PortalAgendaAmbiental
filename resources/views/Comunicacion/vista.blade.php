@@ -152,7 +152,7 @@ $months[] = $date;
     {{--
         2021
     --}}
-    <div class="row tab-content ml-2 justify-content-center" id="myTabContent">
+    <div class="row tab-content mx-2 justify-content-center" id="myTabContent">
         <div class="tab-pane fade show active " id="marzo2" role="tabpanel" aria-labelledby="marzo2-tab">
             <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
                 <div class="carousel-inner">
@@ -269,7 +269,7 @@ $months[] = $date;
         </div>
         <div class="tab-pane fade" id="julio1" role="tabpanel" aria-labelledby="julio1-tab">
             <div class="carousel-item active">
-                <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                <a href="{{route('CicloConf')}}">
                     <img class="d-block w-100" src="{{ asset('img/B_Conferencias.png') }}" alt="First slide">
                 </a>
             </div>
