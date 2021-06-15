@@ -4,40 +4,39 @@
             class="img-fluid ejeTrabajo"
             width="125"
             usemap="#circuloODS"
-            style="z-index: 2; left: -106px; top:4px">
+            style="z-index: 2;">
 
         <a href="{{ route('Gestion') }}">
             <img
                 id ="imgGestion"
                 class="img-fluid ejeTrabajo"
-                src="{{ asset('storage/imagenes/ods/gestion.png') }}"
+                src="{{ asset('img/ods/Gestion.png') }}"
                 width="150"
-                style="top:-126px; left:-246px; @if (route('Gestion') === url()->full()) transform: scale(1.2) translate(-12px, -11px); @endif">
+                style="top: -134px; left:-135px; @if (route('Gestion') === url()->full()) transform: scale(1.2) translate(-11px, -11px); @endif">
         </a>
         <a href="{{ route('Educacion') }}">
             <img
                 id ="imgEducacion"
                 class="img-fluid ejeTrabajo"
-                src="{{ asset('storage/imagenes/ods/educacion.png') }}"
+                src="{{ asset('img/ods/Educacion.png') }}"
                 width="150"
-                style="top:143px; left:-246px; @if (route('Educacion') === url()->full()) transform: scale(1.2) translate(-12px, 11px); @endif">
+                style="top:132px; left:-135px; @if (route('Educacion') === url()->full()) transform: scale(1.2) translate(-11px, 11px); @endif">
         </a>
 
         <a href="{{ route('Vinculacion') }}">
             <img
             id ="imgVinculacion"
             class="img-fluid ejeTrabajo"
-            src="{{ asset('storage/imagenes/ods/vinculacion.png') }}"
+            src="{{ asset('img/ods/Vinculacion.png') }}"
             width="150"
-            style="top: -98px; @if (route('Vinculacion') === url()->full()) transform: scale(1.2) translate(10px, -10px); @endif">
+            style="top: -130px; left: 134px; @if (route('Vinculacion') === url()->full()) transform: scale(1.2) translate(10px, -11px); @endif">
         </a>
-
         <a href="{{ route('Comunicacion') }}">
             <img class="img-fluid ejeTrabajo"
                 id ="imgComunicacion"
-                src="{{ asset('storage/imagenes/ods/comunicacion.png') }}"
+                src="{{ asset('img/ods/Comunicacion.png') }}"
                 width="150"
-                style="top: 117px; @if (route('Comunicacion') === url()->full()) transform: scale(1.2) translate(10px, 14px); @endif">
+                style="top: 120px; left: 122px; @if (route('Comunicacion') === url()->full()) transform: scale(1.08) translate(10px, 11px); @else transform: scale(0.91) @endif">
         </a>
     </div>
 </div>

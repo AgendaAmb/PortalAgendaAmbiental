@@ -8,7 +8,7 @@ $(function(){
     });
 
     $('#imgEducacion').on('mouseover', function(){
-        scaleImage('#imgEducacion', 1.2, -12, 11);
+        scaleImage('#imgEducacion', 1.2, -11, 11);
     });
 
     $('#imgEducacion').on('mouseout', function(){
