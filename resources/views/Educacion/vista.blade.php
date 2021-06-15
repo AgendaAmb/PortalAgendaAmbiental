@@ -42,29 +42,29 @@ gestión y vinculación con la sociedad.';
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
 
-{{-- 
-    Tabs de Gestión Institucional.    
+{{--
+    Tabs de Gestión Institucional.
 --}}
 <x-tab-panel>
-    {{-- 
-        Grupo de botones de los tabs. 
+    {{--
+        Grupo de botones de los tabs.
     --}}
-    <x-slot name="tabButtons"> 
+    <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="EDUCACIÓN FORMAL" class="nav-link active" />
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="EDUCACIÓN NO FORMAL" class="nav-link" />
     </x-slot>
 
     <x-slot name="tabContent">
 
-        {{-- 
+        {{--
             Tab correspondiente a EDUCACIÓN FORMAL.
         --}}
         <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-1" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s1" 
+            <x-slider idSlider="s1"
                         titulo="EDUCACIÓN FORMAL"
                         descripcion="Se refiere a procesos educativos normados que tienen una intención deliberada, que se concretiza en un currículo oficial y se estructura en función de: objetivos, métodos y evaluación. La conclusión del programa académico conduce a la obtención de un certificado. Ejemplos de ello son: diplomados, cursos de actualización y estudios de posgrado."
                         class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
-                
+
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCACION-FORMAL1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Educacion/EDUCACION-FORMAL2.png')" />
             </x-slider>
@@ -74,12 +74,12 @@ gestión y vinculación con la sociedad.';
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
-        {{-- 
+        {{--
             Tab correspondiente a EDUCACIÓN NO FORMAL.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-2" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s2" 
-                        titulo="EDUCACIÓN NO FORMAL" 
+            <x-slider idSlider="s2"
+                        titulo="EDUCACIÓN NO FORMAL"
                         descripcion="Se da en aquéllos contextos en los que, existiendo una intencionalidad educativa y una planificación de las experiencias de enseñanza-aprendizaje, estas ocurren fuera del ámbito del sistema escolarizado. Ejemplos de ello pueden ser: conferencias, conversatorios, coloquios, simposios, talleres."
                         class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" >
 
@@ -90,9 +90,17 @@ gestión y vinculación con la sociedad.';
 </x-tab-panel>
 @endsection
 
-{{-- 
-    Hace push a las hojas de estilo, para indicar el estilo y color de los botones del nav-tab    
+{{--
+    Hace push a las hojas de estilo, para indicar el estilo y color de los botones del nav-tab
 --}}
 @push('stylesheets')
 <link href="{{ asset('css/nav-pill_Educacion.css') }}" rel="stylesheet" type="text/css">
+@endpush
+
+{{--
+    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+    los botones del nav-tab
+--}}
+@push('scripts')
+<script src="{{ asset('js/odsEducacion.js') }}"></script>
 @endpush

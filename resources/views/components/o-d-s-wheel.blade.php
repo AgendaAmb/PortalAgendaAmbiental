@@ -6,28 +6,35 @@
             usemap="#circuloODS"
             style="z-index: 2; left: -106px; top:4px">
 
-        <a href="#">
-            <img class="img-fluid ejeTrabajo"
+        <a href="{{ route('Gestion') }}">
+            <img
+                id ="imgGestion"
+                class="img-fluid ejeTrabajo"
                 src="{{ asset('storage/imagenes/ods/gestion.png') }}"
                 width="150"
                 style="top:-126px; left:-246px; @if (route('Gestion') === url()->full()) transform: scale(1.2) translate(-12px, -11px); @endif">
         </a>
-        <a href="#">
-            <img class="img-fluid ejeTrabajo"
+        <a href="{{ route('Educacion') }}">
+            <img
+                id ="imgEducacion"
+                class="img-fluid ejeTrabajo"
                 src="{{ asset('storage/imagenes/ods/educacion.png') }}"
                 width="150"
                 style="top:143px; left:-246px; @if (route('Educacion') === url()->full()) transform: scale(1.2) translate(-12px, 11px); @endif">
         </a>
 
-        <a href="#">
-            <img class="img-fluid ejeTrabajo"
+        <a href="{{ route('Vinculacion') }}">
+            <img
+            id ="imgVinculacion"
+            class="img-fluid ejeTrabajo"
             src="{{ asset('storage/imagenes/ods/vinculacion.png') }}"
             width="150"
-            style="top: -98px; @if (route('Vinculacion') === url()->full()) transform: scale(1.2) translate(10px, -14px); @endif">
+            style="top: -98px; @if (route('Vinculacion') === url()->full()) transform: scale(1.2) translate(10px, -10px); @endif">
         </a>
 
-        <a href="#">
+        <a href="{{ route('Comunicacion') }}">
             <img class="img-fluid ejeTrabajo"
+                id ="imgComunicacion"
                 src="{{ asset('storage/imagenes/ods/comunicacion.png') }}"
                 width="150"
                 style="top: 117px; @if (route('Comunicacion') === url()->full()) transform: scale(1.2) translate(10px, 14px); @endif">

@@ -39,14 +39,14 @@ propios.';
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
 
-{{-- 
-    Tabs de Gestión Institucional.    
+{{--
+    Tabs de Gestión Institucional.
 --}}
 <x-tab-panel>
-    {{-- 
-        Grupo de botones de los tabs. 
+    {{--
+        Grupo de botones de los tabs.
     --}}
-    <x-slot name="tabButtons"> 
+    <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" class="nav-link active" />
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" class="nav-link" />
         <x-tab-panel-button id="v-pills-boton3" idTabPanelContent="#tab-panel-3" nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link" />
@@ -56,26 +56,26 @@ propios.';
 
     <x-slot name="tabContent">
 
-        {{-- 
+        {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE AGUA.
         --}}
         <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-1" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s1" 
+            <x-slider idSlider="s1"
                         titulo="PROGRAMA UNIVERSITARIO DE AGUA"
                         descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
                         class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
-                
+
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')" />
             </x-slider>
         </x-tab-panel-content>
 
-        {{-- 
+        {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE ENERGÍA.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-2" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s2" 
-                        titulo="PROGRAMA UNIVERSITARIO DE ENERGÍA" 
+            <x-slider idSlider="s2"
+                        titulo="PROGRAMA UNIVERSITARIO DE ENERGÍA"
                         descripcion="Implementa el buen uso de la energía promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la estrategia para la transición hacia las energías renovables; tomando en cuenta las instalaciones, los equipos, la operación, el uso de energías renovables y la iluminación eficiente, buscando no causar impacto ambiental negativo y cumpliendo con estándares y criterios."
                         class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" >
 
@@ -88,15 +88,15 @@ propios.';
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
-        {{-- 
+        {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-3" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s3" 
-                        titulo="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" 
+            <x-slider idSlider="s3"
+                        titulo="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
                         descripcion="Integra el manejo de la flora y fauna de los campus universitarios para que sean congruentes con la ecología del entorno, funcionales, con arquitectura del paisaje que incluya las especies endémicas y que se promueva la interacción, respeto y sana convivencia recreativa y académica. Los jardines universitarios deben basarse en un diseño de acuerdo a las características bioclimáticas de cada región de nuestros campus universitarios. Los huertos urbanos  aportan al sistema ecológico beneficios ambientales como regulación de la temperatura, promoción de la biodiversidad vegetal y de fauna, con especial énfasis en los polinizadores, y el campo de experimentación para estrategias de producción sostenible de hortalizas y una cultura de alimentación sana."
                         class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" >
-            
+
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/biodiversidad1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/biodiversidad2.png')" />
             </x-slider>
@@ -107,12 +107,12 @@ propios.';
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
-        {{-- 
+        {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE RESIDUOS.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-4" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s4" 
-                    titulo="PROGRAMA UNIVERSITARIO DE RESIDUOS" 
+            <x-slider idSlider="s4"
+                    titulo="PROGRAMA UNIVERSITARIO DE RESIDUOS"
                     descripcion="Busca el manejo apropiado de las sustancias y materiales reguladas, residuos peligrosos, residuos de manejo especial, residuos sólidos urbanos, emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y administrativas para garantizar la seguridad, salud, prevención de contaminación al ambiente y el cumplimiento legal."
                     class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -127,15 +127,15 @@ propios.';
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
-        {{-- 
+        {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-5" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s5"
-                        titulo="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGO" 
+                        titulo="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGO"
                         descripcion="Articula acciones, planes y estrategias de prevención para tener mayor seguridad en las instalaciones y operaciones universitarias así como para saber responder ante contingencias."
                         class="tab-pane fade show" id="slider5" role="tabpanel" aria-labelledby="nav-home-tab">
-                
+
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/riesgos1.jpg')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/riesgos2.png')" />
             </x-slider>
@@ -148,9 +148,19 @@ propios.';
 </x-tab-panel>
 @endsection
 
-{{-- 
-    Hace push a las hojas de estilo, para indicar el estilo y color de los botones del nav-tab    
+{{--
+    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+    los botones del nav-tab
 --}}
 @push('stylesheets')
 <link href="{{ asset('css/nav-pill_Gestion.css') }}" rel="stylesheet" type="text/css">
+@endpush
+
+
+{{--
+    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+    los botones del nav-tab
+--}}
+@push('scripts')
+<script src="{{ asset('js/odsGestion.js') }}"></script>
 @endpush

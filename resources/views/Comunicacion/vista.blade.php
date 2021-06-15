@@ -1,5 +1,5 @@
-{{-- 
-    
+{{--
+
 --}}
 
 @extends('Bienvenido')
@@ -95,8 +95,8 @@ $months[] = $date;
     </x-ejeTrabajo>
 </div>
 
-{{-- 
-    Tabs del programa de Comunicación.    
+{{--
+    Tabs del programa de Comunicación.
 --}}
 
 
@@ -112,31 +112,31 @@ $months[] = $date;
             data-ride="carousel" data-interval="false">
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    {{-- 
-                        Pestañas del 2021    
+                    {{--
+                        Pestañas del 2021
                     --}}
-            
+
                     @include('Parciales.TabsCalendario.2021-pill-tabs')
                 </div>
                 <div class="carousel-item mx-1">
-                    {{-- 
-                        Pestañas del 2020    
+                    {{--
+                        Pestañas del 2020
                     --}}
                     @include('Parciales.TabsCalendario.2020-pill-tabs')
 
                 </div>
                 <div class="carousel-item">
-                    {{-- 
-                        Pestañas del 2019.      
+                    {{--
+                        Pestañas del 2019.
                     --}}
-                    
+
                     @include('Parciales.TabsCalendario.2019-pill-tabs')
 
                     </ul>
                 </div>
                 <div class="carousel-item">
-                    {{-- 
-                        Muestra nuevamente las pestañas del 2020.      
+                    {{--
+                        Muestra nuevamente las pestañas del 2020.
                     --}}
                     @include('Parciales.TabsCalendario.2020-pill-tabs')
                 </div>
@@ -148,8 +148,8 @@ $months[] = $date;
             </a>
         </div>
     </div>
-    {{-- 
-        2021    
+    {{--
+        2021
     --}}
     <div class="row tab-content ml-2" id="myTabContent">
         <div class="tab-pane fade show active " id="marzo2" role="tabpanel" aria-labelledby="marzo2-tab">
@@ -167,7 +167,7 @@ $months[] = $date;
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <a href="{{route('FotografiaS')}}">
-                          
+
                             <img class="d-block w-100"
                         src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}" alt="First slide"></a>
                     </div>
@@ -188,8 +188,8 @@ $months[] = $date;
             </div>
         </div>
 
-        {{-- 
-            2020    
+        {{--
+            2020
         --}}
         <div class="tab-pane fade " id="enero1" role="tabpanel" aria-labelledby="enero1-tab">
             <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
@@ -295,7 +295,7 @@ $months[] = $date;
                     <div class="carousel-item active">
                         <a
                             href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegTallerUnihuerto/forms/template.xsn&amp;OpenIn=browser&amp;SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegTallerUnihuerto&amp;Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegTallerUnihuerto">
-                            <img 
+                            <img
                                 class="d-block w-100" src="{{ asset('img/Banner_UnihuertoP.jpg') }}"
                                 alt="First slide">
                         </a>
@@ -337,4 +337,12 @@ $months[] = $date;
 
 @push('stylesheets')
 <link href="{{ asset('css/nav-pill_Comunicacion.css') }}" rel="stylesheet" type="text/css">
+@endpush
+
+{{--
+    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+    los botones del nav-tab
+--}}
+@push('scripts')
+<script src="{{ asset('js/odsComunicacion.js') }}"></script>
 @endpush

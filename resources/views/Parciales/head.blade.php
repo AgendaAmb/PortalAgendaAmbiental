@@ -28,7 +28,11 @@
 
 @stack('stylesheets')
 @stack('Styles')
+
+{{--
+    Pila de scripts
+--}}
+@stack('scripts')
 <!--pruebas de servidor
     --->
-  
-  
+

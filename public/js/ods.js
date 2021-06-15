@@ -1,4 +1,4 @@
-var numerosOds = 
+var numerosOds =
 {
     "#gestion":[ "#ods3", "#ods11", "#ods12" ],
     "#vinculacion":[ "#ods4", "#ods6", "#ods11", "#ods12", "#ods17" ],
@@ -20,7 +20,12 @@ function QuitaODS(idSeccion) {
         $(numeroOds).fadeTo(1,0);
 }
 
-$(document).ready(function() 
+function scaleImage(id, scale, translateX, translateY) {
+    $(id).css('transform', '');
+    $(id).css('transform', "scale(" + scale + ") translate(" + translateX + "px, " + translateY + "px)");
+}
+
+function animaRuedaODS()
 {
     $('#gestion').on('mouseover', function() {
         MuestraODS('#gestion');
@@ -45,94 +50,50 @@ $(document).ready(function()
     }).on('mouseleave', function() {
         QuitaODS('#comunicacion');
     });
+}
 
+function animaRuedaEjesDeTrabajo()
+{
     /*
-    $('#columnaInicio').hover(function(){
-    $('#rangoODS').hover(function() {
-        $('#ods4').css('display', 'none').delay(800);
-        $('#ods6').css('display', 'none').delay(800);
-        $('#ods13').css('display', 'none').delay(800);
-        $('#ods17').css('display', 'none').delay(800);
-        $('#ods3').css('display', 'none').delay(800);
-        $('#ods11').css('display', 'none').delay(800);
-        $('#ods12').css('display', 'none').delay(800);
-        $('#ods7').css('display', 'none').delay(800);
-        $('#ods16').css('display', 'none').delay(800);
-       
-    });
-    $('.carousel').carousel('pause');
-    $('#gestionCirculo').hover(function() {
-        $('#gestion').css('display', 'inline');
-        $('#vinculacion').css('display', 'none');
-        $('#comunicacion').css('display', 'none');
-        $('#educacion').css('display', 'none');
-        $('#ods3').css('display', 'block');
-        $('#ods11').css('display', 'block');
-        $('#ods12').css('display', 'block');
-        $('#ods4').css('display', 'none');
-        $('#ods6').css('display', 'none');
-        $('#ods13').css('display', 'none');
-        $('#ods17').css('display', 'none');
-        $('#ods7').css('display', 'none');
-        $('#ods16').css('display', 'none');
+    $('#imgGestion').on('mouseover', function(){
+        scaleImage('#imgGestion', 1.2, -12, -11);
+        scaleImage('#imgEducacion', 1.0, 0, 0);
+        scaleImage('#imgVinculacion', 1.0, 0, 0);
+        scaleImage('#imgComunicacion', 1.0, 0, 0);
     });
 
-    $('#gestion').mouseleave(function() {
-        $('#gestion').css('display', 'none');
+    $('#imgGestion').on('mouseout', function(){
+        scaleImage('#imgGestion', 1.2, -12, -11);
+        scaleImage('#imgEducacion', 1.0, 0, 0);
+        scaleImage('#imgVinculacion', 1.0, 0, 0);
+        scaleImage('#imgComunicacion', 1.0, 0, 0);
     });
-    $('#areaVinculacion').mouseenter(function() {
-        $('#vinculacion').css('display', 'inline');
-        $('#gestion').css('display', 'none');
-        $('#comunicacion').css('display', 'none');
-        $('#educacion').css('display', 'none');
-        $('#ods4').css('display', 'block');
-        $('#ods6').css('display', 'block');
-        $('#ods11').css('display', 'block');
-        $('#ods12').css('display', 'block');
-        $('#ods17').css('display', 'block');
-        $('#ods3').css('display', 'none');
-        $('#ods13').css('display', 'none');
-        $('#ods7').css('display', 'none');
-        $('#ods16').css('display', 'none');
+
+    $('#imgEducacion').on('mouseover', function(){
+        scaleImage('#imgGestion', 1.0, 0, 0);
+        scaleImage('#imgEducacion', 1.2, -12, 11);
+        scaleImage('#imgVinculacion', 1.0, 0, 0);
+        scaleImage('#imgComunicacion', 1.0, 0, 0);
     });
-    $('#vinculacion').mouseleave(function() {
-        $('#vinculacion').css('display', 'none');
+
+
+    $('#imgVinculacion').on('mouseover', function(){
+        scaleImage('#imgGestion', 1.0, 0, 0);
+        scaleImage('#imgEducacion', 1.0, 0, 0);
+        scaleImage('#imgVinculacion', 1.2, 10, -14);
+        scaleImage('#imgComunicacion', 1.0, 0, 0);
     });
-    $('#areaComunicacion').mouseenter(function() {
-        $('#comunicacion').css('display', 'inline');
-        $('#gestion').css('display', 'none');
-        $('#vinculacion').css('display', 'none');
-        $('#educacion').css('display', 'none');
-        $('#ods13').css('display', 'block');
-        $('#ods3').css('display', 'block');
-        $('#ods4').css('display', 'none');
-        $('#ods6').css('display', 'none');
-        $('#ods12').css('display', 'block');
-        $('#ods11').css('display', 'block');
-        $('#ods17').css('display', 'block');
-        $('#ods7').css('display', 'none');
-        $('#ods16').css('display', 'block');
-    });
-    $('#comunicacion').mouseleave(function() {
-        $('#comunicacion').css('display', 'none');
-    });
-    $('#areaEducacion').mouseenter(function() {
-        $('#educacion').css('display', 'inline');
-        $('#gestion').css('display', 'none');
-        $('#vinculacion').css('display', 'none');
-        $('#comunicacion').css('display', 'none');
-        $('#ods4').css('display', 'block');
-        $('#ods3').css('display', 'block');
-        $('#ods13').css('display', 'none');
-        $('#ods6').css('display', 'block');
-        $('#ods7').css('display', 'block');
-        $('#ods12').css('display', 'none');
-        $('#ods11').css('display', 'block');
-        $('#ods17').css('display', 'none');
-        $('#ods16').css('display', 'none');
-    });
-    $('#educacion').mouseleave(function() {
-        $('#educacion').css('display', 'none');
-    });
-    */
+
+
+    $('#imgComunicacion').on('mouseover', function(){
+        scaleImage('#imgGestion', 1.0, 0, 0);
+        scaleImage('#imgEducacion', 1.0, 0, 0);
+        scaleImage('#imgVinculacion', 1.0, 0, 0);
+        scaleImage('#imgComunicacion', 1.2, 10, 14);
+    });*/
+}
+
+$(function()
+{
+    animaRuedaODS();
 });
