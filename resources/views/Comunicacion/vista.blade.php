@@ -159,7 +159,9 @@ $months[] = $date;
                     <div class="carousel-item active">
                         <a href="{{route('Cineminuto')}}"><img class="d-block w-100"
                                 src="{{ asset('img/Comunicacion/2021/B_Cineminuto.png') }}" alt="First slide"></a>
+                                
                     </div>
+                   
                 </div>
             </div>
         </div>
