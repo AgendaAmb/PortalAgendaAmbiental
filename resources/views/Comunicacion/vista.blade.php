@@ -142,7 +142,7 @@ $months[] = $date;
                 </div>
             </div>
         </div>
-       
+
         <div id="hide-me" class="  py-5">
             <a id="right" href="#multi-item-example" data-slide="next">
                 <i class="iconos2 fas fa-angle-right"></i>
@@ -159,9 +159,9 @@ $months[] = $date;
                     <div class="carousel-item active">
                         <a href="{{route('Cineminuto')}}"><img class="d-block w-100"
                                 src="{{ asset('img/Comunicacion/2021/B_Cineminuto.png') }}" alt="First slide"></a>
-                                
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -244,7 +244,7 @@ $months[] = $date;
             <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                        <a href="{{ route('CicloConf') }}">
                             <img class="d-block w-100" src="{{ asset('img/Comunicacion/2020/mayo1.png') }}" alt="First slide">
                         </a>
                     </div>
@@ -260,7 +260,7 @@ $months[] = $date;
                         </a>
                     </div>
                     <div class="carousel-item">
-                        <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                        <a href="{{ route('CicloConf') }}">
                             <img class="d-block w-100"  src="{{ asset('img/Comunicacion/2020/junio2.png') }}" alt="Second slide">
                         </a>
                     </div>
@@ -269,14 +269,14 @@ $months[] = $date;
         </div>
         <div class="tab-pane fade" id="julio1" role="tabpanel" aria-labelledby="julio1-tab">
             <div class="carousel-item active">
-                <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                <a href="{{ route('CicloConf') }}">
                     <img class="d-block w-100" src="{{ asset('img/B_Conferencias.png') }}" alt="First slide">
                 </a>
             </div>
         </div>
         <div class="tab-pane fade" id="agosto1" role="tabpanel" aria-labelledby="agosto1-tab">
             <div class="carousel-item active">
-                <a href="http://ambiental.uaslp.mx/conferencias/index.html">
+                <a href="{{ route('CicloConf') }}">
                     <img class="d-block w-100" src="{{ asset('img/B_Conferencias.png') }}" alt="First slide">
                 </a>
             </div>
