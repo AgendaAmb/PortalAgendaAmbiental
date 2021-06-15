@@ -1,9 +1,9 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify mt-2">
+<div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify my-2 ">
     <img src="{{ asset('storage/imagenes/Logos/Unibici_logo.png') }}" class="img-fluid" alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-12">
+<div class="col-xl-8 col-lg-8 col-md-12 mb-5">
     <p class="text-justify pSize">
         <br>Las ciudades del mundo ocupan solo el 3% de la tierra, pero representan entre el 60%, el 80% del consumo de
         energía y el 75% de las emisiones de carbono (ONU, 2015).

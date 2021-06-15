@@ -1,9 +1,9 @@
 @extends('Parciales.index')
 @section('TextImagen')
 <div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify mt-2">
-    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR.png') }}" class="img-fluid p-4" alt="" srcset="">
+    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR.png') }}" class="img-fluid p-4 w-75" alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-12">
+<div class="col-xl-8 col-lg-8 col-md-12 mb-5">
     <p class="text-justify pSize">
         En esta época donde el consumo se ha convertido en la esencia humana del siglo XXI se nos ha hecho creer que el
         consumo sin límites mide el bienestar de una sociedad, las posibilidades de consumir aumentan en el espacio de

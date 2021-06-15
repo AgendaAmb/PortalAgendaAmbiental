@@ -1,10 +1,10 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-1 pt-0">
+<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-5 pt-0">
     <img src="{{ asset('storage/imagenes/Logos/mmus-imagen.png') }}"
-        class="rounded mx-auto d-block w-75 py-xl-4 py-md-5" alt="" srcset="">
+        class="rounded mx-auto d-block w-50 py-xl-4 py-md-5" alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-8">
+<div class="col-xl-8 col-lg-8 col-md-8 mb-5">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
         A medida en que nos adentramos en el siglo XXI, los retos de sostenibilidad se agudizan en todas sus
         dimensiones, especialmente en contextos urbanos en dónde resulta impostergable la aplicación de estrategias que
@@ -31,44 +31,43 @@
 @endsection
 
 @section('BannerBotones')
-<div class="row justify-content-md-center  mx-auto">
-    <div class="col-auto  ">
-        <img src="{{asset('storage/imagenes/mmus/mmus_banner.png')}}" class="img-fluid " alt="" srcset="">
+<div class="row justify-content-md-start ">
+    <div class="col-12">
+
+        <img src="{{ asset('img/Comunicacion/2020/banner.png') }}" class="img-fluid " alt="" srcset="">
     </div>
+
 
 </div>
 
 
 <div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-center  justify-content-lg-start  justify-content-md-center justify-content-center mx-auto ">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    class="row mt-1 col-md-12 col-sm-12 pl-md-5 p-0 mx-5 justify-content-xl-start  justify-content-lg-start  justify-content-md-center justify-content-center mx-auto ">
+    <div class="btn-toolbar mx-xl-5" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group flex-wrap mx-xl-5  " role="group" aria-label="Basic example">
+            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modal3Celebraton"
+                id="CICLO">
+                TERCER CEBRATÓN
+            </a>
+            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCicloConfe"
+                id="CICLO">
+                CICLO DE CONFERENCIAS
+            </a>
+            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalTallerLinea"
+                id="CICLO">
+                TALLER EN LÍNEA
+            </a>
+            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalForoInter"
+                id="CICLO">
+                FORO VIRTUAL INTERNACIONAL
+            </a>
+            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal"
+                data-target="#modalCursoUnihuerto" id="CICLO">
+                VIERNES DE BICI
+            </a>
 
-
+        </div>
     </div>
-    <div class="btn-group flex-wrap " role="group" aria-label="Basic example">
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modal3Celebraton"
-            id="CICLO">
-            TERCER CEBRATÓN
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCicloConfe"
-            id="CICLO">
-            CICLO DE CONFERENCIAS
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalTallerLinea"
-            id="CICLO">
-            TALLER EN LÍNEA
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalForoInter"
-            id="CICLO">
-            FORO VIRTUAL INTERNACIONAL
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoUnihuerto"
-            id="CICLO">
-            VIERNES DE BICI
-        </a>
-
-    </div>
-
 </div>
 
 @endsection
@@ -344,7 +343,8 @@
                                 urbana alrededor de la crisis del COVID-19 y las estrategias que se están implementando;
                                 así como para reflexionar respecto a nuevos paradigmas y propuestas.</p><br>
                             <p style="text-align: right;"><a href="https://www.youtube.com/watch?v=09smBbaKMEI"
-                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}}"> </a></p>
+                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}}"> </a>
+                            </p>
                             <br><br>
                         </div>
                     </div>

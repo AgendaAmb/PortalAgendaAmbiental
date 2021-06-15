@@ -36,10 +36,10 @@
     class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoProserem">
+        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoProserem"id="CICLOCON">
             CURSO TALLER <br> RESPONSABILIDAD <br> INTEGRAL EN LABORATORIOS <br> Y TALLERES
         </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoUPCYCLE">
+        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoUPCYCLE" id="CICLOCON">
            UPCYCLE <br> MARROQUERÍA CON <br>MATERIALES RECICLADOS
         </a>
     </div>

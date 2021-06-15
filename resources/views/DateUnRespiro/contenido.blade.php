@@ -26,7 +26,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/Introduccion/DateUnRespiro.jpg')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
