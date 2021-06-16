@@ -7,7 +7,7 @@
         
         
         <div class="container">
-            <p class="descripionP"><b>{{$titulo}}</b> 
+            <p class="descripionP"><b class="TituloRes">{{$titulo}}</b> 
                <br> {{$descripcion}}<br>
             </p>
         </div>

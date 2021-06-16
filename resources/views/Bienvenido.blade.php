@@ -32,6 +32,7 @@
         ||route('FotografiaS')==url()->full()
         ||route('DateUnRespiro')==url()->full()
         ||route('Proserem')==url()->full()
+        ||route('ConsumoResponsable')==url()->full()
 
         )
         <x-navbar-o-d-s>

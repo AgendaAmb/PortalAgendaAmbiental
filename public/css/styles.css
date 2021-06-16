@@ -655,10 +655,15 @@ a.nav-item.nav-link.nav-button{
 
 }
 @media only screen and (min-width: 10px) and (max-width: 575px){
+    .TituloRes{
+        font-size: 1.4rem;
+        color: #115080;
+        font-family: 'Myraid Pro Bold';
+    }
     .descripionP{
         background-color: rgba(250, 250, 250, .8); 
         color: black; 
-        font-size: 14px; 
+       
         border: 0px; 
         position: sticky; 
        

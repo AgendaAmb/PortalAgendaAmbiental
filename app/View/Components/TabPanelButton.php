@@ -19,7 +19,7 @@ class TabPanelButton extends Component
      * @property string
      */
     public $nombre;
-
+    public $nombreRes;
     /**
      * Id del contenedor con el contenido que controla este
      * botón.
@@ -33,11 +33,12 @@ class TabPanelButton extends Component
      *
      * @return void
      */
-    public function __construct($id, $nombre, $idTabPanelContent)
+    public function __construct($id, $nombre, $idTabPanelContent,$nombreRes=null)
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->idTabPanelContent = $idTabPanelContent;
+        $this->nombreRes=$nombreRes;
     }
 
     /**

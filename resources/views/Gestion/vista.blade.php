@@ -49,19 +49,18 @@ propios.';
     --}}
     <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
-            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" class="nav-link" />
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
-            class="nav-link active" />
+            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" nombreRes="AGUA"
+            class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
-            nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" class="nav-link" />
-        <x-tab-panel-button id="v-pills-boton3" idTabPanelContent="#tab-panel-3"
-            nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link" />
+            nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA"  nombreRes="ENERGÍA" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
+        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
+            nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
         <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BLIBLIOTECA"
-            class="nav-link" />
+            class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="BLIBLIOTECA" />
     </x-slot>
 
     <x-slot name="tabContent">
-
         {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE AGUA.
         --}}
@@ -69,7 +68,7 @@ propios.';
             aria-labelledby="nav-home-tab">
             <x-slider idSlider="s1" titulo="PROGRAMA UNIVERSITARIO DE AGUA"
                 descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
-                class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+                class="tab-pane fade show active " role="tabpanel" aria-labelledby="nav-home-tab">
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')" />
@@ -185,6 +184,9 @@ window.addEventListener("resize", function(){
   
    $('#v-pills-tab').removeClass('nav-pills');
    $('#v-pills-tab').addClass('nav-tabs');
+   
+
+
  }else if(screen.width >575){
    $('#v-pills-tab').removeClass('nav-tabs');
     $('#v-pills-tab').addClass('nav-pills');
@@ -198,13 +200,17 @@ $(function()
   
    $('#v-pills-tab').removeClass('nav-pills');
    $('#v-pills-tab').addClass('nav-tabs');
+ 
+  
+
  }else if(screen.width >575){
    $('#v-pills-tab').removeClass('nav-tabs');
     $('#v-pills-tab').addClass('nav-pills');
  }
-  });
+});
+
    
-  
+
     
 </script>
 @endpush

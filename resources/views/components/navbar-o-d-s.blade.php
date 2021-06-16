@@ -17,11 +17,11 @@
         </div>
     
         <div @if (route('Gestion')==url()->full()||route('Educacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()
-            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full()||route('Proserem')==url()->full())
+            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full()||route('Proserem')==url()->full()||route('ConsumoResponsable')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/health/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS3_Salud_Bienestar.webp')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()||route('DateUnRespiro')==url()->full()||route('Proserem')==url()->full()
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS3_Salud_Bienestar.webp')}} {{route('Gestion')==url()->full()||route('Educacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()||route('DateUnRespiro')==url()->full()||route('Proserem')==url()->full()||route('ConsumoResponsable')==url()->full()
                 ||route('FotografiaS')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
@@ -74,21 +74,21 @@
             </a>
         </div>
         <div  @if (route('Gestion')==url()->full() ||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()
-            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full() ||route('Proserem')==url()->full())
+            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full() ||route('Proserem')==url()->full()||route('ConsumoResponsable')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/cities/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.webp')}} {{route('Gestion')==url()->full()||route('Proserem')==url()->full()||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()||route('DateUnRespiro')==url()->full()
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.webp')}} {{route('Gestion')==url()->full()||route('Proserem')==url()->full()||route('Educacion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()||route('DateUnRespiro')==url()->full()||route('ConsumoResponsable')==url()->full()
                 ||route('FotografiaS')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
         <div  @if (route('Gestion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()||route('Proserem')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()
-            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full())
+            ||route('FotografiaS')==url()->full()||route('DateUnRespiro')==url()->full()||route('ConsumoResponsable')==url()->full())
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/">
                 <img src={{ asset('storage/imagenes/ods/Iconos/ODS12_Produccion.webp')}} {{route('Gestion')==url()->full()|| route('Vinculacion')==url()->full()||route('Unibici')==url()->full()||route('Unihuerto')==url()->full() ||route('Cineminuto')==url()->full()||route('DateUnRespiro')==url()->full()
-                ||route('FotografiaS')==url()->full()||route('Proserem')==url()->full()?"id=od3":"class=imgODS"}}>
+                ||route('FotografiaS')==url()->full()||route('Proserem')==url()->full()||route('ConsumoResponsable')==url()->full()?"id=od3":"class=imgODS"}}>
             </a>
         </div>
        

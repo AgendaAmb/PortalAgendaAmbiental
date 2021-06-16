@@ -53,10 +53,15 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.jpg')}}" class="imgCaoursel pr-2"
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.jpg')}}" class="imgCaoursel pr-2"
                 alt="First slide">
-              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
-                alt="First slide">
+              </a>
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
+                  alt="First slide">
+
+              </a>
             </div>
           </div>
         </div>
@@ -65,15 +70,14 @@
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
+              <a href="{{route('ConsumoResponsable')}}">
+                <img src="{{ asset('storage/imagenes/introduccion/laboratorios.jpg')}}" class="imgCaoursel pl-2"
+                alt="First slide">
+              </a>
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
 
                 <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2"
                 alt="First slide">
-              </a>
-              <a href=  <a href={{route('Unihuerto',['nombreModal'=> 'modalCursoUnihuerto'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}" class="imgCaoursel pl-2"
-                alt="First slide">
-                
               </a>
 
             </div>
