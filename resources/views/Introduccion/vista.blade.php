@@ -266,7 +266,7 @@
 <div class="mt-3 row justify-content-around  Ejes d-none d-xl-flex d-lg-flex d-md-flex">
   <div class="col-md-5">
     <div class="envoltorioCirculoODS">
-      <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.png" class="img-fluid" width="518" id="circuloODS"
+      <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.webp" class="img-fluid" width="518" id="circuloODS"
         usemap="#circuloODS">
       <a href="#">
         <img class="img-fluid seccionODS" src="storage/imagenes/ods/gestion.png" id="gestion" width="270">
