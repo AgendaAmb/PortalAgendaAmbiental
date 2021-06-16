@@ -110,7 +110,7 @@ propios.';
                     :imageURL="asset('img/Gestion/Bn_Unihuerto.png')" urlhref="{{route('Unihuerto')}}" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
                     :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" />
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto w-75"
                     :imageURL="asset('img/Gestion/DATE-UN-RESPIRO.png')" urlhref="{{route('DateUnRespiro')}}" />
 
             </x-tab-panel-footer>
@@ -128,12 +128,12 @@ propios.';
                 <x-imagen-slider :linkImagen="asset('img/Gestion/residuos2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
                     :imageURL="asset('img/Gestion/proserem.png')" urlhref="{{route('Proserem')}}" />
                 <!-- <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" urlhref="{{route('ConsumoResponsable')}}"  />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto "
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto  "
                     :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
 
             </x-tab-panel-footer>
@@ -151,7 +151,7 @@ propios.';
                 <x-imagen-slider :linkImagen="asset('img/Gestion/riesgos2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
                     :imageURL="asset('img/Gestion/Bn_biblioteca.png')" />
 
             </x-tab-panel-footer>
