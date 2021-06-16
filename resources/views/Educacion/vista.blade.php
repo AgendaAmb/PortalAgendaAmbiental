@@ -42,16 +42,16 @@ gestión y vinculación con la sociedad.';
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'"/>
 </div>
 
-{{--
-    Tabs de Gestión Institucional.
---}}
+{{--Tabs de Gestión Institucional.--}}
 <x-tab-panel>
-    {{--
-        Grupo de botones de los tabs.
-    --}}
+    {{-- Grupo de botones de los tabs.--}}
     <x-slot name="tabButtons">
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="EDUCACIÓN FORMAL" class="nav-link active" />
-        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="EDUCACIÓN NO FORMAL" class="nav-link" />
+   
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1"
+        nombre="EDUCACIÓN FORMAL" nombreRes="FORMAL" class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
+        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
+        nombre="EDUCACIÓN NO FORMAL" nombreRes="NO FORMAL" class="nav-link  d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
+       
     </x-slot>
 
     <x-slot name="tabContent">
@@ -103,4 +103,43 @@ gestión y vinculación con la sociedad.';
 --}}
 @push('scripts')
 <script src="{{ asset('js/odsEducacion.js') }}"></script>
+
+<script>
+
+    window.addEventListener("resize", function(){
+        $(function() 
+      {
+        if (screen.width > 10 && screen.width <575) {
+      
+       $('#v-pills-tab').removeClass('nav-pills');
+       $('#v-pills-tab').addClass('nav-tabs');
+       
+    
+    
+     }else if(screen.width >575){
+       $('#v-pills-tab').removeClass('nav-tabs');
+        $('#v-pills-tab').addClass('nav-pills');
+     }
+      });
+    });
+    
+    $(function() 
+      {
+        if (screen.width > 10 && screen.width <575) {
+      
+       $('#v-pills-tab').removeClass('nav-pills');
+       $('#v-pills-tab').addClass('nav-tabs');
+     
+      
+    
+     }else if(screen.width >575){
+       $('#v-pills-tab').removeClass('nav-tabs');
+        $('#v-pills-tab').addClass('nav-pills');
+     }
+    });
+    
+       
+    
+        
+    </script>
 @endpush

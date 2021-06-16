@@ -12,3 +12,22 @@
     font-weight: bold;
     padding: 15px 50px;
 }
+
+@media only screen and (min-width: 10px) and (max-width: 575px){
+    .nav-tabs .nav-link{
+        width: 19%;
+        margin-left: 0.1rem;
+        font-size: 8px;
+        background-color: #dab631;
+        color: white;
+        font-weight: 900;
+        border-radius: 20px 20px 0px 0px;
+        padding: 0.5rem 0.3rem;
+        
+    }
+
+    .nav-tabs .nav-link.active, .nav-pills .show > .nav-link{
+        background-color: gray;
+        color: white;
+    }
+}

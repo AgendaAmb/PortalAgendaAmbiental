@@ -49,7 +49,7 @@ propios.';
     --}}
     <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
-            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
+            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS" class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" nombreRes="AGUA"
             class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"

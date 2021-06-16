@@ -28,11 +28,11 @@ universitarias.';
         Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons">
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="VINCULACIÓN ESTATAL" class="nav-link active" />
-        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="VINCULACIÓN NACIONAL" class="nav-link" />
-        <x-tab-panel-button id="v-pills-boton3" idTabPanelContent="#tab-panel-3" nombre="VINCULACIÓN INTERNACIONAL" class="nav-link" />
-        <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4" nombre="VINCULACIÓN Y PROYECTOS" class="nav-link" />
-        <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="VINCULACIÓN INSTITUCIONAL" class="nav-link" />
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="VINCULACIÓN ESTATAL" class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="ESTATAL"/>
+        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2" nombre="VINCULACIÓN NACIONAL" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="NACIONAL"/>
+        <x-tab-panel-button id="v-pills-boton3" idTabPanelContent="#tab-panel-3" nombre="VINCULACIÓN INTERNACIONAL" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="INTERNACIONAL"/>
+        <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4" nombre="VINCULACIÓN Y PROYECTOS" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="PROYECTOS"/>
+        <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="VINCULACIÓN INSTITUCIONAL" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="INSTITUCIONAL"/>
     </x-slot>
 
     <x-slot name="tabContent">
@@ -138,4 +138,42 @@ universitarias.';
 --}}
 @push('scripts')
 <script src="{{ asset('js/odsVinculacion.js') }}"></script>
+<script>
+
+    window.addEventListener("resize", function(){
+        $(function() 
+      {
+        if (screen.width > 10 && screen.width <575) {
+      
+       $('#v-pills-tab').removeClass('nav-pills');
+       $('#v-pills-tab').addClass('nav-tabs');
+       
+    
+    
+     }else if(screen.width >575){
+       $('#v-pills-tab').removeClass('nav-tabs');
+        $('#v-pills-tab').addClass('nav-pills');
+     }
+      });
+    });
+    
+    $(function() 
+      {
+        if (screen.width > 10 && screen.width <575) {
+      
+       $('#v-pills-tab').removeClass('nav-pills');
+       $('#v-pills-tab').addClass('nav-tabs');
+     
+      
+    
+     }else if(screen.width >575){
+       $('#v-pills-tab').removeClass('nav-tabs');
+        $('#v-pills-tab').addClass('nav-pills');
+     }
+    });
+    
+       
+    
+        
+    </script>
 @endpush
