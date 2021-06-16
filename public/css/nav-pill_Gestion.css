@@ -1,3 +1,4 @@
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
     background-color: gray;
 }
@@ -10,5 +11,25 @@
     font-size: 14px;
     border-radius: 20px 20px 20px 20px;
     padding:10px 30px;
-    
+}
+
+
+ 
+@media only screen and (min-width: 10px) and (max-width: 575px){
+    .nav-tabs .nav-link{
+        width: 19%;
+       margin-left: 0.1rem;
+        font-size: 8px;
+        background-color: #8a9b37;
+        color: white;
+        font-weight: 900;
+        border-radius: 20px 20px 0px 0px;
+        padding: 0.5rem 0.3rem;
+        
+    }
+
+    .nav-tabs .nav-link.active, .nav-pills .show > .nav-link{
+        background-color: gray;
+        color: white;
+    }
 }

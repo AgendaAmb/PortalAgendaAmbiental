@@ -32,11 +32,13 @@ body{
     background-color: gray;
     padding: 0%;
 }
+
 .navbar .nav-item:hover{
 background-color: #96A834;
 height: 34px;
 
 }
+
 
 .navbar .nav-item .dropdown-menu{
     display: none;

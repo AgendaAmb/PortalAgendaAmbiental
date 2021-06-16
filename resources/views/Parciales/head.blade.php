@@ -26,8 +26,8 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 
-@stack('stylesheets')
 @stack('Styles')
+@stack('stylesheets')
 
 {{--
     Pila de scripts
