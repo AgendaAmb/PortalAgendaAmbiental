@@ -65,10 +65,34 @@ propios.';
     </x-slot>
 
     <x-slot name="tabContent">
+
+         {{--
+            Tab correspondiente a PROGRAMA UNIVERSITARIO DE RESIDUOS.
+        --}}
+        <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-4" role="tabpanel" aria-labelledby="nav-home-tab">
+            <x-slider idSlider="s4" titulo="PROGRAMA UNIVERSITARIO DE RESIDUOS"
+                descripcion="Busca el manejo apropiado de las sustancias y materiales reguladas, residuos peligrosos, residuos de manejo especial, residuos sólidos urbanos, emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y administrativas para garantizar la seguridad, salud, prevención de contaminación al ambiente y el cumplimiento legal."
+                class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/residuos1.png')" />
+                <x-imagen-slider :linkImagen="asset('img/Gestion/residuos2.png')" />
+            </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
+                    :imageURL="asset('img/Gestion/proserem.png')" urlhref="{{route('Proserem')}}" />
+                <!-- <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" urlhref="{{route('ConsumoResponsable')}}"  />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto  "
+                    :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
+
+            </x-tab-panel-footer>
+        </x-tab-panel-content>
+
         {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE AGUA.
         --}}
-        <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-1" role="tabpanel"
+        <x-tab-panel-content class="tab-pane fade show " id="tab-panel-1" role="tabpanel"
             aria-labelledby="nav-home-tab">
             <x-slider idSlider="s1" titulo="PROGRAMA UNIVERSITARIO DE AGUA"
                 descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
@@ -120,29 +144,7 @@ propios.';
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
-        {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE RESIDUOS.
-        --}}
-        <x-tab-panel-content class="tab-pane fade show" id="tab-panel-4" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s4" titulo="PROGRAMA UNIVERSITARIO DE RESIDUOS"
-                descripcion="Busca el manejo apropiado de las sustancias y materiales reguladas, residuos peligrosos, residuos de manejo especial, residuos sólidos urbanos, emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y administrativas para garantizar la seguridad, salud, prevención de contaminación al ambiente y el cumplimiento legal."
-                class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
-
-                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/residuos1.png')" />
-                <x-imagen-slider :linkImagen="asset('img/Gestion/residuos2.png')" />
-            </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/proserem.png')" urlhref="{{route('Proserem')}}" />
-                <!-- <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" urlhref="{{route('ConsumoResponsable')}}"  />
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
-                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto  "
-                    :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
-
-            </x-tab-panel-footer>
-        </x-tab-panel-content>
-
+       
         {{--
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
         --}}

@@ -427,7 +427,15 @@ img.img-fluid.seccionODS
     right: 0;
     bottom: 0;
 }
-
+.close{
+background-color: tomato;
+    line-height: 25px;
+    border-radius: 12px;
+    width: 24px;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
 
 
 /*
@@ -684,7 +692,7 @@ a.nav-item.nav-link.nav-button{
         width: inherit;
 
     }
-   
+
     .btnCur{
         font-size: 0.5rem;
        
@@ -698,9 +706,7 @@ a.nav-item.nav-link.nav-button{
       
         }
        
-        .modal{
-width: 90%;
-        }
+     
     #textoInicio
 {
     

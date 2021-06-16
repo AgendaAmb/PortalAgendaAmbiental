@@ -271,7 +271,7 @@
 
             <div class="modal-body py-0">
                 <div class="col-12 mb-4 ml-3 p-0">
-                    <a href="#close" title="Close" class="close">X</a>
+                   
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">X</span>
                     </button>
