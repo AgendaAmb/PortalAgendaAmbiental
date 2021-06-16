@@ -10,7 +10,7 @@
 <div class="row justify-content-center mt-1">
     <div class="col-md-8 col-xl-7 m-lg-5  m-sm-1" >
        
-        <div class="sticky-top "> <img src="{{asset('storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png')}}" class="img-fluid" id="imglogo" alt=""></div>
+        <div class="sticky-top "> <img src="{{asset('storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.webp')}}" class="img-fluid" id="imglogo" alt=""></div>
         <div class="card" id="loginCard">
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">

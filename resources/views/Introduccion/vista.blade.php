@@ -284,7 +284,7 @@
       </a>
 
       <a href="http://www.uaslp.mx">
-        <img class="img-fluid" src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png" id="circuloUaslp"
+        <img class="img-fluid" src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.webp" id="circuloUaslp"
           width="228">
       </a>
 

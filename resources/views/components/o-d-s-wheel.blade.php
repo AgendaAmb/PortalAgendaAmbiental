@@ -1,6 +1,6 @@
 <div class="col-xl-4  col-lg-5 col-md-4 justify-content-center d-xl-block  d-lg-block  d-md-block d-none ml-3">
     <div class="ruedaODS">
-        <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.png"
+        <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.webp"
             class="img-fluid ejeTrabajo"
             width="125"
             usemap="#circuloODS"
