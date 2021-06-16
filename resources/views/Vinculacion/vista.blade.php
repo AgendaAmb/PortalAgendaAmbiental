@@ -49,7 +49,7 @@ universitarias.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Vinculacion/VINCULACION-ESTATAL.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-center">
-                <x-tab-panel-text class="col-12 col-lg-11 my-5" text='Entre las colaboraciones actuales están:<br><br>
+                <x-tab-panel-text class="col-12 col-lg-11 my-5 descripcion" text='Entre las colaboraciones actuales están:<br><br>
 
                 <strong> RedCIS Red Ciudadana para la Sostenibilidad de la Zona Metropolitana de San Luis Potosí </strong><br>
                 La RED forma una interacción entre ciudadanos de diversas disciplinas y sectores (académica, ONG, gobierno, industria, individual). El objetivo es proponer proyectos integrales que aporten al desarrollo sostenible de la Zona Metropolitana de San Luis Potosí en (ZMSLP), para mantener el bienestar del ser humano y las funciones del ecosistema, tomando en cuenta las opiniones y necesidades de diferentes actores. La RED busca una forma de establecer una comunicación continua con el gobierno, realizar propuestas de proyectos según las competencias y conocimientos de cada actor, identificar los problemas como ciudadanos y proponer soluciones; también estrechar la comunicación entre los diferentes actores para potencializar el impacto de proyectos ejecutados de forma aislada. Cada 2 meses reunión de la RED y cada mes reunión de una comisión.<br><br>

@@ -50,13 +50,17 @@ propios.';
     <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
             nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS" class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none " />
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" nombreRes="AGUA"
-            class="nav-link active d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
+        
+            <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA" nombreRes="AGUA"
+            class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
+
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
             nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA"  nombreRes="ENERGÍA" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
-        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
+       
+            <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
             nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" />
-        <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BLIBLIOTECA"
+        
+            <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BLIBLIOTECA"
             class="nav-link d-lg-flex d-xl-flex d-md-flex d-sm-flex d-none" nombreRes="BLIBLIOTECA" />
     </x-slot>
 

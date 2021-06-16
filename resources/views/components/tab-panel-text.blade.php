@@ -1,4 +1,4 @@
-<div {{ $attributes }}>
+<div {{ $attributes }} >
     {{-- 
         Pobla el componente con el texto.    
     --}}

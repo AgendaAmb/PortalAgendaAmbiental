@@ -212,9 +212,12 @@
 
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"
+            <a href="{{route('FotografiaS')}}">
+
+              <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}"
               class="imgCaoursel pl-2 w-100 p-0 p-0" alt="First slide">
-          </div>
+            </a>
+            </div>
         </div>
         <!--
         <div class="carousel-item">
@@ -224,12 +227,14 @@
           </div>
         </div>
       -->
+      <!--
         <div class="carousel-item">
           <div class="slide-box">
             <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
+      -->
         <div class="carousel-item">
           <div class="slide-box">
             <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2 w-100 p-0"

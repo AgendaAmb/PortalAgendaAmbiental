@@ -63,18 +63,18 @@
 </nav>
 <nav class="navbar navbar-expand-lg navbar-expand-xl navbar-expand-md d-flex d-lg-flex d-md-flex d-xl-flex">
 
-  <a class="btn btn-primary btn-sm MiPortal navbar-brand" href={{route('login')}} role="button">
+  <a class="btn btn-success btn-sm MiPortal navbar-brand " href={{route('login')}} role="button">
     <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
     MI PORTAL
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+  <button class="navbar-toggler d-none d-xl-none d-lg-none d-md-none d-sm-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon">
       <i class="fas fa-sort-down" style="color:#fff; font-size:28px;"></i>
     </span>
   </button>
 
-  <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+  <div class="collapse navbar-collapse d-none d-xl-flex d-lg-flex d-md-none d-sm-none" id="navbarTogglerDemo01">
     <div class="container justify-content-start">
 
     <ul class="navbar-nav w-100 justify-content-md-start">
