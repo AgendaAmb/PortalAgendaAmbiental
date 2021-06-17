@@ -47,7 +47,7 @@ class Slider extends Component
         $idSlider,
         $transitable = false,
         $descripcion = null,
-        $titulo
+        $titulo=null
     ){
         $this->idSlider = $idSlider;
         $this->transitable = $transitable;

@@ -5,13 +5,16 @@
     <div class="carousel-inner">
         {{ $slot }}
         
-        
+        @if ($titulo!=null)
         <div class="container">
             <p class="descripionP">
                 <b class="TituloRes">{{$titulo}}</b> 
                <br> {{$descripcion}}<br>
             </p>
         </div>
+      
+        @endif
+       
     </div>
 
     {{-- 

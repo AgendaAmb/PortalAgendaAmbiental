@@ -1,6 +1,6 @@
 <h2 class="font-weight-bold" style="color:#616a7ad5;">HISTORIA</h2>
 <br>
-<p style="font-size: 16px;color:black">
+<p style="font-size: 15px;color:black">
     El primer antecedente de la Agenda Ambiental es la Comisión de Medio Ambiente
     de la Universidad Autónoma de San Luis Potosí que nace en 1992 por iniciativa
     de profesores de las Facultades de Ingeniería, Ciencias Químicas y Medicina,

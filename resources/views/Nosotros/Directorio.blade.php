@@ -5,7 +5,7 @@
   extensión o marcar el número directo (444) 826-2439.
   <br><br>
   <div class="table-responsive">
-    <table class="table" style="font-size: 13px; width: 100%">
+    <table class="table" style="font-size: 15px; width: 100%">
       <thead style="background-color: #616a7a; color: white;">
         <tr>
           <th>

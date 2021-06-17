@@ -149,8 +149,7 @@ propios.';
             Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-5" role="tabpanel" aria-labelledby="nav-home-tab">
-            <x-slider idSlider="s5" titulo="PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGO"
-                descripcion="Articula acciones, planes y estrategias de prevención para tener mayor seguridad en las instalaciones y operaciones universitarias así como para saber responder ante contingencias."
+            <x-slider idSlider="s5"
                 class="tab-pane fade show" id="slider5" role="tabpanel" aria-labelledby="nav-home-tab">
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/riesgos1.jpg')" />
