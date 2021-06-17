@@ -52,14 +52,11 @@
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
-
-
-
-    <div style="font-size: 14px; font-family: 'Myraid light';">
-        <h3 style="color: #5c94d7;">Objetivo general</h3>
+    <div style="font-size: 15px; font-family: 'Myraid light';">
+        <h3 >Objetivo general</h3>
         <p>Ofrecer un espacio de relajación-activación, para el aprovechamiento y optimización de la energía de la
             comunidad universitaria para fortalecer y motivar sus actividades.</p>
-        <h3 style="color: #5c94d7;">Descripción</h3>
+        <h3 >Descripción</h3>
         <p>El programa se basa en la realización de ejercicios de respiración, activación, estiramiento, fortalecimiento
             y meditación.<br>Está disponible en dos formatos: de 5 minutos para líneas de producción y se amplía hasta a
             15 minutos para oficinas según convenga.<br>Cuenta con dos variantes para llevarse a cabo: en áreas verdes,
@@ -68,7 +65,7 @@
             ningún instrumento, vestimenta ni accesorio especial.<br>Los ejercicios incluyen técnicas de disciplinas y
             prácticas como: Educación física, yoga, meditaciones de diferentes vertientes (budistas, atención plena,
             yóguicas), tai chi chuan, pilates y otras disciplinas afines.</p>
-        <h3 style="color: #5c94d7;">Beneficios del programa</h3>
+        <h3 >Beneficios del programa</h3>
         <ul>
             <li>Reducir niveles de estrés</li>
             <li>Mejorar la oxigenación</li>
@@ -79,7 +76,7 @@
             <li>Promoción de la creatividad</li>
             <li>Ayudar a enfrentar situaciones con más tranquilidad</li>
         </ul>
-        <h4 style="color: #5c94d7;">Más información</h4>
+        <h4 >Más información</h4>
         <p style="font-size: 14px !important;">Laura Daniela Hernández Rodríguez<br>Sistema de Gestión
             Ambiental<br>Agenda Ambiental de la UASLP<br>Tel. 826-2300 ext. 7210<br><a
                 href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>

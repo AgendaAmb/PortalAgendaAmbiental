@@ -461,8 +461,9 @@ background-color: tomato;
 /*
     Estilos para el pie de página.
  */
-
-
+ h1,h2,h3,h4,h5,h6{
+    color: #5c94d7;
+ }
 footer
 {
     padding: 20px 20px 20px;
