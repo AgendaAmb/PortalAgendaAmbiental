@@ -4,16 +4,17 @@
     -->
     
     <a class="btn btn-secondary w-100 font-weight-bolder " data-toggle="collapse" 
-        href="{{ '#'.$idAcordeon }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+    data-target="{{ '#'.$idAcordeon }}" role="button" aria-expanded="false" aria-controls="collapseExample">
      
             {{ $tituloAcordeon }}
+            
             <i id="i" class="fa fa-chevron-down"></i>
     </a>
 
     <!--
         Items del acordeón.
     -->
-    <div class="collapse" id="{{ $idAcordeon }}">
+    <div  id="{{ $idAcordeon }}" class="collapse">
         <div class="card card-body">
         
         @foreach($componentesAcordeon as $nombreComponente => $detallesComponente)

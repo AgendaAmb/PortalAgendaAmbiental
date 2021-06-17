@@ -4,6 +4,7 @@
 <x-btns-ejes>
 
 </x-btns-ejes>
+
 <div class="mt-3 row justify-content-center">
   <div class="my-4 col-md-5 order-2 .order-xl-1 order-lg-1 order-md-1 order-sm-2">
     <article>
