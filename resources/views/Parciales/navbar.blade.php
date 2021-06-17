@@ -108,7 +108,7 @@
 
 
       <div>
-        <a class="btn btn-primary btn-sm MiPortal" href={{route('login')}} role="button">
+        <a class="btn btn-primary btn-sm MiPortal" href='http://148.224.93.161/acceso'} role="button">
           <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
           MI PORTAL
         </a>
