@@ -108,7 +108,7 @@
 
 
       <div>
-        <a class="btn btn-primary btn-sm MiPortal" href='http://ambiental.uaslp.mx/controlescolar' role="button">
+        <a class="btn btn-primary btn-sm MiPortal" href='https://ambiental.uaslp.mx/controlescolar' role="button">
           <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
           MI PORTAL
         </a>
