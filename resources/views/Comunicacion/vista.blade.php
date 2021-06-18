@@ -172,7 +172,7 @@ $months[] = $date;
                         <a href="{{route('FotografiaS')}}">
 
                             <img class="d-block w-100"
-                        src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}" alt="First slide"></a>
+                        src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.webp')}}" alt="First slide"></a>
                     </div>
                 </div>
             </div>

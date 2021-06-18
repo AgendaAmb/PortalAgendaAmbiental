@@ -23,11 +23,11 @@
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito"  rel="stylesheet">
-<!-- Styles -->
-<link async href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
-<link async href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+<!-- Styles -->
+<link defer href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+
+<link defer href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 
 @stack('Styles')
 @stack('stylesheets')

@@ -103,7 +103,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Proserem/Cartel_Laboratorios.jpg')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Proserem/Cartel_laboratorios.webp')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -111,9 +111,9 @@
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Proserem/Cartel_Laboratorios.jpg')}}"
+                            <a href="{{asset('storage/imagenes/Proserem/Cartel_laboratorios.webp')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_Laboratorios.jpg">CARTEL GENERAL </a>
+                                download="Cartel_laboratorios.webp">CARTEL GENERAL </a>
                         </div>
 
                     </div>

@@ -30,7 +30,7 @@
               <a href="{{asset('storage/imagenes/ConcursoFotografia/Conv_ConFotografia.pdf')}}" target="_blank" rel="noopener noreferrer">
                 
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}"
+                    <img src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.webp')}}"
                     class="d-block img-fluid" alt="...">
                 </div>
             </a>
@@ -58,7 +58,7 @@
         </a>
      
         <a href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}" class="btn btnCur m-2 " href="#"
-        role="button group" download="B_ConcursoFotografia.png">CARTEL GENERAL </a>
+        role="button group" download="B_ConcursoFotografia.webp">CARTEL GENERAL </a>
     </div>
 
 

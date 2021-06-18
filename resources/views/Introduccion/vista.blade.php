@@ -41,11 +41,11 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.jpg')}}" class="imgCaoursel pr-2"
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel pr-2"
                 alt="First slide">
               </a>
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel pl-2"
                   alt="First slide">
 
               </a>
@@ -55,11 +55,11 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.jpg')}}" class="imgCaoursel pr-2"
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel pr-2"
                 alt="First slide">
               </a>
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel pl-2"
                   alt="First slide">
 
               </a>
@@ -72,12 +72,12 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href="{{route('ConsumoResponsable')}}">
-                <img src="{{ asset('storage/imagenes/introduccion/laboratorios.jpg')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/introduccion/laboratorios.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
               </a>
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
 
-                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
               </a>
 
@@ -86,9 +86,9 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2"
+              <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
-              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}" class="imgCaoursel pl-2"
+              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
             </div>
           </div>
@@ -99,11 +99,11 @@
             <div class="slide-box">
               <a href="{{route('Cineminuto')}}">
                 
-                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.jpg')}}" class="imgCaoursel pr-2"
+                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel pr-2"
                 alt="First slide">
               </a>
               <a href="{{route('Cineminuto')}}">  
-                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.jpg')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
               </a>
             </div>
@@ -111,9 +111,9 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.jpg')}}" class="imgCaoursel pr-2"
+              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel pr-2"
                 alt="First slide">
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.jpg')}}" class="imgCaoursel pl-2"
+              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
             </div>
           </div>
@@ -146,11 +146,11 @@
             <div class="slide-box">
               <a href="{{route('ConsumoResponsable')}}">
 
-                <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}" class="imgCaoursel pl-2"
+                <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
               </a>
                 <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.png')}}" class="imgCaoursel pl-2"
+                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel pl-2"
                   alt="First slide">
                 </a>
             </div>
@@ -158,10 +158,10 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.png')}}" class="imgCaoursel pl-2"
+              <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel pl-2"
                 alt="First slide">
                 <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.png')}}" class="imgCaoursel pl-2"
+                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel pl-2"
                   alt="First slide">
                 </a>
             </div>
@@ -196,7 +196,7 @@
         <div class="carousel-item active">
           <div class="slide-box">
             <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.jpg')}}" class="imgCaoursel pl-2 w-100 p-0 p-0"
+              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel pl-2 w-100 p-0 p-0"
                 alt="First slide">
             </a>
           </div>
@@ -205,7 +205,7 @@
           <div class="slide-box">
             <a href="{{route('Cineminuto')}}">
                 
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.jpg')}}" class="imgCaoursel pl-2 w-100 p-0 p-0"
+              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel pl-2 w-100 p-0 p-0"
               alt="First slide">
             </a>
           </div>
@@ -215,7 +215,7 @@
           <div class="slide-box">
             <a href="{{route('FotografiaS')}}">
 
-              <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.png')}}"
+              <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
               class="imgCaoursel pl-2 w-100 p-0 p-0" alt="First slide">
             </a>
             </div>
@@ -238,14 +238,14 @@
       -->
         <div class="carousel-item">
           <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.png')}}" class="imgCaoursel pl-2 w-100 p-0"
+            <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalCursoUnihuerto'])}}>
-              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.png')}}" class="imgCaoursel pl-2 w-100 p-0"
+              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.webp')}}" class="imgCaoursel pl-2 w-100 p-0"
                 alt="First slide">
 
             </a>
@@ -254,7 +254,7 @@
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
-              <img src="{{ asset('storage/imagenes/introduccion/daterespiro.png')}}" class="imgCaoursel pl-2 w-100 p-0"
+              <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel pl-2 w-100 p-0"
               alt="First slide">
             </a>
 
@@ -279,18 +279,18 @@
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.webp" class="img-fluid" width="518" id="circuloODS"
         usemap="#circuloODS">
       <a href="#">
-        <img class="img-fluid seccionODS" src="storage/imagenes/ods/gestion.png" id="gestion" width="270">
+        <img class="img-fluid seccionODS" src="storage/imagenes/ods/gestion.webp" id="gestion" width="270">
       </a>
       <a href="#">
-        <img class="img-fluid seccionODS" src="storage/imagenes/ods/educacion.png" id="educacion" width="270">
-      </a>
-
-      <a href="#">
-        <img class="img-fluid seccionODS" src="storage/imagenes/ods/vinculacion.png" id="vinculacion" width="270">
+        <img class="img-fluid seccionODS" src="storage/imagenes/ods/educacion.webp" id="educacion" width="270">
       </a>
 
       <a href="#">
-        <img class="img-fluid seccionODS" src="storage/imagenes/ods/comunicacion.png" id="comunicacion" width="270">
+        <img class="img-fluid seccionODS" src="storage/imagenes/ods/vinculacion.webp" id="vinculacion" width="270">
+      </a>
+
+      <a href="#">
+        <img class="img-fluid seccionODS" src="storage/imagenes/ods/comunicacion.webp" id="comunicacion" width="270">
       </a>
 
       <a href="http://www.uaslp.mx">

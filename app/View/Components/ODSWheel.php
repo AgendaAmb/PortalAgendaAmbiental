@@ -17,10 +17,10 @@ class ODSWheel extends Component
     {
         $this->ejeTrabajo = $ejeTrabajo;
         $this->imgEjesTrabajo = [
-            'gestion.png',
-            'educación.png',
-            'vinculacion.png',
-            'comunicación.png'
+            'gestion.webp',
+            'educacion.webp',
+            'vinculacion.webp',
+            'comunicacion.webp'
         ];
     }
 

@@ -10,7 +10,7 @@
             <img
                 id ="imgGestion"
                 class="img-fluid ejeTrabajo"
-                src="{{ asset('img/ods/Gestion.png') }}"
+                src="{{ asset('img/ods/gestion.webp') }}"
                 width="150"
                 style="top: -134px; left:-135px; @if (route('Gestion') === url()->full()) transform: scale(1.2) translate(-11px, -11px); @endif">
         </a>
@@ -18,7 +18,7 @@
             <img
                 id ="imgEducacion"
                 class="img-fluid ejeTrabajo"
-                src="{{ asset('img/ods/Educacion.png') }}"
+                src="{{ asset('img/ods/educacion.webp') }}"
                 width="150"
                 style="top:132px; left:-135px; @if (route('Educacion') === url()->full()) transform: scale(1.2) translate(-11px, 11px); @endif">
         </a>
@@ -27,14 +27,14 @@
             <img
             id ="imgVinculacion"
             class="img-fluid ejeTrabajo"
-            src="{{ asset('img/ods/Vinculacion.png') }}"
+            src="{{ asset('img/ods/vinculacion.webp') }}"
             width="150"
             style="top: -130px; left: 134px; @if (route('Vinculacion') === url()->full()) transform: scale(1.2) translate(10px, -11px); @endif">
         </a>
         <a href="{{ route('Comunicacion') }}">
             <img class="img-fluid ejeTrabajo"
                 id ="imgComunicacion"
-                src="{{ asset('img/ods/Comunicacion.png') }}"
+                src="{{ asset('img/ods/comunicacion.webp') }}"
                 width="150"
                 style="top: 120px; left: 122px; @if (route('Comunicacion') === url()->full()) transform: scale(1.08) translate(10px, 11px); @else transform: scale(0.91) @endif">
         </a>
