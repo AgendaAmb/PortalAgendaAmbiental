@@ -1,5 +1,6 @@
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
     background-color: gray;
+    color: white;
 }
 .nav-pills .nav-link{
     background-color: #8a9b37;
@@ -8,6 +9,6 @@
     margin-bottom: 6px;
     font-weight:bold;
     font-size: 16px;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 00px 0px 0px 00px;
 
 }
