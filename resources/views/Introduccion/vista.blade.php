@@ -278,18 +278,18 @@
     <div class="envoltorioCirculoODS">
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.webp" class="img-fluid" width="518" id="circuloODS"
         usemap="#circuloODS">
-      <a href="#">
+      <a href="{{route('Gestion')}}">
         <img class="img-fluid seccionODS" src="storage/imagenes/ods/gestion.webp" id="gestion" width="270">
       </a>
-      <a href="#">
+      <a href="{{route('Educacion')}}">
         <img class="img-fluid seccionODS" src="storage/imagenes/ods/educacion.webp" id="educacion" width="270">
       </a>
 
-      <a href="#">
+      <a href="{{route('Vinculacion')}}">
         <img class="img-fluid seccionODS" src="storage/imagenes/ods/vinculacion.webp" id="vinculacion" width="270">
       </a>
 
-      <a href="#">
+      <a href="{{route('Comunicacion')}}">
         <img class="img-fluid seccionODS" src="storage/imagenes/ods/comunicacion.webp" id="comunicacion" width="270">
       </a>
 
