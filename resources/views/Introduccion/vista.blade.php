@@ -29,13 +29,7 @@
 
   <div class="my-lg-2 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1 px-2">
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
-        <li data-target="#carousel" data-slide-to="3"></li>
-        <li data-target="#carousel" data-slide-to="3"></li>
-      </ol>
+      
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
@@ -181,17 +175,7 @@
     </div>
     <div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
       data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselResponse" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselResponse" data-slide-to="1"></li>
-        <li data-target="#carouselResponse" data-slide-to="2"></li>
-        <li data-target="#carouselResponse" data-slide-to="3"></li>
-        <li data-target="#carouselResponse" data-slide-to="4"></li>
-        <li data-target="#carouselResponse" data-slide-to="5"></li>
-        <li data-target="#carouselResponse" data-slide-to="6"></li>
-        <li data-target="#carouselResponse" data-slide-to="7"></li>
-        <li data-target="#carouselResponse" data-slide-to="8"></li>
-      </ol>
+     
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
