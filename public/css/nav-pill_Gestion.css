@@ -20,8 +20,9 @@
 .nav-tabs{
     border-bottom: 0px solid #dee2e6;
 }
-
-
+.nav-tabs .nav-link:hover{
+    background-color: gray;
+}
 
 
 

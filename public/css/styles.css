@@ -95,6 +95,7 @@ border-radius: 20px;
 height: 30px;
 margin-bottom: 0.1rem;
 }
+
 .btn-sm{
     width: 10%;
     background-color: transparent;
@@ -178,6 +179,7 @@ ul.dropdown-menu > li
     font-size: 15px;
     background-color: #96A834;
     color: white;
+    border-radius: 0px 0px 0px 0px;
 }
 
 .textoAcordeon
@@ -632,7 +634,8 @@ font-weight: 900;
     background-color: #616a7a;
 }
 .imgCaoursel{
-    width: 48%;
+    width: 49.7%;
+   
 }
 .close{
 background-color: gray;

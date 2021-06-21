@@ -14,7 +14,9 @@
     text-align: center;
   
 }
-
+.nav-tabs .nav-link:hover{
+    background-color: gray;
+}
 @media only screen and (min-width: 10px) and (max-width: 575px){
     .nav-pills .nav-link{
         width: 30%;
