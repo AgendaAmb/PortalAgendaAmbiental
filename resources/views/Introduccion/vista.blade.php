@@ -329,14 +329,15 @@
     </div>
   </div>
   <div class="col-md-4 p-0">
+    
+    <a  href={{route('Nosotros',['id'=> 'Contacto'])}} class="btn btn-secondary w-100 font-weight-bolder " >
+      CONTACTO
+    </a>
     <x-acordeon :idAcordeon="'acordeonProgramasInstitucionales'" :tituloAcordeon="'PROGRAMAS INSTITUCIONALES'">
     </x-acordeon>
     <x-acordeon :idAcordeon="'acordeonAccesos'" :tituloAcordeon="'ACCESOS'">
     </x-acordeon>
   </div>
 </div>
-
-
-
 
 @endsection
