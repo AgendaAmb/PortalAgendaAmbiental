@@ -1,32 +1,41 @@
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+.nav-tabs .nav-link.active, .nav-tabs .show > .nav-link{
     background-color: gray;
+    color: white;
 }
-.nav-pills .nav-link{
+.nav-tabs .nav-link{
     background-color: #8a9b37;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
     font-weight:900;
     font-size: 14px;
-    width: 260px;
-    border-radius: 20px 20px 20px 20px;
+    width: 20%;
+    border-radius: 0px 0px 0px 0px;
     padding:10px 30px;
+    justify-content: center;
     text-align: center;
+   
 }
+.nav-tabs{
+    border-bottom: 0px solid #dee2e6;
+}
+
+
+
 
 
  
 @media only screen and (min-width: 10px) and (max-width: 575px){
     .nav-tabs .nav-link{
-        width: 19%;
-       margin-left: 0.1rem;
+        width: 20%;
+       
         font-size: 8px;
         background-color: #8a9b37;
         color: white;
         font-weight: 900;
-        border-radius: 20px 20px 0px 0px;
-        padding: 0.5rem 0.5rem;
+        border-radius: 0px 0px 0px 0px;
+        padding: 0.5rem 0.1rem;
         text-align: center;
         
     }
@@ -34,5 +43,6 @@
     .nav-tabs .nav-link.active, .nav-pills .show > .nav-link{
         background-color: gray;
         color: white;
+        text-align: center;
     }
 }

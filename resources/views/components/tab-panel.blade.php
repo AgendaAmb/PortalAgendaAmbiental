@@ -3,7 +3,7 @@
         {{--
             Renderiza los botones del tab-panel.
         --}}
-        <nav class="nav flex-row nav-pills justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-around" id="v-pills-tab" role="tablist">
+        <nav class="nav flex-row nav-tabs justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center" id="v-pills-tab" role="tablist">
             {{ $tabButtons }}
         </nav>
 

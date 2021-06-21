@@ -204,22 +204,7 @@
             </a>
             </div>
         </div>
-        <!--
-        <div class="carousel-item">
-          <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/CicloAgua.png')}}" class="imgCaoursel pl-2 w-100 p-0"
-              alt="First slide">
-          </div>
-        </div>
-      -->
-      <!--
-        <div class="carousel-item">
-          <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel pl-2 w-100 p-0"
-              alt="First slide">
-          </div>
-        </div>
-      -->
+      
         <div class="carousel-item">
           <div class="slide-box">
             <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel pl-2 w-100 p-0"
@@ -258,7 +243,7 @@
 </div>
 
 <div class="mt-3 row justify-content-around  Ejes d-none d-xl-flex d-lg-flex d-md-flex">
-  <div class="col-md-5">
+  <div class="col-md-6">
     <div class="envoltorioCirculoODS">
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.webp" class="img-fluid" width="518" id="circuloODS"
         usemap="#circuloODS">
@@ -343,7 +328,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-4 ">
+  <div class="col-md-6 ">
     <x-acordeon :idAcordeon="'acordeonProgramasInstitucionales'" :tituloAcordeon="'PROGRAMAS INSTITUCIONALES'">
     </x-acordeon>
     <x-acordeon :idAcordeon="'acordeonAccesos'" :tituloAcordeon="'ACCESOS'">

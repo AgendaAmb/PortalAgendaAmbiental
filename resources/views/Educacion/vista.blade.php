@@ -104,42 +104,7 @@ gestión y vinculación con la sociedad.';
 @push('scripts')
 <script src="{{ asset('js/odsEducacion.js') }}"></script>
 
-<script>
 
-    window.addEventListener("resize", function(){
-        $(function() 
-      {
-        if (screen.width > 10 && screen.width <575) {
-      
-       $('#v-pills-tab').removeClass('nav-pills');
-       $('#v-pills-tab').addClass('nav-tabs');
-       
-    
-    
-     }else if(screen.width >575){
-       $('#v-pills-tab').removeClass('nav-tabs');
-        $('#v-pills-tab').addClass('nav-pills');
-     }
-      });
-    });
-    
-    $(function() 
-      {
-        if (screen.width > 10 && screen.width <575) {
-      
-       $('#v-pills-tab').removeClass('nav-pills');
-       $('#v-pills-tab').addClass('nav-tabs');
-     
-      
-    
-     }else if(screen.width >575){
-       $('#v-pills-tab').removeClass('nav-tabs');
-        $('#v-pills-tab').addClass('nav-pills');
-     }
-    });
-    
-       
-    
-        
-    </script>
+
+
 @endpush

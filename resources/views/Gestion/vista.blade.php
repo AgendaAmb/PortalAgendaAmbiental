@@ -243,6 +243,7 @@ propios.';
 --}}
 @push('scripts')
 <script src="{{ asset('js/odsGestion.js') }}"></script>
+<!--
 <script>
     window.addEventListener("resize", function(){
     $(function() 
@@ -280,4 +281,5 @@ $(function()
 
     
 </script>
+-->
 @endpush

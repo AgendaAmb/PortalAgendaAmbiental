@@ -1,29 +1,34 @@
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+.nav-tabs .nav-link.active, .nav-tabs .show > .nav-link{
     background-color: gray;
+    color: white;
 }
-.nav-pills .nav-link{
+.nav-tabs .nav-link{
     background-color: #1f638c;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
     font-size: 15px;
-    width: 400px;
-    border-radius: 20px 20px 20px 20px;
+    width: 50%;
+    border-radius: 0px 0px 0px 0px;
     text-align: center;
-    
+    justify-content: center;
     font-weight: bold;
-    padding: 10px 170px;
+   
+}
+
+.nav-tabs{
+    border-bottom: 0px solid #dee2e6;
 }
 
 @media only screen and (min-width: 10px) and (max-width: 575px){
     .nav-tabs .nav-link{
-        width: 19%;
-       margin-left: 0.1rem;
+        width: 50%;
+       
         font-size: 8px;
         background-color: #1f638c;
         color: white;
         font-weight: 900;
-        border-radius: 20px 20px 0px 0px;
+        border-radius: 0px 0px 0px 0px;
         padding: 0.5rem 0.5rem;
         
     }
