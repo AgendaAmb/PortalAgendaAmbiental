@@ -8,7 +8,6 @@ body{
 }
 #header{
     background-color:#115089;
-    height: 148px;
     display: flex;
     width: 100%;
     align-items: center;
@@ -35,7 +34,7 @@ body{
 
 .navbar .nav-item:hover{
 background-color: #96A834;
-height: 34px;
+
 
 }
 
@@ -52,11 +51,9 @@ height: 34px;
  .navbar .nav-item .nav-link{
     color: white;
     font-weight: bolder;
-    padding-left: 1.0rem;
-    padding-bottom: 0%;
-    padding-right: 0.2rem;
-    padding-top: 0.5rem;
     font-size: 15px;
+    width: 160px;
+    text-align: center;
  }
 .navbar .nav-item:hover .dropdown-menu{
     display: block;
@@ -66,9 +63,12 @@ height: 34px;
     color: white;
     background-color: #97a83480;
     font-weight: bold;
+    
 }
 .dropdown-item, .dropdown-item{
     color: gray;
+    width: 160px;
+    text-align: center;
 }
 .navbar .nav-item .dropdown-menu{
     margin-top:0;
@@ -604,7 +604,7 @@ font-weight: bold;
 }
 .btnCur{
     background-color:#01548a ;
-    font-size: 1.2rem;
+    font-size: 15px;
     font-weight: 900;
     border-radius: 1.1rem;
     color: white;
@@ -666,6 +666,11 @@ a.nav-item.nav-link.nav-button{
 
 }
 @media only screen and (min-width: 10px) and (max-width: 575px){
+    .navbar .nav-item .nav-link{
+        width: auto;
+        text-align: start;
+        margin-left: 5%;
+    }
     .MiPortal{
         width: 150px;
        
@@ -904,9 +909,7 @@ display: flow-root;
     }
     
 
-    .navbar{
-       height: 34px;
-    }
+  
     .pSize{
         font-size: 16px;
     }
@@ -953,7 +956,4 @@ display: flow-root;
     }
 
 
-    .navbar{
-       height: 34px;
-    }
 }

@@ -164,7 +164,7 @@
             <center>7213</center>
           </th>
           <td style="text-align: left;">MCA Diana Elizabeth Navarro Flores</td>
-          <td style="text-align: left;">Comunicación social</td>
+          <td style="text-align: left;">Comunicación Social</td>
           <td></td>
           <td>diana.navarro@uaslp.mx
             difusion.agenda@uaslp.mx </td>
