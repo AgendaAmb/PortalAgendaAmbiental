@@ -1,6 +1,6 @@
 @extends('Bienvenido')
 @section('Introduccion')
-<div class="row justify-content-between p-xl-5 p-lg-5 p-md-4 p-sm-3 p-3">
+<div class="row justify-content-between ">
   @yield('TextImagen')
   @yield('BannerBotones')
   @yield('ObjetivosTexto')

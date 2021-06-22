@@ -3,7 +3,7 @@
 @section('Contenido-Nosotros')
 
 <div class="col-xl-12 p-0">
-  <img src="{{asset('storage/imagenes/Nosotros/portada.jpg')}}" class="img-fluid mx-auto d-block my-2" alt="" srcset="">
+  <img src="{{asset('storage/imagenes/Nosotros/nosotros-banner.png')}}" class="img-fluid mx-auto d-block my-2" alt="" srcset="">
 </div>
 <x-btns-ejes>
 
@@ -14,7 +14,7 @@
       @include('Nosotros.Tabla')
     </div>
 
-    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12  order-1  order-sm-1 order-md-2 mb-3 d-none d-xl-block d-lg-block d-md-block">
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12  order-1  order-sm-1 order-md-2 mb-3 d-none d-xl-block d-lg-block d-md-block p-0">
       <div class="nav flex-sm-column flex-shrink-0 justify-content-between nav-pills" id="tab-nosotros" role="tablist">
         <a @if ($id=="Historia" ||$id==null) class="nav-link active" @else class="nav-link" @endif id="v-pills-home-tab"
           data-toggle="pill" href="#Historia" role="tab" aria-controls="v-pills-home" aria-selected="true">HISTORIA </a>

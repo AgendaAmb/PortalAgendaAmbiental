@@ -1,10 +1,10 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-2">
+<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-5">
     <img src="{{ asset('storage/imagenes/Logos/unihuerto.png') }}" class="rounded mx-auto d-block w-75 py-xl-5 py-md-5"
         alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-8">
+<div class="col-xl-8 col-lg-8 col-md-8 my-5">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
         Unihuerto tiene como objetivo la creación de huertos en los distintos espacios universitarios para obtener una
         mejor salud entre los estudiantes y el personal universitario, promover servicios ambientales para limpiar el
@@ -24,14 +24,13 @@
 @endsection
 
 @section('BannerBotones')
-<div
-    class="mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
-    <div class="col-12 ">
+<div class="mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between p-0">
+    <div class="col-12 p-0">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/biodiversidad_Unihuerto.png')}}"
+                    <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}"
                         class="d-block img-fluid" alt="...">
                 </div>
                 <div class="carousel-item">
