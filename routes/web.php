@@ -79,3 +79,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::redirect('/historia/index.html', '/Nosotros', 301);
 Route::redirect('/consumoresp/index.html', '/ConsumoResponsable', 301);
+Route::redirect('/proserem/index.html', '/Proserem', 301);
+Route::redirect('/unihuerto-2/index.html', '/Unihuerto', 301);
+Route::redirect('/comunicaciones/index.html', '/comunicación', 301);
+Route::redirect('/unibici/index.html', '/Unibici', 301);
+Route::redirect('/cineminuto/index.html', '/Cineminuto', 301);
+Route::redirect('/vinculacion/index.html', '/vinculación', 301);
+Route::redirect('/daterespiro/index.html', '/DateUnRespiro', 301);
+Route::redirect('/gestion-2/index.html', '/gestión', 301);
+Route::redirect('/mmus/index.html', '/MovilidadUrbanaSostenible', 301);
