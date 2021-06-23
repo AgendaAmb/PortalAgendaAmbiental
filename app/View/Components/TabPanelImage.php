@@ -14,17 +14,19 @@ class TabPanelImage extends Component
     public $urlhref;
     public $isBlank;
     public $isDownload;
+    public $widthBo;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($imageURL = null,$urlhref = null,$isBlank=false,$isDownload=false )
+    public function __construct($imageURL = null,$urlhref = null,$isBlank=false,$isDownload=false,$widthBo=null)
     {
         $this->imageURL = $imageURL;
         $this->urlhref=$urlhref;
         $this->isBlank=$isBlank;
         $this->isDownload=$isDownload;
+        $this->widthBo=$widthBo;
     }
 
     /**

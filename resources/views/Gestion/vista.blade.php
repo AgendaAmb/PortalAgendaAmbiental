@@ -63,8 +63,8 @@ propios.';
             nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
             class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
 
-        <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BLIBLIOTECA"
-            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" nombreRes="BLIBLIOTECA" />
+        <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BIBLIOTECA"
+            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" nombreRes="BIBLIOTECA" />
     </x-slot>
 
     <x-slot name="tabContent">
@@ -88,6 +88,7 @@ propios.';
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
                 <x-tab-panel-image :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
+                <x-tab-panel-image :imageURL="asset('storage/imagenes/Logos/BannerSup_ECR.png')" urlhref="{{route('ConsumoResponsable')}}" widthBo=w-75/>
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
