@@ -47,6 +47,17 @@
 
 
 </div>
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-center">
+        <a class="nav-link w-auto p-1 m-0" target="_blank" 
+        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro" role="tab"
+           >Registrate</a>
+        <a class="nav-link w-auto p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Cartel_dateunrespiro.jpg')}}" 
+        role="button group" download="Cartel_dateunrespiro.jpg">Cartel General</a>
+           
+    </div>
+</div>
+
 
 @endsection
 
@@ -83,3 +94,6 @@
     </div>
 </div>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush

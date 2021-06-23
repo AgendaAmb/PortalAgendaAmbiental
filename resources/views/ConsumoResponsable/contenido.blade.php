@@ -1,7 +1,7 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify mt-5">
-    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR.png') }}" class="img-fluid p-4 w-75" alt="" srcset="">
+<div class="col-xl-4 col-lg-4 col-md-12 align-content-center text-justify mt-5">
+    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR.png') }}" class="img-fluid  w-75 pl-5" alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-12 mb-5 mt-5">
     <p class="text-justify pSize">
@@ -34,28 +34,21 @@
 
 </div>
 
-<div class="container m-0">
-    <div class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-start">
-
-        <div class="flex-wrap btn-group " role="group" aria-label="Basic example">
-            <a class="btn btnCur m-2 " href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-                CARTEL
-            </a>
-
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+        <div class="nav nav-tabs justify-content-center">
+            <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+                aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
+            <a class="nav-link w-auto p-1 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                aria-selected="false">Cambalache De Libros</a>
+                <a class="nav-link w-auto p-1 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                aria-selected="false">Reutrónic</a>
         </div>
-
-
-
-    </div>
 </div>
-
-
-
 @endsection
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify m-3">
-    <div style="font-size: 14px; font-family: 'Myraid light';">
+    <div style="font-family: 'Myraid light';">
         <h3>Objetivo general</h3>
         <p>Informar, educar y proveer medios y herramientas respecto al manejo apropiados de los bienes.</p><br>
         <h3>Objetivos específicos</h3>
@@ -117,7 +110,7 @@
                 href="http://www.uaslp.mx/SecretariaAdministrativa/catalogo-de-baja"
                 target="_blank">http://www.uaslp.mx/SecretariaAdministrativa/catalogo-de-baja</a></p><br>
         <h4>Más Informes</h4>
-        <p style="font-size: 14px !important;"><b>Laura Daniela Hernández Rodríguez</b><br><b>Sistema de Gestión
+        <p style="!important;"><b>Laura Daniela Hernández Rodríguez</b><br><b>Sistema de Gestión
                 Ambiental</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava
             No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext.
             7210<br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
@@ -164,3 +157,6 @@
     </div>
 </div>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush

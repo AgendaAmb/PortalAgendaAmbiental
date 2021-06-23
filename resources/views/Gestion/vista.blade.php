@@ -220,9 +220,9 @@ propios.';
                 <x-imagen-slider :linkImagen="asset('img/Gestion/riesgos2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
+                
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Bn_biblioteca.png')" isBlank=true
                     urlhref="{{asset('storage/imagenes/introduccion/Guiadelarbolado_y_otrasformasvegetales.pdf')}}" />
-
             </x-tab-panel-footer>
         </x-tab-panel-content>
     </x-slot>

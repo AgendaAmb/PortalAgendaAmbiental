@@ -1,37 +1,46 @@
 .nav-tabs .nav-link.active, .nav-tabs .show > .nav-link{
     background-color: gray;
     color: white;
+    text-align: center;
+   
+}
+.nav-tabs{
+   
+    background-color: #1f638c;
+   
 }
 .nav-tabs .nav-link{
-    background-color: #dab631;
+    
+    background-color: #1f638c;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
-    font-weight:bold;
-    font-size: 14px;
+    font-size: 15px;
+
     border-radius: 0px 0px 0px 0px;
-    font-weight: bold;
+    text-align: center;
     justify-content: center;
-    width: 20%;
-      border: 1px solid #dee2e6;
+    font-weight: bold;
+   
+ 
 }
+
 .nav-tabs{
-    border-bottom: 0px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
 }
 .nav-tabs .nav-link:hover{
     background-color: gray;
 }
-
 @media only screen and (min-width: 10px) and (max-width: 575px){
     .nav-tabs .nav-link{
-        width: 20%;
+        width: 50%;
        
         font-size: 8px;
-        background-color: #dab631;
+        background-color: #1f638c;
         color: white;
         font-weight: 900;
         border-radius: 0px 0px 0px 0px;
-        
+        padding: 0.5rem 0.5rem;
         
     }
 

@@ -33,29 +33,7 @@
 
 <div class="container m-0">
     <div class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-start">
-        <!--
-    <div class="col-md-3 col-sm-6 col-6   mt-1 ">
-        <a class="btn btnCur m-2  w-60" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-          <p class="p-sm-2 p-md-2 p-lg-2 p-xl-2 p-0 m-0 text-white">UNIRODADA 30 DE ABRIL</p>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-6 col-6 mt-1 ">
-        <a class="btn btnCur m-2 w-60" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-          <p class="p-sm-2 p-md-2 p-lg-2 p-xl-2 p-0 m-0 text-white">UNIRODADA 30 DE ABRIL</p>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-6   mt-1 ">
-        <a class="btn btnCur m-2  w-50" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-          <p class="p-sm-2 p-md-2 p-lg-2 p-xl-2 p-0 m-0 text-white">UNIRODADA 30 DE ABRIL</p>
-        </a>
-      </div>
-      <div class="col-md-3 col-sm-6   mt-1 ">
-        <a class="btn btnCur m-2  w-50" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-          <p class="p-sm-2 p-md-2 p-lg-2 p-xl-2 p-0 m-0 text-white">UNIRODADA 30 DE ABRIL</p>
-        </a>
-      </div>
-  </div>
--->
+   
         <div class="flex-wrap btn-group " role="group" aria-label="Basic example">
             <a class="btn btnCur m-2 " href="#" role="button" data-toggle="modal"
                 data-target="#exampleModalCenter">
@@ -63,12 +41,18 @@
             </a>
            
         </div>
-
-
-
+    </div>
+</div>
+    <div class="mt-1 col-md-12 col-sm-12 p-0">
+        <div class="nav nav-tabs justify-content-center">
+            <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+                aria-controls="nav-home" aria-selected="true"> UNIRODADA 30 DE ABRIL</a>
+          
+               
+        </div>
     </div>
 
-
+    
     @endsection
 
     @section('ObjetivosTexto')
@@ -242,3 +226,7 @@
         </div>
     </div>
     @endsection
+
+    @push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush

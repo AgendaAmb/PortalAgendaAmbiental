@@ -55,9 +55,8 @@
 
 </div>
 
-
-<div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
+<!--
+<div class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
         <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalTallerUnihuerto">
@@ -69,8 +68,16 @@
         </a>
 
     </div>
-
-
+</div>
+-->
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-center">
+        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
+            aria-controls="nav-home" aria-selected="true">CURSO TALLER  <br> RESPONSABILIDAD  INTEGRAL EN <br> LABORATORIOS  Y TALLERES</a>
+        <a class="nav-link w-auto p-1 m-0" data-toggle="modal"  data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
+            aria-selected="false">UPCYCLE <br> MARROQUERÍA CON MATERIALES <br> RECICLADOS</a>
+           
+    </div>
 </div>
 
 @endsection
@@ -360,3 +367,6 @@
     $('#{{$NombreM}}').modal('show')
 </script>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush

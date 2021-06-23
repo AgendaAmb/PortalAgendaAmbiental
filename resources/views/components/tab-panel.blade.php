@@ -12,7 +12,10 @@
             Contenido del tab panel.
         --}}
         <div class="tab-content" id="nav-tabContent">
+            
             {{ $tabContent }}
+            
         </div>
+        
     </div>
 </div>

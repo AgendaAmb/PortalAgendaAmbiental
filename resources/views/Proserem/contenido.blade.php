@@ -23,15 +23,14 @@
 @endsection
 
 @section('BannerBotones')
-<div
-    class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
+<div class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
         <img src="{{asset('storage/imagenes/Proserem/BI_Proserem.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
 
-
+<!--
 <div
     class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -43,8 +42,17 @@
            UPCYCLE <br> MARROQUERÍA CON <br>MATERIALES RECICLADOS
         </a>
     </div>
+-->
 
 
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-center">
+        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modalCursoProserem" role="tab"
+            aria-controls="nav-home" aria-selected="true">CURSO TALLER  <br> RESPONSABILIDAD  INTEGRAL EN <br> LABORATORIOS  Y TALLERES</a>
+        <a class="nav-link w-auto p-1 m-0" data-toggle="modal"  data-target="#modalCursoUPCYCLE" role="tab" aria-controls="nav-profile"
+            aria-selected="false">UPCYCLE <br> MARROQUERÍA CON MATERIALES <br> RECICLADOS</a>
+           
+    </div>
 </div>
 
 @endsection
@@ -361,3 +369,6 @@
      $('#{{$NombreM}}').modal('show')
  </script>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush
