@@ -35,7 +35,7 @@
 </div>
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-        <div class="nav nav-tabs justify-content-center">
+        <div class="nav nav-tabs justify-content-around p-2">
             <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
                 aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
             <a class="nav-link w-auto p-1 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"

@@ -71,19 +71,19 @@
 </div>
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-around">
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modal3Celebraton" role="tab"
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modal3Celebraton" role="tab"
             aria-controls="nav-home" aria-selected="true" >TERCER CEBRATÓN</a>
 
-        <a class="nav-link w-auto p-1  m-0" data-toggle="modal" data-target="#modalCicloConfe" role="tab" aria-controls="nav-profile"
+        <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCicloConfe" role="tab" aria-controls="nav-profile"
             aria-selected="false">   CICLO DE CONFERENCIAS</a>
 
-            <a class="nav-link w-auto p-1  m-0" data-toggle="modal"   data-target="#modalTallerLinea" role="tab" aria-controls="nav-profile"
+            <a class="nav-link w-25 p-1  m-0" data-toggle="modal"   data-target="#modalTallerLinea" role="tab" aria-controls="nav-profile"
             aria-selected="false"> TALLER EN LÍNEA</a>
            
-            <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modalForoInter" role="tab" aria-controls="nav-profile"
+            <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalForoInter" role="tab" aria-controls="nav-profile"
             aria-selected="false">     FORO VIRTUAL INTERNACIONAL
            
-            <a class="nav-link w-auto p-1  m-0" data-toggle="modal"   data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
+            <a class="nav-link w-25 p-1  m-0" data-toggle="modal"   data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
             aria-selected="false">     VIERNES DE BICI</a>
            
     </div>

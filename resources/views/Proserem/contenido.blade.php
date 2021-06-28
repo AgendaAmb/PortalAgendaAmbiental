@@ -46,10 +46,10 @@
 
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-center">
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modalCursoProserem" role="tab"
+    <div class="nav nav-tabs justify-content-around">
+        <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#modalCursoProserem" role="tab"
             aria-controls="nav-home" aria-selected="true">CURSO TALLER  <br> RESPONSABILIDAD  INTEGRAL EN <br> LABORATORIOS  Y TALLERES</a>
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal"  data-target="#modalCursoUPCYCLE" role="tab" aria-controls="nav-profile"
+        <a class="nav-link w-50 p-1 m-0" data-toggle="modal"  data-target="#modalCursoUPCYCLE" role="tab" aria-controls="nav-profile"
             aria-selected="false">UPCYCLE <br> MARROQUERÍA CON MATERIALES <br> RECICLADOS</a>
            
     </div>

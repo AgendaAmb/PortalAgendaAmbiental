@@ -33,22 +33,22 @@
 
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-around">
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#SaludMental" role="tab"
-            aria-controls="nav-home" aria-selected="true" style="font-size:12px; ">LA SALUD MENTAL <br> DESDE LA PERPECTIVA <br> DE LOS DERECHOS HUMANOS <br> Y LOS OBJETIVOS DEL <br>
+    <div class="nav nav-tabs justify-content-around ">
+        <a class="nav-link w-25 p-1 m-0 py-2" data-toggle="modal" data-target="#SaludMental" role="tab"
+            aria-controls="nav-home" aria-selected="true" style="font-size:12px; ">LA SALUD MENTAL  DESDE LA PERPECTIVA  DE LOS DERECHOS HUMANOS  Y LOS OBJETIVOS DEL 
             DESARROLLO SUSTENTABLE</a>
 
-        <a class="nav-link w-auto p-1 pt-3 m-0" data-toggle="modal"  style="font-size:12px; " data-target="#Lasostenibilidad" role="tab" aria-controls="nav-profile"
-            aria-selected="false">  "LA SOSTENIBILIDAD" <br> EL APRENDIZAJE DE LA <br> CONTINGENCIA GLOBAL</a>
+        <a class="nav-link w-25 p-1 pt-3 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Lasostenibilidad" role="tab" aria-controls="nav-profile"
+            aria-selected="false">  "LA SOSTENIBILIDAD" EL APRENDIZAJE DE LA  CONTINGENCIA GLOBAL</a>
 
-            <a class="nav-link w-auto p-1 pt-2 m-0" data-toggle="modal"  style="font-size:12px; " data-target="#Justicia" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   JUSTICIA Y GÉNERO: <br> UNO DE LOS ODS DESDE EL <br> ENFOQUE DE DERECHOS <br> HUMANOS UNIVERSITARIOS</a>
+            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Justicia" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   JUSTICIA Y GÉNERO: UNO DE LOS ODS DESDE EL  ENFOQUE DE DERECHOS  HUMANOS UNIVERSITARIOS</a>
            
-            <a class="nav-link w-auto p-1 pt-4 m-0" data-toggle="modal"  style="font-size:12px; " data-target="#Cultura" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   LA CULTURA, ELEMENTO <br> CENTRAL DE LOS ODS
+            <a class="nav-link w-25 p-1 pt-4 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Cultura" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   LA CULTURA, ELEMENTO CENTRAL DE LOS ODS
            
-            <a class="nav-link w-auto p-1 pt-2 m-0" data-toggle="modal"  style="font-size:12px; " data-target="#Arte" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   EL ARTE COMO MEDIO PARA <br> INTEGRAR LA SOSTENIBILIDAD <br> EN EL DESARROLLO <br> UNIVERSITARIO</a>
+            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Arte" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   EL ARTE COMO MEDIO PARA INTEGRAR LA SOSTENIBILIDAD  EN EL DESARROLLO UNIVERSITARIO</a>
            
     </div>
 </div>
