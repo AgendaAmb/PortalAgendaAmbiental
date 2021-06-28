@@ -243,7 +243,7 @@
 </div>
 
 <div class="mt-3 row justify-content-between  Ejes d-none d-xl-flex d-lg-flex d-md-flex">
-  <div class="col-md-7 pl-5 ml-5">
+  <div class="col-md-7 pl-5 ">
     <div class="envoltorioCirculoODS">
       <img src="storage/imagenes/ods/circulo-UASLP-SOCIEDAD.webp" class="img-fluid" width="518" id="circuloODS"
         usemap="#circuloODS">
@@ -328,7 +328,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-4 p-0">
+  <div class="col-md-3 px-0">
     
     <a  href={{route('Nosotros',['id'=> 'Contacto'])}} class="btn btn-secondary w-100 font-weight-bolder " >
       CONTACTO
