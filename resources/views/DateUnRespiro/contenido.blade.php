@@ -32,18 +32,6 @@
 </div>
 
 
-<div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-
-        <a href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro"
-            class="btn btnCur m-2 " target="_blank" role="button group">REGISTRATE </a>
-        <a href="{{asset('storage/imagenes/DateUnRespiro/Cartel_dateunrespiro.jpg')}}" class="btn btnCur m-2 " href="#"
-            role="button group" download="Cartel_dateunrespiro.jpg">CARTEL GENERAL </a>
-
-
-    </div>
 
 
 </div>

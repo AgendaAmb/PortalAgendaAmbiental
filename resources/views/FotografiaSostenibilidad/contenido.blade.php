@@ -30,7 +30,7 @@
               <a href="{{asset('storage/imagenes/ConcursoFotografia/Conv_ConFotografia.pdf')}}" target="_blank" rel="noopener noreferrer">
                 
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.webp')}}"
+                    <img src="{{asset('storage/imagenes/ConcursoFotografia/B_ConcursoFotografia.png')}}"
                     class="d-block img-fluid" alt="...">
                 </div>
             </a>
@@ -49,21 +49,16 @@
 </div>
 
 
-<div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-center  justify-content-lg-center  justify-content-md-start justify-content-around">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
-        <a class="btn btnCur m-2 " href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia" role="button group" data-toggle="modal" data-target="#modalTallerUnihuerto">
-            REGISTRATE
-        </a>
-     
-        <a href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}" class="btn btnCur m-2 " href="#"
-        role="button group" download="B_ConcursoFotografia.webp">CARTEL GENERAL </a>
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-center">
+        <a class="nav-link w-auto p-1 m-0" target="_blank" 
+        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia"           >Registrate</a>
+        <a class="nav-link w-auto p-1 m-0"  href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}"
+        role="button group"  download="B_ConcursoFotografia.jpeg">Cartel General</a>
+           
     </div>
-
-
 </div>
-
 @endsection
 
 @section('ObjetivosTexto')
@@ -97,4 +92,7 @@
     </div>
 </div>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush
 
