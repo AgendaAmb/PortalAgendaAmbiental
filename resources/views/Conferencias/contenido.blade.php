@@ -33,22 +33,22 @@
 
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-around ">
+    <div class="nav nav-tabs justify-content-around my-1">
         <a class="nav-link w-25 p-1 m-0 py-2" data-toggle="modal" data-target="#SaludMental" role="tab"
-            aria-controls="nav-home" aria-selected="true" style="font-size:12px; ">LA SALUD MENTAL  DESDE LA PERPECTIVA  DE LOS DERECHOS HUMANOS  Y LOS OBJETIVOS DEL 
-            DESARROLLO SUSTENTABLE</a>
+            aria-controls="nav-home" aria-selected="true" style="font-size:14px; ">La Salud Mental  Desde La Perspectiva De Los Derechos Humanos Y Los Objetivos Del 
+            Desarrollo Sustentable</a>
 
-        <a class="nav-link w-25 p-1 pt-3 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Lasostenibilidad" role="tab" aria-controls="nav-profile"
-            aria-selected="false">  "LA SOSTENIBILIDAD" EL APRENDIZAJE DE LA  CONTINGENCIA GLOBAL</a>
+        <a class="nav-link w-25 p-1 pt-3 m-0 py-2" data-toggle="modal"  style="font-size:14px; " data-target="#Lasostenibilidad" role="tab" aria-controls="nav-profile"
+            aria-selected="false">  "La Sostenibilidad" El Aprendizaje De La  Contingencia Global</a>
 
-            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Justicia" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   JUSTICIA Y GÉNERO: UNO DE LOS ODS DESDE EL  ENFOQUE DE DERECHOS  HUMANOS UNIVERSITARIOS</a>
+            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:14px; " data-target="#Justicia" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   Justicia Y Género: Uno De Los ODS Desde El  Enfoque De Derechos Humanos Universitarios</a>
            
-            <a class="nav-link w-25 p-1 pt-4 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Cultura" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   LA CULTURA, ELEMENTO CENTRAL DE LOS ODS
+            <a class="nav-link w-25 p-1 pt-4 m-0 py-2 " data-toggle="modal"  style="font-size:14px; " data-target="#Cultura" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   La Cultura, Elemento Central De Los ODS
            
-            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:12px; " data-target="#Arte" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   EL ARTE COMO MEDIO PARA INTEGRAR LA SOSTENIBILIDAD  EN EL DESARROLLO UNIVERSITARIO</a>
+            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:14px; " data-target="#Arte" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   El Arte Como Medio Para Integrar La Sostenibilidad  En El Desarrollo Universitario</a>
            
     </div>
 </div>

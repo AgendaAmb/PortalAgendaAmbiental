@@ -72,10 +72,10 @@
 -->
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-center">
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
-            aria-controls="nav-home" aria-selected="true">CURSO TALLER  <br> RESPONSABILIDAD  INTEGRAL EN <br> LABORATORIOS  Y TALLERES</a>
-        <a class="nav-link w-auto p-1 m-0" data-toggle="modal"  data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
-            aria-selected="false">UPCYCLE <br> MARROQUERÍA CON MATERIALES <br> RECICLADOS</a>
+        <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
+            aria-controls="nav-home" aria-selected="true">Curso Taller Responsabilidad Integral En <br> Laboratorios Y Talleres</a>
+        <a class="nav-link w-50 p-1 m-0" data-toggle="modal"  data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Upcycle Marroquería Con <br> Materiales  Reciclados</a>
            
     </div>
 </div>

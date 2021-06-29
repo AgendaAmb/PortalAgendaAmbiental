@@ -52,9 +52,9 @@
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-center">
-        <a class="nav-link w-auto p-1 m-0" target="_blank" 
+        <a class="nav-link w-50 p-1 m-0" target="_blank" 
         href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/ConcursoFotografia"           >Registrate</a>
-        <a class="nav-link w-auto p-1 m-0"  href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}"
+        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/ConcursoFotografia/Cartel_CFS.jpeg')}}"
         role="button group"  download="B_ConcursoFotografia.jpeg">Cartel General</a>
            
     </div>

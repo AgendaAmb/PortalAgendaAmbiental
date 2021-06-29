@@ -52,26 +52,15 @@
 </div>
 
 
-<div
-    class="row mt-1 col-md-12  col-sm-12 pl-xl-5 ml-xl-5 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-        <a class="btn btnCur m-2 " 
-        target="_blank"
-            href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto"
-            role="button group">
-            REGISTRATE
-        </a>
-      
-
-       
-        <a class="btn btnCur m-2 " href="#" role="button" data-toggle="modal"
-                data-target="#exampleModalCenter">
-                CARTEL GENERAL 
-            </a>
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-center">
+        <a class="nav-link w-50 p-1 m-0" target="_blank" 
+        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Cineminuto"
+        role="tab">Registrate</a>
+        <a class="nav-link w-50 p-1 m-0"  data-target="#exampleModalCenter" 
+        href="#" role="button" data-toggle="modal">Cartel General</a>
+           
     </div>
-
-
 </div>
 
 @endsection
@@ -159,3 +148,6 @@
     </div>
 </div>
 @endsection
+@push('stylesheets')
+<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+@endpush

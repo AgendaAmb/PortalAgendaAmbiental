@@ -31,22 +31,11 @@
 
 </div>
 
-<div class="container m-0">
-    <div class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-start">
-   
-        <div class="flex-wrap btn-group " role="group" aria-label="Basic example">
-            <a class="btn btnCur m-2 " href="#" role="button" data-toggle="modal"
-                data-target="#exampleModalCenter">
-               UNIRODADA 30 DE ABRIL
-            </a>
-           
-        </div>
-    </div>
-</div>
+
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-center">
-            <a class="nav-link w-auto p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
-                aria-controls="nav-home" aria-selected="true"> UNIRODADA 30 DE ABRIL</a>
+            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+                aria-controls="nav-home" aria-selected="true"> Unirodada 30 De Abril</a>
           
                
         </div>

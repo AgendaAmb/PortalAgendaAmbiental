@@ -41,50 +41,23 @@
 </div>
 
 
-<div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-5 p-0 mx-5 justify-content-xl-start  justify-content-lg-start  justify-content-md-center justify-content-center mx-auto ">
-    <div class="btn-toolbar mx-xl-5" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group flex-wrap mx-xl-5  " role="group" aria-label="Basic example">
-            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modal3Celebraton"
-                id="CICLO">
-                TERCER CEBRATÓN
-            </a>
-            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCicloConfe"
-                id="CICLO">
-                CICLO DE CONFERENCIAS
-            </a>
-            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalTallerLinea"
-                id="CICLO">
-                TALLER EN LÍNEA
-            </a>
-            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalForoInter"
-                id="CICLO">
-                FORO VIRTUAL INTERNACIONAL
-            </a>
-            <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal"
-                data-target="#modalCursoUnihuerto" id="CICLO">
-                VIERNES DE BICI
-            </a>
 
-        </div>
-    </div>
-</div>
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-around">
+    <div class="nav nav-tabs justify-content-around my-1">
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modal3Celebraton" role="tab"
-            aria-controls="nav-home" aria-selected="true" >TERCER CEBRATÓN</a>
+            aria-controls="nav-home" aria-selected="true" >Tercer Celebratón</a>
 
         <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCicloConfe" role="tab" aria-controls="nav-profile"
-            aria-selected="false">   CICLO DE CONFERENCIAS</a>
+            aria-selected="false">   Ciclo De Conferencias</a>
 
             <a class="nav-link w-25 p-1  m-0" data-toggle="modal"   data-target="#modalTallerLinea" role="tab" aria-controls="nav-profile"
-            aria-selected="false"> TALLER EN LÍNEA</a>
+            aria-selected="false"> Taller En Línea</a>
            
             <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalForoInter" role="tab" aria-controls="nav-profile"
-            aria-selected="false">     FORO VIRTUAL INTERNACIONAL
+            aria-selected="false">     Foro Virtual Internacional
            
             <a class="nav-link w-25 p-1  m-0" data-toggle="modal"   data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
-            aria-selected="false">     VIERNES DE BICI</a>
+            aria-selected="false">Viernes De Bici</a>
            
     </div>
 </div>
