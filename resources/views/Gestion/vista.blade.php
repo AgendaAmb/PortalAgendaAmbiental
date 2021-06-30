@@ -48,20 +48,20 @@ propios.';
         Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons">
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
+            nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
+            nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" nombreRes="ENERGÍA"
+            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
+            nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
+            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
             nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS"
             class="nav-link active d-lg-block  d-xl-block d-md-block d-sm-block d-none " />
 
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
-            nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
 
-        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
-            nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" nombreRes="ENERGÍA"
-            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
 
-        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
-            nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
-            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
 
         <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BIBLIOTECA"
             class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" nombreRes="BIBLIOTECA" />
@@ -88,7 +88,8 @@ propios.';
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
                 <x-tab-panel-image :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
-                <x-tab-panel-image :imageURL="asset('storage/imagenes/Logos/BannerSup_ECR.png')" urlhref="{{route('ConsumoResponsable')}}" widthBo=w-75/>
+                <x-tab-panel-image :imageURL="asset('storage/imagenes/Logos/BannerSup_ECR.png')"
+                    urlhref="{{route('ConsumoResponsable')}}" widthBo=w-75 />
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
@@ -161,26 +162,34 @@ propios.';
                         <li>Realizar foros, conferencias, mesas de trabajo y debate para la integración y participación
                             intercultural en busca de estrategias técnicas, así como el desarrollo de herramientas
                             tecnológicas sustentables en bien del desarrollo de energías limpias.</li>
-                        <li>Realizar y modificar instalaciones energéticas eficientes, que consideran energías renovables y aplicaciones de luminarias tipo LED, que consideren en el diseño la bioclimática, la orientación y distancia de los edificios. </li>
-                        <li>Extender y vincular el uso eficiente de energías renovables a la sociedad así como la aplicación de movilidad urbana sostenible mediante programas, proyectos y gestiones multidisciplinarias e interdisciplinarias.</li>
+                        <li>Realizar y modificar instalaciones energéticas eficientes, que consideran energías
+                            renovables y aplicaciones de luminarias tipo LED, que consideren en el diseño la
+                            bioclimática, la orientación y distancia de los edificios. </li>
+                        <li>Extender y vincular el uso eficiente de energías renovables a la sociedad así como la
+                            aplicación de movilidad urbana sostenible mediante programas, proyectos y gestiones
+                            multidisciplinarias e interdisciplinarias.</li>
                     </ul><br>
                     <h3>Descripción</h3>
-                    <p style="text-align: justify;">El presente programa se dirige a la comunidad universitaria de la UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y reducción del consumo de energía, la migración hacia el uso de energías renovables, la realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la participación de la comunidad y el compromiso de sensibilizar a la población.<p></p>
-                    
-                 
-                    <h4>Más información</h4>
-                    <p style="font-size: 14px !important;">
-                        <br>Agenda Ambiental de la UASLP<br>
-                        Universidad Autónoma de San Luis Potosí<br>
-                        Manuel Nava No. 201, segundo piso<br>
-                        Zona Universitaria, C.P. 78210<br>
-                        San Luis Potosí, S.L.P.<br>
-                        Tel. 826-2300 Ext. 7215<br>
-                        <a
-                        href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a>
-                        <a
-                        href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
-                    </p>
+                    <p style="text-align: justify;">El presente programa se dirige a la comunidad universitaria de la
+                        UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
+                        impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
+                        institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
+                        reducción del consumo de energía, la migración hacia el uso de energías renovables, la
+                        realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la
+                        participación de la comunidad y el compromiso de sensibilizar a la población.<p></p>
+
+
+                        <h4>Más información</h4>
+                        <p style="font-size: 14px !important;">
+                            <br>Agenda Ambiental de la UASLP<br>
+                            Universidad Autónoma de San Luis Potosí<br>
+                            Manuel Nava No. 201, segundo piso<br>
+                            Zona Universitaria, C.P. 78210<br>
+                            San Luis Potosí, S.L.P.<br>
+                            Tel. 826-2300 Ext. 7215<br>
+                            <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a>
+                            <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
+                        </p>
                 </div>
             </div>
 
@@ -220,7 +229,7 @@ propios.';
                 <x-imagen-slider :linkImagen="asset('img/Gestion/riesgos2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                
+
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Bn_biblioteca.png')" isBlank=true
                     urlhref="{{asset('storage/imagenes/introduccion/Guiadelarbolado_y_otrasformasvegetales.pdf')}}" />
             </x-tab-panel-footer>
