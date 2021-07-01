@@ -4,7 +4,7 @@
     <img src="{{ asset('storage/imagenes/Logos/Bs_dr.jpg') }}" class="rounded mx-auto d-block w-50 py-xl-5 py-md-5"
         alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-8">
+<div class="col-xl-8 col-lg-8 col-md-8 mt-xl-5 mt-lg-3">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
         Con base en el Derecho Humano a la salud, el Objetivo del Desarrollo Sostenible 3: Garantizar una vida sana y
         promover el bienestar y el Objetivo 8: Promover el crecimiento económico sostenido, inclusivo y sostenible, el

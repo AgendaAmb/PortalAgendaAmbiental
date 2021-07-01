@@ -72,7 +72,7 @@
 </div>
 -->
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-around">
+    <div class="nav nav-tabs justify-content-between">
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
             aria-controls="nav-home" aria-selected="true">Curso Taller <br> Unihuerto En Casa</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalCursoUnihuerto" role="tab"
