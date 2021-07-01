@@ -24,18 +24,19 @@
 @endsection
 
 @section('BannerBotones')
-<div class="mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between p-0">
+<div
+    class="mx-auto row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between p-0">
     <div class="col-12 p-0">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}"
-                        class="d-block img-fluid" alt="...">
+                    <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}" class="d-block img-fluid"
+                        alt="...">
                 </div>
                 <div class="carousel-item">
-                    <a
-                    target="_blank" href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto">
+                    <a target="_blank"
+                        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto">
                         <img src="{{asset('storage/imagenes/Unihuerto/Banner_Base-Voluntarios.jpg')}}" alt=""
                             class="d-block w-100" alt="...">
                     </a>
@@ -71,12 +72,14 @@
 </div>
 -->
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-center">
-        <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
+    <div class="nav nav-tabs justify-content-around">
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
             aria-controls="nav-home" aria-selected="true">Curso Taller <br> Unihuerto En Casa</a>
-        <a class="nav-link w-50 p-1 m-0" data-toggle="modal"  data-target="#modalCursoUnihuerto" role="tab" aria-controls="nav-profile"
-            aria-selected="false"> Curso De <br> Jardineria Sostenible</a>
-           
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalCursoUnihuerto" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Curso De <br> Jardineria Sostenible</a>
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerFunicultura" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Taller: Fungicultura <br> en Unihuerto</a>
+
     </div>
 </div>
 
@@ -296,8 +299,8 @@
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn "  target="_blank" role="button"
-                              >REGISTRATE </a>
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " target="_blank"
+                                role="button">REGISTRATE </a>
 
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
@@ -362,8 +365,92 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalTallerFunicultura" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Unihuerto/CARTEL-FUNGICULTURA.jpg')}}" class="img-fluid"
+                                alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " target="_blank"
+                                role="button">REGISTRATE </a>
+
+                        </div>
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unihuerto/CARTEL-FUNGICULTURA.jpg')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="CARTEL-FUNGICULTURA.jpg">CARTEL GENERAL </a>
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'"><br>
+                            <h4>Taller: Fungicultura en Unihuerto</h4><br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Estudiantes UASLP y público general.</p><br>
+
+                            <h4>Lugar, fecha y horario</h4>
+                            <p></p>
+                            <ul>
+                                <li><b>Fecha: viernes 16 de junio del 2021</b></li><b>
+                                    <li><b>Hora: 10:00 a 12:00 horas </b></li>
+                                    <li><b>Bimodal: Presencial (cupo limitado), a distancia (Zoom)</li>
+                                    <li><b>Lugar: Zoom y Casa de fungicultura de Unihuerto</b></li>
+                                    <li><b>Ponente: Ángel Romo</b></li>
+                                    <li><b>SIN COSTO</b></li>
+                                </b>
+                            </ul>
+                            <p></p><b><br>
+                                <h4>Registro</h4>
+                                <p>Pasos para registro de participantes:
+                                </p>
+                                <ol>
+                                    <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
+                                    <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
+                                    <li>Se te enviara un correo en un lapso de 48 horas que confirme tu participación ya sea presencial (CUPO LIMITADO) o en caso de ser en línea se te envía un link para asistir. </li>
+                                   
+                                </ol>
+                                <p></p>
+                                
+                               
+                                <h4>Informes</h4>
+                                <p>Programa Unihuerto<br>Agenda Ambiental de la
+                                    UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                    piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
+                                    Ext. 7210<br><a
+                                      
+                                        href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                </p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <script>
-   console.log({{$NombreM}});
+    console.log({{$NombreM}});
     $('#{{$NombreM}}').modal('show')
 </script>
 @endsection

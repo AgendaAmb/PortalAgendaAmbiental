@@ -34,6 +34,35 @@
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
+                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
+                alt="First slide">
+              </a>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
+                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER1.jpg')}}" class="imgCaoursel "
+                  alt="First slide">
+
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
+                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
+                alt="First slide">
+              </a>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
+                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
+                  alt="First slide">
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
                 <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
                 alt="First slide">
@@ -65,7 +94,7 @@
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> '#modalCursoProserem'])}}>
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoProserem'])}}>
                 <img src="{{ asset('storage/imagenes/introduccion/laboratorios.webp')}}" class="imgCaoursel "
                 alt="First slide">
               </a>
@@ -178,6 +207,14 @@
      
       <div class="carousel-inner">
         <div class="carousel-item active">
+          <div class="slide-box">
+            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
+              <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel  w-100 p-0 p-0"
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
               <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel  w-100 p-0 p-0"
