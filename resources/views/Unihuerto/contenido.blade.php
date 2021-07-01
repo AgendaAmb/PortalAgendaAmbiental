@@ -409,18 +409,18 @@
 
                             <h4>Lugar, fecha y horario</h4>
                             <p></p>
-                            <ul>
-                                <li><b>Fecha: viernes 16 de junio del 2021</b></li><b>
-                                    <li><b>Hora: 10:00 a 12:00 horas </b></li>
-                                    <li><b>Bimodal: Presencial (cupo limitado), a distancia (Zoom)</li>
-                                    <li><b>Lugar: Zoom y Casa de fungicultura de Unihuerto</b></li>
-                                    <li><b>Ponente: Ángel Romo</b></li>
-                                    <li><b>SIN COSTO</b></li>
+                            
+                                <b>Fecha:</b> viernes 16 de junio del 2021 <br>
+                                    <b>Hora: </b> 10:00 a 12:00 horas <br>
+                                    <b>Bimodal:</b> Presencial (cupo limitado), a distancia (Zoom) <br>
+                                    <b>Lugar: </b>Zoom y Casa de fungicultura de Unihuerto <br>
+                                   
+                                    <h2 class="font-weight-bold text-center mt-2 text-light"> <b>SIN COSTO</b> </h2>
                                 </b>
-                            </ul>
-                            <p></p><b><br>
+                            
+                            <p></p><br>
                                 <h4>Registro</h4>
-                                <p>Pasos para registro de participantes:
+                                <p > <b>Pasos para registro de participantes:</b> 
                                 </p>
                                 <ol>
                                     <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
@@ -428,16 +428,15 @@
                                     <li>Se te enviara un correo en un lapso de 48 horas que confirme tu participación ya sea presencial (CUPO LIMITADO) o en caso de ser en línea se te envía un link para asistir. </li>
                                    
                                 </ol>
-                                <p></p>
+                                <br>
                                 
                                
                                 <h4>Informes</h4>
-                                <p>Programa Unihuerto<br>Agenda Ambiental de la
-                                    UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                <p><b>Programa Unihuerto<br>Agenda Ambiental de la
+                                    UASLP</b> <br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
                                     piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
-                                    Ext. 7210<br><a
-                                      
-                                        href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                    Ext. 7210<br>
+                                    <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
                                 </p>
                             </b>
                         </div>

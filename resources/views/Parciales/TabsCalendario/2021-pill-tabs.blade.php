@@ -5,7 +5,7 @@
     <a class="nav-link" id="v-pills-boton2-tab" data-toggle="pill" href="#febrero2" role="tab" aria-controls="v-pills-boton2" aria-selected="true">
         Febrero
     </a>
-    <a class="nav-link active" id="v-pills-boton3-tab" data-toggle="pill" href="#marzo2" role="tab" aria-controls="v-pills-boton3" aria-selected="true">
+    <a class="nav-link " id="v-pills-boton3-tab" data-toggle="pill" href="#marzo2" role="tab" aria-controls="v-pills-boton3" aria-selected="true">
         Marzo
     </a>
     <a class="nav-link" id="v-pills-boton4-tab" data-toggle="pill" href="#abril2" role="tab" aria-controls="v-pills-boton4" aria-selected="true">
@@ -17,7 +17,7 @@
     <a class="nav-link" id="v-pills-boton6-tab" data-toggle="pill" href="#junio2" role="tab" aria-controls="v-pills-boton6" aria-selected="true">
         Junio
     </a>
-    <a class="nav-link" id="v-pills-boton7-tab" data-toggle="pill" href="#julio2" role="tab" aria-controls="v-pills-boton7" aria-selected="true">
+    <a class="nav-link active" id="v-pills-boton7-tab" data-toggle="pill" href="#julio2" role="tab" aria-controls="v-pills-boton7" aria-selected="true">
         Julio
     </a>
     <a class="nav-link" id="v-pills-boton8-tab" data-toggle="pill" href="#agosto2" role="tab" aria-controls="v-pills-boton8" aria-selected="true">
