@@ -2,10 +2,10 @@
 @section('TextImagen')
 <div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-2">
     <img src="{{ asset('storage/imagenes/Logos/Bs_Proserem.png') }}"
-        class="rounded mx-auto d-block w-50 py-xl-5 py-md-5" alt="" srcset="">
+        class="rounded mx-auto d-block w-50 py-xl-5 py-md-5 align-middle" alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8">
-    <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
+    <p class="text-justify pSize pt-3 pt-xl-3 pt-lg-3  pt-md-0 my-5">
         Los Residuos Sólidos Urbanos (RSU), también llamados basura común, están compuestos en su mayoría de materiales
         que pueden ser reutilizados o reciclados, y que de no ser así pueden perdurar en el ambiente durante mucho
         tiempo como los plásticos o el aluminio, o generar gases de efecto invernadero como los residuos de alimentos,

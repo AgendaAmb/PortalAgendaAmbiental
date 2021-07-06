@@ -1,7 +1,7 @@
 @extends('Parciales.index')
 @section('TextImagen')
 <div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-5">
-    <img src="{{ asset('storage/imagenes/Logos/unihuerto.png') }}" class="rounded mx-auto d-block w-75 py-xl-5 py-md-5"
+    <img src="{{ asset('storage/imagenes/Logos/unihuerto.png') }}" class="rounded mx-auto d-block w-50 py-xl-5 py-md-5"
         alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 my-5">
