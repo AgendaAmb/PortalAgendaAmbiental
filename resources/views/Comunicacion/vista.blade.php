@@ -393,17 +393,41 @@ $months[] = $date;
         </div>
     </div>
     <div class="tab-pane fade " id="enero2" role="tabpanel" aria-labelledby="enero2-tab">
-        <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-ride="carousel">
+        <div id="carouselExampleSlidesOnly"  class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="{{route('Unihuerto')}}">
-                        <img class="d-block w-100" src="{{asset('storage/imagenes/Unihuerto/BI_UnihuertoenCasa.png')}}"
-                            alt="Unihuerto en casa">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel w-100 p-0 "
+                                alt="First slide">
+                              </a>
+                             
+                        </div>
+                    </div>
 
-                    </a>
+                    
                 </div>
             </div>
         </div>
+        <div id="carouselExampleSlidesOnly"class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel w-100 p-0 "
+                                alt="First slide">
+                              </a>
+                          
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+       
     </div>
 
     {{--
