@@ -79,7 +79,7 @@
 
     <ul class="navbar-nav w-100 justify-content-md-start">
       <li class="nav-item active">
-        <a class="nav-link" href={{route('Nosotros')}}>NOSOTROS <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href={{route('Nosotros')}}>NOSOTROS <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item dropdown">
