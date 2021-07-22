@@ -575,24 +575,33 @@ footer
     text-align: justify;
 }
 #btnGestion{
+    
 background-color: #68a945;
-border-color: #68a945;
+background: linear-gradient(180deg, #6BAA43 0%,  #B9CF7E 100%);
+color: white;
+border:transparent;
 height: auto;
 font-weight: bold;
 }
 #btnVinculacion{
     background-color: #f4bd43;
-    border-color: #f4bd43;
+    background: linear-gradient(180deg, #DFC41E 0%,  #E8EFEB 100%);
+    color: white;
+    border:transparent;
    font-weight: bold;
 }
 #btnComunicacion{
     background-color: #e0553b;
-    border-color:#e0553b ;
+    background: linear-gradient(180deg, #E73E50 0%,  #FFC1BE 100%);
+    color: white;
+    border:transparent;
     font-weight: bold;
 }
 #btnEduInv{
     background-color:#3c91c3 ;
-    border-color: #3c91c3;
+    background: linear-gradient(180deg, #2B7182 0%,  #B7DAED 100%);
+    color: white;
+    border:transparent;
     height: auto;
     font-weight: bold;
 }
