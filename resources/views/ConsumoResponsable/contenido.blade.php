@@ -193,9 +193,9 @@
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/ENERO2021_ECR.jpg')}}"
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CARTEL-TAMAÑO-REAL.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="ENERO2021_ECR.jpg">CARTEL GENERAL </a>
+                                download="Cartel_ECR_Agosto.png">CARTEL GENERAL </a>
                         </div>
 
                     </div>
