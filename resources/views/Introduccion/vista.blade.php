@@ -35,11 +35,11 @@
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
                 <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
                 alt="First slide">
               </a>
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
                 <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
@@ -238,6 +238,14 @@
      
       <div class="carousel-inner">
         <div class="carousel-item active">
+          <div class="slide-box">
+            <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+              <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+              alt="First slide">
+            </a>
+          </div>
+        </div>
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
               <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel  w-100 p-0 p-0"

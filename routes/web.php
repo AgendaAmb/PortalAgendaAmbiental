@@ -61,8 +61,8 @@ Route::get('/DateUnRespiro', function () {
     return view('DateUnRespiro.contenido');
 })->name('DateUnRespiro');
 
-Route::get('/ConsumoResponsable', function () {
-    return view('ConsumoResponsable.contenido');
+Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
+    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);;
 })->name('ConsumoResponsable');
 
 Route::get('/MovilidadUrbanaSostenible', function () {
