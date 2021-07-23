@@ -35,14 +35,14 @@
 </div>
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-        <div class="nav nav-tabs justify-content-between my-2 ">
-            <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
-                aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
-            <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-                aria-selected="false">Cambalache De Libros</a>
-                <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-                aria-selected="false">Reutrónic</a>
-        </div>
+    <div class="nav nav-tabs justify-content-between my-2 ">
+        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+            aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
+        <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Cambalache De Libros</a>
+        <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Reutrónic</a>
+    </div>
 </div>
 @endsection
 
@@ -68,10 +68,12 @@
             <li>Llevar a cabo programas que proponen buenas prácticas de consumo como <b>Reutronic</b> y <b>Cambalache
                     de Libros</b>.</li>
         </ul><br>
+        <h3>Dirigido a</h3>La comunidad universitaria y público en general <br>
+        <br>
         <h3>Descripción</h3>
-        <p style="text-align: justify;">Este evento forma parte de los módulos "Manejo adecuado de las sustancias y
-            materiales reguladas" y "Cumplimiento en residuos, descargas y emisiones" del Sistema de Gestión Ambiental
-            de la Agenda Ambiental de la UASLP.</p>Se tendrán espacios de prácticas de consumo responsable como:<p></p>
+        <p style="text-align: justify;">Este evento forma parte del Programa Universitario de Residuos los módulos del
+            Sistema de Gestión Ambiental de la Agenda Ambiental de la UASLP.</p>Se cuenta con espacios de prácticas de
+        consumo responsable como:<p></p>
         <ul>
             <li>Asesoría e informes de Agenda Ambiental; donde se registra a los participantes del evento y se ofrece
                 información de la Agenda Ambiental; que es, que hace, que cursos, concursos y programas ofrece. También
@@ -84,16 +86,48 @@
             <li>Programa Reutronic: Busca crear sinergia con profesores y estudiantes para propagar una cultura de
                 consumo responsable con la práctica de la Reparación, el Reuso y el Regreso de los materiales
                 mecano-eléctricos.</li>
+
             <li>Programa Cambalache de libros: Se reciben libros de cualquier tema y tipo en buen estado para ser
                 intercambiados por otros.</li>
+            <li>Recepción de materiales específicos para su valorización y destino apropiado.</li>
         </ul><br>
-        <h3>Material aceptado</h3>
+        <h3>Actividades:</h3> 
+        <ul>
+            <li>Programa Reutronic</li>
+            <li>Programa Cambalache de libros</li>
+            <li>Se recibe para destinar a Reciclaje:
+                <ul> <li>Electrónicos y electrodomésticos</li>
+                    <li>Papel y cartón</li>
+                    <li>Textiles </li>
+                    <li>Residuos orgánicos composteables</li>
+                    <li>Lonas vulcanizadas</li>
+                    <li>Pilas alcalinas</li>
+                    <li>Reciclables limpios, secos y comprimidos:
+                        <ul>
+                        <li>Papel </li>
+                        <li>Cartón </li>
+                        <li>Tetra Pak  </li>
+                        <li>Caple </li>
+                        <li>Plásticos (PET, HDPE, LDPE, PP y PS) </li>
+                        <li>Metales (Aluminio y acero) </li>
+                        <li>Vidrio </li>
+                    </ul>
+                    </li>
+                   
+                </ul>
+               
+            </li>
+            </li>
+
+        </ul>
+
+        <h3>Papel post consumo aceptado </h3>
         <p style="text-align: justify;"><b>Sí:</b> periódico, libretas, libros, folders, revistas, hojas, sobres,
             legajos, cajas, folletos, cartón (se acepta encuadernado, engargolado, grapado o triturado).</p>
         <p style="text-align: justify;"><b>No:</b> papel carbón, plastificado, alumninio, celofán, fax, fotografías,
             encerado (envase de tretra pack de leche, jugos, etc.), con adhesivos (post it, calcamonías), doméstico
             usado (servilletas, higiénico, vasos, etc.)</p><br>
-        <h3>Chatarra electrónica</h3>
+        <h3>Electrónicos y electrodomésticos aceptados </h3>
         <p style="text-align: justify;"><b>Computación:</b> CPU, impresoras, teclados, mouse, monitores, discos duros,
             floppys, tarjetas, memorias, procesadores, reguladores, servidores, laptops.</p>
         <p style="text-align: justify;"><b>Telefonía:</b> celulares, cargadores, palms, radiolocalizadores, teléfonos
@@ -106,14 +140,31 @@
             deberá trámitar la "baja de inventarios" en el SIIA, para más información comunícate al Departamento de
             Proveeduría e Inventarios al tel. 102-7200 ext. 7557.<br><br>Si tu entidad está por comprar equipo o
             mobiliario asegúrate de revisar primero el catálogo de bienes en resguardo del almacén de bajas del
-            Departamento de Proveeduría e Inventarios en el siguiente enlace <a
+            Departamento de Proveeduría e Inventarios en el siguiente enlace: 
+            <br>
+            <a
                 href="http://www.uaslp.mx/SecretariaAdministrativa/catalogo-de-baja"
                 target="_blank">http://www.uaslp.mx/SecretariaAdministrativa/catalogo-de-baja</a></p><br>
-        <h4>Más Informes</h4>
+    
+            <h3>Lineamientos de recepción de residuos orgánicos</h3> 
+            <ul>
+                <li>Si se reciben: Residuos de fruta o verduras, residuos de alimentos sin procesar, residuos de café, bolsas de té, cáscaras de frutos secos.</li>
+                <li>No se recibe: Papel, servilletas, cartón, restos de alimentos procesados, restos de barrido, huesos, residuos cárnicos, colillas de cigarro, chicle</li>
+                <li>No se reciben residuos contaminados </li>
+                <li>Residuos de no más de 3 días de post consumo</li>
+                <li>Llevar y vaciar estos residuos en componentes de reuso </li>
+            </ul>
+            <h3>Lineamientos de recepción de residuos orgánicos</h3> 
+            <ul>
+                <li>Estos materiales deberán estar limpios, secos y sin rastros de comida o de materia orgánica. </li>
+                <li>Para el vidrio, no se admiten copas, vasos, espejos o cristales rotos, además, se debe colocar en una caja aparte del resto de residuos.  </li>
+            </ul>
+            <br>
+            <h4>Más Informes</h4>
         <p style="!important;"><b>Laura Daniela Hernández Rodríguez</b><br><b>Sistema de Gestión
                 Ambiental</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava
             No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext.
-            7210<br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
+            7210<br><a href="mailto:proserem@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
     </div>
 </div>
 
@@ -134,7 +185,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/ENERO2021_ECR.jpg')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/CARTEL-TAMAÑO-REAL.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
