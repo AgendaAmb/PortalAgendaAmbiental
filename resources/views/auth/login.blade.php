@@ -111,7 +111,7 @@
             </div>
             <div class="modal-body">
                 
-                <form action="{{ route('Prueba') }}" method="post">
+                <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
                         <div class="form-group ">
