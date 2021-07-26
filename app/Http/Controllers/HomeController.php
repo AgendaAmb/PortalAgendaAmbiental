@@ -31,4 +31,9 @@ class HomeController extends Controller
         dd($request);
         return view('home');
     }
+    public function panel(Request $request)
+    {
+       
+        return view('auth.Dashbord.index');
+    }
 }

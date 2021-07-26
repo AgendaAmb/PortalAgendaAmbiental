@@ -94,6 +94,39 @@
             "FotoComponente" : "imagenes/componentesAcordeones/CalendarioEscolar.png",
             "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
         }
+    },
+      "HerramientasInteres":
+    {
+        "admision": 
+        {
+            "TextoComponente": "CURSO DE AKSBJ",
+            "FotoComponente" : "#",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "comSocial": 
+        {
+            "TextoComponente": " CONVOCATORIA",
+            "FotoComponente" : "#",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "radYTel": 
+        {
+            "TextoComponente": "REVISTA SHKD",
+            "FotoComponente" : "#",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "proteccionCivil": 
+        {
+            "TextoComponente": "LIGAS A OTRAS WEB",
+            "FotoComponente" : "#",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        },
+        "contraloriaSocial": 
+        {
+            "TextoComponente": "ENLACE DE INTERES GENERAL",
+            "FotoComponente" : "#",
+            "LinkReferencia" : "http://www.uaslp.mx/ServiciosEstudiantiles/Paginas/UNISALUD.aspx"
+        }
     }
     
 }

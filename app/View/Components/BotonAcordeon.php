@@ -15,9 +15,13 @@ class BotonAcordeon extends Component
      *
      * @return void
      */
-    public function __construct($fotoItem, $textoItem, $linkReferencia)
+    public function __construct($fotoItem=null, $textoItem, $linkReferencia)
     {
-        $this->fotoItem = Storage::url($fotoItem);
+        if($fotoItem==null){
+           
+        }else{
+            $this->fotoItem = Storage::url($fotoItem);
+        }
         $this->textoItem = $textoItem;
         $this->linkReferencia = $linkReferencia;
     }

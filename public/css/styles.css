@@ -658,7 +658,15 @@ background-color: gray;
 a.nav-item.nav-link.nav-button{
     font-size: 12px;
 }
-
+#HerramientasInteres .card-body{
+    background-color: gray;
+    padding: 1.25rem 0%;
+    border-radius: 0.0rem;
+}
+#HerramientasInteres a{
+color:white;
+font-size: 12px;
+}
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
 

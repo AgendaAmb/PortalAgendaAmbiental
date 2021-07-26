@@ -413,6 +413,7 @@
     </x-acordeon>
     <x-acordeon :idAcordeon="'acordeonAccesos'" :tituloAcordeon="'ACCESOS'">
     </x-acordeon>
+    
   </div>
 </div>
 

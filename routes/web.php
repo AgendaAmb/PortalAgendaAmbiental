@@ -77,6 +77,7 @@ Route::get('/CicloDeConferencias', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/panel', 'HomeController@panel')->name('panel');
 Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
 
 Route::redirect('/historia/index.html', '/Nosotros', 301);

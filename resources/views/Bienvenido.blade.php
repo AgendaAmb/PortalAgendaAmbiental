@@ -7,25 +7,20 @@
 
 <body>
     <header>
-        
         @include('Parciales.header')
         @if (route('Index')==url()->full())
-      
             <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
 
                 <a href="https://www.un.org/sustainabledevelopment/es/"> <img src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset="" id="imgODSLogo"></a>
-            </div>
-            
-        
+            </div>   
     @endif
     </header>
     <nav>
         @include('Parciales.navbar')
-
         @if (route('Gestion')==url()->full()
         ||route('Educacion')==url()->full()
         ||route('Vinculacion')==url()->full()
-        || route('Comunicacion')==url()->full()
+        ||route('Comunicacion')==url()->full()
         ||route('Unibici')==url()->full()
         ||route('Unihuerto')==url()->full()
         ||route('Cineminuto')==url()->full()
@@ -33,7 +28,8 @@
         ||route('DateUnRespiro')==url()->full()
         ||route('Proserem')==url()->full()
         ||route('ConsumoResponsable')==url()->full()
-
+        ||route('mmus')==url()->full()
+        ||route('CicloConf')==url()->full()
         )
         <x-navbar-o-d-s>
         </x-navbar-o-d-s>
@@ -42,7 +38,7 @@
         @else
            
         @endif
-
+        @yield('navbarModulos')
     </nav>
 
     <main class="container-fluid">
@@ -52,7 +48,12 @@
     </main>
 
     <footer>
-        @include('Parciales.footer')
+        @if (route('panel')!=url()->full())
+         @include('Parciales.footer')
+            
+        @else
+            
+        @endif
     </footer>
    
 </body>
