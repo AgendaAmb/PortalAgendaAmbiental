@@ -102,18 +102,22 @@
 <!-- Modal -->
 <div class="modal fade " id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class=" modal-dialog modal-xl">
-        <div class="modal-content px-5" style="background-color: #8b96a8">
+        <div class="modal-content px-xl-5 px-lg-5 px-md-4 px-sm-3 px-2" style="background-color: #8b96a8">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">Registro</h2>
+                <button type="button" class="close d-xl-none d-lg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
             </div>
             <div class="modal-body">
+                
                 <form action="{{ route('Prueba') }}" method="post">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group ">
                             <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
                         </div>
-                        <div class="form-group col-md-2 ">
+                        <div class="form-group ">
                             <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required>
                                 <option disabled value="">Opción</option>
                                 <option>Si</option>
@@ -453,7 +457,7 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-start">
-                        <button  type="submit" class="btn btn-primary">Aceptar</button>
+                        <button  type="submit" class="btn btn-primary" style="background-color: #0160AE">Aceptar</button>
                         <!--
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         -->
