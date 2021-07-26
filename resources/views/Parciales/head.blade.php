@@ -29,7 +29,7 @@
 <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
 <link defer href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 @stack('Styles')
 @stack('stylesheets')
 
