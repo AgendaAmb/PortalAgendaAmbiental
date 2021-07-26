@@ -16,11 +16,7 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="form-group row">
-                        <!--
-                            <label for="email" class="col-md-12 col-form-label ">{{ __('Email') }}</label>
-                        
-                        -->
+                    <div class="form-group row">    
                         <div class="col-md-12">
                             <input id="email" placeholder="EMAIL" type="email"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
@@ -128,11 +124,12 @@
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
                         <div class="form-group col-md-10 col-sm-10 col-10  was-validated">
                             <label for="email">Ingresa tu RPE/Clave única de alumno ó correo Institucional</label>
-                            <input type="email" class="form-control" id="emailR" v-model="emailR" name="email" required  >
+                            <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required  >
                             <span class="invalid-feedback" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
                             </span>
                         </div>
+                        <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-2 col-sm-2 col-2">
 
                             <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser"><i
@@ -147,14 +144,14 @@
                             <input type="email" class="form-control" id="emailR" name="email" required >
                         </div>
                         <div class="form-group col-md-6 was-validated">
-                            <label for="password">Cntraseña</label>
+                            <label for="password">Contraseña</label>
                             <input type="password" class="form-control" id="password" name="password" required
-                                v-model="password" v-on:change="VerificarContraseña()">
+                                v-model="password" v-on:change="VerificarContraseña()" minlength="8">
                         </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="passwordR">Repite tu Contraseña</label>
                             <input type="password" class="form-control" id="passwordR" name="passwordR" required
-                                v-model="passwordR" v-on:change="VerificarContraseña()"  >
+                                v-model="passwordR" v-on:change="VerificarContraseña()"   minlength="8">
                         </div>
                         
                         <span class="invalid-feedback" role="alert" v-if="Errores[1].Visible">
@@ -167,7 +164,7 @@
                             <label for="inputPertenecesUASLP ">País de origen</label>
                         </div>
                         <div class="form-group col-md-2 ">
-                            <select id="Pais" class="form-control" v-model="Pais" required>
+                            <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
                                 <option disabled value="">País</option>
                                 <option value="Elegir" id="AF">Elegir opción</option>
                                 <option value="Afganistán" id="AF">Afganistán</option>
@@ -423,22 +420,22 @@
                             <label for="CURP ">CURP</label>
                         </div>
                         <div class="form-group col-md-11  was-validated">
-                            <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;" maxlength="18">
+                            <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;" maxlength="18" name="CURP">
                         </div>
                     </div>
                     <div class="form-group  was-validated">
                         <label for="inputAddress">Nombre(s)</label>
-                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"  >
+                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"   style="text-transform: capitalize;">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required name="ApellidoP" >
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
-                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required name="ApellidoM" >
+                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required name="ApellidoM"  style="text-transform: capitalize;">
                         </div>
                     </div>
                     <div class="form-row">
@@ -481,7 +478,8 @@
     ApellidoM:'',
     passwordR:'',
     password:'',
-    Errores:[]
+    Errores:[],
+    Facultad:''
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -503,9 +501,8 @@
 
         uaslpUser:function(){
            if(this.emailR!=''){
-               console.log("hola");
             var data = {
-       	    "clave_uaslp":this.emailR
+       	    "username":this.emailR
            }
            
     }
@@ -515,6 +512,10 @@
         this.nombres = response['data']['data']['name'],
         this.ApellidoM= response['data']['data']['last_surname'],
         this.ApellidoP= response['data']['data']['first_surname'],
+        this.Pais="México",
+        this.Facultad=response['data']['data']['Dependencia'],
+        this.userInfo=response['data']['data'],
+        this.emailR=response['data']['data']['email'],
         this.Errores[0].Visible=false)).catch((err) => {
         this.Errores[0].Visible=true;
         this.ApellidoM='';

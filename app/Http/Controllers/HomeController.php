@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
     public function Prueba(Request $request)
     {
-        dump(1);
+      
         dd($request);
         return view('home');
     }
