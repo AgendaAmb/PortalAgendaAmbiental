@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -37,4 +40,40 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    /**
+     * Retrieve the login credentials.
+     *
+     * @return void
+     */
+    protected function credentials(Request $request)
+    {
+        # Credenciales de acceso. 
+        $credentials = [
+            'password' => $request->password,
+            'fallback' => [
+                'email' => $request->email,
+                'password' => $request->password,
+            ],
+        ];
+
+        # Datos del API si existen.
+        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [
+            'username' => $request->email
+        ]);
+
+        if ($user_request->status() === 200)
+
+            # Credenciales del api
+            $credentials['mail'] = $user_request->json()['data']['email'];
+        else 
+
+            # Credenciales del sistema 
+            $credentials['email'] = $request->email;
+        
+        return $credentials;
+    }
+
+    
 }

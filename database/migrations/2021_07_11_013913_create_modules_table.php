@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PageComponent extends Migration
+class CreateModulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class PageComponent extends Migration
      */
     public function up()
     {
-        Schema::create('page_component', function (Blueprint $table) 
-        {
-            $table->foreignId('page_id')->constrained('page');
-            $table->foreignId('component_id')->constrained('component');
-            $table->json('contents');
+        Schema::create('modules', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('url');
         });
     }
 
@@ -28,6 +27,6 @@ class PageComponent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_component');
+        Schema::dropIfExists('modules');
     }
 }

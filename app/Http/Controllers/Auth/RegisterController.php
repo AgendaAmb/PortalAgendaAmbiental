@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -49,10 +52,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $response = Http::post('148.224.134.161/api/users/uaslp-user', [
+            'username' => $data['email']
+        ]);
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'Nombres' => [ 'required', 'string', 'max:255' ],
+            'ApellidoP' => [ 'required', 'string', 'max:255' ],
+            'ApellidoM' => [ 'required', 'string', 'max:255' ],
+            'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
+            'password' => [ Rule::requiredIf($response->status() !== 200) ],
+            'passwordR' => [ Rule::requiredIf($response->status() !== 200), 'same:password' ],
+            'Pais' => [  'required' ],
+            'CURP' => [ 'required_if:Pais,México','size:18' ], 
         ]);
     }
 
@@ -60,15 +72,49 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return mixed
      */
     protected function create(array $data)
     {
-      
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        
+        # Datos del API si existen.
+        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [
+            'username' => $data['email']
         ]);
+            
+        # Nuevo usuario.
+        $user = new User;
+        $user->curp = $data['CURP'];
+        $user->nationality = $data['Pais'];
+        $user->email = $data['email'];
+        $user->phone_number = $data['Tel'];
+
+
+
+        # Toma los datos del API
+        if ($user_request->status() === 200)
+        {
+            $user_data = $user_request->json()['data'];
+
+            $user->name = $user_data['name'];
+            $user->middlename = $user_data['first_surname'];
+            $user->surname = $user_data['last_surname'];
+        }
+
+
+        # Toma los datos del modal.
+        else
+        {
+            $user->name = $data['Nombres'];
+            $user->middlename = $data['ApellidoP'];
+            $user->surname = $data['ApellidoM'];
+            $user->password = Hash::make($data['password']);
+        }
+
+        # Almacena al usuario.
+        $user->save();
+        Auth::login($user);
+        
+        return $user;
     }
 }

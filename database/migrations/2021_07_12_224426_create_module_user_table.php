@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Page extends Migration
+class CreateModuleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Page extends Migration
      */
     public function up()
     {
-        Schema::create('page', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('url');
-            $table->timestamps();
+        Schema::create('module_user', function (Blueprint $table) {
+            $table->foreignId('module_id')->constrained('modules');
+            $table->foreignId('user_id')->constrained('users');
+            $table->date('email_verified_at')->nullable();
         });
     }
 
@@ -28,6 +27,6 @@ class Page extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page');
+        Schema::dropIfExists('module_user');
     }
 }

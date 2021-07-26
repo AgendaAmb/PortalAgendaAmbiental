@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -24,16 +29,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-    }
-    public function Prueba(Request $request)
-    {
-      
-        dd($request);
-        return view('home');
-    }
-    public function panel(Request $request)
-    {
-       
-        return view('auth.Dashbord.index');
     }
 }
