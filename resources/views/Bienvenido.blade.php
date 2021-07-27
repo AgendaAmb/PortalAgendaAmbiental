@@ -9,14 +9,20 @@
     <header>
         @include('Parciales.header')
         @if (route('Index')==url()->full())
-            <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
+        <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
 
-                <a href="https://www.un.org/sustainabledevelopment/es/"> <img src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset="" id="imgODSLogo"></a>
-            </div>   
-    @endif
+            <a href="https://www.un.org/sustainabledevelopment/es/"> <img
+                    src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset=""
+                    id="imgODSLogo"></a>
+        </div>
+        @endif
     </header>
     <nav>
+        @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+        @else
         @include('Parciales.navbar')
+
+        @endif
         @if (route('Gestion')==url()->full()
         ||route('Educacion')==url()->full()
         ||route('Vinculacion')==url()->full()
@@ -36,7 +42,7 @@
         <x-btns-ejes>
         </x-btns-ejes>
         @else
-           
+
         @endif
         @yield('navbarModulos')
     </nav>
@@ -47,15 +53,15 @@
         @yield('ContenidoPrincipal')
     </main>
 
+
+    @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+    @else
     <footer>
-        @if (route('panel')!=url()->full())
-         @include('Parciales.footer')
-            
-        @else
-            
-        @endif
+        @include('Parciales.footer')
     </footer>
-   
+    @endif
+
+
 </body>
 
 </html>

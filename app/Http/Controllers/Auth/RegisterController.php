@@ -53,11 +53,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $ip = env('CENTRAL_APP');
-
+       
         $response = Http::post($ip.'/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
-
+       
         return Validator::make($data, [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
@@ -78,6 +78,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       
         # Nuevo usuario.
         $user = new User;
         $user->curp = $data['CURP'];

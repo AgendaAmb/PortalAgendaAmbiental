@@ -34,4 +34,9 @@ class HomeController extends Controller
     public function panel(){
         return view('auth.Dashbord.index');
     }
+
+    public function Administracion(){
+        return view('auth.Dashbord.Administracion');
+    }
+    
 }
