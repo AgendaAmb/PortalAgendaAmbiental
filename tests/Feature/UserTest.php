@@ -16,7 +16,9 @@ class UserTest extends TestCase
     public function test_empty_user_login()
     {
         $response = $this->post('/login', []);
+
         $response->assertStatus(302);
+        $response->assertRedirect('/login');
     }
 
     /**
@@ -32,6 +34,7 @@ class UserTest extends TestCase
         ]);
 
         $response->assertStatus(302);
+        $response->assertRedirect('/login');
     }
 
     /**
@@ -46,7 +49,7 @@ class UserTest extends TestCase
             'Mickeymo970609sep%$'
         ]);
 
-
+        $response->assertStatus(302);
         $response->assertRedirect('/home');
     }
 }
