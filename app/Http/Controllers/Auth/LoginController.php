@@ -49,7 +49,7 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
-        # Credenciales de acceso. 
+        # Credenciales de acceso.
         $credentials = [
             'password' => $request->password,
             'fallback' => [
@@ -59,7 +59,7 @@ class LoginController extends Controller
         ];
 
         # Datos del API si existen.
-        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [
+        $user_request = Http::post('locahost:8000/api/users/uaslp-user', [
             'username' => $request->email
         ]);
 
@@ -67,13 +67,13 @@ class LoginController extends Controller
 
             # Credenciales del api
             $credentials['mail'] = $user_request->json()['data']['email'];
-        else 
+        else
 
-            # Credenciales del sistema 
+            # Credenciales del sistema
             $credentials['email'] = $request->email;
-        
+
         return $credentials;
     }
 
-    
+
 }
