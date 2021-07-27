@@ -78,41 +78,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $ip = env('CENTRAL_APP');
-
-        # Datos del API si existen.
-        $user_request = Http::post($ip.'/api/users/uaslp-user', [
-            'username' => $data['email']
-        ]);
-            
         # Nuevo usuario.
         $user = new User;
         $user->curp = $data['CURP'];
         $user->nationality = $data['Pais'];
         $user->email = $data['email'];
         $user->phone_number = $data['Tel'];
+        $user->name = $data['Nombres'];
+        $user->middlename = $data['ApellidoP'];
+        $user->surname = $data['ApellidoM'];
+        $user->password = Hash::make($data['password']);
 
-
-
-        # Toma los datos del API
-        if ($user_request->status() === 200)
-        {
-            $user_data = $user_request->json()['data'];
-
-            $user->name = $user_data['name'];
-            $user->middlename = $user_data['first_surname'];
-            $user->surname = $user_data['last_surname'];
-        }
-
-
-        # Toma los datos del modal.
-        else
-        {
-            $user->name = $data['Nombres'];
-            $user->middlename = $data['ApellidoP'];
-            $user->surname = $data['ApellidoM'];
-            $user->password = Hash::make($data['password']);
-        }
 
         # Almacena al usuario.
         $user->save();
