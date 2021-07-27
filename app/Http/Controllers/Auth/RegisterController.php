@@ -52,19 +52,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $response = Http::post('148.224.134.161/api/users/uaslp-user', [
-            'username' => $data['email']
+        $ip = env('CENTRAL_APP');
+
+        $response = Http::post($ip.'/api/users/uaslp-user', [
+            'username' => $data['email'] ?? null
         ]);
 
         return Validator::make($data, [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
-            'ApellidoM' => [ 'required', 'string', 'max:255' ],
+            'ApellidoM' => [ 'nullable', 'string', 'max:255' ],
             'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
             'password' => [ Rule::requiredIf($response->status() !== 200) ],
             'passwordR' => [ Rule::requiredIf($response->status() !== 200), 'same:password' ],
             'Pais' => [  'required' ],
-            'CURP' => [ 'required_if:Pais,México','size:18' ], 
+            'CURP' => [ 'required_if:Pais,México','size:18', 'pattern:/^(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=^\S+$)(?=.*[@$!%*#?&]).*$/i' ], 
         ]);
     }
 
@@ -76,9 +78,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        $ip = env('CENTRAL_APP');
+
         # Datos del API si existen.
-        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [
+        $user_request = Http::post($ip.'/api/users/uaslp-user', [
             'username' => $data['email']
         ]);
             

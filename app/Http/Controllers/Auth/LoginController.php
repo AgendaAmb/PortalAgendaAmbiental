@@ -49,6 +49,8 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
+        $ip = env('CENTRAL_APP');
+
         # Credenciales de acceso.
         $credentials = [
             'password' => $request->password,
@@ -59,7 +61,7 @@ class LoginController extends Controller
         ];
 
         # Datos del API si existen.
-        $user_request = Http::post('locahost:8000/api/users/uaslp-user', [
+        $user_request = Http::post($ip.'/api/users/uaslp-user', [
             'username' => $request->email
         ]);
 
