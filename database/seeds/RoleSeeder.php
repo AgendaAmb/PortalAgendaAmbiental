@@ -14,10 +14,10 @@ class RoleSeeder extends Seeder
     {
         $roles = [
             # Admin
-            [ 'name' => 'administrador' ],
+            [ 'name' => 'administrator' ],
 
             # Usuario
-            [ 'name' => 'user' ],
+            [ 'name' => 'usuario' ],
         ];
 
         foreach ( $roles as $role)
