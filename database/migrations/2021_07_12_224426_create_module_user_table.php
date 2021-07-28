@@ -14,8 +14,8 @@ class CreateModuleUserTable extends Migration
     public function up()
     {
         Schema::create('module_user', function (Blueprint $table) {
-            $table->foreignId('module_id')->constrained('modules');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('module_id')->constrained('modules')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->date('email_verified_at')->nullable();
         });
     }

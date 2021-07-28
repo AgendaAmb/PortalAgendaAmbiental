@@ -118,7 +118,7 @@
                             <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
                         </div>
                         <div class="form-group ">
-                            <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required>
+                            <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required v-on:change="RestableceValores()" >
                                 <option disabled value="">Opción</option>
                                 <option>Si</option>
                                 <option>No</option>
@@ -129,7 +129,7 @@
                         <div class="form-group col-md-10 col-sm-10 col-10  was-validated">
                             <label for="email">Ingresa tu RPE/Clave única de alumno ó correo Institucional</label>
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required  >
-                            <span class="invalid-feedback" role="alert" v-if="Errores[0].Visible">
+                            <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
                             </span>
                         </div>
@@ -473,7 +473,7 @@
     var app = new Vue({
   el: '#Registro',
   data: {
-    PerteneceUaslp: '',
+    PerteneceUaslp:'',
     Pais:'',
     userInfo:'',
     emailR:'',
@@ -494,6 +494,17 @@
   })
 },
   methods:{
+      //*Metodo para verificar que las contraseñas sean iguales*//
+      RestableceValores:function(){
+          if (this.PerteneceUaslp=="Si") {
+            console.log("hola");
+          } else {
+            this.emailR='';
+            this.nombres='';
+            this.ApellidoP='';
+            this.ApellidoM='';
+          }
+      },
         VerificarContraseña:function(){
             if(this.password!=this.passwordR){
              this.Errores[1].Visible=true;
@@ -506,26 +517,25 @@
         uaslpUser:function(){
            if(this.emailR!=''){
             var data = {
-       	    "username":this.emailR
-           }
-           
-    }
-    
-    axios.post('http://148.224.134.161/api/users/uaslp-user',data)
-      .then(response => (
-        this.nombres = response['data']['data']['name'],
-        this.ApellidoM= response['data']['data']['last_surname'],
-        this.ApellidoP= response['data']['data']['first_surname'],
-        this.Pais="México",
-        this.Facultad=response['data']['data']['Dependencia'],
-        this.userInfo=response['data']['data'],
-        this.emailR=response['data']['data']['email'],
-        this.Errores[0].Visible=false)).catch((err) => {
-        this.Errores[0].Visible=true;
-        this.ApellidoM='';
-        this.ApellidoP='';
-        this.nombres='';
-         })
+       	        "username":this.emailR
+            }    
+            }
+        axios.post('http://148.224.134.161/api/users/uaslp-user',data)
+            .then(response => (
+                this.nombres = response['data']['data']['name'],
+                this.ApellidoM= response['data']['data']['last_surname'],
+                this.ApellidoP= response['data']['data']['first_surname'],
+                this.Pais="México",
+                this.Facultad=response['data']['data']['Dependencia'],
+                this.userInfo=response['data']['data'],
+                this.emailR=response['data']['data']['email'],
+                this.Errores[0].Visible=false)
+                ).catch((err) => {
+                this.Errores[0].Visible=true;
+                this.ApellidoM='';
+                this.ApellidoP='';
+                this.nombres='';
+            })
     
          }
     }
