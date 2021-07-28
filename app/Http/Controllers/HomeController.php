@@ -30,7 +30,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    /*no quites esta ruta:v es para el panel */ 
+    /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
+        
+    */ 
     public function panel(){
         return view('auth.Dashbord.index');
     }
