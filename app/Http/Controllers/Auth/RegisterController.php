@@ -89,8 +89,8 @@ class RegisterController extends Controller
             'phone_number' => $data['Tel'],
             'name' => $data['Nombres'],
             'middlename' => $data['ApellidoP'],
-            'surname' => $data['ApellidoM'] ?? null,
-            'dependency' => $data['Dependencia'] ?? null,
+            'surname' => $data['ApellidoM'] ?? null,  
+            'dependency' => $data['Dependencia'] ?? null, # Facultad o zona de trabajo de la UASLP.
             'password' => Hash::make($data['password'] ?? null)
         ]);
 
