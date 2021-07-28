@@ -457,7 +457,7 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-start">
-                        <button  type="submit" class="btn btn-primary" style="background-color: #0160AE">Aceptar</button>
+                        <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE">Aceptar</button>
                         <!--
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         -->

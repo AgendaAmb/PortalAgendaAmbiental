@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             // Campos de LDAP 
             $table->string('guid')->unique()->nullable();
             $table->string('domain')->nullable();
+            $table->string('dependency')->nullable();
         });
     }
 

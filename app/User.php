@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use LdapRecord\Laravel\Auth\HasLdapUser;
 use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements LdapAuthenticatable,MustVerifyEmail
+class User extends Authenticatable implements LdapAuthenticatable //,MustVerifyEmail
 {
-    use Notifiable, AuthenticatesWithLdap, HasLdapUser;
+    use Notifiable, AuthenticatesWithLdap, HasLdapUser, HasRoles;
 
     /**
      * The attributes that are mass assignable.

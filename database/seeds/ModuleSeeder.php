@@ -1,0 +1,34 @@
+<?php
+
+use App\Module;
+use Illuminate\Database\Seeder;
+
+class ModuleSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $modules = [ 
+
+            # Módulo de biodiversidad.
+            [ 'name' => 'Biodiversidad', 'url' => env('APP_URL').'/biodiversidad' ],
+
+            # Módulo de control escolar.
+            [ 'name' => 'Control Escolar', 'url' => env('APP_URL').'/controlescolar' ],
+
+            # Módulo de 17 gemas.
+            [ 'name' => '17 gemas', 'url' => env('APP_URL').'/17gemas' ],
+
+
+            # Módulo de administración.
+            [ 'name' => 'Administración', 'url' => env('APP_URL').'/Administracion' ],
+        ];
+
+        foreach ( $modules as $module)
+            Module::create($module);
+    }   
+}

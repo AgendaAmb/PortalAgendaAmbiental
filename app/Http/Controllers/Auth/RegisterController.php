@@ -57,16 +57,19 @@ class RegisterController extends Controller
         $response = Http::post($ip.'/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
+
        
-        return Validator::make($data, [
+        # Valida los datos de registro
+        return  Validator::make($data, [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
             'ApellidoM' => [ 'nullable', 'string', 'max:255' ],
             'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
             'password' => [ Rule::requiredIf($response->status() !== 200) ],
             'passwordR' => [ Rule::requiredIf($response->status() !== 200), 'same:password' ],
-            'Pais' => [  'required' ],
-            'CURP' => [ 'required_if:Pais,México','size:18', 'pattern:/^(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=^\S+$)(?=.*[@$!%*#?&]).*$/i' ], 
+            'Pais' => [ 'required' ],
+            'Dependencia' => [ Rule::requiredIf($response->status() === 200) ],
+            'CURP' => [ 'required_if:Pais,México','size:18', 'regex:/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i' ], 
         ]);
     }
 
@@ -78,21 +81,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-       
-        # Nuevo usuario.
-        $user = new User;
-        $user->curp = $data['CURP'];
-        $user->nationality = $data['Pais'];
-        $user->email = $data['email'];
-        $user->phone_number = $data['Tel'];
-        $user->name = $data['Nombres'];
-        $user->middlename = $data['ApellidoP'];
-        $user->surname = $data['ApellidoM'];
-        $user->password = Hash::make($data['password']);
+        # Crea al usuario.
+        $user = User::create([
+            'curp' => $data['CURP'],
+            'nationality' => $data['Pais'],
+            'email' => $data['email'],
+            'phone_number' => $data['Tel'],
+            'name' => $data['Nombres'],
+            'middlename' => $data['ApellidoP'],
+            'surname' => $data['ApellidoM'] ?? null,
+            'dependency' => $data['Dependencia'] ?? null,
+            'password' => Hash::make($data['password'] ?? null)
+        ]);
 
-
-        # Almacena al usuario.
-        $user->save();
+        # Autentica al usuario.
         Auth::login($user);
         
         return $user;
