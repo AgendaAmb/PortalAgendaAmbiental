@@ -36,7 +36,8 @@ class HomeController extends Controller
     }
 
     public function Administracion(){
-        return view('auth.Dashbord.Administracion');
+
+        return view('auth.Dashbord.Administracion')->with('user', User::all());
     }
     
 }
