@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
             "surname" => "Orduña",
             "password" => '$2y$10$ZQfpxcwS0jqxdtfovHKzyuUvsGvFf224.g8MORbxouwQ8HqeTqQWG',
             "curp" => "RAOA910713HSPNRN02",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Iván",
@@ -26,7 +27,8 @@ class UserSeeder extends Seeder
             "surname" => "Loyola",
             "password" => '$2y$10$fiywHYoIwR6IideF12Rg4.g98YjKDrXR2j/WmhaKcU0pOINTJIBKO',
             "curp" => "MELI791017HSPNYV04",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Aldo Axel",
@@ -35,7 +37,8 @@ class UserSeeder extends Seeder
             "surname" => "Guzmán",
             "password" => '$2y$10$NikNxRP9ZzqE2mVUJ4kkQuIQ91ChazA1zMYOnJuEVXzMckFwUCBPG',
             "curp" => "DIGA980314HASZZL08",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Karina Sumire",
@@ -44,7 +47,8 @@ class UserSeeder extends Seeder
             "surname" => "Gálvez",
             "password" => '$2y$10$RQ67eLGOCFC3sY9XoTvZZeGWRnlkc.xiJQK7gXYVEW1hW9uCODoGi',
             "curp" => "OIGK980906MDFRLR00",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Mayra Yatnely",
@@ -53,7 +57,8 @@ class UserSeeder extends Seeder
             "surname" => "Montenegro",
             "password" => '$2y$10$40v5FL2CMVulNRXbFMxOSOUH7UR/fHPgVMU3tzlOGGOuKUDkOxPlC',
             "curp" => "ROMM861015MSPDNY05",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Alicia",
@@ -62,7 +67,8 @@ class UserSeeder extends Seeder
             "surname" => "Ortega",
             "password" => '$2y$10$rvwTKYQryAbigGLQX/S.X.2fVZLu0t8ZPQGreuh9Qyu/vu/TwrOQm',
             "curp" => "VAOA891114MSPRRL06",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Mariana",
@@ -71,7 +77,8 @@ class UserSeeder extends Seeder
             "surname" => "RAMIREZ",
             "password" => '$2y$10$/QaD.SaNRTPPjHb/HCWZsu2qEd7uR69Pl67ull7F53midqPEKM4hW',
             "curp" => "GORM921007MSPMMR05",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "Ana Rebeca",
@@ -80,7 +87,8 @@ class UserSeeder extends Seeder
             "surname" => "Lopez",
             "password" => '$2y$10$QpgDcaB9pT2lXtpBgLqh3ep2oi/FcDVbvCfsbwx8DPe02WHcRN2SW',
             "curp" => "MALA961129MSPTPN02",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "ANA VALERIA",
@@ -89,7 +97,8 @@ class UserSeeder extends Seeder
             "surname" => "DIMAS",
             "password" => '$2y$10$NLDNnIho.9QfVkWPSCMgSOZcT3R00yKR7gE5gfA1Da6zFz8y.1tlq',
             "curp" => "MADA970710MSPRMN00",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "NINFA EDITH",
@@ -98,7 +107,8 @@ class UserSeeder extends Seeder
             "surname" => "FLORES",
             "password" => '$2y$10$sL3y.55aJ6lw8ile1lPK8OrqrQ.frlJI4PvceQ//rtejsFoSGIBhy',
             "curp" => "LOFN850806MSPPLN05",
-            "modules" => ['Control escolar']
+            "modules" => ['Control escolar'],
+            "roles" => [ 'user' ]
         ],
         [
             "name" => "MIGUEL ANGEL",
@@ -106,7 +116,8 @@ class UserSeeder extends Seeder
             "middlename" => "MENDEZ",
             "surname" => "ORTA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad']
+            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "roles" => [ 'user', 'administrator' ]
         ],
         [
             "name" => "JACOB ALEJANDRO",
@@ -114,7 +125,8 @@ class UserSeeder extends Seeder
             "middlename" => "LOREDO",
             "surname" => "DE LA ROSA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad']
+            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "roles" => [ 'user', 'administrator' ]
         ]
     ];
 
@@ -131,6 +143,7 @@ class UserSeeder extends Seeder
             # Quita la llave 'modules'
             $user_data = $user;
             unset($user_data['modules']);
+            unset($user_data['roles']);
 
             # Modelo de usuario.
             $user_model =  User::create($user_data);
@@ -142,6 +155,10 @@ class UserSeeder extends Seeder
             
                 $user_model->userModules()->attach($module->id);
             }
+
+            # Agrega los módulos del usuario.
+            foreach ($user['roles'] as $roleName)
+                $user_model->assignRole($roleName);
         }
     }
 }

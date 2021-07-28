@@ -52,9 +52,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $ip = env('CENTRAL_APP');
-       
-        $response = Http::post($ip.'/api/users/uaslp-user', [
+        $response = Http::post('148.224.134.161/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
 
@@ -93,6 +91,9 @@ class RegisterController extends Controller
             'dependency' => $data['Dependencia'] ?? null, # Facultad o zona de trabajo de la UASLP.
             'password' => Hash::make($data['password'] ?? null)
         ]);
+
+        # Asigna rol de usuario
+        $user->assignRole('user');
 
         # Autentica al usuario.
         Auth::login($user);
