@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\Extern;
+use App\Models\Auth\Student;
+use App\Models\Auth\Worker;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -52,21 +54,28 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        # Valida el correo de la uaslp.
         $response = Http::post('148.224.134.161/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
 
-       
+
+        # Guarda el directorio activo en la sesión.
+        if ($response->status() === 200)
+            session('DirectorioActivo', $response->json()['data']['DirectorioActivo']);
+
+
         # Valida los datos de registro
         return  Validator::make($data, [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
             'ApellidoM' => [ 'nullable', 'string', 'max:255' ],
-            'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
+            'email' => [ 'required', 'string', 'email', 'max:255', 'unique:externs,email', 'unique:students,email', 'unique:workers,email' ],
+            
+            # Solo se solicita a externos.
             'password' => [ Rule::requiredIf($response->status() !== 200) ],
             'passwordR' => [ Rule::requiredIf($response->status() !== 200), 'same:password' ],
             'Pais' => [ 'required' ],
-            'Dependencia' => [ Rule::requiredIf($response->status() === 200) ],
             'CURP' => [ 'required_if:Pais,México','size:18', 'regex:/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i' ], 
         ]);
     }
@@ -80,24 +89,76 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         # Crea al usuario.
-        $user = User::create([
+        $new_user_data = [
+
+            # Datos de identidad
             'curp' => $data['CURP'],
             'nationality' => $data['Pais'],
+
+            # Datos de contacto.
             'email' => $data['email'],
             'phone_number' => $data['Tel'],
+
+            # Nombres
             'name' => $data['Nombres'],
+
+            # Apellidos
             'middlename' => $data['ApellidoP'],
             'surname' => $data['ApellidoM'] ?? null,  
-            'dependency' => $data['Dependencia'] ?? null, # Facultad o zona de trabajo de la UASLP.
-            'password' => Hash::make($data['password'] ?? null)
-        ]);
 
-        # Asigna rol de usuario
+            # Facultad o dependencia de la UASLP.
+            'dependency' => $data['Dependencia'] ?? null, 
+            'password' => Hash::make($data['password'] ?? null)
+        ];
+
+        # Usuario y auth guard.
+        [ $user, $guard ] = $this->createUser($new_user_data);
+        
+
+        # Asigna rol de usuario.
         $user->assignRole('user');
 
         # Autentica al usuario.
-        Auth::login($user);
+        Auth::guard($guard)->login($user);
         
         return $user;
+    }
+
+    /**
+     * Creates the user model.
+     *
+     * @param  array  $new_user_data
+     * @return array
+     */
+    private function createUser(array $new_user_data)
+    {
+        # Tipo de usuario, en base al DA
+        switch (session('DirectorioActivo'))
+        {
+            case 'ALUMNOS': 
+
+                $user = Student::create($new_user_data); 
+                $guard = 'students';
+                
+                break;
+
+            case 'UASLP':   
+                
+                $user = Worker::create($new_user_data); 
+                $guard = 'workers';
+
+                break;
+
+            default: 
+
+                # El usuario externo no pertenece a ninguna facultad
+                unset($new_user_data['dependency']);
+                $user = Extern::create($new_user_data);
+                $guard = 'web';
+
+                break;
+        }
+
+        return [ $user, $guard ];
     }
 }

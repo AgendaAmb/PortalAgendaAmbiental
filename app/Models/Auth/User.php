@@ -1,35 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Models\Auth;
 
+use App\Models\Module;
 use Carbon\Carbon;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use LdapRecord\Laravel\Auth\HasLdapUser;
-use LdapRecord\Laravel\Auth\LdapAuthenticatable;
-use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements LdapAuthenticatable //,MustVerifyEmail
+class User extends Authenticatable //,MustVerifyEmail
 {
-    use Notifiable, AuthenticatesWithLdap, HasLdapUser, HasRoles;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * Model guard.
-     *
-     * @var string
-     */
-    protected $guard_name = 'web';
+    protected $guarded = [];
 
 
     /**
@@ -57,7 +45,7 @@ class User extends Authenticatable implements LdapAuthenticatable //,MustVerifyE
      */
     public function userModules()
     {
-        return $this->belongsToMany(Module::class);
+        return $this->morphToMany(Module::class, 'user', 'module_user');
     }
 
     /**
@@ -122,8 +110,11 @@ class User extends Authenticatable implements LdapAuthenticatable //,MustVerifyE
     {
         return $this
                 ->userModules()
-                ->wherePivot('oauth_client_id', $module->id)
+                ->wherePivot('module_id', $module->id)
                 ->wherePivotNotNull('email_verified_at')
                 ->get() !== null;
     }
+
+
+    
 }

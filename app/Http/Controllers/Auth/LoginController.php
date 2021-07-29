@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
@@ -31,6 +32,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+
     /**
      * Create a new controller instance.
      *
@@ -43,37 +45,30 @@ class LoginController extends Controller
 
 
     /**
-     * Retrieve the login credentials.
+     * Attempt to log the user into the application.
      *
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
      */
-    protected function credentials(Request $request)
+    protected function attemptLogin(Request $request)
     {
-        # Credenciales de acceso.
-        $credentials = [
-            'password' => $request->password,
-            'fallback' => [
-                'email' => $request->email,
-                'password' => $request->password,
-            ],
-        ];
-
         # Datos del API si existen.
-        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [
-            'username' => $request->email
-        ]);
+        $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [ 'username' => $request->email ]);
 
-        if ($user_request->status() === 200)
+        dd(Auth::guard('web')->attempt($request->only('email', 'password')));
 
-            # Credenciales del api
-            $credentials['mail'] = $user_request->json()['data']['email'];
+        # Intenta acceder como externo.
+        if ($user_request->status() !== 200)
+            return Auth::guard('web')->attempt($request->only('email', 'password'));
+
+        $user_data = $user_request->json()['data'];
+        
+        # Acceder como trabajador.
+        if ($user_data['DirectorioActivo'] === 'UASLP')
+            return Auth::guard('workers')->attempt([ 'mail' => $user_data['email'], 'password' => $request->password ]);
+
+        # Acceder como alumno.
         else
-
-            # Credenciales del sistema
-            $credentials['email'] = $request->email;
-
-        return $credentials;
+            return Auth::guard('students')->attempt([ 'mail' => $user_data['email'], 'password' => $request->password ]);
     }
-
-
 }
