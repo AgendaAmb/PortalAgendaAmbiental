@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'workers' => [
+            'driver' => 'session',
+            'provider' => 'workers'
+        ],
+
+        'students' => [
+            'driver' => 'session',
+            'provider' => 'students'
+        ],
     ],
 
     /*
@@ -67,12 +77,34 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Auth\Extern::class
+        ],
+
+        'workers' => [
             'driver' => 'ldap',
             'model' => LdapRecord\Models\ActiveDirectory\User::class,
             'rules' => [],
 
             'database' => [
-                'model' => App\User::class,
+                'model' => App\Models\Auth\Worker::class,
+                'sync_passwords' => true,
+                'sync_attributes' => [
+                    App\Ldap\UserAttributeHandler::class
+                ],
+                'sync_existing' => [
+                    'email' => 'mail',
+                ]
+            ]
+        ],
+
+        'students' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\ActiveDirectory\User::class,
+            'rules' => [],
+
+            'database' => [
+                'model' => App\Models\Auth\Student::class,
                 'sync_passwords' => true,
                 'sync_attributes' => [
                     App\Ldap\UserAttributeHandler::class

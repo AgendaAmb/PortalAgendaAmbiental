@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
-use App\User;
+use App\Models\Auth\Extern;
+use App\Models\Auth\Student;
+use App\Models\Auth\Worker;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +35,7 @@ class HomeController extends Controller
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
         
+    De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(){
         return view('auth.Dashbord.index');
@@ -39,7 +43,21 @@ class HomeController extends Controller
 
     public function Administracion(){
 
-        return view('auth.Dashbord.Administracion')->with('user', User::all());
+        # Obtiene todos los tipos de usuarios
+        $students = Student::all();
+        $workers = Worker::all();
+        $externs = Extern::all();
+
+        # Combina todos los tipos de usuario, ejemplo:
+        # 
+        # [0] -> Externo,  
+        # [1] -> Estudiante, 
+        # [2] -> Trabajador, 
+        # 
+        # etc, etc. 
+        $users = $students->merge($workers)->merge($externs);
+
+        return view('auth.Dashbord.Administracion')->with('user', $users);
     }
     
 }

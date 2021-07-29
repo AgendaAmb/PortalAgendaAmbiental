@@ -2,7 +2,7 @@
 
 namespace App\Ldap;
 
-use App\User;
+use App\Models\Auth\User;
 use LdapRecord\Models\ActiveDirectory\User as LdapUser;
 
 class UserAttributeHandler

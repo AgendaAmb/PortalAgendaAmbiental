@@ -15,7 +15,7 @@ class CreateModuleUserTable extends Migration
     {
         Schema::create('module_user', function (Blueprint $table) {
             $table->foreignId('module_id')->constrained('modules');
-            $table->foreignId('user_id')->constrained('users');
+            $table->morphs('user', 'user_types');
             $table->date('email_verified_at')->nullable();
         });
     }
