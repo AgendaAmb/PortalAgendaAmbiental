@@ -55,7 +55,7 @@ class LoginController extends Controller
         # Datos del API si existen.
         $user_request = Http::post('148.224.134.161/api/users/uaslp-user', [ 'username' => $request->email ]);
 
-        dd(Auth::guard('web')->attempt($request->only('email', 'password')));
+        
 
         # Intenta acceder como externo.
         if ($user_request->status() !== 200)

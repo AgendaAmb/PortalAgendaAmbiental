@@ -105,12 +105,20 @@ border-top: 0px solid rgba(0,0,0,.125);
     margin-top: 25%;
 }
 #Registro{
-    color: white;
+    color: black;
+   
 }
 #Registro .modal-title{
-color: #FDCA56;
-font-weight: bold;
-font-family: 'Myraid Pro Bold';
+color: white;
+font-family:'Myraid light';
+}
+#Registro .modal-title2{
+    color: #3490dc;
+    font-family: 'Myraid Pro Bold';
+}
+#Registro .modal-title3{
+    color: black;
+    font-family: 'Myraid Pro Bold';
 }
 
 #Registro .modal-header{
@@ -118,6 +126,10 @@ font-family: 'Myraid Pro Bold';
 }
 #Registro .modal-header .close{
   padding: 0%;
+}
+#Registro .modal-body{
+    padding: 1rem 10% ;
+    background-color: white;
 }
 
 

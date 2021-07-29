@@ -76,11 +76,15 @@ Route::get('/CicloDeConferencias', function () {
 
 Auth::routes();
 
+/*Rutas para usuarios registrados en el sistema* */
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/panel', 'HomeController@panel')->name('panel');
 Route::get('/Administracion', 'HomeController@Administracion')->name('Administracion');
 Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
 
+
+
+/*Rutas para redireccion de rutas anteriores de agenda ambiental */
 Route::redirect('/historia/index.html', '/Nosotros', 301);
 Route::redirect('/consumoresp/index.html', '/ConsumoResponsable', 301);
 Route::redirect('/proserem/index.html', '/Proserem', 301);

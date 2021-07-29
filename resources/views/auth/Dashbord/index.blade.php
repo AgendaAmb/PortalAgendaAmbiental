@@ -75,22 +75,30 @@
 <div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title pl-3" >Registro Concurso 17 gemas</h5>
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">Concurso Gemas de la Sostenibilidad</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
                 <form action="{{ route('register') }}" method="post">
                     @csrf
-                    <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+                    <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
+                    <h5 class="modal-title3" id="exampleModalLabel">Datos Personales</h5>
+
+                    <div class="form-group row was-validated">
+                        <div class="col-4">
+                            <label for="GEtnico">Grupo étnico</label>
+                            <input type="text" name="GEtnico" class="form-control" id="GEtnico" required
+                                v-model="GEtnico" placeholder="Grupo étnico(Zapoteco, Pame, etc)">
+                        </div>
+                    </div>
                     <div class="form-group  was-validated">
                         <label for="Nombres">Nombre(s)</label>
                         <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"
                             style="text-transform: capitalize;">
                     </div>
-
                     <div class="form-row">
                         <div class="form-group col-md-6 was-validated">
                             <label for="ApellidoP">Apellido paterno</label>
@@ -102,11 +110,13 @@
                             <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required
                                 name="ApellidoM" style="text-transform: capitalize;">
                         </div>
-
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3  was-validated">
+                    <div class="form-group row was-validated">
+                        <div class="col-md-6 mb-3">
+                            <label for="Edad">Edad</label>
+                            <input type="text" name="Edad" id="Edad" v-model="Edad" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label for="Genero">Género</label>
                             <select id="Genero" class="form-control" v-model="Genero" required name="Genero">
                                 <option disabled value="">Género</option>
@@ -114,35 +124,47 @@
                                 <option value="Femenino" id="F">Femenino</option>
                                 <option value="NoEspecificar" id="NE">No Especificar</option>
                             </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="GEtnico">Grupo étnico</label>
-                            <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
-                                placeholder="Grupo étnico(Zapoteco, Pame, etc)">
+
                         </div>
 
-                        <div class="form-group col-md-3  was-validated">
+                    </div>
+
+                    <div class="form-group row was-validated">
+                        <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
+                        <div class="col-9">
+                            <input type="emailR" class="form-control" id="emailR" required name="emailR"
+                                v-model="emailR">
+                        </div>
+                    </div>
+                    <div class="form-group row was-validated">
+
+                        <div class="col-md-6">
                             <label for="ClaveU_RPE">Clave unica/RPE</label>
                             <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE"
-                                v-model="ClaveU_RPE" required placeholder="">
+                                v-model="ClaveU_RPE" required>
                         </div>
+                        <div class="col-md-6">
+                            <label for="Facultad">Facultad de adscripción</label>
+                            <input type="text" class="form-control" id="Facultad" required name="Facultad"
+                                v-model="Facultad">
+                        </div>
+                    </div>
 
-                       
-                        <div class="form-group col-md-6 was-validated">
-                            <label for="emailR">Correo</label>
-                            <input type="emailR" class="form-control" id="emailR" required name="emailR"  v-model="emailR">
-                        </div>
-                      
-                        <div class="form-group col-md-6 was-validated">
+                    <div class="form-row row was-validated">
+                        <div class="col-md-6 mb-3">
                             <label for="tel">Télefono de Contacto</label>
-                            <input type="tel" class="form-control" id="Tel" required name="Tel" >
+                            <input type="tel" class="form-control" id="Tel" required name="Tel">
                         </div>
-                        
-                        <div class="form-group col-md-2  was-validated">
+                        <div class="col-md-6 mb-3">
+                            <label for="CP">Codigo Postal</label>
+                            <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
+                        </div>
+                    </div>
+                    <div class="form-row row was-validated">
+                        <div class="col-md-6 mb-3">
                             <label for="Pais">Nacionalidad</label>
                             <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
                                 <option disabled value="">País</option>
-                                <option value="Elegir" id="AF">Elegir opción</option>
                                 <option value="Afganistán" id="AF">Afganistán</option>
                                 <option value="Albania" id="AL">Albania</option>
                                 <option value="Alemania" id="DE">Alemania</option>
@@ -390,72 +412,103 @@
                                 <option value="Zimbabue" id="ZW">Zimbabue</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group col-md-7" v-if="Pais === 'México'">
+                        <div class="col-md-6 mb-3" v-if="Pais === 'México'">
                             <label for="CURP ">CURP</label>
                             <input type="text" class="form-control" id="CURP" required
                                 style="text-transform: uppercase;" maxlength="18" name="CURP" v-model="CURP">
                         </div>
-                       
-                        <div class="form-group col-md-3 was-validated">
+                        <div class="col-md-6 mb-3">
                             <label for="LugarResidencia">Lugar de residencia</label>
-                            <input type="text" class="form-control" id="LugarResidencia" required name="LugarResidencia" v-model="LugarResidencia">
+                            <input type="text" class="form-control" id="LugarResidencia" required name="LugarResidencia"
+                                v-model="LugarResidencia">
                         </div>
-                        <div class="form-group col-md-3 was-validated">
-                            <label for="isDiscapacidad">¿Tienes alguna discapacidad?</label>
-                            <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required name="isDiscapacidad">
+                    </div>
+                    <div class="form-group row was-validated">
+                        <div class="col-md-12">
+                            <label for="LugarResidencia">Ocupación</label>
+                            <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion"
+                                v-model="Ocupacion" placeholder="estudiante, profesor, administrativo, otro">
+                        </div>
+                    </div>
+                    <div class="form-group row was-validated">
+
+                        <label for="isDiscapacidad" class="col-sm-5 col-form-label">¿Tienes alguna discapacidad?</label>
+                        <div class="col-7">
+                            <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
+                                name="isDiscapacidad">
                                 <option disabled value="">Opción</option>
                                 <option value="Si" id="Si">Si</option>
                                 <option value="No" id="No">No</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-6 was-validated" v-if="isDiscapacidad==='Si'">
-                            <label for="Discapacidad">Especifique cual</label>
-                            <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad" required v-model="Discapacidad" >
-                        </div>
-                        <div class="form-group col-md-6 was-validated">
-                            <label for="LugarResidencia">Ocupación</label>
-                            <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion" placeholder="ejem. estudiante, profesor, administrativo, otro">
-                        </div>
-                        <div class="form-group col-md-4 was-validated">
-                            <label for="Facultad">Facultad de adscripción</label>
-                            <input type="text" class="form-control" id="Facultad" required name="Facultad"  v-model="Facultad">
-                        </div>
-                       
-                        <div class="form-group col-md-2 was-validated">
-                            <label for="CP">C.P</label>
-                            <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
-                        </div>
-                       
-                        <div class="form-group ">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck" required>
-                                <label class="form-check-label" for="gridCheck">
-                                    Al enviar la información confirmo que he leido y acepto el aviso de privacidad
-                                </label>
-                            </div>
-                        </div>
-
                     </div>
-                       
+                    <div class="form-group row was-validated" v-if="isDiscapacidad==='Si'">
+                        <div class="col-md-12">
+                            <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
+                            <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
+                                required v-model="Discapacidad">
+                        </div>
+                    </div>
+                    <h5 class="modal-title3">Información estadística</h5>
+                    <div class="form-group row was-validated">
+                        <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres en
+                            la Agenda Ambiental?</label>
+                        <div class="col-5">
+                            <select id="isAsistencia" class="form-control" v-model="isAsistencia" required
+                                name="isAsistencia">
+                                <option disabled value="">Opción</option>
+                                <option value="Si" id="Si">Si</option>
+                                <option value="No" id="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row was-validated" v-if="isAsistencia==='Si'">
+                        <div class="col-md-12">
+                            <label for="CursosC">¿Cuales?</label>
+                            <input type="text" class="form-control" id="CursosC" required name="CursosC"
+                                v-model="CursosC">
+                        </div>
+                    </div>
+                    <div class="form-group row was-validated">
+                        <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
+                            participando en actividades de la Agenda Ambiental?</label>
+                        <div class="col-5">
+                            <select id="InteresAsistencia" class="form-control" v-model="InteresAsistencia" required
+                                name="InteresAsistencia">
+                                <option disabled value="">Opción</option>
+                                <option value="Si" id="Si">Si</option>
+                                <option value="No" id="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="ComentariosSugerencias" class="col-sm-12 col-form-label">Comentarios o suguerencias</label>
+                        <div class="col-md-12">
+                            <textarea name="ComentariosSugerencias" id="ComentariosSugerencias" rows="5" class="form-control"
+                                v-model="ComentariosSugerencias">
+                            </textarea>
+
+                        </div>
                     </div>
 
+                    <div class="form-group ">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                            <label class="form-check-label" for="gridCheck">
+                                Al enviar la información confirmo que he leido y acepto el aviso de privacidad
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                        <button id="submit" type="submit" class="btn btn-primary"
+                            style="background-color: #0160AE">Aceptar</button>
+                    </div>
 
-                   
+                </form>
             </div>
 
-
-            <div class="modal-footer justify-content-start">
-                <button id="submit" type="submit" class="btn btn-primary"
-                    style="background-color: #0160AE">Aceptar</button>
-
-            </div>
-
-        </form>
         </div>
-
     </div>
-</div>
 </div>
 
 <script>
@@ -479,7 +532,12 @@
     LugarResidencia:'',
     Ocupacion:'',
     isDiscapacidad:'',
-    Discapacidad:''
+    Discapacidad:'',
+    Edad:'',
+    isAsistencia:'',
+    CursosC:'',
+    InteresAsistencia:'',
+    ComentariosSugerencias:''
   },
   mounted:function () {
   this.$nextTick(function () {
