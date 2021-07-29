@@ -37,12 +37,26 @@ class Module extends Model
     }
 
     /**
-     * Gets the list of users of this module
+     * Gets the list of externs of this module
      *
      * @return object
      */
     public function externs()
     {
         return $this->morphMany(Extern::class, 'user_type');
+    }
+
+    /**
+     * Gets the list of all users of this module
+     *
+     * @return object
+     */
+    public function users()
+    {
+        $workers = $this->workers;
+        $students = $this->students;
+        $externs = $this->externs;
+
+        return $workers->merge($students)->merge($externs);
     }
 }

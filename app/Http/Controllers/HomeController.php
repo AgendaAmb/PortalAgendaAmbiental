@@ -57,7 +57,7 @@ class HomeController extends Controller
         # etc, etc. 
         $users = $students->merge($workers)->merge($externs);
 
-        return view('auth.Dashbord.Administracion')->with('user', $users);
+        return view('auth.Dashbord.Administracion')->with('users', $users);
     }
     
 }

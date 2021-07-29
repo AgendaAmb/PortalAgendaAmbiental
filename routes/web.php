@@ -76,10 +76,16 @@ Route::get('/CicloDeConferencias', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/panel', 'HomeController@panel')->name('panel');
-Route::get('/Administracion', 'HomeController@Administracion')->name('Administracion');
-Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
+# Usuarios autenticados y con roles
+Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/panel', 'HomeController@panel')->name('panel');
+    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
+    Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
+
+});
+
 
 Route::redirect('/historia/index.html', '/Nosotros', 301);
 Route::redirect('/consumoresp/index.html', '/ConsumoResponsable', 301);

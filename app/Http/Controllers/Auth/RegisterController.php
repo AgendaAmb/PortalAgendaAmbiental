@@ -55,7 +55,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         # Valida el correo de la uaslp.
-        $response = Http::post('148.224.134.161/api/users/uaslp-user', [
+        $response = Http::post('apiuaslp.com/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
 
@@ -112,8 +112,7 @@ class RegisterController extends Controller
         ];
 
         # Usuario y auth guard.
-        [ $user, $guard ] = $this->createUser($new_user_data);
-        
+        [ $user, $guard ] = $this->createUser($new_user_data);        
 
         # Asigna rol de usuario.
         $user->assignRole('user');
