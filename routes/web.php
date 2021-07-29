@@ -76,13 +76,6 @@ Route::get('/CicloDeConferencias', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
-/*Rutas para usuarios registrados en el sistema* */
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/panel', 'HomeController@panel')->name('panel');
-Route::get('/Administracion', 'HomeController@Administracion')->name('Administracion');
-Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
-=======
 # Usuarios autenticados y con roles
 Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
 
@@ -93,7 +86,6 @@ Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
 
 });
 
->>>>>>> 14067a927f8df1f389ce190d8e3462bf3a404727
 
 
 
