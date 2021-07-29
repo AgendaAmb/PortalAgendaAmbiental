@@ -16,7 +16,7 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="form-group row">    
+                    <div class="form-group row">
                         <div class="col-md-12">
                             <input id="email" placeholder="EMAIL" type="email"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
@@ -110,7 +110,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                
+
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
@@ -118,7 +118,8 @@
                             <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
                         </div>
                         <div class="form-group ">
-                            <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required v-on:change="RestableceValores()" >
+                            <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required
+                                v-on:change="RestableceValores()">
                                 <option disabled value="">Opción</option>
                                 <option>Si</option>
                                 <option>No</option>
@@ -128,7 +129,7 @@
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
                         <div class="form-group col-md-10 col-sm-10 col-10  was-validated">
                             <label for="email">Ingresa tu RPE/Clave única de alumno ó correo Institucional</label>
-                            <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required  >
+                            <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
                             </span>
@@ -136,8 +137,12 @@
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-2 col-sm-2 col-2">
 
-                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser"><i
+                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser" v-if="!spinnerVisible"><i
                                     class="fas fa-search"></i></a>
+                            <button class="btn btn-light mt-md-2 mt-md-4" type="button" disabled v-if="spinnerVisible">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span class="sr-only">Cargando...</span>
+                            </button>
                         </div>
 
 
@@ -145,7 +150,7 @@
                     <div class="form-row" v-if="PerteneceUaslp === 'No'">
                         <div class="form-group col-md-12 was-validated">
                             <label for="email">Ingresa un correo electrónico</label>
-                            <input type="email" class="form-control" id="emailR" name="email" required >
+                            <input type="email" class="form-control" id="emailR" name="email" required>
                         </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="password">Contraseña</label>
@@ -155,9 +160,9 @@
                         <div class="form-group col-md-6 was-validated">
                             <label for="passwordR">Repite tu Contraseña</label>
                             <input type="password" class="form-control" id="passwordR" name="passwordR" required
-                                v-model="passwordR" v-on:change="VerificarContraseña()"   minlength="8">
+                                v-model="passwordR" v-on:change="VerificarContraseña()" minlength="8">
                         </div>
-                        
+
                         <span class="invalid-feedback" role="alert" v-if="Errores[1].Visible">
                             @{{Errores[1].Mensaje}}
                         </span>
@@ -424,28 +429,32 @@
                             <label for="CURP ">CURP</label>
                         </div>
                         <div class="form-group col-md-11  was-validated">
-                            <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;" maxlength="18" name="CURP">
+                            <input type="text" class="form-control" id="CURP" required
+                                style="text-transform: uppercase;" maxlength="18" name="CURP">
                         </div>
                     </div>
                     <div class="form-group  was-validated">
                         <label for="inputAddress">Nombre(s)</label>
-                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"   style="text-transform: capitalize;">
+                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"
+                            style="text-transform: capitalize;">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required name="ApellidoP" style="text-transform: capitalize;">
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required
+                                name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
-                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required name="ApellidoM"  style="text-transform: capitalize;">
+                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required
+                                name="ApellidoM" style="text-transform: capitalize;">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputCity">Télefono de Contacto</label>
-                            <input type="tel"  class="form-control" id="Tel" required name="Tel"  autocomplete="Tel">
+                            <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
                     </div>
                     <div class="form-group ">
@@ -457,14 +466,15 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-start">
-                        <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE">Aceptar</button>
+                        <button id="submit" type="submit" class="btn btn-primary"
+                            style="background-color: #0160AE">Aceptar</button>
                         <!--
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         -->
                     </div>
                 </form>
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -483,7 +493,8 @@
     passwordR:'',
     password:'',
     Errores:[],
-    Facultad:''
+    Facultad:'',
+    spinnerVisible:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -497,7 +508,7 @@
       //*Metodo para verificar que las contraseñas sean iguales*//
       RestableceValores:function(){
           if (this.PerteneceUaslp=="Si") {
-            console.log("hola");
+          
           } else {
             this.emailR='';
             this.nombres='';
@@ -515,6 +526,7 @@
         },
 
         uaslpUser:function(){
+            this.spinnerVisible=true;
            if(this.emailR!=''){
             var data = {
        	        "username":this.emailR
@@ -522,6 +534,7 @@
             }
         axios.post('http://148.224.134.161/api/users/uaslp-user',data)
             .then(response => (
+                this.spinnerVisible=false,
                 this.nombres = response['data']['data']['name'],
                 this.ApellidoM= response['data']['data']['last_surname'],
                 this.ApellidoP= response['data']['data']['first_surname'],
@@ -531,6 +544,7 @@
                 this.emailR=response['data']['data']['email'],
                 this.Errores[0].Visible=false)
                 ).catch((err) => {
+                    this.spinnerVisible=false,
                 this.Errores[0].Visible=true;
                 this.ApellidoM='';
                 this.ApellidoP='';

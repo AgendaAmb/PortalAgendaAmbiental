@@ -31,7 +31,7 @@ class HomeController extends Controller
         return view('home');
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
-        
+
     */ 
     public function panel(){
         return view('auth.Dashbord.index');
@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function Administracion(){
 
-        return view('auth.Dashbord.Administracion')->with('user', User::all());
+        return view('auth.Dashbord.Administracion')->with('users', User::all());
     }
     
 }

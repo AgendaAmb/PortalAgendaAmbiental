@@ -116,6 +116,9 @@ font-family: 'Myraid Pro Bold';
 #Registro .modal-header{
     border-bottom: 0px solid #dee2e6;
 }
+#Registro .modal-header .close{
+  padding: 0%;
+}
 
 
 @media only screen and (min-width: 200px) and (max-width: 575px){
