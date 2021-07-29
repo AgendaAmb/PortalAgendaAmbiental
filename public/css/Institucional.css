@@ -104,30 +104,38 @@ border-top: 0px solid rgba(0,0,0,.125);
     padding-top: 17%;
     margin-top: 25%;
 }
-#Registro{
+#Registro17gemas{
     color: black;
    
 }
+#Registro{
+    color: white;
+   
+}
 #Registro .modal-title{
+    color: #fecc56;
+    font-family:'Myraid pro bold';
+}
+#Registro17gemas .modal-title{
 color: white;
 font-family:'Myraid light';
 }
-#Registro .modal-title2{
+#Registro17gemas .modal-title2{
     color: #3490dc;
     font-family: 'Myraid Pro Bold';
 }
-#Registro .modal-title3{
+#Registro17gemas .modal-title3{
     color: black;
     font-family: 'Myraid Pro Bold';
 }
 
-#Registro .modal-header{
+#Registro17gemas .modal-header{
     border-bottom: 0px solid #dee2e6;
 }
 #Registro .modal-header .close{
   padding: 0%;
 }
-#Registro .modal-body{
+#Registro17gemas .modal-body{
     padding: 1rem 10% ;
     background-color: white;
 }

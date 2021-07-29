@@ -1,6 +1,8 @@
 @extends('Bienvenido')
 @push('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/Institucional.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 @endpush
 @section('navbarModulos')
 <!--SECCION DONDE SE DESPLEGARAN CADA UNO DE LOS MODULOS EN EL QUE EL USUARIO ESTE REGISTRADO PARA PODER REEDIRIGIRLO A SU SITIO CORRESPONDIENTE-->
@@ -12,7 +14,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-8  col-lg-8  col-md-8 col-sm-8 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
-            MOMENTO</div>
+            MOMENTO
+
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
         <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0">
             <div class="col">
                 <div class="row">
@@ -45,7 +53,7 @@
         </div>
         <div class="col-xl-5  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">banner de
             noticias
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro17gemas">
                 Modal para registro de 17 gemas
             </button>
 
@@ -72,7 +80,7 @@
     </div>
 
 </div>
-<div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -482,15 +490,15 @@
                         </div>
                     </div>
                     <div class="form-group row ">
-                        <label for="ComentariosSugerencias" class="col-sm-12 col-form-label">Comentarios o suguerencias</label>
+                        <label for="ComentariosSugerencias" class="col-sm-12 col-form-label">Comentarios o
+                            suguerencias</label>
                         <div class="col-md-12">
-                            <textarea name="ComentariosSugerencias" id="ComentariosSugerencias" rows="5" class="form-control"
-                                v-model="ComentariosSugerencias">
+                            <textarea name="ComentariosSugerencias" id="ComentariosSugerencias" rows="5"
+                                class="form-control" v-model="ComentariosSugerencias">
                             </textarea>
 
                         </div>
                     </div>
-
                     <div class="form-group ">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
@@ -513,7 +521,7 @@
 
 <script>
     var app = new Vue({
-  el: '#Registro',
+  el: '#Registro17gemas',
   data: {
     ClaveU_RPE:'',
     Genero:'',
@@ -613,6 +621,5 @@
         });
        
 </script>
-
 @endpush
 @endsection

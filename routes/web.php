@@ -77,10 +77,10 @@ Route::get('/CicloDeConferencias', function () {
 Auth::routes();
 
 # Usuarios autenticados y con roles
+Route::get('/panel', 'HomeController@panel')->name('panel');
 Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
 
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/panel', 'HomeController@panel')->name('panel');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
 
