@@ -16,8 +16,6 @@ class LoginTest extends TestCase
      */
     public function testExample()
     {
-        $extern = Extern::find(11);
-
-        $extern->delete();
+        
     }
 }

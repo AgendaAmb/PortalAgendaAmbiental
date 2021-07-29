@@ -55,15 +55,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         # Valida el correo de la uaslp.
-        $response = Http::post('148.224.134.161/api/users/uaslp-user', [
+        $response = Http::post('apiuaslp.com/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
 
 
         # Guarda el directorio activo en la sesión.
         if ($response->status() === 200)
-            session('DirectorioActivo', $response->json()['data']['DirectorioActivo']);
+        {
+            $response_data = $response->json()['data'];
 
+            session('DirectorioActivo', $response_data['DirectorioActivo']);
+            session('ClaveUASLP', $response_data['ClaveUASLP']);
+        }
 
         # Valida los datos de registro
         return  Validator::make($data, [
@@ -112,8 +116,7 @@ class RegisterController extends Controller
         ];
 
         # Usuario y auth guard.
-        [ $user, $guard ] = $this->createUser($new_user_data);
-        
+        [ $user, $guard ] = $this->createUser($new_user_data);        
 
         # Asigna rol de usuario.
         $user->assignRole('user');
@@ -137,6 +140,7 @@ class RegisterController extends Controller
         {
             case 'ALUMNOS': 
 
+                $new_user_data['id'] = session('ClaveUASLP');
                 $user = Student::create($new_user_data); 
                 $guard = 'students';
                 
@@ -144,6 +148,7 @@ class RegisterController extends Controller
 
             case 'UASLP':   
                 
+                $new_user_data['id'] = session('ClaveUASLP');
                 $user = Worker::create($new_user_data); 
                 $guard = 'workers';
 
