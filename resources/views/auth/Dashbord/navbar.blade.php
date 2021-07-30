@@ -14,22 +14,14 @@
         <div class="container justify-content-start">
 
             <ul class="navbar-nav w-100 justify-content-md-start">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
+                @foreach ($Modulos as $Modulo)
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">CONTROL ESCOLAR<span class="sr-only"></span></a>
+                    <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">BIODIVERIDAD<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">17 GEMAS<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{route('Administracion')}}">ADMINISTRACIÓN<span class="sr-only"></span></a>
-                </li>
-
+                @endforeach
 
         </div>
 

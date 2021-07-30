@@ -17,58 +17,61 @@
                 <th>Genero</th>
                 <th>Nacionalidad</th>
                 <th>Celular</th>
-                <!--
-               
-                -->
+                @if (Auth::user()->hasModule('Administrador'))
                 <th>Rol</th>
+                @endif
                 <th>Sistema</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
-       
-                <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->middlename}}</td>
-                    <td>{{$user->surname}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
-                    <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
-                    <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
-                    
-                       
-                    <td>
-                        @foreach ($user->getRoleNames() as $rol)
-                            <li>{{$rol}}</li>
-                        @endforeach
-                    </td>
-                    <td>
+
+            <tr>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->middlename}}</td>
+                <td>{{$user->surname}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
+                <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
+                <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
+
+                @if (Auth::user()->hasModule('Administrador'))
+                <td>
+                    @foreach ($user->getRoleNames() as $rol)
+                    <li>{{$rol}}</li>
+                    @endforeach
+                </td>
+                @endif
+
+                <td>
                     @foreach ($user->userModules as $key => $Modulo)
                     <li>{{$Modulo->name}}</li>
                     @endforeach
-                    </td>
-                </tr>
+                </td>
+            </tr>
             @endforeach
 
         </tbody>
         <tfoot>
-                <th>id</th>
-                <th>Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th>
-                <th>Correo</th>
-                <th>Genero</th>
-                <th>Nacionalidad</th>
-                <th>Celular</th>
-               
-                <th>Rol</th>
-                <th>Sistema</th>
-               
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Correo</th>
+            <th>Genero</th>
+            <th>Nacionalidad</th>
+            <th>Celular</th>
+            @if (Auth::user()->hasModule('Administrador'))
+            <th>Rol</th>
+
+            @endif
+            <th>Sistema</th>
+
             </tr>
         </tfoot>
     </table>
-    
+
 </div>
 
 

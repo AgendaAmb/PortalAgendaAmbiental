@@ -15,8 +15,6 @@
     <div class="row">
         <div class="col-xl-8  col-lg-8  col-md-8 col-sm-8 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
             MOMENTO
-
-            {{$Modulos}}
         </div>
         <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0">
             <div class="col">
