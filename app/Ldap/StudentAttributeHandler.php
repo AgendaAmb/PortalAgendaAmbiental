@@ -3,9 +3,10 @@
 namespace App\Ldap;
 
 use App\Models\Auth\User;
+use Illuminate\Support\Str;
 use LdapRecord\Models\ActiveDirectory\User as LdapUser;
 
-class UserAttributeHandler
+class StudentAttributeHandler
 {
     /**
      * Determina la forma de guardar los atributos del usuario del directorio activo
@@ -16,8 +17,8 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        # Clave única
-        $databaseUser->id = $ldapUser->getFirstAttribute('samaccountname');
+        # Quita el A a la clave única.
+        $databaseUser->id = Str::of($ldapUser->getFirstAttribute('samaccountname'))->replaceMatches('/[Aa]/', '');
 
         // Obtiene los apellidos del usuario.
         $surnames = explode(' ', $ldapUser->getFirstAttribute('sn'), 2);
