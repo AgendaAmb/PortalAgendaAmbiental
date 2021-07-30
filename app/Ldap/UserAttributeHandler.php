@@ -16,8 +16,6 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $id_uaslp =
-
         // Obtiene los apellidos del usuario.
         $surnames = explode(' ', $ldapUser->getFirstAttribute('sn'), 2);
 
