@@ -130,7 +130,7 @@ class UserSeeder extends Seeder
             "middlename" => "MENDEZ",
             "surname" => "ORTA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "modules" => [ 'Control Escolar', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
         ],
@@ -141,7 +141,7 @@ class UserSeeder extends Seeder
             "middlename" => "LOREDO",
             "surname" => "DE LA ROSA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "modules" => [ 'Control Escolar', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
         ],
@@ -181,7 +181,7 @@ class UserSeeder extends Seeder
             foreach ($user['modules'] as $moduleName)
             {
                 $module = Module::firstWhere('name', $moduleName);
-            
+
                 $user_model->attachModule($module);
             }
 
