@@ -12,7 +12,6 @@
 
     <div class="collapse navbar-collapse " id="navbarSistemas">
         <div class="container justify-content-start">
-
             <ul class="navbar-nav w-100 justify-content-md-start">
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
@@ -22,13 +21,26 @@
                     <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                 </li>
                 @endforeach
-
+            </ul>
         </div>
+        <div class="container justify-content-end">
+            <ul class="navbar-nav w-100 justify-content-md-end">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">{{ __('Cerrar sesión') }}
+                    <span class="sr-only">
 
-
-        <div>
-
+                    </span>
+                    
+                </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
         </div>
-        </ul>
+       
+
+
     </div>
 </nav>

@@ -11,13 +11,13 @@
             <tr>
                 <th>id</th>
                 <th>Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th>
+               
+                <th>CURP</th>
                 <th>Correo</th>
                 <th>Genero</th>
                 <th>Nacionalidad</th>
                 <th>Celular</th>
-                @if (Auth::user()->hasModule('Administrador'))
+                @if (Auth::user()->hasModule('Administracion'))
                 <th>Rol</th>
                 @endif
                 <th>Sistema</th>
@@ -27,16 +27,16 @@
             @foreach ($users as $user)
 
             <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->middlename}}</td>
-                <td>{{$user->surname}}</td>
+                <td>{{$user->id}} </td>
+                <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
+              
+                <td>{{$user->curp}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
                 <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
-                @if (Auth::user()->hasModule('Administrador'))
+                @if (Auth::user()->hasModule('Administracion'))
                 <td>
                     @foreach ($user->getRoleNames() as $rol)
                     <li>{{$rol}}</li>
@@ -56,13 +56,13 @@
         <tfoot>
             <th>id</th>
             <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
+           
+            <th>CURP</th>
             <th>Correo</th>
             <th>Genero</th>
             <th>Nacionalidad</th>
             <th>Celular</th>
-            @if (Auth::user()->hasModule('Administrador'))
+            @if (Auth::user()->hasModule('Administracion'))
             <th>Rol</th>
 
             @endif
