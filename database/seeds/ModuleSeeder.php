@@ -25,7 +25,7 @@ class ModuleSeeder extends Seeder
 
 
             # Módulo de administración.
-            //[ 'name' => 'Administración', 'url' => env('APP_URL').'/Administracion' ],
+            [ 'name' => 'Administración', 'url' => route('Administracion') ],
         ];
 
         foreach ( $modules as $module)
