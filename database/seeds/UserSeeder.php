@@ -148,12 +148,12 @@ class UserSeeder extends Seeder
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",
-            "email" => "miguel.mendez@uaslp.mx",
+            "email" => "eugenia.almendarez@uaslp.mx",
             "middlename" => "ALMENDAREZ",
             "surname" => "GARCIA",
             'dependency' => 'COORDINACION DE AGENDA AMBIENTAL DE LA UASLP',
             "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
-            "roles" => [ 'user' ],
+            "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
         ]
     ];
