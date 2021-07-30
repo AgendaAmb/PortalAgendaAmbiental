@@ -12,23 +12,23 @@ class ModuleSeeder extends Seeder
      */
     public function run()
     {
-        $modules = [ 
+        $modules = [
 
             # Módulo de biodiversidad.
-            [ 'name' => 'Biodiversidad', 'url' => env('APP_URL').'/biodiversidad' ],
+            [ 'name' => 'Biodiversidad', 'url' => route('Gestion') ],
 
             # Módulo de control escolar.
-            [ 'name' => 'Control Escolar', 'url' => env('APP_URL').'/controlescolar' ],
+            [ 'name' => 'Control Escolar', 'url' => route('Educacion') ],
 
             # Módulo de 17 gemas.
-            [ 'name' => '17 gemas', 'url' => env('APP_URL').'/17gemas' ],
+            [ 'name' => '17 gemas', 'url' => route('Gestion') ],
 
 
             # Módulo de administración.
-            [ 'name' => 'Administración', 'url' => env('APP_URL').'/Administracion' ],
+            //[ 'name' => 'Administración', 'url' => env('APP_URL').'/Administracion' ],
         ];
 
         foreach ( $modules as $module)
             Module::create($module);
-    }   
+    }
 }

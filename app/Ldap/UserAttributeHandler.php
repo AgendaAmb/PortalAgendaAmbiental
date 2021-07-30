@@ -10,15 +10,17 @@ class UserAttributeHandler
     /**
      * Determina la forma de guardar los atributos del usuario del directorio activo
      * en la base de datos.
-     * 
-     * @param LdapUser $ldapUser  
+     *
+     * @param LdapUser $ldapUser
      * @param User $databaseUser
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
+
+
         // Obtiene los apellidos del usuario.
         $surnames = explode(' ', $ldapUser->getFirstAttribute('sn'), 2);
-        
+
         // Recupera o guarda la información del usuario en nuestra base de datos, en caso de que no exista.
         $databaseUser->email = $ldapUser->getFirstAttribute('mail');
         $databaseUser->name = $ldapUser->getFirstAttribute('givenname');
