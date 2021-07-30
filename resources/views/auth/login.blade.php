@@ -532,7 +532,7 @@
        	        "username":this.emailR
             }    
             }
-        axios.post('http://148.224.134.161/api/users/uaslp-user',data)
+        axios.post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user',data)
             .then(response => (
                 this.spinnerVisible=false,
                 this.nombres = response['data']['data']['name'],

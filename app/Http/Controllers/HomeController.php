@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use App\Models\Module;
 
 class HomeController extends Controller
 {
@@ -38,7 +39,9 @@ class HomeController extends Controller
     De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(){
-        return view('auth.Dashbord.index');
+        dd( Auth::user()->userModules);
+       
+        return view('auth.Dashbord.index')->with('Modulos',);
     }
 
     public function Administracion(){

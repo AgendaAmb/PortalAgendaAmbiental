@@ -55,7 +55,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         # Valida el correo de la uaslp.
-        $response = Http::post('apiuaslp.com/api/users/uaslp-user', [
+        $response = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [
             'username' => $data['email'] ?? null
         ]);
 

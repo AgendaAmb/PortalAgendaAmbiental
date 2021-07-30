@@ -16,10 +16,7 @@
         <div class="col-xl-8  col-lg-8  col-md-8 col-sm-8 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
             MOMENTO
 
-            <div>
-                <canvas id="myChart"></canvas>
-            </div>
-
+            {{$Modulos}}
         </div>
         <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0">
             <div class="col">
@@ -576,7 +573,7 @@
        	        "username":this.emailR
             }    
             }
-        axios.post('http://148.224.134.161/api/users/uaslp-user',data)
+        axios.post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user',data)
             .then(response => (
                 this.spinnerVisible=false,
                 this.nombres = response['data']['data']['name'],
