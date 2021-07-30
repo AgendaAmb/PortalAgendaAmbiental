@@ -146,14 +146,14 @@ class UserSeeder extends Seeder
             'user_type' => Student::class,
         ],
         [
-            "id" => "13763",
-            "name" => "MIGUEL ANGEL",
-            "email" => "miguel.mendez@uaslp.mx",
-            "middlename" => "MENDEZ",
-            "surname" => "MONTENEGRO",
-            'dependency' => 'FACULTAD DE MEDICINA',
-            "modules" => [ 'Control Escolar' ],
-            "roles" => [ 'user' ],
+            "id" => "11007",
+            "name" => "MARIA EUGENIA",
+            "email" => "eugenia.almendarez@uaslp.mx",
+            "middlename" => "ALMENDAREZ",
+            "surname" => "GARCIA",
+            'dependency' => 'COORDINACION DE AGENDA AMBIENTAL DE LA UASLP',
+            "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
+            "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
         ]
     ];
