@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\Auth\Extern;
+use App\Models\Auth\Worker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class LoginTest extends TestCase
+class UserModuleTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -16,6 +16,8 @@ class LoginTest extends TestCase
      */
     public function testExample()
     {
+        $user = Worker::find(11007);
 
+        dd($user->hasAnyModule([ 'F', 'Control Escolar' ]));
     }
 }

@@ -51,14 +51,28 @@ class User extends Authenticatable //,MustVerifyEmail
     /**
      * Determina si el usuario está registrado en el módulo
      *
-     * @param Module $module
+     * @param string $module
      * @return bool
      */
-    public function hasModule(Module $module)
+    public function hasModule(string $module)
     {
         return $this
         ->userModules()
-        ->where('id', $module->id)
+        ->where('name', $module)
+        ->count() > 0;
+    }
+
+    /**
+     * Determina si el usuario está registrado en el módulo
+     *
+     * @param Module $module
+     * @return bool
+     */
+    public function hasAnyModule(array $modules)
+    {
+        return $this
+        ->userModules()
+        ->whereIn('name', $modules)
         ->count() > 0;
     }
 
@@ -116,5 +130,5 @@ class User extends Authenticatable //,MustVerifyEmail
     }
 
 
-    
+
 }
