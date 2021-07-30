@@ -107,7 +107,7 @@ return [
                 'model' => App\Models\Auth\Student::class,
                 'sync_passwords' => true,
                 'sync_attributes' => [
-                    App\Ldap\UserAttributeHandler::class
+                    App\Ldap\StudentAttributeHandler::class
                 ],
                 'sync_existing' => [
                     'email' => 'mail',
