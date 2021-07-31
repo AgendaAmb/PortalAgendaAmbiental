@@ -39,8 +39,7 @@ class HomeController extends Controller
     De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(){
-      
-       
+        
         return view('auth.Dashbord.index')->with('Modulos',Auth::user()->userModules);
     }
 
@@ -59,7 +58,7 @@ class HomeController extends Controller
         # 
         # etc, etc. 
         $users = $students->merge($workers)->merge($externs);
-
+      
         return view('auth.Dashbord.Administracion')->with('users', $users)->with('Modulos',Auth::user()->userModules);
     }
     

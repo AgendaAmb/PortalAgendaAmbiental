@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-xl-8  col-lg-8  col-md-8 col-sm-8 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
             MOMENTO
-            
+
         </div>
         <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0">
             <div class="col">
@@ -77,6 +77,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -87,7 +88,7 @@
                     </button>
                 </div>
                 <div class="modal-body ">
-                    <form action="{{ route('register') }}" method="post">
+                    <form @submit.prevent="uaslpUser()">
                         @csrf
                         <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
                         <h5 class="modal-title3" id="exampleModalLabel">Datos Personales</h5>
@@ -96,7 +97,7 @@
                         <div class="form-group  was-validated">
                             <label for="Nombres">Nombre(s)</label>
                             <input type="text" class="form-control" id="Nombres" v-model="nombres" required
-                                name="Nombres" v-blind="nombres" readonly style="text-transform: capitalize;">
+                                name="Nombres" readonly style="text-transform: capitalize;">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 was-validated">
@@ -113,7 +114,7 @@
                         <div class="form-row was-validated">
                             <div class=" form-group col-md-6">
                                 <label for="Edad">Edad</label>
-                                <input type="text" name="Edad" id="Edad" v-model="Edad" class="form-control" required>
+                                <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Genero">Género</label>
@@ -424,7 +425,8 @@
                             <div class="col-md-6 mb-3" v-if="Pais === 'México'">
                                 <label for="CURP ">CURP</label>
                                 <input type="text" class="form-control" id="CURP" required
-                                    style="text-transform: uppercase;" maxlength="18" name="CURP" v-model="CURP">
+                                    style="text-transform: uppercase;" maxlength="18" name="CURP" v-model="CURP"
+                                    readonly>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="LugarResidencia">Lugar de residencia</label>
@@ -511,6 +513,7 @@
 
                             </div>
                         </div>
+
                         <div class="form-group ">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
@@ -566,7 +569,7 @@
   this.$nextTick(function () {
     // Código que se ejecutará solo después de
     // haber renderizado la vista completa
-    this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
+    this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
   })
 },
@@ -581,10 +584,44 @@
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}'
-        dependency
-       
       },
-         
+      uaslpUser:function(){
+            console.log("enviando");
+            //this.spinnerVisible=true;
+           if(this.emailR!=''){
+            let headers = {
+                    'Content-Type': 'application/json;charset=utf-8'
+            };
+            var data = {
+       	        "emailR":this.emailR,
+                "Edad":this.Edad,
+                "Genero":this.Genero,
+                "Clave":this.ClaveU_RPE,
+                "FacultadAdscripcion":this.Facultad,
+                "Tel":this.tel,
+                "CP":this.CP,
+                "Nacionalidad":this.Pais,
+                "LugarResidencia":this.LugarResidencia,
+                "CURP":this.CURP,
+                "Ocupacion":this.Ocupacion,
+                "GEtnico":this.GEtnico,
+
+                "isDiscapacidad":this.isDiscapacidad,
+                "Discapacidad":this.Discapacidad,
+                "isAsistencia":this.isAsistencia,
+                "CursoCursado":this.CursosC,
+                "InteresAsistencia":this.InteresAsistencia
+            }
+            console.log(JSON.stringify(data))
+            axios.post('http://148.224.134.160/17Gemas/api/users',data).
+            then(response => (
+                console.log(response),
+                window.location.href = 'http://17gemas.test/Dashboard'
+               )).catch((err) => {
+                  this.Errores[0].Visible
+            })
+        }
+      }
     }
 })
 </script>
