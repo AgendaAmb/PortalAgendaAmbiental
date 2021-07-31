@@ -96,7 +96,7 @@ class RegisterController extends Controller
         $new_user_data = [
 
             # Datos de identidad
-            'curp' => $data['CURP'],
+            'curp' => $data['CURP'] ?? null,
             'nationality' => $data['Pais'],
 
             # Datos de contacto.
