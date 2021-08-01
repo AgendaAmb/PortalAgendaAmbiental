@@ -1,8 +1,10 @@
 <div style="width: 100%; display: block; margin:0% 20%; background-color: blue;" >
-    <img src="{{ $message->embed('imagenes/Logos/horizontal_blanco.png') }}" class="logo" >
+    {{--<img src="{{ $message->embed('imagenes/Logos/horizontal_blanco.png') }}" class="logo" >--}}
 </div>
 @component('mail::message')
 {{-- Greeting --}}
+bofo <a href="{{ $actionUrl }}"> we </a>
+
 @if (! empty($greeting))
 # {{ $greeting }}
 @else
