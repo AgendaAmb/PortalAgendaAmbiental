@@ -583,7 +583,8 @@
         this.CURP='{{Auth::user()->curp}}',
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
-        this.Facultad='{{Auth::user()->dependency}}'
+        this.Facultad='{{Auth::user()->dependency}}',
+        this.token='{{$token}}'
       },
       uaslpUser:function(){
             console.log("enviando");
@@ -593,6 +594,7 @@
                     'Content-Type': 'application/json;charset=utf-8'
             };
             var data = {
+                "token":this.token,
        	        "emailR":this.emailR,
                 "Edad":this.Edad,
                 "Genero":this.Genero,
@@ -613,7 +615,7 @@
                 "InteresAsistencia":this.InteresAsistencia
             }
             console.log(JSON.stringify(data))
-            axios.post('http://148.224.134.160/17Gemas/api/users',data).
+            axios.post('http://148.224.134.160/17Gemas/api/register',data).
             then(response => (
                 console.log(response),
                 window.location.href = 'http://17gemas.test/Dashboard'

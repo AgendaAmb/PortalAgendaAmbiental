@@ -38,9 +38,11 @@ class HomeController extends Controller
         
     De acuerdo <--- Mickey vio esto ;v 
     */ 
-    public function panel(){
+    public function panel(Request $request){
         
-        return view('auth.Dashbord.index')->with('Modulos',Auth::user()->userModules);
+        return view('auth.Dashbord.index')
+              ->with('Modulos',Auth::user()->userModules)
+              ->with('token', $request->cookie('AccessToken'));
     }
 
     public function Administracion(){
