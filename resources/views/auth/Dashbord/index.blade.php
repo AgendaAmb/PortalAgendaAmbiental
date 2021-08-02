@@ -618,7 +618,7 @@
             axios.post('http://148.224.134.160/17Gemas/api/register',data).
             then(response => (
                 console.log(response),
-                window.location.href = 'http://17gemas.test/Dashboard'
+                window.location.href = 'http://148.224.134.160/17Gemas/Dashboard'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
