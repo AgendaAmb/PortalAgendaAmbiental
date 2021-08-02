@@ -76,6 +76,8 @@ class LoginController extends Controller
         # Datos del API si existen.
         $user_request = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [ 'username' => $request->email ]);
 
+        dd($user_request->status());
+
         # Intenta acceder como externo.
         if ($user_request->status() !== 200)
             return Auth::guard('web')->attempt($request->only('email', 'password'));
