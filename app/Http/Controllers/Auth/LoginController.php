@@ -7,8 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -43,6 +43,27 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {   
+        /** @var User */
+        # Obtiene el usuario autenticado
+        $user = Auth::guard('students')->user()
+             ?? Auth::guard('workers')->user()
+             ?? Auth::user();
+
+        # Genera el token y lo guarda como cookie.
+        $token = $user->createToken('AccessToken')->accessToken;
+
+        Cookie::forget('AccessToken');
+        Cookie::queue('AccessToken', $token, 120);
+    }
 
     /**
      * Attempt to log the user into the application.

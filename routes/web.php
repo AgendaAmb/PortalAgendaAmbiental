@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,8 +75,6 @@ Route::get('/CicloDeConferencias', function () {
 
 Auth::routes();
 
-
-
 # Usuarios autenticados y con roles
 Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
     Route::get('/panel', 'HomeController@panel')->name('panel');
@@ -89,9 +86,6 @@ Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
     Route::get('/modules/{module}/verify-email/{user}', 'UserModuleController@verifyEmail')->name('modules.user.verify-email');
     Route::resource('modules.users', 'UserModuleController')->except([ 'create', 'edit' ]);
 });
-
-
-
 
 /*Rutas para redireccion de rutas anteriores de agenda ambiental */
 Route::redirect('/historia/index.html', '/Nosotros', 301);

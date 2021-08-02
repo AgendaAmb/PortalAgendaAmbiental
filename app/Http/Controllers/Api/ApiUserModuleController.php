@@ -7,6 +7,8 @@ use App\Models\Module;
 
 class ApiUserModuleController extends UserModuleController
 {
+    
+
     /**
      * Display a listing of the resource.
      *

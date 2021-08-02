@@ -42,9 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
+            'driver' => 'passport',
+            'provider' => 'users'
         ],
 
         'workers' => [
@@ -52,8 +51,18 @@ return [
             'provider' => 'workers'
         ],
 
+        'workers-api' => [
+            'driver' => 'passport',
+            'provider' => 'workers'
+        ],
+
         'students' => [
             'driver' => 'session',
+            'provider' => 'students'
+        ],
+
+        'students-api' => [
+            'driver' => 'passport',
             'provider' => 'students'
         ],
     ],
