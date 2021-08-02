@@ -58,11 +58,10 @@ class LoginController extends Controller
              ?? Auth::guard('workers')->user()
              ?? Auth::user();
 
-        # Genera el token y lo guarda como cookie.
+        # Genera el token y lo guarda como encabezado.
         $token = $user->createToken('AccessToken')->accessToken;
 
-        Cookie::forget('AccessToken');
-        Cookie::queue('AccessToken', $token, 120);
+        return redirect($this->redirectTo)->cookie('AccessToken', $token);
     }
 
     /**
