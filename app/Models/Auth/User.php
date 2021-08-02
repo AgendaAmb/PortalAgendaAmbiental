@@ -40,6 +40,13 @@ class User extends Authenticatable //,MustVerifyEmail
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['user_type'];
+
+    /**
      * Obtiene los módulos a los que está registrado este usuario.
      *
      * @return object
@@ -131,5 +138,13 @@ class User extends Authenticatable //,MustVerifyEmail
     }
 
 
-
+    /** 
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getUserTypeAttribute()
+    {
+        return $this->table;
+    }
 }
