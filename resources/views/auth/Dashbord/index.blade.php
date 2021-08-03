@@ -77,7 +77,8 @@
             </div>
         </div>
     </div>
-
+   
+    @if (Auth::user()->user_type!="externs")
     <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -533,6 +534,8 @@
             </div>
         </div>
     </div>
+    @endif
+ 
 </div>
 
 
