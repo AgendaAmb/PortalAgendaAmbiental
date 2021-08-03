@@ -122,8 +122,9 @@ class RegisterController extends Controller
         # Asigna rol de usuario.
         $user->assignRole('user');
 
-        # Autentica al usuario.
+        # Autentica al usuario y genera su token personal.
         Auth::guard($guard)->login($user);
+        $user->generateToken();
         
         return $user;
     }

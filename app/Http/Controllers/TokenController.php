@@ -38,7 +38,7 @@ class TokenController extends Controller
             ], 401);
         
         # Regenera el token de usuario.
-        $user->generateToken();
+        // $user->generateToken();
 
         return response()->json([
             'message' => 'Válido',
