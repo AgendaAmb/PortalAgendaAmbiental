@@ -74,7 +74,7 @@ Route::get('/CicloDeConferencias', function () {
     return view('Conferencias.contenido');
 })->name('CicloConf');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles
 Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
