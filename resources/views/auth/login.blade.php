@@ -163,7 +163,7 @@
                                 v-model="passwordR" v-on:change="VerificarContraseña()" minlength="8">
                         </div>
 
-                        <span class="invalid-feedback" role="alert" v-if="Errores[1].Visible">
+                        <span class="text-danger" role="alert" v-if="Errores[1].Visible">
                             @{{Errores[1].Mensaje}}
                         </span>
                     </div>
@@ -527,7 +527,7 @@
 
         uaslpUser:function(){
             this.spinnerVisible=true;
-           if(this.emailR!=''){
+           if(this.emailR!=''&&!Errores[1].Visible){
             var data = {
        	        "username":this.emailR
             }    
