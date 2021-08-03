@@ -112,9 +112,7 @@ img {
 /* Logo */
 
 .logo {
-    margin: 0% auto;
-    height: 75px;
-    width: 150px;
+  justify-content: center;
 }
 
 /* Body */
