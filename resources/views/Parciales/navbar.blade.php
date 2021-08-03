@@ -63,7 +63,7 @@
 </nav>
 <nav class="navbar navbar-expand-lg navbar-expand-xl navbar-expand-md d-flex d-lg-flex d-md-flex d-xl-flex">
 
-  <a class="btn btn-success btn-sm MiPortal navbar-brand " href='https://ambiental.uaslp.mx/controlescolar' role="button">
+  <a class="btn btn-success btn-sm MiPortal navbar-brand " href="{{route('login')}}" role="button">
     <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
     MI PORTAL
   </a>
@@ -108,7 +108,7 @@
 
 
       <div>
-        <a class="btn btn-primary btn-sm MiPortal" href='https://ambiental.uaslp.mx/controlescolar' role="button">
+        <a class="btn btn-primary btn-sm MiPortal" href='{{route('login')}}' role="button">
           <img src="{{asset('storage/imagenes/Logos/UBICACION-1.png')}}" alt="" srcset="">
           MI PORTAL
         </a>
