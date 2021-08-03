@@ -4,12 +4,14 @@ namespace App\Models\Auth;
 
 use App\Models\Module;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable //,MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable, HasRoles;
 
@@ -161,5 +163,17 @@ class User extends Authenticatable //,MustVerifyEmail
         $this->tokens()->delete();
         $this->access_token = $this->createToken('AccessToken')->accessToken;
         $this->save();
+    }
+
+    /** 
+     * Obtiene el tipo de usuario autenticado
+     *
+     * @return object
+     */
+    public static function authUser()
+    {
+        return Auth::guard('students')->user()
+            ?? Auth::guard('workers')->user()
+            ?? Auth::user();
     }
 }

@@ -65,8 +65,10 @@ class RegisterController extends Controller
         {
             $response_data = $response->json()['data'];
 
-            session('DirectorioActivo', $response_data['DirectorioActivo']);
-            session('ClaveUASLP', $response_data['ClaveUASLP']);
+            session([ 
+                'DirectorioActivo' => $response_data['DirectorioActivo'],
+                'ClaveUASLP' => $response_data['ClaveUASLP']
+            ]);
         }
 
         # Valida los datos de registro
