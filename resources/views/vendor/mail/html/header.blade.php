@@ -1,7 +1,7 @@
 <tr>
 <td class="header"style="background-color: #005faf;">
 <a href="{{ $url }}" style="display: inline-block;">
-<img src="http://ambiental.uaslp.mx/storage/imagenes/Logos/horizontal_blanco.png" class="logo" alt="Laravel Logo">
+<img src="https://ambiental.uaslp.mx/storage/imagenes/Logos/horizontal%20blanco.png" class="logo" alt="Logo agenda/Ualsp">
 @if (trim($slot) === 'Laravel')
 @else
 {{ $slot }}
