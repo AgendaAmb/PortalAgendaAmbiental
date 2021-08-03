@@ -27,7 +27,11 @@ class User extends Authenticatable //,MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 
+        'remember_token', 
+        'created_at', 
+        'updated_at',
+        'email_verified_at'
     ];
 
     /**
@@ -44,7 +48,7 @@ class User extends Authenticatable //,MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type'];
+    protected $appends = ['user_type', 'token' ];
 
     /**
      * Obtiene los módulos a los que está registrado este usuario.
@@ -137,7 +141,6 @@ class User extends Authenticatable //,MustVerifyEmail
                 ->get() !== null;
     }
 
-
     /** 
      * Obtiene el tipo de usuario
      *
@@ -146,5 +149,17 @@ class User extends Authenticatable //,MustVerifyEmail
     public function getUserTypeAttribute()
     {
         return $this->table;
+    }
+
+    /** 
+     * Obtiene el tipo de usuario
+     *
+     * @return void
+     */
+    public function generateToken()
+    {
+        $this->tokens()->delete();
+        $this->access_token = $this->createToken('AccessToken')->accessToken;
+        $this->save();
     }
 }

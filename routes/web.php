@@ -86,7 +86,14 @@ Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
     # Módulos de usuario
     Route::get('/modules/{module}/verify-email/{user}', 'UserModuleController@verifyEmail')->name('modules.user.verify-email');
     Route::resource('modules.users', 'UserModuleController')->except([ 'create', 'edit' ]);
+
+    # Redireccionamiento de usuarios.
+    Route::resource('modules', ModuleController::class)->only('show');
 });
+
+# Obtener usuario por token
+Route::get('/tokenStatus', 'TokenController@tokenStatus')->name('tokenStatus');
+
 
 /*Rutas para redireccion de rutas anteriores de agenda ambiental */
 Route::redirect('/historia/index.html', '/Nosotros', 301);

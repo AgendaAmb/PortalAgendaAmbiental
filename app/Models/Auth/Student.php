@@ -10,6 +10,20 @@ class Student extends User implements LdapAuthenticatable
 {
     use AuthenticatesWithLdap, HasLdapUser;
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 
+        'remember_token', 
+        'guid', 
+        'domain', 
+        'created_at', 
+        'updated_at',
+        'email_verified_at'
+    ];
 
     /**
      * Model guard.

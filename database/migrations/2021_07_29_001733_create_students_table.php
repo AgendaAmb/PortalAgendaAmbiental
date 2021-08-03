@@ -27,6 +27,7 @@ class CreateStudentsTable extends Migration
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->string('access_token', 1024)->nullable();
 
             // Campos de LDAP 
             $table->string('guid')->unique()->nullable();

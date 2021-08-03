@@ -59,9 +59,9 @@ class LoginController extends Controller
              ?? Auth::user();
 
         # Genera el token y lo guarda como encabezado.
-        $token = $user->createToken('AccessToken')->accessToken;
+        $user->generateToken();
 
-        return redirect($this->redirectTo)->cookie('AccessToken', $token);
+        return redirect($this->redirectTo);
     }
 
     /**

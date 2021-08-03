@@ -23,6 +23,7 @@ class CreateExternsTable extends Migration
             $table->string('nationality')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('password')->nullable();
+            $table->string('access_token', 1024)->nullable();
 
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();

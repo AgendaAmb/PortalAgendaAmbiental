@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterRequest;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use App\Models\Module;
 
 class HomeController extends Controller
 {
@@ -42,7 +37,7 @@ class HomeController extends Controller
         
         return view('auth.Dashbord.index')
               ->with('Modulos',Auth::user()->userModules)
-              ->with('token', $request->cookie('AccessToken'));
+              ->with('token', session('AccessToken'));
     }
 
     public function Administracion(){
