@@ -122,7 +122,7 @@ class UserSeeder extends Seeder
             "modules" => ['Control escolar'],
             "roles" => [ 'user' ],
             'user_type' => Extern::class,
-        ],
+        ],/*
         [
             "id" => "262698",
             "name" => "MIGUEL ANGEL",
@@ -144,7 +144,7 @@ class UserSeeder extends Seeder
             "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],
+        ],*/
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",
