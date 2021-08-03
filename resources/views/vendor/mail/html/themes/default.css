@@ -165,8 +165,8 @@ img {
     margin: 0 auto;
     padding: 0;
     text-align: center;
-    width: 570px;
-    background-color: #3869d4;
+    width: 100%;
+    background-color: #005faf;
 }
 
 .footer p {
