@@ -59,7 +59,6 @@ class RegisterController extends Controller
             'username' => $data['email'] ?? null
         ]);
 
-
         # Guarda el directorio activo en la sesión.
         if ($response->status() === 200)
         {
@@ -165,6 +164,12 @@ class RegisterController extends Controller
 
                 break;
         }
+
+        # Vacía la sesión
+        session([
+            'DirectorioActivo' => null,
+            'ClaveUASLP' => null
+        ]);
 
         return [ $user, $guard ];
     }
