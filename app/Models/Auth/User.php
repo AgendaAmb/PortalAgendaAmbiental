@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable //implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable, HasRoles;
 
@@ -33,7 +33,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token', 
         'created_at', 
         'updated_at',
-        'email_verified_at'
+        'email_verified_at',
+        'access_token',
+        'token'
     ];
 
     /**
@@ -50,7 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type', 'token' ];
+    protected $appends = ['user_type' ];
 
     /**
      * Obtiene los módulos a los que está registrado este usuario.

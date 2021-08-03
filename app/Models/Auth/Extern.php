@@ -25,6 +25,7 @@ class Extern extends User
         'domain', 
         'created_at', 
         'updated_at',
-        'email_verified_at'
+        'email_verified_at',
+        'access_token'
     ];
 }
