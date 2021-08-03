@@ -1,9 +1,6 @@
-<div style="width: 100%; display: block; margin:0% 20%; background-color: blue;" >
-    {{--<img src="{{ $message->embed('imagenes/Logos/horizontal_blanco.png') }}" class="logo" >--}}
-</div>
 @component('mail::message')
 {{-- Greeting --}}
-bofo <a href="{{ $actionUrl }}"> we </a>
+<a href="{{ $actionUrl }}"> we </a>
 
 @if (! empty($greeting))
 # {{ $greeting }}
@@ -65,5 +62,4 @@ bofo <a href="{{ $actionUrl }}"> we </a>
 @endslot
 @endisset
 @endcomponent
-<div style="width: 100%; display: block; margin:0% 20%; background-color: blue;height: 50px;" >
-</div>
+
