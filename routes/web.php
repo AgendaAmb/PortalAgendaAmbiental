@@ -77,7 +77,7 @@ Route::get('/CicloDeConferencias', function () {
 Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles
-Route::middleware([ 'auth:web,workers,students', 'role_any'])->group(function(){
+Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/panel', 'HomeController@panel')->name('panel');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
