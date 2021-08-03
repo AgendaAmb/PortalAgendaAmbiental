@@ -83,16 +83,19 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary">
-                    <h5 class="modal-title">Concurso Gemas de la Sostenibilidad</h5>
+                    <h5 class="modal-title">Concurso gemas de la sostenibilidad</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                @if (Auth::user()->hasModule("17 gemas"))
+                    Ya estas registrado
+                @endif
                 <div class="modal-body ">
                     <form @submit.prevent="uaslpUser()">
                         @csrf
                         <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
-                        <h5 class="modal-title3" id="exampleModalLabel">Datos Personales</h5>
+                        <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
 
 
                         <div class="form-group  was-validated">
