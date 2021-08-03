@@ -37,7 +37,7 @@ class HomeController extends Controller
         
         return view('auth.Dashbord.index')
               ->with('Modulos',Auth::user()->userModules)
-              ->with('token', session('AccessToken'));
+              ->with('token', $request->user()->access_token);
     }
 
     public function Administracion(){
