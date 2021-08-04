@@ -4,7 +4,6 @@ use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
 use App\Models\Module;
-use App\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
