@@ -158,7 +158,12 @@
                             <div class="col-md-6 mb-3">
                                 <label for="tel">Télefono de Contacto</label>
                                 <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
-                                    readonly>
+                                @if (Auth::user()->user_type!="externs")
+                                    
+                                @else
+                                readonly
+                                @endif
+                                    >
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="CP">Codigo Postal</label>
