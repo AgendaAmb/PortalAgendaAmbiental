@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
-use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,9 +35,8 @@ class HomeController extends Controller
     */ 
     public function panel(Request $request){
 
-        # Cifra el token de acceso. 
-        $encrypter = new Encrypter('aj3nd@_amViEntAl');
-        $token = $encrypter->encrypt($request->user()->access_token);
+        # Token de acceso personal.
+        $token = $request->user()->access_token;
 
         return view('auth.Dashbord.index')
               ->with('Modulos', $request->user()->userModulesWithToken($token))
