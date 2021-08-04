@@ -527,7 +527,7 @@
 
         uaslpUser:function(){
             this.spinnerVisible=true;
-           if(this.emailR!=''&&!Errores[1].Visible){
+           if(this.emailR!=''){
             var data = {
        	        "username":this.emailR
             }    
