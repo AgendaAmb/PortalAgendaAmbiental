@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
-use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 
 
