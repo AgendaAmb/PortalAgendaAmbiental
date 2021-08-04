@@ -21,8 +21,7 @@ class ModuleSeeder extends Seeder
             [ 'name' => 'Control Escolar', 'url' => route('Educacion') ],
 
             # Módulo de 17 gemas.
-            // [ 'name' => '17 gemas', 'url' => route('Gestion') ],
-            [ 'name' => '17 gemas', 'url' => env('URL17GEMAS') ],
+            [ 'name' => '17 gemas', 'url' => env('APP_URL').'/17Gemas' ],
 
 
             # Módulo de administración.
