@@ -75,7 +75,7 @@ class User extends Authenticatable // implements MustVerifyEmail
     {
         return $this
         ->userModules()
-        ->select('id', 'name', DB::raw('concat(url, "?ticket='.$token.'")'))
+        ->select('id', 'name', DB::raw('concat(url, "?ticket='.$token.'") as url'))
         ->get();
     }
 
