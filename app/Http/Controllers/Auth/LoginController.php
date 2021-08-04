@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -54,9 +55,7 @@ class LoginController extends Controller
     {   
         /** @var User */
         # Obtiene el usuario autenticado
-        $user = Auth::guard('students')->user()
-             ?? Auth::guard('workers')->user()
-             ?? Auth::user();
+        $user = User::authUser();
 
         # Genera el token y lo guarda como encabezado.
         $user->generateToken();

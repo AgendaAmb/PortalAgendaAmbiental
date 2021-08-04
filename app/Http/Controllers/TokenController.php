@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 
 
@@ -26,10 +27,14 @@ class TokenController extends Controller
      */
     public function tokenStatus(Request $request)
     {
+        # Desencripta el token
+        $decrypter = new Encrypter('aj3nd@_amViEntAl');
+        $token = $decrypter>encrypt($request->token);
+
         # Busca el token en los usuarios
-        $user = Extern::firstWhere('access_token', $request->token)
-             ?? Student::firstWhere('access_token', $request->token)
-             ?? Worker:: firstWhere('access_token', $request->token);
+        $user = Extern::firstWhere('access_token', $token)
+             ?? Student::firstWhere('access_token', $token)
+             ?? Worker:: firstWhere('access_token', $token);
 
         # Los tokens no coinciden.
         if ($user === null || $request->token === null)
@@ -37,8 +42,6 @@ class TokenController extends Controller
                 'message' => 'Token inválido'
             ], 401);
         
-        # Regenera el token de usuario.
-        // $user->generateToken();
 
         return response()->json([
             'message' => 'Válido',

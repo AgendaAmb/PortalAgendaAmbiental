@@ -8,10 +8,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable //implements MustVerifyEmail
+class User extends Authenticatable // implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable, HasRoles;
 
@@ -62,6 +63,20 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function userModules()
     {
         return $this->morphToMany(Module::class, 'user', 'module_user');
+    }
+
+    /**
+     * Obtiene los módulos de usuario, junto con el token de acceso 
+     * proporcionado.
+     *
+     * @return object
+     */
+    public function userModulesWithToken($token)
+    {
+        return $this
+        ->userModules()
+        ->select('id', 'name', DB::raw('concat(url, "?ticket='.$token.'")'))
+        ->get();
     }
 
     /**
