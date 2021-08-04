@@ -595,7 +595,8 @@
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
-        this.token='{{$token}}'
+        this.token='{{$token}}',
+        this.url='{{env('URL17GEMAS')}}'
       },
       uaslpUser:function(){
             console.log("enviando");
@@ -626,10 +627,10 @@
                 "InteresAsistencia":this.InteresAsistencia
             }
             console.log(JSON.stringify(data))
-            axios.post('http://148.224.134.160/17Gemas/api/register',data).
+            axios.post(this.url+'/api/register',data).
             then(response => (
                 console.log(response),
-                window.location.href = 'http://148.224.134.160/17Gemas/Dashboard'
+                window.location.href = this.url+'/Dashboard'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
