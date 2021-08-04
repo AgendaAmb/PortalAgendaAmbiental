@@ -85,10 +85,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     
     # Módulos de usuario
     Route::get('/modules/{module}/verify-email/{user}', 'UserModuleController@verifyEmail')->name('modules.user.verify-email');
-    Route::resource('modules.users', 'UserModuleController')->except([ 'create', 'edit' ]);
-
-    # Redireccionamiento de usuarios.
-    Route::resource('modules', ModuleController::class)->only('show');
+    Route::resource('modules', ModuleController::class);
 });
 
 # Obtener usuario por token

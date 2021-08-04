@@ -47,9 +47,6 @@ class ModuleController extends Controller
      */
     public function show(Module $module)
     {
-        $token = Auth::user()->access_token;
-
-        return redirect($module->url.'?ticket='.$token);
     }
 
     /**

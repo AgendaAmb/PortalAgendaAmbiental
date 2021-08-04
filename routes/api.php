@@ -18,4 +18,7 @@ Route::middleware('auth:api,students-api,workers-api')->group(function(){
 
     # Usuario autenticado
     Route::get('/user', 'TokenController@user');
+
+    # Módulo de usuario.
+    Route::resource('modules.users', 'UserModuleController')->only('store');
 });
