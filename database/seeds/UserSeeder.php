@@ -122,7 +122,7 @@ class UserSeeder extends Seeder
             "modules" => ['Control escolar'],
             "roles" => [ 'user' ],
             'user_type' => Extern::class,
-        ],/*
+        ],
         [
             "id" => "262698",
             "name" => "MIGUEL ANGEL",
@@ -133,7 +133,7 @@ class UserSeeder extends Seeder
             "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],
+        ],/*
         [
             "id" => "260651",
             "name" => "JACOB ALEJANDRO",
@@ -152,6 +152,17 @@ class UserSeeder extends Seeder
             "middlename" => "ALMENDAREZ",
             "surname" => "GARCIA",
             'dependency' => 'COORDINACION DE AGENDA AMBIENTAL DE LA UASLP',
+            "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
+            "roles" => [ 'administrator' ],
+            'user_type' => Worker::class,
+        ],
+        [
+            "id" => "13763",
+            "name" => "MIGUEL ANGEL",
+            "email" => "miguel.mendez@uaslp.mx",
+            "middlename" => "MENDEZ",
+            "surname" => "MONTENEGRO",
+            'dependency' => 'FACULTAD DE MEDICINA',
             "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
