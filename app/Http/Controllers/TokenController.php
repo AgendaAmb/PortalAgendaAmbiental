@@ -27,14 +27,10 @@ class TokenController extends Controller
      */
     public function tokenStatus(Request $request)
     {
-        # Desencripta el token
-        $decrypter = new Encrypter('aj3nd@_amViEntAl');
-        $token = $decrypter>encrypt($request->token);
-
         # Busca el token en los usuarios
-        $user = Extern::firstWhere('access_token', $token)
-             ?? Student::firstWhere('access_token', $token)
-             ?? Worker:: firstWhere('access_token', $token);
+        $user = Extern::firstWhere('access_token', $request->token)
+             ?? Student::firstWhere('access_token', $request->token)
+             ?? Worker:: firstWhere('access_token', $request->token);
 
         # Los tokens no coinciden.
         if ($user === null || $request->token === null)
