@@ -596,7 +596,7 @@
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
         this.token='{{$token}}',
-        this.url='{{env('APP_URL')}}'
+        this.url='{{env('APP_URL')}}17Gemas/'
       },
       uaslpUser:function(){
             console.log("enviando");
@@ -630,7 +630,7 @@
             axios.post(this.url+'api/register',data).
             then(response => (
                 console.log(response),
-                window.location.href = this.url+'/Dashboard'
+                window.location.href = this.url+'Dashboard'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
