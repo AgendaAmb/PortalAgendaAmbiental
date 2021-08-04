@@ -596,7 +596,7 @@
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
         this.token='{{$token}}',
-        this.url='{{env('URL17GEMAS')}}'
+        this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
             console.log("enviando");
