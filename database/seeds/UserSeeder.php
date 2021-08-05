@@ -140,7 +140,7 @@ class UserSeeder extends Seeder
             "middlename" => "LOREDO",
             "surname" => "DE LA ROSA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "modules" => ['17 gemas', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
         ],

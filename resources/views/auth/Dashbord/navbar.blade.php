@@ -21,6 +21,13 @@
                     <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                 </li>
                 @endforeach
+              
+                @if (Auth::user()->hasModule('administrator'))
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{route('Administracion')}}">Inicio<span class="sr-only"></span></a>
+                </li>
+                @endif
+               
             </ul>
         </div>
         <div class="container justify-content-end">
