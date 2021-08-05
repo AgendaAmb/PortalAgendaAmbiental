@@ -22,7 +22,7 @@
                 </li>
                 @endforeach
               
-                @if (Auth::user()->hasModule('administrator'))
+                @if (Auth::user()->hasRole('Administrator'))
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('Administracion')}}">Inicio<span class="sr-only"></span></a>
                 </li>

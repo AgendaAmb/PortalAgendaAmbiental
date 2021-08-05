@@ -36,7 +36,7 @@
                 <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
-                @if (Auth::user()->hasModule('Administracion'))
+                @if (Auth::user()->hasRole('Administrator'))
                 <td>
                     @foreach ($user->getRoleNames() as $rol)
                     <li>{{$rol}}</li>
