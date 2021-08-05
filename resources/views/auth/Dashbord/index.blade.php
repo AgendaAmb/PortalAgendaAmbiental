@@ -13,11 +13,11 @@
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
     <div class="row">
-        <div class="col-xl-8  col-lg-8  col-md-8 col-sm-8 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
+        <div class="col-xl-8  col-lg-8  col-md-8 col-sm-12 col-12  bg-info">QUE ELEMENTOS SE PONDRAN EN ESTA PARTE POR EL
             MOMENTO
 
         </div>
-        <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0">
+        <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
             <div class="col">
                 <div class="row">
                     <div class="col-8 py-xl-5 py-lg-5 py-md-4 py-sm-4" style="color: gray;">
@@ -82,15 +82,26 @@
     <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h5 class="modal-title">Concurso gemas de la sostenibilidad</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header bg-primary" id="modalGemas">
+                    <h5 class="modal-title mx-auto" >Concurso gemas de la sostenibilidad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 @if (Auth::user()->hasModule("17 gemas"))
-                    Ya estas registrado
-                @endif
+                        <div class="container-fluid bg-white">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="text-center font-weight-bold h2">
+                                        ¡¡Registro completo!!
+                                    </p>
+                                </div>
+                                <div class="col-6 mx-auto">
+                                    <img src="{{asset('storage/imagenes/Logos/Success_register.gif')}}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                @else
                 <div class="modal-body ">
                     <form @submit.prevent="uaslpUser()">
                         @csrf
@@ -538,6 +549,11 @@
 
                     </form>
                 </div>
+                @endif
+              
+                  
+               
+                
 
             </div>
         </div>
@@ -655,7 +671,7 @@
             initialView: 'dayGridMonth'
             
           });
-          calendar.setOption('contentHeight', 150);
+          calendar.setOption('contentHeight', 350);
           calendar.setOption('locale','Es');
           calendar.render();
         });
