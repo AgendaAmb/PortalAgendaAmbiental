@@ -35,7 +35,7 @@ class HomeController extends Controller
     De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(Request $request){
-        
+
         return view('auth.Dashbord.index')->with('Modulos', $request->user()->userModules);
     }
 

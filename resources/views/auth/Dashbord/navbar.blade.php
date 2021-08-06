@@ -17,8 +17,10 @@
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
                 @foreach ($Modulos as $Modulo)
+                @php $url = $Modulo->url.'/'.Auth::user()->user_type.'/'.Auth::user()->id; @endphp
+
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
+                    <a class="nav-link" href="{{$url}}<span class="sr-only"></span></a>
                 </li>
                 @endforeach
               
