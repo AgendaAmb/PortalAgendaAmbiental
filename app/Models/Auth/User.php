@@ -75,4 +75,54 @@ class User extends Authenticatable // implements MustVerifyEmail
             ?? Auth::guard('workers')->user()
             ?? Auth::user();
     }
+
+    /**
+     * Retrieves the specified user (Worker, Student, Extern) by
+     * id and type
+     *
+     * @return object
+     */
+    public static function retrieveById($user_id, $user_type)
+    {
+        # Recupera al usuario.
+        $user = null;
+
+        switch($user_type)
+        {
+            case 'students' : $user = Student::find($user_id); break;
+            case 'workers'  : $user = Worker::find($user_id); break;
+            case 'externs'  : $user = Extern::find($user_id); break;
+        }
+
+        return $user;
+    }
+
+    /**
+     * Retrieves the specified user (Worker, Student, Extern) by
+     * id and type
+     *
+     * @return object
+     */
+    public static function retrieveBySearchKey($search_key, $search_value, $user_type)
+    {
+        # Recupera al usuario.
+        $user = null;
+
+        switch($user_type)
+        {
+            case 'students' : $user = Student::firstWhere($search_key, $search_value); break;
+            case 'workers'  : $user = Worker::firstWhere($search_key, $search_value); break;
+            case 'externs'  : $user = Extern::firstWhere($search_key, $search_value); break;
+            
+            case '*': 
+                
+                $user = Extern::firstWhere($search_key, $search_value)
+                     ?? Worker::firstWhere($search_key, $search_value)
+                     ?? Student::firstWhere($search_key, $search_value);
+
+                break;
+        }
+
+        return $user;
+    }
 }

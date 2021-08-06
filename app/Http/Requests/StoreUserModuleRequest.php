@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SearchUserRequest extends FormRequest
+class StoreUserModuleRequest extends FormRequest
 {
     use JsonResponseTrait;
 
@@ -27,9 +27,8 @@ class SearchUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'search_key' => [ 'required', 'in:email,id' ],
-            'search_value' => [ 'required', 'string'],
-            'user_type' => [ 'required', 'in:students,workers,externs,*'],
+            'user_id' => [ 'required','numeric' ],
+            'user_type' => [ 'required', 'in:externs,students,workers']
         ];
     }
 }

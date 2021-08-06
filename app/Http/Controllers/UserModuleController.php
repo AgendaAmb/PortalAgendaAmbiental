@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserModuleRequest;
 use App\Jobs\SendVerificationEmail;
 use App\Models\Auth\User;
 use App\Models\Module;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
 class UserModuleController extends Controller
@@ -16,10 +16,10 @@ class UserModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Module $module, Request $request)
+    public function store(Module $module, StoreUserModuleRequest $request)
     {
         # Usuario autenticado
-        $user = User::authUser();
+        $user = User::retrieveById($request->user_id, $request->user_type);
 
         # Añade el módulo al usuario, si no pertenece a él.
         if (!$user->hasModule($module->name))
