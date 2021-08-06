@@ -611,7 +611,6 @@
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
-        this.token='{{$token}}',
         this.url='{{env('APP_URL')}}17Gemas/'
       },
       uaslpUser:function(){
@@ -622,7 +621,6 @@
                     'Content-Type': 'application/json;charset=utf-8'
             };
             var data = {
-                "token":this.token,
        	        "emailR":this.emailR,
                 "Edad":this.Edad,
                 "Genero":this.Genero,

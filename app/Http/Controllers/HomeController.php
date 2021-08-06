@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
+use App\Models\Auth\User;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,13 +35,8 @@ class HomeController extends Controller
     De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(Request $request){
-
-        # Token de acceso personal.
-        $token = $request->user()->access_token;
-
-        return view('auth.Dashbord.index')
-              ->with('Modulos', $request->user()->userModulesWithToken($token))
-              ->with('token', $token);
+        
+        return view('auth.Dashbord.index')->with('Modulos', $request->user()->userModules);
     }
 
     public function Administracion(){

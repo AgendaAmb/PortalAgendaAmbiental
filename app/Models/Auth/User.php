@@ -2,19 +2,17 @@
 
 namespace App\Models\Auth;
 
-use App\Models\Module;
-use Carbon\Carbon;
+use App\Traits\ModuleTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable // implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable, HasRoles;
+    use HasApiTokens, Notifiable, HasRoles, ModuleTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -55,110 +53,6 @@ class User extends Authenticatable // implements MustVerifyEmail
      */
     protected $appends = ['user_type' ];
 
-    /**
-     * Obtiene los módulos a los que está registrado este usuario.
-     *
-     * @return object
-     */
-    public function userModules()
-    {
-        return $this->morphToMany(Module::class, 'user', 'module_user');
-    }
-
-    /**
-     * Obtiene los módulos de usuario, junto con el token de acceso 
-     * proporcionado.
-     *
-     * @return object
-     */
-    public function userModulesWithToken($token)
-    {
-        return $this
-        ->userModules()
-        ->select('id', 'name', DB::raw('concat(url, "?ticket='.$token.'") as url'))
-        ->get();
-    }
-
-    /**
-     * Determina si el usuario está registrado en el módulo
-     *
-     * @param string $module
-     * @return bool
-     */
-    public function hasModule(string $module)
-    {
-        return $this
-        ->userModules()
-        ->where('name', $module)
-        ->count() > 0;
-    }
-
-    /**
-     * Determina si el usuario está registrado en el módulo
-     *
-     * @param Module $module
-     * @return bool
-     */
-    public function hasAnyModule(array $modules)
-    {
-        return $this
-        ->userModules()
-        ->whereIn('name', $modules)
-        ->count() > 0;
-    }
-
-    /**
-     * Asocia al usuario un módulo.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function attachModule(Module $module)
-    {
-        $this->userModules()->attach($module->id);
-    }
-
-    /**
-     * Desasocia al usuario un módulo.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function detachModule(Module $module)
-    {
-        $this->userModules()->detach($module->id);
-    }
-
-    /**
-     * Verifica el correo electrónico del usuario en
-     * el módulo indicado.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function verifyEmailOn(Module $module)
-    {
-        $this->userModules()
-             ->updateExistingPivot($module->id, [
-            'email_verified_at' => Carbon::now()
-        ]);
-    }
-
-    /**
-     * Verifica el correo electrónico del usuario en
-     * el módulo indicado.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function hasEmailVerifiedOn(Module $module)
-    {
-        return $this
-                ->userModules()
-                ->wherePivot('module_id', $module->id)
-                ->wherePivotNotNull('email_verified_at')
-                ->get() !== null;
-    }
 
     /** 
      * Obtiene el tipo de usuario
@@ -168,18 +62,6 @@ class User extends Authenticatable // implements MustVerifyEmail
     public function getUserTypeAttribute()
     {
         return $this->table;
-    }
-
-    /** 
-     * Obtiene el tipo de usuario
-     *
-     * @return void
-     */
-    public function generateToken()
-    {
-        $this->tokens()->delete();
-        $this->access_token = $this->createToken('AccessToken')->accessToken;
-        $this->save();
     }
 
     /** 

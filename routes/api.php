@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 # Usuarios autenticados, vía API
-Route::middleware('auth:api,students-api,workers-api')->group(function(){
+Route::middleware('client')->group(function(){
 
     # Usuario autenticado
-    Route::get('/user', 'TokenController@user');
+    Route::get('/user', 'UserController@user');
 
     # Módulo de usuario.
     Route::resource('modules.users', 'UserModuleController')->only('store');

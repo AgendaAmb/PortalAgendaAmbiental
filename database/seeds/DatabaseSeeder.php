@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ModuleSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-
-        Artisan::call('passport:install');
+        $this->call(PassportSeeder::class);
     }
 }

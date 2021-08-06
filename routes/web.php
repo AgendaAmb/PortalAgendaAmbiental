@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,8 +88,20 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::resource('modules', ModuleController::class);
 });
 
-# Obtener usuario por token
-Route::get('/tokenStatus', 'TokenController@tokenStatus')->name('tokenStatus');
+
+# Expedición de tokens y autorización por parte del 
+# sistema central.
+Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students')->group(function(){
+
+    # Autorizar acceso a aplicación cliente.
+    Route::get('/authorize', '\Laravel\Passport\Http\Controllers\AuthorizationController@authorize')->name('authorizations.authorize');
+    Route::post('/authorize', '\Laravel\Passport\Http\Controllers\ApproveAuthorizationController@approve')->name('authorizations.approve');
+
+    # Token bearer para aplicación cliente.
+    Route::post('/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken')->name('token')->middleware('throttle')
+        ->withoutMiddleware('auth:web,workers,students');
+});
+
 
 
 /*Rutas para redireccion de rutas anteriores de agenda ambiental */

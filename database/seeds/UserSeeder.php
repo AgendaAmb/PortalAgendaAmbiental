@@ -129,7 +129,7 @@ class UserSeeder extends Seeder
             "middlename" => "MENDEZ",
             "surname" => "ORTA",
             'dependency' => 'FACULTAD DE INGENIERIA',
-            "modules" => ['Administración', 'Control Escolar', 'Biodiversidad'],
+            "modules" => [ 'Control Escolar', 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
         ],
@@ -151,7 +151,7 @@ class UserSeeder extends Seeder
             "middlename" => "ALMENDAREZ",
             "surname" => "GARCIA",
             'dependency' => 'COORDINACION DE AGENDA AMBIENTAL DE LA UASLP',
-            "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
+            "modules" => [ '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
         ],
@@ -162,10 +162,10 @@ class UserSeeder extends Seeder
             "middlename" => "MENDEZ",
             "surname" => "MONTENEGRO",
             'dependency' => 'FACULTAD DE MEDICINA',
-            "modules" => [ 'Administracion', '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
+            "modules" => [ '17 Gemas', 'Control Escolar', 'Biodiversidad' ],
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
-        ]
+        ],
     ];
 
 
