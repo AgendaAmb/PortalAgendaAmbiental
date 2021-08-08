@@ -2,6 +2,7 @@
 
 use App\Models\Module;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class ModuleSeeder extends Seeder
 {
@@ -29,8 +30,12 @@ class ModuleSeeder extends Seeder
         ];
 
         foreach ( $modules as $module)
-            Module::create($module);
+        {
+            $command = 'passport:client --name='.$module['name'].' --redirect_uri='.$module['url'].'/authorizeLogin';
 
-            
+            Module::create($module);
+            Artisan::command($command, function(){})->getOutput();
+        }
+
     }
 }
