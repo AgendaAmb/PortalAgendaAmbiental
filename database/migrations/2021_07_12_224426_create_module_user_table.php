@@ -17,6 +17,8 @@ class CreateModuleUserTable extends Migration
             $table->foreignId('module_id')->constrained('modules');
             $table->morphs('user', 'user_types');
             $table->date('email_verified_at')->nullable();
+
+            $table->softDeletes();
         });
     }
 

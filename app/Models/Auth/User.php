@@ -4,6 +4,7 @@ namespace App\Models\Auth;
 
 use App\Traits\ModuleTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable // implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable, HasRoles, ModuleTrait;
+    use HasApiTokens, Notifiable, HasRoles, ModuleTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
