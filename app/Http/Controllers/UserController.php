@@ -49,6 +49,6 @@ class UserController extends Controller
      */
     public function whoAmI(Request $request)
     {
-        return $request->user();
+        return $request->user()->makeVisible('access_token');
     }
 }

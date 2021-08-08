@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -51,6 +52,10 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
+        $user = User::authUser();
+        $user->access_token = $user->createToken('access_token')->accessToken;
+        $user->save();
+
         return redirect($this->redirectTo);
     }
 
