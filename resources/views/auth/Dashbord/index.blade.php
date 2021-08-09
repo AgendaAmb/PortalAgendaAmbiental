@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-   
+
     @if (Auth::user()->user_type!="externs")
     <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -170,7 +170,7 @@
                                 <label for="tel">Télefono de Contacto</label>
                                 <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
                                 @if (Auth::user()->user_type!="externs")
-                                    
+
                                 @else
                                 readonly
                                 @endif
@@ -550,16 +550,16 @@
                     </form>
                 </div>
                 @endif
-              
-                  
-               
-                
+
+
+
+
 
             </div>
         </div>
     </div>
     @endif
- 
+
 </div>
 
 
@@ -641,7 +641,7 @@
                 "InteresAsistencia":this.InteresAsistencia
             }
             console.log(JSON.stringify(data))
-            axios.post(this.url+'17Gemas/register',data).
+            axios.post(this.url+'17Gemas/api/register',data).
             then(response => (
                 console.log(response),
                 window.location.href = this.url+'Dashboard'
@@ -659,21 +659,21 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
-          
+
           var calendar = new FullCalendar.Calendar(calendarEl, {
-          
+
             headerToolbar: {
                 left:'prev,next',
                 center:'title',
                 right: 'timeGridWeek,dayGridMonth' },
             initialView: 'dayGridMonth'
-            
+
           });
           calendar.setOption('contentHeight', 350);
           calendar.setOption('locale','Es');
           calendar.render();
         });
-       
+
 </script>
 @endpush
 @endsection
