@@ -641,7 +641,7 @@
                 "InteresAsistencia":this.InteresAsistencia
             }
             console.log(JSON.stringify(data))
-            axios.post(this.url+'17Gemas/api/register',data).
+            axios.post(this.url+'/17Gemas/api/register',data).
             then(response => (
                 console.log(response),
                 window.location.href = this.url+'Dashboard'
