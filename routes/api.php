@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-# Usuarios.
+# Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
     # Obtener usuario.
@@ -27,9 +27,12 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 });
 
 
-# Módulos de usuario.
+# Aplicaciones cliente.
 Route::middleware('client')->group(function(){
 
     # Módulos de usuario.
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
+
+    # Obtener usuario.
+    Route::get('/users/search', 'UserController@show')->name('users.search');
 });
