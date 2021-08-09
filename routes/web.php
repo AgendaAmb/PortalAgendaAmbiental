@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Introduccion.vista');
+Route::get('/{nombreModal?}', function ($NombreM=null)  {
+    return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
 
 Route::get('/gestión', function () {
@@ -62,7 +62,7 @@ Route::get('/DateUnRespiro', function () {
 })->name('DateUnRespiro');
 
 Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
-    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);;
+    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);
 })->name('ConsumoResponsable');
 
 Route::get('/MovilidadUrbanaSostenible', function () {

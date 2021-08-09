@@ -83,7 +83,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary" id="modalGemas">
-                    <h5 class="modal-title mx-auto" >Concurso gemas de la sostenibilidad</h5>
+                    <h5 class="modal-title mx-auto" >17 gemas para la Uni sostenible</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -461,7 +461,7 @@
                                     v-model="Ocupacion" placeholder="estudiante, profesor, administrativo, otro">
                             </div>
                         </div>
-                        <div class="form-group row was-validated">
+                        <div class="form-group row ">
                             <div class="col-12">
                                 <label for="GEtnico">Grupo étnico</label>
                                 <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
