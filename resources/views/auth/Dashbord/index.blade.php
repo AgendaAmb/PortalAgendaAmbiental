@@ -611,7 +611,7 @@
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
-        this.url='{{env('APP_URL')}}17Gemas/'
+        this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
             console.log("enviando");
