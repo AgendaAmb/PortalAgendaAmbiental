@@ -6,10 +6,22 @@ use App\Http\Requests\StoreUserModuleRequest;
 use App\Jobs\SendVerificationEmail;
 use App\Models\Auth\User;
 use App\Models\Module;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Crypt;
 
 class UserModuleController extends Controller
 {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Module $module)
+    {
+        return $module->users();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -27,10 +39,10 @@ class UserModuleController extends Controller
             $user->attachModule($module);
             SendVerificationEmail::dispatch($user, $module);
 
-            return response('Successful', 200);
+            return response('Successful', JsonResponse::HTTP_OK);
         }
 
-        return response('User already registered', 422);
+        return response('User already registered', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
 
     /**

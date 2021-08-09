@@ -33,6 +33,8 @@ class CreateStudentsTable extends Migration
             $table->string('guid')->unique()->nullable();
             $table->string('domain')->nullable();
             $table->string('dependency')->nullable();
+
+            $table->softDeletes();
         });
     }
 

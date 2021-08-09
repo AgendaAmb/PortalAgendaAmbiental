@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\UserTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Modelo de representación que permite representar un módulo de una aplicación. 
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Module extends Model
 {  
-    use UserTrait;
+    use UserTrait, SoftDeletes;
 
     /**
      * The attributes that should be hidden for arrays.

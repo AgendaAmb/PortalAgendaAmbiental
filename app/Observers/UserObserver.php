@@ -36,9 +36,7 @@ class UserObserver
      */
     public function deleted(User $user)
     {
-        # Elimina roles y módulos
-        $user->userModules()->detach();
-        $user->roles()->detach();
+        
     }
 
     /**
@@ -60,6 +58,8 @@ class UserObserver
      */
     public function forceDeleted(User $user)
     {
-        //
+        # Elimina roles y módulos
+        $user->userModules()->detach();
+        $user->roles()->detach();
     }
 }

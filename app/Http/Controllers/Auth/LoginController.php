@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Auth\Session;
 use App\Models\Auth\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -41,7 +40,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware([ 'guest:web','guest:students','guest:workers' ])->except('logout');
     }
 
     /**
@@ -53,6 +52,10 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
+        $user = User::authUser();
+        $user->access_token = $user->createToken('access_token')->accessToken;
+        $user->save();
+
         return redirect($this->redirectTo);
     }
 
@@ -65,7 +68,7 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         # Datos del API si existen.
-        $user_request = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [ 'username' => $request->email ]);
+        $user_request = Http::post('http://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [ 'username' => $request->email ]);
 
         # Intenta acceder como externo.
         if ($user_request->status() !== 200)

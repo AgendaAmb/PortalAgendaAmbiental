@@ -13,12 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-# Usuarios autenticados, vía API
+# Usuarios autenticados.
+Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
+
+    # Obtener usuario.
+    Route::get('/', 'UserController@show')->name('show');
+
+    # Obtener usuario autenticado.
+    Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
+
+    # Búsqueda de usuario.
+    Route::get('/search', 'UserController@search')->name('search');    
+});
+
+
+# Aplicaciones cliente.
 Route::middleware('client')->group(function(){
 
-    # Usuario autenticado
-    Route::get('/user', 'UserController@user');
+    # Módulos de usuario.
+    Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
 
-    # Módulo de usuario.
-    Route::resource('modules.users', 'UserModuleController')->only('store');
+    # Obtener usuario.
+    Route::get('/searchuser', 'UserController@search')->name('search');
 });
