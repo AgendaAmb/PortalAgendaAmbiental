@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Introduccion.vista');
+Route::get('/{nombreModal?}', function ($NombreM=null) {
+    return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
 
 Route::get('/gestión', function () {
