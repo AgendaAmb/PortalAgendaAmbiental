@@ -34,5 +34,5 @@ Route::middleware('client')->group(function(){
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
 
     # Obtener usuario.
-    Route::get('/users/search', 'UserController@show')->name('users.search');
+    Route::get('/searchuser', 'UserController@search')->name('search');
 });
