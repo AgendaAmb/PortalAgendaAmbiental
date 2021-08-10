@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/{nombreModal?}', function ($NombreM=null) {
+Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
+Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
+    return view('Introduccion.vista')->with('NombreM',$NombreM);
+})->name('Modal17Gemas');
 
 Route::get('/gestión', function () {
     return view('Gestion.vista');
@@ -88,3 +90,4 @@ Route::redirect('/vinculacion/index.html', '/vinculación', 301);
 Route::redirect('/daterespiro/index.html', '/DateUnRespiro', 301);
 Route::redirect('/gestion-2/index.html', '/gestión', 301);
 Route::redirect('/mmus/index.html', '/MovilidadUrbanaSostenible', 301);
+
