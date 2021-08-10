@@ -36,7 +36,7 @@
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-between my-2 ">
-        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelEspacioConsumo" role="tab"
             aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
             aria-selected="false">Cambalache De Libros</a>
