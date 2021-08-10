@@ -35,11 +35,11 @@
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}} >
                 <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
                 alt="First slide">
               </a>
-              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}} >
                 <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
@@ -239,7 +239,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
-            <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}} >
               <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
               alt="First slide">
             </a>

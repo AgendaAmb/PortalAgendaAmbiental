@@ -171,7 +171,7 @@
 @endsection
 
 @section('Modales')
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="CartelEspacioConsumo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -193,9 +193,9 @@
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CARTEL-TAMAÑO-REAL.png')}}"
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/ENERO2021_ECR.jpg')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_ECR_Agosto.png">CARTEL GENERAL </a>
+                                download="ENERO2021_ECR.jpg">CARTEL GENERAL </a>
                         </div>
 
                     </div>
