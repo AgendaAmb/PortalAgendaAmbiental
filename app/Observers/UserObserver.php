@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Auth\User;
-use App\Notifications\ VerificationEmail;
+use App\Notifications\VerificationEmail;
 
 class UserObserver
 {
