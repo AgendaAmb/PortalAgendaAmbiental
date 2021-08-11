@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{nombreModal?}', function ($NombreM=null)  {
+Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
-
+Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
+    return view('Introduccion.vista')->with('NombreM',$NombreM);
+})->name('Modal17Gemas');
 Route::get('/gestión', function () {
     return view('Gestion.vista');
 })->name('Gestion');
