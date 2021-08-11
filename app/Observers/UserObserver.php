@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Auth\User;
+use App\Notifications\ VerificationEmail;
 
 class UserObserver
 {
@@ -14,7 +15,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        //
+        $user->notify(new VerificationEmail());
     }
 
     /**
