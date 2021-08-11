@@ -12,10 +12,10 @@ class UserSeeder extends Seeder
      * Usuarios del app
     */
     private $users =  [
-        /*
+        
         [
             "name" => "Andrés Alberto",
-            "email" => "andres.rangelor@gmail.com",
+            "email" => "andres.rangelor@pruebapruebagmail.com",
             "middlename" => "Rangel",
             "surname" => "Orduña",
             "password" => '$2y$10$ZQfpxcwS0jqxdtfovHKzyuUvsGvFf224.g8MORbxouwQ8HqeTqQWG',
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Iván",
-            "email" => "ivan.mena@uaslp.mx",
+            "email" => "ivan.mena@pruebapruebauaslp.mx",
             "middlename" => "Mena",
             "surname" => "Loyola",
             "password" => '$2y$10$fiywHYoIwR6IideF12Rg4.g98YjKDrXR2j/WmhaKcU0pOINTJIBKO',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Aldo Axel",
-            "email" => "haloodst98@live.ca",
+            "email" => "haloodst98@pruebapruebalive.ca",
             "middlename" => "Díaz",
             "surname" => "Guzmán",
             "password" => '$2y$10$NikNxRP9ZzqE2mVUJ4kkQuIQ91ChazA1zMYOnJuEVXzMckFwUCBPG',
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Karina Sumire",
-            "email" => "karinaogalvez@gmail.com",
+            "email" => "karinaogalvez@pruebapruebagmail.com",
             "middlename" => "Ortiz",
             "surname" => "Gálvez",
             "password" => '$2y$10$RQ67eLGOCFC3sY9XoTvZZeGWRnlkc.xiJQK7gXYVEW1hW9uCODoGi',
@@ -59,7 +59,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Mayra Yatnely",
-            "email" => "yatnely@gmail.com",
+            "email" => "yatnely@pruebapruebagmail.com",
             "middlename" => "Rodríguez",
             "surname" => "Montenegro",
             "password" => '$2y$10$40v5FL2CMVulNRXbFMxOSOUH7UR/fHPgVMU3tzlOGGOuKUDkOxPlC',
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Alicia",
-            "email" => "varte.ali@gmail.com",
+            "email" => "varte.ali@pruebapruebagmail.com",
             "middlename" => "Vargas",
             "surname" => "Ortega",
             "password" => '$2y$10$rvwTKYQryAbigGLQX/S.X.2fVZLu0t8ZPQGreuh9Qyu/vu/TwrOQm',
@@ -81,7 +81,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Mariana",
-            "email" => "pennylane196873@gmail.com",
+            "email" => "pennylane196873@pruebapruebagmail.com",
             "middlename" => "Gómez",
             "surname" => "RAMIREZ",
             "password" => '$2y$10$/QaD.SaNRTPPjHb/HCWZsu2qEd7uR69Pl67ull7F53midqPEKM4hW',
@@ -92,7 +92,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "Ana Rebeca",
-            "email" => "beca529@hotmail.com",
+            "email" => "beca529@pruebapruebahotmail.com",
             "middlename" => "Mata",
             "surname" => "Lopez",
             "password" => '$2y$10$QpgDcaB9pT2lXtpBgLqh3ep2oi/FcDVbvCfsbwx8DPe02WHcRN2SW',
@@ -103,7 +103,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "ANA VALERIA",
-            "email" => "valee_anaa@hotmail.com",
+            "email" => "valee_anaa@pruebapruebahotmail.com",
             "middlename" => "MARTINEZ",
             "surname" => "DIMAS",
             "password" => '$2y$10$NLDNnIho.9QfVkWPSCMgSOZcT3R00yKR7gE5gfA1Da6zFz8y.1tlq',
@@ -114,7 +114,7 @@ class UserSeeder extends Seeder
         ],
         [
             "name" => "NINFA EDITH",
-            "email" => "nedithlopezf@gmail.com",
+            "email" => "nedithlopezf@pruebapruebagmail.com",
             "middlename" => "LÓPEZ",
             "surname" => "FLORES",
             "password" => '$2y$10$sL3y.55aJ6lw8ile1lPK8OrqrQ.frlJI4PvceQ//rtejsFoSGIBhy',
@@ -126,7 +126,7 @@ class UserSeeder extends Seeder
         [
             "id" => "262698",
             "name" => "MIGUEL ANGEL",
-            "email" => "a262698@alumnos.uaslp.mx",
+            "email" => "a262698@pruebapruebaalumnos.uaslp.mx",
             "middlename" => "MENDEZ",
             "surname" => "ORTA",
             'dependency' => 'FACULTAD DE INGENIERIA',
@@ -137,18 +137,18 @@ class UserSeeder extends Seeder
         [
             "id" => "260651",
             "name" => "JACOB ALEJANDRO",
-            "email" => "a260651@alumnos.uaslp.mx",
+            "email" => "a260651@pruebapruebaalumnos.uaslp.mx",
             "middlename" => "LOREDO",
             "surname" => "DE LA ROSA",
             'dependency' => 'FACULTAD DE INGENIERIA',
             "modules" => [ 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],
+        ],*/
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",
-            "email" => "eugenia.almendarez@uaslp.mx",
+            "email" => "eugenia.almendarez@pruebapruebauaslp.mx",
             "middlename" => "ALMENDAREZ",
             "surname" => "GARCIA",
             'dependency' => 'COORDINACION DE AGENDA AMBIENTAL DE LA UASLP',
@@ -159,7 +159,7 @@ class UserSeeder extends Seeder
         [
             "id" => "13763",
             "name" => "MIGUEL ANGEL",
-            "email" => "miguel.mendez@uaslp.mx",
+            "email" => "miguel.mendez@pruebapruebauaslp.mx",
             "middlename" => "MENDEZ",
             "surname" => "MONTENEGRO",
             'dependency' => 'FACULTAD DE MEDICINA',
@@ -167,14 +167,14 @@ class UserSeeder extends Seeder
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
         ],
-        */
+
     ];
 
 
     /**
      * Run the database seeds.
      *
-     * @return void
+     * @pruebapruebareturn void
      */
     public function run()
     {
