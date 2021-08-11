@@ -194,8 +194,12 @@
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/ConsumoResponsable/ENERO2021_ECR.jpg')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="ENERO2021_ECR.jpg">CARTEL GENERAL </a>
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="ENERO2021_ECR.jpg">CARTEL SEMESTRAL </a>
                         </div>
 
                     </div>
