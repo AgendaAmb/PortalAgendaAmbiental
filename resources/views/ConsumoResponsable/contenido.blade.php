@@ -29,7 +29,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_ECR.jpg')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_CR.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
