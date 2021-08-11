@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\UserObserver;
+use App\User;
+
 
 class AppServiceProvider extends ServiceProvider
 {
