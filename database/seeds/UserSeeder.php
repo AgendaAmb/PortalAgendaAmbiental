@@ -12,6 +12,7 @@ class UserSeeder extends Seeder
      * Usuarios del app
     */
     private $users =  [
+        /*
         [
             "name" => "Andrés Alberto",
             "email" => "andres.rangelor@gmail.com",
@@ -143,7 +144,7 @@ class UserSeeder extends Seeder
             "modules" => [ 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],*/
+        ],
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",
@@ -166,6 +167,7 @@ class UserSeeder extends Seeder
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
         ],
+        */
     ];
 
 
