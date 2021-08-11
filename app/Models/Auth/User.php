@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable // implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable, HasRoles, ModuleTrait, SoftDeletes;
 
@@ -29,9 +29,9 @@ class User extends Authenticatable // implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 
-        'remember_token', 
-        'created_at', 
+        'password',
+        'remember_token',
+        'created_at',
         'updated_at',
         'email_verified_at',
         'access_token',
@@ -55,7 +55,7 @@ class User extends Authenticatable // implements MustVerifyEmail
     protected $appends = ['user_type' ];
 
 
-    /** 
+    /**
      * Obtiene el tipo de usuario
      *
      * @return string
@@ -65,7 +65,7 @@ class User extends Authenticatable // implements MustVerifyEmail
         return $this->table;
     }
 
-    /** 
+    /**
      * Obtiene el tipo de usuario autenticado
      *
      * @return object
@@ -114,9 +114,9 @@ class User extends Authenticatable // implements MustVerifyEmail
             case 'students' : $user = Student::firstWhere($search_key, $search_value); break;
             case 'workers'  : $user = Worker::firstWhere($search_key, $search_value); break;
             case 'externs'  : $user = Extern::firstWhere($search_key, $search_value); break;
-            
-            case '*': 
-                
+
+            case '*':
+
                 $user = Extern::firstWhere($search_key, $search_value)
                      ?? Worker::firstWhere($search_key, $search_value)
                      ?? Student::firstWhere($search_key, $search_value);

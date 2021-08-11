@@ -28,3 +28,4 @@ class PassportSeeder extends Seeder
             ->update([ 'secret' => $tempToken ]);
     }
 }
+
