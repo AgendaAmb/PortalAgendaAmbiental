@@ -1,6 +1,5 @@
 @component('mail::message')
 {{-- Greeting --}}
-<a href="{{ $actionUrl }}"> Verificar correo aquí </a>
 
 @if (! empty($greeting))
 # {{ $greeting }}
