@@ -37,8 +37,6 @@ class UserModuleController extends Controller
         if (!$user->hasModule($module->name))
         { 
             $user->attachModule($module);
-            SendVerificationEmail::dispatch($user, $module);
-
             return response('Successful', JsonResponse::HTTP_OK);
         }
 
