@@ -92,13 +92,9 @@
                         <div class="container-fluid bg-white">
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="text-center font-weight-bold h2">
-                                        ¡¡Registro completo!!
-                                    </p>
+                                    <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
                                 </div>
-                                <div class="col-6 mx-auto">
-                                    <img src="{{asset('storage/imagenes/Logos/Success_register.gif')}}" class="img-fluid" alt="">
-                                </div>
+                              
                             </div>
                         </div>
                 @else
