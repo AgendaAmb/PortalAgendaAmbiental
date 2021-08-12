@@ -1,3 +1,4 @@
+@if (!$isDobleImg)
 <div class="carousel-item @if ($primerImagen) active @endif">
     @isset($linkRedireccion)
     <a href="{{ $linkRedireccion }}">
@@ -19,3 +20,21 @@
     </a>
     @endisset
 </div>
+@else
+<div class="carousel-item ">
+    <div class=" d-lg-block d-md-block">
+        <div class="slide-box">
+            <a href="#">
+                <img src="{{$linkImagen }}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+            <a href="#">
+                <img src="{{ $linkImagen2 }}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+        </div>
+    </div>
+</div>
+@endif
+
+

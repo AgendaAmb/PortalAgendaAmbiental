@@ -160,13 +160,28 @@ $months[] = $date;
                 <div class="carousel-item active">
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
-                            <a href="#">
-                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
-                                alt="First slide">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
                             </a>
-                            <a href="#">
-                                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
-                                alt="First slide">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}"
+                                    class="imgCaoursel " alt="First slide">
                             </a>
                         </div>
                     </div>
@@ -181,10 +196,25 @@ $months[] = $date;
                 <div class="carousel-item active">
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
-                            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}}>
-                                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}"
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel  w-100 p-0 p-0  "
+                                    alt="First slide">
+                            </a>
+                            
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
                                     class="imgCaoursel  w-100 p-0 p-0 " alt="First slide">
                             </a>
+                            
 
                         </div>
                     </div>

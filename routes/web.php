@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
+
 Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Modal17Gemas');
@@ -23,8 +24,8 @@ Route::get('/gestión', function () {
     return view('Gestion.vista');
 })->name('Gestion');
 
-Route::get('/educación', function () {
-    return view('Educacion.vista');
+Route::get('/educación/{nombreModal?}',function ($NombreM=null){
+    return view('Educacion.vista')->with('NombreM',$NombreM);
 })->name('Educacion');
 
 Route::get('/vinculación', function () {

@@ -22,17 +22,17 @@
     <nav>
         @include('Parciales.navbar')
 
-        @if (route('Gestion')==url()->full()
-        ||route('Educacion')==url()->full()
-        ||route('Vinculacion')==url()->full()
-        || route('Comunicacion')==url()->full()
-        ||route('Unibici')==url()->full()
-        ||route('Unihuerto')==url()->full()
-        ||route('Cineminuto')==url()->full()
-        ||route('FotografiaS')==url()->full()
-        ||route('DateUnRespiro')==url()->full()
-        ||route('Proserem')==url()->full()
-        ||route('ConsumoResponsable')==url()->full()
+        @if (Str::contains(url()->full(),route('Gestion'))
+        ||Str::contains(url()->full(),route('Educacion'))
+        ||Str::contains(url()->full(),route('Vinculacion'))
+        ||Str::contains(url()->full(),route('Comunicacion'))
+        ||Str::contains(url()->full(),route('Unibici'))
+        ||Str::contains(url()->full(),route('Unihuerto'))
+        ||Str::contains(url()->full(),route('Cineminuto'))
+        ||Str::contains(url()->full(),route('FotografiaS'))
+        ||Str::contains(url()->full(),route('DateUnRespiro'))
+        ||Str::contains(url()->full(),route('Proserem'))
+        ||Str::contains(url()->full(),route('ConsumoResponsable'))
 
         )
         <x-navbar-o-d-s>

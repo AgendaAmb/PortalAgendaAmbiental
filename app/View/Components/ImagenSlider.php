@@ -36,18 +36,22 @@ class ImagenSlider extends Component
      */
     public $alto;
 
+    public $isDobleImg;
+    public $linkImagen2;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($primerImagen = false, $linkRedireccion = null, $linkImagen, $ancho = null, $alto = null)
+    public function __construct($primerImagen = false, $linkRedireccion = null, $linkImagen, $ancho = null, $alto = null,$isDobleImg=false,$linkImagen2=null)
     {
         $this->primerImagen = $primerImagen;
         $this->linkRedireccion = $linkRedireccion;
         $this->linkImagen = $linkImagen;
         $this->ancho = $ancho;
         $this->alto = $alto;
+        $this->isDobleImg=$isDobleImg;
+        $this->linkImagen2=$linkImagen2;
     }
 
     /**
