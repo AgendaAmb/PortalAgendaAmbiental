@@ -26,6 +26,10 @@ class PassportSeeder extends Seeder
         DB::table('oauth_clients')
             ->where('name', '17 Gemas')
             ->update([ 'secret' => $tempToken ]);
+
+        DB::table('oauth_clients')
+            ->where('name', 'Control Escolar')
+            ->update([ 'secret' => 'qhKwQafNp4tbWjkBvuFxxzG7wYhjUHzgVfLCNk1d' ]);
     }
 }
 
