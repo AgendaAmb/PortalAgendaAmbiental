@@ -30,6 +30,9 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 # Aplicaciones cliente.
 Route::middleware('client')->group(function(){
 
+    # Registra a un usuario desde una aplicación cliente.
+    Route::post('/register', 'Auth\RegisterController@register');
+
     # Módulos de usuario.
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
 
