@@ -40,8 +40,8 @@
         <a class="nav-link w-50 p-1 m-0" target="_blank" 
         href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro" role="tab"
            >Registrate</a>
-        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Cartel_DateUnRespiro.webp')}}" 
-        role="button group" download="Cartel_DateUnRespiro.png">Cartel General</a>
+        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}" 
+        role="button group" download="Banner_DaterEspiro.png">Cartel General</a>
            
     </div>
 </div>

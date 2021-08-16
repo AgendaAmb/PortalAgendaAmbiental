@@ -221,7 +221,7 @@
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
-              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel  w-100 p-0 "
                   alt="First slide">
             </a>
 
