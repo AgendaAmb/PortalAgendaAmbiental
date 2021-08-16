@@ -1,7 +1,7 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-2">
-    <img src="{{ asset('storage/imagenes/Logos/Bs_dr.jpg') }}" class="rounded mx-auto d-block w-50 py-xl-5 py-md-5"
+<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center ">
+    <img src="{{ asset('storage/imagenes/DateUnRespiro/Logo_DateRespiro.png') }}" class="rounded mx-auto d-block w-75 py-xl-5 py-md-5"
         alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 mt-xl-5 mt-lg-3">
@@ -26,7 +26,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/introduccion/DateUnRespiro.jpg')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/DateUnRespiro/BannerDateRepiroCompleto.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
@@ -40,8 +40,8 @@
         <a class="nav-link w-50 p-1 m-0" target="_blank" 
         href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro" role="tab"
            >Registrate</a>
-        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Cartel_dateunrespiro.jpg')}}" 
-        role="button group" download="Cartel_dateunrespiro.jpg">Cartel General</a>
+        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Cartel_DateUnRespiro.webp')}}" 
+        role="button group" download="Cartel_DateUnRespiro.png">Cartel General</a>
            
     </div>
 </div>

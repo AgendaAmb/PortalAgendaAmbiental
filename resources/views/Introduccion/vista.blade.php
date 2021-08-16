@@ -142,13 +142,13 @@
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href="{{route('ConsumoResponsable')}}">
+              <a href="{{route('DateUnRespiro')}}">
 
-                <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href="{{route('DateUnRespiro')}}">
-                <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -156,10 +156,10 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel "
-                alt="First slide">
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
+                  alt="First slide">
               <a href="{{route('DateUnRespiro')}}">
-                <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -221,8 +221,8 @@
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
-              <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel  w-100 p-0"
-                alt="First slide">
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
+                  alt="First slide">
             </a>
 
           </div>
