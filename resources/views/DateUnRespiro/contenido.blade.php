@@ -37,18 +37,57 @@
 </div>
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-center">
-        <a class="nav-link w-50 p-1 m-0" target="_blank" 
-        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Reg_DateUnRespiro" role="tab"
-           >Registrate</a>
-        <a class="nav-link w-50 p-1 m-0"  href="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}" 
-        role="button group" download="Banner_DaterEspiro.png">Cartel General</a>
+       
+        <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#CartelDataUnRespiro"  
+        role="button group" >Cartel General</a>
            
     </div>
 </div>
 
 
 @endsection
+@section('Modales')
+<div class="modal fade" id="CartelDataUnRespiro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
 
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img  src="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}"
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="Banner_DaterEspiro.png">CARTEL</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
     <div style="font-size: 15px; font-family: 'Myraid light';">
