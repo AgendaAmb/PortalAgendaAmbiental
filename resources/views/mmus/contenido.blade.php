@@ -45,7 +45,7 @@
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-around my-1">
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modal3Celebraton" role="tab"
-            aria-controls="nav-home" aria-selected="true" >Tercer Cebraton</a>
+            aria-controls="nav-home" aria-selected="true" >Tercer Cebratón</a>
 
         <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCicloConfe" role="tab" aria-controls="nav-profile"
             aria-selected="false">   Ciclo De Conferencias</a>
