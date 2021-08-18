@@ -13,7 +13,7 @@
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
     <div class="row">
-        <div class="col-xl-8  col-lg-8  col-md-8 col-sm-12 col-12  bg-info">
+        <div class="col-xl-8  col-lg-8  col-md-8 col-sm-12 col-12 p-0">
             <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       
                 <div class="carousel-inner">
@@ -158,29 +158,7 @@
                       </div>
                     </div>
                   </div>
-                  <!--
-                  <div class="carousel-item">
-                    <div class="d-none d-lg-block d-md-block">
-                      <div class="slide-box">
-                        <img src="{{ asset('storage/imagenes/introduccion/CicloAgua.png')}}" class="imgCaoursel "
-                          alt="First slide">
-                        <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel "
-                          alt="First slide">
-          
-                      </div>
-                    </div>
-          
-                    <div class="d-none d-sm-block d-md-none">
-                      <div class="slide-box">
-                        <img src="{{ asset('storage/imagenes/introduccion/CicloAgua.png')}}" class="imgCaoursel "
-                          alt="First slide">
-                        <img src="{{ asset('storage/imagenes/introduccion/ConcursoCinemi.png')}}" class="imgCaoursel "
-                          alt="First slide">
-                      </div>
-                    </div>
-          
-                  </div>
-                -->
+               
                   <div class="carousel-item">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
