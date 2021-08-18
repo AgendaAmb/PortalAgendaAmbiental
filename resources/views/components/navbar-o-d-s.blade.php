@@ -17,12 +17,12 @@
         </div>
     
         <div @if (Str::contains(url()->full(),route('Gestion'))||Str::contains(url()->full(),route('Educacion'))||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))
-            ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('ConsumoResponsable')))
+            ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('mmus2021'))||Str::contains(url()->full(),route('ConsumoResponsable')))
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/health/">
                 <img src={{ asset('storage/imagenes/ods/Iconos/ODS3_Salud_Bienestar.webp')}} {{Str::contains(url()->full(),route('Gestion'))||Str::contains(url()->full(),route('Educacion'))||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('ConsumoResponsable'))
-                ||Str::contains(url()->full(),route('FotografiaS'))?"id=od3":"class=imgODS"}}>
+                ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('mmus2021'))?"id=od3":"class=imgODS"}}>
             </a>
         </div>
         
@@ -73,22 +73,22 @@
                 <img src={{ asset('storage/imagenes/ods/Iconos/ODS10_Reduccion_Desigualdades.webp')}} class="imgODS">
             </a>
         </div>
-        <div  @if (Str::contains(url()->full(),route('Gestion')) ||Str::contains(url()->full(),route('Educacion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))
+        <div  @if (Str::contains(url()->full(),route('Gestion'))||Str::contains(url()->full(),route('mmus2021')) ||Str::contains(url()->full(),route('Educacion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))
             ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('DateUnRespiro')) ||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('ConsumoResponsable')))
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/cities/">
-                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.webp')}} {{Str::contains(url()->full(),route('Gestion'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('Educacion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('ConsumoResponsable'))
+                <img src={{ asset('storage/imagenes/ods/Iconos/ODS11_Ciudades.webp')}} {{Str::contains(url()->full(),route('Gestion'))||Str::contains(url()->full(),route('mmus2021'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('Educacion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('ConsumoResponsable'))
                 ||Str::contains(url()->full(),route('FotografiaS'))?"id=od3":"class=imgODS"}}>
             </a>
         </div>
         <div  @if (Str::contains(url()->full(),route('Gestion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))
-            ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('ConsumoResponsable')))
+            ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('DateUnRespiro'))||Str::contains(url()->full(),route('mmus2021'))||Str::contains(url()->full(),route('ConsumoResponsable')))
             class="col mb-1 mt-1"@else class="col mb-2 mt-3 odsDNone"@endif
         >
             <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/">
                 <img src={{ asset('storage/imagenes/ods/Iconos/ODS12_Produccion.webp')}} {{Str::contains(url()->full(),route('Gestion'))|| route('Vinculacion')==url()->full()||Str::contains(url()->full(),route('Unibici'))||Str::contains(url()->full(),route('Unihuerto'))||Str::contains(url()->full(),route('Cineminuto'))||Str::contains(url()->full(),route('DateUnRespiro'))
-                ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('ConsumoResponsable'))?"id=od3":"class=imgODS"}}>
+                ||Str::contains(url()->full(),route('FotografiaS'))||Str::contains(url()->full(),route('Proserem'))||Str::contains(url()->full(),route('ConsumoResponsable'))||Str::contains(url()->full(),route('mmus2021'))?"id=od3":"class=imgODS"}}>
             </a>
         </div>
        

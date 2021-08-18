@@ -1,11 +1,11 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-5 pt-0">
-    <img src="{{ asset('storage/imagenes/Logos/mmus-imagen.png') }}"
-        class="rounded mx-auto d-block w-50 py-xl-4 py-md-5" alt="" srcset="">
+<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-3 pt-0">
+    <img src="{{ asset('storage/imagenes/mmus2021/logo_mmus2021.png') }}" class="rounded mx-auto d-block w-75 pt-5"
+        alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-8 mb-5">
-    <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
+<div class="col-xl-8 col-lg-8 col-md-8 mb-5 mt-3">
+    <p class="text-justify pSize pt-2 pt-xl-4 pt-lg-3  pt-md-0">
         A medida en que nos adentramos en el siglo XXI, los retos de sostenibilidad se agudizan en todas sus
         dimensiones, especialmente en contextos urbanos en dónde resulta impostergable la aplicación de estrategias que
         permitan presentar soluciones sistémicas y de largo aliento pero con la urgencia de un decenio de acción hacia
@@ -33,8 +33,7 @@
 @section('BannerBotones')
 <div class="row justify-content-md-start ">
     <div class="col-12">
-
-        <img src="{{ asset('img/Comunicacion/2020/banner.png') }}" class="img-fluid " alt="" srcset="">
+        <img src="{{ asset('storage/imagenes/mmus2021/BannerCompleto.png') }}" class="img-fluid " alt="" srcset="">
     </div>
 
 
@@ -44,20 +43,20 @@
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-around my-1">
-        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modal3Celebraton" role="tab"
-            aria-controls="nav-home" aria-selected="true">Tercer Cebraton</a>
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#Cicloconferencias" role="tab"
+            aria-controls="nav-home" aria-selected="true">Ciclo de conferencias de Movilidad Urbana Sostenible</a>
 
-        <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCicloConfe" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> Ciclo De Conferencias</a>
+        <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCurso-taller" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Curso-taller: Conduce Con💯te</a>
 
-        <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalTallerLinea" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> Taller En Línea</a>
+        <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalMesaTrabajo" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> 2nda Mesa de Trabajo MUS-UASLP</a>
 
-        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalForoInter" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> Foro Virtual Internacional
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnirodada" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Unirodada cicloturistica a la Cañada del Lobo
 
-            <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalCursoUnihuerto" role="tab"
-                aria-controls="nav-profile" aria-selected="false">Viernes De Bici</a>
+            <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalIntervensiones" role="tab"
+                aria-controls="nav-profile" aria-selected="false">Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP</a>
 
     </div>
 </div>
@@ -72,33 +71,144 @@
         aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que modifiquen los espacios y
         vialidades así como nuestra percepción de éstos. </p>
     <h3 style="color: #5c94d7;">Actividades: </h3>
-    <ul>
-        <li ><p class="h2 font-weight-bolder"> Ciclo de conferencias de Movilidad Urbana Sostenible</p>
+    <ol style="font-size: 15px;">
+        <li>
+            <p class="h2 font-weight-bolder" style="font-family: 'Myraid Pro Bold';"> Ciclo de conferencias de Movilidad
+                Urbana Sostenible</p>
             <ul>
                 <li>
-                    <p class="m-0" >
-                        <strong>Conferencia 1: </strong> “Sostenibilidad energética en la pandemia” 
+                    <p class="m-0 d-inline" style="font-family: 'Myraid Pro Bold';">
+                        <strong>Conferencia 1: </strong>
                     </p>
+                    <p class="m-0 d-inline ml-1">“Sostenibilidad energética en la pandemia”</p>
                 </li>
-               
-                <p class="m-0"><strong>Ponente:</strong> Dr. Marcos Algara Siller y Daniela Rodríguez Aguilar <br>
-                <strong>Lugar:</strong>Zoom <br>
-                <strong>Fechas:</strong>Jueves 2 de septiembre 2021 <br>
-                <strong>Horario:</strong>18:00 a 19:00 horas
+                <p class="m-0"><strong>Ponente: </strong> Dr. Marcos Algara Siller y Daniela Rodríguez Aguilar <br>
+                    <strong>Lugar:</strong> Zoom <br>
+                    <strong>Fechas:</strong>Jueves 2 de septiembre 2021 <br>
+                    <strong>Horario:</strong>18:00 a 19:00 horas
                 </p>
+                <br>
                 <li>
-
+                    <p class="m-0 d-inline" style="font-family: 'Myraid Pro Bold';">
+                        <strong>Conferencia 2: </strong>
+                    </p>
+                    <p class="d-inline ml-1">
+                        “Movilidad y Urbanismo con enfoque de género”
+                    </p>
+                    <p class="m-0"><strong>Ponente: </strong> Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
+                        Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López <br>
+                        <strong>Lugar:</strong> Zoom <br>
+                        <strong>Fechas:</strong>Jueves 9 de septiembre 2021 <br>
+                        <strong>Horario:</strong>18:00 a 19:00 horas
                 </li>
+                <br>
+            </ul>
+        </li>
+        <li>
+            <p class="h2 font-weight-bolder" style="font-family: 'Myraid Pro Bold';">Curso-taller: Conduce Con💯te</p>
+            <ul>
+                <p class="m-0">
+                    <strong>Lugar: </strong> Estacionamiento de Centro Cultural Universitario Bicentenario<br>
+                    <strong>Fechas:</strong>sábado 18 de septiembre 2021 <br>
+                    <strong>Horario:</strong> 10:00-11:30 horas
+                </p>
+                <p class="h4 font-weight-bolder mt-3">Descripción</p>
+                <p>Este curso taller teórico y sensorial busca acercar a las personas que utilizan cualquier medio de
+                    transporte a la problemática que el resto de los medios de transporte experimentan en sus recorridos
+                    diarios, haciendo énfasis en los reglamentos de tránsito y la información respecto a la seguridad y
+                    educación vial.</p>
+                <strong>Ponente: </strong> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez Ayala<br>
             </ul>
 
         </li>
-    </ul>
+        <li>
+            <p class="h2 font-weight-bolder mt-3" style="font-family: 'Myraid Pro Bold';">2nda Mesa de Trabajo MUS-UASLP
+            </p>
+            <ul>
+                <p class="m-0">
+                    <strong>Lugar: </strong> Aula de la Agenda Ambiental de la UASLP<br>
+                    <strong>Fechas:</strong>Viernes 24 septiembre 2021 <br>
+                    <strong>Horario:</strong> 10:00-12:30 horas
+                </p>
+                <p class="h4 font-weight-bolder mt-3">Descripción</p>
+                <p>Reunión de representantes de diferentes entidades de la UASLP especialistas en diferentes temas que
+                    conciernen a la Movilidad Urbana Sostenible de la UASLP para lograr decisiones, acciones y
+                    compromisos a través de la información y debate multidisciplinario.</p>
+            </ul>
+        </li>
+        <li>
+            <p class="h2 font-weight-bolder" style="font-family: 'Myraid Pro Bold';">Unirodada cicloturistica a la
+                Cañada del Lobo</p>
+            <ul>
+                <p class="m-0">
+                    <strong>Fecha:</strong>Sábado 25 de septiembre 2021 <br>
+                    <strong>Horario:</strong> 7:30 a 11:00 horas
+                    <strong>Punto de encuentro: </strong> Caja del Agua (Calzada de Guadalupe 200, SLP)<br>
+                    <strong>Descripción: </strong>Recorrido ciclo turístico a la cañada del Lobo con parada para
+                    hidratación/refrigerio y tiempo para recorrido con explicación ecológica del lugar con cuota de
+                    recuperación que incluye ambulancia y refrigerio.
+
+                </p>
+                <p class="font-weight-bold mt-2 ">
+                    Habrá bicibus con diferentes salidas al punto del encuentro (sin apoyo de policía y ambulancia)
+                </p>
+                <p>
+                    <strong>Distancia total:</strong> 20 km aprox.
+                    <strong>Cuota de recuperación:</strong> $100 (en efectivo previo al evento).
+                    <p class="font-italic">*Llena el formulario de inscripción respectivo en el área de descargas antes
+                        del 18 de septiembre del 2021.</p>
+                    <p class="font-italic">La Unirodada tiene cupo limitado y se cierra el formulario al tener el número
+                        de personas estimadas.</p>
+                    <p class="font-italic">No olvides llevar agua y casco</p>
+                </p>
+            </ul>
+        </li>
+        <li>
+            <p class="h2 font-weight-bolder mt-3" style="font-family: 'Myraid Pro Bold';">Intervenciones y
+                reordenamiento: Cebratón y Proyecto MUS-ZUP</p>
+            <ul>
+                <p class="m-0">
+                    <strong>Lugar: </strong> Av. Industrias y Manuel Nava<br>
+                    <strong>Fechas:</strong>Jueves 30 de septiembre 2021 <br>
+                    <strong>Horario:</strong>4:30-6:30 horas
+                </p>
+                <p class="h4 font-weight-bolder mt-3">Descripción</p>
+                <p>En el marco del día de la Universidad se busca implementar una etapa del proyecto de reordenamiento
+                    de la ZUP de parte del departamento de Vinculación de la Facultad del Hábitat en colaboración con
+                    Depto. Diseño y construcción.
+                    El proyecto considera la intervención de las paradas del transporte público, lugares de
+                    estacionamiento, la accesibilidad peatonal y de todos los medios de transporte. Incluye el Cebratón,
+                    que es una iniciativa de pintas artísticas en cruces peatonales que tiene como objetivo
+                    reivindicar-reclamar el espacio de transeúntes y sensibilizar usuarios y actores de la vía pública.
+                </p>
+                <p class="h3 font-weight-bolder mt-3">Inscripciones</p>
+
+                <li>Inscríbete llenando el formato de registro y especificando cada actividad en línea que se encuentra
+                    como botón en esta página.</li>
+                <li>En 48 horas (días hábiles) te llegara un correo con detalles de la actividad que elegiste. </li>
+                <p class="mt-2">*Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas
+                    sanitarias</p>
+                <p>**Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19.</p>
+            </ul>
+        </li>
+    </ol>
+    <h4>Informes</h4>
+    <p style="font-size: 15px !important;">
+        <br>Agenda Ambiental de la UASLP<br>
+        Universidad Autónoma de San Luis Potosí<br>
+        Manuel Nava No. 201, segundo piso<br>
+        Zona Universitaria, C.P. 78210<br>
+        San Luis Potosí, S.L.P.<br>
+        Tel. (444) 826-2300 ext. 7210<br>
+        <a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a>
+        
+    </p>
 </div>
 </div>
 @endsection
 
 @section('Modales')
-<div class="modal fade" id="modal3Celebraton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="Cicloconferencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -112,35 +222,20 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus/TERCER-CEBRATON.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus/TERCER-CEBRATON.jpg')}}"
+                            <a href="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="TERCER-CEBRATON.jpg">CARTEL GENERAL </a>
+                                download="Banners-Conferencias.png">CARTEL GENERAL </a>
                         </div>
 
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
-                            <h4>3er. Cebratón
-                            </h4><br>
-                            <p>El pasado 13 de septiembre se llevó a cabo el 3er. Cebratón Universitario con la
-                                finalidad de reivindicar-reclamar el espacio de los peatones y sensibilizar sobre la
-                                vulnerabilidad del peatón y la importancia de establecer cruces seguros para que las
-                                personas puedan trasladarse de forma libre y segura en la ciudad. Ésta iniciativa de
-                                pintas artísticas sobre cruces peatonales, buscan colocar la movilidad urbana sostenible
-                                en la agenda política pública haciendo énfasis en los derechos humanos y la
-                                accesibilidad universal a la ciudad.</p><a
-                                href="https://www.facebook.com/media/set/?vanity=AgendaAmbientalUASLP&amp;set=a.4051543831539682"
-                                style="color: #5c94d7; font-weight: bold;" target="_blank">Galería</a><br><br>
-                        </div>
-                    </div>
+                
                 </div>
 
             </div>
@@ -148,7 +243,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="modalCicloConfe" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="modalCurso-taller" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -162,87 +257,20 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus/CONFERENCIAS.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                    class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus/CONFERENCIAS.jpg')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="CONFERENCIAS.jpg">CARTEL GENERAL </a>
-                        </div>
-
+                    <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                        <a href="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}"
+                            class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                            download="Banners-Talleres.png">CARTEL GENERAL </a>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';">
-                            <h4>Ciclo de conferencias de Movilidad Urbana Sostenible</h4><br><br>
-                            <p><span></span></p>
-                            <h6><b>Conferencia 1:</b><b> 15,547 – Un desafío a la mexicana</b></h6>
-                            <b>Ponente:</b> <a href="{{asset('storage/imagenes/mmus/Bertha_Corte.pdf')}}"
-                                style="color: #5c94d7; font-weight: bold;" class="ponentes" target="_blank"> Bertha
-                                Corte </a><br><br>
-                            <p></p>
-                            <p>Bertha Corte es promotora de la cultura mexicana, psicóloga y ciclista por convicción. En
-                                la conferencia titulada “Desafío a la mexicana” comparte su experiencia ciclista
-                                recorriendo el perímetro de Australia, los desafíos físicos, emocionales y logísticos
-                                que la acompañaron en su travesía que la llevaron a escribir la serie de libros, los
-                                cuales se encuentran disponibles en la biblioteca de la Agenda Ambiental.</p><br>
-                            <p style="text-align: right;"><a href="https://www.youtube.com/watch?v=R4IIXdC0eS0"
-                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}} "> </a>
-                            </p>
-                            <br>
-                            <p><span></span></p>
-                            <h6><b>Conferencia 2:</b><b> Memoria visual potosina a dos ruedas: historia, imagen y
-                                    bicicletas</b></h6>
-                            <b>Ponentes:</b> <a href="{{asset('storage/imagenes/mmus/Eduardo_Saucedo.pdf')}}"
-                                style="color: #5c94d7; font-weight: bold;" class="ponentes" target="_blank"> Dr. Eduardo
-                                Rubén Saucedo Sánchez de Tagle </a> y <a
-                                href="{{asset('storage/imagenes/mmus/Tania_Godoy.pdf')}}"
-                                style="color: #5c94d7; font-weight: bold;" class="ponentes" target="_blank"> Lic. Tania
-                                Itzel Godoy Lozano </a>, Museo Regional Potosino<p></p>
-                            <p>Inmersa en un contexto histórico de revolución social, económica, en la ciencia y la
-                                tecnología nació la bicicleta en el año 1817, 9 años más tarde, en 1826, la cámara
-                                fotográfica. En ese marco, se introducen una serie de aspectos históricos y culturales
-                                relevantes sobre la imagen, el desarrollo urbano y el tema de la movilidad en San Luis
-                                Potosí, misma que el Museo Regional Potosino da cuenta del uso de la bicicleta desde la
-                                mirada de fotógrafos potosinos.</p><br><br>
 
-                            <h6><b>Premiación: 2<sup>o</sup> concurso Cineminuto y la Sostenibilidad</b></h6><br>
-                            <p>Realizado de manera conjunta con la División de Difusión Cultural y la Agenda Ambiental,
-                                el concurso muestra la síntesis creativa de los participantes para plantear en un minuto
-                                de manera distendida las problemáticas ambientales y sociales que demandan nuestra
-                                atención. El concurso toma los Objetivos del Desarrollo Sostenible y a través del
-                                lenguaje audiovisual, invita a los participantes a expresar mensajes e ideas
-                                poderosas.<br>Nuestro jurado: Pancho Aranda, Héctor Ramos, Juan Mayorga, Consejo Estatal
-                                de Población encabezado por Cuauhtémoc Modesto.</p><br>
-                            <p style="text-align: right;"><a href="https://www.youtube.com/watch?v=wzBWE9nm7B8"
-                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}}"> </a>
-                            </p>
-                            <br><br>
-
-                            <p><span></span></p>
-                            <h6><b>Conferencia 3:</b><b> Mobility, one of many aspects in the most sustainable
-                                    university in the world</b></h6>
-                            <b>Ponente:</b> <a href="{{asset('storage/imagenes/mmus/Erna_Maters.pdf')}}"
-                                style="color: #5c94d7; font-weight: bold;" class="ponentes" target="_blank"> Erna Maters
-                            </a>
-                            <p></p><br><br>
-                            <p>Wageningen University &amp; Research (WUR) is at the forefront of sustainable operational
-                                management, they work by the domains of: Construction, energy, mobility, procurement and
-                                catering. Regarding mobility the key words for their sustainable mobility policy are:
-                                safe, healthy, sustainable, accessible, and future-focused. In this talk our speaker
-                                will share their experiences and although WUR is ranked as the most sustainable in the
-                                world there are many nuances in which they continue to work on to make operations as
-                                sustainable as possible in all areas.</p><br>
-                            <p style="text-align: right;"><a href="https://www.youtube.com/watch?v=943Y27aIooA"
-                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}}"> </a>
-                            </p>
-                            <br><br>
-                        </div>
-                    </div>
+                </div>
+                   
                 </div>
 
             </div>
@@ -250,7 +278,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="modalTallerLinea" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="modalMesaTrabajo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -264,35 +292,20 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus/TALLERES.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus/TALLERES.jpg')}}"
+                            <a href="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="TALLERES.jpg">CARTEL GENERAL </a>
+                                download="Banners-MesaT.png">CARTEL GENERAL </a>
                         </div>
 
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';">
-                            <h4>Talleres en línea</h4><br><br>
-                            <h6>Arregla tu bici</h6><br>
-                            <p>Nociones y técnicas básicas de cómo arreglar, reparar y mejorar tu bicicleta.<br>Imparte:
-                                Bicicletas Turbo.</p><br>
-                            <!--<p style="text-align: right;"><a href="https://www.youtube.com/watch?v=943Y27aIooA" target="_blank"> <img src="../../wp-content/uploads/2020/09/YouTube.png"> </a></p>--><br>
-
-                            <h6>Como preparar pintura para pintar cebras peatonales artísticas.</h6><br>
-                            <p>Aprende los elementos técnicos básicos para que tus pintas peatonales artísticas duren
-                                más tiempo. Recuerda descartar la guía que nos obsequia Liga Peatonal para el desarrollo
-                                de pintas artísticas peatonales.</p><br>
-                            <!--<p style="text-align: right;"><a href="https://www.youtube.com/watch?v=943Y27aIooA" target="_blank"> <img src="../../wp-content/uploads/2020/09/YouTube.png"> </a></p>--><br><br>
-                        </div>
-                    </div>
+                   
                 </div>
 
             </div>
@@ -300,7 +313,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="modalForoInter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="modalUnirodada" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -314,7 +327,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus/FORO.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/unirodada.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
@@ -327,22 +340,42 @@
                         </div>
 
                     </div>
+                   
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalIntervensiones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
-                            <h4>Foro virtual internacional de movilidad urbana sostenible
-                            </h4><br>
-                            <p>El 24 de septiembre se llevó a cabo el <i>Foro virtual internacional sobre Movilidad
-                                    Urbana Sostenible</i>, en el que participaron expositores locales, nacionales e
-                                internacionales se reunieron para compartir experiencias de gestión de la movilidad
-                                urbana alrededor de la crisis del COVID-19 y las estrategias que se están implementando;
-                                así como para reflexionar respecto a nuevos paradigmas y propuestas.</p><br>
-                            <p style="text-align: right;"><a href="https://www.youtube.com/watch?v=09smBbaKMEI"
-                                    target="_blank"> <img src="{{asset('storage/imagenes/Logos/YouTube.png')}}"> </a>
-                            </p>
-                            <br><br>
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Banners-Cebraton.png">CARTEL GENERAL </a>
+                        </div>
+
+                    </div>
+                   
                 </div>
 
             </div>

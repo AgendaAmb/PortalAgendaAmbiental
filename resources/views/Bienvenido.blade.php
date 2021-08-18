@@ -33,6 +33,7 @@
         ||Str::contains(url()->full(),route('DateUnRespiro'))
         ||Str::contains(url()->full(),route('Proserem'))
         ||Str::contains(url()->full(),route('ConsumoResponsable'))
+        ||Str::contains(url()->full(),route('mmus2021'))
 
         )
         <x-navbar-o-d-s>

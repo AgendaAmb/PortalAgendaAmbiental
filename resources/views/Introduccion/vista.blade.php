@@ -32,8 +32,35 @@
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
       <div class="carousel-inner">
-
         <div class="carousel-item active">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
@@ -182,6 +209,14 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
               <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
