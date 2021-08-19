@@ -56,7 +56,8 @@
             aria-controls="nav-profile" aria-selected="false"> Unirodada cicloturistica a la Cañada del Lobo
 
             <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalIntervensiones" role="tab"
-                aria-controls="nav-profile" aria-selected="false">Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP</a>
+                aria-controls="nav-profile" aria-selected="false">Intervenciones y reordenamiento: Cebratón y Proyecto
+                MUS-ZUP</a>
 
     </div>
 </div>
@@ -70,6 +71,7 @@
         considerando a todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
         aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que modifiquen los espacios y
         vialidades así como nuestra percepción de éstos. </p>
+    <!--
     <h3 style="color: #5c94d7;">Actividades: </h3>
     <ol style="font-size: 15px;">
         <li>
@@ -192,6 +194,19 @@
             </ul>
         </li>
     </ol>
+--> <h3 style="color: #5c94d7;">Objetivos</h3>
+    <p style="font-size: 15px !important;">
+    <ul>
+        <li>Inscríbete llenando el formato de registro y especificando cada actividad en línea que se encuentra como botón en esta página.</li>
+        <li>En 48 horas (días hábiles) te llegara un correo con detalles de la actividad que elegiste. </li>
+        <br>
+        <span>*Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas sanitarias</span>
+        <br>
+        <span>**Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19.</span>
+    
+    </ul>
+   
+</p>
     <h4>Informes</h4>
     <p style="font-size: 15px !important;">
         <br>Agenda Ambiental de la UASLP<br>
@@ -201,7 +216,7 @@
         San Luis Potosí, S.L.P.<br>
         Tel. (444) 826-2300 ext. 7210<br>
         <a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a>
-        
+
     </p>
 </div>
 </div>
@@ -212,7 +227,6 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
-
             <div class="modal-body py-0">
                 <div class="col-12 mb-4 ml-3 p-0">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -222,7 +236,8 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}" class="img-fluid"
+                                alt="">
                         </div>
                     </div>
                     <div
@@ -235,7 +250,58 @@
                         </div>
 
                     </div>
-                
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4>El programa Unibici de la Agenda Ambiental de la UASLP invitan al
+                                Mes de la Movilidad Urbana Sostenible 2021
+                            </h4>
+                            <br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Comunidad UASLP y público general</p><br>
+                            <h4>Objetivo general:</h4>
+                            <p>Continuar promoviendo e implementando una movilidad urbana sostenible considerando a
+                                todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
+                                aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que
+                                modifiquen los espacios y vialidades así como nuestra percepción de éstos. </p>
+                            <br>
+                            <h4>Actividades</h4>
+                            <ol>
+                                <li style="font-weight: 900;">Ciclo de conferencias de Movilidad Urbana Sostenible</li>
+                                <ul>
+                                    <li>
+                                        <span><b>Conferencia 1: </b></span> “Sostenibilidad energética en la pandemia”
+                                        <br>
+                                        <span><b>Ponente: </b>Dr. Marcos Algara Siller y Daniela Rodríguez
+                                            Aguilar</span>
+                                        <br>
+                                        <span><b>Lugar: </b> Zoom</span>
+                                        <br>
+                                        <span><b>Fechas: </b> Jueves 2 de septiembre 2021</span>
+                                        <br>
+                                        <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+                                    </li>
+                                    <li>
+                                        <span><b>Conferencia 2: </b></span> : “Movilidad y Urbanismo con enfoque de
+                                        género”
+                                        <br>
+                                        <span><b>Ponente: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
+                                            Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López</span>
+                                        <br>
+                                        <span><b>Lugar: </b> Zoom</span>
+                                        <br>
+                                        <span><b>Fechas: </b> Jueves 9 de septiembre 2021</span>
+                                        <br>
+                                        <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+
+                                    </li>
+                                </ul>
+
+
+                            </ol>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -257,20 +323,64 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}" class="img-fluid"
+                                alt="">
                         </div>
                     </div>
                     <div
-                    class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
-                    <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                        <a href="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}"
-                            class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                            download="Banners-Talleres.png">CARTEL GENERAL </a>
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Banners-Talleres.png">CARTEL GENERAL </a>
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4>El programa Unibici de la Agenda Ambiental de la UASLP invitan al
+                                Mes de la Movilidad Urbana Sostenible 2021
+                            </h4>
+                            <br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Comunidad UASLP y público general</p><br>
+                            <h4>Objetivo general:</h4>
+                            <p>Continuar promoviendo e implementando una movilidad urbana sostenible considerando a
+                                todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
+                                aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que
+                                modifiquen los espacios y vialidades así como nuestra percepción de éstos. </p>
+                            <br>
+                            <h4>Actividades</h4>
+                            <ol>
+                                <li style="font-weight: 900;">Curso-taller: Conduce Con💯te</li>
+                                <ul>
+
+                                    <span><b>Lugar: </b> Estacionamiento de Centro Cultural Universitario
+                                        Bicentenario</span>
+                                    <br>
+                                    <span><b>Fechas: </b> sábado 18 de septiembre 2021</span>
+                                    <br>
+                                    <span><b>Horario:</b> 10:00-11:30 horas</span>
+                                    <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
+                                        Ayala</span>
+                                </ul>
+                                <span>
+                                    <h4>Descripción:</h4>
+                                </span>
+
+                                <span>Este curso taller teórico y sensorial busca acercar a las personas que
+                                    utilizan cualquier medio de transporte a la problemática que el resto de los
+                                    medios de transporte experimentan en sus recorridos diarios, haciendo énfasis en
+                                    los reglamentos de tránsito y la información respecto a la seguridad y educación
+                                    vial.</span>
+                                <br>
+
+                            </ol>
+                        </div>
                     </div>
 
-                </div>
-                   
                 </div>
 
             </div>
@@ -292,7 +402,8 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}" class="img-fluid"
+                                alt="">
                         </div>
                     </div>
                     <div
@@ -303,9 +414,50 @@
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="Banners-MesaT.png">CARTEL GENERAL </a>
                         </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <h4>El programa Unibici de la Agenda Ambiental de la UASLP invitan al
+                                    Mes de la Movilidad Urbana Sostenible 2021
+                                </h4>
+                                <br><br>
+                                <h4>Dirigido a</h4>
+                                <p>Comunidad UASLP y público general</p><br>
+                                <h4>Objetivo general:</h4>
+                                <p>Continuar promoviendo e implementando una movilidad urbana sostenible considerando a
+                                    todos los medios de transporte y la cultura de nuestra comunidad a través de eventos
+                                    de
+                                    aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que
+                                    modifiquen los espacios y vialidades así como nuestra percepción de éstos. </p>
+                                <br>
+                                <h4>Actividades</h4>
+                                <ol>
+                                    <li style="font-weight: 900;">2nda Mesa de Trabajo MUS-UASLP</li>
+                                    <ul>
+
+
+                                        <span><b>Lugar: </b> : Aula de la Agenda Ambiental de la UASLP</span>
+                                        <br>
+                                        <span><b>Fechas: </b> Viernes 24 septiembre 2021</span>
+                                        <br>
+                                        <span><b>Horario:</b> 10:00-12:30 horas</span>
+                                        <span>
+                                            <h4>Descripción:</h4>
+                                        </span>
+
+                                        <span>Reunión de representantes de diferentes entidades de la UASLP
+                                            especialistas en diferentes temas que conciernen a la Movilidad Urbana
+                                            Sostenible de la UASLP para lograr decisiones, acciones y compromisos a
+                                            través de la información y debate multidisciplinario.</span>
+                                    </ul>
+
+
+                                </ol>
+                            </div>
+                        </div>
 
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -327,20 +479,76 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/unirodada.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/RODADA.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus/FORO.jpg')}}"
+                            <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="FORO.jpg">CARTEL GENERAL </a>
                         </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <h4>El programa Unibici de la Agenda Ambiental de la UASLP invitan al
+                                    Mes de la Movilidad Urbana Sostenible 2021
+                                </h4>
+                                <br><br>
+                                <h4>Dirigido a</h4>
+                                <p>Comunidad UASLP y público general</p><br>
+                                <h4>Objetivo general:</h4>
+                                <p>Continuar promoviendo e implementando una movilidad urbana sostenible considerando a
+                                    todos los medios de transporte y la cultura de nuestra comunidad a través de eventos
+                                    de
+                                    aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que
+                                    modifiquen los espacios y vialidades así como nuestra percepción de éstos. </p>
+                                <br>
+                                <h4>Actividades</h4>
+                                <ol>
+                                    <li style="font-weight: 900;">Unirodada cicloturistica a la Cañada del Lobo</li>
+                                    <ul>
+                                        <span><b>Fecha: </b> Sábado 25 de septiembre 2021</span>
+                                        <br>
+                                        <span><b>Horario:</b>7:30 a 11:00 horas</span>
+                                        <br>
+                                        <span><b>Punto de encuentro: </b> Caja del Agua (Calzada de Guadalupe 200,
+                                            SLP)</span>
+                                        <br>
+                                        <span>
+                                            <h4>Descripción:</h4>
+                                        </span>
+                                        <br>
+                                        <span>Recorrido ciclo turístico a la cañada del Lobo con parada para
+                                            hidratación/refrigerio y tiempo para recorrido con explicación ecológica del
+                                            lugar con cuota de recuperación que incluye ambulancia y refrigerio.</span>
+                                        <br>
+                                        <span>Habrá bicibus con diferentes salidas al punto del encuentro (sin apoyo de
+                                            policía y ambulancia)</span>
+                                        <br>
+                                        <span><b>Distancia total:</b>20 km aprox.</span>
+                                        <br>
+                                        <span><b>Cuota de recuperación:</b>$100 (en efectivo previo al evento)</span>
+                                        <br>
+                                        <br>
+                                        <span>*Llena el formulario de inscripción respectivo en el área de descargas
+                                            antes del 18 de septiembre del 2021.</span>
+                                        <br>
+                                        <br>
+                                        <span>La Unirodada tiene cupo limitado y se cierra el formulario al tener el
+                                            número de personas estimadas.</span>
+                                        <br>
+                                        <br>
+                                        <span>No olvides llevar agua y casco</span>
+                                    </ul>
+                                </ol>
+                            </div>
+                        </div>
 
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -362,20 +570,68 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}" class="img-fluid"
+                                alt="">
                         </div>
                     </div>
                     <div
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="Banners-Cebraton.png">CARTEL GENERAL </a>
                         </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <h4>El programa Unibici de la Agenda Ambiental de la UASLP invitan al
+                                    Mes de la Movilidad Urbana Sostenible 2021
+                                </h4>
+                                <br><br>
+                                <h4>Dirigido a</h4>
+                                <p>Comunidad UASLP y público general</p><br>
+                                <h4>Objetivo general:</h4>
+                                <p>Continuar promoviendo e implementando una movilidad urbana sostenible considerando a
+                                    todos los medios de transporte y la cultura de nuestra comunidad a través de eventos
+                                    de
+                                    aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que
+                                    modifiquen los espacios y vialidades así como nuestra percepción de éstos. </p>
+                                <br>
+                                <h4>Actividades</h4>
+                                <ol>
+                                    <li style="font-weight: 900;">Intervenciones y reordenamiento: Cebratón y Proyecto
+                                        MUS-ZUP</li>
+                                    <ul>
 
+                                        <span><b>Lugar: </b> Av. Industrias y Manuel Nava</span>
+                                        <br>
+                                        <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
+                                        <br>
+                                        <span><b>Horario:</b> 4:30-6:30 horas</span>
+                                        <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
+                                            Pérez
+                                            Ayala</span>
+                                    </ul>
+                                    <span>
+                                        <h4>Descripción:</h4>
+                                    </span>
+
+                                    <span>En el marco del día de la Universidad se busca implementar una etapa del
+                                        proyecto de reordenamiento de la ZUP de parte del departamento de Vinculación de
+                                        la Facultad del Hábitat en colaboración con Depto. Diseño y construcción.
+                                        El proyecto considera la intervención de las paradas del transporte público,
+                                        lugares de estacionamiento, la accesibilidad peatonal y de todos los medios de
+                                        transporte. Incluye el Cebratón, que es una iniciativa de pintas artísticas en
+                                        cruces peatonales que tiene como objetivo reivindicar-reclamar el espacio de
+                                        transeúntes y sensibilizar usuarios y actores de la vía pública.
+                                    </span>
+                                    <br>
+
+                                </ol>
+                            </div>
+                        </div>
                     </div>
-                   
+
                 </div>
 
             </div>
