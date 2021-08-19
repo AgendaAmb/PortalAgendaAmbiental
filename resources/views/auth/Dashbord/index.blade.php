@@ -13,7 +13,7 @@
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
     <div class="row">
-        <div class="col-xl-8  col-lg-8  col-md-8 col-sm-12 col-12 p-0">
+        <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3">
             <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       
                 <div class="carousel-inner">
@@ -281,7 +281,7 @@
               </div>
 
         </div>
-        <div class="col-xl-4  col-lg-4  col-md-4 col-sm-4 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
+        <div class="col-xl-2  col-lg-2  p-3 col-md-2 col-sm-2 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
             <div class="col">
                 <div class="row">
                     <div class="col-8 py-xl-5 py-lg-5 py-md-4 py-sm-4" style="color: gray;">
@@ -290,39 +290,23 @@
                     </div>
 
                     <div class="col-4 p-0 "><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
-                            class="img-fluid py-xl-3 py-lg-3 py-md-1 py-sm-4" alt=""></div>
+                            class="img-fluid py-xl-5 py-lg-5 py-md-1 py-sm-4" alt=""></div>
                 </div>
             </div>
-            <div class="col p-0 ">
-                <x-acordeon :idAcordeon="'HerramientasInteres'" :tituloAcordeon="'Herramientas De Interés'"
-                    haveStyle=false>
-                </x-acordeon>
-
-            </div>
+           
 
 
         </div>
     </div>
     <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2">
-            <a class="btn w-100 font-weight-bolder "
-                style="background-color: white;color:gray;border: 2px solid gray;border-radius: 0.0rem;"
-                data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                CALENDARIO
-            </a>
+          
             <div id='calendar' class="mt-2"></div>
         </div>
-        <div class="col-xl-5  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">banner de
+        <div class="col-xl-7  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">banner de
             noticias
-            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro17gemas"
-                v-on:click="DatosUsuario">
-                Modal para registro de 17 gemas
-            </a>
-
-
-
         </div>
-        <div class="col-xl-4  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
+        <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
             <a class="btn w-100 font-weight-bolder" data-toggle="collapse" href="#collapseExample" role="button"
                 aria-expanded="false" aria-controls="collapseExample"
                 style="background-color: white;color:gray;border: 2px solid gray;border-radius: 0.0rem;">
