@@ -299,11 +299,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2">
+        <div class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2">
           
             <div id='calendar' class="mt-2"></div>
         </div>
-        <div class="col-xl-7  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">banner de
+        <div class="col-xl-6  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">banner de
             noticias
         </div>
         <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
