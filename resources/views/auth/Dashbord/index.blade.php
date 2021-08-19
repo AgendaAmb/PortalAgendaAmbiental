@@ -13,7 +13,7 @@
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
     <div class="row">
-        <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3">
+        <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3" style="height: 250px;">
             <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       
                 <div class="carousel-inner">
@@ -858,7 +858,7 @@
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
-            console.log("enviando");
+           
             //this.spinnerVisible=true;
            if(this.emailR!=''){
             let headers = {
@@ -913,7 +913,7 @@
             initialView: 'dayGridMonth'
 
           });
-          calendar.setOption('contentHeight', 350);
+          calendar.setOption('contentHeight', 250);
           calendar.setOption('locale','Es');
           calendar.render();
         });
