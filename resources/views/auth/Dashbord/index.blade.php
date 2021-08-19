@@ -21,12 +21,12 @@
                   <div class="carousel-item active">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
-                          <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                        <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('storage/17Gemas/introduccion/Banner1.png')}}" class="imgCaoursel "
                           alt="First slide">
                         </a>
-                        <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
-                          <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
+                        <a data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('storage/17Gemas/introduccion/Banner2.png')}}" class="imgCaoursel "
                             alt="First slide">
           
                         </a>
