@@ -32,7 +32,8 @@
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <!--
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('mmus2021')}}>
@@ -60,7 +61,38 @@
           </div>
           
         </div>
-        <div class="carousel-item ">
+      -->
+      <!--
+      <div class="carousel-item ">
+        <div class="d-none d-lg-block d-md-block">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="d-none d-sm-block d-md-none">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    -->
+        <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
@@ -376,26 +408,47 @@
     </x-acordeon>
   </div>
 </div>
+<div class="modal fade" id="Concurso17gemas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
 
-<div class="modal fade" id="Concurso17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="Cartel17Gemas.png">CARTEL  </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
-  </div>
 </div>
+
 <script>
   //console.log({{$NombreM}});
    $('#{{$NombreM}}').modal('show')
