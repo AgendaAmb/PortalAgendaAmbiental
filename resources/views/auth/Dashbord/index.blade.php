@@ -314,7 +314,7 @@
                 <i id="i" class="fa fa-chevron-down"></i>
             </a>
 
-            <div class="collapse h-100" id="collapseExample">
+            <div class="collapse  py-3" id="collapseExample" style="height: 90%;">
                 <div class="card card-body" style="background-color: gray; height: 100%;
                 padding: 1.25rem 0%;
                 border-radius: 0.0rem;">
