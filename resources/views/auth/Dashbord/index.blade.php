@@ -315,7 +315,7 @@
             </a>
 
             <div class="collapse" id="collapseExample">
-                <div class="card card-body" style="background-color: gray;
+                <div class="card card-body" style="background-color: gray; height: 100%;
                 padding: 1.25rem 0%;
                 border-radius: 0.0rem;">
                     <a href="" style="color:white;
