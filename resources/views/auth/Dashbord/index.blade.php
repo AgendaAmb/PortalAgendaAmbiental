@@ -298,7 +298,7 @@
 
         </div>
     </div>
-    <div class="row">
+    <div class="row py-3">
         <div class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2">
           
             <div id='calendar' class="mt-2"></div>
