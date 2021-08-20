@@ -87,7 +87,7 @@
         </div>
     </div>
 </div>
-<script>
+@endsection
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
     <div style="font-size: 15px; font-family: 'Myraid light';">
