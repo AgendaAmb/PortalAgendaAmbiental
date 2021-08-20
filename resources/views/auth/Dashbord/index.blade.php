@@ -18,7 +18,7 @@
       
                 <div class="carousel-inner">
           
-                  <div class="carousel-item active">
+                  <div class="carousel-item active"  v-if="TipoUsuario!='externs'?true:false">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
                         <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
@@ -33,13 +33,13 @@
                       </div>
                     </div>
           
-                    <div class="d-none d-sm-block d-md-none">
+                    <div class="d-none d-sm-block d-md-none"  v-if="TipoUsuario!='externs'?true:false">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -47,7 +47,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="carousel-item ">
+                  <div @if (Auth::user()->user_type!="externs")
+                    class="carousel-item"
+                  @else
+                  class="carousel-item active" 
+                  @endif
+                >
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
                         <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
@@ -78,7 +83,7 @@
                 data-ride="carousel">
                
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                  <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
                     <div class="slide-box">
                       <a  data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                         <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
@@ -86,7 +91,11 @@
                       </a>
                     </div>
                   </div>
-                  <div class="carousel-item ">
+                  <div @if (Auth::user()->user_type!="externs")
+                    class="carousel-item"
+                  @else
+                  class="carousel-item active" 
+                  @endif>
                     <div class="slide-box">
                       <a  data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                         <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
@@ -151,17 +160,17 @@
         </div>
     </div>
 
-    @if (Auth::user()->user_type!="externs")
     <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary" id="modalGemas">
-                    <h5 class="modal-title mx-auto" >17 gemas para la Uni sostenible</h5>
+                    <h5 class="modal-title mx-auto"  v-if="modalClick=='17Gemas'">17 gemas para la Uni sostenible</h5>
+                    <h5 class="modal-title mx-auto"  v-if="modalClick=='mmus'">Movilidad urbana sustentable 2021</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                @if (Auth::user()->hasModule("17 gemas"))
+                @if (Auth::user()->hasModule("17 gemas"&&Auth::user()->user_type!="externs"))
                         <div class="container-fluid bg-white">
                             <div class="row">
                                 <div class="col-12">
@@ -172,12 +181,47 @@
                         </div>
                 @else
                 <div class="modal-body ">
+                
                     <form @submit.prevent="uaslpUser()">
                         @csrf
                         <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
+                        <br>
+                        <h5 class="modal-title3" id="exampleModalLabel"  v-if="modalClick=='mmus'">Cursos o actividades en las que deseas participar</h5>
+                        <div id='ActividadesMMUS'  v-if="modalClick=='mmus'">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Conferencia1" id="Conferencia1" v-model="checkedNames">
+                            <label class="form-check-label" for="Conferencia1" >
+                              Sostenibilidad energética en la pandemia
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Conferencia2" id="Conferencia2" v-model="checkedNames">
+                            <label class="form-check-label" for="Conferencia2" >
+                              Movilidad y Urbanismo con enfoque de género
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="con100te" id="con100te" v-model="checkedNames">
+                            <label class="form-check-label" for="con100te" >
+                              Curso-taller: Conduce Con💯te
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Trabajo" id="Trabajo" v-model="checkedNames">
+                            <label class="form-check-label" for="Trabajo" >
+                              2nda Mesa de Trabajo MUS-UASLP
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Cebraton" id="Cebraton" v-model="checkedNames">
+                            <label class="form-check-label" for="Cebraton" >
+                              Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP
+                            </label>
+                          </div>
+                          <br>
+                         
+                        </div>
                         <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
-
-
                         <div class="form-group  was-validated">
                             <label for="Nombres">Nombre(s)</label>
                             <input type="text" class="form-control" id="Nombres" v-model="nombres" required
@@ -627,8 +671,7 @@
             </div>
         </div>
     </div>
-    @endif
-
+  
 </div>
 
 
@@ -660,16 +703,20 @@
     InteresAsistencia:'',
     ComentariosSugerencias:'',
     tel:'',
-    modalClick:''
+    modalClick:'',
+    TipoUsuario:'',
+    checkedNames:[]
   },
   mounted:function () {
   this.$nextTick(function () {
     // Código que se ejecutará solo después de
     // haber renderizado la vista completa
+    this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
   })
 },
+
   methods:{
     DatosUsuario:function(ModalClick){
         this.nombres= '{{Auth::user()->name}}',
@@ -704,21 +751,36 @@
                 "CURP":this.CURP,
                 "Ocupacion":this.Ocupacion,
                 "GEtnico":this.GEtnico,
-
                 "isDiscapacidad":this.isDiscapacidad,
                 "Discapacidad":this.Discapacidad,
                 "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,
-                "InteresAsistencia":this.InteresAsistencia
+                "InteresAsistencia":this.InteresAsistencia,
+                
+                  "cursosInscritosMMUS":this.checkedNames
+                
+
             }
-            
-            axios.post(this.url+'17Gemas/api/register',data).
-            then(response => (
-              
+          
+           console.log(this.modalClick=='17Gemas')
+           if (this.modalClick=='17Gemas') {
+            axios.post(this.url+'17Gemas/api/register',data).then(response => (
+              console.log(response.data),
                 window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
+             
+           }else{
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'',data). then(response => (
+              console.log(response.data),
+                window.location.href = this.url+'17Gemas/'
+               )).catch((err) => {
+                  this.Errores[0].Visible
+            })
+           }
+           
         }
       }
     }
