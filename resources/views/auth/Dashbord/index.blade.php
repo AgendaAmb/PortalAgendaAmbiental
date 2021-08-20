@@ -21,11 +21,11 @@
                   <div class="carousel-item active">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -47,6 +47,23 @@
                       </div>
                     </div>
                   </div>
+                  <div class="carousel-item ">
+                    <div class="d-none d-lg-block d-md-block">
+                      <div class="slide-box">
+                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" height="250" class="imgCaourselAuth1"
+                          alt="First slide">
+                        </a>
+                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth2"
+                            alt="First slide">
+          
+                        </a>
+                      </div>
+                    </div>
+          
+                   
+                  </div>
                 </div>
           
                 <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev">
@@ -64,8 +81,8 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="slide-box">
-                      <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
-                        <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                      <a class="btn" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                         alt="First slide">
                       </a>
                     </div>
@@ -73,61 +90,9 @@
                   <div class="carousel-item ">
                     <div class="slide-box">
                       <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                        <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel  w-100 p-0 p-0"
+                        <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel  w-100 p-0 p-0"
                           alt="First slide">
                       </a>
-                    </div>
-                  </div>
-                  <div class="carousel-item ">
-                    <div class="slide-box">
-                      <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                        <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel  w-100 p-0 p-0"
-                          alt="First slide">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="slide-box">
-                      <a href="{{route('Cineminuto')}}">
-                          
-                        <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel  w-100  p-0"
-                        alt="First slide">
-                      </a>
-                    </div>
-                  </div>
-          
-                  <div class="carousel-item">
-                    <div class="slide-box">
-                      <a href="{{route('FotografiaS')}}">
-          
-                        <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
-                        class="imgCaoursel  w-100 p-0 " alt="First slide">
-                      </a>
-                      </div>
-                  </div>
-                
-                  <div class="carousel-item">
-                    <div class="slide-box">
-                      <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel  w-100 p-0"
-                        alt="First slide">
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="slide-box">
-                      <a href={{route('Unihuerto',['nombreModal'=> 'modalCursoUnihuerto'])}}>
-                        <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.webp')}}" class="imgCaoursel  w-100 p-0"
-                          alt="First slide">
-          
-                      </a>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="slide-box">
-                      <a href="{{route('DateUnRespiro')}}">
-                        <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel  w-100 p-0"
-                        alt="First slide">
-                      </a>
-          
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
