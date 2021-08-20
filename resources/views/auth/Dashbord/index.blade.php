@@ -21,11 +21,11 @@
                   <div class="carousel-item active">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -35,11 +35,11 @@
           
                     <div class="d-none d-sm-block d-md-none">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -57,7 +57,6 @@
                         <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
-          
                         </a>
                       </div>
                     </div>
@@ -660,7 +659,8 @@
     CursosC:'',
     InteresAsistencia:'',
     ComentariosSugerencias:'',
-    tel:''
+    tel:'',
+    modalClick:''
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -671,7 +671,7 @@
   })
 },
   methods:{
-    DatosUsuario:function(){
+    DatosUsuario:function(ModalClick){
         this.nombres= '{{Auth::user()->name}}',
         this.ApellidoP='{{Auth::user()->middlename}}',
         this.ApellidoM='{{Auth::user()->surname}}',
@@ -681,6 +681,7 @@
         this.ClaveU_RPE='{{Auth::user()->id}}',
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
+        this.modalClick=ModalClick,
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
