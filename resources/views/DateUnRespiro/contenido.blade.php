@@ -39,7 +39,7 @@
     <div class="nav nav-tabs justify-content-center">
        
         <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#CartelDataUnRespiro"  
-        role="button group" >Cartel General</a>
+        role="button group" >Cartel general</a>
            
     </div>
 </div>

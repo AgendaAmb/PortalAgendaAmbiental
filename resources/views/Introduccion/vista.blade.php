@@ -240,6 +240,7 @@
       data-ride="carousel">
 
       <div class="carousel-inner">
+        <!--
         <div class="carousel-item active">
           <div class="slide-box">
             <a href={{route('mmus2021')}}>
@@ -248,7 +249,8 @@
             </a>
           </div>
         </div>
-        <div class="carousel-item ">
+      -->
+        <div class="carousel-item active">
           <div class="slide-box">
             <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
               <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
