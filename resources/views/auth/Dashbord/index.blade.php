@@ -21,11 +21,11 @@
                   <div class="carousel-item active">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -35,11 +35,11 @@
           
                     <div class="d-none d-sm-block d-md-none">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -50,11 +50,11 @@
                   <div class="carousel-item ">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                           <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
                         </a>
@@ -80,7 +80,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="slide-box">
-                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
+                      <a  data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')" >
                         <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                         alt="First slide">
                       </a>
@@ -88,7 +88,7 @@
                   </div>
                   <div class="carousel-item ">
                     <div class="slide-box">
-                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
+                      <a  data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')" >
                         <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
                           alt="First slide">
                       </a>
@@ -711,10 +711,10 @@
                 "CursoCursado":this.CursosC,
                 "InteresAsistencia":this.InteresAsistencia
             }
-            console.log(JSON.stringify(data))
+            
             axios.post(this.url+'17Gemas/api/register',data).
             then(response => (
-                console.log(response),
+              
                 window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
