@@ -35,12 +35,12 @@
           
                     <div class="d-none d-sm-block d-md-none">
                       <div class="slide-box">
-                        <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                          <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" height="250" class="imgCaoursel "
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                          <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" height="250" class="imgCaoursel "
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
                         </a>
@@ -81,7 +81,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="slide-box">
-                      <a class="btn" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                         <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                         alt="First slide">
                       </a>
@@ -89,8 +89,8 @@
                   </div>
                   <div class="carousel-item ">
                     <div class="slide-box">
-                      <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                        <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel  w-100 p-0 p-0"
+                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
                           alt="First slide">
                       </a>
                     </div>
