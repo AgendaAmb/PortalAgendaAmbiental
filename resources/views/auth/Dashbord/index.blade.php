@@ -88,7 +88,7 @@
                   </div>
                   <div class="carousel-item ">
                     <div class="slide-box">
-                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('17Gemas')" >
+                      <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario('mmus')" >
                         <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
                           alt="First slide">
                       </a>
