@@ -21,11 +21,11 @@
                   <div class="carousel-item active">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
@@ -50,11 +50,11 @@
                   <div class="carousel-item ">
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
-                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
-                        <a class="btn" href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
+                        <a  href="#" data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
                           <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
