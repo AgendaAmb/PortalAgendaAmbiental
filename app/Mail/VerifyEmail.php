@@ -44,6 +44,9 @@ class VerifyEmail extends Mailable
         return $this->markdown('vendor.notifications.email')
             ->subject('Verifica tu dirección de correo electrónico')
             ->with('user', $this->user)
-            ->with('url', $this->url);
+            ->with('url', $this->url)
+            ->with('level', '')
+            ->with('introLines', [])
+            ->with('outroLines', []);
     }
 }

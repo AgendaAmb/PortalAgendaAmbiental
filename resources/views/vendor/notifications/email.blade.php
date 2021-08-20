@@ -36,13 +36,14 @@
 
 {{-- Outro Lines --}}
 @foreach ($outroLines as $line)
-{{ $line }}
+{!! $line !!}
 
 @endforeach
 
 {{-- Salutation --}}
 @if (! empty($salutation))
-{{ $salutation }}
+{{ $salutation }}<br><br>
+{{ __('Agenda Ambiental') }}
 @else
 @lang('Regards'),<br>
 {{ config('app.name') }}
@@ -51,13 +52,6 @@
 {{-- Subcopy --}}
 @isset($actionText)
 @slot('subcopy')
-@lang(
-    "Si tienes algun problema con el botón de accioón, copia y pega el enlace en tu navegador\n".
-    'into your web browser:',
-    [
-        'actionText' => $actionText,
-    ]
-) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
 @endslot
 @endisset
 @endcomponent

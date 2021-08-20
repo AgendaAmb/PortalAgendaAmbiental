@@ -2,35 +2,27 @@
 
 namespace App\Notifications;
 
-use App\Mail\VerifyEmail;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\URL;
 
 class VerificationEmail extends Notification
 {
-    use Queueable;
-    public static $toMailCallback;
     /**
-     * Create a new notification instance.
+     * The callback that should be used to build the mail message.
      *
-     * @return void
+     * @var \Closure|null
      */
-    public function __construct()
-    {
-        //
-    }
+    public static $toMailCallback;
 
     /**
-     * Get the notification's delivery channels.
+     * Get the notification's channels.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return array|string
      */
     public function via($notifiable)
     {
@@ -38,7 +30,7 @@ class VerificationEmail extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
+     * Build the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -46,12 +38,29 @@ class VerificationEmail extends Notification
     public function toMail($notifiable)
     {
         $verificationUrl = $this->verificationUrl($notifiable);
+
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
         }
 
-        return new VerifyEmail(Auth::user(), $verificationUrl);
+        $message = new MailMessage;
+        $message->outroLines = [
+            'Si no puedes ver o usar el botón de arriba, <a href="'.$verificationUrl.'"> da clic aquí </a>' 
+        ];
+
+        return $message->subject('Verifica tu correo electrónico')
+            ->line('Confirma tu dirección de correo electrónico, para poder acceder siempre a tu cuenta')
+            ->action('Confirmar correo electrónico', $verificationUrl)
+            ->greeting('Estimado '.$notifiable->name.' '.$notifiable->first_surname.' '.$notifiable->last_surname)
+            ->salutation('Saludos cordiales');
     }
+
+    /**
+     * Get the verification URL for the given notifiable.
+     *
+     * @param  mixed  $notifiable
+     * @return string
+     */
     protected function verificationUrl($notifiable)
     {
         return URL::temporarySignedRoute(
@@ -65,17 +74,11 @@ class VerificationEmail extends Notification
     }
 
     /**
-     * Get the array representation of the notification.
+     * Set a callback that should be used when building the notification mail message.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @param  \Closure  $callback
+     * @return void
      */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
     public static function toMailUsing($callback)
     {
         static::$toMailCallback = $callback;
