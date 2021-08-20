@@ -51,7 +51,7 @@ class VerificationEmail extends Notification
         return $message->subject('Verifica tu correo electrónico')
             ->line('Confirma tu dirección de correo electrónico, para poder acceder siempre a tu cuenta')
             ->action('Confirmar correo electrónico', $verificationUrl)
-            ->greeting('Estimado '.$notifiable->name.' '.$notifiable->first_surname.' '.$notifiable->last_surname)
+            ->greeting('Estimado '.$notifiable->name.' '.$notifiable->middlename.' '.$notifiable->surname)
             ->salutation('Saludos cordiales');
     }
 
