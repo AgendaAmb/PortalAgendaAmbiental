@@ -649,7 +649,11 @@ font-weight: 900;
     width: 49.7%;
    
 }
-.imgCaourselAuth{
+.imgCaourselAuth1{
+    width: 35.0%;
+    margin-left: 10%;
+}
+.imgCaourselAuth2{
     width: 35.0%;
 }
 .close{

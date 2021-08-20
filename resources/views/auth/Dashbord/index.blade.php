@@ -22,11 +22,11 @@
                     <div class="d-none d-lg-block d-md-block">
                       <div class="slide-box">
                         <a  data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
-                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth "
+                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
                           alt="First slide">
                         </a>
                         <a data-toggle="modal" data-target="#Registro17gemas" v-on:click="DatosUsuario" >
-                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth "
+                          <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
                             alt="First slide">
           
                         </a>
