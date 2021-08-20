@@ -122,11 +122,11 @@ class UserSeeder extends Seeder
             "modules" => ['Control escolar'],
             "roles" => [ 'user' ],
             'user_type' => Extern::class,
-        ],
+        ],*/
         [
             "id" => "262698",
             "name" => "MIGUEL ANGEL",
-            "email" => "a262698@pruebapruebaalumnos.uaslp.mx",
+            "email" => "a262698@alumnos.uaslp.mx",
             "middlename" => "MENDEZ",
             "surname" => "ORTA",
             'dependency' => 'FACULTAD DE INGENIERIA',
@@ -137,14 +137,14 @@ class UserSeeder extends Seeder
         [
             "id" => "260651",
             "name" => "JACOB ALEJANDRO",
-            "email" => "a260651@pruebapruebaalumnos.uaslp.mx",
+            "email" => "a260651@alumnos.uaslp.mx",
             "middlename" => "LOREDO",
             "surname" => "DE LA ROSA",
             'dependency' => 'FACULTAD DE INGENIERIA',
             "modules" => [ 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],*/
+        ],
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",

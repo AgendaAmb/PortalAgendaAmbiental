@@ -888,7 +888,7 @@
             axios.post(this.url+'17Gemas/api/register',data).
             then(response => (
                 console.log(response),
-                window.location.href = this.url+'17Gemas/Dashboard'
+                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
