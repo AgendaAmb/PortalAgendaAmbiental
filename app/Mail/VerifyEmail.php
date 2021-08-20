@@ -12,27 +12,26 @@ class VerifyEmail extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * User module.
-     * @var \App\Models\Module
-     */
-    public $module;
-
-    /**
-     * User module.
+     * Registered user.
      * @var \App\Models\Auth\User
      */
     public $user;
+
+    /**
+     * Email verification url.
+     * @var string
+     */
+    public $url;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($module, $user)
+    public function __construct($user, $verification_url)
     {
-        $this->module = $module;
         $this->user = $user;
-
+        $this->url = $verification_url;
     }
 
     /**
@@ -42,18 +41,9 @@ class VerifyEmail extends Mailable
      */
     public function build()
     {
-        $introLines = [ 
-            'Te pedimos por favor verifiques tu correo electrónico en el módulo de: '.$this->module->name,
-        ];
-
-
         return $this->markdown('vendor.notifications.email')
-        ->to($this->user->email)
-        ->from(env('MAIL_FROM_ADDRESS'))
-        ->with('greeting', 'Saludos '.$this->user->name)
-        ->with('introLines', [])
-        ->with('outroLines', [])
-        ->with('actionUrl', route('modules.user.verify-email', [ Crypt::encrypt($this->module), Crypt::encrypt($this->user)  ]))
-        ->with('level', '');
+            ->subject('Verifica tu dirección de correo electrónico')
+            ->with('user', $this->user)
+            ->with('url', $this->url);
     }
 }

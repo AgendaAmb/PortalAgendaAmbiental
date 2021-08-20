@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Mail\VerifyEmail;
 use App\Passport\Client;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;

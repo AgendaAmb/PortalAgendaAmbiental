@@ -2,12 +2,14 @@
 
 namespace App\Notifications;
 
+use App\Mail\VerifyEmail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
 class VerificationEmail extends Notification
@@ -48,13 +50,7 @@ class VerificationEmail extends Notification
             return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
         }
 
-        return (new MailMessage)
-            ->greeting('Hola!')
-            ->subject('Verficación de Correo')
-            ->line('Bienvenido a nuestro Sistema de Biodiversidad. Es necesario que verifiques tu correo dando click en el siguiente botón:')
-            ->action('Verifica tu correo ', $verificationUrl)
-            ->line('Gracias por usar nuestra aplicación!')
-            ->salutation('Atentamente: Equipo de Gestion Ambiental');
+        return new VerifyEmail(Auth::user(), $verificationUrl);
     }
     protected function verificationUrl($notifiable)
     {
