@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Module;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class PassportClientSeeder extends Seeder
 {
