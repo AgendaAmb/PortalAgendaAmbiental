@@ -122,14 +122,10 @@
                         <h5 class="font-weight-bold text-center" style="color: gray;">{{Auth::user()->name}}</h5>
                         <h6 style="color: gray;" class="text-center">{{Auth::user()->dependency}}</h6>
                     </div>
-
                     <div class="col-4 p-0 "><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
                             class="img-fluid py-xl-5 py-lg-5 py-md-1 py-sm-4" alt=""></div>
                 </div>
             </div>
-           
-
-
         </div>
     </div>
     <div class="row py-3">
@@ -181,7 +177,6 @@
                         </div>
                 @else
                 <div class="modal-body ">
-                
                     <form @submit.prevent="uaslpUser()">
                         @csrf
                         <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -709,8 +704,6 @@
   },
   mounted:function () {
   this.$nextTick(function () {
-    // Código que se ejecutará solo después de
-    // haber renderizado la vista completa
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
@@ -757,10 +750,7 @@
                 "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,
                 "InteresAsistencia":this.InteresAsistencia,
-                
-                  "cursosInscritosMMUS":this.checkedNames
-                
-
+                "cursosInscritosMMUS":this.checkedNames
             }
           
            if (this.modalClick=='17Gemas') {
@@ -773,7 +763,7 @@
              
            }else{
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'',data). then(response => (
+            axios.get(this.url+'/',data). then(response => (
               console.log(response.data),
                 window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
