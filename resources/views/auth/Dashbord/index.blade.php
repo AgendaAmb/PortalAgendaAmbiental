@@ -763,7 +763,6 @@
 
             }
           
-          
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
@@ -774,9 +773,9 @@
              
            }else{
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'workshops',data). then(response => (
+            axios.post(this.url+'',data). then(response => (
               console.log(response.data),
-                //window.location.href = this.url;
+                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
