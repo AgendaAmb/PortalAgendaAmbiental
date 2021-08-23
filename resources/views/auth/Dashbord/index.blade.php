@@ -761,7 +761,7 @@
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
               spinnerVisible=false,
-               // window.location.href = this.url+'17Gemas/'
+               window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
@@ -771,7 +771,7 @@
             axios.post(this.url+'/workshops',data). then(response => (
               console.log(response.data),
               spinnerVisible=false,
-               // window.location.href = this.url+'17Gemas/'
+               window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
