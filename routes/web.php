@@ -12,19 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
+
 Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Modal17Gemas');
+
 Route::get('/gestión', function () {
     return view('Gestion.vista');
 })->name('Gestion');
 
-Route::get('/educación', function () {
-    return view('Educacion.vista');
+Route::get('/educación/{nombreModal?}',function ($NombreM=null){
+    return view('Educacion.vista')->with('NombreM',$NombreM);
 })->name('Educacion');
 
 Route::get('/vinculación', function () {
@@ -74,6 +75,10 @@ Route::get('/MovilidadUrbanaSostenible2021', function () {
     return view('mmus.contenido');
 })->name('mmus2021');
 
+Route::get('/MovilidadUrbanaSostenible2021', function () {
+    return view('mmus2021.contenido');
+})->name('mmus2021');
+
 Route::get('/CicloDeConferencias', function () {
     return view('Conferencias.contenido');
 })->name('CicloConf');
@@ -120,3 +125,4 @@ Route::redirect('/vinculacion/index.html', '/vinculación', 301);
 Route::redirect('/daterespiro/index.html', '/DateUnRespiro', 301);
 Route::redirect('/gestion-2/index.html', '/gestión', 301);
 Route::redirect('/mmus/index.html', '/MovilidadUrbanaSostenible', 301);
+

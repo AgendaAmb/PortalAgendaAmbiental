@@ -6,12 +6,15 @@
 
 
 @section('FormularioInicioSesion')
-
+<p class="text-center h4 font-weight-bold mt-3">Bienvenid@ a Mi Portal de Agenda Ambiental</p>
 <div class="row justify-content-center mt-1">
+    
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
         <div class="sticky-top "> <img
                 src="{{asset('storage/imagenes/ods/circulo-UASLP-SOCIEDAD-e1587668903442.webp')}}" class="img-fluid"
                 id="imglogo" alt=""></div>
+
         <div class="card" id="loginCard">
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
@@ -55,9 +58,10 @@
                             </button>
                         </div>
                         <div class="col-lg-12 pt-5">
-                            <p class="text-white  h6 mt-4">¿No tienes cuenta?<a class="font-weight-bold"
-                                    data-toggle="modal" data-target="#Registro">
-                                    {{ __('Registrate aquí ') }}
+                            <p class="text-white  h6 mt-4">Para pertenecer a nuestra comunidad es necesario te
+                                registres, si aún no lo has hecho, podrás realizar tu registro <a
+                                    class="font-weight-bold" data-toggle="modal" data-target="#Registro">
+                                    {{ __(' aquí .') }}
                                 </a>
                             </p>
                         </div>
@@ -70,15 +74,27 @@
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <div class="card-footer" id="loginCardFooter">
             <div class="container mb-5 p-0">
-                <p class="text-center h4 font-weight-bold">DOCENTES</p>
+                <p class="text-center h4 font-weight-bold">ADMINISTRATIVOS / DOCENTES </p>
                 <div class="col-lg-12  col-xl-12 text-justify  p-0 mb-4">
-                    <p class=" text-muted h6"> Pueden ingresar con su cuenta de correo institucional ya que el usuario y
-                        contraseña son los mismos. Si no cuenta con su cuenta de correo, lo puede habilitar en el
-                        siguiente vínculo: <a href=" https://tic.uaslp.mx/habilitacorreo">
+                    <p class=" text-muted h6"> Ingresa con tu cuenta de correo institucional, ya que el usuario y
+                        contraseña son los mismos. Si no cuentas con tu cuenta de correo, lo puede habilitar <a
+                            href=" https://tic.uaslp.mx/habilitacorreo">
                             https://tic.uaslp.mx/habilitacorreo</a>
                         <br>
-                        Si no recuerda su contraseña, la puede cambiar en el siguiente vínculo: <a
-                            href="https://tic.uaslp.mx/CambiaPassword">https://tic.uaslp.mx/CambiaPassword</a>
+                        y posteriormente registrarte <a
+                        class="font-weight-bold" data-toggle="modal" data-target="#Registro">
+                        {{ __(' aquí .') }}
+                    </a>
+                    </P>
+                </div>
+                <p class="text-center h4 font-weight-bold">PÚBLICO EN GENERAL </p>
+                <div class="col-lg-12 text-justify p-0 mb-4">
+                    <p class=" text-muted h6">Ingresa con tu cuenta de correo electrónico que registraste, si no recuerdas tu contraseña, podrás restablecerla<a
+                            href=" https://tic.uaslp.mx/habilitacorreo">
+                           aquí</a>
+                        <br>
+                      
+                    </a>
                     </P>
                 </div>
                 <p class="text-center h4 font-weight-bold">CONTACTO</p>
@@ -137,8 +153,8 @@
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-2 col-sm-2 col-2">
 
-                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser" v-if="!spinnerVisible"><i
-                                    class="fas fa-search"></i></a>
+                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser"
+                                v-if="!spinnerVisible"><i class="fas fa-search"></i></a>
                             <button class="btn btn-light mt-md-2 mt-md-4" type="button" disabled v-if="spinnerVisible">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 <span class="sr-only">Cargando...</span>

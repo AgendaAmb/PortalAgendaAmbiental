@@ -77,17 +77,65 @@ gestión y vinculación con la sociedad.';
         {{--
             Tab correspondiente a EDUCACIÓN NO FORMAL.
         --}}
+       
+
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-2" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s2"
                         titulo="EDUCACIÓN NO FORMAL"
                         descripcion="Se da en aquéllos contextos en los que, existiendo una intencionalidad educativa y una planificación de las experiencias de enseñanza-aprendizaje, estas ocurren fuera del ámbito del sistema escolarizado. Ejemplos de ello pueden ser: conferencias, conversatorios, coloquios, simposios, talleres."
-                        class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab" >
+                        class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab" >
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
+                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/introduccion/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/introduccion/Promotores2.png')"/>
             </x-slider>
         </x-tab-panel-content>
     </x-slot>
 </x-tab-panel>
+
+<div class="modal fade" id="CartelPromotores" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/introduccion/PromotoresReal.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/introduccion/PromotoresReal.png')}}"
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="PromotoresReal.png">CARTEL GENERAL </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    //console.log({{$NombreM}});
+     $('#{{$NombreM}}').modal('show')
+ </script>
 @endsection
 
 {{--
@@ -102,6 +150,7 @@ gestión y vinculación con la sociedad.';
     los botones del nav-tab
 --}}
 @push('scripts')
+
 <script src="{{ asset('js/odsEducacion.js') }}"></script>
 
 

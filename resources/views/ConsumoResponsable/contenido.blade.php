@@ -29,17 +29,17 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_ECR.jpg')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_CR.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-between my-2 ">
-        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
-            aria-controls="nav-home" aria-selected="true">Cartel, Espacio De Consumo Responsable</a>
+        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelEspacioConsumo" role="tab"
+            aria-controls="nav-home" aria-selected="true">Cartel, Espacio de Consumo Responsable</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-            aria-selected="false">Cambalache De Libros</a>
+            aria-selected="false">Cambalache de libros</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
             aria-selected="false">Reutrónic</a>
     </div>
@@ -65,7 +65,7 @@
             <li>Mostrar a la comunidad universitaria los <b>medios y herramientas</b> con los que se cuenta para hacer
                 una disposición adecuada de todos los tipos de residuos, de tal forma que se contribuyan a la solución
                 de los problemas ambientales que surjan en su entorno.</li>
-            <li>Llevar a cabo programas que proponen buenas prácticas de consumo como <b>Reutronic</b> y <b>Cambalache
+            <li>Llevar a cabo programas que proponen buenas prácticas de consumo como <b>Reutronic</b> y <b>cambalache
                     de Libros</b>.</li>
         </ul><br>
         <h3>Dirigido a</h3>La comunidad universitaria y público en general <br>
@@ -79,7 +79,7 @@
                 información de la Agenda Ambiental; que es, que hace, que cursos, concursos y programas ofrece. También
                 expone cómo y dónde la comunidad universitaria y potosina puede disponer de sus residuos de cualquier
                 clasificación apropiadamente.</li>
-            <li>Talleres de Educación Ambiental: donde te enseñaremos buenas prácticas de consumo como el rechazar la
+            <li>Talleres de educación ambiental: donde te enseñaremos buenas prácticas de consumo como el rechazar la
                 compra innecesaria de productos, reducir su uso, consumo y desecho, reutilizar creativamente todo lo
                 posible y regresar en buenas condiciones de uso los bienes y materiales buscando la valorización y el
                 reciclaje.</li>
@@ -87,14 +87,14 @@
                 consumo responsable con la práctica de la Reparación, el Reuso y el Regreso de los materiales
                 mecano-eléctricos.</li>
 
-            <li>Programa Cambalache de libros: Se reciben libros de cualquier tema y tipo en buen estado para ser
+            <li>Programa cambalache de libros: Se reciben libros de cualquier tema y tipo en buen estado para ser
                 intercambiados por otros.</li>
             <li>Recepción de materiales específicos para su valorización y destino apropiado.</li>
         </ul><br>
         <h3>Actividades:</h3> 
         <ul>
             <li>Programa Reutronic</li>
-            <li>Programa Cambalache de libros</li>
+            <li>Programa cambalache de libros</li>
             <li>Se recibe para destinar a Reciclaje:
                 <ul> <li>Electrónicos y electrodomésticos</li>
                     <li>Papel y cartón</li>
@@ -148,13 +148,13 @@
     
             <h3>Lineamientos de recepción de residuos orgánicos</h3> 
             <ul>
-                <li>Si se reciben: Residuos de fruta o verduras, residuos de alimentos sin procesar, residuos de café, bolsas de té, cáscaras de frutos secos.</li>
-                <li>No se recibe: Papel, servilletas, cartón, restos de alimentos procesados, restos de barrido, huesos, residuos cárnicos, colillas de cigarro, chicle</li>
+                <li>Si se reciben: residuos de fruta o verduras, residuos de alimentos sin procesar, residuos de café, bolsas de té, cáscaras de frutos secos.</li>
+                <li>No se recibe: papel, servilletas, cartón, restos de alimentos procesados, restos de barrido, huesos, residuos cárnicos, colillas de cigarro, chicle</li>
                 <li>No se reciben residuos contaminados </li>
                 <li>Residuos de no más de 3 días de post consumo</li>
                 <li>Llevar y vaciar estos residuos en componentes de reuso </li>
             </ul>
-            <h3>Lineamientos de recepción de residuos orgánicos</h3> 
+            <h3>Lineamientos de residuos reciclables</h3> 
             <ul>
                 <li>Estos materiales deberán estar limpios, secos y sin rastros de comida o de materia orgánica. </li>
                 <li>Para el vidrio, no se admiten copas, vasos, espejos o cristales rotos, además, se debe colocar en una caja aparte del resto de residuos.  </li>
@@ -171,7 +171,7 @@
 @endsection
 
 @section('Modales')
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="CartelEspacioConsumo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -193,9 +193,13 @@
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CARTEL-TAMAÑO-REAL.png')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_ECR_Agosto.png">CARTEL GENERAL </a>
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/ENERO2021_ECR.jpg')}}"
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="ENERO2021_ECR.jpg">CARTEL SEMESTRAL </a>
                         </div>
 
                     </div>

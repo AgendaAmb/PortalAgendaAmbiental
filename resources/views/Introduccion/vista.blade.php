@@ -18,28 +18,144 @@
         Ambiental y Ecología, que lleva la multidisciplina hacia una
         propuesta formal de los estudios ambientales.
       </p>
-      <div class="row justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start justify-content-xl-start mx-1">
+      <div
+        class="row justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start justify-content-xl-start mx-1">
         <a href="{{route('Nosotros')}}">
           <button type="button" class="btn botonLeerMas"> Leer más </button>
         </a>
       </div>
-     
+
     </article>
   </div>
 
   <div class="my-lg-2 my-0 col-md-7 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1 p-0">
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
-      
-      <div class="carousel-inner">
 
+      <div class="carousel-inner">
+        
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
-                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
-                alt="First slide">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                  alt="First slide">
               </a>
-              <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      
+      <div class="carousel-item ">
+        <div class="d-none d-lg-block d-md-block">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="d-none d-sm-block d-md-none">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+        
+      </div>
+       <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+          
+        </div>
+    
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
                 <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
@@ -49,11 +165,11 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
                 <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
-                alt="First slide">
+                  alt="First slide">
               </a>
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
+              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
                 <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
                   alt="First slide">
 
@@ -62,103 +178,17 @@
           </div>
         </div>
 
-        <div class="carousel-item ">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER1.jpg')}}" class="imgCaoursel "
-                  alt="First slide">
-
-              </a>
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel "
-                  alt="First slide">
-
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item ">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
-                  alt="First slide">
-
-              </a>
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
-                  alt="First slide">
-
-              </a>
-            </div>
-          </div>
-        </div>
-
-       
-        <div class="carousel-item">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoProserem'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/laboratorios.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
-
-                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.webp')}}" class="imgCaoursel "
-                alt="First slide">
-            </div>
-          </div>
-
-        </div>
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href="{{route('Cineminuto')}}">
-                
+
                 <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel "
-                alt="First slide">
+                  alt="First slide">
               </a>
-              <a href="{{route('Cineminuto')}}">  
+              <a href="{{route('Cineminuto')}}">
                 <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel "
-                alt="First slide">
+                  alt="First slide">
               </a>
             </div>
           </div>
@@ -198,26 +228,26 @@
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href="{{route('ConsumoResponsable')}}">
+              <a href="{{route('DateUnRespiro')}}">
 
-                <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel "
-                alt="First slide">
-              </a>
-                <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
                   alt="First slide">
-                </a>
+              </a>
+              <a href="{{route('DateUnRespiro')}}">
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
             </div>
           </div>
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/consumo-responsable.webp')}}" class="imgCaoursel "
-                alt="First slide">
-                <a href="{{route('DateUnRespiro')}}">
-                  <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel "
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
                   alt="First slide">
-                </a>
+              <a href="{{route('DateUnRespiro')}}">
+                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
             </div>
           </div>
 
@@ -235,8 +265,9 @@
     </div>
     <div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
       data-ride="carousel">
-     
+
       <div class="carousel-inner">
+        
         <div class="carousel-item active">
           <div class="slide-box">
             <a href={{route('mmus2021')}}>
@@ -261,38 +292,31 @@
             </a>
           </div>
         </div>
-      
-
+    
+        <div class="carousel-item active">
+          <div class="slide-box">
+            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+              <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
+            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
               <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
-              alt="First slide">
-            </a>
-          </div>
-        </div>
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}} >
-              <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}" class="imgCaoursel  w-100 p-0 p-0"
                 alt="First slide">
             </a>
           </div>
         </div>
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}} >
-              <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel  w-100 p-0 p-0"
-                alt="First slide">
-            </a>
-          </div>
-        </div>
+      
+      
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('Cineminuto')}}">
-                
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel  w-100  p-0"
-              alt="First slide">
+
+              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}"
+                class="imgCaoursel  w-100  p-0" alt="First slide">
             </a>
           </div>
         </div>
@@ -302,35 +326,23 @@
             <a href="{{route('FotografiaS')}}">
 
               <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
-              class="imgCaoursel  w-100 p-0 " alt="First slide">
-            </a>
-            </div>
-        </div>
-      
-        <div class="carousel-item">
-          <div class="slide-box">
-            <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-ENCASA.webp')}}" class="imgCaoursel  w-100 p-0"
-              alt="First slide">
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="slide-box">
-            <a href={{route('Unihuerto',['nombreModal'=> 'modalCursoUnihuerto'])}}>
-              <img src="{{ asset('storage/imagenes/introduccion/CursoJardineria.webp')}}" class="imgCaoursel  w-100 p-0"
-                alt="First slide">
-
+                class="imgCaoursel  w-100 p-0 " alt="First slide">
             </a>
           </div>
         </div>
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
-              <img src="{{ asset('storage/imagenes/introduccion/daterespiro.webp')}}" class="imgCaoursel  w-100 p-0"
-              alt="First slide">
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel  w-100 p-0 "
+                  alt="First slide">
             </a>
 
           </div>
         </div>
+       
+       
+        </div>
+       
         <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -431,8 +443,8 @@
     </div>
   </div>
   <div class="col-md-3 px-0">
-    
-    <a  href={{route('Nosotros',['id'=> 'Contacto'])}} class="btn btn-secondary w-100 font-weight-bolder " >
+
+    <a href={{route('Nosotros',['id'=> 'Contacto'])}} class="btn btn-secondary w-100 font-weight-bolder ">
       CONTACTO
     </a>
     <x-acordeon :idAcordeon="'acordeonProgramasInstitucionales'" :tituloAcordeon="'PROGRAMAS INSTITUCIONALES'">
@@ -442,5 +454,49 @@
     
   </div>
 </div>
+<div class="modal fade" id="Concurso17gemas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
 
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                "
+                                download="Cartel17Gemas.png">CARTEL  </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+  //console.log({{$NombreM}});
+   $('#{{$NombreM}}').modal('show')
+</script>
 @endsection

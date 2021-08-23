@@ -153,7 +153,78 @@ $months[] = $date;
         2021
     --}}
 <div class="row tab-content mx-2 justify-content-center" id="myTabContent">
-    <div class="tab-pane fade show active " id="julio2" role="tabpanel" aria-labelledby="julio2-tab">
+    <div class="tab-pane fade show active " id="agosto2" role="tabpanel" aria-labelledby="agosto2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel  w-100 p-0 p-0  "
+                                    alt="First slide">
+                            </a>
+                            
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0 " alt="First slide">
+                            </a>
+                            
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="julio2" role="tabpanel" aria-labelledby="julio2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
@@ -195,7 +266,8 @@ $months[] = $date;
         </div>
     </div>
 
-    <div class="tab-pane fade show  " id="junio2" role="tabpanel" aria-labelledby="julio2-tab">
+
+    <div class="tab-pane fade show  " id="junio2" role="tabpanel" aria-labelledby="junio2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
@@ -237,7 +309,7 @@ $months[] = $date;
             </div>
         </div>
     </div>
-    <div class="tab-pane fade show  " id="mayo2" role="tabpanel" aria-labelledby="julio2-tab">
+    <div class="tab-pane fade show  " id="mayo2" role="tabpanel" aria-labelledby="mayo2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
@@ -288,7 +360,7 @@ $months[] = $date;
             </div>
         </div>
     </div>
-    <div class="tab-pane fade show  " id="abril2" role="tabpanel" aria-labelledby="julio2-tab">
+    <div class="tab-pane fade show  " id="abril2" role="tabpanel" aria-labelledby="abril2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
@@ -386,7 +458,7 @@ $months[] = $date;
             </div>
         </div>
     </div>
-    <div class="tab-pane fade show  " id="febrero2" role="tabpanel" aria-labelledby="julio2-tab">
+    <div class="tab-pane fade show  " id="febrero2" role="tabpanel" aria-labelledby="febrero2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
