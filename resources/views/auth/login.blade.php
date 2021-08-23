@@ -6,7 +6,7 @@
 
 
 @section('FormularioInicioSesion')
-<p class="text-center h4 font-weight-bold mt-3">Bienvenid@ a Mi Portal de Agenda Ambiental</p>
+<p class="text-center h2 font-weight-bold mt-3" style="color: #005faf;">Bienvenid@ a Mi Portal de Agenda Ambiental</p>
 <div class="row justify-content-center mt-1">
     
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -61,7 +61,7 @@
                             <p class="text-white  h6 mt-4">Para pertenecer a nuestra comunidad es necesario te
                                 registres, si aún no lo has hecho, podrás realizar tu registro <a
                                     class="font-weight-bold" data-toggle="modal" data-target="#Registro">
-                                    {{ __(' aquí .') }}
+                                    {{ __(' aquí.') }}
                                 </a>
                             </p>
                         </div>
@@ -83,14 +83,14 @@
                         <br>
                         y posteriormente registrarte <a
                         class="font-weight-bold" data-toggle="modal" data-target="#Registro">
-                        {{ __(' aquí .') }}
+                        {{ __(' aquí.') }}
                     </a>
                     </P>
                 </div>
                 <p class="text-center h4 font-weight-bold">PÚBLICO EN GENERAL </p>
                 <div class="col-lg-12 text-justify p-0 mb-4">
                     <p class=" text-muted h6">Ingresa con tu cuenta de correo electrónico que registraste, si no recuerdas tu contraseña, podrás restablecerla<a
-                            href=" https://tic.uaslp.mx/habilitacorreo">
+                            href=" {{route('verification.resend')}}">
                            aquí</a>
                         <br>
                       
@@ -121,7 +121,7 @@
         <div class="modal-content px-xl-5 px-lg-5 px-md-4 px-sm-3 px-2" style="background-color: #8b96a8">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">Registro</h2>
-                <button type="button" class="close d-xl-none d-lg-none" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">X</span>
                 </button>
             </div>
@@ -469,7 +469,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6 was-validated">
-                            <label for="inputCity">Télefono de Contacto</label>
+                            <label for="inputCity">Télefono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
                     </div>

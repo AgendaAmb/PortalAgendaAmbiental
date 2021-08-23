@@ -137,7 +137,7 @@
           
             <div id='calendar' class="mt-2"></div>
         </div>
-        <div class="col-xl-6  col-lg-5 col-md-12    order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
+        <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
           <img src="{{asset('/storage/imagenes/Introduccion/B_Portal_ProxEve.png')}}" class="img-fluid pt-5 mt-5" alt="">
         </div>
         <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
@@ -191,13 +191,13 @@
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="Conferencia1" id="Conferencia1" v-model="checkedNames">
                             <label class="form-check-label" for="Conferencia1" >
-                              Sostenibilidad energética en la pandemia
+                             Conferencia: Sostenibilidad energética en la pandemia
                             </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="Conferencia2" id="Conferencia2" v-model="checkedNames">
                             <label class="form-check-label" for="Conferencia2" >
-                              Movilidad y Urbanismo con enfoque de género
+                              Conferencia: Movilidad y Urbanismo con enfoque de género
                             </label>
                           </div>
                           <div class="form-check">
@@ -209,7 +209,7 @@
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="Trabajo" id="Trabajo" v-model="checkedNames">
                             <label class="form-check-label" for="Trabajo" >
-                              2nda Mesa de Trabajo MUS-UASLP
+                              Segunda mesa de trabajo MUS-UASLP
                             </label>
                           </div>
                           <div class="form-check">
@@ -267,7 +267,7 @@
                         <div class="form-row was-validated">
 
                             <div class="form-group col-md-6">
-                                <label for="ClaveU_RPE">Clave unica/RPE</label>
+                                <label for="ClaveU_RPE">Clave única/RPE</label>
                                 <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly
                                     v-model="ClaveU_RPE" required>
                             </div>
@@ -280,7 +280,7 @@
 
                         <div class="form-row row was-validated">
                             <div class="col-md-6 mb-3">
-                                <label for="tel">Télefono de Contacto</label>
+                                <label for="tel">Télefono de contacto</label>
                                 <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
                                 @if (Auth::user()->user_type!="externs")
 
@@ -719,6 +719,7 @@
 
   methods:{
     DatosUsuario:function(ModalClick){
+
         this.nombres= '{{Auth::user()->name}}',
         this.ApellidoP='{{Auth::user()->middlename}}',
         this.ApellidoM='{{Auth::user()->surname}}',
@@ -762,7 +763,7 @@
 
             }
           
-           console.log(this.modalClick=='17Gemas')
+          
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
