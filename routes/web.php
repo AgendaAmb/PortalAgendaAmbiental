@@ -96,6 +96,8 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::resource('modules', ModuleController::class);
 
     # Registro a eventos.
+    Route::post('/workshops', 'WorkshopController@store');
+    Route::get('/workshops', 'WorkshopController@index');
 });
 
 

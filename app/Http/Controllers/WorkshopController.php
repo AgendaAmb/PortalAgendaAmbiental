@@ -15,10 +15,14 @@ class WorkshopController extends Controller
      */
     public function store(Request $request)
     {
+        $selected_workshops = $request->cursosInscritosMMUS ?? [];
+        $workshops = Workshop::whereIn('name', $selected_workshops);
         $user = $request->user();
-        
-        
-        
+
+        foreach ($workshops as $workshop)
+        {
+            
+        }
     }
 
     /**
