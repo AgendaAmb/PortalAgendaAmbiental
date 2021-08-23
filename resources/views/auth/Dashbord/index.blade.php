@@ -761,7 +761,6 @@
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
               spinnerVisible=false,
-
                window.location.href = this.url
                )).catch((err) => {
                   this.Errores[0].Visible
@@ -771,16 +770,8 @@
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'workshops',data). then(response => (
               console.log(response.data),
-<<<<<<< HEAD
-                null
-=======
               spinnerVisible=false,
-<<<<<<< HEAD
-               // window.location.href = this.url+'17Gemas/'
->>>>>>> 8758806887d88afd0a39af19910bfca32d58d05a
-=======
                window.location.href = this.url+'17Gemas/'
->>>>>>> 79a9ee9e0201438e0d9acbdb7b2da6c8b241b537
                )).catch((err) => {
                   this.Errores[0].Visible
             })
