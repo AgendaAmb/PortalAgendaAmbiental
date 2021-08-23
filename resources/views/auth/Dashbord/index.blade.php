@@ -134,7 +134,7 @@
             <div id='calendar' class="mt-2"></div>
         </div>
         <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
-          <img src="{{asset('/storage/imagenes/Introduccion/B_Portal_ProxEve.png')}}" class="img-fluid pt-5 mt-5" alt="">
+          <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="img-fluid pt-5 mt-5" alt="">
         </div>
         <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
             <a class="btn w-100 font-weight-bolder" data-toggle="collapse" href="#collapseExample" role="button"
