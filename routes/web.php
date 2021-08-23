@@ -95,6 +95,8 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Módulos de usuario
     Route::get('/modules/{module}/verify-email/{user}', 'UserModuleController@verifyEmail')->name('modules.user.verify-email');
     Route::resource('modules', ModuleController::class);
+
+    # Registro a eventos.
 });
 
 

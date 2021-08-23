@@ -3,6 +3,7 @@
 namespace App\Models\Auth;
 
 use App\Notifications\VerificationEmail;
+use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -135,7 +136,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new VerificationEmail);
+        $this->notify(new VerifyEmail);
     }
 
 }

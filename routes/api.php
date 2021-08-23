@@ -39,3 +39,5 @@ Route::middleware('client')->group(function(){
     # Obtener usuario.
     Route::get('/searchuser', 'UserController@search')->name('search');
 });
+
+Route::post('/workshops', 'WorkshopController@store');
