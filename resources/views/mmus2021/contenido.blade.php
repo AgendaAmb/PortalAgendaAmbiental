@@ -79,10 +79,10 @@
                 botón en esta página.</li>
             <li>En 48 horas (días hábiles) te llegara un correo con detalles de la actividad que elegiste. </li>
             <br>
-            <span>*Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas
+            <span>* Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas
                 sanitarias</span>
             <br>
-            <span> <strong> **Las actividades del MMUS2021 están sujetas al sistema del semáforo
+            <span> <strong> ** Las actividades del MMUS2021 están sujetas al sistema del semáforo
                     COVID-19.</strong></span>
 
         </ul>
@@ -168,7 +168,7 @@
                             <span><b>Conferencia 2: </b></span> : “Movilidad y Urbanismo con enfoque de
                             género”
                             <br>
-                            <span><b>Ponente: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
+                            <span><b>Ponentes: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
                                 Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López</span>
                             <br>
                             <span><b>Lugar: </b> Zoom</span>
@@ -229,7 +229,7 @@
                             <span><b>Fechas: </b> sábado 18 de septiembre 2021</span>
                             <br>
                             <span><b>Horario:</b> 10:00-11:30 horas</span>
-                            <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
+                            <span><b>Ponentes: </b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
                                 Ayala</span>
                             <br>
                             <br>

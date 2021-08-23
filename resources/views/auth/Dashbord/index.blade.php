@@ -237,7 +237,7 @@
                         <div class="form-row was-validated">
                             <div class=" form-group col-md-6">
                                 <label for="Edad">Edad</label>
-                                <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" required>
+                                <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1" max="100" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Genero">Género</label>
@@ -573,7 +573,7 @@
                             <div class="col-12">
                                 <label for="GEtnico">Grupo étnico</label>
                                 <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
-                                    placeholder="Grupo étnico(Zapoteco, Pame, etc)">
+                                    placeholder="Grupo étnico (Zapoteco, Pame, etc)">
                             </div>
                         </div>
                         <div class="form-group row was-validated">
