@@ -2,7 +2,6 @@
 
 namespace App\Models\Auth;
 
-use App\Notifications\VerificationEmail;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;

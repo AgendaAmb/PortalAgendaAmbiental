@@ -184,31 +184,31 @@
                         <h5 class="modal-title3" id="exampleModalLabel"  v-if="modalClick=='mmus'">Cursos o actividades en las que deseas participar</h5>
                         <div id='ActividadesMMUS'  v-if="modalClick=='mmus'">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Conferencia1" id="Conferencia1" v-model="checkedNames">
+                            <input class="form-check-input" type="checkbox" value="curso sostenibilidad" id="Conferencia1" v-model="checkedNames">
                             <label class="form-check-label" for="Conferencia1" >
                              Conferencia: Sostenibilidad energética en la pandemia
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Conferencia2" id="Conferencia2" v-model="checkedNames">
+                            <input class="form-check-input" type="checkbox" value="curso movilidad y urbanismo" id="Conferencia2" v-model="checkedNames">
                             <label class="form-check-label" for="Conferencia2" >
                               Conferencia: Movilidad y Urbanismo con enfoque de género
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="con100te" id="con100te" v-model="checkedNames">
+                            <input class="form-check-input" type="checkbox" value="curso conduce con100te" id="con100te" v-model="checkedNames">
                             <label class="form-check-label" for="con100te" >
                               Curso-taller: Conduce Con💯te
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Trabajo" id="Trabajo" v-model="checkedNames">
+                            <input class="form-check-input" type="checkbox" value="curso mus-uaslp" id="Trabajo" v-model="checkedNames">
                             <label class="form-check-label" for="Trabajo" >
                               Segunda mesa de trabajo MUS-UASLP
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Cebraton" id="Cebraton" v-model="checkedNames">
+                            <input class="form-check-input" type="checkbox" value="curso cebratón y proyecto mus-zup" id="Cebraton" v-model="checkedNames">
                             <label class="form-check-label" for="Cebraton" >
                               Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP
                             </label>

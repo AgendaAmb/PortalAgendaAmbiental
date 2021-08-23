@@ -22,12 +22,19 @@ class CreateStudentsTable extends Migration
             $table->string('surname')->nullable();
             $table->string('nationality')->nullable();
             $table->string('phone_number')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('residence')->nullable();
+            $table->string('ocupation')->nullable();
+            $table->string('ethnicity')->nullable();
+            $table->string('disability')->nullable();
+            $table->string('courses')->nullable();
             $table->string('password')->nullable();
+            $table->string('interested_on_further_courses')->nullable();
+            $table->string('comments')->nullable();
 
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
-            $table->string('access_token', 1024)->nullable();
 
             // Campos de LDAP 
             $table->string('guid')->unique()->nullable();

@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use App\Models\Workshop;
-use Carbon\Carbon;
 
 trait WorkshopTrait
 {
@@ -19,15 +18,15 @@ trait WorkshopTrait
 
 
     /**
-     * Determina si el usuario está registrado en el curso
+     * Determina si el usuario está registrado en el módulo
      *
-     * @param string $workshop
+     * @param string $module
      * @return bool
      */
     public function hasWorkshop(string $workshop)
     {
         return $this
-        ->userModules()
+        ->workshops()
         ->where('name', $workshop)
         ->count() > 0;
     }
@@ -35,13 +34,13 @@ trait WorkshopTrait
     /**
      * Determina si el usuario está registrado en el módulo
      *
-     * @param array $workshops
+     * @param  array $workshops
      * @return bool
      */
-    public function hasAnyWorkshops(array $workshops)
+    public function hasAnyWorkshop(array $workshops)
     {
         return $this
-        ->userModules()
+        ->workshops()
         ->whereIn('name', $workshops)
         ->count() > 0;
     }

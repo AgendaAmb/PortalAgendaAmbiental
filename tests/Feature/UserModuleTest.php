@@ -17,7 +17,5 @@ class UserModuleTest extends TestCase
     public function testExample()
     {
         $user = Worker::find(11007);
-
-        dd($user->hasAnyModule([ 'F', 'Control Escolar' ]));
     }
 }
