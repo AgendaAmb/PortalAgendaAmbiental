@@ -52,10 +52,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        $user = User::authUser();
-        $user->access_token = $user->createToken('access_token')->accessToken;
-        $user->save();
-
+        
         return redirect($this->redirectTo);
     }
 

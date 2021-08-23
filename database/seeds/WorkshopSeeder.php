@@ -1,5 +1,7 @@
 <?php
 
+
+
 use App\Models\Workshop;
 use Illuminate\Database\Seeder;
 
@@ -14,23 +16,28 @@ class WorkshopSeeder extends Seeder
     {
         $workshops = [
             [ 
-                'name' => 'Curso-taller: Conduce Con💯te',
+                'name' => 'curso sostenibilidad',
+                'description' => 'Conferencia: Sostenibilidad energética en la pandemia',
                 'type' => 'Curso',
             ],
             [ 
-                'name' => 'Sostenibilidad energética en la pandemia',
+                'name' => 'curso movilidad y urbanismo',
+                'description' => 'Conferencia: Movilidad y Urbanismo con enfoque de género',
                 'type' => 'Curso',
             ],
             [
-                'name' => 'Movilidad y Urbanismo con enfoque de género',
+                'name' => 'curso conduce con100te',
+                'description' => 'Curso-taller: Conduce Con💯te',
                 'type' => 'Curso',
             ], 
             [ 
-                'name' => '2nda Mesa de Trabajo MUS-UASLP',
+                'name' => 'curso mus-uaslp',
+                'description' => 'Curso-taller: Conduce Con💯te',
                 'type' => 'Curso'
             ],
             [
-                'name' => 'Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP',
+                'name' => 'curso cebratón y proyecto mus-zup',
+                'description' => 'Curso-taller: Conduce Con💯te',
                 'type' => 'Curso',
             ]
         ];

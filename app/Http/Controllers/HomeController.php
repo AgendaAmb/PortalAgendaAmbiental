@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
-use App\Models\Auth\User;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,11 +31,12 @@ class HomeController extends Controller
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
         
-    De acuerdo <--- Mickey vio esto ;v 
     */ 
     public function panel(Request $request){
 
-        return view('auth.Dashbord.index')->with('Modulos', $request->user()->userModules);
+        return view('auth.Dashbord.index')
+            ->with('Modulos', $request->user()->userModules)
+            ->with('Talleres', $request->user()->workshops);
     }
 
     public function Administracion(){

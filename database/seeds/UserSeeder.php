@@ -144,7 +144,7 @@ class UserSeeder extends Seeder
             "modules" => [ 'Biodiversidad'],
             "roles" => [ 'user', 'administrator' ],
             'user_type' => Student::class,
-        ],
+        ],*//*
         [
             "id" => "11007",
             "name" => "MARIA EUGENIA",
