@@ -768,7 +768,7 @@
              
            }else{
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.get(this.url+'/',data). then(response => (
+            axios.post(this.url+'/workshops',data). then(response => (
               console.log(response.data),
               spinnerVisible=false,
                 window.location.href = this.url+'17Gemas/'

@@ -41,3 +41,4 @@ Route::middleware('client')->group(function(){
 });
 
 Route::post('/workshops', 'WorkshopController@store');
+Route::get('/workshops', 'WorkshopController@index');
