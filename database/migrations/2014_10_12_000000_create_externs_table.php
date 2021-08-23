@@ -22,6 +22,7 @@ class CreateExternsTable extends Migration
             $table->string('surname')->nullable();
             $table->string('nationality')->nullable();
             $table->string('phone_number')->nullable();
+            $table->string('access_token', 1024)->nullable();
             $table->string('password')->nullable();
             $table->string('access_token', 1024)->nullable();
 

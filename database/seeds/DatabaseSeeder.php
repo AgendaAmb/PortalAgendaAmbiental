@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ModuleSeeder::class,
             //PassportSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            WorkshopSeeder::class,
         ]);
 
         Artisan::call('passport:install');

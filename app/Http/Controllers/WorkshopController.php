@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Workshop;
 use Illuminate\Http\Request;
 
 class WorkshopController extends Controller
@@ -14,6 +15,20 @@ class WorkshopController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $user = $request->user();
+        
+        
+        
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return Workshop::all();
     }
 }
