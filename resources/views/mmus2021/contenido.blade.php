@@ -71,7 +71,7 @@
         considerando a todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
         aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que modifiquen los espacios y
         vialidades así como nuestra percepción de éstos. </p>
-   
+
     <h3 style="color: #5c94d7;">Objetivos</h3>
     <p style="font-size: 15px !important;">
         <ul>
@@ -82,7 +82,8 @@
             <span>*Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas
                 sanitarias</span>
             <br>
-            <span>**Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19.</span>
+            <span> <strong> **Las actividades del MMUS2021 están sujetas al sistema del semáforo
+                    COVID-19.</strong></span>
 
         </ul>
 
@@ -145,39 +146,39 @@
                             <br>
  -->
 
-                            <h2 style="font-weight: 900; " >Ciclo de conferencias de Movilidad Urbana
+                            <h2 style="font-weight: 900; ">Ciclo de conferencias de Movilidad Urbana
                                 Sostenible</h2>
-                        <br>
-                                    <span><b>Conferencia 1: </b></span> “Sostenibilidad energética en la pandemia”
-                                    <br>
-                                    <span><b>Ponente: </b>Dr. Marcos Algara Siller y Daniela Rodríguez
-                                        Aguilar</span>
-                                    <br>
-                                    <span><b>Lugar: </b> Zoom</span>
-                                    <br>
-                                    <span><b>Fechas: </b> Jueves 2 de septiembre 2021</span>
-                                    <br>
-                                    <span><b>Horario:</b> 18:00 a 19:00 horas</span>
-                              
-                                <br>
-                                <br>
-                                <br>
-                               
+                            <br>
+                            <span><b>Conferencia 1: </b></span> “Sostenibilidad energética en la pandemia”
+                            <br>
+                            <span><b>Ponente: </b>Dr. Marcos Algara Siller y Daniela Rodríguez
+                                Aguilar</span>
+                            <br>
+                            <span><b>Lugar: </b> Zoom</span>
+                            <br>
+                            <span><b>Fechas: </b> Jueves 2 de septiembre 2021</span>
+                            <br>
+                            <span><b>Horario:</b> 18:00 a 19:00 horas</span>
 
-                                    <span><b>Conferencia 2: </b></span> : “Movilidad y Urbanismo con enfoque de
-                                    género”
-                                    <br>
-                                    <span><b>Ponente: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
-                                        Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López</span>
-                                    <br>
-                                    <span><b>Lugar: </b> Zoom</span>
-                                    <br>
-                                    <span><b>Fechas: </b> Jueves 9 de septiembre 2021</span>
-                                    <br>
-                                    <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+                            <br>
+                            <br>
+                            <br>
 
-                               <br>
-                               <br>
+
+                            <span><b>Conferencia 2: </b></span> : “Movilidad y Urbanismo con enfoque de
+                            género”
+                            <br>
+                            <span><b>Ponente: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
+                                Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López</span>
+                            <br>
+                            <span><b>Lugar: </b> Zoom</span>
+                            <br>
+                            <span><b>Fechas: </b> Jueves 9 de septiembre 2021</span>
+                            <br>
+                            <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+
+                            <br>
+                            <br>
                         </div>
                     </div>
 
@@ -221,30 +222,30 @@
                             style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
 
                             <h2 style="font-weight: 900;">Curso-taller: Conduce Con💯te</h2>
-                           
-                                    <span><b>Lugar: </b> Estacionamiento de Centro Cultural Universitario
-                                        Bicentenario</span>
-                                    <br>
-                                    <span><b>Fechas: </b> sábado 18 de septiembre 2021</span>
-                                    <br>
-                                    <span><b>Horario:</b> 10:00-11:30 horas</span>
-                                    <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
-                                        Ayala</span>
-                              <br>
-                              <br>
-                                <span>
-                                    <h4>Descripción</h4>
-                                </span>
 
-                                <span>Este curso taller teórico y sensorial busca acercar a las personas que
-                                    utilizan cualquier medio de transporte a la problemática que el resto de los
-                                    medios de transporte experimentan en sus recorridos diarios, haciendo énfasis en
-                                    los reglamentos de tránsito y la información respecto a la seguridad y educación
-                                    vial.</span>
-                                <br>
-                                <br>
+                            <span><b>Lugar: </b> Estacionamiento de Centro Cultural Universitario
+                                Bicentenario</span>
+                            <br>
+                            <span><b>Fechas: </b> sábado 18 de septiembre 2021</span>
+                            <br>
+                            <span><b>Horario:</b> 10:00-11:30 horas</span>
+                            <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
+                                Ayala</span>
+                            <br>
+                            <br>
+                            <span>
+                                <h4>Descripción</h4>
+                            </span>
 
-                           
+                            <span>Este curso taller teórico y sensorial busca acercar a las personas que
+                                utilizan cualquier medio de transporte a la problemática que el resto de los
+                                medios de transporte experimentan en sus recorridos diarios, haciendo énfasis en
+                                los reglamentos de tránsito y la información respecto a la seguridad y educación
+                                vial.</span>
+                            <br>
+                            <br>
+
+
                         </div>
                     </div>
 
@@ -285,29 +286,29 @@
                         <div class="row justify-content-center">
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
-                              
-                               
+
+
                                 <h2 style="font-weight: 900;">2nda Mesa de Trabajo MUS-UASLP</h2>
-                          
 
-                                        <span><b>Lugar: </b> : Aula de la Agenda Ambiental de la UASLP</span>
-                                        <br>
-                                        <span><b>Fechas: </b> Viernes 24 septiembre 2021</span>
-                                        <br>
-                                        <span><b>Horario:</b> 10:00-12:30 horas</span>
-                                        <br>
-                                        <br>
-                                        <span>
-                                            <h4>Descripción</h4>
-                                        </span>
 
-                                        <span>Reunión de representantes de diferentes entidades de la UASLP
-                                            especialistas en diferentes temas que conciernen a la Movilidad Urbana
-                                            Sostenible de la UASLP para lograr decisiones, acciones y compromisos a
-                                            través de la información y debate multidisciplinario.</span>
-                                            <br>
-                                            <br>
-                                 
+                                <span><b>Lugar: </b> : Aula de la Agenda Ambiental de la UASLP</span>
+                                <br>
+                                <span><b>Fechas: </b> Viernes 24 septiembre 2021</span>
+                                <br>
+                                <span><b>Horario:</b> 10:00-12:30 horas</span>
+                                <br>
+                                <br>
+                                <span>
+                                    <h4>Descripción</h4>
+                                </span>
+
+                                <span>Reunión de representantes de diferentes entidades de la UASLP
+                                    especialistas en diferentes temas que conciernen a la Movilidad Urbana
+                                    Sostenible de la UASLP para lograr decisiones, acciones y compromisos a
+                                    través de la información y debate multidisciplinario.</span>
+                                <br>
+                                <br>
+
                             </div>
                         </div>
 
@@ -351,9 +352,9 @@
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
 
 
-                                <h2 style="font-weight: 900;" >Unirodada cicloturistica a la Cañada del Lobo
+                                <h2 style="font-weight: 900;">Unirodada cicloturistica a la Cañada del Lobo
                                 </h2>
-<br>
+                                <br>
                                 <span><b>Fecha: </b> Sábado 25 de septiembre 2021</span>
                                 <br>
                                 <span><b>Horario:</b>7:30 a 11:00 horas</span>
@@ -370,18 +371,18 @@
                                             hidratación/refrigerio y tiempo para recorrido con explicación ecológica del
                                             lugar con cuota de recuperación que incluye ambulancia y refrigerio.</span>
                                     </li>
-                                    <li> <span>Habrá bicibus con diferentes salidas al punto del encuentro (sin apoyo de
-                                            policía y ambulancia).</span></li>
+
                                     <li> <span><b>Distancia total:</b>20 km aprox.</span></li>
                                     <li> <span><b>Cuota de recuperación:</b>$100 (en efectivo previo al evento)</span>
                                     </li>
-                                    <li> <span>*Llena el formulario en el boton de inscripción 
+                                    <li> <span>*Llena el formulario en el botón de inscripción
                                             antes del 18 de septiembre del 2021.</span></li>
                                     <li>
-                                        <span>La Unirodada tiene cupo limitado y el registro se cierra  al tener el
+                                        <span>La Unirodada tiene cupo limitado y el registro se cierra al tener el
                                             número de personas estimadas.</span>
                                     </li>
-                                    <p class="text-center" style="font-size: 18px;"> <span>¡No olvides llevar agua y casco.!</span></p>
+                                    <p class="text-center" style="font-size: 18px;"> <span>¡No olvides llevar agua y
+                                            casco.!</span></p>
                                 </ul>
 
 
@@ -430,34 +431,35 @@
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <h2 style="font-weight: 900;">Intervenciones y reordenamiento: Cebratón y Proyecto
                                     MUS-ZUP</h2>
-                               
 
-                                        <span><b>Lugar: </b> Av. Industrias y Manuel Nava</span>
-                                        <br>
-                                        <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
-                                        <br>
-                                        <span><b>Horario:</b> 4:30-6:30 horas</span>
-                                        <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
-                                            Pérez
-                                            Ayala</span>
-                                   <br>
-                                   <br>
-                                    <span>
-                                        <h4>Descripción</h4>
-                                    </span>
-                                    
-                                    <span>En el marco del día de la Universidad se busca implementar una etapa del
-                                        proyecto de reordenamiento de la ZUP de parte del Departamento de Vinculación de
-                                        la Facultad del Hábitat en colaboración con el Departamento de  Diseño y Construcción.
-                                        El proyecto considera la intervención de las paradas del transporte público,
-                                        lugares de estacionamiento, la accesibilidad peatonal y de todos los medios de
-                                        transporte.
-                                    </span>
-                                    <span> El Cebratón, es una iniciativa de pintas artísticas en
-                                        cruces peatonales que tiene como objetivo reivindicar-reclamar el espacio de
-                                        transeúntes y sensibilizar usuarios y actores de la vía pública.</span>
-                                    <br>
-                                        <br>
+
+                                <span><b>Lugar: </b> Av. Industrias y Manuel Nava</span>
+                                <br>
+                                <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
+                                <br>
+                                <span><b>Horario:</b> 4:30-6:30 horas</span>
+                                <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
+                                    Pérez
+                                    Ayala</span>
+                                <br>
+                                <br>
+                                <span>
+                                    <h4>Descripción</h4>
+                                </span>
+
+                                <span>En el marco del día de la Universidad se busca implementar una etapa del
+                                    proyecto de reordenamiento de la ZUP de parte del Departamento de Vinculación de
+                                    la Facultad del Hábitat en colaboración con el Departamento de Diseño y
+                                    Construcción.
+                                    El proyecto considera la intervención de las paradas del transporte público,
+                                    lugares de estacionamiento, la accesibilidad peatonal y de todos los medios de
+                                    transporte.
+                                </span>
+                                <span> El Cebratón, es una iniciativa de pintas artísticas en
+                                    cruces peatonales que tiene como objetivo reivindicar-reclamar el espacio de
+                                    transeúntes y sensibilizar usuarios y actores de la vía pública.</span>
+                                <br>
+                                <br>
                                 </ol>
                             </div>
                         </div>
@@ -470,7 +472,13 @@
         </div>
     </div>
 </div>
+<script>
+    //console.log({{$NombreM}});
+     $('#{{$NombreM}}').modal('show')
+</script>
 @endsection
+
 @push('stylesheets')
+
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
