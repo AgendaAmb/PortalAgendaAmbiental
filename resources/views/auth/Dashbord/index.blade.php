@@ -652,7 +652,11 @@
                         </div>
                         <div class="modal-footer justify-content-start">
                             <button id="submit" type="submit" class="btn btn-primary"
-                                style="background-color: #0160AE">Aceptar</button>
+                                style="background-color: #0160AE" v-if="!spinnerVisible">Aceptar</button>
+                                <button class="btn btn-primary" type="button" disabled  v-if="spinnerVisible">
+                                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Registrando...
+                                </button>
                         </div>
 
                     </form>
