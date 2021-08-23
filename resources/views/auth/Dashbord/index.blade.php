@@ -134,7 +134,7 @@
             <div id='calendar' class="mt-2"></div>
         </div>
         <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
-          <img src="{{asset('/storage/imagenes/Introduccion/B_Portal_ProxEve.png')}}" class="img-fluid pt-5 mt-5" alt="">
+          <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="img-fluid pt-5 mt-5" alt="">
         </div>
         <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
             <a class="btn w-100 font-weight-bolder" data-toggle="collapse" href="#collapseExample" role="button"
@@ -652,7 +652,11 @@
                         </div>
                         <div class="modal-footer justify-content-start">
                             <button id="submit" type="submit" class="btn btn-primary"
-                                style="background-color: #0160AE">Aceptar</button>
+                                style="background-color: #0160AE" v-if="!spinnerVisible">Aceptar</button>
+                                <button class="btn btn-primary" type="button" disabled  v-if="spinnerVisible">
+                                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Registrando...
+                                </button>
                         </div>
 
                     </form>
@@ -727,7 +731,7 @@
       },
       uaslpUser:function(){
            
-            //this.spinnerVisible=true;
+            this.spinnerVisible=true;
            if(this.emailR!=''){
             let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -756,7 +760,8 @@
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
-                window.location.href = this.url+'17Gemas/'
+              spinnerVisible=false,
+               // window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
             })
@@ -765,7 +770,12 @@
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'workshops',data). then(response => (
               console.log(response.data),
+<<<<<<< HEAD
                 null
+=======
+              spinnerVisible=false,
+               // window.location.href = this.url+'17Gemas/'
+>>>>>>> 8758806887d88afd0a39af19910bfca32d58d05a
                )).catch((err) => {
                   this.Errores[0].Visible
             })
