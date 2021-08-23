@@ -239,6 +239,32 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+         <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+         <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('mmus2021')}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+      
+
+        <div class="carousel-item ">
+          <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'exampleModalCenter'])}} >
               <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
               alt="First slide">

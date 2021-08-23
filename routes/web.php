@@ -70,6 +70,9 @@ Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
 Route::get('/MovilidadUrbanaSostenible', function () {
     return view('mmus.contenido');
 })->name('mmus');
+Route::get('/MovilidadUrbanaSostenible2021', function () {
+    return view('mmus.contenido');
+})->name('mmus2021');
 
 Route::get('/CicloDeConferencias', function () {
     return view('Conferencias.contenido');
