@@ -847,7 +847,9 @@
                 "CursoCursado":this.CursosC,
                 "InteresAsistencia":this.InteresAsistencia,
                 "cursosInscritosMMUS":this.checkedNames,
-                "CondicionSalud":this.CondicionSalud
+                "CondicionSalud":this.CondicionSalud,
+                "NombreContacto":this.NombreContacto,
+                "CelularContacto":this.CelularContacto
             }
           
            if (this.modalClick=='17Gemas') {
