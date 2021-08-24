@@ -92,16 +92,15 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
     
     # Módulos de usuario
-    Route::get('/modules/{module}/verify-email/{user}', 'UserModuleController@verifyEmail')->name('modules.user.verify-email');
     Route::resource('modules', ModuleController::class);
 
     # Registro a eventos.
-    Route::post('/workshops', 'WorkshopController@store');
-    Route::get('/workshops', 'WorkshopController@index');
+    Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
+    Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Registro a eventos.
-    Route::post('/events', 'EventController@store');
-    Route::get('/events', 'EventController@index');
+    Route::post('/RegistrarEventoUsuario', 'EventController@store')->name('RegistrarEventoUsuario');
+    Route::get('/Eventos', 'EventController@index')->name('Eventos');
 });
 
 

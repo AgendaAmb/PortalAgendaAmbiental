@@ -882,7 +882,7 @@
              
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'workshops',data). then(response => (
+            axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
               console.log(response.data),
               spinnerVisible=false
                //window.location.href = this.url+''
@@ -891,7 +891,7 @@
             })
            }else{
             data['TipoEvento'] = 'unirodada'
-            axios.post(this.url+'events',data). then(response => (
+            axios.post(this.url+'RegistrarEventoUsuario',data). then(response => (
               console.log(response.data),
               spinnerVisible=false
                //window.location.href = this.url+''
