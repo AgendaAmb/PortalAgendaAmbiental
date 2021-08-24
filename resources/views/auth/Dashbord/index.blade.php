@@ -166,7 +166,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        @if (Auth::user()->hasModule("17 gemas")&& Auth::user()->user_type!="externs"))
+        @if (Auth::user()->hasModule("17 gemas") &&Auth::user()->user_type!="externs")
         <div class="container-fluid bg-white">
           <div class="row">
             <div class="col-12">
