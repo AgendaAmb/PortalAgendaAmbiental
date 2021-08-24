@@ -182,7 +182,7 @@
 
       <div id='calendar' class="mt-2"></div>
     </div>
-    <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
+    <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1 mt-5s">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item ">
