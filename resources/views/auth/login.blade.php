@@ -8,7 +8,7 @@
 @section('FormularioInicioSesion')
 <p class="text-center h2 font-weight-bold mt-3" style="color: #005faf;">Bienvenid@ a Mi Portal de Agenda Ambiental</p>
 <div class="row justify-content-center mt-1">
-    
+
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
         <div class="sticky-top "> <img
@@ -90,10 +90,10 @@
                 <p class="text-center h4 font-weight-bold">PÚBLICO EN GENERAL </p>
                 <div class="col-lg-12 text-justify p-0 mb-4">
                     <p class=" text-muted h6">Ingresa con tu cuenta de correo electrónico que registraste, si no recuerdas tu contraseña, podrás restablecerla<a
-                            href=" {{route('verification.resend')}}">
+                            href=" {{route('password.request')}}">
                            aquí</a>
                         <br>
-                      
+
                     </a>
                     </P>
                 </div>
@@ -524,7 +524,7 @@
       //*Metodo para verificar que las contraseñas sean iguales*//
       RestableceValores:function(){
           if (this.PerteneceUaslp=="Si") {
-          
+
           } else {
             this.emailR='';
             this.nombres='';
@@ -538,7 +538,7 @@
             }else{
                 this.Errores[1].Visible=false;
             }
-           
+
         },
 
         uaslpUser:function(){
@@ -546,7 +546,7 @@
            if(this.emailR!=''){
             var data = {
        	        "username":this.emailR
-            }    
+            }
             }
         axios.post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user',data)
             .then(response => (
@@ -566,7 +566,7 @@
                 this.ApellidoP='';
                 this.nombres='';
             })
-    
+
          }
     }
 })

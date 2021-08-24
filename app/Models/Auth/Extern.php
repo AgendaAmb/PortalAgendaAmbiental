@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Model;
 
 class Extern extends User
@@ -19,13 +20,24 @@ class Extern extends User
      * @var array
      */
     protected $hidden = [
-        'password', 
-        'remember_token', 
-        'guid', 
-        'domain', 
-        'created_at', 
+        'password',
+        'remember_token',
+        'guid',
+        'domain',
+        'created_at',
         'updated_at',
         'email_verified_at',
         'access_token'
     ];
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
 }
