@@ -281,8 +281,8 @@
             <div class="form-row row was-validated">
               <div class="col-md-6 mb-3">
                 <label for="tel">Télefono de contacto</label>
-                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel" @if
-                  (Auth::user()->user_type!="externs")
+                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel" 
+                @if(Auth::user()->user_type!="externs")
 
                 @else
                 readonly
