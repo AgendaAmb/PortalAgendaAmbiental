@@ -144,7 +144,7 @@
             </div>
            
           </div>
-          <div class="carousel-item active" >
+          <div class="carousel-item " >
            <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
                 <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
