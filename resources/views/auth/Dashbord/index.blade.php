@@ -288,8 +288,8 @@
                   name="ApellidoM" style="text-transform: capitalize;">
               </div>
             </div>
-            <div class="form-row was-validated" v-if="modalClick!='Rodada'">
-              <div class=" form-group col-md-6">
+            <div class="form-row was-validated" >
+              <div class=" form-group col-md-6" v-if="modalClick!='Rodada'">
                 <label for="Edad">Edad</label>
                 <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1" max="100"
                   required>
@@ -306,27 +306,7 @@
               </div>
 
             </div>
-            <div class="form-group row ">
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">Condicion de salud</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala"
-                  value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
-                <label class="form-check-label" for="CondicionMala">Mala</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena"
-                  value="CondicionBuena" v-model="CondicionSalud" @click="check_one()">
-                <label class="form-check-label" for="CondicionBuena">Buena</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente"
-                  v-model="CondicionSalud" @click="check_one()">
-                <label class="form-check-label" for="CondicionExcelente">Excelente</label>
-              </div>
-            </div>
-
+           
             <div class="form-group row was-validated">
               <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
               <div class="col-9">
@@ -668,7 +648,30 @@
                   v-model="Discapacidad">
               </div>
             </div>
-
+            <div class="form-group row " v-if="modalClick=='Rodada'">
+              <div class="col-12">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">Condicion de salud</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala"
+                    value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
+                  <label class="form-check-label" for="CondicionMala">Mala</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena"
+                    value="CondicionBuena" v-model="CondicionSalud" @click="check_one()">
+                  <label class="form-check-label" for="CondicionBuena">Buena</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente"
+                    v-model="CondicionSalud" @click="check_one()">
+                  <label class="form-check-label" for="CondicionExcelente">Excelente</label>
+                </div>
+              </div>
+            
+            </div>
+            <hr>
             <h5 class="modal-title3" v-if="modalClick=='Rodada'">Contacto de emergencia</h5>
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
               <label for="emailR" class="col-sm-3 col-form-label">Nombre del contracto: </label>
@@ -678,7 +681,7 @@
               </div>
             </div>
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
-              <label for="emailR" class="col-sm-3 col-form-label">Celular: </label>
+              <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
               <div class="col-9">
                 <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
                   v-model="CelularContacto">
