@@ -32,12 +32,12 @@ class WorkshopSeeder extends Seeder
             ], 
             [ 
                 'name' => 'curso mus-uaslp',
-                'description' => 'Curso-taller: Conduce Con💯te',
+                'description' => 'Segunda mesa de trabajo MUS-UASLP',
                 'type' => 'Curso'
             ],
             [
                 'name' => 'curso cebratón y proyecto mus-zup',
-                'description' => 'Curso-taller: Conduce Con💯te',
+                'description' => 'Curso-taller: Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP',
                 'type' => 'Curso',
             ]
         ];
