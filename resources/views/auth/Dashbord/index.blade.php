@@ -310,18 +310,17 @@
               <div class="form-check form-check-inline">
               <label class="form-check-label" >Condicion de salud</label>
             </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CondicionMala" value="CondicionMala" v-model="CondicionSalud">
+             
+                <input class="form-check-input" type="radio" id="CondicionMala" value="CondicionMala" v-model="CondicionSalud">
                 <label class="form-check-label" for="CondicionMala">Mala</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="CondicionBuena" value="CondicionBuena"  v-model="CondicionSalud">
+            
+                <input class="form-check-input" type="radio" id="CondicionBuena" value="CondicionBuena"  v-model="CondicionSalud">
                 <label class="form-check-label" for="CondicionBuena">Buena</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  id="Excelente" value="Excelente"   v-model="CondicionSalud">
+             
+              
+                <input class="form-check-input" type="radio"  id="Excelente" value="Excelente"   v-model="CondicionSalud">
                 <label class="form-check-label" for="CondicionExcelente">Excelente</label>
-              </div>
+              
             </div>
 
             <div class="form-group row was-validated">
