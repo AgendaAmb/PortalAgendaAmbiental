@@ -170,8 +170,27 @@
             <h5 class="font-weight-bold text-center" style="color: gray;">{{Auth::user()->name}}</h5>
             <h6 style="color: gray;" class="text-center">{{Auth::user()->dependency}}</h6>
           </div>
-          <div class="col-4 p-0 "><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
-              class="img-fluid py-xl-5 py-lg-5 py-md-1 py-sm-4" alt=""></div>
+
+          <div class="col-4 p-0 ">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" >
+                  <img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
+                  class="img-fluid  d-block w-100" alt="">>
+                </div>
+                <div class="carousel-item ">
+                  <img src{{asset('storage/imagenes/17Gemas/Banner_seccion.png')}} class="d-block w-100" alt="...">
+                </div>
+               
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+            </div>
         </div>
       </div>
     </div>

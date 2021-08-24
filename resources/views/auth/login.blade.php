@@ -130,7 +130,7 @@
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group mr-1">
+                        <div class="form-group mr-3">
                             <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
                         </div>
                         <div class="form-group ">
