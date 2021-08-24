@@ -772,7 +772,7 @@
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'workshops',data). then(response => (
               console.log(response.data),
-              spinnerVisible=false,
+              spinnerVisible=false
                //window.location.href = this.url+''
                )).catch((err) => {
                   this.Errores[0].Visible
