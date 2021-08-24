@@ -185,10 +185,10 @@
     <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item ">
             <img src="{{asset('/storage/imagenes/17Gemas/Banner_seccion.png')}}" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item active">
             <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100" alt="...">
           </div>
           
