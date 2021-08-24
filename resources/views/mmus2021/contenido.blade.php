@@ -256,7 +256,7 @@
         </div>
     </div>
 </div>
-<!--Igual al de conduce  todo sin viñetas-->
+
 <div class="modal fade" id="modalMesaTrabajo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
@@ -339,10 +339,13 @@
                             <img src="{{asset('storage/imagenes/mmus2021/RODADA.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                    <div class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                >REGISTRATE</a>
+                        </div>
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="FORO.jpg">CARTEL GENERAL </a>
@@ -355,39 +358,34 @@
                                 <h2 style="font-weight: 900;">Unirodada cicloturistica a la Cañada del Lobo
                                 </h2>
                                 <br>
-                                <span><b>Fecha: </b> Sábado 25 de septiembre 2021</span>
+                                <span><b>Fecha: </b> &nbsp;Sábado 25 de septiembre 2021</span>
                                 <br>
-                                <span><b>Horario:</b>7:30 a 11:00 horas</span>
+                                <span><b>Horario:</b>&nbsp;7:30 a 11:00 horas</span>
                                 <br>
-                                <span><b>Punto de encuentro: </b> Caja del Agua (Calzada de Guadalupe 200,
+                                <span><b>Punto de encuentro: </b> &nbsp;Caja del Agua (Calzada de Guadalupe 200,
                                     SLP)</span>
                                 <br>
                                 <br>
                                 <span>
                                     <h4 style="font-weight: 900;">Descripción</h4>
                                 </span>
-                                <ul>
-                                    <li><span>Recorrido ciclo turístico a la cañada del Lobo con parada para
-                                            hidratación/refrigerio y tiempo para recorrido con explicación ecológica del
-                                            lugar con cuota de recuperación que incluye ambulancia y refrigerio.</span>
-                                    </li>
+                                <br>
+                                <span>Recorrido ciclo turístico a la cañada del Lobo con parada para
+                                    hidratación/refrigerio y tiempo para recorrido con explicación ecológica del
+                                    lugar con cuota de recuperación que incluye ambulancia y refrigerio.</span>
+                                    <br><br>
 
-                                    <li> <span><b>Distancia total:</b>20 km aprox.</span></li>
-                                    <li> <span><b>Cuota de recuperación:</b>$100 (en efectivo previo al evento)</span>
-                                    </li>
-                                    <li> <span>*Llena el formulario en el botón de inscripción
-                                            antes del 18 de septiembre del 2021.</span></li>
-                                    <li>
-                                        <span>La Unirodada tiene cupo limitado y el registro se cierra al tener el
-                                            número de personas estimadas.</span>
-                                    </li>
-                                    <p class="text-center" style="font-size: 18px;"> <span>¡No olvides llevar agua y
-                                            casco.!</span></p>
-                                </ul>
+                                <span><b>Distancia total:</b>&nbsp;  20 km aprox.</span><br><br>
+                                <span><b>Cuota de recuperación:  &nbsp; </b>$100 (en efectivo previo al evento)</span><br><br>
 
+                                <span>Llena el formulario en el botón de inscripción
+                                    antes del 18 de septiembre del 2021.</span><br><br>
 
+                                <span>La Unirodada tiene cupo limitado y el registro se cierra al tener el
+                                    número de personas estimadas.</span><br><br>
 
-
+                                <p class="text-center" style="font-size: 18px;"> <span>¡No olvides llevar agua y
+                                        casco.!</span></p>
 
                             </div>
                         </div>
