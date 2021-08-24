@@ -166,16 +166,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        @if (Auth::user()->hasModule("17 gemas") &&Auth::user()->user_type!="externs")
-        <div class="container-fluid bg-white">
-          <div class="row">
-            <div class="col-12">
-              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
-            </div>
-          </div>
-        </div>
-        @else
-        <div class="modal-body ">
+        @if ((!Auth::user()->hasModule("17 gemas")&&Auth::user()->user_type=="workers")||(!Auth::user()->hasModule("17 gemas")&&Auth::user()->user_type=="students"))
+        <div class="modal-body">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -219,7 +211,6 @@
                 </label>
               </div>
               <br>
-
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
             <div class="form-group  was-validated">
@@ -639,8 +630,7 @@
               <div class="col-md-12">
                 <textarea name="ComentariosSugerencias" id="ComentariosSugerencias" rows="5" class="form-control"
                   v-model="ComentariosSugerencias">
-                                </textarea>
-
+                </textarea>
               </div>
             </div>
 
@@ -663,12 +653,15 @@
 
           </form>
         </div>
+        @else
+        <div class="container-fluid bg-white">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
         @endif
-
-
-
-
-
       </div>
     </div>
   </div>
