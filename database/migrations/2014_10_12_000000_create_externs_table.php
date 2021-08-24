@@ -30,7 +30,11 @@ class CreateExternsTable extends Migration
             $table->string('courses')->nullable();
             $table->string('password')->nullable();
             $table->string('interested_on_further_courses')->nullable();
+            $table->string('emergency_contact')->nullable();
+            $table->string('emergency_contact_phone')->nullable();
+            $table->string('health_condition')->nullable();
             $table->string('comments')->nullable();
+            
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

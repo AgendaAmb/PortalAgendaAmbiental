@@ -3,6 +3,7 @@
 namespace App\Models\Auth;
 
 use App\Notifications\VerifyEmail;
+use App\Traits\EventTrait;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,7 +16,9 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable, HasRoles, ModuleTrait, WorkshopTrait, SoftDeletes;
+    use HasApiTokens, Notifiable,
+        HasRoles, ModuleTrait, WorkshopTrait,
+        EventTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

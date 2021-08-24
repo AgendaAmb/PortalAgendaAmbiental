@@ -98,6 +98,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a eventos.
     Route::post('/workshops', 'WorkshopController@store');
     Route::get('/workshops', 'WorkshopController@index');
+
+    # Registro a eventos.
+    Route::post('/events', 'EventController@store');
+    Route::get('/events', 'EventController@index');
 });
 
 

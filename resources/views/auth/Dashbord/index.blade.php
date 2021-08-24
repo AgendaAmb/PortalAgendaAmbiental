@@ -890,7 +890,8 @@
                   this.Errores[0].Visible
             })
            }else{
-            axios.post(this.url+'workshops',data). then(response => (
+            data['TipoEvento'] = 'unirodada'
+            axios.post(this.url+'events',data). then(response => (
               console.log(response.data),
               spinnerVisible=false
                //window.location.href = this.url+''
