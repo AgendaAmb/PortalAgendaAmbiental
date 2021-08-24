@@ -97,12 +97,12 @@
             <div class="d-none d-sm-block d-md-none">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250" class="imgCaourselAuth1"
-                    alt="First slide">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250"
+                    class="imgCaourselAuth1" alt="First slide">
                 </a>
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250" class="imgCaourselAuth2"
-                    alt="First slide">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250"
+                    class="imgCaourselAuth2" alt="First slide">
 
                 </a>
               </div>
@@ -142,10 +142,10 @@
                   alt="First slide">
               </a>
             </div>
-           
+
           </div>
-          <div class="carousel-item " >
-           <div class="slide-box">
+          <div class="carousel-item ">
+            <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
                 <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
                   class="imgCaoursel  w-100 p-0 p-0" alt="First slide">
@@ -308,18 +308,21 @@
             </div>
             <div class="form-group row ">
               <div class="form-check form-check-inline">
-              <label class="form-check-label" >Condicion de salud</label>
-            </div>
+                <label class="form-check-label">Condicion de salud</label>
+              </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala" value="CondicionMala" v-model="CondicionSalud">
+                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala"
+                  value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionMala">Mala</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena" value="CondicionBuena"  v-model="CondicionSalud">
+                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena"
+                  value="CondicionBuena" v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionBuena">Buena</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente"   v-model="CondicionSalud">
+                <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente"
+                  v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionExcelente">Excelente</label>
               </div>
             </div>
@@ -670,13 +673,15 @@
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
               <label for="emailR" class="col-sm-3 col-form-label">Nombre del contracto: </label>
               <div class="col-9">
-                <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"  v-model="NombreContacto">
+                <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
+                  v-model="NombreContacto">
               </div>
             </div>
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
               <label for="emailR" class="col-sm-3 col-form-label">Celular: </label>
               <div class="col-9">
-                <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"  v-model="CelularContacto">
+                <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
+                  v-model="CelularContacto">
               </div>
             </div>
             <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
@@ -698,7 +703,7 @@
                 <input type="text" class="form-control" id="CursosC" required name="CursosC" v-model="CursosC">
               </div>
             </div>
-            <div class="form-group row was-validated" >
+            <div class="form-group row was-validated">
               <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
                 participando en actividades de la Agenda Ambiental?</label>
               <div class="col-5">
@@ -724,9 +729,9 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
                 <label class="form-check-label" for="gridCheck">
-                  Al enviar la información confirmo que he leido y acepto el 
+                  Al enviar la información confirmo que he leido y acepto el
                   <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad</a>
-                 
+
                 </label>
               </div>
             </div>
@@ -795,6 +800,9 @@
 },
 
   methods:{
+    check_one: function(){
+        this.CondicionSalud = [];
+    },  
     DatosUsuario:function(ModalClick){
 
         this.nombres= '{{Auth::user()->name}}',
