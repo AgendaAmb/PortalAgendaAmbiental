@@ -288,7 +288,7 @@
                   name="ApellidoM" style="text-transform: capitalize;">
               </div>
             </div>
-            <div class="form-row was-validated">
+            <div class="form-row was-validated" v-if="modalClick!='Rodada'">
               <div class=" form-group col-md-6">
                 <label for="Edad">Edad</label>
                 <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1" max="100"
@@ -306,6 +306,20 @@
               </div>
 
             </div>
+            <div class="form-group row was-validated">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala" value="CondicionMala" v-model="CondicionSalud">
+                <label class="form-check-label" for="inlineRadio1">Mala</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena" value="CondicionBuena"  v-model="CondicionSalud">
+                <label class="form-check-label" for="inlineRadio2">Buena</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="CondicionExcelente" id="Excelente" value="Excelente"   v-model="CondicionSalud">
+                <label class="form-check-label" for="inlineRadio3">Excelente</label>
+              </div>
+            </div>
 
             <div class="form-group row was-validated">
               <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
@@ -314,7 +328,6 @@
               </div>
             </div>
             <div class="form-row was-validated">
-
               <div class="form-group col-md-6">
                 <label for="ClaveU_RPE">Clave única/RPE</label>
                 <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
@@ -338,12 +351,12 @@
                 @endif
                 >
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3" v-if="modalClick!='Rodada'">
                 <label for="CP">Codigo Postal</label>
                 <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
               </div>
             </div>
-            <div class="form-row row was-validated">
+            <div class="form-row row was-validated" v-if="modalClick!='Rodada'">
               <div class="col-md-6 mb-3">
                 <label for="Pais">Nacionalidad</label>
                 <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
@@ -609,7 +622,7 @@
                 <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;"
                   maxlength="18" name="CURP" v-model="CURP" readonly>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3" v-if="modalClick!='Rodada'">
                 <label for="LugarResidencia">Lugar de residencia</label>
                 <input type="text" class="form-control" id="LugarResidencia" required name="LugarResidencia"
                   v-model="LugarResidencia">
@@ -629,8 +642,7 @@
                   placeholder="Grupo étnico (Zapoteco, Pame, etc)">
               </div>
             </div>
-            <div class="form-group row was-validated">
-
+            <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
               <label for="isDiscapacidad" class="col-sm-5 col-form-label">¿Tienes alguna
                 discapacidad?</label>
               <div class="col-7">
@@ -651,8 +663,21 @@
               </div>
             </div>
 
-            <h5 class="modal-title3">Información estadística</h5>
-            <div class="form-group row was-validated">
+            <h5 class="modal-title3" v-if="modalClick=='Rodada'">Contacto de emergencia</h5>
+            <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
+              <label for="emailR" class="col-sm-3 col-form-label">Nombre del contracto: </label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"  v-model="NombreContacto">
+              </div>
+            </div>
+            <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
+              <label for="emailR" class="col-sm-3 col-form-label">Celular: </label>
+              <div class="col-9">
+                <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"  v-model="CelularContacto">
+              </div>
+            </div>
+            <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
+            <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
               <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres
                 en
                 la Agenda Ambiental?</label>
@@ -670,7 +695,7 @@
                 <input type="text" class="form-control" id="CursosC" required name="CursosC" v-model="CursosC">
               </div>
             </div>
-            <div class="form-group row was-validated">
+            <div class="form-group row was-validated" >
               <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
                 participando en actividades de la Agenda Ambiental?</label>
               <div class="col-5">
@@ -682,7 +707,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row ">
+            <div class="form-group row " v-if="modalClick!='Rodada'">
               <label for="ComentariosSugerencias" class="col-sm-12 col-form-label">Comentarios o
                 suguerencias</label>
               <div class="col-md-12">
@@ -696,7 +721,9 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
                 <label class="form-check-label" for="gridCheck">
-                  Al enviar la información confirmo que he leido y acepto el aviso de privacidad
+                  Al enviar la información confirmo que he leido y acepto el 
+                  <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad</a>
+                 
                 </label>
               </div>
             </div>
@@ -751,6 +778,9 @@
     TipoUsuario:'',
     checkedNames:[],
     hasModule17Gemas:false,
+    CondicionSalud:'',
+    NombreContacto:'',
+    CelularContacto:''
    
   },
   mounted:function () {
@@ -802,7 +832,8 @@
                 "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,
                 "InteresAsistencia":this.InteresAsistencia,
-                "cursosInscritosMMUS":this.checkedNames
+                "cursosInscritosMMUS":this.checkedNames,
+                "CondicionSalud":this.CondicionSalud
             }
           
            if (this.modalClick=='17Gemas') {
@@ -814,8 +845,16 @@
                   this.Errores[0].Visible
             })
              
-           }else{
+           }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'workshops',data). then(response => (
+              console.log(response.data),
+              spinnerVisible=false
+               //window.location.href = this.url+''
+               )).catch((err) => {
+                  this.Errores[0].Visible
+            })
+           }else{
             axios.post(this.url+'workshops',data). then(response => (
               console.log(response.data),
               spinnerVisible=false
