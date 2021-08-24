@@ -97,11 +97,11 @@
             <div class="d-none d-sm-block d-md-none">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" height="250" class="imgCaourselAuth1"
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250" class="imgCaourselAuth1"
                     alt="First slide">
                 </a>
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" height="250" class="imgCaourselAuth2"
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250" class="imgCaourselAuth2"
                     alt="First slide">
 
                 </a>
