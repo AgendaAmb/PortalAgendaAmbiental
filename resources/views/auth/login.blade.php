@@ -130,7 +130,7 @@
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group ">
+                        <div class="form-group mr-1">
                             <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
                         </div>
                         <div class="form-group ">
@@ -144,7 +144,7 @@
                     </div>
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
                         <div class="form-group col-md-10 col-sm-10 col-10  was-validated">
-                            <label for="email">Ingresa tu RPE/Clave única de alumno ó correo Institucional</label>
+                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional</label>
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
@@ -469,7 +469,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6 was-validated">
-                            <label for="inputCity">Télefono de contacto</label>
+                            <label for="inputCity">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
                     </div>
@@ -477,7 +477,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
-                                Al enviar la información confirmo que he leido y acepto el aviso de privacidad
+                                Al enviar la información confirmo que he leido y acepto el <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
                             </label>
                         </div>
                     </div>

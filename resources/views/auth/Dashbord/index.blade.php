@@ -315,7 +315,7 @@
             </div>
             <div class="form-row was-validated">
               <div class="form-group col-md-6">
-                <label for="ClaveU_RPE">Clave única/RPE</label>
+                <label for="ClaveU_RPE">clave única/RPE</label>
                 <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
                   required>
               </div>
@@ -328,7 +328,7 @@
 
             <div class="form-row row was-validated">
               <div class="col-md-6 mb-3">
-                <label for="tel">Télefono de contacto</label>
+                <label for="tel">Teléfono</label>
                 <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
                   @if(Auth::user()->user_type!="externs")
 
@@ -732,8 +732,8 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
                 <label class="form-check-label" for="gridCheck">
-                  Al enviar la información confirmo que he leido y acepto el
-                  <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad</a>
+                  Al enviar la información confirmo que he leído y acepto el
+                  <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
 
                 </label>
               </div>
