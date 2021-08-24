@@ -162,7 +162,6 @@
           </a>
         </div>
       </div>
-
     </div>
     <div class="col-xl-2  col-lg-2  p-3 col-md-2 col-sm-2 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
       <div class="col">
@@ -211,6 +210,7 @@
         <div class="modal-header bg-primary" id="modalGemas">
           <h5 class="modal-title mx-auto" v-if="modalClick=='17Gemas'">17 gemas para la Uni sostenible</h5>
           <h5 class="modal-title mx-auto" v-if="modalClick=='mmus'">Movilidad urbana sustentable 2021</h5>
+          <h5 class="modal-title mx-auto" v-if="modalClick=='Rodada'">Unirodada cicloturistica a la Cañada del Lobo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
