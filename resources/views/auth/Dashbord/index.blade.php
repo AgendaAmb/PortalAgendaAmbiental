@@ -781,7 +781,7 @@
     TipoUsuario:'',
     checkedNames:[],
     hasModule17Gemas:false,
-    CondicionSalud:'',
+    CondicionSalud:[],
     NombreContacto:'',
     CelularContacto:''
    
