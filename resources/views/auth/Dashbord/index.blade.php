@@ -65,19 +65,30 @@
                 </a>
               </div>
             </div>
+            <div class="d-none d-sm-block d-md-none" v-if="TipoUsuario!='externs'?true:false">
+              <div class="slide-box">
+                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth1"
+                    alt="First slide">
+                </a>
+                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" height="250" class="imgCaourselAuth2"
+                    alt="First slide">
 
-
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="carousel-item " >
+          <div class="carousel-item ">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250" class="imgCaourselAuth1"
-                    alt="First slide">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250"
+                    class="imgCaourselAuth1" alt="First slide">
                 </a>
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250" class="imgCaourselAuth2"
-                    alt="First slide">
+                  <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250"
+                    class="imgCaourselAuth2" alt="First slide">
 
                 </a>
               </div>
@@ -133,8 +144,8 @@
             </div>
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
-                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel  w-100 p-0 p-0"
-                  alt="First slide">
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
+                  class="imgCaoursel  w-100 p-0 p-0" alt="First slide">
               </a>
             </div>
           </div>
@@ -201,15 +212,16 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-       
-        <div class="container-fluid bg-white" v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
+
+        <div class="container-fluid bg-white"
+          v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
           <div class="row">
             <div class="col-12">
               <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
             </div>
           </div>
         </div>
-       
+
         <div class="modal-body" v-else>
           <form @submit.prevent="uaslpUser()">
             @csrf
@@ -315,8 +327,8 @@
             <div class="form-row row was-validated">
               <div class="col-md-6 mb-3">
                 <label for="tel">Télefono de contacto</label>
-                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel" 
-                @if(Auth::user()->user_type!="externs")
+                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
+                  @if(Auth::user()->user_type!="externs")
 
                 @else
                 readonly
@@ -696,7 +708,7 @@
 
           </form>
         </div>
-        
+
       </div>
     </div>
   </div>
