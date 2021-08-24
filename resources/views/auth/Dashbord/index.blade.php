@@ -166,8 +166,16 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        @if ((!Auth::user()->hasModule("17 gemas")&&Auth::user()->user_type=="workers")||(!Auth::user()->hasModule("17 gemas")&&Auth::user()->user_type=="students"))
-        <div class="modal-body">
+      
+        <div class="container-fluid bg-white" v-if="TipoUsuario!='externs'?hasModule17Gemas?true:false">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+       
+        <div class="modal-body" v-else>
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -653,15 +661,7 @@
 
           </form>
         </div>
-        @else
-        <div class="container-fluid bg-white">
-          <div class="row">
-            <div class="col-12">
-              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
-            </div>
-          </div>
-        </div>
-        @endif
+        
       </div>
     </div>
   </div>
@@ -699,7 +699,9 @@
     tel:'',
     modalClick:'',
     TipoUsuario:'',
-    checkedNames:[]
+    checkedNames:[],
+    hasModule17Gemas:false,
+   
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -722,6 +724,7 @@
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
         this.modalClick=ModalClick,
+        this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
