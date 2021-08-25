@@ -13,7 +13,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_Required_fields()
+    public function testRequiredFields()
     {
         $response = $this->post('register', []);
         $response->assertSessionHasErrors([ 'Nombres', 'ApellidoP', 'email', 'password', 'passwordR', 'Pais', 'Tel' ]);
@@ -24,7 +24,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_curp_field()
+    public function testCurpField()
     {
         # Solicitar el curp, solo a Mexicanos.
         $response = $this->post('/register', [
@@ -62,7 +62,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_Tel_field()
+    public function testTelField()
     {
         # Verificar que el # de teléfono sea numérico.
         $response = $this->post('/register', [
@@ -99,7 +99,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_Passwords_match()
+    public function testPasswordsMatch()
     {
         # Verificar contraseñas.
         $response = $this->post('/register', [
@@ -137,7 +137,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_student_register()
+    public function testStudentRegister()
     {
         # Borra al usuario de prueba, en caso de existir.
         Student::where('email', 'A262698@alumnos.uaslp.mx')->forceDelete();
@@ -161,7 +161,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_student_on_database()
+    public function testRegisteredStudentIsOnDatabase()
     {
         $this->assertDatabaseHas('students', [
             'email' => 'A262698@alumnos.uaslp.mx',
@@ -173,7 +173,18 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_sanitized_student_register()
+    public function testRegisteredStudentHasUserRole()
+    {
+        $user = Student::find(262698);
+        $this->assertTrue($user->hasRole('user'));
+    }
+
+    /**
+     * Test register as extern.
+     *
+     * @return void
+     */
+    public function testSanitizedStudentRegister()
     {
         # Borra al usuario de prueba, en caso de existir.
         Student::where('email', 'A262698@alumnos.uaslp.mx')->forceDelete();
@@ -197,7 +208,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_sanitized_student_on_database()
+    public function testSanitizedRegisteredStudentIsOnDatabase()
     {
         $this->assertDatabaseHas('students', [
             'email' => 'A262698@alumnos.uaslp.mx',
@@ -212,7 +223,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_worker_register()
+    public function testWorkerRegister()
     {
         # Borra al usuario de prueba, en caso de existir.
         Worker::where('email', 'miguel.mendez@uaslp.mx')->forceDelete();
@@ -236,7 +247,18 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_worker_on_database()
+    public function testRegisteredWorkerHasUserRole()
+    {
+        $user = Worker::find(13763);
+        $this->assertTrue($user->hasRole('user'));
+    }
+
+    /**
+     * Test register as extern.
+     *
+     * @return void
+     */
+    public function testRegisteredWorkerIsOnDatabase()
     {
         $this->assertDatabaseHas('workers', [
             'email' => 'miguel.mendez@uaslp.mx',
@@ -248,7 +270,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_sanitized_worker_register()
+    public function testSanitizedWorkerRegister()
     {
         # Borra al usuario de prueba, en caso de existir.
         Worker::where('email', 'miguel.mendez@uaslp.mx')->forceDelete();
@@ -272,7 +294,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_sanitized_worker_on_database()
+    public function testSanitizedRegisteredWorkerIsOnDatabase()
     {
         $this->assertDatabaseHas('workers', [
             'email' => 'miguel.mendez@uaslp.mx',
@@ -287,7 +309,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_extern_register()
+    public function testExternRegister()
     {
         # Verificar que el # de teléfono sea numérico.
         $response = $this->post('/register', [
@@ -311,7 +333,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_extern_on_database()
+    public function testExternOnDatabase()
     {
         $this->assertDatabaseHas('externs', [
             'email' => 'email@ficticiooo.com',
@@ -323,7 +345,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_extern_duplicate_register()
+    public function testExternDuplicateRegister()
     {
         # Verificar que el # de teléfono sea numérico.
         $response = $this->post('/register', [
@@ -347,7 +369,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_student_duplicate_register()
+    public function testStudentDuplicateRegister()
     {
         # Verificar que el # de teléfono sea numérico.
         $response = $this->post('/register', [
@@ -361,7 +383,6 @@ class RegisterTest extends TestCase
         ]);
         
         $response->assertSessionHasErrors([ 'email' ]);
-        //Student::where('email', 'A262698@alumnos.uaslp.mx')->forceDelete();
     }
 
     /**
@@ -369,7 +390,7 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function test_worker_duplicate_register()
+    public function testWorkerDuplicateRegister()
     {
         $response = $this->post('/register', [
             'Nombres' => 'MARIA EUGENIA',
@@ -382,6 +403,25 @@ class RegisterTest extends TestCase
         ]);
         
         $response->assertSessionHasErrors([ 'email' ]);
-        //Worker::where('email', 'miguel.mendez@uaslp.mx')->forceDelete();
+    }
+
+    /**
+     * Test register as extern.
+     *
+     * @return void
+     */
+    public function testTryRegisterWithDuplicateCurp()
+    {
+        $response = $this->post('/register', [
+            'Nombres' => 'MARIA EUGENIA',
+            'ApellidoP' => 'ALMENDAREZ',
+            'ApellidoM' => 'GARCIA',
+            'email' => 'miguel.mendez@uaslp.mx',
+            'Pais' => 'México',
+            'Tel' => '4441309851',
+            'CURP' => 'MEOM970906HSPNRG06',
+        ]);
+        
+        $response->assertSessionHasErrors([ 'CURP' ]);
     }
 }

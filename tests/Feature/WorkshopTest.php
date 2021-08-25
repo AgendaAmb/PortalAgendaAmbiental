@@ -31,7 +31,6 @@ class WorkshopTest extends TestCase
     public function testTryRegisterNoCourses()
     {
         $user = Student::find(262698);
-        $user->markEmailAsVerified();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
@@ -56,7 +55,6 @@ class WorkshopTest extends TestCase
     public function testRegisterInvalidEvent()
     {
         $user = Student::find(262698);
-        $user->markEmailAsVerified();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
@@ -168,7 +166,6 @@ class WorkshopTest extends TestCase
     public function testRegisterUnirodadaAsWorker()
     {
         $user = Worker::find(13763);
-        $user->markEmailAsVerified();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',
