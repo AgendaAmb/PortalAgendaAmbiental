@@ -27,14 +27,7 @@ class StoreWorkshopRequest extends FormRequest
     public function rules()
     {
         return [
-            'CP' => ['required'],
-            'Ocupacion' => ['required'],
-            'LugarResidencia' => ['required'],
-            'isDiscapacidad' => ['required','in:Si,No'],
-            'Discapacidad' => ['required_if:isDiscapacidad,Si'],
-            'isAsistencia' => ['required','in:Si,No'],
-            'CursosC' => ['required_if:isAsistencia,Si'],
-            'InteresAsistencia' => ['required','in:Si,No'],
+            'TipoEvento' => [ 'nullable', 'in:unirodada,curso' ]
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
@@ -10,12 +11,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -50,43 +47,24 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
-    protected function validator(array $data)
+    public function register(RegisterRequest $request)
     {
-        # Valida el correo de la uaslp.
-        $response = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [
-            'username' => $data['email'] ?? null
-        ]);
+        event(new Registered($user = $this->create($request->all())));
 
-        # Guarda el directorio activo en la sesión.
-        if ($response->status() === 200)
-        {
-            $response_data = $response->json()['data'];
+        $this->guard()->login($user);
 
-            session([
-                'DirectorioActivo' => $response_data['DirectorioActivo'],
-                'ClaveUASLP' => $response_data['ClaveUASLP']
-            ]);
+        if ($response = $this->registered($request, $user)) {
+            return $response;
         }
 
-        # Valida los datos de registro
-        return  Validator::make($data, [
-            'Nombres' => [ 'required', 'string', 'max:255' ],
-            'ApellidoP' => [ 'required', 'string', 'max:255' ],
-            'ApellidoM' => [ 'nullable', 'string', 'max:255' ],
-            'email' => [ 'required', 'string', 'email', 'max:255', 'unique:externs,email', 'unique:students,email', 'unique:workers,email' ],
-
-            # Solo se solicita a externos.
-            'password' => [ Rule::requiredIf($response->status() !== 200) ],
-            'passwordR' => [ Rule::requiredIf($response->status() !== 200), 'same:password' ],
-            'Pais' => [ 'required' ],
-            'CURP' => [ 'required_if:Pais,México','size:18', 'regex:/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i' ],
-            'Tel' => [ 'required', 'numeric' ]
-        ]);
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect($this->redirectPath());
     }
 
     /**
@@ -117,6 +95,8 @@ class RegisterController extends Controller
 
             # Facultad o dependencia de la UASLP.
             'dependency' => $data['Dependencia'] ?? null,
+            'DirectorioActivo' => $data['DirectorioActivo'] ?? null,
+            'ClaveUASLP' => $data['ClaveUASLP'] ?? null,
             'password' => Hash::make($data['password'] ?? null)
         ];
 
@@ -142,20 +122,24 @@ class RegisterController extends Controller
     private function createUser(array $new_user_data)
     {
         # Tipo de usuario, en base al DA
-        switch (session('DirectorioActivo'))
+        switch ($new_user_data['DirectorioActivo'])
         {
             case 'ALUMNOS':
 
-                $new_user_data['id'] = session('ClaveUASLP');
-                $user = Student::create($new_user_data);
+                $id = $new_user_data['ClaveUASLP'];
+                unset($new_user_data['DirectorioActivo']);
+                unset($new_user_data['ClaveUASLP']);
+                $user = Student::updateOrCreate([ 'id' => $id ],  $new_user_data);
                 $guard = 'students';
 
                 break;
 
             case 'UASLP':
 
-                $new_user_data['id'] = session('ClaveUASLP');
-                $user = Worker::create($new_user_data);
+                $id = $new_user_data['ClaveUASLP'];
+                unset($new_user_data['DirectorioActivo']);
+                unset($new_user_data['ClaveUASLP']);
+                $user = Worker::updateOrCreate([ 'id' => $id ],  $new_user_data);
                 $guard = 'workers';
 
                 break;
@@ -164,41 +148,14 @@ class RegisterController extends Controller
 
                 # El usuario externo no pertenece a ninguna facultad
                 unset($new_user_data['dependency']);
+                unset($new_user_data['DirectorioActivo']);
+                unset($new_user_data['ClaveUASLP']);
                 $user = Extern::create($new_user_data);
                 $guard = 'web';
 
                 break;
         }
 
-        # Vacía la sesión
-        session([
-            'DirectorioActivo' => null,
-            'ClaveUASLP' => null
-        ]);
-
         return [ $user, $guard ];
-    }
-
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
-
-        if ($response = $this->registered($request, $user)) {
-            return $response;
-        }
-
-        return $request->wantsJson()
-                    ? new JsonResponse($user->toArray(), 201)
-                    : redirect($this->redirectPath());
     }
 }

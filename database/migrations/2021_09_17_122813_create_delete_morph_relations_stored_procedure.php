@@ -26,9 +26,6 @@ class CreateDeleteMorphRelationsStoredProcedure extends Migration
                 DELETE FROM user_workshop
                 WHERE user_id = id AND user_type COLLATE utf8mb4_general_ci = morph_user_type;
 
-                DELETE FROM event_user
-                WHERE user_id = id AND user_type COLLATE utf8mb4_general_ci = morph_user_type;
-
                 SET SQL_SAFE_UPDATES = 1;
             END
         ");

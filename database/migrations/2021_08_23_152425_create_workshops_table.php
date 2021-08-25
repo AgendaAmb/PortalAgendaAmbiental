@@ -19,6 +19,7 @@ class CreateWorkshopsTable extends Migration
             $table->string('description');
             $table->string('type');
             $table->string('work_edge')->nullable();
+            $table->timestamps();
             $table->softDeletes();
         });
 

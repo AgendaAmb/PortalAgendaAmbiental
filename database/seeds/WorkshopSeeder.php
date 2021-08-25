@@ -18,27 +18,32 @@ class WorkshopSeeder extends Seeder
             [ 
                 'name' => 'curso sostenibilidad',
                 'description' => 'Conferencia: Sostenibilidad energética en la pandemia',
-                'type' => 'Curso',
+                'type' => 'curso',
             ],
             [ 
                 'name' => 'curso movilidad y urbanismo',
                 'description' => 'Conferencia: Movilidad y Urbanismo con enfoque de género',
-                'type' => 'Curso',
+                'type' => 'curso',
             ],
             [
                 'name' => 'curso conduce con100te',
                 'description' => 'Curso-taller: Conduce Con💯te',
-                'type' => 'Curso',
+                'type' => 'curso',
             ], 
             [ 
                 'name' => 'curso mus-uaslp',
                 'description' => 'Segunda mesa de trabajo MUS-UASLP',
-                'type' => 'Curso'
+                'type' => 'curso'
             ],
             [
                 'name' => 'curso cebratón y proyecto mus-zup',
                 'description' => 'Curso-taller: Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP',
-                'type' => 'Curso',
+                'type' => 'curso',
+            ],
+            [
+                'name' => 'Unirodada cicloturística a la Cañada del Lobo',
+                'description' => 'Unirodada cicloturística a la Cañada del Lobo',
+                'type' => 'unirodada',
             ]
         ];
 

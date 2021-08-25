@@ -2,53 +2,26 @@
 
 namespace Tests\Feature;
 
-
+use App\Models\Auth\Extern;
+use App\Models\Auth\Student;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    /*
     /**
      * A basic feature test example.
      *
      * @return void
-     *
-    public function test_empty_user_login()
+     */
+    public function test_Extern_Login()
     {
-        $response = $this->post('/login', []);
-
-        $response->assertStatus(302);
-        $response->assertRedirect(route('login'));
-    }
-
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     *
-    public function test_invalid_user_login()
-    {
+        # Verificar inicio de sesión como externo.
         $response = $this->post('/login', [
-            'A262698@alumnos.uaslp.mxx',
-            'Mickymlr22%%%%'
+            'email' => 'email@ficticiooo.com',
+            'password' => 'contraseña'
         ]);
 
-        $response->assertRedirect(route('login'));
+        $response->assertSessionHasNoErrors();
+        Extern::where('email', 'email@ficticiooo.com')->forceDelete();
     }
-
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     *
-    public function test_email_login()
-    {
-        $response = $this->post('/login', [
-            'A262698@alumnos.uaslp.mx',
-            'Mickeymo970609sep%$'
-        ]);
-
-        $response->assertStatus(302);
-        $response->assertRedirect(route('home'));
-    }*/
 }

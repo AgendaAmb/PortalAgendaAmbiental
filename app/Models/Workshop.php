@@ -14,14 +14,7 @@ class Workshop extends Model
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The model generates timestamps.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -30,4 +23,15 @@ class Workshop extends Model
     protected $hidden = [
         'deleted_at',
     ];
+
+    /**
+     * Scope a query to only include active users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeTipo($query, $tipo)
+    {
+        return $query->where('type', $tipo);
+    }
 }

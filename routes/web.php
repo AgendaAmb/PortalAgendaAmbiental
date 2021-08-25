@@ -97,10 +97,6 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a eventos.
     Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
-
-    # Registro a eventos.
-    Route::post('/RegistrarEventoUsuario', 'EventController@store')->name('RegistrarEventoUsuario');
-    Route::get('/Eventos', 'EventController@index')->name('Eventos');
 });
 
 
