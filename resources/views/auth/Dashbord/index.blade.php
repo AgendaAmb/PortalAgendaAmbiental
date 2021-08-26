@@ -10,7 +10,6 @@
 @endsection
 
 
-@dump($user_workshops)
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
   <div class="row">
@@ -621,8 +620,6 @@
                   placeholder="estudiante, profesor, administrativo, otro">
               </div>
             </div>
-
-
             <div class="form-group row " v-if="modalClick=='Rodada'">
               <div class="col-12">
                 <div class="form-check form-check-inline">
@@ -747,12 +744,11 @@
     Facultad:'',
     spinnerVisible:false,
     CURP:'',
-
     LugarResidencia:'',
     Ocupacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
-
+    Genero:'',
     isAsistencia:'',
     CursosC:'',
     InteresAsistencia:'',
@@ -764,8 +760,9 @@
     hasModule17Gemas:false,
     CondicionSalud:[],
     NombreContacto:'',
-    CelularContacto:''
-
+    CelularContacto:'',
+    cursosInscritos:[]
+   
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -791,7 +788,9 @@
         this.tel='{{Auth::user()->phone_number}}',
         this.Facultad='{{Auth::user()->dependency}}',
         this.modalClick=ModalClick,
+        this.Genero='{{Auth::user()->gender}}',
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
+        this.cursosInscritos='{{Auth::user()->getRegisteredWorkshops}}',
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
@@ -808,15 +807,10 @@
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
                 "Tel":this.tel,
-
                 "Nacionalidad":this.Pais,
                 "LugarResidencia":this.LugarResidencia,
                 "CURP":this.CURP,
                 "Ocupacion":this.Ocupacion,
-
-
-                "Discapacidad":this.Discapacidad,
-                "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,
                 "InteresAsistencia":this.InteresAsistencia,
                 "cursosInscritosMMUS":this.checkedNames,
@@ -828,7 +822,7 @@
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
-              spinnerVisible=false,
+              this.spinnerVisible=false,
                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
                   this.Errores[0].Visible
@@ -836,10 +830,9 @@
 
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
+            axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
               console.log(response.data),
-              spinnerVisible=false
-               //window.location.href = this.url+''
+              this.spinnerVisible=false
                )).catch((err) => {
                   this.Errores[0].Visible
             })
@@ -847,7 +840,7 @@
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarEventoUsuario',data). then(response => (
               console.log(response.data),
-              spinnerVisible=false
+             this.spinnerVisible=false
                //window.location.href = this.url+''
                )).catch((err) => {
                   this.Errores[0].Visible
