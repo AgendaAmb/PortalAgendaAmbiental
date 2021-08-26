@@ -11,6 +11,7 @@
 
 
 @section('ContenidoPrincipal')
+
 <div class="container-fluid" id="panel">
   <div class="row">
     <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3">
@@ -48,11 +49,10 @@
             </div>
           </div>
         -->
-          <div @if (Auth::user()->user_type!="externs")
-            class="carousel-item"
-            @else
+          <div 
+          
             class="carousel-item active"
-            @endif
+           
             >
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
@@ -66,7 +66,7 @@
                 </a>
               </div>
             </div>
-            <div class="d-none d-sm-block d-md-none" v-if="TipoUsuario!='externs'?true:false">
+            <div class="d-none d-sm-block d-md-none" >
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                   <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth1"
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item active">
+          <div class="carousel-item ">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
@@ -124,6 +124,7 @@
         data-ride="carousel">
 
         <div class="carousel-inner">
+          <!--
           <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
@@ -132,11 +133,11 @@
               </a>
             </div>
           </div>
-          <div @if (Auth::user()->user_type!="externs")
-            class="carousel-item"
-            @else
+        -->
+          <div 
+          
             class="carousel-item active"
-            @endif>
+          >
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                 <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
@@ -178,12 +179,11 @@
       </div>
     </div>
   </div>
-  <div class="row py-3">
-    <div class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2">
-
+  <div class="row py-3 ">
+    <div class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0 mt-sm-0">
       <div id='calendar' class="mt-2"></div>
     </div>
-    <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1 mt-5">
+    <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1 mt-5 mb-3">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item ">
@@ -204,7 +204,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0">
+    <div class="col-xl-2  col-lg-4 col-md-6   order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 p-0 d-none">
       <a class="btn w-100 font-weight-bolder" data-toggle="collapse" href="#collapseExample" role="button"
         aria-expanded="false" aria-controls="collapseExample"
         style="background-color: white;color:gray;border: 2px solid gray;border-radius: 0.0rem;">
@@ -316,13 +316,13 @@
                 <input type="emailR" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
               </div>
             </div>
-            <div class="form-row was-validated">
+            <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
               <div class="form-group col-md-6">
                 <label for="ClaveU_RPE">clave única/RPE</label>
                 <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
                   required>
               </div>
-              <div class=" form-group col-md-6">
+              <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
                 <label for="Facultad">Facultad de adscripción</label>
                 <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
                   v-model="Facultad">
@@ -715,7 +715,7 @@
                 Registrando...
               </button>
               <div class="alert alert-success" role="alert" v-if="Guardado">
-                ¡¡Te has registrado a los cursos con exito!!
+                ¡¡Te has registrado con exito!!
               </div>
             </div>
 
@@ -809,6 +809,9 @@
         this.Ocupacion='{{Auth::user()->ocupation}}',
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
+        this.CondicionSalud='{{Auth::user()->health_condition}}',
+        this.NombreContacto='{{Auth::user()->emergency_contact}}'
+        this.CelularContacto='{{Auth::user()->emergency_contact_phone}}',
         this.Guardado=false,
         this.url='{{env('APP_URL')}}'
       },
@@ -840,7 +843,7 @@
 
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
-              console.log(response.data),
+             
               this.spinnerVisible=false,
                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
@@ -861,8 +864,8 @@
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
               console.log(response.data),
-             this.spinnerVisible=false
-
+             this.spinnerVisible=false,
+             this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible
             })
