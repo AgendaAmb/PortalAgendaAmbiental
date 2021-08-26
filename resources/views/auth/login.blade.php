@@ -6,6 +6,7 @@
 
 
 @section('FormularioInicioSesion')
+
 <p class="text-center h2 font-weight-bold mt-3" style="color: #005faf;">Bienvenid@ a Mi Portal de Agenda Ambiental</p>
 <div class="row justify-content-center mt-1">
 
@@ -578,17 +579,31 @@
     isDiscapacidad:'',
     Discapacidad:'',
     LugarResidencia:'',
-    spinnerVisible:false
+    spinnerVisible:false,
+    urlAnterior:'',
+    registroVa:''
   },
   mounted:function () {
   this.$nextTick(function () {
     // Código que se ejecutará solo después de
     // haber renderizado la vista completa
+    this.ChecarUrl(),
     this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
   })
 },
   methods:{
+    levantaModal:function(){
+        var urlactual='{{url()->full()}}'
+        urlactual=='http://148.224.134.160/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
+        
+        $('#Registro').modal('show')
+    },
+    ChecarUrl:function(){
+        this.urlAnterior='{{url()->previous()}}'
+        this.urlAnterior=='http://148.224.134.160/MovilidadUrbanaSostenible2021'?this.levantaModal():''
+
+    },
       //*Metodo para verificar que las contraseñas sean iguales*//
       RestableceValores:function(){
           if (this.PerteneceUaslp=="Si") {

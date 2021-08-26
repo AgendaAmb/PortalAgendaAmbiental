@@ -1,7 +1,7 @@
 
 body{
     max-width: 1600px;
-    font-family: 'Myraid light';
+   
    margin: auto;
    min-width: 320px;
    background-color: white;
@@ -194,10 +194,7 @@ ul.dropdown-menu > li
     font-size: 15pt;
     font-weight: bold;
 }
-::marker {
-    
-    font-size: 1.5em;
-  }
+
 .descripcion
 {
     font-family: 'Myraid light';

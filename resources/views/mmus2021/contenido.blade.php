@@ -62,7 +62,7 @@
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
-    <h3>Dirigido a</h3>Comunidad UASLP y público general<br>
+    <h3>Dirigido a</h3>Comunidad UASLP y público general<br><br>
     <h3 style="color: #5c94d7;">Objetivo</h3>
     <p style="font-size: 15px !important;">Continuar promoviendo e implementando una movilidad urbana sostenible
         considerando a todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
@@ -72,12 +72,17 @@
     <h3 style="color: #5c94d7;">Objetivos específicos</h3>
     <p style="font-size: 15px !important;">
         <ul>
-            <li>Mantener un espacio de intercambio académico con diferentes actores que aporten percepciones y puntos de vista informados que nutran y generen conocimiento.  </li>
-            <li>Fomentar la movilidad cero emisiones tanto de forma recreativa como reflexiva que incluya la conexión de cómo nos movemos y el diseño de nuestra ciudad.  </li>
-            <li>Implementar mejoras en la infraestructura que envíen un mensaje que invoque la creatividad, la abstracción y el cambio. </li>
-            <li>Sembrar y conservar alianzas y gestiones firmes y coordinadas para lograr objetivos a mediano y largo plazo.</li>
+            <li>Mantener un espacio de intercambio académico con diferentes actores que aporten percepciones y puntos de
+                vista informados que nutran y generen conocimiento. </li>
+            <li>Fomentar la movilidad cero emisiones tanto de forma recreativa como reflexiva que incluya la conexión de
+                cómo nos movemos y el diseño de nuestra ciudad. </li>
+            <li>Implementar mejoras en la infraestructura que envíen un mensaje que invoque la creatividad, la
+                abstracción y el cambio. </li>
+            <li>Sembrar y conservar alianzas y gestiones firmes y coordinadas para lograr objetivos a mediano y largo
+                plazo.</li>
             <br>
-            <span> <strong>Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19. </strong></span>
+            <p class="text-center"><strong>Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19.
+                </strong></p>
 
         </ul>
 
@@ -116,9 +121,13 @@
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
+                        <div class="col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
 
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="Banners-Conferencias.png">CARTEL GENERAL </a>
@@ -167,7 +176,7 @@
                             <br>
                             <span><b>Lugar: &nbsp;</b> Zoom</span>
                             <br>
-                            <span><b>Fechas: &nbsp;</b> Jueves 9 de septiembre 2021</span>
+                            <span><b>Fecha: &nbsp;</b> Jueves 9 de septiembre 2021</span>
                             <br>
                             <span><b>Horario:&nbsp;</b> 18:00 a 19:00 horas</span>
 
@@ -202,8 +211,11 @@
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
@@ -220,10 +232,11 @@
                             <span><b>Lugar: &nbsp;</b> Estacionamiento de Centro Cultural Universitario
                                 Bicentenario</span>
                             <br>
-                            <span><b>Fechas: &nbsp; </b> Sábado 18 de septiembre 2021</span>
+                            <span><b>Fecha: &nbsp; </b> Sábado 18 de septiembre 2021</span>
                             <br>
                             <span><b>Horario:&nbsp;</b> 10:00-11:30 horas</span>
-                            <span><b>Ponentes: &nbsp;</b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
+                            <span><b>Ponentes: &nbsp;</b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
+                                Pérez
                                 Ayala</span>
                             <br>
                             <br>
@@ -270,8 +283,11 @@
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
+                    class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                    <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                        <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            role="button">REGISTRAR</a>
+                    </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
@@ -335,10 +351,9 @@
                     </div>
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                            <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#"
-                                role="button">REGISTRATE</a>
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('login',['nombreModal'=> 'Rodada'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
@@ -414,7 +429,11 @@
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
