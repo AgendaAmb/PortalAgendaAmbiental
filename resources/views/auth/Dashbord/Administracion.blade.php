@@ -21,6 +21,7 @@
                 <th>Rol</th>
                 @endif
                 <th>Sistema</th>
+                <th>Cursos/Talleres</th>
             </tr>
         </thead>
         <tbody>
@@ -49,6 +50,11 @@
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
+                <td>
+                    @foreach ($user->workshops as $key => $workshops)
+                    <li>{{$workshops->name}}</li>
+                    @endforeach
+                </td>
             </tr>
             @endforeach
 
@@ -67,6 +73,7 @@
 
             @endif
             <th>Sistema</th>
+            <th>Cursos/Talleres</th>
 
             </tr>
         </tfoot>

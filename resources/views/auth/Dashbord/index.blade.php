@@ -746,12 +746,11 @@
     Facultad:'',
     spinnerVisible:false,
     CURP:'',
-  
     LugarResidencia:'',
     Ocupacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
-   Genero:'',
+    Genero:'',
     isAsistencia:'',
     CursosC:'',
     InteresAsistencia:'',
@@ -793,7 +792,7 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
-        this.cursosInscritos='{{Auth::user()->workshops}}',
+        this.cursosInscritos='{{Auth::user()->getRegisterWorkshops}}',
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
