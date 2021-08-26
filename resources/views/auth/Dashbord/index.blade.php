@@ -763,15 +763,20 @@
   mounted:function () {
   this.$nextTick(function () {
     this.cargarCursos(),
+    this.checarAsistenciaCursos(),
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
-    
   })
 },
 
   methods:{
-
+    checarAsistenciaCursos:function(){
+      this.CursosC='{{Auth::user()->courses}}',
+      if (this.CursosC1='') {
+        this.isAsistencia='Si'
+      }
+    },
     cargarCursos:function(){
       @foreach(Auth::user()->getRegisteredWorkshops() as $E)
                 this.checkedNames.push(
@@ -797,6 +802,8 @@
         this.LugarResidencia='{{Auth::user()->residence}}',
         this.Ocupacion='{{Auth::user()->ocupation}}',
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
+        this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
+       
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
