@@ -773,12 +773,8 @@
   methods:{
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
-  
-      if (this.CursosC1=='') {
-        this.isAsistencia='Si'
-      }else{
-        this.isAsistencia='No'
-      }
+      this.CursosC==''?this.isAsistencia='Si':this.isAsistencia='No'
+     
     },
     cargarCursos:function(){
       @foreach(Auth::user()->getRegisteredWorkshops() as $E)
