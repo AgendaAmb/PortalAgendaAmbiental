@@ -607,7 +607,7 @@
                 <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;"
                   maxlength="18" name="CURP" v-model="CURP" readonly>
               </div>
-             
+
             </div>
             <div class="form-group row was-validated">
               <div class="col-md-12">
@@ -762,7 +762,7 @@
     CelularContacto:'',
     cursosInscritos:[],
     Guardado:''
-   
+
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -778,7 +778,7 @@
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
       this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
-     
+
     },
     cargarCursos:function(){
       @foreach(Auth::user()->getRegisteredWorkshops() as $E)
@@ -856,10 +856,10 @@
             })
            }else{
             data['TipoEvento'] = 'unirodada'
-            axios.post(this.url+'RegistrarEventoUsuario',data). then(response => (
+            axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
               console.log(response.data),
              this.spinnerVisible=false
-              
+
                )).catch((err) => {
                   this.Errores[0].Visible
             })

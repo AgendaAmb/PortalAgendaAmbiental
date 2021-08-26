@@ -50,26 +50,17 @@ class RegisterTest extends TestCase
             'Genero' => 'Un género que no existe'
         ];
 
-        # Solicitar el curp, solo a Mexicanos.
+
+
+        # Verificar que el género sea válido.
         $response = $this->post('/register', $data);
         $response->assertSessionHasErrors([ 'Genero' ]);
 
         $data['Genero'] = 'Masculino';
 
         # Solicitar el curp, solo a Mexicanos y verificar contraseñas.
-        $response = $this->post('/register', [
-            'Nombres' => null,
-            'ApellidoP' => 'Mujica',
-            'ApellidoM' => null,
-            'email' => 'email@ficticio.com',
-            'password' => 'contraseña',
-            'passwordR' => 'contraseña',
-            'Pais' => 'Panamá',
-            'Tel' => null,
-            'CURP' => null,
-        ]);
-
-        $response->assertSessionDoesntHaveErrors([ 'CURP' ]);
+        $response = $this->post('/register', $data);
+        $response->assertSessionDoesntHaveErrors([ 'Genero' ]);
     }
 
 

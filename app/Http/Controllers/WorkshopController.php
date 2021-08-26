@@ -94,6 +94,7 @@ class WorkshopController extends Controller
     {
         # Usuario autenticado
         $user = $request->user();
+        $user->workshops()->tipo('curso')->detach();
 
         foreach ($courses as $workshop)
         {
