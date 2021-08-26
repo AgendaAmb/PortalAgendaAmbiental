@@ -769,7 +769,7 @@
   this.$nextTick(function () {
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
-   
+   this.activaModal(),
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
@@ -777,7 +777,11 @@
 },
 
   methods:{
-   
+    activaModal:function(){
+    
+      this.DatosUsuario('mmus'),
+      $('#Registro17gemas').modal('show')
+    },
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
       this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
