@@ -307,24 +307,7 @@
                   name="ApellidoM" style="text-transform: capitalize;">
               </div>
             </div>
-            <div class="form-row was-validated">
-              <div class=" form-group col-md-6" v-if="modalClick!='Rodada'">
-                <label for="Edad">Edad</label>
-                <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1" max="100"
-                  required>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="Genero">Género</label>
-                <select id="Genero" class="form-control" v-model="Genero" required name="Genero">
-                  <option disabled value="">Género</option>
-                  <option value="Masculino" id="M">Masculino</option>
-                  <option value="Femenino" id="F">Femenino</option>
-                  <option value="NoEspecificar" id="NE">No Especificar</option>
-                </select>
-
-              </div>
-
-            </div>
+            
 
             <div class="form-group row was-validated">
               <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
@@ -356,10 +339,7 @@
                 @endif
                 >
               </div>
-              <div class="col-md-6 mb-3" v-if="modalClick!='Rodada'">
-                <label for="CP">Codigo Postal</label>
-                <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
-              </div>
+             
             </div>
             <div class="form-row row was-validated" v-if="modalClick!='Rodada'">
               <div class="col-md-6 mb-3">
@@ -640,33 +620,8 @@
                   placeholder="estudiante, profesor, administrativo, otro">
               </div>
             </div>
-            <div class="form-group row ">
-              <div class="col-12">
-                <label for="GEtnico">Grupo étnico</label>
-                <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
-                  placeholder="Grupo étnico (Zapoteco, Pame, etc)">
-              </div>
-            </div>
-            <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
-              <label for="isDiscapacidad" class="col-sm-5 col-form-label">¿Tienes alguna
-                discapacidad?</label>
-              <div class="col-7">
-                <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
-                  name="isDiscapacidad">
-                  <option disabled value="">Opción</option>
-                  <option value="Si" id="Si">Si</option>
-                  <option value="No" id="No">No</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group row was-validated" v-if="isDiscapacidad==='Si'">
-              <div class="col-md-12">
-                <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
-                <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad" required
-                  v-model="Discapacidad">
-              </div>
-            </div>
+           
+            
             <div class="form-group row " v-if="modalClick=='Rodada'">
               <div class="col-12">
                 <div class="form-check form-check-inline">
@@ -781,8 +736,6 @@
   el: '#panel',
   data: {
     ClaveU_RPE:'',
-    Genero:'',
-    GEtnico:'',
     Pais:'',
     userInfo:'',
     emailR:'',
@@ -793,12 +746,12 @@
     Facultad:'',
     spinnerVisible:false,
     CURP:'',
-    CP:'',
+  
     LugarResidencia:'',
     Ocupacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
-    Edad:'',
+   
     isAsistencia:'',
     CursosC:'',
     InteresAsistencia:'',
@@ -854,13 +807,13 @@
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
                 "Tel":this.tel,
-                "CP":this.CP,
+               
                 "Nacionalidad":this.Pais,
                 "LugarResidencia":this.LugarResidencia,
                 "CURP":this.CURP,
                 "Ocupacion":this.Ocupacion,
-                "GEtnico":this.GEtnico,
-                "isDiscapacidad":this.isDiscapacidad,
+             
+                
                 "Discapacidad":this.Discapacidad,
                 "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,

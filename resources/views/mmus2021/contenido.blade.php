@@ -6,27 +6,23 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 mb-5 mt-3">
     <p class="text-justify pSize pt-2 pt-xl-4 pt-lg-3  pt-md-0">
-        A medida en que nos adentramos en el siglo XXI, los retos de sostenibilidad se agudizan en todas sus
-        dimensiones, especialmente en contextos urbanos en dónde resulta impostergable la aplicación de estrategias que
-        permitan presentar soluciones sistémicas y de largo aliento pero con la urgencia de un decenio de acción hacia
-        el logro de las metas de los Objetivos del Desarrollo Sostenible a fin de cumplir con la Agenda 2030, una década
-        que inicia con una contingencia que ha generado fuertes impactos sanitarios y económicos a nivel
-        global.
+        Considerando que las ciudades del mundo ocupan solo el 3% de la tierra, pero representan entre el 60% y el 80%
+        del consumo de energía y el 75% de las emisiones de carbono (ONU, 2020) la UASLP a través de la Agenda Ambiental
+        y su programa Unibici continúa buscando tener ciudades sostenibles.
         <br><br>
-        Durante los primeros meses, circularon imágenes alrededor del mundo sobre cielos limpios en
-        ciudades que usualmente tenían cielos grises debido a la contaminación atmosférica, esto como resultado de las
-        medidas de confinamiento físico para hacer frente a la pandemia. De acuerdo a las recomendaciones de la
-        Organización Mundial de la Salud, una de las formas más seguras de traslado es la movilidad en bicicleta, debido
-        a que no sólo evita la exposición al virus del SARS-CoV-2, sino que además ayuda a disminuir algunos factores de
-        riesgo. Alrededor del mundo, ciudades implementaron ciclo vías emergentes para dar una respuesta la
-        movilidad.
+        Haciendo frente a la pandemia mundial se tienen reflexiones ambientales, económicas y sociales de nuestro
+        desarrollo como especie en este tiempo, la movilidad urbana sostenible continúa siendo una parte importante de
+        esta reflexión que considera todos los medios de transporte, todas las necesidades de movilidad, los diferentes
+        usuarios y la cultura generada alrededor de éstos en el contexto de San Luis Potosí.
         <br><br>
-        Éste es el octavo año consecutivo en que la UASLP y la Agenda Ambiental, celebran la Movilidad
-        Urbana Sostenible dedicando todo el mes a realizar actividades puntuales pero largo alcance como la pinta de
-        cebras peatonales artísticas, talleres, conferencias y foros. Aquí podrás encontrar la memoria de las
-        actividades realizadas como la premiación del concurso “Cineminuto y la Sostenibilidad” y la “Unirodada
-        Universitaria”. Recuerda que en la Universidad trabajamos por la sostenibilidad todos los días del año, así que
-        siéntete libre de contactarnos y compartir tus ideas, opiniones y propuestas.
+        En esta novena edición de las celebraciones del Mes de la Movilidad Urbana Sostenible la UASLP a través de la
+        Agenda Ambiental y sus colaboradores dedican todo el mes de septiembre 2021 a realizar actividades académicas,
+        de educación ambiental y de transformación física, incidiendo en los Objetivo Desarrollo Sostenible ODS11:
+        Comunidades y ciudades sostenibles, ODS 13: Acción por el clima y ODS17: Alianzas para lograr objetivos.
+        <br><br>
+        En sintonía con la búsqueda de una movilidad segura y saludable de la semana europea de la movilidad se
+        revaloran las oportunidades de cambio, las respuestas creativas, hábitos responsables y la resiliencia de las
+        comunidades que se han presentado en esta nueva forma de vida que ha generado la crisis sanitaria.
 </div>
 @endsection
 
@@ -61,29 +57,27 @@
 
     </div>
 </div>
+
 @endsection
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
     <h3>Dirigido a</h3>Comunidad UASLP y público general<br>
-    <h3 style="color: #5c94d7;">Objetivos</h3>
+    <h3 style="color: #5c94d7;">Objetivo</h3>
     <p style="font-size: 15px !important;">Continuar promoviendo e implementando una movilidad urbana sostenible
         considerando a todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
         aprendizaje, diversión, análisis, debate y la puesta en marcha de propuestas que modifiquen los espacios y
-        vialidades así como nuestra percepción de éstos. </p>
+        vialidades, así como nuestra percepción de éstos. </p>
 
-    <h3 style="color: #5c94d7;">Objetivos</h3>
+    <h3 style="color: #5c94d7;">Objetivos específicos</h3>
     <p style="font-size: 15px !important;">
         <ul>
-            <li>Inscríbete llenando el formato de registro y especificando cada actividad en línea que se encuentra como
-                botón en esta página.</li>
-            <li>En 48 horas (días hábiles) te llegara un correo con detalles de la actividad que elegiste. </li>
+            <li>Mantener un espacio de intercambio académico con diferentes actores que aporten percepciones y puntos de vista informados que nutran y generen conocimiento.  </li>
+            <li>Fomentar la movilidad cero emisiones tanto de forma recreativa como reflexiva que incluya la conexión de cómo nos movemos y el diseño de nuestra ciudad.  </li>
+            <li>Implementar mejoras en la infraestructura que envíen un mensaje que invoque la creatividad, la abstracción y el cambio. </li>
+            <li>Sembrar y conservar alianzas y gestiones firmes y coordinadas para lograr objetivos a mediano y largo plazo.</li>
             <br>
-            <span>* Se limitará el número de personas dependiendo de actividad y se mantendrán las medidas
-                sanitarias</span>
-            <br>
-            <span> <strong> ** Las actividades del MMUS2021 están sujetas al sistema del semáforo
-                    COVID-19.</strong></span>
+            <span> <strong>Las actividades del MMUS2021 están sujetas al sistema del semáforo COVID-19. </strong></span>
 
         </ul>
 
@@ -149,33 +143,33 @@
                             <h2 style="font-weight: 900; ">Ciclo de conferencias de Movilidad Urbana
                                 Sostenible</h2>
                             <br>
-                            <span><b>Conferencia 1: </b></span> “Sostenibilidad energética en la pandemia”
+                            <span><b>Conferencia 1: &nbsp;</b></span> “Sostenibilidad energética en la pandemia”
                             <br>
-                            <span><b>Ponente: </b>Dr. Marcos Algara Siller y Daniela Rodríguez
+                            <span><b>Ponentes: &nbsp;</b>Dr. Marcos Algara Siller y Daniela Rodríguez
                                 Aguilar</span>
                             <br>
-                            <span><b>Lugar: </b> Zoom</span>
+                            <span><b>Lugar: &nbsp;</b> Zoom</span>
                             <br>
-                            <span><b>Fechas: </b> Jueves 2 de septiembre 2021</span>
+                            <span><b>Fecha: &nbsp;</b> Jueves 2 de septiembre 2021</span>
                             <br>
-                            <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+                            <span><b>Horario:&nbsp;</b> 18:00 a 19:00 horas</span>
 
                             <br>
                             <br>
                             <br>
 
 
-                            <span><b>Conferencia 2: </b></span> : “Movilidad y Urbanismo con enfoque de
+                            <span><b>Conferencia 2: </b></span> &nbsp; “Movilidad y Urbanismo con enfoque de
                             género”
                             <br>
-                            <span><b>Ponentes: </b>Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
+                            <span><b>Ponentes: </b> &nbsp;Benilda Ivonne Aguayo Huerta, Roberto Josué Rodríguez
                                 Santiago, Lourdes Marcela López Mares, Claudio Iván Aldrete López</span>
                             <br>
-                            <span><b>Lugar: </b> Zoom</span>
+                            <span><b>Lugar: &nbsp;</b> Zoom</span>
                             <br>
-                            <span><b>Fechas: </b> Jueves 9 de septiembre 2021</span>
+                            <span><b>Fechas: &nbsp;</b> Jueves 9 de septiembre 2021</span>
                             <br>
-                            <span><b>Horario:</b> 18:00 a 19:00 horas</span>
+                            <span><b>Horario:&nbsp;</b> 18:00 a 19:00 horas</span>
 
                             <br>
                             <br>
@@ -223,13 +217,13 @@
 
                             <h2 style="font-weight: 900;">Curso-taller: Conduce Con💯te</h2>
 
-                            <span><b>Lugar: </b> Estacionamiento de Centro Cultural Universitario
+                            <span><b>Lugar: &nbsp;</b> Estacionamiento de Centro Cultural Universitario
                                 Bicentenario</span>
                             <br>
-                            <span><b>Fechas: </b> sábado 18 de septiembre 2021</span>
+                            <span><b>Fechas: &nbsp; </b> Sábado 18 de septiembre 2021</span>
                             <br>
-                            <span><b>Horario:</b> 10:00-11:30 horas</span>
-                            <span><b>Ponentes: </b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
+                            <span><b>Horario:&nbsp;</b> 10:00-11:30 horas</span>
+                            <span><b>Ponentes: &nbsp;</b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina Pérez
                                 Ayala</span>
                             <br>
                             <br>
@@ -291,11 +285,11 @@
                                 <h2 style="font-weight: 900;">2nda Mesa de Trabajo MUS-UASLP</h2>
 
 
-                                <span><b>Lugar: </b> : Aula de la Agenda Ambiental de la UASLP</span>
+                                <span><b>Lugar: &nbsp;</b> : Aula de la Agenda Ambiental de la UASLP</span>
                                 <br>
-                                <span><b>Fechas: </b> Viernes 24 septiembre 2021</span>
+                                <span><b>Fecha:&nbsp; </b> Viernes 24 septiembre 2021</span>
                                 <br>
-                                <span><b>Horario:</b> 10:00-12:30 horas</span>
+                                <span><b>Horario:&nbsp;</b> 10:00-12:30 horas</span>
                                 <br>
                                 <br>
                                 <span>
@@ -339,11 +333,12 @@
                             <img src="{{asset('storage/imagenes/mmus2021/RODADA.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <div class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                    <div
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                >REGISTRATE</a>
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#"
+                                role="button">REGISTRATE</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
@@ -358,11 +353,11 @@
                                 <h2 style="font-weight: 900;">Unirodada cicloturistica a la Cañada del Lobo
                                 </h2>
                                 <br>
-                                <span><b>Fecha: </b> &nbsp;Sábado 25 de septiembre 2021</span>
+                                <span><b>Fecha: &nbsp;</b> &nbsp;Sábado 25 de septiembre 2021</span>
                                 <br>
-                                <span><b>Horario:</b>&nbsp;7:30 a 11:00 horas</span>
+                                <span><b>Horario:&nbsp;</b>&nbsp;7:30 a 11:00 horas</span>
                                 <br>
-                                <span><b>Punto de encuentro: </b> &nbsp;Caja del Agua (Calzada de Guadalupe 200,
+                                <span><b>Punto de encuentro: &nbsp;</b> &nbsp;Caja del Agua (Calzada de Guadalupe 200,
                                     SLP)</span>
                                 <br>
                                 <br>
@@ -373,10 +368,11 @@
                                 <span>Recorrido ciclo turístico a la cañada del Lobo con parada para
                                     hidratación/refrigerio y tiempo para recorrido con explicación ecológica del
                                     lugar con cuota de recuperación que incluye ambulancia y refrigerio.</span>
-                                    <br><br>
+                                <br><br>
 
-                                <span><b>Distancia total:</b>&nbsp;  20 km aprox.</span><br><br>
-                                <span><b>Cuota de recuperación:  &nbsp; </b>$100 (en efectivo previo al evento)</span><br><br>
+                                <span><b>Distancia total:</b>&nbsp; 20 km aprox.</span><br><br>
+                                <span><b>Cuota de recuperación: &nbsp; </b>$100 (en efectivo previo al
+                                    evento)</span><br><br>
 
                                 <span>Llena el formulario en el botón de inscripción
                                     antes del 18 de septiembre del 2021.</span><br><br>
@@ -435,8 +431,8 @@
                                 <br>
                                 <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
                                 <br>
-                                <span><b>Horario:</b> 4:30-6:30 horas</span>
-                                <span><b>Ponente: </b>Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
+                                <span><b>Horario:</b> 4:30-6:30 horas</span> <br>
+                                <span><b>Ponentes: </b> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
                                     Pérez
                                     Ayala</span>
                                 <br>

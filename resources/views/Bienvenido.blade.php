@@ -10,7 +10,6 @@
         @include('Parciales.header')
         @if (route('Index')==url()->full())
         <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
-
             <a href="https://www.un.org/sustainabledevelopment/es/"> <img
                     src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset=""
                     id="imgODSLogo"></a>

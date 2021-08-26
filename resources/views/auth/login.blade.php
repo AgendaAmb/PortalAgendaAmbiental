@@ -81,20 +81,20 @@
                             href=" https://tic.uaslp.mx/habilitacorreo">
                             https://tic.uaslp.mx/habilitacorreo</a>
                         <br>
-                        y posteriormente registrarte <a
-                        class="font-weight-bold" data-toggle="modal" data-target="#Registro">
-                        {{ __(' aquí.') }}
-                    </a>
+                        y posteriormente registrarte <a class="font-weight-bold" data-toggle="modal"
+                            data-target="#Registro">
+                            {{ __(' aquí.') }}
+                        </a>
                     </P>
                 </div>
                 <p class="text-center h4 font-weight-bold">PÚBLICO EN GENERAL </p>
                 <div class="col-lg-12 text-justify p-0 mb-4">
-                    <p class=" text-muted h6">Ingresa con tu cuenta de correo electrónico que registraste, si no recuerdas tu contraseña, podrás restablecerla<a
-                            href=" {{route('password.request')}}">
-                           aquí</a>
+                    <p class=" text-muted h6">Ingresa con tu cuenta de correo electrónico que registraste, si no
+                        recuerdas tu contraseña, podrás restablecerla<a href=" {{route('password.request')}}">
+                            aquí</a>
                         <br>
 
-                    </a>
+                        </a>
                     </P>
                 </div>
                 <p class="text-center h4 font-weight-bold">CONTACTO</p>
@@ -153,7 +153,7 @@
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-2 col-sm-2 col-2">
 
-                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser"
+                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser" data-toggle="tooltip" data-placement="right" title="Buscar mi información"
                                 v-if="!spinnerVisible"><i class="fas fa-search"></i></a>
                             <button class="btn btn-light mt-md-2 mt-md-4" type="button" disabled v-if="spinnerVisible">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -467,23 +467,75 @@
                                 name="ApellidoM" style="text-transform: capitalize;">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row was-validated">
+                        <div class=" form-group col-md-2">
+                            <label for="Edad">Edad</label>
+                            <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1"
+                                max="100" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="Genero">Género</label>
+                            <select id="Genero" class="form-control" v-model="Genero" required name="Genero">
+                                <option disabled value="">Género</option>
+                                <option value="Masculino" id="M">Masculino</option>
+                                <option value="Femenino" id="F">Femenino</option>
+                                <option value="Otro" id="Otro">Otro</option>
+                                <option value="NoEspecificar" id="NE">No Especificar</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6" v-if="Genero=='Otro'">
+                            <label for="inputCity">Especificar</label>
+                            <input type="text" class="form-control" id="OtroGenero" v-model="OtroGenero"
+                                name="OtroGenero" autocomplete="OtroGenero">
+                        </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
                     </div>
+                    <div class="form-group row was-validated">
+                        <div class="col-4">
+                            <label for="GEtnico">Grupo étnico</label>
+                            <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
+                                placeholder="Grupo étnico (Zapoteco, Pame, etc)">
+                        </div>
+                        <div class="col-md-4 ">
+                            <label for="CP">Codigo Postal</label>
+                            <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
+                        </div>
+                        <div class="col-4">
+                            <label for="isDiscapacidad" >¿Tienes alguna
+                                discapacidad?</label>
+                            <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
+                                name="isDiscapacidad">
+                                <option disabled value="">Opción</option>
+                                <option value="Si" id="Si">Si</option>
+                                <option value="No" id="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row was-validated" v-if="isDiscapacidad==='Si'">
+                        
+                        <div class="col-md-12">
+                            <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
+                            <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
+                                required v-model="Discapacidad">
+                        </div>
+                    </div>
+
                     <div class="form-group ">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
-                                Al enviar la información confirmo que he leido y acepto el <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
+                                Al enviar la información confirmo que he leido y acepto el <a
+                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: black;"> aviso
+                                    de privacidad.</a>
                             </label>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-start">
                         <button id="submit" type="submit" class="btn btn-primary"
-                            style="background-color: #0160AE">Aceptar</button>
+                            style="background-color: #0160AE">Registrar</button>
                         <!--
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         -->
@@ -510,6 +562,14 @@
     password:'',
     Errores:[],
     Facultad:'',
+    Edad:'',
+    Genero:'',
+    OtroGenero:'',
+    GEtnico:'',
+    CP:'',
+    isDiscapacidad:'',
+    Discapacidad:'',
+
     spinnerVisible:false
   },
   mounted:function () {
@@ -530,6 +590,8 @@
             this.nombres='';
             this.ApellidoP='';
             this.ApellidoM='';
+            this.Edad='';
+            this.Genero='';
           }
       },
         VerificarContraseña:function(){
