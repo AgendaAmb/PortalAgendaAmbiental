@@ -162,9 +162,16 @@
                                 <span class="sr-only">Cargando...</span>
                             </button>
                         </div>
-
-
                     </div>
+                    <div class="form-row" v-if="PerteneceUaslp === 'Si'">
+
+                        <div class="form-group col-md-10  was-validated">
+                            <label for="CorreoAlterno ">Correo alternativo</label>
+                            <input type="email" class="form-control" id="CorreoAlterno" name="CorreoAlterno" required
+                                name="CorreoAlterno" v-model='CorreoAlterno'>
+                        </div>
+                    </div>
+
                     <div class="form-row" v-if="PerteneceUaslp === 'No'">
                         <div class="form-group col-md-12 was-validated">
                             <label for="email">Ingresa un correo electrónico</label>
@@ -581,7 +588,8 @@
     LugarResidencia:'',
     spinnerVisible:false,
     urlAnterior:'',
-    registroVa:''
+    registroVa:'',
+    CorreoAlterno:''
   },
   mounted:function () {
   this.$nextTick(function () {
