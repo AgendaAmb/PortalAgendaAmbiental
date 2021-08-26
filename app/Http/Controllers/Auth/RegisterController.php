@@ -100,7 +100,7 @@ class RegisterController extends Controller
             'gender' => $data['Genero'] ?? null,
 
             # Código postal
-            'zip_code' => $data['CP'],
+            'zip_code' => $data['CP'] ?? null,
 
             # Discapacidad
             'disability' => $data['Discapacidad'] ?? null,
