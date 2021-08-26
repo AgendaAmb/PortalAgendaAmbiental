@@ -621,7 +621,7 @@
               </div>
             </div>
             <div class="form-group row " v-if="modalClick=='Rodada'">
-              <div class="col-12">
+              <div class="col-12" >
                 <div class="form-check form-check-inline">
                   <label class="form-check-label">Condicion de salud</label>
                 </div>
@@ -766,13 +766,23 @@
   },
   mounted:function () {
   this.$nextTick(function () {
+    this.cargarCursos(),
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
+    
   })
 },
 
   methods:{
+
+    cargarCursos:function(){
+      @foreach(Auth::user()->getRegisteredWorkshops() as $E)
+                this.checkedNames.push(
+                    '{{$E['name']}}'
+                )
+      @endforeach
+    },
     check_one: function(){
         this.CondicionSalud = [];
     },
@@ -789,9 +799,13 @@
         this.Facultad='{{Auth::user()->dependency}}',
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
+        this.LugarResidencia='{{Auth::user()->residence}}',
+        this.Ocupacion='{{Auth::user()->ocupation}}',
+
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
-        this.cursosInscritos='{{Auth::user()->getRegisteredWorkshops}}',
         this.url='{{env('APP_URL')}}'
+        
+       
       },
       uaslpUser:function(){
 
