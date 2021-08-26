@@ -148,5 +148,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getRegisteredWorkshops()
     {
         $workshops = $this->workshops()->select('id', 'name', 'description')->get();
+
+        return $workshops;
     }
 }
