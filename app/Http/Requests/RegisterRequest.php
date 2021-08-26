@@ -65,14 +65,17 @@ class RegisterRequest extends FormRequest
             'passwordR' => [ Rule::requiredIf($this->DirectorioActivo === null), 'same:password' ],
             'Pais' => [ 'required' ],
             'Tel' => [ 'required', 'numeric' ],
-            'CURP' => [ 
-                'nullable', 
-                'required_if:Pais,México','size:18', 
-                'regex:/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i', 
+            'CURP' => [
+                'nullable',
+                'required_if:Pais,México','size:18',
+                'regex:/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i',
                 'unique:externs,curp',
                 'unique:students,curp',
                 'unique:workers,curp',
             ],
+            'Edad' => ['required','numeric'],
+            'LugarResidencia' => ['required','string'],
+            //'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
         ];
     }
 }

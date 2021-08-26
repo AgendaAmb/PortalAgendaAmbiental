@@ -49,6 +49,7 @@ class WorkshopController extends Controller
         $user->emergency_contact ??= $request->NombreContacto;
         $user->emergency_contact_phone ??= $request->CelularContacto;
         $user->interested_on_further_courses ??= $request->InteresAsistencia;
+        $user->previous_courses ??= $request->CursosC;
 
         $user->save();
 
