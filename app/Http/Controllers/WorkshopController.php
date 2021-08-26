@@ -37,21 +37,21 @@ class WorkshopController extends Controller
         }
 
         # Actualiza los datos del usuario.
-        $user->zip_code ??= $request->CP;
-        $user->residence ??= $request->LugarResidencia;
-        $user->ocupation ??= $request->Ocupacion;
-        $user->ethnicity ??= $request->GEtnico;
-        $user->disability ??= $request->Discapacidad;
-        $user->ocupation ??= $request->Ocupacion;
-        $user->courses ??= $request->CursosC;
-        $user->interested_on_further_courses ??= $request->InteresAsistencia;
-        $user->disability ??= $request->Discapacidad;
-        $user->comments ??= $request->ComentariosSugerencias;
-        $user->emergency_contact ??= $request->NombreContacto;
-        $user->emergency_contact_phone ??= $request->CelularContacto;
-        $user->interested_on_further_courses ??= $request->InteresAsistencia;
-        $user->previous_courses ??= $request->CursosC;
-
+        $user->zip_code = $request->CP ?? $user->zip_code;
+        $user->residence = $request->LugarResidencia ?? $user->residence;
+        $user->ocupation = $request->Ocupacion ?? $user->ocupation;
+        $user->ethnicity = $request->GEtnico ?? $user->ethnicity;
+        $user->disability = $request->Discapacidad ?? $user->disability;
+        $user->ocupation = $request->Ocupacion ?? $user->ocupation;
+        $user->courses = $request->CursosC ?? $user->courses;
+        $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+        $user->disability = $request->Discapacidad ?? $user->disability;
+        $user->comments = $request->ComentariosSugerencias ?? $user->comments;
+        $user->emergency_contact = $request->NombreContacto ?? $user->emergency_contact;
+        $user->emergency_contact_phone = $request->CelularContacto ?? $user->emergency_contact_phone;
+        $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+        $user->previous_courses = $request->CursosC ?? $user->previous_courses;
+        $user->health_condition = collect($request->CondicionSalud ?? [])->first() ?? $user->health_condition;
         $user->save();
 
         return response()->json([ 'status' => 200], 200);
@@ -75,10 +75,7 @@ class WorkshopController extends Controller
         if ($event === null)
             return false;
 
-        # Verifica que el usuario no esté registrado en el evento.
-        if ($user->hasWorkshop($event->name))
-            return false;
-
+        $user->workshops()->detach($event->id);
         $user->workshops()->attach($event->id);
 
         return true;

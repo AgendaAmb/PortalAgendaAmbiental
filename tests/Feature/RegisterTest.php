@@ -27,6 +27,7 @@ class RegisterTest extends TestCase
             'Edad',
             'LugarResidencia',
             'Genero',
+            'CorreoAlterno',
         ]);
     }
 
@@ -50,17 +51,19 @@ class RegisterTest extends TestCase
             'Genero' => 'Un género que no existe'
         ];
 
-
-
         # Verificar que el género sea válido.
         $response = $this->post('/register', $data);
         $response->assertSessionHasErrors([ 'Genero' ]);
 
+        # Género válido.
         $data['Genero'] = 'Masculino';
-
-        # Solicitar el curp, solo a Mexicanos y verificar contraseñas.
         $response = $this->post('/register', $data);
         $response->assertSessionDoesntHaveErrors([ 'Genero' ]);
+
+        # Valida otros géneros.
+        $data['Genero'] = 'Otro';
+        $response = $this->post('/register', $data);
+        $response->assertSessionHasErrors([ 'OtroGenero' ]);
     }
 
 
@@ -71,8 +74,7 @@ class RegisterTest extends TestCase
      */
     public function testCurpField()
     {
-        # Solicitar el curp, solo a Mexicanos.
-        $response = $this->post('/register', [
+        $data = [
             'Nombres' => 'José',
             'ApellidoP' => 'Mujica',
             'ApellidoM' => null,
@@ -80,24 +82,16 @@ class RegisterTest extends TestCase
             'password' => 'contraseña',
             'passwordR' => 'contraseña',
             'Pais' => 'México',
-            'Tel' => 4441113929,
-            'CURP' => null,
-        ]);
-
-        $response->assertSessionHasErrors([ 'CURP' ]);
-
-        # Solicitar el curp, solo a Mexicanos y verificar contraseñas.
-        $response = $this->post('/register', [
-            'Nombres' => null,
-            'ApellidoP' => 'Mujica',
-            'ApellidoM' => null,
-            'email' => 'email@ficticio.com',
-            'password' => 'contraseña',
-            'passwordR' => 'contraseña',
-            'Pais' => 'Panamá',
             'Tel' => null,
             'CURP' => null,
-        ]);
+        ];
+
+        # Solicitar el curp, solo a Mexicanos.
+        $response = $this->post('/register', $data);
+        $response->assertSessionHasErrors([ 'CURP' ]);
+
+        $data['Pais'] = 'Panamá';
+        $response = $this->post('/register', $data);
 
         $response->assertSessionDoesntHaveErrors([ 'CURP' ]);
     }
@@ -197,6 +191,8 @@ class RegisterTest extends TestCase
             'CURP' => 'MEOM970906HSPNRG06',
             'LugarResidencia' => 'San Luis Potosí',
             'Edad' => 23,
+            'Genero' => 'Masculino',
+            'CorreoAlterno' => 'miguel@prueba.com',
         ]);
 
         $response->assertSessionHasNoErrors();
@@ -212,6 +208,7 @@ class RegisterTest extends TestCase
     {
         $this->assertDatabaseHas('students', [
             'email' => 'A262698@alumnos.uaslp.mx',
+            'altern_email' => 'miguel@prueba.com',
         ]);
     }
 
@@ -245,6 +242,8 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
             'LugarResidencia' => 'San Luis Potosí',
+            'Genero' => 'Masculino',
+            'CorreoAlterno' => 'miguel@prueba.com',
             'Edad' => 23,
         ]);
 
@@ -263,7 +262,8 @@ class RegisterTest extends TestCase
             'email' => 'A262698@alumnos.uaslp.mx',
             'name' => 'MIGUEL ANGEL',
             'middlename' => 'MENDEZ',
-            'surname' => 'ORTA'
+            'surname' => 'ORTA',
+            'altern_email' => 'miguel@prueba.com',
         ]);
     }
 
@@ -286,6 +286,8 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEMM620528HTSNNG02',
             'LugarResidencia' => 'San Luis Potosí',
+            'CorreoAlterno' => 'miguel@prueba.com',
+            'Genero' => 'Masculino',    
             'Edad' => 58,
         ]);
 
@@ -313,6 +315,7 @@ class RegisterTest extends TestCase
     {
         $this->assertDatabaseHas('workers', [
             'email' => 'miguel.mendez@uaslp.mx',
+            'altern_email' => 'miguel@prueba.com',
         ]);
     }
 
@@ -333,7 +336,9 @@ class RegisterTest extends TestCase
             'email' => 'miguel.mendez@uaslp.mx',
             'Pais' => 'México',
             'Tel' => '4441309851',
+            'CorreoAlterno' => 'miguel@prueba.com',
             'CURP' => 'MEMM620528HTSNNG02',
+            'Genero' => 'Masculino',
             'LugarResidencia' => 'San Luis Potosí',
             'Edad' => 58,
         ]);
@@ -353,6 +358,7 @@ class RegisterTest extends TestCase
             'email' => 'miguel.mendez@uaslp.mx',
             'name' => 'MIGUEL ANGEL',
             'middlename' => 'MENDEZ',
+            'altern_email' => 'miguel@prueba.com',
             'surname' => 'MONTENEGRO'
         ]);
     }
@@ -375,6 +381,8 @@ class RegisterTest extends TestCase
             'Pais' => 'Uruguay',
             'Tel' => '4441113929',
             'LugarResidencia' => 'Montevideo',
+            'CorreoAlterno' => 'miguel@prueba.com',
+            'Genero' => 'Masculino',
             'CURP' => null,
             'Edad' => 58,
         ]);
@@ -392,6 +400,7 @@ class RegisterTest extends TestCase
     {
         $this->assertDatabaseHas('externs', [
             'email' => 'email@ficticiooo.com',
+            'altern_email' => 'miguel@prueba.com',
         ]);
     }
 

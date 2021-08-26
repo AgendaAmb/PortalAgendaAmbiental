@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Auth\Extern;
-use App\Models\Auth\Student;
-use App\Models\Auth\Worker;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
@@ -76,6 +73,8 @@ class RegisterRequest extends FormRequest
             'Edad' => ['required','numeric'],
             'LugarResidencia' => ['required','string'],
             'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
+            'OtroGenero' => ['required_if:Genero,Otro'],
+            'CorreoAlterno' => ['required'],
         ];
     }
 }
