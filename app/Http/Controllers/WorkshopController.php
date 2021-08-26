@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
+use App\Mail\RegisteredWorkshops;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
@@ -70,6 +72,7 @@ class WorkshopController extends Controller
 
         # Obtiene el evento de la unirodada.
         $event = Workshop::tipo($request->TipoEvento)->latest('created_at')->first();
+        $events = Workshop::tipo($request->TipoEvento)->latest('created_at')->get();
 
         # Indica que el evento no existe en la base de datos.
         if ($event === null)
@@ -77,6 +80,8 @@ class WorkshopController extends Controller
 
         $user->workshops()->detach($event->id);
         $user->workshops()->attach($event->id);
+
+        Mail::to($user)->send(new RegisteredWorkshops(collect($events)));
 
         return true;
     }
@@ -111,6 +116,10 @@ class WorkshopController extends Controller
 
             $user->workshops()->attach($workshop_model->id);
         }
+
+        $workshops = $user->workshops()->tipo('curso')->get();
+
+        Mail::to($user)->send(new RegisteredWorkshops($workshops));
     }
 
     /**

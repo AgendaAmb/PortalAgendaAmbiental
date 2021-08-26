@@ -44,7 +44,7 @@ class VerifyEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->from(env('MAIL_FROM_ADDRESS'), 'Portal de Agenda Ambiental')
+            ->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
             ->subject('Verifica tu correo electrónico')
             ->markdown('mail.verify-email', [
                 'url' => $this->verificationUrl($notifiable),

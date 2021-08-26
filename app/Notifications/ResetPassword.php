@@ -45,7 +45,7 @@ class ResetPassword extends ResetPasswordNotification
         }
 
         return (new MailMessage)
-            ->from(env('MAIL_FROM_ADDRESS'), 'Portal de Agenda Ambiental')
+            ->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
             ->subject('Reestablece tu contraseña')
             ->markdown('mail.reset-password', [
                 'url' => $url,
