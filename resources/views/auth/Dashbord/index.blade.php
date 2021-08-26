@@ -713,6 +713,9 @@
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Registrando...
               </button>
+              <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+              </div>
             </div>
 
           </form>
@@ -773,7 +776,7 @@
   methods:{
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
-      this.CursosC==''?this.isAsistencia='Si':this.isAsistencia='No'
+      this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='No':this.isAsistencia='Si'
      
     },
     cargarCursos:function(){
