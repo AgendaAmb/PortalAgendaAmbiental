@@ -19,7 +19,12 @@ class RegisterTest extends TestCase
         $response->assertSessionHasErrors([
             'Nombres',
             'ApellidoP',
-            'email', 'password', 'passwordR', 'Pais', 'Tel' ]);
+            'email',
+            'password',
+            'passwordR',
+            'Pais',
+            'Tel',
+        ]);
     }
 
     /**
@@ -154,7 +159,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
         ]);
-
+        $response->dump();
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
