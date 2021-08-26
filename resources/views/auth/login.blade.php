@@ -153,7 +153,8 @@
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-2 col-sm-2 col-2">
 
-                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser" data-toggle="tooltip" data-placement="right" title="Buscar mi información"
+                            <a class="btn btn btn-outline-light mt-md-2 mt-md-4" v-on:click="uaslpUser"
+                                data-toggle="tooltip" data-placement="right" title="Buscar mi información"
                                 v-if="!spinnerVisible"><i class="fas fa-search"></i></a>
                             <button class="btn btn-light mt-md-2 mt-md-4" type="button" disabled v-if="spinnerVisible">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -185,10 +186,8 @@
                     </div>
                     <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
                     <div class="form-row">
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-6  was-validated">
                             <label for="inputPertenecesUASLP ">País de origen</label>
-                        </div>
-                        <div class="form-group col-md-2 ">
                             <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
                                 <option disabled value="">País</option>
                                 <option value="Elegir" id="AF">Elegir opción</option>
@@ -439,12 +438,17 @@
                                 <option value="Zimbabue" id="ZW">Zimbabue</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-row" v-if="Pais === 'México'">
-                        <div class="form-group col-md-1">
-                            <label for="CURP ">CURP</label>
+                        <div class="form-group col-md-6 was-validated">
+                            <label for="LugarResidencia">Lugar de residencia</label>
+                            <input type="text" class="form-control" id="LugarResidencia" required name="LugarResidencia"
+                                v-model="LugarResidencia">
                         </div>
-                        <div class="form-group col-md-11  was-validated">
+                    </div>
+
+                    <div class="form-row" v-if="Pais === 'México'">
+
+                        <div class="form-group col-md-12  was-validated">
+                            <label for="CURP ">CURP</label>
                             <input type="text" class="form-control" id="CURP" required
                                 style="text-transform: uppercase;" maxlength="18" name="CURP">
                         </div>
@@ -488,10 +492,20 @@
                             <input type="text" class="form-control" id="OtroGenero" v-model="OtroGenero"
                                 name="OtroGenero" autocomplete="OtroGenero">
                         </div>
+
+
+                    </div>
+
+                    <div class="form-group row was-validated">
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
+                        <div class="col-md-6 ">
+                            <label for="CP">Codigo Postal</label>
+                            <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
+                        </div>
+
                     </div>
                     <div class="form-group row was-validated">
                         <div class="col-4">
@@ -499,12 +513,9 @@
                             <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
                                 placeholder="Grupo étnico (Zapoteco, Pame, etc)">
                         </div>
-                        <div class="col-md-4 ">
-                            <label for="CP">Codigo Postal</label>
-                            <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
-                        </div>
+
                         <div class="col-4">
-                            <label for="isDiscapacidad" >¿Tienes alguna
+                            <label for="isDiscapacidad">¿Tienes alguna
                                 discapacidad?</label>
                             <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
                                 name="isDiscapacidad">
@@ -513,10 +524,7 @@
                                 <option value="No" id="No">No</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group row was-validated" v-if="isDiscapacidad==='Si'">
-                        
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
                             <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
                                 required v-model="Discapacidad">
@@ -569,7 +577,7 @@
     CP:'',
     isDiscapacidad:'',
     Discapacidad:'',
-
+    LugarResidencia:'',
     spinnerVisible:false
   },
   mounted:function () {

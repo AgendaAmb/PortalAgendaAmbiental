@@ -607,11 +607,7 @@
                 <input type="text" class="form-control" id="CURP" required style="text-transform: uppercase;"
                   maxlength="18" name="CURP" v-model="CURP" readonly>
               </div>
-              <div class="col-md-6 mb-3" v-if="modalClick!='Rodada'">
-                <label for="LugarResidencia">Lugar de residencia</label>
-                <input type="text" class="form-control" id="LugarResidencia" required name="LugarResidencia"
-                  v-model="LugarResidencia">
-              </div>
+             
             </div>
             <div class="form-group row was-validated">
               <div class="col-md-12">
@@ -787,7 +783,6 @@
         this.CondicionSalud = [];
     },
     DatosUsuario:function(ModalClick){
-
         this.nombres= '{{Auth::user()->name}}',
         this.ApellidoP='{{Auth::user()->middlename}}',
         this.ApellidoM='{{Auth::user()->surname}}',
@@ -801,11 +796,8 @@
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
         this.Ocupacion='{{Auth::user()->ocupation}}',
-
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.url='{{env('APP_URL')}}'
-        
-       
       },
       uaslpUser:function(){
 
