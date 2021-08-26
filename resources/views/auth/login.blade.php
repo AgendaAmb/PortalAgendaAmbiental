@@ -537,7 +537,7 @@
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
                                 Al enviar la información confirmo que he leido y acepto el <a
-                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: black;"> aviso
+                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: #fecc56;;"> aviso
                                     de privacidad.</a>
                             </label>
                         </div>

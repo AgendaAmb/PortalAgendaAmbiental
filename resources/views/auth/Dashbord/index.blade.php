@@ -17,7 +17,7 @@
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner">
-
+          <!--
           <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
@@ -47,6 +47,7 @@
               </div>
             </div>
           </div>
+        -->
           <div @if (Auth::user()->user_type!="externs")
             class="carousel-item"
             @else
@@ -79,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item active">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
