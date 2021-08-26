@@ -714,7 +714,7 @@
                 Registrando...
               </button>
               <div class="alert alert-success" role="alert" v-if="Guardado">
-                ¡¡Guardado con exito!!
+                ¡¡Te has registrado a los cursos con exito!!
               </div>
             </div>
 
@@ -777,7 +777,7 @@
   methods:{
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
-      this.CursosC==null?this.isAsistencia='':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
+      this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
      
     },
     cargarCursos:function(){
