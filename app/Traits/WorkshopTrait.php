@@ -13,6 +13,7 @@ trait WorkshopTrait
      */
     public function workshops()
     {
+       
         return $this->morphToMany(Workshop::class, 'user', 'user_workshop');
     }
 
