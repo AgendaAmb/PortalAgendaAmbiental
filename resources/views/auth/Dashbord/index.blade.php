@@ -777,7 +777,7 @@
   methods:{
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
-      this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
+      this.CursosC==null?this.isAsistencia='':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
      
     },
     cargarCursos:function(){
