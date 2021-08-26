@@ -713,6 +713,9 @@
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Registrando...
               </button>
+              <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+              </div>
             </div>
 
           </form>
