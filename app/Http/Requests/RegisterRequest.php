@@ -75,7 +75,7 @@ class RegisterRequest extends FormRequest
             ],
             'Edad' => ['required','numeric'],
             'LugarResidencia' => ['required','string'],
-            'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
+            //'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
         ];
     }
 }
