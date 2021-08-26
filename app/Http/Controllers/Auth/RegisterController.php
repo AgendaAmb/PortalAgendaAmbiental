@@ -101,6 +101,9 @@ class RegisterController extends Controller
                     ? $data['Genero'].' - '.$data['OtroGenero']
                     : $data['Genero'] ?? null,
 
+            # Lugar de residencia
+            'residence' => $data['LugarResidencia'] ?? null,
+
             # Código postal
             'zip_code' => $data['CP'] ?? null,
 
