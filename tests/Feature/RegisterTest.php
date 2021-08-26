@@ -24,8 +24,54 @@ class RegisterTest extends TestCase
             'passwordR',
             'Pais',
             'Tel',
+            'Edad',
+            'LugarResidencia',
+            'Genero',
         ]);
     }
+
+    /**
+     * Test CURP field.
+     *
+     * @return void
+     */
+    public function testGeneroField()
+    {
+        $data = [
+            'Nombres' => 'José',
+            'ApellidoP' => 'Mujica',
+            'ApellidoM' => null,
+            'email' => 'email@ficticio.com',
+            'password' => 'contraseña',
+            'passwordR' => 'contraseña',
+            'Pais' => 'México',
+            'Tel' => 4441113929,
+            'CURP' => null,
+            'Genero' => 'Un género que no existe'
+        ];
+
+        # Solicitar el curp, solo a Mexicanos.
+        $response = $this->post('/register', $data);
+        $response->assertSessionHasErrors([ 'Genero' ]);
+
+        $data['Genero'] = 'Masculino';
+
+        # Solicitar el curp, solo a Mexicanos y verificar contraseñas.
+        $response = $this->post('/register', [
+            'Nombres' => null,
+            'ApellidoP' => 'Mujica',
+            'ApellidoM' => null,
+            'email' => 'email@ficticio.com',
+            'password' => 'contraseña',
+            'passwordR' => 'contraseña',
+            'Pais' => 'Panamá',
+            'Tel' => null,
+            'CURP' => null,
+        ]);
+
+        $response->assertSessionDoesntHaveErrors([ 'CURP' ]);
+    }
+
 
     /**
      * Test CURP field.
@@ -158,6 +204,8 @@ class RegisterTest extends TestCase
             'Pais' => 'México',
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
+            'LugarResidencia' => 'San Luis Potosí',
+            'Edad' => 23,
         ]);
 
         $response->assertSessionHasNoErrors();
@@ -205,6 +253,8 @@ class RegisterTest extends TestCase
             'Pais' => 'México',
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
+            'LugarResidencia' => 'San Luis Potosí',
+            'Edad' => 23,
         ]);
 
         $response->assertSessionHasNoErrors();
@@ -244,6 +294,8 @@ class RegisterTest extends TestCase
             'Pais' => 'México',
             'Tel' => '4441309851',
             'CURP' => 'MEMM620528HTSNNG02',
+            'LugarResidencia' => 'San Luis Potosí',
+            'Edad' => 58,
         ]);
 
         $response->assertSessionHasNoErrors();
@@ -291,6 +343,8 @@ class RegisterTest extends TestCase
             'Pais' => 'México',
             'Tel' => '4441309851',
             'CURP' => 'MEMM620528HTSNNG02',
+            'LugarResidencia' => 'San Luis Potosí',
+            'Edad' => 58,
         ]);
 
         $response->assertSessionHasNoErrors();
@@ -329,7 +383,9 @@ class RegisterTest extends TestCase
             'passwordR' => 'contraseña',
             'Pais' => 'Uruguay',
             'Tel' => '4441113929',
+            'LugarResidencia' => 'Montevideo',
             'CURP' => null,
+            'Edad' => 58,
         ]);
 
         $response->assertSessionHasNoErrors();
