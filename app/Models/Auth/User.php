@@ -150,7 +150,6 @@ class User extends Authenticatable implements MustVerifyEmail
         $workshops = $this->workshops()->select('id', 'name', 'description')->get()->toArray();
 
 
-
         return $workshops;
     }
 }

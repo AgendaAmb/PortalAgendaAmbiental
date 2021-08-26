@@ -36,7 +36,7 @@ class UserTest extends TestCase
         $response = $this->withHeaders([
             'Accept' => 'application/json',
         ])->get('panel');
-        
+
         $response->assertStatus(401);
     }
 
@@ -54,7 +54,7 @@ class UserTest extends TestCase
             'Accept' => 'application/json',
         ])->actingAs($user)
         ->get('panel');
-        
+
         $response->assertStatus(200);
     }
 
@@ -72,7 +72,7 @@ class UserTest extends TestCase
             'Accept' => 'application/json',
         ])->actingAs($user)
         ->get('panel');
-        
+
         $response->assertStatus(200);
     }
 
@@ -89,7 +89,7 @@ class UserTest extends TestCase
             'Accept' => 'application/json',
         ])->actingAs($user)
         ->get('Administracion');
-        
+
         $response->assertStatus(403);
     }
 
@@ -107,7 +107,7 @@ class UserTest extends TestCase
             'Accept' => 'application/json',
         ])->actingAs($user)
         ->get('Administracion');
-        
+
         $response->assertStatus(200);
         $user->removeRole('administrator');
     }

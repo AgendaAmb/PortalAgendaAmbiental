@@ -16,7 +16,10 @@ class RegisterTest extends TestCase
     public function testRequiredFields()
     {
         $response = $this->post('register', []);
-        $response->assertSessionHasErrors([ 'Nombres', 'ApellidoP', 'email', 'password', 'passwordR', 'Pais', 'Tel' ]);
+        $response->assertSessionHasErrors([
+            'Nombres',
+            'ApellidoP',
+            'email', 'password', 'passwordR', 'Pais', 'Tel' ]);
     }
 
     /**

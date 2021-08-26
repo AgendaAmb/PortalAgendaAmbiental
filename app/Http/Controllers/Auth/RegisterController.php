@@ -97,7 +97,9 @@ class RegisterController extends Controller
             'ethnicity' => $data['GEtnico'] ?? null,
 
             # Género
-            'gender' => $data['Genero'] ?? null,
+            'gender' => isset($data['OtroGenero']) && $data['OtroGenero'] !== null
+                    ? $data['Genero'].' - '.$data['OtroGenero']
+                    : $data['Genero'] ?? null,
 
             # Código postal
             'zip_code' => $data['CP'] ?? null,
