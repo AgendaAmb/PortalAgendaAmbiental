@@ -102,6 +102,31 @@ class WorkshopTest extends TestCase
      *
      * @return void
      */
+    public function testReRegisterUnirodadaAsStudent()
+    {
+        $user = Student::find(262698);
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+        ])->actingAs($user)
+        ->post('/RegistrarTallerUsuario', [
+            'NombreContacto' => 'Jaqueline Orta Lara',
+            'CelularContacto' => 4441113929,
+            'InteresAsistencia' => 'No',
+            'Ocupacion' => 'Estudiante',
+            'GrupoEtnico' => null,
+            'CondicionSalud' => [ 'Excelente' ],
+            'TipoEvento' => 'unirodada',
+        ]);
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
     public function testRegisterCoursesAsStudent()
     {
         $user = Student::find(262698);
@@ -124,6 +149,7 @@ class WorkshopTest extends TestCase
         ]);
 
         $response->assertStatus(200);
+        $this->assertTrue($user->workshops()->tipo('curso')->count() === 3);
     }
 
     /**
@@ -131,12 +157,27 @@ class WorkshopTest extends TestCase
      *
      * @return void
      */
-    public function testCoursesWereAttachedToStudent()
+    public function testReRegisterCoursesAsStudent()
     {
         $user = Student::find(262698);
 
-        # Obtiene los cursos registrados.
-        $this->assertTrue($user->workshops()->tipo('curso')->count() > 0);
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+        ])->actingAs($user)
+        ->post('/RegistrarTallerUsuario', [
+            'NombreContacto' => 'Jaqueline Orta Lara',
+            'CelularContacto' => 4441113929,
+            'InteresAsistencia' => 'No',
+            'Ocupacion' => 'Estudiante',
+            'GrupoEtnico' => null,
+            'CondicionSalud' => [ 'Excelente' ],
+            'cursosInscritosMMUS' => [
+                'curso conduce con100te'
+            ],
+        ]);
+
+        $response->assertStatus(200);
+        $this->assertTrue($user->workshops()->tipo('curso')->count() === 1);
     }
 
     /**
@@ -188,6 +229,31 @@ class WorkshopTest extends TestCase
      *
      * @return void
      */
+    public function testReRegisterUnirodadaAsWorker()
+    {
+        $user = Worker::find(13763);
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+        ])->actingAs($user)
+        ->post('/RegistrarTallerUsuario', [
+            'NombreContacto' => 'Jaqueline Orta Lara',
+            'CelularContacto' => 4441113929,
+            'InteresAsistencia' => 'No',
+            'Ocupacion' => 'Estudiante',
+            'GrupoEtnico' => null,
+            'CondicionSalud' => [ 'Excelente' ],
+            'TipoEvento' => 'unirodada',
+        ]);
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
     public function testRegisterCoursesAsWorker()
     {
         $user = Worker::find(13763);
@@ -210,6 +276,35 @@ class WorkshopTest extends TestCase
         ]);
 
         $response->assertStatus(200);
+        $this->assertTrue($user->workshops()->tipo('curso')->count() === 3);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testReRegisterCoursesAsWorker()
+    {
+        $user = Worker::find(13763);
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+        ])->actingAs($user)
+        ->post('/RegistrarTallerUsuario', [
+            'NombreContacto' => 'Jaqueline Orta Lara',
+            'CelularContacto' => 4441113929,
+            'InteresAsistencia' => 'No',
+            'Ocupacion' => 'Estudiante',
+            'GrupoEtnico' => null,
+            'CondicionSalud' => [ 'Excelente' ],
+            'cursosInscritosMMUS' => [
+                'curso movilidad y urbanismo',
+            ],
+        ]);
+
+        $response->assertStatus(200);
+        $this->assertTrue($user->workshops()->tipo('curso')->count() === 1);
     }
 
     /**

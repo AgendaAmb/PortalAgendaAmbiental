@@ -18,6 +18,7 @@ class CreateWorkersTable extends Migration
             $table->string('curp', 18)->nullable()->unique();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('altern_email')->nullable();
             $table->string('middlename')->nullable();
             $table->string('surname')->nullable();
             $table->string('age')->nullable();

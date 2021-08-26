@@ -104,6 +104,9 @@ class RegisterController extends Controller
             # Lugar de residencia
             'residence' => $data['LugarResidencia'] ?? null,
 
+            # Lugar de residencia
+            'altern_email' => $data['CorreoAlterno'] ?? null,
+
             # Código postal
             'zip_code' => $data['CP'] ?? null,
 
@@ -167,6 +170,7 @@ class RegisterController extends Controller
                 unset($new_user_data['dependency']);
                 unset($new_user_data['DirectorioActivo']);
                 unset($new_user_data['ClaveUASLP']);
+                unset($new_user_data['CorreoAlterno']);
                 $user = Extern::create($new_user_data);
                 $guard = 'web';
 
