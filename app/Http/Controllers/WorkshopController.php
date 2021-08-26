@@ -23,13 +23,14 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
-        if ($courses->count() > 0) {
-            $this->registerCourses($request, $courses);
-        }
-        else if ($request->TipoEvento !== null) {
+
+        if ($request->TipoEvento !== null) {
             if ($this->registerEvent($request) === false) {
                 return response()->json([ 'message' => 'No existe el tipo de evento especificado' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
             }
+        }
+        else if ($courses->count() > 0) {
+            $this->registerCourses($request, $courses);
         }
         else {
             return response()->json([ 'message' => 'Especifica uno o más cursos' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
@@ -94,7 +95,8 @@ class WorkshopController extends Controller
     {
         # Usuario autenticado
         $user = $request->user();
-        $user->workshops()->tipo('curso')->detach();
+        $mmus_courses = $user->workshops()->tipo('curso')->pluck('id');
+        $user->workshops()->detach($mmus_courses);
 
         foreach ($courses as $workshop)
         {
