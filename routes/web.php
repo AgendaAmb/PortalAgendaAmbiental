@@ -90,7 +90,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
-    
+
     # Módulos de usuario
     Route::resource('modules', ModuleController::class);
 
@@ -100,7 +100,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 });
 
 
-# Expedición de tokens y autorización por parte del 
+# Expedición de tokens y autorización por parte del
 # sistema central.
 Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students')->group(function(){
 

@@ -20,6 +20,8 @@ class CreateExternsTable extends Migration
             $table->string('email')->unique();
             $table->string('middlename')->nullable();
             $table->string('surname')->nullable();
+            $table->string('age')->nullable();
+            $table->string('gender')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('nationality')->nullable();
@@ -34,7 +36,7 @@ class CreateExternsTable extends Migration
             $table->string('emergency_contact_phone')->nullable();
             $table->string('health_condition')->nullable();
             $table->string('comments')->nullable();
-            
+
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

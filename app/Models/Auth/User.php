@@ -140,4 +140,13 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new VerifyEmail);
     }
 
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function getRegisteredWorkshops()
+    {
+        return $this->workshops()->get()->toArray();
+    }
 }

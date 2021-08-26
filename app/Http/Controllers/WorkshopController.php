@@ -103,7 +103,7 @@ class WorkshopController extends Controller
             if ($workshop_model === null)
                 continue;
 
-            # Registra el siguiente curso, en caso de que el usuario ya 
+            # Registra el siguiente curso, en caso de que el usuario ya
             # se haya registrado.
             if ($user->hasWorkshop($workshop))
                 continue;
