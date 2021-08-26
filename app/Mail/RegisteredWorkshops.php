@@ -30,7 +30,7 @@ class RegisteredWorkshops extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'), 'Portal de Agenda Ambiental')
+        return $this->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
                     ->subject('Confirmación de registro a cursos/talleres')
                     ->markdown('mail.workshops.registered-workshops', [
                         'workshops' => $this->workshops,
