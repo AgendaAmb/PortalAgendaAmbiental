@@ -37333,7 +37333,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require('./scripts');
 
 /***/ }),
 
@@ -37400,8 +37400,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\PortalAgendaAmbiental\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\PortalAgendaAmbiental\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/Portal/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/Portal/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

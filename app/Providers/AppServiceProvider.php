@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\UserObserver;
+use App\Models\Auth\User;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('botonAcordeon', \App\View\Components\BotonAcordeon::class);
         Blade::component('contenedor-botones', \App\View\Components\ContenedorBotones::class);
         Blade::component('ejeTrabajo', \App\View\Components\EjeDeTrabajo::class);
+        User::observe(UserObserver::class);
        
     }
 }

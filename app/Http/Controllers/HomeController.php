@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auth\Extern;
+use App\Models\Auth\Student;
+use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -13,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
 
     /**
@@ -25,4 +29,33 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
+
+    */
+    public function panel(Request $request){
+        return view('auth.Dashbord.index')
+            ->with('Modulos', $request->user()->userModules)
+            ->with('user_workshops', Auth::user()->workshops);
+    }
+
+    public function Administracion(){
+
+        # Obtiene todos los tipos de usuarios
+        $students = Student::all();
+        $workers = Worker::all();
+        $externs = Extern::all();
+
+        # Combina todos los tipos de usuario, ejemplo:
+        #
+        # [0] -> Externo,
+        # [1] -> Estudiante,
+        # [2] -> Trabajador,
+        #
+        # etc, etc.
+        $users = $students->merge($workers)->merge($externs);
+
+        return view('auth.Dashbord.Administracion')->with('users', $users)
+            ->with('Modulos',Auth::user()->userModules);
+    }
+
 }

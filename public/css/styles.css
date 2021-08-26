@@ -1,7 +1,7 @@
 
 body{
     max-width: 1600px;
-    font-family: 'Myraid light';
+   
    margin: auto;
    min-width: 320px;
    background-color: white;
@@ -39,7 +39,10 @@ background-color: #96A834;
 
 }
 
-
+#modalGemas .close{
+    padding: 0%;
+    margin: 0%;
+}
 .navbar .nav-item .dropdown-menu{
     display: none;
     flex-direction: column;
@@ -191,10 +194,7 @@ ul.dropdown-menu > li
     font-size: 15pt;
     font-weight: bold;
 }
-::marker {
-    
-    font-size: 1.5em;
-  }
+
 .descripcion
 {
     font-family: 'Myraid light';
@@ -650,6 +650,13 @@ font-weight: 900;
     width: 49.7%;
    
 }
+.imgCaourselAuth1{
+    width: 35.0%;
+    margin-left: 10%;
+}
+.imgCaourselAuth2{
+    width: 35.0%;
+}
 .close{
 background-color: gray;
 }
@@ -662,7 +669,15 @@ background-color: gray;
 a.nav-item.nav-link.nav-button{
     font-size: 12px;
 }
-
+#HerramientasInteres .card-body{
+    background-color: gray;
+    padding: 1.25rem 0%;
+    border-radius: 0.0rem;
+}
+#HerramientasInteres a{
+color:white;
+font-size: 12px;
+}
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
 

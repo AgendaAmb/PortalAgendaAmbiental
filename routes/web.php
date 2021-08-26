@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,25 +65,57 @@ Route::get('/DateUnRespiro', function () {
 })->name('DateUnRespiro');
 
 Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
-    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);;
+    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);
 })->name('ConsumoResponsable');
 
 Route::get('/MovilidadUrbanaSostenible', function () {
     return view('mmus.contenido');
 })->name('mmus');
 
-Route::get('/MovilidadUrbanaSostenible2021', function () {
-    return view('mmus2021.contenido');
+Route::get('/MovilidadUrbanaSostenible2021/{nombreModal?}',function ($NombreM=null) {
+    return view('mmus2021.contenido')->with('NombreM',$NombreM);
 })->name('mmus2021');
+
+
 
 Route::get('/CicloDeConferencias', function () {
     return view('Conferencias.contenido');
 })->name('CicloConf');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+# Usuarios autenticados y con roles
+Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
+    Route::get('/panel', 'HomeController@panel')->name('panel');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
+    Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
 
+    # Módulos de usuario
+    Route::resource('modules', ModuleController::class);
+
+    # Registro a eventos.
+    Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
+    Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
+});
+
+
+# Expedición de tokens y autorización por parte del
+# sistema central.
+Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students')->group(function(){
+
+    # Autorizar acceso a aplicación cliente.
+    Route::get('/authorize', '\Laravel\Passport\Http\Controllers\AuthorizationController@authorize')->name('authorizations.authorize');
+    Route::post('/authorize', '\Laravel\Passport\Http\Controllers\ApproveAuthorizationController@approve')->name('authorizations.approve');
+
+    # Token bearer para aplicación cliente.
+    Route::post('/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken')->name('token')->middleware('throttle')
+        ->withoutMiddleware('auth:web,workers,students');
+});
+
+
+
+/*Rutas para redireccion de rutas anteriores de agenda ambiental */
 Route::redirect('/historia/index.html', '/Nosotros', 301);
 Route::redirect('/consumoresp/index.html', '/ConsumoResponsable', 301);
 Route::redirect('/proserem/index.html', '/Proserem', 301);

@@ -32,97 +32,91 @@
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
       <div class="carousel-inner">
-        <!--
-        <div class="carousel-item ">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-          
-        </div>
-      -->
-      <!--
-      <div class="carousel-item ">
-        <div class="d-none d-lg-block d-md-block">
-          <div class="slide-box">
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
-                alt="First slide">
-            </a>
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
-                alt="First slide">
-            </a>
-          </div>
-        </div>
-
-        <div class="d-none d-sm-block d-md-none">
-          <div class="slide-box">
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
-                alt="First slide">
-            </a>
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
-                alt="First slide">
-            </a>
-          </div>
-        </div>
         
-      </div>
-       <div class="carousel-item ">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-          
-        </div>
-    -->
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      <!--
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href={{route('mmus2021')}}>
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+
+        </div>
+      -->
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                <img src="{{asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                <img src="{{asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
                 <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -146,7 +140,7 @@
               </a>
             </div>
           </div>
-          
+
         </div>
 
         <div class="carousel-item ">
@@ -244,7 +238,7 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
-                  alt="First slide">
+                alt="First slide">
               <a href="{{route('DateUnRespiro')}}">
                 <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -268,33 +262,35 @@
       data-ride="carousel">
 
       <div class="carousel-inner">
-        <!--
+
         <div class="carousel-item active">
           <div class="slide-box">
             <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                 alt="First slide">
             </a>
           </div>
         </div>
-         <div class="carousel-item active">
+        <!--
+        <div class="carousel-item ">
           <div class="slide-box">
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
-                alt="First slide">
-            </a>
-          </div>
-        </div>
-         <div class="carousel-item active">
-          <div class="slide-box">
-            <a href={{route('mmus2021')}}>
-              <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}"  class="imgCaoursel w-100 p-0 p-0 "
+            <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                 alt="First slide">
             </a>
           </div>
         </div>
       -->
-        <div class="carousel-item active">
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+              <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
               <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
@@ -310,8 +306,8 @@
             </a>
           </div>
         </div>
-      
-      
+
+
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('Cineminuto')}}">
@@ -334,27 +330,27 @@
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
-              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel  w-100 p-0 "
-                  alt="First slide">
+              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}"
+                class="imgCaoursel  w-100 p-0 " alt="First slide">
             </a>
 
           </div>
         </div>
-       
-       
-        </div>
-       
-        <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselResponse" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+
+
       </div>
+
+      <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselResponse" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
+</div>
 </div>
 
 <div class="mt-3 row justify-content-between  Ejes d-none d-xl-flex d-lg-flex d-md-flex">
@@ -452,47 +448,57 @@
     </x-acordeon>
     <x-acordeon :idAcordeon="'acordeonAccesos'" :tituloAcordeon="'ACCESOS'">
     </x-acordeon>
+
   </div>
 </div>
 <div class="modal fade" id="Concurso17gemas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
-        <div class="modal-content">
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+    <div class="modal-content">
 
-            <div class="modal-body py-0">
-                <div class="col-12 mb-4 ml-3 p-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
-                                class="img-fluid" alt="">
-                        </div>
-                    </div>
-                    <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
-                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
-                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+      <div class="modal-body py-0">
+        <div class="col-12 mb-4 ml-3 p-0">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+          </button>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+              <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div
+            class="row justify-content-center justify-content-sm-end justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+              <a href="#" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRATE</a>
+            </div>
+            <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+              <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
                                 height: 35px;
                                 font-weight: 900;
                                 width: 145px;
-                                "
-                                download="Cartel17Gemas.png">CARTEL  </a>
-                        </div>
-
-                    </div>
-
-                </div>
-
+                                " download="Cartel17Gemas.png">CARTEL </a>
             </div>
+            <div class="row justify-content-center">
+              <div class="col-10"
+                  style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'">
+                  <span>Después del cierren las inscripciones se te enviará un 
+                    correo electrónico con los datos para participar de forma 
+                    obligatoria en una charla en donde se explicará la mecánica 
+                    del concurso, así como la plataforma a utilizar. </span>
+              </div>
+          </div>
+
+          </div>
 
         </div>
+
+      </div>
+
     </div>
+  </div>
 </div>
 
 <script>

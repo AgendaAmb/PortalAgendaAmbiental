@@ -10,18 +10,20 @@ class Acordeon extends Component
     public $idAcordeon;
     public $tituloAcordeon;
     public $componentesAcordeon;
+    public $haveStyle;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($idAcordeon, $tituloAcordeon)
+    public function __construct($idAcordeon, $tituloAcordeon,$haveStyle=false)
     {
         $json = Storage::disk('local')->get('InformacionComponentes/Acordeones.json');
 
         $this->idAcordeon = $idAcordeon;
         $this->tituloAcordeon = $tituloAcordeon;
+        $this->haveStyle=$haveStyle;
         $this->componentesAcordeon = json_decode($json, true)[$idAcordeon];
     }
 

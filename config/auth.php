@@ -42,9 +42,28 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
+            'driver' => 'passport',
+            'provider' => 'users'
+        ],
+
+        'workers' => [
+            'driver' => 'session',
+            'provider' => 'workers'
+        ],
+
+        'workers-api' => [
+            'driver' => 'passport',
+            'provider' => 'workers'
+        ],
+
+        'students' => [
+            'driver' => 'session',
+            'provider' => 'students'
+        ],
+
+        'students-api' => [
+            'driver' => 'passport',
+            'provider' => 'students'
         ],
     ],
 
@@ -68,13 +87,42 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Auth\Extern::class
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'workers' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\ActiveDirectory\User::class,
+            'rules' => [],
+
+            'database' => [
+                'model' => App\Models\Auth\Worker::class,
+                'sync_passwords' => true,
+                'sync_attributes' => [
+                    App\Ldap\UserAttributeHandler::class
+                ],
+                'sync_existing' => [
+                    'email' => 'mail',
+                ]
+            ]
+        ],
+
+        'students' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\ActiveDirectory\User::class,
+            'rules' => [],
+
+            'database' => [
+                'model' => App\Models\Auth\Student::class,
+                'sync_passwords' => true,
+                'sync_attributes' => [
+                    App\Ldap\StudentAttributeHandler::class
+                ],
+                'sync_existing' => [
+                    'email' => 'mail',
+                ]
+            ]
+        ],
     ],
 
     /*

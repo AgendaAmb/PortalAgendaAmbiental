@@ -7,21 +7,20 @@
 
 <body>
     <header>
-        
         @include('Parciales.header')
         @if (route('Index')==url()->full())
-      
-            <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
-
-                <a href="https://www.un.org/sustainabledevelopment/es/"> <img src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset="" id="imgODSLogo"></a>
-            </div>
-            
-        
-    @endif
+        <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
+            <a href="https://www.un.org/sustainabledevelopment/es/"> <img
+                    src={{ asset('storage/imagenes/ods/Iconos/ODS_LOGO.png')}} class="img-fluid" alt="" srcset=""
+                    id="imgODSLogo"></a>
+        </div>
+        @endif
     </header>
     <nav>
+        @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+        @else
         @include('Parciales.navbar')
-
+        @endif
         @if (Str::contains(url()->full(),route('Gestion'))
         ||Str::contains(url()->full(),route('Educacion'))
         ||Str::contains(url()->full(),route('Vinculacion'))
@@ -41,9 +40,9 @@
         <x-btns-ejes>
         </x-btns-ejes>
         @else
-           
-        @endif
 
+        @endif
+        @yield('navbarModulos')
     </nav>
 
     <main class="container-fluid">
@@ -52,10 +51,15 @@
         @yield('ContenidoPrincipal')
     </main>
 
+
+    @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+    @else
     <footer>
         @include('Parciales.footer')
     </footer>
-   
+    @endif
+
+
 </body>
 
 </html>
