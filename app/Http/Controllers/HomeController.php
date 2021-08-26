@@ -30,12 +30,13 @@ class HomeController extends Controller
         return view('home');
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
-        
-    */ 
+
+    */
     public function panel(Request $request){
 
         return view('auth.Dashbord.index')
-            ->with('Modulos', $request->user()->userModules);
+            ->with('Modulos', $request->user()->userModules)
+            ->with('user_workshops', Auth::user()->workshops);
     }
 
     public function Administracion(){
@@ -46,15 +47,16 @@ class HomeController extends Controller
         $externs = Extern::all();
 
         # Combina todos los tipos de usuario, ejemplo:
-        # 
-        # [0] -> Externo,  
-        # [1] -> Estudiante, 
-        # [2] -> Trabajador, 
-        # 
-        # etc, etc. 
+        #
+        # [0] -> Externo,
+        # [1] -> Estudiante,
+        # [2] -> Trabajador,
+        #
+        # etc, etc.
         $users = $students->merge($workers)->merge($externs);
-      
-        return view('auth.Dashbord.Administracion')->with('users', $users)->with('Modulos',Auth::user()->userModules);
+
+        return view('auth.Dashbord.Administracion')->with('users', $users)
+            ->with('Modulos',Auth::user()->userModules);
     }
-    
+
 }

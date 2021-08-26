@@ -16,7 +16,18 @@ class RegisterTest extends TestCase
     public function testRequiredFields()
     {
         $response = $this->post('register', []);
-        $response->assertSessionHasErrors([ 'Nombres', 'ApellidoP', 'email', 'password', 'passwordR', 'Pais', 'Tel' ]);
+        $response->assertSessionHasErrors([
+            'Nombres',
+            'ApellidoP',
+            'email',
+            'password',
+            'passwordR',
+            'Pais',
+            'Tel',
+            'Genero',
+            'CP',
+            'Discapacidad',
+        ]);
     }
 
     /**
@@ -151,7 +162,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
         ]);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
@@ -198,7 +209,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
         ]);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
@@ -237,7 +248,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEMM620528HTSNNG02',
         ]);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
@@ -284,7 +295,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEMM620528HTSNNG02',
         ]);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
@@ -323,7 +334,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441113929',
             'CURP' => null,
         ]);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
@@ -360,7 +371,7 @@ class RegisterTest extends TestCase
             'CURP' => null,
         ]);
 
-        
+
         $response->assertSessionHasErrors([ 'email' ]);
     }
 
@@ -380,8 +391,9 @@ class RegisterTest extends TestCase
             'Pais' => 'México',
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
+            ''
         ]);
-        
+
         $response->assertSessionHasErrors([ 'email' ]);
     }
 
@@ -401,7 +413,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG05',
         ]);
-        
+
         $response->assertSessionHasErrors([ 'email' ]);
     }
 
@@ -421,7 +433,7 @@ class RegisterTest extends TestCase
             'Tel' => '4441309851',
             'CURP' => 'MEOM970906HSPNRG06',
         ]);
-        
+
         $response->assertSessionHasErrors([ 'CURP' ]);
     }
 }

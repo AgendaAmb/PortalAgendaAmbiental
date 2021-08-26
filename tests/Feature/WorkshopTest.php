@@ -19,7 +19,7 @@ class WorkshopTest extends TestCase
         $response = $this->withHeaders([
             'Accept' => 'application/json',
         ])->post('/RegistrarTallerUsuario');
-        
+
         $response->assertStatus(401);
     }
 
@@ -43,7 +43,7 @@ class WorkshopTest extends TestCase
             'GrupoEtnico' => null,
             'CondicionSalud' => [ 'Excelente' ],
         ]);
-        
+
         $response->assertStatus(422);
     }
 
@@ -68,7 +68,7 @@ class WorkshopTest extends TestCase
             'CondicionSalud' => [ 'Excelente' ],
             'TipoEvento' => 'embaraginados',
         ]);
-        
+
         $response->assertStatus(422);
     }
 
@@ -93,7 +93,7 @@ class WorkshopTest extends TestCase
             'CondicionSalud' => [ 'Excelente' ],
             'TipoEvento' => 'unirodada',
         ]);
-        
+
         $response->assertStatus(200);
     }
 
@@ -122,7 +122,7 @@ class WorkshopTest extends TestCase
                 'curso conduce con100te'
             ],
         ]);
-        
+
         $response->assertStatus(200);
     }
 
@@ -150,7 +150,7 @@ class WorkshopTest extends TestCase
 
         # Obtiene el último evento de la unirodada.
         $workshop = Workshop::tipo('unirodada')->latest('created_at')->first();
-        
+
         $this->assertTrue($workshop !== null);
         $this->assertTrue($user->workshops()->tipo('unirodada')->where('id', $workshop->id)->count() > 0);
 
@@ -179,7 +179,7 @@ class WorkshopTest extends TestCase
             'CondicionSalud' => [ 'Excelente' ],
             'TipoEvento' => 'unirodada',
         ]);
-        
+
         $response->assertStatus(200);
     }
 
@@ -208,7 +208,7 @@ class WorkshopTest extends TestCase
                 'curso conduce con100te'
             ],
         ]);
-        
+
         $response->assertStatus(200);
     }
 
@@ -236,7 +236,7 @@ class WorkshopTest extends TestCase
 
         # Obtiene el último evento de la unirodada.
         $workshop = Workshop::tipo('unirodada')->latest('created_at')->first();
-        
+
         $this->assertTrue($workshop !== null);
         $this->assertTrue($user->workshops()->tipo('unirodada')->where('id', $workshop->id)->count() > 0);
 

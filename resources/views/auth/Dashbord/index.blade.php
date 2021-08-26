@@ -10,6 +10,7 @@
 @endsection
 
 
+@dump($user_workshops)
 @section('ContenidoPrincipal')
 <div class="container-fluid" id="panel">
   <div class="row">
@@ -307,7 +308,7 @@
                   name="ApellidoM" style="text-transform: capitalize;">
               </div>
             </div>
-            
+
 
             <div class="form-group row was-validated">
               <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
@@ -339,7 +340,7 @@
                 @endif
                 >
               </div>
-             
+
             </div>
             <div class="form-row row was-validated" v-if="modalClick!='Rodada'">
               <div class="col-md-6 mb-3">
@@ -620,8 +621,8 @@
                   placeholder="estudiante, profesor, administrativo, otro">
               </div>
             </div>
-           
-            
+
+
             <div class="form-group row " v-if="modalClick=='Rodada'">
               <div class="col-12">
                 <div class="form-check form-check-inline">
@@ -746,12 +747,12 @@
     Facultad:'',
     spinnerVisible:false,
     CURP:'',
-  
+
     LugarResidencia:'',
     Ocupacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
-   
+
     isAsistencia:'',
     CursosC:'',
     InteresAsistencia:'',
@@ -764,7 +765,7 @@
     CondicionSalud:[],
     NombreContacto:'',
     CelularContacto:''
-   
+
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -777,7 +778,7 @@
   methods:{
     check_one: function(){
         this.CondicionSalud = [];
-    },  
+    },
     DatosUsuario:function(ModalClick){
 
         this.nombres= '{{Auth::user()->name}}',
@@ -794,7 +795,7 @@
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
-           
+
             this.spinnerVisible=true;
            if(this.emailR!=''){
             let headers = {
@@ -807,13 +808,13 @@
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
                 "Tel":this.tel,
-               
+
                 "Nacionalidad":this.Pais,
                 "LugarResidencia":this.LugarResidencia,
                 "CURP":this.CURP,
                 "Ocupacion":this.Ocupacion,
-             
-                
+
+
                 "Discapacidad":this.Discapacidad,
                 "isAsistencia":this.isAsistencia,
                 "CursoCursado":this.CursosC,
@@ -823,7 +824,7 @@
                 "NombreContacto":this.NombreContacto,
                 "CelularContacto":this.CelularContacto
             }
-          
+
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
               console.log(response.data),
@@ -832,7 +833,7 @@
                )).catch((err) => {
                   this.Errores[0].Visible
             })
-             
+
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
@@ -852,7 +853,7 @@
                   this.Errores[0].Visible
             })
            }
-           
+
         }
       }
     }

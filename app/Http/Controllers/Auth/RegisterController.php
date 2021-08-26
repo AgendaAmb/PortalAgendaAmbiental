@@ -93,6 +93,18 @@ class RegisterController extends Controller
             'middlename' => $data['ApellidoP'],
             'surname' => $data['ApellidoM'] ?? null,
 
+            # Etnia
+            'ethnicity' => $data['GEtnico'] ?? null,
+
+            # Género
+            'gender' => $data['Genero'],
+
+            # Código postal
+            'zip_code' => $data['CP'],
+
+            # Discapacidad
+            'disability' => $data['Discapacidad'] ?? null,
+
             # Facultad o dependencia de la UASLP.
             'dependency' => $data['Dependencia'] ?? null,
             'DirectorioActivo' => $data['DirectorioActivo'] ?? null,

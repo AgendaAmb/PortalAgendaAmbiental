@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -18,7 +17,7 @@
                     {{ __(' Si aún no ha recibido el correo') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('De clic aquí para recibirlo de nuevo.') }}</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('de clic aquí para recibirlo de nuevo.') }}</button>.
                     </form>
                 </div>
             </div>
