@@ -97,7 +97,7 @@ class RegisterController extends Controller
             'ethnicity' => $data['GEtnico'] ?? null,
 
             # Género
-            'gender' => $data['Genero'],
+            'gender' => $data['Genero'] ?? null,
 
             # Código postal
             'zip_code' => $data['CP'],

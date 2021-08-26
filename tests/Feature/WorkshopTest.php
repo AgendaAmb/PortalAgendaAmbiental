@@ -223,6 +223,8 @@ class WorkshopTest extends TestCase
 
         # Obtiene los cursos registrados.
         $this->assertTrue($user->workshops()->tipo('curso')->count() > 0);
+
+        dump($user->getRegisteredWorkshops());
     }
 
     /**

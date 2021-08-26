@@ -33,7 +33,6 @@ class HomeController extends Controller
 
     */
     public function panel(Request $request){
-
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops);
