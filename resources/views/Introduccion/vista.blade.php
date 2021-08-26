@@ -32,7 +32,7 @@
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
       <div class="carousel-inner">
-
+        
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -59,11 +59,10 @@
           </div>
 
         </div>
-
+      <!--
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-
               <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
                 <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
               </a>
@@ -85,6 +84,7 @@
           </div>
 
         </div>
+      -->
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -271,6 +271,7 @@
             </a>
           </div>
         </div>
+        <!--
         <div class="carousel-item ">
           <div class="slide-box">
             <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
@@ -279,6 +280,7 @@
             </a>
           </div>
         </div>
+      -->
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
