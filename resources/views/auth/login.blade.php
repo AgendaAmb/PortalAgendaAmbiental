@@ -524,7 +524,7 @@
                                 <option value="No" id="No">No</option>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" v-if="isDiscapacidad=='Si'">
                             <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
                             <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
                                 required v-model="Discapacidad">
