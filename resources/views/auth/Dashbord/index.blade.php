@@ -713,8 +713,8 @@
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Registrando...
               </button>
-              <div class="alert alert-primary" role="alert">
-                A simple primary alert—check it out!
+              <div class="alert alert-success" role="alert" v-if="Guardado">
+                ¡¡Guardado con exito!!
               </div>
             </div>
 
@@ -760,7 +760,8 @@
     CondicionSalud:[],
     NombreContacto:'',
     CelularContacto:'',
-    cursosInscritos:[]
+    cursosInscritos:[],
+    Guardado:''
    
   },
   mounted:function () {
@@ -805,7 +806,7 @@
         this.Ocupacion='{{Auth::user()->ocupation}}',
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
-       
+        this.Guardado=false,
         this.url='{{env('APP_URL')}}'
       },
       uaslpUser:function(){
@@ -847,9 +848,11 @@
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
               console.log(response.data),
-              this.spinnerVisible=false
+              this.spinnerVisible=false,
+              this.Guardado=true
                )).catch((err) => {
-                  this.Errores[0].Visible
+                  this.Errores[0].Visible,
+                  this.Guardado=false
             })
            }else{
             data['TipoEvento'] = 'unirodada'
