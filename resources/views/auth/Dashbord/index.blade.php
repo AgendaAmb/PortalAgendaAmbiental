@@ -777,7 +777,7 @@
   methods:{
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
-      this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='No':this.isAsistencia='Si'
+      this.CursosC==null?this.isAsistencia='No':this.CursosC==''?this.isAsistencia='':this.isAsistencia='Si'
      
     },
     cargarCursos:function(){
@@ -859,7 +859,7 @@
             axios.post(this.url+'RegistrarEventoUsuario',data). then(response => (
               console.log(response.data),
              this.spinnerVisible=false
-               //window.location.href = this.url+''
+              
                )).catch((err) => {
                   this.Errores[0].Visible
             })

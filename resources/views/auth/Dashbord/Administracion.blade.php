@@ -16,7 +16,7 @@
                 <th>Correo</th>
                 <th>Genero</th>
                 <th>Nacionalidad</th>
-                <th>Celular</th>
+                <th>Teléfono</th>
                 @if (Auth::user()->hasModule('Administracion'))
                 <th>Rol</th>
                 @endif
@@ -67,7 +67,7 @@
             <th>Correo</th>
             <th>Genero</th>
             <th>Nacionalidad</th>
-            <th>Celular</th>
+            <th>Teléfono</th>
             @if (Auth::user()->hasModule('Administracion'))
             <th>Rol</th>
 
@@ -83,22 +83,22 @@
 
 
 @push('stylesheets')
-<link rel="stylesheet" href="{{asset('css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('/css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('/css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
 
 
 
 
-<script src="{{asset('css/DataTable/dataTables.min.js')}}"></script>
-<script src="{{asset('css/DataTable/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('css/DataTable/Buttons/js/buttons.colVis.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/datatables.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('/css/DataTable/Buttons/js/buttons.colVis.min.js')}}"></script>
 <script>
     $(document).ready(function() {
  $('#example').DataTable( {
