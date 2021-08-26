@@ -155,7 +155,6 @@ class RegisterTest extends TestCase
             'CURP' => 'MEOM970906HSPNRG06',
         ]);
 
-        $response->dump();
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
     }
