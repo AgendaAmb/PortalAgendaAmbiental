@@ -1,7 +1,7 @@
 @component('mail::message')
 # Estimado(a) usuario(a):<br><br><br>
 
-Muchas gracias por registrarte a los siguientes talleres:<br><br>
+Muchas gracias por registrarse a las siguientes actividades :<br><br>
 
 <ul>
 @foreach($workshops as $workshop)
