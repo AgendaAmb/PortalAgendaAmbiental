@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
 
 class RegisterRequest extends FormRequest
-{
+{use JsonResponseTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -74,7 +75,7 @@ class RegisterRequest extends FormRequest
             'LugarResidencia' => ['required','string'],
             'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
             'OtroGenero' => ['required_if:Genero,Otro'],
-            'CorreoAlterno' => ['required'],
+            //'CorreoAlterno' => ['required'],
         ];
     }
 }
