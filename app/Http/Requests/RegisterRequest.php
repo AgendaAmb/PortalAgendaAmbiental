@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
 
 class RegisterRequest extends FormRequest
-{use JsonResponseTrait;
+{
     /**
      * Determine if the user is authorized to make this request.
      *
