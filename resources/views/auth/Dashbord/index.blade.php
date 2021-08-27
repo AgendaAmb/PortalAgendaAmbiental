@@ -14,7 +14,12 @@
 
 <div class="container-fluid" id="panel">
   <div class="row">
-    <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3">
+    <div class="col-xl-2 p-3">
+      <p class="font-weight-bold text-center">Instrucciones</p>
+      <p class="text-justify">Aquí podras ver todos los cursos, talleres, conferencias y actividades que actualmente oferta la Agenda Ambiental.</p>
+      <p>Debes de dar click en la imagen del evento, completar el registro y asi terminaras tu registro.</p>
+    </div>
+    <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
@@ -111,11 +116,11 @@
           </div>
         </div>
 
-        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev" style="margin-left: 11%;"> 
+        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev" style="margin-left: 5%;"> 
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"  style="margin-right: 11%;">
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"  style="margin-right: 5%;">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
