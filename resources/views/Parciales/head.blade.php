@@ -7,8 +7,7 @@
 <title>{{config('app.name', 'Portal Agenda Ambiental') }}</title>
 <!--Icono de la aplicación-->
 <link rel="shortcut icon" href="{{ asset('img/cropped-UASLPAgendaAmbiental-32x32.png') }}">
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
 <script  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
@@ -29,7 +28,11 @@
 <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
 <link defer href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+<!-- Desarrollo
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<!--Produccion-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 @stack('Styles')
 @stack('stylesheets')
 
