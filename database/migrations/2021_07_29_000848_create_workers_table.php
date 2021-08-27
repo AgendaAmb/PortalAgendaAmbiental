@@ -37,8 +37,6 @@ class CreateWorkersTable extends Migration
             $table->string('emergency_contact')->nullable();
             $table->string('emergency_contact_phone')->nullable();
             $table->string('health_condition')->nullable();
-            $table->string('previous_courses')->nullable();
-
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
