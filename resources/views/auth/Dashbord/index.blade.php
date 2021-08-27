@@ -793,7 +793,7 @@
       let diferencia=Math.abs(hora - fechaRegistro)
       
       let diasDiferencia = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-    console.log(diasDiferencia)
+      console.log(diasDiferencia)
       this.DatosUsuario('mmus'),
       $('#Registro17gemas').modal('show')
     },
