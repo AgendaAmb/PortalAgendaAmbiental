@@ -490,7 +490,7 @@
     </div>
 </div>
 <script>
-    //console.log({{$NombreM}});
+    console.log({{$NombreM}});
     if ('{{$NombreM}}'!='') {
         $('#{{$NombreM}}').modal('show')
     } 
