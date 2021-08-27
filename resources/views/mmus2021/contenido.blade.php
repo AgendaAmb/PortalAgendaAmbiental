@@ -490,10 +490,10 @@
     </div>
 </div>
 <script>
-    console.log({{$NombreM}});
-    if ('{{$NombreM}}'!='') {
-        $('#{{$NombreM}}').modal('show')
-    } 
+     if ('{{$NombreM}}'!='') {
+    $('#{{$NombreM}}').modal('show')
+  } 
+  
 </script>
 @endsection
 
