@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;

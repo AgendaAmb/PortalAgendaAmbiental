@@ -829,6 +829,7 @@
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
+        this.ComentariosSugerencias='{{Auth::user()->comments}}',
         this.NombreContacto='{{Auth::user()->emergency_contact}}'
         this.CelularContacto='{{Auth::user()->emergency_contact_phone}}',
         this.Guardado=false,
