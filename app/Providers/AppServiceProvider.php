@@ -33,5 +33,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('contenedor-botones', \App\View\Components\ContenedorBotones::class);
         Blade::component('ejeTrabajo', \App\View\Components\EjeDeTrabajo::class);
         User::observe(UserObserver::class);
+
+        if (config('app.env') === 'production')
+            URL::forceScheme('https');
     }
 }
