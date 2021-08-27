@@ -9,7 +9,7 @@ Muchas gracias por registrarte a los siguientes talleres:<br><br>
 @endforeach
 </ul>
 
-<br>Agradecemos su registro <br><br><br>
+<br>Agradecemos su registro. Se Le enviará un correo con las indicaciones, para cada actividad registrada. <br><br><br>
 Saludos cordiales. <br>
 <img src="{{ asset('/storage/imagenes/Logos/rtic.png') }}">
 @endcomponent
