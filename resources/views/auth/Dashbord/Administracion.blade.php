@@ -55,8 +55,6 @@
                     <li>{{$workshops->name}}</li>
                     @endforeach
                 </td>
-
-
             </tr>
             @endforeach
 
