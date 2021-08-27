@@ -29,11 +29,11 @@
 
 <link defer href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
 <!-- Desarrollo
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!--Produccion
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 @stack('Styles')
 @stack('stylesheets')
 
