@@ -651,11 +651,11 @@ font-weight: 900;
    
 }
 .imgCaourselAuth1{
-    width: 35.0%;
-    margin-left: 10%;
+    width: auto;
+    margin-left: 0%;
 }
 .imgCaourselAuth2{
-    width: 35.0%;
+    width: auto;
 }
 .close{
 background-color: gray;

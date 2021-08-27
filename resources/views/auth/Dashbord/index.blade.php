@@ -17,7 +17,7 @@
     <div class="col-xl-10  col-lg-10  col-md-10 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
-        <div class="carousel-inner">
+        <div class="carousel-inner text-center">
           <!--
           <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
             <div class="d-none d-lg-block d-md-block">
@@ -111,11 +111,11 @@
           </div>
         </div>
 
-        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev" style="margin-left: 11%;"> 
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"  style="margin-right: 11%;">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>

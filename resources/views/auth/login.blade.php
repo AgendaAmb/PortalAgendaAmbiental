@@ -603,6 +603,8 @@
   methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
+        var fechaActual = new Data(1995,11,17)
+        console.log(fechaActual);
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
         
         $('#Registro').modal('show')
