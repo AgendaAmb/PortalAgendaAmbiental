@@ -593,8 +593,7 @@
   },
   mounted:function () {
   this.$nextTick(function () {
-    // Código que se ejecutará solo después de
-    // haber renderizado la vista completa
+   
     this.ChecarUrl(),
     this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
@@ -603,8 +602,7 @@
   methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
-        var fechaActual = new Data(1995,11,17)
-        console.log(fechaActual);
+       
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
         
         $('#Registro').modal('show')
