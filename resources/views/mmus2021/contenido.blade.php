@@ -491,7 +491,9 @@
 </div>
 <script>
     //console.log({{$NombreM}});
-     $('#{{$NombreM}}').modal('show')
+    if ('{{$NombreM}}'!='') {
+        $('#{{$NombreM}}').modal('show')
+    } 
 </script>
 @endsection
 
