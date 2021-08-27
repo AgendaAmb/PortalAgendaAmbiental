@@ -852,6 +852,7 @@
                 "CURP":this.CURP,
                 "Ocupacion":this.Ocupacion,
                 "CursoCursado":this.CursosC,
+                "ComentariosSugerencias":this.ComentariosSugerencias,
                 "InteresAsistencia":this.InteresAsistencia,
                 "cursosInscritosMMUS":this.checkedNames,
                 "CondicionSalud":this.CondicionSalud,

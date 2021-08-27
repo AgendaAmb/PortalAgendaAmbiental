@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\LocalHost;
+use App\Http\Middleware\RedirectHttp;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Laravel\Passport\Http\Middleware\CheckClientCredentials;
 
@@ -39,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            RedirectHttp::class,
         ],
 
         'api' => [

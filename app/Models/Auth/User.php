@@ -69,6 +69,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getGuardAttribute()
+    {
+        return $this->guard_name;
+    }
+
+    /**
      * Obtiene el tipo de usuario autenticado
      *
      * @return object

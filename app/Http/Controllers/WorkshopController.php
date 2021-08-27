@@ -45,14 +45,13 @@ class WorkshopController extends Controller
         $user->ethnicity = $request->GEtnico ?? $user->ethnicity;
         $user->disability = $request->Discapacidad ?? $user->disability;
         $user->ocupation = $request->Ocupacion ?? $user->ocupation;
-        $user->courses = $request->CursosC ?? $user->courses;
+        $user->courses = $request->CursoCursado ?? $user->courses;
         $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
         $user->disability = $request->Discapacidad ?? $user->disability;
         $user->comments = $request->ComentariosSugerencias ?? $user->comments;
         $user->emergency_contact = $request->NombreContacto ?? $user->emergency_contact;
         $user->emergency_contact_phone = $request->CelularContacto ?? $user->emergency_contact_phone;
         $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
-        $user->previous_courses = $request->CursosC ?? $user->previous_courses;
         $user->health_condition = collect($request->CondicionSalud ?? [])->first() ?? $user->health_condition;
         $user->save();
 
