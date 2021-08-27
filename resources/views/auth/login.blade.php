@@ -602,7 +602,7 @@
   methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
-       
+        console.log(urlactual)
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
         
         $('#Registro').modal('show')
