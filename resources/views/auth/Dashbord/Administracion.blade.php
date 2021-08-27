@@ -11,7 +11,7 @@
             <tr>
                 <th>id</th>
                 <th>Nombre</th>
-               
+
                 <th>CURP</th>
                 <th>Correo</th>
                 <th>Genero</th>
@@ -30,7 +30,7 @@
             <tr>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
-              
+
                 <td>{{$user->curp}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
@@ -55,6 +55,8 @@
                     <li>{{$workshops->name}}</li>
                     @endforeach
                 </td>
+
+
             </tr>
             @endforeach
 
@@ -62,7 +64,7 @@
         <tfoot>
             <th>id</th>
             <th>Nombre</th>
-           
+
             <th>CURP</th>
             <th>Correo</th>
             <th>Genero</th>
@@ -103,7 +105,7 @@
     $(document).ready(function() {
  $('#example').DataTable( {
         "language":{
-            
+
     "aria": {
         "sortAscending": "Activar para ordenar la columna de manera ascendente",
         "sortDescending": "Activar para ordenar la columna de manera descendente"
@@ -277,8 +279,8 @@
             "restore": "Deshacer Cambios",
             "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
         }
-    
-} 
+
+}
         },
         "responsive": true, "lengthChange": false, "autoWidth": false,
         dom:
@@ -289,11 +291,11 @@
              'csv', 'excel', 'pdf', 'print'
         ],
         "searching": true,
-        
-    } 
-    
+
+    }
+
     );
-   
+
 } );
 </script>
 @endpush
