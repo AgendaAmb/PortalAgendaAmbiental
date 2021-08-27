@@ -37,10 +37,10 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
               </a>
 
             </div>
@@ -49,10 +49,10 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel " alt="First slide">
               </a>
 
             </div>
@@ -75,10 +75,10 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('mmus2021')}}>
-                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
               </a>
             </div>
           </div>
@@ -89,11 +89,11 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -102,11 +102,11 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -118,11 +118,11 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -131,11 +131,11 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -147,11 +147,11 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -161,11 +161,11 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
-                <img src="{{ asset('storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -178,11 +178,11 @@
             <div class="slide-box">
               <a href="{{route('Cineminuto')}}">
 
-                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href="{{route('Cineminuto')}}">
-                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -190,9 +190,9 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel "
+              <img src="{{ asset('/storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}" class="imgCaoursel "
                 alt="First slide">
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel "
+              <img src="{{ asset('/storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}" class="imgCaoursel "
                 alt="First slide">
             </div>
           </div>
@@ -225,11 +225,11 @@
             <div class="slide-box">
               <a href="{{route('DateUnRespiro')}}">
 
-                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href="{{route('DateUnRespiro')}}">
-                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -237,10 +237,10 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
+              <img src="{{ asset('/storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel "
                 alt="First slide">
               <a href="{{route('DateUnRespiro')}}">
-                <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/DateUnRespiro/BannerDateRespiro2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -501,7 +501,10 @@
 </div>
 
 <script>
-  //console.log({{$NombreM}});
-   $('#{{$NombreM}}').modal('show')
+ 
+  if ('{{$NombreM}}'!='') {
+    $('#{{$NombreM}}').modal('show')
+  } 
+  
 </script>
 @endsection
