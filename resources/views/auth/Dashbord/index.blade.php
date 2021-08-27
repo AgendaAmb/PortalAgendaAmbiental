@@ -17,7 +17,7 @@
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
       <p class="text-justify">Aquí podras ver todos los cursos, talleres, conferencias y actividades que actualmente oferta la Agenda Ambiental.</p>
-      <p>Debes de dar click en la imagen del evento, completar el registro y asi terminaras tu registro.</p>
+      <p>Debes de dar click en la imagen del evento, completar el registro y asi terminarás tu registro.</p>
     </div>
     <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
