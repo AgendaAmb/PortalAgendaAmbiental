@@ -54,6 +54,10 @@
             <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalIntervensiones" role="tab"
                 aria-controls="nav-profile" aria-selected="false">Intervenciones y reordenamiento: cebratón y proyecto
                 MUS-ZUP</a>
+                <a href="{{asset('storage/imagenes/mmus2021/Cartel_mmus2021.png')}}"  aria-controls="nav-profile"
+                class="nav-link w-25 p-1  m-0"  href="#" role="button"
+                download="Cartel_mmus2021.png">Cartel general </a>
+        
 
     </div>
 </div>
@@ -130,7 +134,7 @@
 
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Conferencias.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-Conferencias.png">CARTEL GENERAL </a>
+                                download="Banners-Conferencias.png">CARTEL </a>
                         </div>
 
                     </div>
@@ -219,7 +223,7 @@
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Talleres.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-Talleres.png">CARTEL GENERAL </a>
+                                download="Banners-Talleres.png">CARTEL </a>
                         </div>
 
                     </div>
@@ -283,15 +287,15 @@
                         </div>
                     </div>
                     <div
-                    class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                    <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                        <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
-                            role="button">REGISTRAR</a>
-                    </div>
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-MesaT.png">CARTEL GENERAL </a>
+                                download="Banners-MesaT.png">CARTEL </a>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-10"
@@ -352,13 +356,13 @@
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login',['nombreModal'=> 'Rodada'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
-                                role="button">REGISTRAR</a>
+                            <a href={{route('login',['nombreModal'=> 'Rodada'])}}
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/mmus2021/RODADA.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="FORO.jpg">CARTEL GENERAL </a>
+                                download="FORO.jpg">CARTEL </a>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-10"
@@ -437,7 +441,7 @@
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-Cebraton.png">CARTEL GENERAL </a>
+                                download="Banners-Cebraton.png">CARTEL </a>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-10"
