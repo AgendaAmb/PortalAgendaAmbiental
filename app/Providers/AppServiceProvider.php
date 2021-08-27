@@ -35,7 +35,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('ejeTrabajo', \App\View\Components\EjeDeTrabajo::class);
         User::observe(UserObserver::class);
 
-        if (App::environment('production'))
+        if (App::environment('production')){
             URL::forceScheme('https');
+        }
     }
 }
