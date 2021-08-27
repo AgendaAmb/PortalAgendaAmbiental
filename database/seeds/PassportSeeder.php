@@ -17,10 +17,10 @@ class PassportSeeder extends Seeder
         Artisan::call('passport:install');
 
         foreach (Module::all() as $module)
-
             Artisan::call('passport:client --name="'.$module->name.'" --user_id=1 --redirect_uri='.$module->url);
 
         # Token temporal para 17 Gemas.
+        /*
         $tempToken = 'ezyE4A80cfBdZHmlZgRkr6VkORvWlh5otJcW8Ir8';
 
         DB::table('oauth_clients')
@@ -29,7 +29,7 @@ class PassportSeeder extends Seeder
 
         DB::table('oauth_clients')
             ->where('name', 'Control Escolar')
-            ->update([ 'secret' => 'qhKwQafNp4tbWjkBvuFxxzG7wYhjUHzgVfLCNk1d' ]);
+            ->update([ 'secret' => 'qhKwQafNp4tbWjkBvuFxxzG7wYhjUHzgVfLCNk1d' ]);*/
     }
 }
 

