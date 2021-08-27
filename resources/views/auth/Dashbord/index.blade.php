@@ -245,7 +245,8 @@
           </div>
         </div>
 
-        <div class="modal-body" v-else>
+   
+        <div class="modal-body" v-else-if="modalClick!='Rodada'?true:isRegisterRodada?false:true">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -721,6 +722,9 @@
 
           </form>
         </div>
+        <div class="modal-body" v-else>
+         ¡¡Registro completo, antes del evento te enviaremos un correo con todas las indicaciones.!!<br>
+        </div>
 
       </div>
     </div>
@@ -762,7 +766,8 @@
     NombreContacto:'',
     CelularContacto:'',
     cursosInscritos:[],
-    Guardado:''
+    Guardado:'',
+    isRegisterRodada:false
 
   },
   mounted:function () {
@@ -818,6 +823,10 @@
         this.CelularContacto='{{Auth::user()->emergency_contact_phone}}',
         this.Guardado=false,
         this.url='{{env('APP_URL')}}'
+
+        if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
+            this.isRegisterRodada=true
+        }
       },
       uaslpUser:function(){
 
@@ -847,7 +856,7 @@
 
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
-             
+            
               this.spinnerVisible=false,
                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
@@ -857,6 +866,7 @@
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
+            
               console.log(response.data),
               this.spinnerVisible=false,
               this.Guardado=true
@@ -867,6 +877,7 @@
            }else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
+              
               console.log(response.data),
              this.spinnerVisible=false,
              this.Guardado=true
