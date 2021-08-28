@@ -17,12 +17,12 @@ class WorkshopSeeder extends Seeder
         $workshops = [
             [ 
                 'name' => 'curso sostenibilidad',
-                'description' => 'Conferencia: Sostenibilidad energética en la pandemia',
+                'description' => 'Conferencia 1: Sostenibilidad energética en la pandemia',
                 'type' => 'curso',
             ],
             [ 
                 'name' => 'curso movilidad y urbanismo',
-                'description' => 'Conferencia: Movilidad y Urbanismo con enfoque de género',
+                'description' => 'Conferencia 2: Movilidad y Urbanismo con enfoque de género',
                 'type' => 'curso',
             ],
             [
@@ -32,12 +32,12 @@ class WorkshopSeeder extends Seeder
             ], 
             [ 
                 'name' => 'curso mus-uaslp',
-                'description' => 'Segunda mesa de trabajo MUS-UASLP',
+                'description' => 'Mesa de trabajo: MUS-UASLP',
                 'type' => 'curso'
             ],
             [
                 'name' => 'curso cebratón y proyecto mus-zup',
-                'description' => 'Curso-taller: Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP',
+                'description' => 'Curso: Cebratón y Proyecto MUS-ZUP',
                 'type' => 'curso',
             ],
             [

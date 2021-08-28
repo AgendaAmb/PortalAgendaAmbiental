@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     @foreach ($user->workshops as $key => $workshops)
-                    <li>{{$workshops->name}}</li>
+                    <li>{{$workshops->description}}</li>
                     @endforeach
                 </td>
             </tr>
