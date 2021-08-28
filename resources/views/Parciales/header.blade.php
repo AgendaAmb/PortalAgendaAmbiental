@@ -11,12 +11,13 @@
 
     <div class="">
         @if (Str::contains(url()->full(),route('panel'))||Str::contains(url()->full(),route('Administracion')))
-        <a href={{route('Index')}}><img src={{ asset('storage/imagenes/Logos/horizontal_blanco.webp')}}
-                class="img-fluid imagenAgenda_uaslp  pt-3"></a>
-
+       
+                <p class="text-light h4 text-center d-block d-lg-none d-xl-none  d-md-none  d-sm-block">Bienvenid@ a la
+                    comunidad de Agenda Ambiental</p>
         @endif
-        <p class="text-light h4 text-center d-block d-lg-none d-xl-none  d-md-none  d-sm-block">Bienvenid@ a la
-            comunidad de Agenda Ambiental</p>
+        <a href={{route('Index')}}><img src={{ asset('storage/imagenes/Logos/horizontal_blanco.webp')}}
+            class="img-fluid imagenAgenda_uaslp  pt-3"></a>
+      
     </div>
     <div>
         <a href="http://www.uaslp.mx"><img src={{ asset('storage/imagenes/Logos/LOGO_UASLP-300x116.png')}}
