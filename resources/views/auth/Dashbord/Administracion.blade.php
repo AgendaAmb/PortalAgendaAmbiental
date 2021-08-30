@@ -156,8 +156,8 @@
                             <div class="col-4">
 
                             <button class="btn btn-success" type="submit" value="Submit"
-                               >Registrar asistencia</button v-id="!spinnerVisible">
-                                <button class="btn btn-primary" type="button" disabled  v-id="spinnerVisible">
+                               >Registrar asistencia</button v-if="!spinnerVisible">
+                                <button class="btn btn-primary" type="button" disabled  v-if="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                         Registrando asistencia
                                   </button>
