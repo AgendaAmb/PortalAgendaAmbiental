@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
+use App\Models\Auth\Student;
+use App\Models\Auth\User;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -131,9 +133,19 @@ class WorkshopController extends Controller
     public function markAsistence(Request $request)
     {
         # Obtiene el id del curso
-        # $workshop = Workshop::findOrFail($request->workshopId);
+        Workshop::findOrFail($request->idCurso);
 
         # Obtiene el id del usuario registrado.
+        $user = User::retrieveById($request->idUser, 'students')
+            ?? User::retrieveById($request->idUser, 'workers')
+            ?? User::retrieveById($request->idUser, 'externs');
+
+        # Registra la asistencia del usuario.
+        $user->workshops()->updateExistingPivot($request->idWorkshop, [
+            'assisted_to_workshop' => $request->asistencia,
+        ]);
+
+        return response()->json([ 'Message' => 'Asistencia de usuario registrada' ], JsonResponse::HTTP_OK);
     }
 
 
