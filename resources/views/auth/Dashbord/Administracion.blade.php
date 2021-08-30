@@ -43,7 +43,7 @@
                 @endif
                 <td>
                     <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                        @click="cargarUser({{$user->id}})">
+                        @click="cargarUser({{$user}})">
                         <i class="fas fa-edit"></i>
                     </a>
                 </td>
@@ -114,48 +114,56 @@
             </tr>
         </tfoot>
     </table>
+
     <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="user!=''">
         <div class="modal-dialog modal-lg">
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Información del usuario</h5>
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Registrar asistencia</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body bg-white">
+                <form @submit.prevent="RegistrarAsistencia" method="post"  >
+                <div class="modal-body bg-white" >
                     <div class="container-fluid">
-                        <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
+                        <h5 class="modal-title3" id="exampleModalLabel"></h5>
                         <div class="form-group  ">
-                            <label for="Nombres">Clave</label>
-                            <input type="text" class="form-control" :value="user[0].id" readonly>
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control" :value="user[0].name" readonly>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4 was-validated">
-                                <label for="ApellidoP">Lugar de residencia</label>
-                                <input type="text" class="form-control" :value="user[0].residence" readonly>
+                                <label for="Nombre">Clave</label>
+                              
+                                <input type="text" class="form-control" :value="user[0].id" readonly>
+                              
                             </div>
-                            <div class="form-group col-md-4  was-validated">
-                                <label for="ApellidoM">Ocupación</label>
-                                <input type="text" class="form-control" readonly :value="user[0].ocupation"
-                                    style="text-transform: capitalize;">
+                            <div class="form-group col-md-6  ">
+                                <label for="CursosInscritos">Curso a registrar asistencia</label>
+                               <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required v-model="cursoAsistencia">
+                               
+                                <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}</option>
+                               </select>
                             </div>
-                            <div class="form-group col-md-4  was-validated">
-                                <label for="ApellidoM">Apellido materno</label>
-                                <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required
-                                    readonly name="ApellidoM" style="text-transform: capitalize;">
-                            </div>
+                           
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                @{{user[0].id}}
+                                
+                            <button class="btn btn-success" type="submit" value="Submit"
+                               >Registrar asistencia</button v-id="!spinnerVisible">
+                                <button class="btn btn-primary" type="button" disabled  v-id="spinnerVisible"> 
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Registrando asistencia
+                                  </button>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
+            </form>
             </div>
         </div>
     </div>
@@ -166,15 +174,18 @@
     var app = new Vue({
   el: '#apps',
   data: {
-    message: 'Hola Vue!',
     users:[],
-    user:[]
+    user:[],
+    CursosInscritos:[],
+    cursoAsistencia:'',
+    spinnerVisible:false
   },
   mounted: function () {
   this.$nextTick(function () {
     @foreach($users as $user)
                 this.users.push({
                     "id":'{{$user->id}}',
+                    "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
                     "residence":'{{$user->residence}}',
                     "ocupation":'{{$user->ocupation}}',
                     "ethnicity":'{{$user->ethnicity}}',
@@ -189,9 +200,36 @@
   })
 },
   methods: {
-    cargarUser: function (id) {
-      
-        this.user=this.users.filter(E=>E.id==id);
+    RegistrarAsistencia:function(){
+        this.spinnerVisible=true
+        let headers = {
+                    'Content-Type': 'application/json;charset=utf-8'
+            };
+            var data = {
+       	        "iduser": this.user[0].id,
+                "idWorshop":this.cursoAsistencia,
+            }
+            axios.post('/RegistraAsistencia',data).then(response => (
+                console.log("completo"),
+            this.spinnerVisible=false
+           
+             )).catch((err) => {
+                this.spinnerVisible=false,
+                console.log("error")
+          })
+    },
+    cargarUser: function (user) {
+      this.user=[],
+      this.CursosInscritos=[],
+        this.user=this.users.filter(E=>E.id=={{$user->id}});
+       
+        @foreach(Auth::user()->getRegisteredWorkshops() as $E)
+                this.CursosInscritos.push({
+                    "id":'{{$E['id']}}',
+                    "name":'{{$E['name']}}'
+                }  
+                )
+      @endforeach
      
     }
     }

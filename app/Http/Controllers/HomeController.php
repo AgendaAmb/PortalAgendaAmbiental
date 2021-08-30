@@ -41,12 +41,9 @@ class HomeController extends Controller
     public function Administracion(){
 
         # Obtiene todos los tipos de usuarios
-        $admins = Student::role('administrator')->pluck('id');
-        $students = Student::whereNotIn('id', $admins)->get();
-
-        $admins = Worker::role('administrator')->pluck('id');
-        $workers = Worker::whereNotIn('id', $admins)->get();
-
+      
+        $students = Student::all();
+        $workers = Worker::all();
         $externs = Extern::all();
 
         # Combina todos los tipos de usuario, ejemplo:
