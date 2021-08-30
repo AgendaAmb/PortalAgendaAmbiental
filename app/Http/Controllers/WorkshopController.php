@@ -136,13 +136,13 @@ class WorkshopController extends Controller
         Workshop::findOrFail($request->idCurso);
 
         # Obtiene el id del usuario registrado.
-        $user = User::retrieveById($request->idUser, 'students')
-            ?? User::retrieveById($request->idUser, 'workers')
-            ?? User::retrieveById($request->idUser, 'externs');
+        $user = User::retrieveById($request->iduser, 'students')
+            ?? User::retrieveById($request->iduser, 'workers')
+            ?? User::retrieveById($request->iduser, 'externs');
 
         # Registra la asistencia del usuario.
-        $user->workshops()->updateExistingPivot($request->idWorkshop, [
-            'assisted_to_workshop' => $request->asistencia,
+        $user->workshops()->updateExistingPivot($request->idWorshop, [
+            'assisted_to_workshop' => true,
         ]);
 
         return response()->json([ 'Message' => 'Asistencia de usuario registrada' ], JsonResponse::HTTP_OK);
