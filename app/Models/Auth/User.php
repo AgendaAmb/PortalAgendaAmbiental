@@ -159,8 +159,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $workshops = $this->workshops()->select('id', 'name', 'description')
         ->get()->each(function(&$workshop){
-            $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop;
-            unset($workshop->pivot);
+            $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
+
+            if ($workshop->pivot !== null)
+                unset($workshop->pivot);
         });
 
         return $workshops->toArray();

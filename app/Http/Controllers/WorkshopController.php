@@ -97,6 +97,7 @@ class WorkshopController extends Controller
     private function registerCourses(Request $request, $courses)
     {
         # Usuario autenticado
+        //
         $user = $request->user();
         $mmus_courses = $user->workshops()->tipo('curso')->pluck('id');
         $user->workshops()->detach($mmus_courses);

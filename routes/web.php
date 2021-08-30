@@ -99,7 +99,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento
-    Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
+    //Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 });
 
 
