@@ -24,7 +24,7 @@
                
                 @endforeach
               
-                @if (Auth::user()->hasRole('administrator'))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                 </li>
