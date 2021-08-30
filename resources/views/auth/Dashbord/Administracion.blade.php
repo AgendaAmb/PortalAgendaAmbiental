@@ -10,40 +10,49 @@
     <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
         <thead>
             <tr>
+                @if (Auth::user()->hasRole('administrator'))
                 <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                @endif
                 <th>Acciones</th>
-                <th>id</th>
+                <th>Clave única/RPE</th>
                 <th>Nombre</th>
-                <th>CURP</th>
+
                 <th>Correo</th>
                 <th>Genero</th>
-                <th>Nacionalidad</th>
+
                 <th>Teléfono</th>
                 @if (Auth::user()->hasRole('administrator'))
                 <th>Rol</th>
                 <th>Sistema</th>
                 @endif
                 <th>Cursos/Talleres</th>
-              
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                <th>Condición de salud</th>
+                <th>Nombre de contacto de emergencia</th>
+                <th>Télefono de contacto de emergencia</th>
+                @endif
+
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
-           
+
             <tr>
+                @if (Auth::user()->hasRole('administrator'))
                 <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                @endif
                 <td>
-                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser" @click="cargarUser({{$user->id}})">
+                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
+                        @click="cargarUser({{$user->id}})">
                         <i class="fas fa-edit"></i>
                     </a>
-
                 </td>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
-                <td>{{$user->curp}}</td>
+
                 <td>{{$user->email}}</td>
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
-                <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
+
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
                 @if (Auth::user()->hasRole('administrator'))
@@ -59,28 +68,37 @@
                 </td>
                 @endif
 
-               
+
                 <td>
                     @foreach ($user->workshops as $key => $workshops)
                     <li>{{$workshops->description}}</li>
                     @endforeach
                 </td>
-               
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                <th>{{$user->health_condition}}</th>
+                <th>{{$user->emergency_contact}}</th>
+                <th>
+                    <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
+                </th>
+                @endif
+
             </tr>
 
             @endforeach
 
         </tbody>
         <tfoot>
+            @if (Auth::user()->hasRole('administrator'))
             <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+            @endif
             <th>Acciones</th>
-            <th>id</th>
+            <th>Clave única/RPE</th>
             <th>Nombre</th>
 
-            <th>CURP</th>
+
             <th>Correo</th>
             <th>Genero</th>
-            <th>Nacionalidad</th>
+
             <th>Teléfono</th>
             @if (Auth::user()->hasRole('administrator'))
             <th>Rol</th>
@@ -88,49 +106,57 @@
             <th>Sistema</th>
             @endif
             <th>Cursos/Talleres</th>
-           
+            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+            <th>Condición de salud</th>
+            <th>Nombre de contacto de emergencia</th>
+            <th>Télefono de contacto de emergencia</th>
+            @endif
             </tr>
         </tfoot>
     </table>
-    <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="user!=''">
+    <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        v-if="user!=''">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content ">
-            <div class="modal-header bg-primary ">
-              <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Información del usuario</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body bg-white">
-               <div class="container-fluid">
-                <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
-                <div class="form-group  ">
-                  <label for="Nombres">Clave</label>
-                  <input type="text" class="form-control" :value="user[0].id" readonly
-                   >
+            <div class="modal-content ">
+                <div class="modal-header bg-primary ">
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Información del usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6 was-validated">
-                    <label for="ApellidoP">Lugar de residencia</label>
-                    <input type="text" class="form-control"  :value="user[0].residence" readonly
-                     >
-                  </div>
-                  <div class="form-group col-md-6  was-validated">
-                    <label for="ApellidoM">Apellido materno</label>
-                    <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
-                      name="ApellidoM" style="text-transform: capitalize;">
-                  </div>
+                <div class="modal-body bg-white">
+                    <div class="container-fluid">
+                        <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
+                        <div class="form-group  ">
+                            <label for="Nombres">Clave</label>
+                            <input type="text" class="form-control" :value="user[0].id" readonly>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4 was-validated">
+                                <label for="ApellidoP">Lugar de residencia</label>
+                                <input type="text" class="form-control" :value="user[0].residence" readonly>
+                            </div>
+                            <div class="form-group col-md-4  was-validated">
+                                <label for="ApellidoM">Ocupación</label>
+                                <input type="text" class="form-control" readonly :value="user[0].ocupation"
+                                    style="text-transform: capitalize;">
+                            </div>
+                            <div class="form-group col-md-4  was-validated">
+                                <label for="ApellidoM">Apellido materno</label>
+                                <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required
+                                    readonly name="ApellidoM" style="text-transform: capitalize;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                @{{user[0].id}}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                   <div class="row">
-                       <div class="col-4">
-                        @{{user[0].id}}
-                       </div>
-                   </div>
-               </div>
-             
+
             </div>
-           
-          </div>
         </div>
     </div>
 </div>
@@ -173,7 +199,7 @@
 </script>
 
 
-  @push('stylesheets')
+@push('stylesheets')
 
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">

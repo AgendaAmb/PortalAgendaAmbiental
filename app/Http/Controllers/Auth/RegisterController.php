@@ -162,9 +162,10 @@ class RegisterController extends Controller
                 $user = Worker::updateOrCreate([ 'id' => $id ],  $new_user_data);
                 $guard = 'workers';
 
-                if ($id === 11007)
+                if ($new_user_data['email'] === 'eugenia.almendarez@uaslp.mx')
                     $user->assignRole('administrator');
-
+                else if ($new_user_data['email'] === 'laura.rodriguez@uaslp.mx')
+                    $user->assignRole('coordinator');
                 break;
 
             default:
