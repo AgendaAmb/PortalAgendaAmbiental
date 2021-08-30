@@ -209,8 +209,8 @@
                     'Content-Type': 'application/json;charset=utf-8'
             };
             var data = {
-       	        "iduser": this.user[0].id,
-                "idWorshop":this.cursoAsistencia,
+       	        "idUser": this.user[0].id,
+                "idWorkshop":this.cursoAsistencia,
             }
             axios.post('/RegistraAsistencia',data).then(response => (
                 console.log("completo"),

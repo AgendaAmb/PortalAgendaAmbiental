@@ -134,12 +134,14 @@ class WorkshopController extends Controller
     public function markAsistence(Request $request)
     {
         # Obtiene el id del usuario registrado.
-        $user = User::retrieveById($request->iduser, 'students')
-            ?? User::retrieveById($request->iduser, 'workers')
-            ?? User::retrieveById($request->iduser, 'externs');
+        $user = User::retrieveById($request->idUser, 'students')
+            ?? User::retrieveById($request->idUser, 'workers')
+            ?? User::retrieveById($request->idUser, 'externs');
+
+    
 
         # Registra la asistencia del usuario.
-        $user->workshops()->updateExistingPivot($request->idWorshop, [
+        $user->workshops()->updateExistingPivot($request->idWorkshop, [
             'assisted_to_workshop' => true,
         ]);
 
