@@ -97,6 +97,9 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a eventos.
     Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
+
+    # Marcar asistencia a evento
+    Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 });
 
 
