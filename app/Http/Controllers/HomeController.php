@@ -41,6 +41,7 @@ class HomeController extends Controller
     public function Administracion(){
 
         # Obtiene todos los tipos de usuarios
+      
         $students = Student::all();
         $workers = Worker::all();
         $externs = Extern::all();
@@ -53,7 +54,8 @@ class HomeController extends Controller
         #
         # etc, etc.
         $users = $students->merge($workers)->merge($externs);
-
+        
+        
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);
     }

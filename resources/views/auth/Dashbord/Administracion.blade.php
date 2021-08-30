@@ -5,62 +5,75 @@
 @include('auth.Dashbord.navbar')
 @endsection
 @section('ContenidoPrincipal')
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3" id="apps">
+
     <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
         <thead>
             <tr>
+                <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                <th>Acciones</th>
                 <th>id</th>
                 <th>Nombre</th>
-
                 <th>CURP</th>
                 <th>Correo</th>
                 <th>Genero</th>
                 <th>Nacionalidad</th>
                 <th>Teléfono</th>
-                @if (Auth::user()->hasModule('Administracion'))
+                @if (Auth::user()->hasRole('administrator'))
                 <th>Rol</th>
-                @endif
                 <th>Sistema</th>
+                @endif
                 <th>Cursos/Talleres</th>
+              
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
-
+           
             <tr>
+                <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                <td>
+                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser" @click="cargarUser({{$user->id}})">
+                        <i class="fas fa-edit"></i>
+                    </a>
+
+                </td>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
-
                 <td>{{$user->curp}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
                 <td>{{$user->nationality==null?"Sin Registro":$user->nationality}}</td>
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
-                @if (Auth::user()->hasRole('Administrator'))
+                @if (Auth::user()->hasRole('administrator'))
                 <td>
                     @foreach ($user->getRoleNames() as $rol)
                     <li>{{$rol}}</li>
                     @endforeach
                 </td>
-                @endif
-
                 <td>
                     @foreach ($user->userModules as $key => $Modulo)
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
+                @endif
+
+               
                 <td>
                     @foreach ($user->workshops as $key => $workshops)
                     <li>{{$workshops->description}}</li>
                     @endforeach
                 </td>
+               
             </tr>
 
             @endforeach
 
         </tbody>
         <tfoot>
+            <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+            <th>Acciones</th>
             <th>id</th>
             <th>Nombre</th>
 
@@ -69,21 +82,99 @@
             <th>Genero</th>
             <th>Nacionalidad</th>
             <th>Teléfono</th>
-            @if (Auth::user()->hasModule('Administracion'))
+            @if (Auth::user()->hasRole('administrator'))
             <th>Rol</th>
 
-            @endif
             <th>Sistema</th>
+            @endif
             <th>Cursos/Talleres</th>
-
+           
             </tr>
         </tfoot>
     </table>
-
+    <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="user!=''">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content ">
+            <div class="modal-header bg-primary ">
+              <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Información del usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body bg-white">
+               <div class="container-fluid">
+                <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
+                <div class="form-group  ">
+                  <label for="Nombres">Clave</label>
+                  <input type="text" class="form-control" :value="user[0].id" readonly
+                   >
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 was-validated">
+                    <label for="ApellidoP">Lugar de residencia</label>
+                    <input type="text" class="form-control"  :value="user[0].residence" readonly
+                     >
+                  </div>
+                  <div class="form-group col-md-6  was-validated">
+                    <label for="ApellidoM">Apellido materno</label>
+                    <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
+                      name="ApellidoM" style="text-transform: capitalize;">
+                  </div>
+                </div>
+                   <div class="row">
+                       <div class="col-4">
+                        @{{user[0].id}}
+                       </div>
+                   </div>
+               </div>
+             
+            </div>
+           
+          </div>
+        </div>
+    </div>
 </div>
 
 
-@push('stylesheets')
+<script>
+    var app = new Vue({
+  el: '#apps',
+  data: {
+    message: 'Hola Vue!',
+    users:[],
+    user:[]
+  },
+  mounted: function () {
+  this.$nextTick(function () {
+    @foreach($users as $user)
+                this.users.push({
+                    "id":'{{$user->id}}',
+                    "residence":'{{$user->residence}}',
+                    "ocupation":'{{$user->ocupation}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "disability":'{{$user->disability}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
+                    "emergency_contact":'{{$user->emergency_contact}}',
+                    "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
+                    "health_condition":'{{$user->health_condition}}'
+                });
+    @endforeach
+  })
+},
+  methods: {
+    cargarUser: function (id) {
+      
+        this.user=this.users.filter(E=>E.id==id);
+     
+    }
+    }
+})
+</script>
+
+
+  @push('stylesheets')
+
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
@@ -297,7 +388,10 @@
 
 } );
 </script>
+
 @endpush
+
+
 
 
 @endsection
