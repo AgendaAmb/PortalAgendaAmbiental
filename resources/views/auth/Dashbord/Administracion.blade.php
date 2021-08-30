@@ -136,25 +136,25 @@
                         <div class="form-row">
                             <div class="form-group col-md-4 was-validated">
                                 <label for="Nombre">Clave</label>
-                              
+
                                 <input type="text" class="form-control" :value="user[0].id" readonly>
-                              
+
                             </div>
                             <div class="form-group col-md-6  ">
                                 <label for="CursosInscritos">Curso a registrar asistencia</label>
                                <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required v-model="cursoAsistencia">
-                               
+
                                 <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}</option>
                                </select>
                             </div>
-                           
+
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                
+
                             <button class="btn btn-success" type="submit" value="Submit"
-                               >Registrar asistencia</button v-if="!spinnerVisible">
-                                <button class="btn btn-primary" type="button" disabled  v-if="spinnerVisible"> 
+                               >Registrar asistencia</button v-id="!spinnerVisible">
+                                <button class="btn btn-primary" type="button" disabled  v-id="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                         Registrando asistencia
                                   </button>
@@ -212,7 +212,7 @@
             axios.post('/RegistraAsistencia',data).then(response => (
                 console.log("completo"),
             this.spinnerVisible=false
-           
+
              )).catch((err) => {
                 this.spinnerVisible=false,
                 console.log("error")
@@ -222,15 +222,15 @@
       this.user=[],
       this.CursosInscritos=[],
         this.user=this.users.filter(E=>E.id=={{$user->id}});
-       
+
         @foreach(Auth::user()->getRegisteredWorkshops() as $E)
                 this.CursosInscritos.push({
                     "id":'{{$E['id']}}',
                     "name":'{{$E['name']}}'
-                }  
+                }
                 )
       @endforeach
-     
+
     }
     }
 })
