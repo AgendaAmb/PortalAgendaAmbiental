@@ -45,17 +45,17 @@ class HomeController extends Controller
         $students = Student::whereHas('roles', function($query) {
             return $query
                     ->whereNotIn('name', [ 'administrator' ])
-                    ->whereNotIn('guard_name', [ 'students' ]);
+                    ->where('guard_name', 'students');
         })->get();
 
         $workers = Worker::whereHas('roles', function($query) {
             return $query->whereNotIn('name', [ 'administrator' ])
-                        ->whereNotIn('guard_name', [ 'workers' ]);
+                        ->where('guard_name', 'workers');
         })->get();
 
         $externs = Extern::whereHas('roles', function($query) {
             return $query->whereNotIn('name', [ 'administrator' ])
-                        ->whereNotIn('guard_name', [ 'externs' ]);
+                        ->where('guard_name', 'externs');
         })->get();
 
 
