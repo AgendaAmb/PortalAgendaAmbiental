@@ -132,9 +132,6 @@ class WorkshopController extends Controller
      */
     public function markAsistence(Request $request)
     {
-        # Obtiene el id del curso
-        Workshop::findOrFail($request->idCurso);
-
         # Obtiene el id del usuario registrado.
         $user = User::retrieveById($request->iduser, 'students')
             ?? User::retrieveById($request->iduser, 'workers')
