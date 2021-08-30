@@ -16,8 +16,8 @@
   <div class="row">
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
-      <p class="text-justify">Aquí podras ver todos los cursos, talleres, conferencias y actividades que actualmente oferta la Agenda Ambiental.</p>
-      <p>Debes de dar click en la imagen del evento, completar el registro y asi terminarás tu registro.</p>
+      <p class="text-justify">Aquí podrás ver todos los cursos, talleres, conferencias y actividades que actualmente oferta la Agenda Ambiental.</p>
+      <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando tu participación.</p>
     </div>
     <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
@@ -794,8 +794,13 @@
       
       let diasDiferencia = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
       console.log(diasDiferencia)
-      this.DatosUsuario('mmus'),
+      if (diasDiferencia>1) {
+        
+      } else {
+        this.DatosUsuario('mmus'),
       $('#Registro17gemas').modal('show')
+      }
+    
     },
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
