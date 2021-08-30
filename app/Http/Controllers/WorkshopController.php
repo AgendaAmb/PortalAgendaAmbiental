@@ -125,6 +125,22 @@ class WorkshopController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
+    public function markAsistence(Request $request)
+    {
+        # Obtiene el id del curso
+        # $workshop = Workshop::findOrFail($request->workshopId);
+
+        # Obtiene el id del usuario registrado.
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index()

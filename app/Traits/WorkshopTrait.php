@@ -13,8 +13,9 @@ trait WorkshopTrait
      */
     public function workshops()
     {
-       
-        return $this->morphToMany(Workshop::class, 'user', 'user_workshop');
+
+        return $this->morphToMany(Workshop::class, 'user', 'user_workshop')
+                    ->withPivot('assisted_to_workshop');
     }
 
 
