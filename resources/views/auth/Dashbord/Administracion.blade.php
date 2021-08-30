@@ -42,10 +42,13 @@
                 <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
                 @endif
                 <td>
+                    @if ($user->getRegisteredWorkshops()!=[])
                     <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                         @click="cargarUser({{$user}})">
                         <i class="fas fa-edit"></i>
                     </a>
+                    @endif
+                   
                 </td>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>

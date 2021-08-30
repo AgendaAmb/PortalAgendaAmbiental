@@ -16,8 +16,10 @@
   <div class="row">
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
-      <p class="text-justify">Aquí podrás ver todos los cursos, talleres, conferencias y actividades que actualmente oferta la Agenda Ambiental.</p>
-      <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando tu participación.</p>
+      <p class="text-justify">Aquí podrás ver todos los cursos, talleres, conferencias y actividades que actualmente
+        oferta la Agenda Ambiental.</p>
+      <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando
+        tu participación.</p>
     </div>
     <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
@@ -54,11 +56,7 @@
             </div>
           </div>
         -->
-          <div 
-          
-            class="carousel-item active"
-           
-            >
+          <div class="carousel-item active">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
@@ -71,7 +69,7 @@
                 </a>
               </div>
             </div>
-            <div class="d-none d-sm-block d-md-none" >
+            <div class="d-none d-sm-block d-md-none">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                   <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" height="250" class="imgCaourselAuth1"
@@ -116,11 +114,11 @@
           </div>
         </div>
 
-        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev" style="margin-left: 5%;"> 
+        <a class="carousel-control-prev " href="#carousel" role="button" data-slide="prev" style="margin-left: 5%;">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"  style="margin-right: 5%;">
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="margin-right: 5%;">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -139,10 +137,7 @@
             </div>
           </div>
         -->
-          <div 
-          
-            class="carousel-item active"
-          >
+          <div class="carousel-item active">
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                 <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel  w-100 p-0 p-0"
@@ -185,7 +180,8 @@
     </div>
   </div>
   <div class="row py-3 ">
-    <div class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0 mt-sm-0">
+    <div
+      class="col-xl-4 col-lg-3 col-md-6 p-0 order-xl-1 order-lg-1 order-md-2 order-sm-2 order-2 mt-3 mt-xl-0 mt-lg-0 mt-md-0 mt-sm-0">
       <div id='calendar' class="mt-2"></div>
     </div>
     <div class="col-xl-6  col-lg-5 col-md-12   order-xl-2 order-lg-2  order-md-1 order-sm-1 order-1 mt-5 mb-3">
@@ -250,7 +246,7 @@
           </div>
         </div>
 
-   
+
         <div class="modal-body" v-else-if="modalClick!='Rodada'?true:isRegisterRodada?false:true">
           <form @submit.prevent="uaslpUser()">
             @csrf
@@ -624,7 +620,7 @@
               </div>
             </div>
             <div class="form-group row " v-if="modalClick=='Rodada'">
-              <div class="col-12" >
+              <div class="col-12">
                 <div class="form-check form-check-inline">
                   <label class="form-check-label">Condicion de salud</label>
                 </div>
@@ -728,7 +724,7 @@
           </form>
         </div>
         <div class="modal-body" v-else>
-         ¡¡Registro completo, antes del evento te enviaremos un correo con todas las indicaciones.!!<br>
+          ¡¡Registro completo, antes del evento te enviaremos un correo con todas las indicaciones.!!<br>
         </div>
 
       </div>
