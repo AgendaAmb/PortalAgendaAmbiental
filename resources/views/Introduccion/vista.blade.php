@@ -151,7 +151,7 @@
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/B_ECR_Sept2021.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Sept2021.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
