@@ -199,7 +199,7 @@
                                 font-weight: 900;
                                 width: 145px;
                                 "
-                                download="ENERO2021_ECR.jpg">CARTEL SEMESTRAL </a>
+                                download="Cartel_ECR_Sept2021.png">CARTEL SEMESTRAL </a>
                         </div>
 
                     </div>
