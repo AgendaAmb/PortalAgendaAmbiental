@@ -88,7 +88,7 @@ Auth::routes(['verify' => true]);
 Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/panel', 'HomeController@panel')->name('panel');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator')->name('Administracion');
+    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
 
     # Módulos de usuario
