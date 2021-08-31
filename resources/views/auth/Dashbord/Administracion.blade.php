@@ -48,7 +48,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
                     @endif
-                   
+
                 </td>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
@@ -128,45 +128,48 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form @submit.prevent="RegistrarAsistencia" method="post"  >
-                <div class="modal-body bg-white" >
-                    <div class="container-fluid">
-                        <h5 class="modal-title3" id="exampleModalLabel"></h5>
-                        <div class="form-group  ">
-                            <label for="Nombre">Nombre</label>
-                            <input type="text" class="form-control" :value="user[0].name" readonly>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4 was-validated">
-                                <label for="Nombre">Clave</label>
+                <form @submit.prevent="RegistrarAsistencia" method="post">
+                    <div class="modal-body bg-white">
+                        <div class="container-fluid">
+                            <h5 class="modal-title3" id="exampleModalLabel"></h5>
+                            <div class="form-group  ">
+                                <label for="Nombre">Nombre</label>
+                                <input type="text" class="form-control" :value="user[0].name" readonly>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 was-validated">
+                                    <label for="Nombre">Clave</label>
 
-                                <input type="text" class="form-control" :value="user[0].id" readonly>
+                                    <input type="text" class="form-control" :value="user[0].id" readonly>
+
+                                </div>
+                                <div class="form-group col-md-6  ">
+                                    <label for="CursosInscritos">Curso a registrar asistencia</label>
+                                    <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
+                                        v-model="cursoAsistencia">
+
+                                        <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}
+                                        </option>
+                                    </select>
+                                </div>
 
                             </div>
-                            <div class="form-group col-md-6  ">
-                                <label for="CursosInscritos">Curso a registrar asistencia</label>
-                               <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required v-model="cursoAsistencia">
+                            <div class="row">
+                                <div class="col-4">
 
-                                <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}</option>
-                               </select>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-4">
-
-                            <button class="btn btn-success" type="submit" value="Submit"
-                               >Registrar asistencia</button v-if="!spinnerVisible">
-                                <button class="btn btn-primary" type="button" disabled  v-if="spinnerVisible">
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <button class="btn btn-success" type="submit" value="Submit">Registrar
+                                        asistencia</button v-if="!spinnerVisible">
+                                    <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                        <span class="spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
                                         Registrando asistencia
-                                  </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-            </form>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -222,19 +225,10 @@
           })
     },
     cargarUser: function (user) {
+        console.log(user.id);
+        this.user.push(user);
         
-      this.user=[],
-      this.CursosInscritos=[],
-        this.user=this.users.filter(E=>E.id=={{$user->id}});
-
-        @foreach($user->getRegisteredWorkshops() as $E)
-                this.CursosInscritos.push({
-                    "id":'{{$E['id']}}',
-                    "name":'{{$E['name']}}'
-                }
-                )
-      @endforeach
-
+      
     }
     }
 })

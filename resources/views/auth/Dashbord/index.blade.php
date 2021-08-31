@@ -645,7 +645,7 @@
             <hr>
             <h5 class="modal-title3" v-if="modalClick=='Rodada'">Contacto de emergencia</h5>
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
-              <label for="emailR" class="col-sm-3 col-form-label">Nombre del contracto: </label>
+              <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
               <div class="col-9">
                 <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
                   v-model="NombreContacto">
@@ -671,7 +671,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row was-validated" v-if="isAsistencia==='Si'">
+            <div class="form-group row was-validated" v-if="modalClick!='Rodada'?isAsistencia==='Si'?true:false:false">
               <div class="col-md-12">
                 <label for="CursosC">¿Cuales?</label>
                 <input type="text" class="form-control" id="CursosC" required name="CursosC" v-model="CursosC">
