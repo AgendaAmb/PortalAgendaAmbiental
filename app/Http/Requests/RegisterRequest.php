@@ -51,6 +51,7 @@ class RegisterRequest extends FormRequest
             $this->merge([
                 'CURP' => Str::upper($this->CURP),
             ]);
+
         }
     }
 
