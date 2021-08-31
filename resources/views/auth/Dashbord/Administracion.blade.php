@@ -222,10 +222,10 @@
           })
     },
     cargarUser: function (user) {
-      
+        
       this.user=[],
       this.CursosInscritos=[],
-        this.user=this.users.filter(E=>E.id=='{{user->id}}');
+        this.user=this.users.filter(E=>E.id=={{$user->id}});
 
         @foreach($user->getRegisteredWorkshops() as $E)
                 this.CursosInscritos.push({
