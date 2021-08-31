@@ -804,7 +804,7 @@
 
     },
     cargarCursos:function(){
-      @foreach($user->getRegisteredWorkshops() as $E)
+      @foreach(Auth::user()->getRegisteredWorkshops() as $E)
                 this.checkedNames.push(
                     '{{$E['name']}}'
                 )
