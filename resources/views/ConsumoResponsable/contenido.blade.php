@@ -185,7 +185,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/CARTEL-TAMAÑO-REAL.png')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Sept2021.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
