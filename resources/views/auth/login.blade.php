@@ -454,7 +454,6 @@
                     </div>
 
                     <div class="form-row" v-if="Pais === 'México'">
-
                         <div class="form-group col-md-12  was-validated">
                             <label for="CURP ">CURP</label>
                             <input type="text" class="form-control" id="CURP" required
@@ -468,15 +467,16 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6  was-validated">
-                            <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required
-                                name="ApellidoP" style="text-transform: capitalize;">
-                        </div>
+                        
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
                             <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required
                                 name="ApellidoM" style="text-transform: capitalize;">
+                        </div>
+                        <div class="form-group col-md-6  was-validated">
+                            <label for="inputCity">Apellido materno</label>
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required
+                                name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                     </div>
                     <div class="form-row was-validated">
