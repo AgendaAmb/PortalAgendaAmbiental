@@ -154,8 +154,8 @@
                                 </div>
 
                             </div>
-                            <div class="row">
-                                <div class="col-4">
+                            <div class="row justify-content-end">
+                                <div class="col-3 p-0">
 
                                     <button class="btn btn-success" type="submit" value="Submit">Registrar
                                         asistencia</button v-if="!spinnerVisible">
@@ -164,6 +164,12 @@
                                             aria-hidden="true"></span>
                                         Registrando asistencia
                                     </button>
+
+                                </div>
+                                <div class="col-5" v-if="asistenciaExito">
+                                    <div class="alert alert-success" role="alert">
+                                      ¡¡Asistencia registrada!!
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +190,8 @@
     user:[],
     CursosInscritos:[],
     cursoAsistencia:'',
-    spinnerVisible:false
+    spinnerVisible:false,
+    asistenciaExito:false
   },
   mounted: function () {
   this.$nextTick(function () {
@@ -216,16 +223,22 @@
                 "idWorkshop":this.cursoAsistencia,
             }
             axios.post('/RegistraAsistencia',data).then(response => (
+              
                 console.log("completo"),
-            this.spinnerVisible=false
-
+            this.spinnerVisible=false,
+            this.asistenciaExito=true,
+            this.cargarUser(this.user[0])
              )).catch((err) => {
+                this.asistenciaExito=false,
                 this.spinnerVisible=false,
                 console.log("error")
           })
     },
     cargarUser: function (user) {
-        console.log(user.id);
+      
+        this.asistenciaExito=false,
+        this.user=[],
+        this.CursosInscritos=[],
         this.user.push(user);
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -234,14 +247,18 @@
        	        "id":user.id,
         }
         axios.post('/GetWorkshops',data).then(response => (
+           
             response.data.forEach(element => {
-                this.CursosInscritos.push({
+                if (!element.asistenciaUsuario) {
+                    this.CursosInscritos.push({
                     'id':element.id,
                     'name':element.name
-                })
-            }),
+                }) 
+                }
+               
+            })
           
-            console.log(response)
+           
              )).catch((err) => {
                 console.log(err)
              
