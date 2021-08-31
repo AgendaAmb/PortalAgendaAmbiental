@@ -301,7 +301,7 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-              <img src="{{ asset('storage/imagenes/introduccion/B_ECR_Sept2021.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Sept2021.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                 alt="First slide">
             </a>
           </div>
@@ -469,10 +469,18 @@
           </div>
           <div
             class="row justify-content-center justify-content-sm-end justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class=" col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
               <a href="#" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRATE</a>
             </div>
-            <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+            <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+              <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
+                                height: 35px;
+                                font-weight: 900;
+                                width: 145px;
+                                " download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">BASES </a>
+            </div>
+            <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
               <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
                                 height: 35px;
