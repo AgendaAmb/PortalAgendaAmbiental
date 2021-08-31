@@ -22,8 +22,8 @@ class WorkshopController extends Controller
     public function GetWorkshops(Request $request){
         $user=User::userById($request->id);
         $Workshops=[];
-       
-       
+
+
         return($user->getRegisteredWorkshops());
     }
     public function store(StoreWorkshopRequest $request)
@@ -40,11 +40,8 @@ class WorkshopController extends Controller
                 return response()->json([ 'message' => 'No existe el tipo de evento especificado' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
             }
         }
-        else if ($courses->count() > 0) {
-            $this->registerCourses($request, $courses);
-        }
         else {
-            return response()->json([ 'message' => 'Especifica uno o más cursos' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+            $this->registerCourses($request, $courses);
         }
 
         # Actualiza los datos del usuario.
@@ -86,10 +83,12 @@ class WorkshopController extends Controller
         if ($event === null)
             return false;
 
-        $user->workshops()->detach($event->id);
-        $user->workshops()->attach($event->id);
-
-        Mail::to($user)->send(new RegisteredWorkshops(collect($events)));
+        # Registra el evento al usuario.
+        if (!$user->hasWorkshop($event->name))
+        {
+            $user->workshops()->attach($event->id);
+            Mail::to($user)->send(new RegisteredWorkshops(collect($events)));
+        }
 
         return true;
     }
@@ -104,11 +103,21 @@ class WorkshopController extends Controller
     private function registerCourses(Request $request, $courses)
     {
         # Usuario autenticado
-        //
         $user = $request->user();
-        $mmus_courses = $user->workshops()->tipo('curso')->pluck('id');
+
+        # Cursos mmus del usuario.
+        $mmus_courses = $user->workshops()
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->tipo('curso')
+            ->whereNotIn('name', $courses)
+            ->pluck('id');
+
+        # Se eliminan los cursos a los que no haya asistido y a
+        # aquellos que haya eliminado del modal.
         $user->workshops()->detach($mmus_courses);
 
+        # Agrega cada uno de los cursos
         foreach ($courses as $workshop)
         {
             # Busca el curso por su nombre.
@@ -145,7 +154,7 @@ class WorkshopController extends Controller
             ?? User::retrieveById($request->idUser, 'workers')
             ?? User::retrieveById($request->idUser, 'externs');
 
-    
+
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($request->idWorkshop, [
