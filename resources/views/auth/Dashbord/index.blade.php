@@ -851,7 +851,7 @@
             };
             var data = {
        	        "emailR":this.emailR,
-                "Edad":this.Edad,
+               
                 "Genero":this.Genero,
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
