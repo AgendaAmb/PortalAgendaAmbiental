@@ -16,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable,
-        HasRoles, ModuleTrait, WorkshopTrait, SoftDeletes;
+    HasRoles, ModuleTrait, WorkshopTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +24,6 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $guarded = [];
-
 
     /**
      * The attributes that should be hidden for arrays.
@@ -38,7 +37,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'updated_at',
         'email_verified_at',
         'access_token',
-        'token'
+        'token',
     ];
 
     /**
@@ -55,8 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type' ];
-
+    protected $appends = ['user_type'];
 
     /**
      * Obtiene el tipo de usuario
@@ -85,9 +83,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public static function authUser()
     {
-        return Auth::guard('students')->user()
-            ?? Auth::guard('workers')->user()
-            ?? Auth::user();
+        return Auth::guard('students')->user() ?? Auth::guard('workers')->user() ?? Auth::user();
     }
 
     /**
@@ -101,16 +97,32 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch($user_type)
-        {
-            case 'students' : $user = Student::find($user_id); break;
-            case 'workers'  : $user = Worker::find($user_id); break;
-            case 'externs'  : $user = Extern::find($user_id); break;
+        switch ($user_type) {
+            case 'students':$user = Student::find($user_id);
+                break;
+            case 'workers':$user = Worker::find($user_id);
+                break;
+            case 'externs':$user = Extern::find($user_id);
+                break;
         }
 
         return $user;
     }
-
+    public static function userById($user_id)
+    {
+        # Recupera al usuario.
+        $user = null;
+        if( $user==null){
+            $user = Student::find($user_id);
+        }
+        if( $user==null){
+            $user = Worker::find($user_id);
+        }
+        if( $user==null){
+            $user = Extern::find($user_id);
+        }
+        return $user;
+    }
     /**
      * Retrieves the specified user (Worker, Student, Extern) by
      * id and type
@@ -122,17 +134,17 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch($user_type)
-        {
-            case 'students' : $user = Student::firstWhere($search_key, $search_value); break;
-            case 'workers'  : $user = Worker::firstWhere($search_key, $search_value); break;
-            case 'externs'  : $user = Extern::firstWhere($search_key, $search_value); break;
+        switch ($user_type) {
+            case 'students':$user = Student::firstWhere($search_key, $search_value);
+                break;
+            case 'workers':$user = Worker::firstWhere($search_key, $search_value);
+                break;
+            case 'externs':$user = Extern::firstWhere($search_key, $search_value);
+                break;
 
             case '*':
 
-                $user = Extern::firstWhere($search_key, $search_value)
-                     ?? Worker::firstWhere($search_key, $search_value)
-                     ?? Student::firstWhere($search_key, $search_value);
+                $user = Extern::firstWhere($search_key, $search_value) ?? Worker::firstWhere($search_key, $search_value) ?? Student::firstWhere($search_key, $search_value);
 
                 break;
         }
@@ -158,11 +170,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getRegisteredWorkshops()
     {
         $workshops = $this->workshops()->select('id', 'name', 'description')
-        ->get()->each(function(&$workshop){
+            ->get()->each(function (&$workshop) {
             $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
 
-            if ($workshop->pivot !== null)
+            if ($workshop->pivot !== null) {
                 unset($workshop->pivot);
+            }
+
         });
 
         return $workshops->toArray();

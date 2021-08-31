@@ -19,6 +19,13 @@ class WorkshopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function GetWorkshops(Request $request){
+        $user=User::userById($request->id);
+        $Workshops=[];
+       
+       
+        return($user->getRegisteredWorkshops());
+    }
     public function store(StoreWorkshopRequest $request)
     {
         # Cursos registrados por el usuario

@@ -90,7 +90,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
-
+    Route::post('/GetWorkshops', 'WorkshopController@GetWorkshops');
     # Módulos de usuario
     Route::resource('modules', ModuleController::class);
 

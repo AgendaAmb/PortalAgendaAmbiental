@@ -144,8 +144,8 @@
                         </div>
                     </div>
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
-                        <div class="form-group col-md-10 col-sm-10 col-10  was-validated">
-                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional</label>
+                        <div class="form-group col-md-8 col-sm-8 col-8 was-validated">
+                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al botón con el icono de lupa</label>
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}

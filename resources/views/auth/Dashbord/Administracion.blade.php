@@ -227,7 +227,25 @@
     cargarUser: function (user) {
         console.log(user.id);
         this.user.push(user);
-        
+        let headers = {
+                    'Content-Type': 'application/json;charset=utf-8'
+            };
+            var data = {
+       	        "id":user.id,
+        }
+        axios.post('/GetWorkshops',data).then(response => (
+            response.data.forEach(element => {
+                this.CursosInscritos.push({
+                    'id':element.id,
+                    'name':element.name
+                })
+            }),
+          
+            console.log(response)
+             )).catch((err) => {
+                console.log(err)
+             
+          })
       
     }
     }
