@@ -160,12 +160,12 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
-                <img src="{{ asset('/storage/imagenes/UPCYCLE/marroquineria1.webp')}}" class="imgCaoursel "
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                <img src="{{ asset('/storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Proserem',['nombreModal'=> 'modalCursoUPCYCLE'])}}>
-                <img src="{{ asset('/storage/imagenes/UPCYCLE/marroquineria2.webp')}}" class="imgCaoursel "
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Sept2021.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
