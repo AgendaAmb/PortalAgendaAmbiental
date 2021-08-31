@@ -25,8 +25,8 @@
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
-          <!--
-          <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
+          @if (Auth::user()->hasRole('administrator'))
+          <div class="carousel-item " v-if="TipoUsuario!='externs'?true:false">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
                 <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
@@ -55,7 +55,9 @@
               </div>
             </div>
           </div>
-        -->
+          @endif
+          
+        
           <div class="carousel-item active">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
