@@ -222,7 +222,7 @@
           })
     },
     cargarUser: function (user) {
-        console.log(user),
+      
       this.user=[],
       this.CursosInscritos=[],
         this.user=this.users.filter(E=>E.id=='{{user->id}}');
