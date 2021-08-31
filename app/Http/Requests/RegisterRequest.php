@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class RegisterRequest extends FormRequest
 {
@@ -41,6 +42,14 @@ class RegisterRequest extends FormRequest
                 'Nombres' => $response_data['name'],
                 'ApellidoP' => $response_data['first_surname'],
                 'ApellidoM' => $response_data['last_surname'] ?? null,
+            ]);
+        }
+
+        # Convierte en mayúsculas la CURP
+        if ($this->CURP !== null)
+        {
+            $this->merge([
+                'CURP' => Str::upper($this->CURP),
             ]);
         }
     }
