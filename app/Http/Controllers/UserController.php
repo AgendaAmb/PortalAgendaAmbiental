@@ -61,7 +61,10 @@ class UserController extends Controller
     public function updateUserData(Request $request)
     {
         $user = User::retrieveBySearchKey('id', $request->id, $request->user_type);
-        $user->fill($request->except('id', 'user_type'));
+        $user->residence = $request->residence ?? $user->residence;
+        $user->ocupation = $request->ocupation ?? $user->ocupation;
+        $user->disability = $request->disability ?? $user->disability;
+        $user->interested_on_further_courses = $request->interested_on_further_courses ?? $user->interested_on_further_courses;
         $user->save();
         
         return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
