@@ -129,8 +129,8 @@
         data-ride="carousel">
 
         <div class="carousel-inner">
-          <!--
-          <div class="carousel-item active" v-if="TipoUsuario!='externs'?true:false">
+          
+          <div class="carousel-item " v-if="TipoUsuario!='externs'?true:false">
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
                 <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel w-100 p-0 p-0 "
@@ -138,7 +138,7 @@
               </a>
             </div>
           </div>
-        -->
+        
           <div class="carousel-item active">
             <div class="slide-box">
               <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
