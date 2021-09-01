@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchUserRequest;
+use App\Mail\RegisteredTo17Gemas;
 use App\Models\Auth\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -28,7 +30,7 @@ class UserController extends Controller
         $user = User::retrieveBySearchKey(
             $request->search_key, $request->search_value, $request->user_type
         );
-        
+
         return $user;
     }
 
@@ -66,8 +68,8 @@ class UserController extends Controller
         $user->disability = $request->disability ?? $user->disability;
         $user->interested_on_further_courses = $request->interested_on_further_courses ?? $user->interested_on_further_courses;
         $user->save();
-        
 
+        Mail::to($user)->send(new RegisteredTo17Gemas);
         return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
     }
 }
