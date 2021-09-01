@@ -271,7 +271,7 @@
             </a>
           </div>
         </div>
-      
+
         <div class="carousel-item ">
           <div class="slide-box">
             <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
@@ -280,7 +280,7 @@
             </a>
           </div>
         </div>
-      
+
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
@@ -442,43 +442,33 @@
             <span aria-hidden="true">X</span>
           </button>
         </div>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row justify-content-center">
-            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+            <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
               <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}" class="img-fluid" alt="">
             </div>
           </div>
           <div
-            class="row justify-content-center justify-content-sm-end justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-            <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-              <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button"
-                style="border-radius: 20px;
-              height: 35px;
-              font-weight: 900;
-              width: 145px;
-              ">REGISTRATE</a>
+            class="row justify-content-start justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-xl-5 mx-2 mt-2">
+            <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  px-0 px-xl-3">
+            <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted  "  id="botones" role="button"
+              id="botones">REGISTRO</a>
             </div>
-
-            <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 px-0">
-              <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
-                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
-                                height: 35px;
-                                font-weight: 900;
-                                width: 145px;
-                                " download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">BASES </a>
-            </div>
-            <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 px-0">
-              <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
-                class="btn btn-secondary bg-light  text-muted  pr-0" href="#" role="button" style="border-radius: 20px;
-                                height: 35px;
-                                font-weight: 900;
-                                width: 145px;
-                                " download="Cartel17Gemas.png">CARTEL </a>
+              <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  ">
+            <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+              class="btn btn-secondary bg-light  text-muted  " href="#" role="button" id="botones"
+              download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">BASES </a>
+        </div>
+              <div class=" col-4 col-xl-3 col-lg-3 col-md-6 col-sm-6 mr-xl-3 ">
+            <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
+              class="btn btn-secondary bg-light  text-muted  pr-0 mr-xl-3" href="#" role="button" id="botones"
+              download="Cartel17Gemas.png">CARTEL </a>
             </div>
             <div class="row justify-content-center">
               <div class="col-10" style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';' ">
                 <br>
-                <p class="h4 font-weight-bold text-justify" style=" color: #5c94d7;">¡Ayúdanos a encontrar las 17 gemas de la sostenibilidad y lograr la mejor
+                <p class="h4 font-weight-bold text-justify" style=" color: #5c94d7;">¡Ayúdanos a encontrar las 17 gemas
+                  de la sostenibilidad y lograr la mejor
                   universidad de los 14 millones de futuros posibles! </p>
                 <br>
                 <p style="font-size: 15px;" class="text-justify">
@@ -489,12 +479,17 @@
 
 
                 </p>
-                <p style="font-size: 15px;" class="text-justify">Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la
+                <p style="font-size: 15px;" class="text-justify">
+                  Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la
                   Agenda Ambiental en el botón "Registrate", sigue los pasos que se te indican después complementa el
-                  registro del concurso “17 gemas para la Unisostenibilidad” para que puedas tener acceso a la plataforma donde .
+                  registro del concurso “17 gemas para la Unisostenibilidad” para que puedas tener acceso a la
+                  plataforma.
 
                 </p>
-                <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las  <a  href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
+
+                <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las <a
+                    href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+                    download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
 
               </div>
             </div>

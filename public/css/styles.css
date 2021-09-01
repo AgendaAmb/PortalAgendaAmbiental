@@ -74,6 +74,13 @@ background-color: #96A834;
   
     text-align: center;
 }
+#botones{
+    border-radius: 20px;
+    height: 35px;
+    font-weight: 900;
+    width: 145px;
+
+}
 .navbar .nav-item .dropdown-menu{
     margin-top:0;
  }
@@ -697,6 +704,10 @@ font-size: 12px;
 
 }
 @media only screen and (min-width: 10px) and (max-width: 575px){
+    #botones{
+        width: auto;
+        height: auto;
+    }
     .navbar .nav-item .nav-link{
         width: auto;
         text-align: start;
