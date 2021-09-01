@@ -58,6 +58,7 @@ class WorkshopController extends Controller
         $user->comments = $request->ComentariosSugerencias ?? $user->comments;
         $user->emergency_contact = $request->NombreContacto ?? $user->emergency_contact;
         $user->emergency_contact_phone = $request->CelularContacto ?? $user->emergency_contact_phone;
+        $user->grupoCiclista = $request->GrupoC ?? $user->grupoCiclista;
         $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
         $user->health_condition = collect($request->CondicionSalud ?? [])->first() ?? $user->health_condition;
         $user->save();
