@@ -32,7 +32,7 @@
     <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
       <div class="carousel-inner">
-        
+
         <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -59,7 +59,7 @@
           </div>
 
         </div>
-      
+
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -84,7 +84,7 @@
           </div>
 
         </div>
-      
+
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -301,8 +301,8 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Sept2021.png')}}" class="imgCaoursel w-100 p-0 p-0 "
-                alt="First slide">
+              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Sept2021.png')}}"
+                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
         </div>
@@ -470,13 +470,14 @@
           <div
             class="row justify-content-center justify-content-sm-end justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
             <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-              <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button"  style="border-radius: 20px;
+              <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button"
+                style="border-radius: 20px;
               height: 35px;
               font-weight: 900;
               width: 145px;
-              " >REGISTRATE</a>
+              ">REGISTRATE</a>
             </div>
-           
+
             <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 px-0">
               <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
@@ -494,14 +495,28 @@
                                 " download="Cartel17Gemas.png">CARTEL </a>
             </div>
             <div class="row justify-content-center">
-              <div class="col-10"
-                  style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'">
-                  <span>Después del cierren las inscripciones se te enviará un 
-                    correo electrónico con los datos para participar de forma 
-                    obligatoria en una charla en donde se explicará la mecánica 
-                    del concurso, así como la plataforma a utilizar. </span>
+              <div class="col-10" style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';' ">
+                <br>
+                <p class="h4 font-weight-bold text-justify" style=" color: #5c94d7;">¡Ayúdanos a encontrar las 17 gemas de la sostenibilidad y lograr la mejor
+                  universidad de los 14 millones de futuros posibles! </p>
+                <br>
+                <p style="font-size: 15px;" class="text-justify">
+                  La Agenda Ambiental, Dirección de Fomento Editorial y Publicaciones, Dirección de Comunicación Social
+                  e Imagen, División de Desarrollo Humano y la División de Servicios Estudiantiles incitan a los
+                  administradores, docentes y alumnos de la UASLP a participar en el concurso “17 gemas para la
+                  Unisostenibilidad” durante el periodo de septiembre 2021 a junio 2022.
+
+
+                </p>
+                <p style="font-size: 15px;" class="text-justify">Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la
+                  Agenda Ambiental en el botón "Registrate" sigue los pasos que se te indican después complementa el
+                  registro del concurso “17 gemas para la Unisostenibilidad” para tener acceso a la plataforma.
+
+                </p>
+                <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las  <a  href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
+
               </div>
-          </div>
+            </div>
 
           </div>
 
@@ -514,7 +529,6 @@
 </div>
 
 <script>
- 
   if ('{{$NombreM}}'!='') {
     $('#{{$NombreM}}').modal('show')
   } 
