@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchUserRequest;
 use App\Models\Auth\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -49,6 +50,20 @@ class UserController extends Controller
      */
     public function whoAmI(Request $request)
     {
-        return $request->user()->makeVisible('access_token');
+        return $request->user();
+    }
+
+    /**
+     * Retrieves the current authenticated user.
+     *
+     * @var string
+     */
+    public function updateUserData(Request $request)
+    {
+        $user = User::retrieveBySearchKey('id', $request->id, $request->user_type);
+        $user->fill($request->except('id', 'user_type'));
+        $user->save();
+        
+        return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
     }
 }

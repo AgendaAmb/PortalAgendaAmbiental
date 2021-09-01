@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Mail;
 
 class WorkshopController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function GetWorkshops(Request $request){
         $user=User::userById($request->id);
         $Workshops=[];
@@ -26,6 +20,13 @@ class WorkshopController extends Controller
 
         return($user->getRegisteredWorkshops());
     }
+
+    /**
+     * Stores a new user workshop
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(StoreWorkshopRequest $request)
     {
         # Cursos registrados por el usuario
@@ -34,7 +35,7 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
-
+        # Registra al usuario al evento o cursos especificados.
         if ($request->TipoEvento !== null) {
             if ($this->registerEvent($request) === false) {
                 return response()->json([ 'message' => 'No existe el tipo de evento especificado' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
