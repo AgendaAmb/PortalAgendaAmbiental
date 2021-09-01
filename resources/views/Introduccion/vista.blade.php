@@ -470,7 +470,7 @@
           <div
             class="row justify-content-center justify-content-sm-end justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
             <div class="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-              <a href="#" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button"  style="border-radius: 20px;
+              <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " role="button"  style="border-radius: 20px;
               height: 35px;
               font-weight: 900;
               width: 145px;

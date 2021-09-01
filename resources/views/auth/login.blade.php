@@ -602,7 +602,7 @@
   methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
-        console.log(urlactual)
+       
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
         
         $('#Registro').modal('show')
@@ -610,6 +610,8 @@
     ChecarUrl:function(){
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
 
     },
       //*Metodo para verificar que las contraseñas sean iguales*//
