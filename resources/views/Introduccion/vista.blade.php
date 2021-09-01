@@ -271,7 +271,7 @@
             </a>
           </div>
         </div>
-        <!--
+      
         <div class="carousel-item ">
           <div class="slide-box">
             <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
@@ -280,7 +280,7 @@
             </a>
           </div>
         </div>
-      -->
+      
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
@@ -308,25 +308,6 @@
         </div>
 
 
-        <div class="carousel-item">
-          <div class="slide-box">
-            <a href="{{route('Cineminuto')}}">
-
-              <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}"
-                class="imgCaoursel  w-100  p-0" alt="First slide">
-            </a>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="slide-box">
-            <a href="{{route('FotografiaS')}}">
-
-              <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
-                class="imgCaoursel  w-100 p-0 " alt="First slide">
-            </a>
-          </div>
-        </div>
         <div class="carousel-item">
           <div class="slide-box">
             <a href="{{route('DateUnRespiro')}}">
@@ -509,8 +490,8 @@
 
                 </p>
                 <p style="font-size: 15px;" class="text-justify">Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la
-                  Agenda Ambiental en el botón "Registrate" sigue los pasos que se te indican después complementa el
-                  registro del concurso “17 gemas para la Unisostenibilidad” para tener acceso a la plataforma.
+                  Agenda Ambiental en el botón "Registrate", sigue los pasos que se te indican después complementa el
+                  registro del concurso “17 gemas para la Unisostenibilidad” para que puedas tener acceso a la plataforma donde .
 
                 </p>
                 <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las  <a  href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
