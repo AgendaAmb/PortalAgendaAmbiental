@@ -40,5 +40,5 @@ Route::middleware('client')->group(function(){
     Route::get('/searchuser', 'UserController@search')->name('search');
 
     # Actualiza los datos del usuario especificado.
-    Route::get('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
+    Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
 });
