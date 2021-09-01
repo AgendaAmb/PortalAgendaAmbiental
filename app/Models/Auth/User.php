@@ -97,7 +97,8 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch ($user_type) {
+        switch ($user_type) 
+        {
             case 'students':$user = Student::find($user_id);
                 break;
             case 'workers':$user = Worker::find($user_id);
@@ -134,7 +135,8 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch ($user_type) {
+        switch ($user_type) 
+        {
             case 'students':$user = Student::firstWhere($search_key, $search_value);
                 break;
             case 'workers':$user = Worker::firstWhere($search_key, $search_value);
@@ -144,7 +146,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
             case '*':
 
-                $user = Extern::firstWhere($search_key, $search_value) ?? Worker::firstWhere($search_key, $search_value) ?? Student::firstWhere($search_key, $search_value);
+                $user = Extern::firstWhere($search_key, $search_value) 
+                    ?? Worker::firstWhere($search_key, $search_value) 
+                    ?? Student::firstWhere($search_key, $search_value);
 
                 break;
         }
