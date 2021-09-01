@@ -59,7 +59,7 @@
           </div>
 
         </div>
-      <!--
+      
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -84,7 +84,7 @@
           </div>
 
         </div>
-      -->
+      
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
