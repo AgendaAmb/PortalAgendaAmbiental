@@ -25,7 +25,7 @@
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
-          @if (Auth::user()->hasRole('administrator'))
+       
           <div class="carousel-item " v-if="TipoUsuario!='externs'?true:false">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          @endif
+        
           
         
           <div class="carousel-item active">
@@ -344,7 +344,13 @@
                 @endif
                 >
               </div>
-
+              <div class="col-md-6 mb-3" v-if="modalClick=='Rodada'">
+                <label for="GrupoC">Grupo ciclista</label>
+                <input type="text" class="form-control" id="GrupoC"  name="GrupoC" v-model="GrupoC"
+                
+                >
+              </div>
+             
             </div>
             <div class="form-row row was-validated" v-if="modalClick!='Rodada'">
               <div class="col-md-6 mb-3">
@@ -650,15 +656,21 @@
               <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
               <div class="col-9">
                 <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
-                  v-model="NombreContacto">
+                  v-model="NombreContacto" @change ="VerificaNombreContacto">
               </div>
+              <span class="text-danger" role="alert" v-if="Errores[2].Visible">
+                @{{Errores[2].Mensaje}}
+            </span>
             </div>
             <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
               <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
               <div class="col-9">
                 <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
-                  v-model="CelularContacto">
+                  v-model="CelularContacto" @change ="VerificaNumeroContacto">
               </div>
+              <span class="text-danger" role="alert" v-if="Errores[3].Visible">
+                @{{Errores[3].Mensaje}}
+            </span>
             </div>
             <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
             <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
@@ -770,21 +782,41 @@
     CelularContacto:'',
     cursosInscritos:[],
     Guardado:'',
-    isRegisterRodada:false
+    isRegisterRodada:false,
+    GrupoC:''
 
   },
   mounted:function () {
   this.$nextTick(function () {
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
-   this.activaModal(),
+   //this.activaModal(),
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
+    this.Errores.push({Mensaje:"El nombre del contacto debe ser diferente al tuyo",Visible:false});
+    this.Errores.push({Mensaje:"El teléfono y el teléfono de contacto no pueden ser iguales",Visible:false});
   })
 },
 
   methods:{
+    VerificaNumeroContacto:function(){
+      console.log("hola")
+      if ( this.CelularContacto==this.tel) {
+        this.Errores[3].Visible=true
+      }else{
+        this.Errores[3].Visible=false
+      }
+       
+    },
+    VerificaNombreContacto:function(){
+      nombreCompleto=this.nombres+this.ApellidoP+this.ApellidoM
+      if (nombreCompleto==this.NombreContacto) {
+        this.Errores[2].Visible=true
+      }else{
+        this.Errores[2].Visible=false
+      }
+    },
     activaModal:function(){
       let fechaRegistro=new Date('{{Auth::user()->created_at}}')
       let hora =new Date()
@@ -866,7 +898,8 @@
                 "cursosInscritosMMUS":this.checkedNames,
                 "CondicionSalud":this.CondicionSalud,
                 "NombreContacto":this.NombreContacto,
-                "CelularContacto":this.CelularContacto
+                "CelularContacto":this.CelularContacto,
+                "GrupoC":this.GrupoC
             }
 
            if (this.modalClick=='17Gemas') {

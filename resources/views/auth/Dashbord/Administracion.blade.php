@@ -30,6 +30,7 @@
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
+                <th>Grupo ciclista</th>
                 @endif
 
             </tr>
@@ -69,6 +70,7 @@
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
+               
                 @endif
 
 
@@ -83,6 +85,7 @@
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
                 </th>
+                <th>{{$user->grupoCiclista}}</th>
                 @endif
 
             </tr>
@@ -113,6 +116,7 @@
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
+            <th>Grupo ciclista</th>
             @endif
             </tr>
         </tfoot>
