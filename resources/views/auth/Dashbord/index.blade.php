@@ -88,11 +88,11 @@
           <div class="carousel-item ">
             <div class="d-none d-lg-block d-md-block">
               <div class="slide-box">
-                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
+                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                   <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" height="250"
                     class="imgCaourselAuth1" alt="First slide">
                 </a>
-                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
+                <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                   <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" height="250"
                     class="imgCaourselAuth2" alt="First slide">
 
@@ -150,7 +150,7 @@
           </div>
           <div class="carousel-item ">
             <div class="slide-box">
-              <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
+              <a data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
                 <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
                   class="imgCaoursel  w-100 p-0 p-0" alt="First slide">
               </a>
@@ -233,7 +233,7 @@
         <div class="modal-header bg-primary" id="modalGemas">
           <h5 class="modal-title mx-auto" v-if="modalClick=='17Gemas'">17 gemas para la Uni sostenible</h5>
           <h5 class="modal-title mx-auto" v-if="modalClick=='mmus'">Movilidad urbana sustentable 2021</h5>
-          <h5 class="modal-title mx-auto" v-if="modalClick=='Rodada'">Unirodada cicloturistica a la Cañada del Lobo</h5>
+         
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -292,6 +292,13 @@
                   Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP
                 </label>
               </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Unirodada" id="Unirodada"
+                  v-model="checkedNames">
+                <label class="form-check-label" for="Unirodada">
+                  Unirodada cicloturística a la Cañada del Lobo
+                </label>
+              </div>
               <br>
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
@@ -344,7 +351,7 @@
                 @endif
                 >
               </div>
-              <div class="col-md-6 mb-3" v-if="modalClick=='Rodada'">
+              <div class="col-md-6 mb-3" v-if="checkedNames.includes('Unirodada')">
                 <label for="GrupoC">Grupo ciclista</label>
                 <input type="text" class="form-control" id="GrupoC"  name="GrupoC" v-model="GrupoC"
                 
@@ -621,7 +628,7 @@
 
             </div>
   
-            <div class="form-group row " v-if="modalClick=='Rodada'">
+            <div class="form-group row " v-if="checkedNames.includes('Unirodada')">
               <div class="col-12">
                 <div class="form-check form-check-inline">
                   <label class="form-check-label">Condicion de salud</label>
@@ -645,8 +652,8 @@
 
             </div>
             <hr>
-            <h5 class="modal-title3" v-if="modalClick=='Rodada'">Contacto de emergencia</h5>
-            <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
+            <h5 class="modal-title3" v-if="checkedNames.includes('Unirodada')">Contacto de emergencia</h5>
+            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada')">
               <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
               <div class="col-9">
                 <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
@@ -656,7 +663,7 @@
                 @{{Errores[2].Mensaje}}
             </span>
             </div>
-            <div class="form-group row was-validated" v-if="modalClick=='Rodada'">
+            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada')">
               <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
               <div class="col-9">
                 <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
@@ -865,7 +872,7 @@
         this.url='{{env('APP_URL')}}'
 
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
-            this.isRegisterRodada=true
+         
         }
       },
       uaslpUser:function(){
