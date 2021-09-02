@@ -73,7 +73,7 @@ class WorkshopController extends Controller
 
         # Bandera para determinar si hay un evento de unirodada
         # registrado.
-       
+
         $has_unirodada = Arr::first($courses, function($value, $key){
 
             return $value === 'Unirodada cicloturística a la Cañada del Lobo';
@@ -82,8 +82,11 @@ class WorkshopController extends Controller
         # Agrega la última unirodada, en caso de que haya sido registrada.
         if ($has_unirodada)
         {
-            $workshop = Workshop::tipo('Unirodada cicloturística a la Cañada del Lobo')->latest('created_at')->first();
-            $courses[] = $workshop->name;
+            $workshop = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
+
+            # Si el evento existe, se agrega al arreglo.
+            if ($workshop !== null)
+                $courses[] = $workshop->name;
         }
 
         # Cursos mmus del usuario.
