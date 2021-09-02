@@ -33,27 +33,32 @@ class RegisterRequest extends FormRequest
             'username' => $this->email ?? null
         ]);
 
-        # Guarda el directorio activo en la sesión.
+        # Guarda los datos recuperados del directorio activo en la solicitud.
         if ($response->successful())
         {
             $response_data = $response->json()['data'];
 
             $this->merge([
+                'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
                 'DirectorioActivo' => $response_data['DirectorioActivo'],
                 'ClaveUASLP' => $response_data['ClaveUASLP'],
-                'Nombres' => $response_data['name'],
-                'ApellidoP' => $response_data['first_surname'],
-                'ApellidoM' => $response_data['last_surname'] ?? null,
+                'email' => Str::lower($this->email),
+                //'Nombres' => Str::title($response_data['name']),
+                //'ApellidoP' => Str::title($response_data['first_surname']),
+                //'ApellidoM' => $response_data['last_surname'] !== null ? Str::title($response_data['last_surname']) : null,
+                'CorreoAlterno' => $this->CorreoAlterno !== null ? Str::lower($this->CorreoAlterno) : null,
             ]);
         }
-
-        # Convierte en mayúsculas la CURP
-        if ($this->CURP !== null)
+        else
         {
             $this->merge([
-                'CURP' => Str::upper($this->CURP),
+                'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
+                'email' => Str::lower($this->email),
+                //'Nombres' => Str::title($this->Nombres),
+                //'ApellidoP' => Str::title($this->ApellidoP),
+                //'ApellidoM' => $this->ApellidoM !== null ? Str::title($this->ApellidoM) : null,
+                'CorreoAlterno' => $this->CorreoAlterno !== null ? Str::lower($this->CorreoAlterno) : null,
             ]);
-
         }
     }
 
