@@ -17,11 +17,11 @@
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
                 @foreach ($Modulos as $Modulo)
-               @if (Auth::user()->hasRole('administrator'))
+             
                <li class="nav-item" >
                 <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
             </li>
-               @endif
+              
                
                
                 @endforeach

@@ -516,13 +516,13 @@
 
                     </div>
                     <div class="form-group row was-validated">
-                        <div class="col-4">
+                        <div class="col-6">
                             <label for="GEtnico">Grupo étnico</label>
                             <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
                                 placeholder="Grupo étnico (Zapoteco, Pame, etc)">
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-6">
                             <label for="isDiscapacidad">¿Tienes alguna
                                 discapacidad?</label>
                             <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
