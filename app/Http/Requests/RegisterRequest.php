@@ -72,7 +72,7 @@ class RegisterRequest extends FormRequest
         return [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
-            'ApellidoM' => [ 'nullable', 'string', 'max:255' ],
+            'ApellidoM' => [ 'nullable' ],
             'email' => [ 'required', 'string', 'email', 'max:255', 'unique:externs,email', 'unique:students,email', 'unique:workers,email' ],
             'password' => [ Rule::requiredIf($this->DirectorioActivo === null) ],
             'passwordR' => [ Rule::requiredIf($this->DirectorioActivo === null), 'same:password' ],

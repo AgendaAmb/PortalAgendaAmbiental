@@ -107,6 +107,9 @@ class RegisterController extends Controller
             # Lugar de residencia
             'altern_email' => $data['CorreoAlterno'] ?? null,
 
+            # Lugar de residencia
+            'ocupation' => $data['Ocupacion'] ?? null,
+
             # Código postal
             'zip_code' => $data['CP'] ?? null,
 
