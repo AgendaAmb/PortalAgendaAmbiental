@@ -14,15 +14,15 @@
 
 <div class="container-fluid" id="panel">
   <div class="row">
-
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
       <p class="text-justify">Aquí podrás ver todos los cursos, talleres, conferencias y actividades que actualmente
         oferta la Agenda Ambiental.</p>
-      <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando
-        tu participación.</p>
-    </div>
-    <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
+        <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando
+          tu participación.</p>
+        </div>
+        <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
+      <!--
       <div class="row">
         <div class="col-4">
           <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
@@ -42,7 +42,7 @@
           </a>
         </div>
       </div>
-      <!--
+    -->
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
@@ -187,7 +187,7 @@
           </a>
         </div>
       </div>
-    -->
+    
     </div>
     <div class="col-xl-2  col-lg-2  p-3 col-md-2 col-sm-2 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
       <div class="col">
@@ -255,7 +255,7 @@
         <div class="modal-header bg-primary" id="modalGemas">
           <h5 class="modal-title mx-auto" v-if="modalClick=='17Gemas'">17 gemas para la Uni sostenible</h5>
           <h5 class="modal-title mx-auto" v-if="modalClick=='mmus'">Movilidad urbana sustentable 2021</h5>
-         
+
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -315,8 +315,8 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Unirodada cicloturística a la Cañada del Lobo" id="Unirodada"
-                  v-model="checkedNames">
+                <input class="form-check-input" type="checkbox" value="Unirodada cicloturística a la Cañada del Lobo"
+                  id="Unirodada" v-model="checkedNames">
                 <label class="form-check-label" for="Unirodada">
                   Unirodada cicloturística a la Cañada del Lobo
                 </label>
@@ -373,13 +373,8 @@
                 @endif
                 >
               </div>
-              <div class="col-md-6 mb-3" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
-                <label for="GrupoC">Grupo ciclista</label>
-                <input type="text" class="form-control" id="GrupoC"  name="GrupoC" v-model="GrupoC"
-                
-                >
-              </div>
-             
+
+
             </div>
             <div class="form-row row was-validated" v-if="modalClick!='Rodada'">
               <div class="col-md-6 mb-3">
@@ -649,13 +644,49 @@
               </div>
 
             </div>
-  
+
+
+            <hr>
+            <h4 class="modal-title3 text-center"
+              v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">Datos de Unirodada</h4>
+            <h5 class="modal-title3" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
+              Contacto de emergencia</h5>
+            <div class="form-group row was-validated"
+              v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
+              <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
+                  v-model="NombreContacto" @change="VerificaNombreContacto">
+              </div>
+              <span class="text-danger" role="alert" v-if="Errores[2].Visible">
+                @{{Errores[2].Mensaje}}
+              </span>
+            </div>
+            <div class="form-group row was-validated"
+              v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
+              <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
+              <div class="col-9">
+                <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
+                  v-model="CelularContacto" @change="VerificaNumeroContacto">
+              </div>
+              <span class="text-danger" role="alert" v-if="Errores[3].Visible">
+                @{{Errores[3].Mensaje}}
+              </span>
+            </div>
+            <div class="form-group row was-validated"
+              v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
+
+              <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC">
+              </div>
+            </div>
             <div class="form-group row " v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
               <div class="col-12">
                 <div class="form-check form-check-inline">
                   <label class="form-check-label">Condicion de salud</label>
                 </div>
-                <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline ml-4">
                   <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala"
                     value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
                   <label class="form-check-label" for="CondicionMala">Mala</label>
@@ -674,27 +705,6 @@
 
             </div>
             <hr>
-            <h5 class="modal-title3" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">Contacto de emergencia</h5>
-            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
-              <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
-              <div class="col-9">
-                <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
-                  v-model="NombreContacto" @change ="VerificaNombreContacto">
-              </div>
-              <span class="text-danger" role="alert" v-if="Errores[2].Visible">
-                @{{Errores[2].Mensaje}}
-            </span>
-            </div>
-            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
-              <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
-              <div class="col-9">
-                <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
-                  v-model="CelularContacto" @change ="VerificaNumeroContacto">
-              </div>
-              <span class="text-danger" role="alert" v-if="Errores[3].Visible">
-                @{{Errores[3].Mensaje}}
-            </span>
-            </div>
             <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
             <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
               <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres
@@ -895,7 +905,8 @@
         this.url='{{env('APP_URL')}}'
 
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
-         
+       this.check_one(),
+       this.CondicionSalud='{{Auth::user()->health_condition}}'
         }
       },
       uaslpUser:function(){
