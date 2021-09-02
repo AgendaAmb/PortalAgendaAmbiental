@@ -454,10 +454,16 @@
                     </div>
 
                     <div class="form-row" v-if="Pais === 'México'">
-                        <div class="form-group col-md-12  was-validated">
+                        <div class="form-group col-md-12 @error('CURP') is-invalid @else was-validated @enderror">
                             <label for="CURP ">CURP</label>
                             <input type="text" class="form-control" id="CURP" required
-                                style="text-transform: uppercase;" maxlength="18" name="CURP">
+                                style="text-transform: uppercase;" maxlength="18" name="CURP" value="{{ old('CURP') }}">
+
+                            @error('CURP')
+                            <div class="invalid-feedback">
+                                Tu CURP no es válido
+                            </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group  was-validated">
@@ -467,7 +473,7 @@
                     </div>
 
                     <div class="form-row">
-                        
+
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
                             <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required
@@ -475,7 +481,7 @@
                         </div>
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" 
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP"
                                 name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                     </div>
@@ -513,13 +519,13 @@
                             <label for="CP">Codigo Postal</label>
                             <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
                         </div>
-                      
+
                             <div class="col-md-4">
                               <label for="LugarResidencia">Ocupación</label>
                               <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion"
                                 placeholder="estudiante, profesor, administrativo, otro">
                             </div>
-                        
+
 
                     </div>
                     <div class="form-group row was-validated">
@@ -601,7 +607,7 @@
   },
   mounted:function () {
   this.$nextTick(function () {
-   
+
     this.ChecarUrl(),
     this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
@@ -610,15 +616,15 @@
   methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
-       
+
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
-        
+
         $('#Registro').modal('show')
     },
     ChecarUrl:function(){
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal():''
-      
+
         this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
 
     },

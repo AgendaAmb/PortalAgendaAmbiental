@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class RegisterRequest extends FormRequest
 {
-    use JsonResponseTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -88,9 +87,9 @@ class RegisterRequest extends FormRequest
                 'unique:workers,curp',
             ],
             'Edad' => ['required','numeric'],
-            'LugarResidencia' => ['required','string'],
+            'LugarResidencia' => ['required'],
             'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
-            'OtroGenero' => ['required_if:Genero,Otro'],
+            'OtroGenero' => ['nullable','required_if:Genero,Otro'],
             //'CorreoAlterno' => ['required'],
         ];
     }
