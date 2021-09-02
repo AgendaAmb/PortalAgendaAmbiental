@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
-use App\Models\Auth\Student;
+use Illuminate\Support\Arr;
 use App\Models\Auth\User;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
@@ -36,14 +36,7 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         # Registra al usuario al evento o cursos especificados.
-        if ($request->TipoEvento !== null) {
-            if ($this->registerEvent($request) === false) {
-                return response()->json([ 'message' => 'No existe el tipo de evento especificado' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-            }
-        }
-        else {
-            $this->registerCourses($request, $courses);
-        }
+        $this->registerCourses($request, $courses);
 
         # Actualiza los datos del usuario.
         $user->zip_code = $request->CP ?? $user->zip_code;
@@ -70,35 +63,6 @@ class WorkshopController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    private function registerEvent(Request $request)
-    {
-        # Usuario autenticado
-        $user = $request->user();
-
-        # Obtiene el evento de la unirodada.
-        $event = Workshop::tipo($request->TipoEvento)->latest('created_at')->first();
-        $events = Workshop::tipo($request->TipoEvento)->latest('created_at')->get();
-
-        # Indica que el evento no existe en la base de datos.
-        if ($event === null)
-            return false;
-
-        # Registra el evento al usuario.
-        if (!$user->hasWorkshop($event->name))
-        {
-            $user->workshops()->attach($event->id);
-            Mail::to($user)->send(new RegisteredWorkshops(collect($events)));
-        }
-
-        return true;
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
@@ -107,17 +71,30 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
+        # Bandera para determinar si hay un evento de unirodada
+        # registrado.
+        $has_unirodada = Arr::first($courses, function($value, $key){
+
+            return $value === 'Unirodada';
+        });
+
+        # Agrega la última unirodada, en caso de que haya sido registrada.
+        if ($has_unirodada)
+        {
+            $workshop = Workshop::tipo('Unirodada')->latest('created_at')->first();
+            $courses[] = $workshop->name;
+        }
+
         # Cursos mmus del usuario.
-        $mmus_courses = $user->workshops()
+        $workshops = $user->workshops()
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
-            ->tipo('curso')
             ->whereNotIn('name', $courses)
             ->pluck('id');
 
         # Se eliminan los cursos a los que no haya asistido y a
         # aquellos que haya eliminado del modal.
-        $user->workshops()->detach($mmus_courses);
+        $user->workshops()->detach($workshops);
 
         # Agrega cada uno de los cursos
         foreach ($courses as $workshop)
@@ -137,9 +114,16 @@ class WorkshopController extends Controller
             $user->workshops()->attach($workshop_model->id);
         }
 
-        $workshops = $user->workshops()->tipo('curso')->get();
+        # Obtiene los cursos registrados.
+        $workshops = $user->workshops()
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->get();
 
-        Mail::to($user)->send(new RegisteredWorkshops($workshops));
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+        if ($workshops->count() > 0)
+            Mail::to($user)->send(new RegisteredWorkshops($workshops));
     }
 
     /**
