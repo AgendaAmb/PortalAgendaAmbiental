@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
+use App\Models\Auth\User;
 use App\Models\Auth\Worker;
+use App\Models\Module;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
@@ -86,12 +88,30 @@ class VerificationController extends Controller
             event(new Verified($user));
         }
 
-        if ($response = $this->verified($request)) {
+        if ($response = $this->verified($user)) {
             return $response;
         }
 
         return $request->wantsJson()
                     ? new JsonResponse([], 204)
                     : redirect($this->redirectPath())->with('verified', true);
+    }
+
+    /**
+     * The user has been verified.
+     *
+     * @param  \App\Models\Auth\User  $user
+     * @return mixed
+     */
+    protected function verified(User $user)
+    {
+        # Redirecciona a los usuarios de control escolar a dicho módulo.
+        if ($user->hasModule('Control Escolar'))
+        {
+            # Recupera el módulo.
+            $module = Module::firstWhere('name', 'Control Escolar');
+
+            return redirect($module->url);
+        }
     }
 }
