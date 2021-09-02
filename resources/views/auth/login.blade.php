@@ -22,7 +22,7 @@
                     @csrf
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input id="email" placeholder="EMAIL" type="email"
+                            <input id="email" placeholder="EMAIL/RPE/CLAVEUNICA" type="text"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
                                 value="{{ old('email') }}" required autocomplete="email" autofocus>
 
