@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
-use App\Models\Auth\Student;
+use Illuminate\Support\Arr;
 use App\Models\Auth\User;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
@@ -36,14 +36,7 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         # Registra al usuario al evento o cursos especificados.
-        if ($request->TipoEvento !== null) {
-            if ($this->registerEvent($request) === false) {
-                return response()->json([ 'message' => 'No existe el tipo de evento especificado' ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-            }
-        }
-        else {
-            $this->registerCourses($request, $courses);
-        }
+        $this->registerCourses($request, $courses);
 
         # Actualiza los datos del usuario.
         $user->zip_code = $request->CP ?? $user->zip_code;
@@ -70,35 +63,6 @@ class WorkshopController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    private function registerEvent(Request $request)
-    {
-        # Usuario autenticado
-        $user = $request->user();
-
-        # Obtiene el evento de la unirodada.
-        $event = Workshop::tipo($request->TipoEvento)->latest('created_at')->first();
-        $events = Workshop::tipo($request->TipoEvento)->latest('created_at')->get();
-
-        # Indica que el evento no existe en la base de datos.
-        if ($event === null)
-            return false;
-
-        # Registra el evento al usuario.
-        if (!$user->hasWorkshop($event->name))
-        {
-            $user->workshops()->attach($event->id);
-            Mail::to($user)->send(new RegisteredWorkshops(collect($events)));
-        }
-
-        return true;
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
@@ -107,23 +71,33 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
+        # Obtiene el id de la última unirodada, en caso de estar
+        # presente en el arreglo.
+        $unirodada = Arr::has($courses, 'Unirodada')
+            ? Workshop::tipo('Unirodada')->latest('created_at')->pluck('id')
+            : [];
+
         # Cursos mmus del usuario.
-        $mmus_courses = $user->workshops()
+        $workshops = $user->workshops()
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
-            ->tipo('curso')
             ->whereNotIn('name', $courses)
+            ->whereNotIn('id', $unirodada)
             ->pluck('id');
 
         # Se eliminan los cursos a los que no haya asistido y a
         # aquellos que haya eliminado del modal.
-        $user->workshops()->detach($mmus_courses);
+        $user->workshops()->detach($workshops);
 
         # Agrega cada uno de los cursos
         foreach ($courses as $workshop)
         {
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('name', $workshop);
+
+            # Busca el último evento de la unirodada.
+            if ($workshop === 'Unirodada')
+                $workshop_model = Workshop::tipo('Unirodada')->latest('created_at')->first();
 
             # Registra el siguiente curso, en caso de que no exista.
             if ($workshop_model === null)
@@ -137,7 +111,7 @@ class WorkshopController extends Controller
             $user->workshops()->attach($workshop_model->id);
         }
 
-        $workshops = $user->workshops()->tipo('curso')->get();
+        $workshops = $user->workshops()->get();
 
         Mail::to($user)->send(new RegisteredWorkshops($workshops));
     }
