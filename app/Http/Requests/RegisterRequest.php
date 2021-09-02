@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
@@ -86,9 +87,9 @@ class RegisterRequest extends FormRequest
                 'unique:workers,curp',
             ],
             'Edad' => ['required','numeric'],
-            'LugarResidencia' => ['required','string'],
+            'LugarResidencia' => ['required'],
             'Genero' => ['required','in:Masculino,Femenino,Otro,NoEspecificar'],
-            'OtroGenero' => ['required_if:Genero,Otro'],
+            'OtroGenero' => ['nullable','required_if:Genero,Otro'],
             //'CorreoAlterno' => ['required'],
         ];
     }
