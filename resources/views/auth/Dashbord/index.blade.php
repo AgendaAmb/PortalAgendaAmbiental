@@ -21,7 +21,7 @@
       <p>Debes de dar clic en la imagen del evento, completar el registro, recibirás un correo electrónico confirmando
         tu participación.</p>
     </div>
-    <div class="col-xl-8 col-lg-10  col-md-10 col-sm-12 col-12 p-3">
+    <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
@@ -694,7 +694,7 @@
             <div class="form-group row was-validated">
               <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
                 participando en actividades de la Agenda Ambiental?</label>
-              <div class="col-12 col-md-5">
+              <div class="col-12 col-xl-5">
                 <select id="InteresAsistencia" class="form-control" v-model="InteresAsistencia" required
                   name="InteresAsistencia">
                   <option disabled value="">Opción</option>
