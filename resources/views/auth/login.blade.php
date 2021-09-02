@@ -475,7 +475,7 @@
                         </div>
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" required
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP" 
                                 name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                     </div>
@@ -505,14 +505,21 @@
                     </div>
 
                     <div class="form-group row was-validated">
-                        <div class="form-group col-md-6 was-validated">
+                        <div class="form-group col-md-4 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
                         </div>
-                        <div class="col-md-6 ">
+                        <div class="col-md-4 ">
                             <label for="CP">Codigo Postal</label>
                             <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
                         </div>
+                      
+                            <div class="col-md-4">
+                              <label for="LugarResidencia">Ocupación</label>
+                              <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion"
+                                placeholder="estudiante, profesor, administrativo, otro">
+                            </div>
+                        
 
                     </div>
                     <div class="form-group row was-validated">
@@ -589,7 +596,8 @@
     spinnerVisible:false,
     urlAnterior:'',
     registroVa:'',
-    CorreoAlterno:''
+    CorreoAlterno:'',
+    Ocupacion:'',
   },
   mounted:function () {
   this.$nextTick(function () {

@@ -620,13 +620,7 @@
               </div>
 
             </div>
-            <div class="form-group row was-validated">
-              <div class="col-md-12">
-                <label for="LugarResidencia">Ocupación</label>
-                <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion"
-                  placeholder="estudiante, profesor, administrativo, otro">
-              </div>
-            </div>
+  
             <div class="form-group row " v-if="modalClick=='Rodada'">
               <div class="col-12">
                 <div class="form-check form-check-inline">
@@ -764,7 +758,7 @@
     spinnerVisible:false,
     CURP:'',
     LugarResidencia:'',
-    Ocupacion:'',
+   
     isDiscapacidad:'',
     Discapacidad:'',
     Genero:'',
@@ -860,7 +854,7 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
-        this.Ocupacion='{{Auth::user()->ocupation}}',
+      
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
