@@ -801,7 +801,7 @@
 
   methods:{
     VerificaNumeroContacto:function(){
-      console.log("hola")
+    
       if ( this.CelularContacto==this.tel) {
         this.Errores[3].Visible=true
       }else{
@@ -917,6 +917,7 @@
             
               console.log(response.data),
               this.spinnerVisible=false,
+              $('#Registro17gemas').modal('hide'),
               this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible,
@@ -928,6 +929,7 @@
               
               console.log(response.data),
              this.spinnerVisible=false,
+             $('#Registro17gemas').modal('hide'),
              this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible
