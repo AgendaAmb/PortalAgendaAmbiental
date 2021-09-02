@@ -823,7 +823,7 @@
   this.$nextTick(function () {
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
-   //this.activaModal(),
+    this.ChecarUrl(),
     this.TipoUsuario='{{Auth::user()->user_type}}',
     this.Errores.push({Mensaje:" Lo sentimos algo a pasado y no te hemos podido registrar",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
@@ -850,8 +850,22 @@
         this.Errores[2].Visible=false
       }
     },
+    ChecarUrl:function(){
+        this.urlAnterior='{{url()->previous()}}'
+        this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
+
+        this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal('17Gemas'):''
+        this.urlAnterior=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.levantaModal('mmus'):''
+
+    },
+    levantaModal:function(data){
+        this.DatosUsuario(data),
+        $('#Registro17gemas').modal('show')
+        
+    },
     activaModal:function(){
       //*urlanterior
+      
       let fechaRegistro=new Date('{{Auth::user()->created_at}}')
       let hora =new Date()
       let diferencia=Math.abs(hora - fechaRegistro)
