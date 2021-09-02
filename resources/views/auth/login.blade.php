@@ -144,17 +144,19 @@
                         </div>
                     </div>
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
-                        <div class="form-group col-md-4 col-sm-4 col-4 was-validated">
-                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al botón con el icono de lupa</label>
+                        <div class="form-group col-md-12 col-sm-12 col-12 mb-0">
+                        <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al botón con el icono de lupa</label>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-4 col-6 was-validated">
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
                             </span>
                         </div>
                         <input type="hidden" name="Dependencia" v-model="Facultad">
-                        <div class="form-group col-md-1 col-sm-1 col-1">
+                        <div class="form-group col-md-1 col-sm-1 col-1 ">
 
-                            <a class="btn btn btn-outline-light mt-md-5 " v-on:click="uaslpUser"
+                            <a class="btn btn btn-outline-light  " v-on:click="uaslpUser"
                                 data-toggle="tooltip" data-placement="right" title="Buscar mi información"
                                 v-if="!spinnerVisible"><i class="fas fa-search"></i></a>
                             <button class="btn btn-light mt-md-5" type="button" disabled v-if="spinnerVisible">
