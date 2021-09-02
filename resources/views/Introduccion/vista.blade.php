@@ -64,11 +64,12 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
                 <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
               </a>
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+             
             </div>
           </div>
 

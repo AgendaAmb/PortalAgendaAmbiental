@@ -620,13 +620,7 @@
               </div>
 
             </div>
-            <div class="form-group row was-validated">
-              <div class="col-md-12">
-                <label for="LugarResidencia">Ocupación</label>
-                <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion"
-                  placeholder="estudiante, profesor, administrativo, otro">
-              </div>
-            </div>
+  
             <div class="form-group row " v-if="modalClick=='Rodada'">
               <div class="col-12">
                 <div class="form-check form-check-inline">
@@ -694,7 +688,7 @@
             <div class="form-group row was-validated">
               <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
                 participando en actividades de la Agenda Ambiental?</label>
-              <div class="col-5">
+              <div class="col-12 col-xl-5">
                 <select id="InteresAsistencia" class="form-control" v-model="InteresAsistencia" required
                   name="InteresAsistencia">
                   <option disabled value="">Opción</option>
@@ -764,7 +758,7 @@
     spinnerVisible:false,
     CURP:'',
     LugarResidencia:'',
-    Ocupacion:'',
+   
     isDiscapacidad:'',
     Discapacidad:'',
     Genero:'',
@@ -801,7 +795,7 @@
 
   methods:{
     VerificaNumeroContacto:function(){
-      console.log("hola")
+    
       if ( this.CelularContacto==this.tel) {
         this.Errores[3].Visible=true
       }else{
@@ -860,7 +854,7 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
-        this.Ocupacion='{{Auth::user()->ocupation}}',
+      
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
@@ -917,6 +911,7 @@
             
               console.log(response.data),
               this.spinnerVisible=false,
+              $('#Registro17gemas').modal('hide'),
               this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible,
@@ -928,6 +923,7 @@
               
               console.log(response.data),
              this.spinnerVisible=false,
+             $('#Registro17gemas').modal('hide'),
              this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible
