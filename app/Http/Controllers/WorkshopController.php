@@ -97,7 +97,10 @@ class WorkshopController extends Controller
 
             # Busca el último evento de la unirodada.
             if ($workshop === 'Unirodada')
+            {
                 $workshop_model = Workshop::tipo('Unirodada')->latest('created_at')->first();
+                $workshop = $workshop_model->name;
+            }
 
             # Registra el siguiente curso, en caso de que no exista.
             if ($workshop_model === null)
@@ -111,7 +114,10 @@ class WorkshopController extends Controller
             $user->workshops()->attach($workshop_model->id);
         }
 
-        $workshops = $user->workshops()->get();
+        $workshops = $user->workshops()
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->get();
 
         Mail::to($user)->send(new RegisteredWorkshops($workshops));
     }

@@ -42,9 +42,9 @@ class HomeController extends Controller
 
        # Obtiene todos los tipos de usuarios
         # Obtiene el id de los administradores y coordinadores
-        $admins = Student::role('administrator')->pluck('id');
-        $students = Student::whereNotIn('id', $admins)->get();
-        $coordinators = Student::role('coordinator')->pluck('id');
+        $admins = [];//Student::role('administrator')->pluck('id');
+        $students = [];//Student::whereNotIn('id', $admins)->get();
+        $coordinators = [];//Student::role('coordinator')->pluck('id');
 
         # Obtiene todos los estudiantes que no son admins y coordinadores
         $students = Student::whereNotIn('id', $admins)
