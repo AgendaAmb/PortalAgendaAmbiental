@@ -59,33 +59,6 @@
           </div>
 
         </div>
-
-        <div class="carousel-item ">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-             
-            </div>
-          </div>
-
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-                <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-                <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-            </div>
-          </div>
-
-        </div>
-
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -115,6 +88,33 @@
 
         </div>
 
+        <div class="carousel-item ">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+             
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('/storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+                <img src="{{ asset('/storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+       
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -273,14 +273,7 @@
           </div>
         </div>
 
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
-              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
-                alt="First slide">
-            </a>
-          </div>
-        </div>
+        
 
         <div class="carousel-item ">
           <div class="slide-box">
@@ -290,7 +283,14 @@
             </a>
           </div>
         </div>
-
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href="#" data-toggle="modal" data-target="#Concurso17gemas">
+              <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                alt="First slide">
+            </a>
+          </div>
+        </div>
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
