@@ -33,6 +33,11 @@ class HomeController extends Controller
 
     */
     public function panel(Request $request){
+
+        dd(Student::whereHas('roles', function($query){
+            $query->where('name', '=', 'administrator');
+        })->get());
+
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops);
