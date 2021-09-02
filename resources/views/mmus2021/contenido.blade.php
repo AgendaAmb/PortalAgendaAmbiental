@@ -54,10 +54,9 @@
             <a class="nav-link w-25 p-1  m-0" data-toggle="modal" data-target="#modalIntervensiones" role="tab"
                 aria-controls="nav-profile" aria-selected="false">Intervenciones y reordenamiento: cebratón y proyecto
                 MUS-ZUP</a>
-                <a href="{{asset('storage/imagenes/mmus2021/Cartel_mmus2021.png')}}"  aria-controls="nav-profile"
-                class="nav-link w-25 p-1  m-0"  href="#" role="button"
-                download="Cartel_mmus2021.png">Cartel general </a>
-        
+            <a href="{{asset('storage/imagenes/mmus2021/Cartel_mmus2021.png')}}" aria-controls="nav-profile"
+                class="nav-link w-25 p-1  m-0" href="#" role="button" download="Cartel_mmus2021.png">Cartel general </a>
+
 
     </div>
 </div>
@@ -66,7 +65,7 @@
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
-    <h3>Dirigido a</h3>Comunidad UASLP y público general<br><br>
+    <h3>Dirigido a</h3>Comunidad UASLP y público general.<br><br>
     <h3 style="color: #5c94d7;">Objetivo</h3>
     <p style="font-size: 15px !important;">Continuar promoviendo e implementando una movilidad urbana sostenible
         considerando a todos los medios de transporte y la cultura de nuestra comunidad a través de eventos de
@@ -238,7 +237,7 @@
                             <br>
                             <span><b>Fecha: &nbsp; </b> Sábado 18 de septiembre 2021</span>
                             <br>
-                            <span><b>Horario:&nbsp;</b> 10:00-11:30 horas</span>
+                            <span><b>Horario:&nbsp;</b> 10:00-11:30 horas</span><br>
                             <span><b>Ponentes: &nbsp;</b> <br> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
                                 Pérez
                                 Ayala</span>
@@ -287,11 +286,8 @@
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
-                                role="button">REGISTRAR</a>
-                        </div>
+                        class="row justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start justify-content-xl-start mx-5 mt-2">
+
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/mmus2021/Banners-MesaT.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
@@ -305,7 +301,7 @@
                                 <h2 style="font-weight: 900;">2nda Mesa de Trabajo MUS-UASLP</h2>
 
 
-                                <span><b>Lugar: &nbsp;</b> : Aula de la Agenda Ambiental de la UASLP</span>
+                                <span><b>Lugar: &nbsp;</b> Aula de la Agenda Ambiental de la UASLP</span>
                                 <br>
                                 <span><b>Fecha:&nbsp; </b> Viernes 24 septiembre 2021</span>
                                 <br>
@@ -390,8 +386,7 @@
                                 <br><br>
 
                                 <span><b>Distancia total:</b>&nbsp; 20 km aprox.</span><br><br>
-                                <span><b>Cuota de recuperación: &nbsp; </b>$100 (en efectivo previo al
-                                    evento)</span><br><br>
+                                <span><b>Cuota de recuperación: &nbsp; </b>Cuota de recuperación:   $100 (en efectivo antes del 22 de septiembre en las instalaciones de la Agenda Ambiental en un horario de 9:00 a 14:00 horas)</span><br><br>
 
                                 <span>Llena el formulario en el botón de inscripción
                                     antes del 18 de septiembre del 2021.</span><br><br>
@@ -455,26 +450,27 @@
                                 <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
                                 <br>
                                 <span><b>Horario:</b> 4:30-6:30 horas</span> <br>
-                                <span><b>Ponentes: </b> Arq. Mirell Betanzo del Angel y Mtra en Arq. Alejandrina
-                                    Pérez
-                                    Ayala</span>
+
                                 <br>
                                 <br>
                                 <span>
                                     <h4>Descripción</h4>
                                 </span>
-
-                                <span>En el marco del día de la Universidad se busca implementar una etapa del
+                                <p class="text-justify">
+                                    En el marco del día de la Universidad se busca implementar una etapa del
                                     proyecto de reordenamiento de la ZUP de parte del Departamento de Vinculación de
                                     la Facultad del Hábitat en colaboración con el Departamento de Diseño y
                                     Construcción.
                                     El proyecto considera la intervención de las paradas del transporte público,
                                     lugares de estacionamiento, la accesibilidad peatonal y de todos los medios de
                                     transporte.
-                                </span>
-                                <span> El Cebratón, es una iniciativa de pintas artísticas en
+                                </p>
+                                <p class="text-justify"> El Cebratón, es una iniciativa de pintas artísticas en
                                     cruces peatonales que tiene como objetivo reivindicar-reclamar el espacio de
-                                    transeúntes y sensibilizar usuarios y actores de la vía pública.</span>
+                                    transeúntes y sensibilizar usuarios y actores de la vía pública. </p>
+
+
+                              
                                 <br>
                                 <br>
                                 </ol>
@@ -490,7 +486,7 @@
     </div>
 </div>
 <script>
-     if ('{{$NombreM}}'!='') {
+    if ('{{$NombreM}}'!='') {
     $('#{{$NombreM}}').modal('show')
   } 
   

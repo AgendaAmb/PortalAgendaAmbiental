@@ -14,6 +14,7 @@
 
 <div class="container-fluid" id="panel">
   <div class="row">
+
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
       <p class="text-justify">Aquí podrás ver todos los cursos, talleres, conferencias y actividades que actualmente
@@ -22,6 +23,26 @@
         tu participación.</p>
     </div>
     <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
+      <div class="row">
+        <div class="col-4">
+          <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+            <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid h-75">
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+
+            <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid h-75 ">
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
+
+            <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid h-75">
+          </a>
+        </div>
+      </div>
+      <!--
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
@@ -166,6 +187,7 @@
           </a>
         </div>
       </div>
+    -->
     </div>
     <div class="col-xl-2  col-lg-2  p-3 col-md-2 col-sm-2 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
       <div class="col">
@@ -819,6 +841,7 @@
       }
     },
     activaModal:function(){
+      //*urlanterior
       let fechaRegistro=new Date('{{Auth::user()->created_at}}')
       let hora =new Date()
       let diferencia=Math.abs(hora - fechaRegistro)
