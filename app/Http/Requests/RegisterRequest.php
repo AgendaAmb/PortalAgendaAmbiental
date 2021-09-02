@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 
 class RegisterRequest extends FormRequest
 {
+    use JsonResponseTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
