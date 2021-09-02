@@ -479,12 +479,12 @@
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
                             <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoM" required
-                                name="ApellidoM" style="text-transform: capitalize;">
+                                name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
                             <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoP"
-                                name="ApellidoP" style="text-transform: capitalize;">
+                                name="ApellidoM" style="text-transform: capitalize;">
                         </div>
                     </div>
                     <div class="form-row was-validated">
