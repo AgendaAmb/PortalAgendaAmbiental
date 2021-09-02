@@ -315,7 +315,7 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Unirodada" id="Unirodada"
+                <input class="form-check-input" type="checkbox" value="Unirodada cicloturística a la Cañada del Lobo" id="Unirodada"
                   v-model="checkedNames">
                 <label class="form-check-label" for="Unirodada">
                   Unirodada cicloturística a la Cañada del Lobo
@@ -373,7 +373,7 @@
                 @endif
                 >
               </div>
-              <div class="col-md-6 mb-3" v-if="checkedNames.includes('Unirodada')">
+              <div class="col-md-6 mb-3" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
                 <label for="GrupoC">Grupo ciclista</label>
                 <input type="text" class="form-control" id="GrupoC"  name="GrupoC" v-model="GrupoC"
                 
@@ -650,7 +650,7 @@
 
             </div>
   
-            <div class="form-group row " v-if="checkedNames.includes('Unirodada')">
+            <div class="form-group row " v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
               <div class="col-12">
                 <div class="form-check form-check-inline">
                   <label class="form-check-label">Condicion de salud</label>
@@ -674,8 +674,8 @@
 
             </div>
             <hr>
-            <h5 class="modal-title3" v-if="checkedNames.includes('Unirodada')">Contacto de emergencia</h5>
-            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada')">
+            <h5 class="modal-title3" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">Contacto de emergencia</h5>
+            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
               <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
               <div class="col-9">
                 <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
@@ -685,7 +685,7 @@
                 @{{Errores[2].Mensaje}}
             </span>
             </div>
-            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada')">
+            <div class="form-group row was-validated" v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
               <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
               <div class="col-9">
                 <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
