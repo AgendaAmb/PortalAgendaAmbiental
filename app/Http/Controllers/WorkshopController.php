@@ -71,18 +71,25 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
-        # Obtiene el id de la última unirodada, en caso de estar
-        # presente en el arreglo.
-        $unirodada = Arr::has($courses, 'Unirodada')
-            ? Workshop::tipo('Unirodada')->latest('created_at')->pluck('id')
-            : [];
+        # Bandera para determinar si hay un evento de unirodada
+        # registrado.
+        $has_unirodada = Arr::first($courses, function($value, $key){
+
+            return $value === 'Unirodada';
+        });
+
+        # Agrega la última unirodada, en caso de que haya sido registrada.
+        if ($has_unirodada)
+        {
+            $workshop = Workshop::tipo('Unirodada')->latest('created_at')->first();
+            $courses[] = $workshop->name;
+        }
 
         # Cursos mmus del usuario.
         $workshops = $user->workshops()
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
             ->whereNotIn('name', $courses)
-            ->whereNotIn('id', $unirodada)
             ->pluck('id');
 
         # Se eliminan los cursos a los que no haya asistido y a
@@ -94,13 +101,6 @@ class WorkshopController extends Controller
         {
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('name', $workshop);
-
-            # Busca el último evento de la unirodada.
-            if ($workshop === 'Unirodada')
-            {
-                $workshop_model = Workshop::tipo('Unirodada')->latest('created_at')->first();
-                $workshop = $workshop_model->name;
-            }
 
             # Registra el siguiente curso, en caso de que no exista.
             if ($workshop_model === null)
@@ -114,12 +114,16 @@ class WorkshopController extends Controller
             $user->workshops()->attach($workshop_model->id);
         }
 
+        # Obtiene los cursos registrados.
         $workshops = $user->workshops()
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
             ->get();
 
-        Mail::to($user)->send(new RegisteredWorkshops($workshops));
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+        if ($workshops->count() > 0)
+            Mail::to($user)->send(new RegisteredWorkshops($workshops));
     }
 
     /**
