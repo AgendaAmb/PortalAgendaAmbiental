@@ -42,9 +42,9 @@ class RegisterRequest extends FormRequest
                 'DirectorioActivo' => $response_data['DirectorioActivo'],
                 'ClaveUASLP' => $response_data['ClaveUASLP'],
                 'email' => Str::lower($this->email),
-                //'Nombres' => Str::title($response_data['name']),
-                //'ApellidoP' => Str::title($response_data['first_surname']),
-                //'ApellidoM' => $response_data['last_surname'] !== null ? Str::title($response_data['last_surname']) : null,
+                'Nombres' => Str::upper($response_data['name']),
+                'ApellidoP' => Str::upper($response_data['first_surname']),
+                'ApellidoM' => $response_data['last_surname'] !== null ? Str::upper($response_data['last_surname']) : null,
                 'CorreoAlterno' => $this->CorreoAlterno !== null ? Str::lower($this->CorreoAlterno) : null,
             ]);
         }
@@ -53,9 +53,9 @@ class RegisterRequest extends FormRequest
             $this->merge([
                 'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
                 'email' => Str::lower($this->email),
-                //'Nombres' => Str::title($this->Nombres),
-                //'ApellidoP' => Str::title($this->ApellidoP),
-                //'ApellidoM' => $this->ApellidoM !== null ? Str::title($this->ApellidoM) : null,
+                'Nombres' => Str::upper($this->Nombres),
+                'ApellidoP' => Str::upper($this->ApellidoP),
+                'ApellidoM' => $this->ApellidoM !== null ? Str::upper($this->ApellidoM) : null,
                 'CorreoAlterno' => $this->CorreoAlterno !== null ? Str::lower($this->CorreoAlterno) : null,
             ]);
         }
