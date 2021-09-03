@@ -62,12 +62,13 @@
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
+             
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -75,12 +76,13 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
+              
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
