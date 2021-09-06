@@ -15,31 +15,31 @@
 <div class="container-fluid my-4" id="panel">
   <div class="row">
     <div class="col-xl-3 col-12  h-auto order-xl-0 order-2">
-      <div id='calendar' class="mt-2"></div>
+      <div id='calendar' class="mt-0"></div>
     </div>
     <div class="col-xl-7 col-12 d-flex align-items-center flex-column order-xl-1 order-1">
       <div class="col-12  d-flex align-items-center flex-column">
         <div class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
-              <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid pr-1">
+              <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
 
-              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-1">
+              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
 
-              <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-1">
+              <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-xl-1 px-1 mt-1 mt-xl-0">
             </a>
           </div>
         </div>
         <div class="row  ">
-          <div class="col  d-flex align-items-center my-5 px-0">
+          <div class="col  d-flex align-items-center my-xl-5 my-2 px-0">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item ">
@@ -66,10 +66,21 @@
       </div>
 
     </div>
-    <div class="col-2 order-xl-2 order-0">
-      <div class="col-12">
-        hola
+    <div class="col-xl-2 col-lg-2 col-md-2 col-12 order-xl-2 order-0">
+      <div class="row justify-content-end d-flex align-items-center flex-xl-column ">
+        <div class="col-6  col-xl-12 order-1 order-xl-0"><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
+          class="img-fluid" alt="">
+
+        </div>
+        <div class="col-6 col-xl-12 mt-2 order-0 order-xl-0" style="color: gray;">
+          <h5 class="font-weight-bold text-center" style="color: gray;">{{Auth::user()->name}}</h5>
+          <h6 style="color: gray;" class="text-center">{{Auth::user()->dependency}}</h6>
+        </div>
       </div>
+      
+    </div>
+   
+     
     </div>
   </div>
 
@@ -1063,13 +1074,13 @@
           var calendar = new FullCalendar.Calendar(calendarEl, {
             
             headerToolbar: {
-                left:'prev,next',
+              start: 'prev,next',
                 center:'title',
-                right: '' },
+                right: false },
             initialView: 'dayGridMonth'
 
           });
-          calendar.setOption('contentHeight', 535);
+          calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();
         });

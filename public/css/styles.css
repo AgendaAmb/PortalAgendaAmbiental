@@ -685,6 +685,41 @@ a.nav-item.nav-link.nav-button{
 color:white;
 font-size: 12px;
 }
+
+
+.fc-toolbar-chunk { /* needs to be same precedence */
+    padding-top: 15px; /* an override! */
+    padding-bottom: 5px; /* an override! */
+    background-color: #e66c6b;
+    color: white;
+    align-items: center;
+    border: 0px solid transparent;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+   
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.75em;
+    margin: 0;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+}
+.fc .fc-button-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 0% 35%;
+}
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 0%;
+    display: block;
+    align-items: center;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    
+    background-color: #e66c6b;
+}
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
 
