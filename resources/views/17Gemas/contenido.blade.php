@@ -1,6 +1,6 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-5 pt-0">
+<div class="col-xl-4 col-lg-4 col-md-4 justify-content-center my-xl-5 my-3 pt-0">
     <img src="{{ asset('storage/imagenes/17Gemas/Logo17Gemas.png') }}" class=" mx-auto d-block w-75 " alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 my-5">
@@ -27,8 +27,6 @@
     <div class="col-12">
         <img src="{{ asset('storage/imagenes/17Gemas/Banner_seccion.png') }}" class="img-fluid " alt="" srcset="">
     </div>
-
-
 </div>
 
 
@@ -49,20 +47,16 @@
 @endsection
 
 @section('ObjetivosTexto')
-<div class="pSize text-justify mt-5">
-
+<div class="pSize text-justify mt-xl-5 mt-2 px-xl-2 px-2">
     <h2> ¡Ayúdanos a encontrar las 17 gemas de la sostenibilidad y lograr la mejor universidad de los 14 millones de
         futuros posibles! </h2> <br><br>
+
     <h3 style="color: #5c94d7;">Bases generales </h3>
     <p style="font-size: 15px !important;">Podrán participar administradores, docentes, alumnos de todos los campus de
         la UASLP del estado.
         <br>
-     
-    
-          
-     
     </p>
-    <strong>¿Cómo participar?</strong> 
+    <strong>¿Cómo participar?</strong>
     <p style="font-size: 15px !important;">
         Durante el periodo septiembre 2021 – junio 2022 podrás ganar las 17 gemas del Desarrollo Sostenible lo que debes
         hacer es participar en las actividades que se llevan a cabo en la Agenda Ambiental de la UASLP en actividades
@@ -70,48 +64,73 @@
         tema y estar explícitamente relacionada con el Objetivo para el Desarrollo Sostenible (ODS) que vas a registrar.
         <br><br>
         <strong>¿Cómo valido mis actividades? </strong>
-         
+
         <br>
-        
-        Deberás documentar tu actividad, universitaria o por tu cuenta, a través de:  
+
+        Deberás documentar tu actividad, universitaria o por tu cuenta, a través de:
     </p>
     <ol>
-        <li> Un solo video corto de máximo dos minutos de duración que contenga:  
-            <ul>
-                <li>Toma video selfie donde digas tu nombre, si eres empleado o estudiante, de qué campus, entidad o facultad, carrera y edad (máximo 20 segundos).  </li>
-                <li>El restante del tiempo te pedimos que hagas tomas de tu actividad donde describas el ODS que estás atendiendo, el tipo de actividad, la relación que 3 tiene con el ODS y su importancia o reto que significa para alcanzar la sostenibilidad.  </li>
-                <li>Los clips que no sean propios de la persona deben contar con los derechos de uso sin fines de lucro. Estos derechos son establecidos de manera visible y directa en las diversas plataformas digitales.  </li>
-            </ul>
+        <li> Un solo video corto de máximo dos minutos de duración que contenga:</li>
+        <ul>
+            <li> Toma video selfie donde digas tu nombre, si eres empleado o estudiante, de qué campus, entidad o
+                facultad, carrera y edad (máximo 20 segundos).</li>
+            <li>El restante del tiempo te pedimos que hagas tomas de tu actividad donde describas el ODS que estás
+                atendiendo, el tipo de actividad, la relación que 3 tiene con el ODS y su importancia o reto que
+                significa para alcanzar la sostenibilidad. </li>
+            <li>Los clips que no sean propios de la persona deben contar con los derechos de uso sin fines de lucro.
+                Estos derechos son establecidos de manera visible y directa en las diversas plataformas digitales.
+            </li>
+        </ul>
+        <li> Texto de 500 palabras*: el sistema incluye una ventana para que subas un texto propio de máximo 500
+            palabras
+            donde describas el ODS seleccionado, la meta que atiende para ese objetivo y la actividad que realizaste y
+            cómo ayudan a alcanzar esa meta o metas. Las metas de cada ODS las puedes consultar con facilidad en el
+            sitio
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivosde-desarrollo-sostenible/" target="_blank"
+                rel="noopener noreferrer">ODS</a>
         </li>
-        <br>
-        <li>
-            Texto de 500 palabras*: el sistema incluye una ventana para que subas un texto propio de máximo 500 palabras donde describas el ODS seleccionado, la meta que atiende para ese objetivo y la actividad que realizaste y cómo ayudan a alcanzar esa meta o metas. Las metas de cada ODS las puedes consultar con facilidad en el sitio
-            <a href="https://www.un.org/sustainabledevelopment/es/objetivosde-desarrollo-sostenible/">https://www.un.org/sustainabledevelopment/es/objetivosde-desarrollo-sostenible/.</a> Del menú de los 17 ODS seleccionas el de tu interés para conocer su detalle y las metas asociadas.  
-            <br><br>
-            *El reporte de investigación personal puede ser para producir el texto de 500 palabras asociado al video. 
-        </li>
+
+
     </ol>
+
     <strong>¿Cómo colecto mis gemas? </strong>
     <br>
-    <p>Personal de la Agenda Ambiental validará tus actividades de cada reto que corresponda a un ODS y podrás recoger tu gema el último viernes de cada mes en las instalaciones de la Agenda Ambiental (Av. Manuel Nava 201 último piso, Zona Universitaria, horario de 8:00 a 16:00 h). Si logras colectar las 17 gemas de la sostenibilidad antes del 15 de junio de 2022 podrás entrar en la rifa de 3 bicicletas Turbo, 20 vales con valor de $1000 c/u canjeables en Unimanía o en la Librería Universitaria y 2 cursos completos que organice la Agenda Ambiental en el siguiente ciclo escolar. Cada participante que sea elegible a la rifa sólo podrá obtener un máximo de un premio.  </p> 
-    <strong> ¿Cómo me registro?</strong>  
-    <p>Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la Agenda Ambiental en el botón "Registro", sigue los pasos que se te indican después complementa el registro del concurso “17 gemas para la Unisostenibilidad” dando clic en la imagen correspondiente, terminado tendrás acceso a la plataforma donde subirás tus evidencias.  
-<br>
-        Para mayor información consulta las <a  href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases</a> </p>
+    <p>Personal de la Agenda Ambiental validará tus actividades de cada reto que corresponda a un ODS y podrás recoger
+        tu gema el último viernes de cada mes en las instalaciones de la Agenda Ambiental (Av. Manuel Nava 201 último
+        piso, Zona Universitaria, horario de 8:00 a 16:00 h). Si logras colectar las 17 gemas de la sostenibilidad antes
+        del 15 de junio de 2022 podrás entrar en la rifa de 3 bicicletas Turbo, 20 vales con valor de $1000 c/u
+        canjeables en Unimanía o en la Librería Universitaria y 2 cursos completos que organice la Agenda Ambiental en
+        el siguiente ciclo escolar. Cada participante que sea elegible a la rifa sólo podrá obtener un máximo de un
+        premio. </p>
+    <strong> ¿Cómo me registro?</strong>
+    <p>Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la Agenda Ambiental
+        en el botón "Registro", sigue los pasos que se te indican después complementa el registro del concurso “17 gemas
+        para la Unisostenibilidad” dando clic en la imagen correspondiente, terminado tendrás acceso a la plataforma
+        donde subirás tus evidencias.</p>
+    <br>
+    Para mayor información consulta las <a
+        href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+        download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases</a> </p>
     <br>
     <h3>Informes</h3>
-   
-        Agenda Ambiental de la UASLP<br>
-        Universidad Autónoma de San Luis Potosí<br>
-        Manuel Nava No. 201, segundo piso<br>
-        Zona Universitaria, C.P. 78210<br>
-        San Luis Potosí, S.L.P.<br>
-        Tel. (444) 826-2300 ext. 7210<br>
-        <a href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx</a>
 
-   
+    Agenda Ambiental de la UASLP<br>
+    Universidad Autónoma de San Luis Potosí<br>
+    Manuel Nava No. 201, segundo piso<br>
+    Zona Universitaria, C.P. 78210<br>
+    San Luis Potosí, S.L.P.<br>
+    Tel. (444) 826-2300 ext. 7210<br>
+    <a href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx</a>
+
+
 </div>
-</div>
+<div>
+
+
+
+
+
+
 @endsection
 
 @section('Modales')
@@ -132,7 +151,7 @@
                             <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                   
+
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-center justify-content-lg-end justify-content-xl-end mx-xl-5 mx-2 mt-2">
                         <!--
@@ -151,7 +170,7 @@
                                 class="btn btn-secondary bg-light  text-muted  mr-xl-3 mb-2" href="#" role="button"
                                 id="botones" download="Cartel17Gemas.png">CARTEL </a>
                         </div>
-                      
+
                         <!--
                         <div class="row justify-content-center">
                             <div class="col-10"
