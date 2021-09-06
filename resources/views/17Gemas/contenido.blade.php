@@ -57,19 +57,22 @@
     <p style="font-size: 15px !important;">Podrán participar administradores, docentes, alumnos de todos los campus de
         la UASLP del estado.
         <br>
-        <br>
-        ¿Cómo participar?
-        <br>
+     
+    
+          
+     
     </p>
+    <strong>¿Cómo participar?</strong> 
     <p style="font-size: 15px !important;">
         Durante el periodo septiembre 2021 – junio 2022 podrás ganar las 17 gemas del Desarrollo Sostenible lo que debes
         hacer es participar en las actividades que se llevan a cabo en la Agenda Ambiental de la UASLP en actividades
         similares a las propuestas que realices por tu cuenta. Esta actividad deberá reflejar investigación sobre el
         tema y estar explícitamente relacionada con el Objetivo para el Desarrollo Sostenible (ODS) que vas a registrar.
         <br><br>
-        ¿Cómo valido mis actividades?  
+        <strong>¿Cómo valido mis actividades? </strong>
+         
         <br>
-        <br>
+        
         Deberás documentar tu actividad, universitaria o por tu cuenta, a través de:  
     </p>
     <ol>
@@ -88,16 +91,17 @@
             *El reporte de investigación personal puede ser para producir el texto de 500 palabras asociado al video. 
         </li>
     </ol>
-    ¿Cómo colecto mis gemas? <br><br>
+    <strong>¿Cómo colecto mis gemas? </strong>
+    <br>
     <p>Personal de la Agenda Ambiental validará tus actividades de cada reto que corresponda a un ODS y podrás recoger tu gema el último viernes de cada mes en las instalaciones de la Agenda Ambiental (Av. Manuel Nava 201 último piso, Zona Universitaria, horario de 8:00 a 16:00 h). Si logras colectar las 17 gemas de la sostenibilidad antes del 15 de junio de 2022 podrás entrar en la rifa de 3 bicicletas Turbo, 20 vales con valor de $1000 c/u canjeables en Unimanía o en la Librería Universitaria y 2 cursos completos que organice la Agenda Ambiental en el siguiente ciclo escolar. Cada participante que sea elegible a la rifa sólo podrá obtener un máximo de un premio.  </p> 
-    <p>¿Cómo me registro?  </p>
+    <strong> ¿Cómo me registro?</strong>  
     <p>Para participar primero tendrás que registrarte con tu correo institucional a la Comunidad de la Agenda Ambiental en el botón "Registro", sigue los pasos que se te indican después complementa el registro del concurso “17 gemas para la Unisostenibilidad” dando clic en la imagen correspondiente, terminado tendrás acceso a la plataforma donde subirás tus evidencias.  
 <br>
         Para mayor información consulta las <a  href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases</a> </p>
-    
-    <h4>Informes</h4>
-    <p style="font-size: 15px !important;">
-        <br>Agenda Ambiental de la UASLP<br>
+    <br>
+    <h3>Informes</h3>
+   
+        Agenda Ambiental de la UASLP<br>
         Universidad Autónoma de San Luis Potosí<br>
         Manuel Nava No. 201, segundo piso<br>
         Zona Universitaria, C.P. 78210<br>
@@ -105,7 +109,7 @@
         Tel. (444) 826-2300 ext. 7210<br>
         <a href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx</a>
 
-    </p>
+   
 </div>
 </div>
 @endsection
@@ -128,6 +132,7 @@
                             <img src="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}" class="img-fluid" alt="">
                         </div>
                     </div>
+                   
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-center justify-content-lg-end justify-content-xl-end mx-xl-5 mx-2 mt-2">
                         <!--
@@ -143,9 +148,11 @@
                         -->
                         <div class=" col-4 col-xl-3 col-lg-3 col-md-6 col-sm-6 mr-xl-3 ">
                             <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
-                                class="btn btn-secondary bg-light  text-muted  mr-xl-3" href="#" role="button"
+                                class="btn btn-secondary bg-light  text-muted  mr-xl-3 mb-2" href="#" role="button"
                                 id="botones" download="Cartel17Gemas.png">CARTEL </a>
                         </div>
+                      
+                        <!--
                         <div class="row justify-content-center">
                             <div class="col-10"
                                 style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';' ">
@@ -183,7 +190,7 @@
 
                             </div>
                         </div>
-
+                    -->
                     </div>
 
                 </div>
