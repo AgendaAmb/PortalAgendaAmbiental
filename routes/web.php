@@ -76,11 +76,15 @@ Route::get('/MovilidadUrbanaSostenible2021/{nombreModal?}',function ($NombreM=nu
     return view('mmus2021.contenido')->with('NombreM',$NombreM);
 })->name('mmus2021');
 
+Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
+    return view('Unihuerto.contenido')->with('NombreM',$NombreM);
+})->name('Unihuerto');
 
 
-Route::get('/CicloDeConferencias', function () {
-    return view('Conferencias.contenido');
-})->name('CicloConf');
+
+Route::get('/GemasDeLaUnisostenibilidad/{nombreModal?}', function ($NombreM=null) {
+    return view('17Gemas.contenido')->with('NombreM',$NombreM);
+})->name('Gemas');
 
 Auth::routes(['verify' => true]);
 
