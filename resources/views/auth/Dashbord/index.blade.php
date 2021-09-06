@@ -12,7 +12,69 @@
 
 @section('ContenidoPrincipal')
 
-<div class="container-fluid" id="panel">
+<div class="container-fluid my-4" id="panel">
+  <div class="row">
+    <div class="col-xl-3 col-12  h-auto order-xl-0 order-2">
+      <div id='calendar' class="mt-2"></div>
+    </div>
+    <div class="col-xl-7 col-12 d-flex align-items-center flex-column order-xl-1 order-1">
+      <div class="col-12  d-flex align-items-center flex-column">
+        <div class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+              <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid pr-1">
+            </a>
+          </div>
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+
+              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-1">
+            </a>
+          </div>
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
+
+              <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-1">
+            </a>
+          </div>
+        </div>
+        <div class="row  ">
+          <div class="col  d-flex align-items-center my-5 px-0">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item ">
+                  <img src="{{asset('/storage/imagenes/17Gemas/Banner_seccion.png')}}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item active">
+                  <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100"
+                    alt="...">
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Siguiente</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-2 order-xl-2 order-0">
+      <div class="col-12">
+        hola
+      </div>
+    </div>
+  </div>
+
+
+  <!--
   <div class="row">
     <div class="col-xl-2 p-3">
       <p class="font-weight-bold text-center">Instrucciones</p>
@@ -22,7 +84,7 @@
           tu participación.</p>
         </div>
         <div class="col-xl-8 col-lg-8  col-md-8 col-sm-12 col-12 p-3">
-      <!--
+    
       <div class="row">
         <div class="col-4">
           <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
@@ -42,7 +104,8 @@
           </a>
         </div>
       </div>
-    -->
+    
+   
       <div id="carousel" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
 
         <div class="carousel-inner text-center">
@@ -187,7 +250,7 @@
           </a>
         </div>
       </div>
-    
+   
     </div>
     <div class="col-xl-2  col-lg-2  p-3 col-md-2 col-sm-2 col-12  px-0 d-none d-xl-block d-lg-block d-md-block">
       <div class="col">
@@ -248,7 +311,7 @@
       </div>
     </div>
   </div>
-
+-->
   <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -998,15 +1061,15 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
-
+            
             headerToolbar: {
                 left:'prev,next',
                 center:'title',
-                right: 'timeGridWeek,dayGridMonth' },
+                right: '' },
             initialView: 'dayGridMonth'
 
           });
-          calendar.setOption('contentHeight', 250);
+          calendar.setOption('contentHeight', 535);
           calendar.setOption('locale','Es');
           calendar.render();
         });
