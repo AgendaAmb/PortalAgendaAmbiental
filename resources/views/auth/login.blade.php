@@ -626,7 +626,7 @@
     ChecarUrl:function(){
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal():''
-        this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad/'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
 
     },
