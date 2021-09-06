@@ -853,7 +853,7 @@
     ChecarUrl:function(){
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
-        this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal('17Gemas'):''
         this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal('17Gemas'):''
         this.urlAnterior=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.levantaModal('mmus'):''
 
