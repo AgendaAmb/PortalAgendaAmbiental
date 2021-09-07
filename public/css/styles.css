@@ -685,7 +685,9 @@ a.nav-item.nav-link.nav-button{
 color:white;
 font-size: 12px;
 }
-
+#videoRegistro{
+    height: 350px;width: 100%;
+}
 
 .fc-toolbar-chunk { /* needs to be same precedence */
     padding-top: 15px; /* an override! */
@@ -739,6 +741,9 @@ font-size: 12px;
 
 }
 @media only screen and (min-width: 10px) and (max-width: 575px){
+    #videoRegistro{
+        height: 150px;
+    }
     #botones{
         width: auto;
         height: auto;
