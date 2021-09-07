@@ -6,12 +6,13 @@
 
 
 @section('Contenido')
+
 <div class="container-fluid flex-column py-5" style="background-color: rgb(241, 242, 242);">
     <div class="row pl-xl-5 px-3">
         <div class="col-xl-4 col-12 col-md-5">
             <div class="row">
                 <div class="col-12 ">
-                    <p class="font-weight-bolder h1 text-center" style="color: rgb(252, 202, 86)">¡BIENVENIDO!</p>
+                    <p class="font-weight-bolder h1 text-center" style="color: rgb(252, 202, 86)">¡BIENVENID@!</p>
                 </div>
                 <div class="col-12 px-0">
                     <p class="h5 font-weight-bold text-center" style="color:rgb(18, 98, 174)"> A Mi Portal de la Agenda Ambiental
@@ -38,9 +39,9 @@
                 </div>
                 <div class="col-12 mt-3">
                     <div class="row justify-content-around">
-                        <a class="btn btn-primary" href="#" role="button"
+                        <a class="btn btn-primary" href="{{route('login')}}" role="button"
                             style="background-color:rgb(18, 98, 174);border-color: rgb(18, 98, 174);">INICIAR SESIÓN</a>
-                        <a class="btn btn-primary" href="#" role="button"
+                        <a class="btn btn-primary" href={{route('login',['Nuevo'=> true])}} role="button"
                             style="background-color:rgb(18, 98, 174);border-color: rgb(18, 98, 174);">REGÍSTRATE</a>
                     </div>
                 </div>
