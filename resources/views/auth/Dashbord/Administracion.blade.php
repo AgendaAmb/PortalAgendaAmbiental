@@ -31,7 +31,9 @@
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
+                @if (!Auth::user()->hasRole('administrator'))
                 <th>Grupo ciclista</th>
+                @endif
                 @endif
 
             </tr>
@@ -87,7 +89,9 @@
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
                 </th>
+                @if (!Auth::user()->hasRole('administrator'))
                 <th>{{$user->grupoCiclista}}</th>
+                @endif
                 @endif
 
             </tr>
@@ -119,7 +123,9 @@
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
+            @if (!Auth::user()->hasRole('administrator'))
             <th>Grupo ciclista</th>
+            @endif
             @endif
             </tr>
         </tfoot>
