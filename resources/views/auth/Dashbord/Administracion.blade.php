@@ -18,8 +18,9 @@
                 <th>Nombre</th>
 
                 <th>Correo</th>
+                @if (!Auth::user()->hasRole('administrator'))
                 <th>Genero</th>
-
+                @endif
                 <th>Teléfono</th>
                 @if (Auth::user()->hasRole('administrator'))
                 <th>Rol</th>
@@ -55,8 +56,9 @@
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
 
                 <td>{{$user->email}}</td>
+                @if (!Auth::user()->hasRole('administrator'))
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
-
+                @endif
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
                 @if (Auth::user()->hasRole('administrator'))
@@ -103,8 +105,9 @@
 
 
             <th>Correo</th>
+            @if (!Auth::user()->hasRole('administrator'))
             <th>Genero</th>
-
+            @endif
             <th>Teléfono</th>
             @if (Auth::user()->hasRole('administrator'))
             <th>Rol</th>
