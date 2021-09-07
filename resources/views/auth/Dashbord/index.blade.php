@@ -67,13 +67,13 @@
       </div>
 
     </div>
-    <div class="col-xl-2 col-lg-2 col-md-2 col-12 order-xl-2 order-0">
-      <div class="row justify-content-end d-flex align-items-center flex-xl-column ">
-        <div class="col-6  col-xl-12 order-1 order-xl-0"><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
+    <div class="col-xl-2 col-lg-2 col-md-2 col-12 order-xl-2 order-0 px-0 mb-5">
+      <div class="row justify-content-end align-items-center ">
+        <div class="col-6  col-xl-6 order-1 order-xl-1 px-0"><img src="{{asset('storage/imagenes/Logos/User-default.png')}}"
             class="img-fluid" alt="">
 
         </div>
-        <div class="col-6 col-xl-12 mt-2 order-0 order-xl-0" style="color: gray;">
+        <div class="col-6 col-xl-6 mt-2 order-0 order-xl-0" style="color: gray;">
           <h5 class="font-weight-bold text-center" style="color: gray;">{{Auth::user()->name}}</h5>
           <h6 style="color: gray;" class="text-center">{{Auth::user()->dependency}}</h6>
         </div>
@@ -612,7 +612,7 @@
     </div>
   </div>
 </div>
-
+      
 </div>
 
 
@@ -833,7 +833,7 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
-            
+            titleFormat: {  month: 'long' },
             headerToolbar: {
               start: 'prev,next',
                 center:'title',
@@ -841,6 +841,7 @@
             initialView: 'dayGridMonth'
 
           });
+          
           calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();

@@ -31,9 +31,13 @@
 <!-- Desarrollo
 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+@production
 <!--Produccion
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  
 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+@endproduction
+
 @stack('Styles')
 @stack('stylesheets')
 
