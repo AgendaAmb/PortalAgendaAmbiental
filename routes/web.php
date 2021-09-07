@@ -21,7 +21,7 @@ Route::get('/Concurso17gemas', function ($NombreM=null) {
 })->name('Gemas');
 
 //Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
-   // return view('Introduccion.vista')->with('NombreM',$NombreM);
+  //  return view('Introduccion.vista')->with('NombreM',$NombreM);
 //})->name('Modal17Gemas');
 
 Route::get('/gestión', function () {
@@ -83,7 +83,6 @@ Route::get('/MovilidadUrbanaSostenible2021/{nombreModal?}',function ($NombreM=nu
 Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
-
 
 
 

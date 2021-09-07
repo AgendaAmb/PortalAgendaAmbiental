@@ -64,7 +64,7 @@
 @endsection
 
 @section('ObjetivosTexto')
-<div class="pSize text-justify mt-5">
+<div class="pSize text-justify mt-5 px-3">
     <h3>Dirigido a</h3>Comunidad UASLP y público general.<br><br>
     <h3 style="color: #5c94d7;">Objetivo</h3>
     <p style="font-size: 15px !important;">Continuar promoviendo e implementando una movilidad urbana sostenible

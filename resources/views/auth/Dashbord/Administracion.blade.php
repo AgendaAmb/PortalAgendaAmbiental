@@ -18,8 +18,9 @@
                 <th>Nombre</th>
 
                 <th>Correo</th>
+                @if (!Auth::user()->hasRole('administrator'))
                 <th>Genero</th>
-
+                @endif
                 <th>Teléfono</th>
                 @if (Auth::user()->hasRole('administrator'))
                 <th>Rol</th>
@@ -30,7 +31,9 @@
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
+              
                 <th>Grupo ciclista</th>
+               
                 @endif
 
             </tr>
@@ -55,8 +58,9 @@
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
 
                 <td>{{$user->email}}</td>
+                @if (!Auth::user()->hasRole('administrator'))
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
-
+                @endif
                 <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
 
                 @if (Auth::user()->hasRole('administrator'))
@@ -70,7 +74,7 @@
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
-               
+
                 @endif
 
 
@@ -85,7 +89,9 @@
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
                 </th>
+               
                 <th>{{$user->grupoCiclista}}</th>
+               
                 @endif
 
             </tr>
@@ -103,8 +109,9 @@
 
 
             <th>Correo</th>
+            @if (!Auth::user()->hasRole('administrator'))
             <th>Genero</th>
-
+            @endif
             <th>Teléfono</th>
             @if (Auth::user()->hasRole('administrator'))
             <th>Rol</th>
@@ -116,7 +123,9 @@
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
+         
             <th>Grupo ciclista</th>
+           
             @endif
             </tr>
         </tfoot>
@@ -172,8 +181,8 @@
                                 </div>
                                 <div class="col-5" v-if="asistenciaExito">
                                     <div class="alert alert-success" role="alert">
-                                      ¡¡Asistencia registrada!!
-                                      </div>
+                                        ¡¡Asistencia registrada!!
+                                    </div>
                                 </div>
                             </div>
                         </div>

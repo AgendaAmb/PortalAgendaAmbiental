@@ -184,23 +184,20 @@
                 </div>
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/CONSUMO-GENERAL.png')}}"
+                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Sept2021.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
 
-                        <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                        <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
                             <a href="{{asset('storage/imagenes/ConsumoResponsable/CONSUMO-GENERAL.png')}}"
-                                class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
-                                height: 35px;
-                                font-weight: 900;
-                                width: 145px;
-                                "
-                                download="Cartel_ECR_Sept2021.png">CARTEL SEMESTRAL </a>
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="CONSUMO-GENERAL.png">CARTEL SEMESTRAL</a>
                         </div>
+                   
 
                     </div>
 

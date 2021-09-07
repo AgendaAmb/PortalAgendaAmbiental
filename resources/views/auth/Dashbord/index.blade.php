@@ -990,8 +990,8 @@
         this.NombreContacto='{{Auth::user()->emergency_contact}}'
         this.CelularContacto='{{Auth::user()->emergency_contact_phone}}',
         this.Guardado=false,
-        this.url='{{env('APP_URL')}}'
-
+        this.url='{{env('APP_URL')}}',
+        this.Ocupacion='{{Auth::user()->ocupation}}'
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
        this.check_one(),
        this.CondicionSalud='{{Auth::user()->health_condition}}'
