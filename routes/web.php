@@ -84,6 +84,10 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
 
+Route::get('/Bienvenida/{nombreModal?}', function ($NombreM=null) {
+    return view('auth.Bienvenida')->with('NombreM',$NombreM);
+})->name('Bienvenida');
+
 
 
 
