@@ -23,7 +23,7 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
     Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
 
     # Búsqueda de usuario.
-    Route::get('/search', 'UserController@search')->name('search');    
+    Route::get('/search', 'UserController@search')->name('search');
 });
 
 
@@ -31,7 +31,7 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 Route::middleware('client')->group(function(){
 
     # Registra a un usuario desde una aplicación cliente.
-    Route::post('/register', 'Auth\RegisterController@register');
+    Route::post('/registra', 'Auth\RegisterController@register');
 
     # Módulos de usuario.
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
