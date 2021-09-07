@@ -16,9 +16,13 @@ Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
 
-Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
-    return view('Introduccion.vista')->with('NombreM',$NombreM);
-})->name('Modal17Gemas');
+Route::get('/Concurso17gemas', function ($NombreM=null) {
+    return view('17Gemas.contenido')->with('NombreM',$NombreM);
+})->name('Gemas');
+
+//Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
+   // return view('Introduccion.vista')->with('NombreM',$NombreM);
+//})->name('Modal17Gemas');
 
 Route::get('/gestión', function () {
     return view('Gestion.vista');
@@ -82,9 +86,7 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
 
 
 
-Route::get('/GemasDeLaUnisostenibilidad/{nombreModal?}', function ($NombreM=null) {
-    return view('17Gemas.contenido')->with('NombreM',$NombreM);
-})->name('Gemas');
+
 
 Auth::routes(['verify' => true]);
 
