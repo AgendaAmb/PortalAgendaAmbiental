@@ -13,4 +13,11 @@ class UnirodadaUser extends Model
      */
     protected $guarded = [];
 
+    /**
+     * Get the parent imageable model (extern, workers or students).
+     */
+    public function user()
+    {
+        return $this->morphTo();
+    }
 }

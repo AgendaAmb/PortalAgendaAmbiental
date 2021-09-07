@@ -26,6 +26,6 @@ class CreateStudentsOnDeleteTrigger extends Migration
      */
     public function down()
     {
-        DB::unprepared("DROP TRIGGER tr_before_students_delete");
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_students_delete");
     }
 }

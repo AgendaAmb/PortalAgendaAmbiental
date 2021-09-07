@@ -4,6 +4,7 @@ namespace App\Traits;
 use App\Models\Auth\Worker;
 use App\Models\Auth\Student;
 use App\Models\Auth\Extern;
+use App\Models\UnirodadaUser;
 
 trait UserTrait
 {

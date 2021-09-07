@@ -26,6 +26,6 @@ class CreateWorkersOnDeleteTrigger extends Migration
      */
     public function down()
     {
-        DB::unprepared("DROP TRIGGER tr_before_workers_delete");
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_workers_delete");
     }
 }
