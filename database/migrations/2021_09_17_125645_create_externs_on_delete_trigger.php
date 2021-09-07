@@ -26,6 +26,6 @@ class CreateExternsOnDeleteTrigger extends Migration
      */
     public function down()
     {
-        DB::unprepared("DROP TRIGGER tr_before_externs_delete");
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_externs_delete");
     }
 }

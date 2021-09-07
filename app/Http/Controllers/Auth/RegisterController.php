@@ -54,6 +54,7 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
+        return 'HOla mumdjp';
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
@@ -63,7 +64,7 @@ class RegisterController extends Controller
         }
 
         return $request->wantsJson()
-                    ? new JsonResponse([], 201)
+                    ? new JsonResponse($user, 201)
                     : redirect($this->redirectPath());
     }
 
