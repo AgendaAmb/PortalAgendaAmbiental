@@ -145,21 +145,35 @@ class WorkshopController extends Controller
             ?? User::retrieveById($request->idUser, 'workers')
             ?? User::retrieveById($request->idUser, 'externs');
 
-        # Envía el comprobante de pago,en caso de que el evento
-        # registrado haya sido una unirodada.
-        $event = Workshop::findOrFail($request->idWorkshop);
-        
-        if ($event->type === 'unirodada')
-            # Se envía el comprobante de pago.
-            Mail::to($user)->send(new SendReceipt($request->file('Comprobante')));
-
-
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($request->idWorkshop, [
             'assisted_to_workshop' => true,
         ]);
 
         return response()->json([ 'Message' => 'Asistencia de usuario registrada' ], JsonResponse::HTTP_OK);
+    }
+
+    /**
+     * Add a receipt to the registered event.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
+    public function sendReceipt(Request $request)
+    {
+        # Obtiene el id del usuario registrado.
+        $user = User::retrieveById($request->idUser, 'students')
+            ?? User::retrieveById($request->idUser, 'workers')
+            ?? User::retrieveById($request->idUser, 'externs');
+
+        # Envía el comprobante de pago,en caso de que el evento
+        # registrado haya sido una unirodada.
+        $event = Workshop::findOrFail($request->idWorkshop);
+
+        if ($event->type === 'unirodada')
+            # Se envía el comprobante de pago.
+            Mail::to($user)->send(new SendReceipt($request->file('Comprobante')));
     }
 
 
