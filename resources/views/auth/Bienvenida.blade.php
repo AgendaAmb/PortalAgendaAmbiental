@@ -138,14 +138,14 @@
             <div class="container-fluid" style="border-radius:15px;background-color:rgb(18, 98, 174); height: 100%;">
                 <div class="row p-xl-5 p-3 " style="color: white;">
                     <div class="col-12 mt-xl-5">
-                        <p>Puedes seguir las instrucciones de este video para registrarte</p>
+                        <p class="d-none">Puedes seguir las instrucciones de este video para registrarte</p>
                         <img src="{{asset('/storage/imagenes/Logos/Binvenida.png')}}" alt="" srcset="" class="img-fluid">
                         <!--
                         <video controls  id="videoRegistro">
                             <source src="" type="video/mp4" autoplay>
                         </video>
                         -->
-                        <p>Instrucctivo de registro <a href="">Descargar</a></p>
+                        <p class="d-none">Instrucctivo de registro <a href="">Descargar</a></p>
                     </div>
                     
                     <div class="col-xl-8 col-12 my-xl-5 mx-auto">
