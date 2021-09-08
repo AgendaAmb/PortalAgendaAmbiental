@@ -82,6 +82,7 @@ class VerificationController extends Controller
 
         if ($request->nombreModal !== null) {
             $redirectUrl .= '?nombreModal='.$request->nombreModal;
+            $request->session()->put('nombreModal', $request->nombreModal);
         }
 
         Auth::guard($user->guard)->login($user);
@@ -90,8 +91,7 @@ class VerificationController extends Controller
             return $request->wantsJson()
             ? new JsonResponse([], 204)
             : redirect($redirectUrl)
-            ->with('verified', true)
-            ->with('nombreModal', $request->nombreModal);
+            ->with('verified', true);
         }
 
         if ($user->markEmailAsVerified()) {
