@@ -686,9 +686,8 @@
       }
     },
     ChecarUrl:function(){
-
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
-      '{{$nombreModal}}'=='17Gemas'?this.levantaModal('mmus'):''
+      '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
