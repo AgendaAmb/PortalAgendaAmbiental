@@ -136,14 +136,15 @@
         </div>
         <div class="col-xl-7 col-12 col-md-7 mx-auto px-0">
             <div class="container-fluid" style="border-radius:15px;background-color:rgb(18, 98, 174); height: 100%;">
-                <div class="row p-xl-5 p-3" style="color: white;">
-                    <div class="col-12">
+                <div class="row p-xl-5 p-3 " style="color: white;">
+                    <div class="col-12 mt-xl-5">
                         <p>Puedes seguir las instrucciones de este video para registrarte</p>
                         <video controls  id="videoRegistro">
                             <source src="" type="video/mp4" autoplay>
                         </video>
                         <p>Instrucctivo de registro <a href="">Descargar</a></p>
                     </div>
+                    
                     <div class="col-xl-8 col-12 my-xl-5 mx-auto">
                         <div class="row row-cols-xl-2 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-2 justify-content-center">
                             <div class="col my-2">

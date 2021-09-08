@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
+use App\Mail\SendReceipt;
 use Illuminate\Support\Arr;
 use App\Models\Auth\User;
 use App\Models\Workshop;
@@ -144,6 +145,13 @@ class WorkshopController extends Controller
             ?? User::retrieveById($request->idUser, 'workers')
             ?? User::retrieveById($request->idUser, 'externs');
 
+        # Envía el comprobante de pago,en caso de que el evento
+        # registrado haya sido una unirodada.
+        $event = Workshop::findOrFail($request->idWorkshop);
+        
+        if ($event->type === 'unirodada')
+            # Se envía el comprobante de pago.
+            Mail::to($user)->send(new SendReceipt($request->file('Comprobante')));
 
 
         # Registra la asistencia del usuario.
