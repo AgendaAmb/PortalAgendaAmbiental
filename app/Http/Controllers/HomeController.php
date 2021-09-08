@@ -36,6 +36,9 @@ class HomeController extends Controller
 
         $nombreModal = session('nombreModal') ?? null;
 
+        if ($nombreModal !== null)
+            $request->session()->forget('nombreModal');
+
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
