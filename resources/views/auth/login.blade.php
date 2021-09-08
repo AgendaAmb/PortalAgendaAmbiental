@@ -145,7 +145,8 @@
                     </div>
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
                         <div class="form-group col-md-12 col-sm-12 col-12 mb-0">
-                        <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al botón con el icono de lupa</label>
+                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al
+                                botón con el icono de lupa</label>
                         </div>
                         <div class="form-group col-md-4 col-sm-4 col-6 was-validated">
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
@@ -156,17 +157,16 @@
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-1 col-sm-1 col-1 ">
 
-                            <a class="btn btn btn-outline-light  " v-on:click="uaslpUser"
-                                data-toggle="tooltip" data-placement="right" title="Buscar mi información"
-                                v-if="!spinnerVisible"><i class="fas fa-search"></i></a>
+                            <a class="btn btn btn-outline-light  " v-on:click="uaslpUser" data-toggle="tooltip"
+                                data-placement="right" title="Buscar mi información" v-if="!spinnerVisible"><i
+                                    class="fas fa-search"></i></a>
                             <button class="btn btn-light mt-md-5" type="button" disabled v-if="spinnerVisible">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 <span class="sr-only">Cargando...</span>
                             </button>
                         </div>
                     </div>
-                    <div class="form-row" v-if="PerteneceUaslp === 'Si'">
-
+                    <div class="form-row" v-if="blockCampos==false?PerteneceUaslp === 'Si'?true:false:false">
                         <div class="form-group col-md-10  was-validated">
                             <label for="CorreoAlterno ">Correo alternativo</label>
                             <input type="email" class="form-control" id="CorreoAlterno" name="CorreoAlterno" required
@@ -194,8 +194,8 @@
                             @{{Errores[1].Mensaje}}
                         </span>
                     </div>
-                    <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
-                    <div class="form-row">
+                    <h5 class="modal-title" id="exampleModalLabel" v-if="!blockCampos">Datos Personales</h5>
+                    <div class="form-row" v-if="!blockCampos">
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputPertenecesUASLP ">País de origen</label>
                             <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
@@ -455,7 +455,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row" v-if="Pais === 'México'">
+                    <div class="form-row" v-if="blockCampos==false?Pais === 'México'?true:false:false">
                         <div class="form-group col-md-12 @error('CURP') is-invalid @else was-validated @enderror">
                             <label for="CURP ">CURP</label>
                             <input type="text" class="form-control" id="CURP" required
@@ -468,13 +468,13 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group  was-validated">
+                    <div class="form-group  was-validated" v-if="!blockCampos">
                         <label for="inputAddress">Nombre(s)</label>
                         <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"
                             style="text-transform: capitalize;">
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row" v-if="!blockCampos">
 
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
@@ -483,11 +483,11 @@
                         </div>
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM"
-                                name="ApellidoM" style="text-transform: capitalize;">
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" name="ApellidoM"
+                                style="text-transform: capitalize;">
                         </div>
                     </div>
-                    <div class="form-row was-validated">
+                    <div class="form-row was-validated" v-if="!blockCampos">
                         <div class=" form-group col-md-2">
                             <label for="Edad">Edad</label>
                             <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1"
@@ -512,7 +512,7 @@
 
                     </div>
 
-                    <div class="form-group row was-validated">
+                    <div class="form-group row was-validated" v-if="!blockCampos">
                         <div class="form-group col-md-4 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
@@ -522,15 +522,15 @@
                             <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
                         </div>
 
-                            <div class="col-md-4">
-                              <label for="LugarResidencia">Ocupación</label>
-                              <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion"
-                                placeholder="estudiante, profesor, administrativo, otro">
-                            </div>
+                        <div class="col-md-4">
+                            <label for="LugarResidencia">Ocupación</label>
+                            <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion"
+                                v-model="Ocupacion" placeholder="estudiante, profesor, administrativo, otro">
+                        </div>
 
 
                     </div>
-                    <div class="form-group row was-validated">
+                    <div class="form-group row was-validated" v-if="!blockCampos">
                         <div class="col-6">
                             <label for="GEtnico">Grupo étnico</label>
                             <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
@@ -554,12 +554,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group ">
+                    <div class="form-group " v-if="!blockCampos">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
                                 Al enviar la información confirmo que he leido y acepto el <a
-                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: #fecc56;;"> aviso
+                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: #fecc56;;">
+                                    aviso
                                     de privacidad.</a>
                             </label>
                         </div>
@@ -606,6 +607,7 @@
     registroVa:'',
     CorreoAlterno:'',
     Ocupacion:'',
+    blockCampos:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -621,19 +623,24 @@
 
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
 
-        $('#Registro').modal('show')
+        urlactual=='http://127.0.0.1:8000/login?Nuevo=0'?'':$('#Registro').modal('show')
+       
     },
     ChecarUrl:function(){
-        this.urlAnterior='{{url()->previous()}}'
-        this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal():''
-        this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
-        this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
+       this.urlAnterior='{{url()->previous()}}'
+        //this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal():''
+        //this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
+        //this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
+        var urlactual='{{url()->full()}}'
+
+        this.urlAnterior== 'http://127.0.0.1:8000/Bienvenida/17Gemas'?this.levantaModal():''
+        this.urlAnterior=='http://127.0.0.1:8000/Bienvenida/mmus'?this.levantaModal():''
 
     },
       //*Metodo para verificar que las contraseñas sean iguales*//
       RestableceValores:function(){
           if (this.PerteneceUaslp=="Si") {
-
+            this.blockCampos=true
           } else {
             this.emailR='';
             this.nombres='';
@@ -641,6 +648,8 @@
             this.ApellidoM='';
             this.Edad='';
             this.Genero='';
+            this.blockCampos=false;
+
           }
       },
         VerificarContraseña:function(){
@@ -653,6 +662,7 @@
         },
 
         uaslpUser:function(){
+         
             this.spinnerVisible=true;
            if(this.emailR!=''){
             var data = {
@@ -669,13 +679,16 @@
                 this.Facultad=response['data']['data']['Dependencia'],
                 this.userInfo=response['data']['data'],
                 this.emailR=response['data']['data']['email'],
-                this.Errores[0].Visible=false)
+                this.Errores[0].Visible=false),
+                this.blockCampos=false
                 ).catch((err) => {
                     this.spinnerVisible=false,
                 this.Errores[0].Visible=true;
                 this.ApellidoM='';
                 this.ApellidoP='';
                 this.nombres='';
+                this.blockCampos=true;
+
             })
 
          }

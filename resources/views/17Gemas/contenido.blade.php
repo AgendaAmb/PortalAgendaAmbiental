@@ -34,7 +34,7 @@
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-around my-1">
         <a class="nav-link w-25 p-1 m-0" aria-controls="nav-home" aria-selected="true"
-            href="{{route('login')}}">Registro</a>
+        href={{route('Bienvenida',['nombreModal'=> '17Gemas'])}} >Registro</a>
         <a class="nav-link w-25 p-1 m-0" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf"
             aria-controls="nav-home"
             href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"

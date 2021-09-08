@@ -833,7 +833,7 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
-            titleFormat: {  month: 'long' },
+            
             headerToolbar: {
               start: 'prev,next',
                 center:'title',

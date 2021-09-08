@@ -39,6 +39,7 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
+        
         # Guarda el nombre de la modal, en caso de que exista.
         if ($request->nombreModal !== null)
             $request->session()->put('nombreModal', $request->nombreModal);

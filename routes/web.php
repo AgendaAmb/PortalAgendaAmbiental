@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,7 +85,8 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
 
-Route::get('/Bienvenida/{nombreModal?}', function ($NombreM=null) {
+Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=null) {
+    $request->session()->put('NombreM',$NombreM);
     return view('auth.Bienvenida')->with('NombreM',$NombreM);
 })->name('Bienvenida');
 

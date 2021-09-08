@@ -39,9 +39,10 @@
                 </div>
                 <div class="col-12 mt-3">
                     <div class="row justify-content-around">
-                        <a class="btn btn-primary" href="{{route('login')}}" role="button"
+
+                        <a class="btn btn-primary" href={{route('login',['Nuevo'=> false])}} role="button"
                             style="background-color:rgb(18, 98, 174);border-color: rgb(18, 98, 174);">INICIAR SESIÓN</a>
-                        <a class="btn btn-primary" href={{route('login',['Nuevo'=> true])}} role="button"
+                        <a class="btn btn-primary" href={{route('login',['Nuevo'=> true,'modal'=>session('NombreM')])}} role="button"
                             style="background-color:rgb(18, 98, 174);border-color: rgb(18, 98, 174);">REGÍSTRATE</a>
                     </div>
                 </div>
@@ -139,9 +140,12 @@
                 <div class="row p-xl-5 p-3 " style="color: white;">
                     <div class="col-12 mt-xl-5">
                         <p>Puedes seguir las instrucciones de este video para registrarte</p>
+                        <img src="{{asset('/storage/imagenes/Logos/Binvenida.png')}}" alt="" srcset="" class="img-fluid">
+                        <!--
                         <video controls  id="videoRegistro">
                             <source src="" type="video/mp4" autoplay>
                         </video>
+                        -->
                         <p>Instrucctivo de registro <a href="">Descargar</a></p>
                     </div>
                     

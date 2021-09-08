@@ -126,7 +126,7 @@
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class="col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
@@ -216,7 +216,8 @@
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            
+                            <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
@@ -352,7 +353,7 @@
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login',['nombreModal'=> 'Rodada'])}}
+                            <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}}
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -430,7 +431,7 @@
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('login')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
