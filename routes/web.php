@@ -88,7 +88,9 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
 Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=null) {
     $request->session()->put('NombreM',$NombreM);
     return view('auth.Bienvenida')->with('NombreM',$NombreM);
-})->name('Bienvenida');
+
+})->middleware([ 'guest:web','guest:students','guest:workers' ])
+->name('Bienvenida');
 
 
 # Rutas de autenticación.
