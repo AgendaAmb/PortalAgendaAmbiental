@@ -75,57 +75,57 @@
                         <div class="col-lg-12 text-justify p-0 mb-4  d-xl-block d-lg-block d-md-block d-sm-block d-none">
                             <div class="row my-1">
                                 <div class="col-1 pr-0 mr-3">
-                                    <a href="https://www.facebook.com/AgendaAmbientalUASLP/">
+                                    <a href="https://www.facebook.com/AgendaAmbientalUASLP/" target="_blank">
                                         <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Facebook.png')}}"
                                             height="30" width="30" alt="">
                                     </a>
                                 </div>
                                 <div class="col-10 px-0">
-                                    <a href="https://www.facebook.com/AgendaAmbientalUASLP/" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
+                                    <a href="https://www.facebook.com/AgendaAmbientalUASLP/"  target="_blank" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-1 pr-0 mr-3">
-                                    <a href="https://www.instagram.com/agendaambiental_uaslp/">
+                                    <a href="https://www.instagram.com/agendaambiental_uaslp/" target="_blank">
                                         <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Instagram.png')}}"
                                             height="30" width="30" alt="">
                                     </a>
                                 </div>
                                 <div class="col-10 px-0">
-                                    <a  href="https://www.instagram.com/agendaambiental_uaslp/" style="color:rgb(18, 98, 174)">agendaambiental_uaslp</a>
+                                    <a  href="https://www.instagram.com/agendaambiental_uaslp/" target="_blank" style="color:rgb(18, 98, 174)">agendaambiental_uaslp</a>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-1 pr-0 mr-3">
-                                    <a  href="https://twitter.com/UASLP_Ambiental">
+                                    <a  href="https://twitter.com/UASLP_Ambiental" target="_blank">
                                         <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Twitter.png')}}"
                                             height="30" width="30" alt="">
                                     </a>
                                 </div>
                                 <div class="col-10 px-0">
-                                    <a  href="https://twitter.com/UASLP_Ambiental" style="color:rgb(18, 98, 174)">AgendaAmbientalUASLP</a>
+                                    <a  href="https://twitter.com/UASLP_Ambiental" target="_blank" style="color:rgb(18, 98, 174)">AgendaAmbientalUASLP</a>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-1 pr-0 mr-3">
-                                    <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag">
+                                    <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag" target="_blank">
                                         <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Youtube.png')}}"
                                             height="30" width="30" alt="">
                                     </a>
                                 </div>
                                 <div class="col-10 px-0">
-                                    <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
+                                    <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag" target="_blank" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col-1 mr-3 pr-0">
-                                    <a href="http://a.uaslp.mx/ContactaCAA">
+                                    <a href="http://a.uaslp.mx/ContactaCAA" target="_blank">
                                         <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Buzon.png')}}"
                                             height="30" width="30" alt="" >
                                     </a>
                                 </div>
                                 <div class="col-10 px-0">
-                                    <a href="http://a.uaslp.mx/ContactaCAA" style="color:rgb(18, 98, 174)" >Buzón</a>
+                                    <a href="http://a.uaslp.mx/ContactaCAA" target="_blank" style="color:rgb(18, 98, 174)" >Buzón</a>
                                 </div>
                             </div>
 
@@ -201,59 +201,60 @@
             <div class="col-lg-12 text-justify p-0 mb-4">
                 <div class="row my-1">
                     <div class="col-1 pr-0 mr-3">
-                        <a href="">
+                        <a href="https://www.facebook.com/AgendaAmbientalUASLP/" target="_blank">
                             <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Facebook.png')}}"
                                 height="30" width="30" alt="">
                         </a>
                     </div>
                     <div class="col-10 px-0">
-                        <a href="" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
+                        <a href="https://www.facebook.com/AgendaAmbientalUASLP/"  target="_blank" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
                     </div>
                 </div>
                 <div class="row my-1">
                     <div class="col-1 pr-0 mr-3">
-                        <a href="">
+                        <a href="https://www.instagram.com/agendaambiental_uaslp/" target="_blank">
                             <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Instagram.png')}}"
                                 height="30" width="30" alt="">
                         </a>
                     </div>
                     <div class="col-10 px-0">
-                        <a href="" style="color:rgb(18, 98, 174)">agendaambiental_uaslp</a>
+                        <a  href="https://www.instagram.com/agendaambiental_uaslp/" target="_blank" style="color:rgb(18, 98, 174)">agendaambiental_uaslp</a>
                     </div>
                 </div>
                 <div class="row my-1">
                     <div class="col-1 pr-0 mr-3">
-                        <a href="">
+                        <a  href="https://twitter.com/UASLP_Ambiental" target="_blank">
                             <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Twitter.png')}}"
                                 height="30" width="30" alt="">
                         </a>
                     </div>
                     <div class="col-10 px-0">
-                        <a href="" style="color:rgb(18, 98, 174)">AgendaAmbientalUASLP</a>
+                        <a  href="https://twitter.com/UASLP_Ambiental" target="_blank" style="color:rgb(18, 98, 174)">AgendaAmbientalUASLP</a>
                     </div>
                 </div>
                 <div class="row my-1">
                     <div class="col-1 pr-0 mr-3">
-                        <a href="">
+                        <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag" target="_blank">
                             <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Youtube.png')}}"
                                 height="30" width="30" alt="">
                         </a>
                     </div>
                     <div class="col-10 px-0">
-                        <a href="" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
+                        <a href="https://www.youtube.com/channel/UCM0lPQitBWgVSXY-wW_5mag" target="_blank" style="color:rgb(18, 98, 174)">Agenda Ambiental UASLP</a>
                     </div>
                 </div>
                 <div class="row my-1">
                     <div class="col-1 mr-3 pr-0">
-                        <a href="">
+                        <a href="http://a.uaslp.mx/ContactaCAA" target="_blank">
                             <img src="{{asset('/storage/imagenes/Logos/RedesSociales/Buzon.png')}}"
                                 height="30" width="30" alt="" >
                         </a>
                     </div>
                     <div class="col-10 px-0">
-                        <a href="http://a.uaslp.mx/ContactaCAA" style="color:rgb(18, 98, 174)" >Buzón</a>
+                        <a href="http://a.uaslp.mx/ContactaCAA" target="_blank" style="color:rgb(18, 98, 174)" >Buzón</a>
                     </div>
                 </div>
+
 
             </div>
         </div>
