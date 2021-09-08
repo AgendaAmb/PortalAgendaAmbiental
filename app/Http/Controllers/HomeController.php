@@ -41,9 +41,10 @@ class HomeController extends Controller
 
     public function Administracion(){
 
-        # Obtiene todos los tipos de usuarios
-        # Obtiene el id de los administradores y coordinadores
-        $admins = Student::role('administrator')->pluck('id');
+        if (Auth::hasRole('helper')) {
+           //*AQUI NECESITO TODOS LOS USUARIOS QUE ENTEN REGISTRADOS SOLO EN LA UNIRODADA
+        } else {
+            $admins = Student::role('administrator')->pluck('id');
         $students = Student::whereNotIn('id', $admins)->get();
         $coordinators = Student::role('coordinator')->pluck('id');
 
@@ -73,6 +74,11 @@ class HomeController extends Controller
         #
         # etc, etc.
         $users = $students->merge($workers)->merge($externs);
+        }
+        
+        # Obtiene todos los tipos de usuarios
+        # Obtiene el id de los administradores y coordinadores
+       
 
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);
