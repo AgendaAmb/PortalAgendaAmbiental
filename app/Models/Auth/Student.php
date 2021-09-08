@@ -23,7 +23,6 @@ class Student extends User implements LdapAuthenticatable
         'created_at', 
         'updated_at',
         'email_verified_at',
-        'access_token'
     ];
 
     /**

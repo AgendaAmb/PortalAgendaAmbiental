@@ -33,8 +33,6 @@ class HomeController extends Controller
 
     */
     public function panel(Request $request){
-
-
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops);
@@ -42,7 +40,7 @@ class HomeController extends Controller
 
     public function Administracion(){
 
-       # Obtiene todos los tipos de usuarios
+        # Obtiene todos los tipos de usuarios
         # Obtiene el id de los administradores y coordinadores
         $admins = Student::role('administrator')->pluck('id');
         $students = Student::whereNotIn('id', $admins)->get();
@@ -74,7 +72,6 @@ class HomeController extends Controller
         #
         # etc, etc.
         $users = $students->merge($workers)->merge($externs);
-
 
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);

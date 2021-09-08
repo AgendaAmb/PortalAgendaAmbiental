@@ -8,6 +8,35 @@ use Illuminate\Support\Facades\Schema;
 class CreateUnirodadaUsersTable extends Migration
 {
     /**
+     * Delete user tables triggers.
+     *
+     * @return void
+     */
+    private function createTriggers()
+    {
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_workers_delete");
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_students_delete");
+        DB::unprepared("DROP TRIGGER IF EXISTS tr_before_externs_delete");
+        
+        DB::unprepared("CREATE TRIGGER tr_before_workers_delete BEFORE DELETE ON `workers` FOR EACH ROW
+        BEGIN
+            CALL delete_morph_relations(OLD.id, 'App\\\\Models\\\\Auth\\\\Worker');
+        END");
+
+        DB::unprepared("CREATE TRIGGER tr_before_students_delete BEFORE DELETE ON `students` FOR EACH ROW
+        BEGIN
+            CALL delete_morph_relations(OLD.id, 'App\\\\Models\\\\Auth\\\\Student');
+        END
+        ");
+
+        DB::unprepared("CREATE TRIGGER tr_before_externs_delete BEFORE DELETE ON `externs` FOR EACH ROW
+        BEGIN
+            CALL delete_morph_relations(OLD.id, 'App\\\\Models\\\\Auth\\\\Extern');
+        END
+        ");
+    }
+
+    /**
      * Run the migrations.
      *
      * @return void
@@ -45,6 +74,8 @@ class CreateUnirodadaUsersTable extends Migration
                 SET SQL_SAFE_UPDATES = 1;
             END
         ");
+
+        $this->createTriggers();
     }
 
     /**
@@ -73,5 +104,7 @@ class CreateUnirodadaUsersTable extends Migration
                 SET SQL_SAFE_UPDATES = 1;
             END
         ");
+
+        $this->createTriggers();
     }
 }

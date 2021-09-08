@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\UnirodadaUser;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
@@ -24,6 +25,13 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['unirodadaUser'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -99,29 +107,26 @@ class User extends Authenticatable implements MustVerifyEmail
 
         switch ($user_type) 
         {
-            case 'students':$user = Student::find($user_id);
-                break;
-            case 'workers':$user = Worker::find($user_id);
-                break;
-            case 'externs':$user = Extern::find($user_id);
-                break;
+            case 'students':$user = Student::find($user_id); break;
+            case 'workers':$user = Worker::find($user_id); break;
+            case 'externs':$user = Extern::find($user_id); break;
         }
 
         return $user;
     }
+
+    /**
+     * Retrieves an user by its id.
+     *
+     * @return object
+     */
     public static function userById($user_id)
     {
         # Recupera al usuario.
-        $user = null;
-        if( $user==null){
-            $user = Student::find($user_id);
-        }
-        if( $user==null){
-            $user = Worker::find($user_id);
-        }
-        if( $user==null){
-            $user = Extern::find($user_id);
-        }
+        $user = Student::find($user_id)
+            ??  Worker::find($user_id)
+            ??  Extern::find($user_id);
+        
         return $user;
     }
     /**
@@ -137,18 +142,23 @@ class User extends Authenticatable implements MustVerifyEmail
 
         switch ($user_type) 
         {
-            case 'students':$user = Student::firstWhere($search_key, $search_value);
+            case 'students':
+                $user = Student::firstWhere($search_key, $search_value);
                 break;
-            case 'workers':$user = Worker::firstWhere($search_key, $search_value);
+
+            case 'workers':
+                $user = Worker::firstWhere($search_key, $search_value);
                 break;
-            case 'externs':$user = Extern::firstWhere($search_key, $search_value);
+
+            case 'externs':
+                $user = Extern::firstWhere($search_key, $search_value);
                 break;
 
             case '*':
 
                 $user = Extern::firstWhere($search_key, $search_value) 
-                    ?? Worker::firstWhere($search_key, $search_value) 
-                    ?? Student::firstWhere($search_key, $search_value);
+                ?? Worker::firstWhere($search_key, $search_value) 
+                ?? Student::firstWhere($search_key, $search_value);
 
                 break;
         }
@@ -173,8 +183,12 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getRegisteredWorkshops()
     {
-        $workshops = $this->workshops()->select('id', 'name', 'description')
-            ->get()->each(function (&$workshop) {
+        $workshops = $this
+        ->workshops()
+        ->select('id', 'name', 'description')
+        ->get()
+        ->each(function (&$workshop) {
+                
             $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
 
             if ($workshop->pivot !== null) {
@@ -184,5 +198,117 @@ class User extends Authenticatable implements MustVerifyEmail
         });
 
         return $workshops->toArray();
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return object|null
+     */
+    public function unirodadaUser()
+    {
+        return $this->morphOne(UnirodadaUser::class, 'user');
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return object|null
+     */
+    public function getEmergencyContactAttribute()
+    {
+        return $this->unirodadaUser->emergency_contact ?? null;
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return void
+     */
+    public function setEmergencyContactAttribute($value)
+    {
+        $this->unirodadaUser()
+        ->updateOrCreate([ 'emergency_contact' => $value ]);
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return object|null
+     */
+    public function getEmergencyContactPhoneAttribute()
+    {
+        return $this->unirodadaUser->emergency_contact_phone ?? null;
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return void
+     */
+    public function setEmergencyContactPhoneAttribute($value)
+    {
+        $this->unirodadaUser()
+        ->updateOrCreate([ 'emergency_contact_phone' => $value ]);
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return object|null
+     */
+    public function getHealthConditionAttribute()
+    {
+        return $this->unirodadaUser->health_condition ?? null;
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return void
+     */
+    public function setHealthConditionAttribute($value)
+    {
+        $this->unirodadaUser()
+        ->updateOrCreate([ 'health_condition' => $value ]);
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return object|null
+     */
+    public function getGrupoCiclistaAttribute()
+    {
+        return $this->unirodadaUser->group ?? null;
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it 
+     * has one
+     *  
+     * 
+     * @return void
+     */
+    public function setGrupoCiclistaAttribute($value)
+    {
+        $this->unirodadaUser()
+        ->updateOrCreate([ 'group' => $value ]);
     }
 }

@@ -18,6 +18,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->dropColumn('emergency_contact_phone');
             $table->dropColumn('health_condition');
             $table->dropColumn('grupoCiclista');
+            $table->dropColumn('previous_courses');
         });
 
         Schema::table('students', function (Blueprint $table) {
@@ -25,6 +26,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->dropColumn('emergency_contact_phone');
             $table->dropColumn('health_condition');
             $table->dropColumn('grupoCiclista');
+            $table->dropColumn('previous_courses');
         });
 
         Schema::table('workers', function (Blueprint $table) {
@@ -32,6 +34,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->dropColumn('emergency_contact_phone');
             $table->dropColumn('health_condition');
             $table->dropColumn('grupoCiclista');
+            $table->dropColumn('previous_courses');
         });
     }
 
@@ -47,6 +50,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->string('emergency_contact_phone')->nullable();
             $table->string('health_condition')->nullable();
             $table->string('grupoCiclista')->nullable();
+            $table->string('previous_courses')->nullable();
         });
 
         Schema::table('students', function (Blueprint $table) {
@@ -54,6 +58,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->string('emergency_contact_phone')->nullable();
             $table->string('health_condition')->nullable();
             $table->string('grupoCiclista')->nullable();
+            $table->string('previous_courses')->nullable();
         });
 
         Schema::table('workers', function (Blueprint $table) {
@@ -61,6 +66,7 @@ class DropUserUnirodadaColumns extends Migration
             $table->string('emergency_contact_phone')->nullable();
             $table->string('health_condition')->nullable();
             $table->string('grupoCiclista')->nullable();
+            $table->string('previous_courses')->nullable();
         });
     }
 }
