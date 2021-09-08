@@ -686,7 +686,6 @@
       }
     },
     ChecarUrl:function(){
-
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       /*
