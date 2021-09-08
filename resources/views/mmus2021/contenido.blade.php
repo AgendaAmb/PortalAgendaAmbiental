@@ -387,9 +387,30 @@
                                 <br><br>
 
                                 <span><b>Distancia total:</b>&nbsp; 20 km aprox.</span><br><br>
-                                <span><b>Cuota de recuperación: &nbsp; </b>Cuota de recuperación:   $100 (en efectivo antes del 22 de septiembre en las instalaciones de la Agenda Ambiental en un horario de 9:00 a 14:00 horas)</span><br><br>
+                                <p class="font-weight-bolder h5"> PAGO DE UNIRODADA:</p>
 
-                                <span>Llena el formulario en el botón de inscripción
+                                <ol>
+                                    <li>A más tardar en 24 horas recibirá un correo electrónico con la ficha de pago.
+                                    </li>
+                                    <li>La ficha o vale que le enviemos, tendrá una vigencia de cuatro días para ser
+                                        pagada, de lo contrario se cancelará. </li>
+                                    <li>Es obligatorio para su INSCRIPCIÓN oficial enviar su comprobante de pago por
+                                        correo electrónico a
+                                        <a href="mailto: unibici@uaslp.mx"> unibici@uaslp.mx.</a>
+                                        <br>
+                                        Las fichas se pueden pagar directamente en el banco o desde el portal de
+                                        multipagos de la UASLP:
+                                        <a href="https://www.finanzas.uaslp.mx/Multipagos" target="_blank"
+                                            rel="noopener noreferrer">https://www.finanzas.uaslp.mx/Multipagos .</a>
+                                    </li>
+                                  
+                                </ol>
+
+                                <span>
+                                    *&nbsp;Indicar por correo si requiere factura.</span>
+                                <br>
+                                <br>
+                                <span>Llena el formulario en el botón de registrar
                                     antes del 18 de septiembre del 2021.</span><br><br>
 
                                 <span>La Unirodada tiene cupo limitado y el registro se cierra al tener el
@@ -471,7 +492,7 @@
                                     transeúntes y sensibilizar usuarios y actores de la vía pública. </p>
 
 
-                              
+
                                 <br>
                                 <br>
                                 </ol>
