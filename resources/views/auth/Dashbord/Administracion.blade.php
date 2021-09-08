@@ -30,9 +30,12 @@
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
-              
+
                 <th>Grupo ciclista</th>
-               
+
+                @endif
+                @if (Auth::user()->hasRole('administrator'))
+                <th>Fecha de registro</th>
                 @endif
 
             </tr>
@@ -88,11 +91,13 @@
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
                 </th>
-               
-                <th>{{$user->grupoCiclista}}</th>
-               
-                @endif
 
+                <th>{{$user->grupoCiclista}}</th>
+
+                @endif
+                @if (Auth::user()->hasRole('administrator'))
+                <td>{{ $user->created_at }}</td>
+                @endif
             </tr>
 
             @endforeach
@@ -122,9 +127,9 @@
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
-         
+
             <th>Grupo ciclista</th>
-           
+
             @endif
             </tr>
         </tfoot>
@@ -207,7 +212,7 @@
   },
   mounted: function () {
   this.$nextTick(function () {
-      
+
     @foreach($users as $user)
                 this.users.push({
                     "id":'{{$user->id}}',
@@ -236,7 +241,7 @@
                 "idWorkshop":this.cursoAsistencia,
             }
             axios.post('/RegistraAsistencia',data).then(response => (
-              
+
                 console.log("completo"),
             this.spinnerVisible=false,
             this.asistenciaExito=true,
@@ -248,7 +253,7 @@
           })
     },
     cargarUser: function (user) {
-      
+
         this.asistenciaExito=false,
         this.user=[],
         this.CursosInscritos=[],
@@ -260,23 +265,23 @@
        	        "id":user.id,
         }
         axios.post('/GetWorkshops',data).then(response => (
-           
+
             response.data.forEach(element => {
                 if (!element.asistenciaUsuario) {
                     this.CursosInscritos.push({
                     'id':element.id,
                     'name':element.name
-                }) 
+                })
                 }
-               
+
             })
-          
-           
+
+
              )).catch((err) => {
                 console.log(err)
-             
+
           })
-      
+
     }
     }
 })

@@ -110,6 +110,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
+
+    # Envía un comprobante a un usuario.
+    Route::post('/EnviaComprobante', 'WorkshopController@sendReceipt')
+        ->middleware('role:helper')
+        ->name('EnviaComprobante');
 });
 
 
