@@ -623,7 +623,8 @@
 
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
 
-        urlactual=='http://127.0.0.1:8000/login?Nuevo=0'?'':$('#Registro').modal('show')
+        urlactual=='https://ambiental.uaslp.mx/login?Nuevo=0'?'':$('#Registro').modal('show')
+        urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1'?$('#Registro').modal('show'):''
        
     },
     ChecarUrl:function(){
@@ -633,8 +634,9 @@
         //this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
         var urlactual='{{url()->full()}}'
 
-        this.urlAnterior== 'http://127.0.0.1:8000/Bienvenida/17Gemas'?this.levantaModal():''
-        this.urlAnterior=='http://127.0.0.1:8000/Bienvenida/mmus'?this.levantaModal():''
+        this.urlAnterior== 'https://ambiental.uaslp.mx/Bienvenida/17Gemas'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida/mmus'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida'?this.levantaModal():''
 
     },
       //*Metodo para verificar que las contraseñas sean iguales*//
