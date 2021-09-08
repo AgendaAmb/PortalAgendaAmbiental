@@ -129,7 +129,9 @@
             <th>Télefono de contacto de emergencia</th>
 
             <th>Grupo ciclista</th>
-
+            @if (Auth::user()->hasRole('administrator'))
+            <th>Fecha de registro</th>
+            @endif
             @endif
             </tr>
         </tfoot>
