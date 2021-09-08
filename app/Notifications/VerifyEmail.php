@@ -79,6 +79,8 @@ class VerifyEmail extends Notification
 
         if (session('nombreModal') !== null)
             $params['nombreModal'] = session('nombreModal');
+        else if (session('NombreM') !== null)
+            $params['nombreModal'] = session('NombreM');
 
         return URL::temporarySignedRoute(
             'verification.verify',

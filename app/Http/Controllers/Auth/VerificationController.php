@@ -67,7 +67,7 @@ class VerificationController extends Controller
 
         $redirectUrl = $this->redirectPath();
 
-        
+
         if ($user === null){
             throw new AuthorizationException;
         }
@@ -88,8 +88,10 @@ class VerificationController extends Controller
 
         if ($user->hasVerifiedEmail()) {
             return $request->wantsJson()
-                        ? new JsonResponse([], 204)
-                        : redirect($redirectUrl);
+            ? new JsonResponse([], 204)
+            : redirect($redirectUrl)
+            ->with('verified', true)
+            ->with('nombreModal', $request->nombreModal);
         }
 
         if ($user->markEmailAsVerified()) {
@@ -102,7 +104,9 @@ class VerificationController extends Controller
 
         return $request->wantsJson()
                     ? new JsonResponse([], 204)
-                    : redirect($redirectUrl)->with('verified', true);
+                    : redirect($redirectUrl)
+                    ->with('verified', true)
+                    ->with('nombreModal', $request->nombreModal);
     }
 
     /**
