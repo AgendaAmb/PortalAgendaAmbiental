@@ -34,10 +34,12 @@ class HomeController extends Controller
     */
     public function panel(Request $request){
 
+        $nombreModal = session('nombreModal') ?? null;
+
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
-            ->with('nombreModal', session('nombreModal'));
+            ->with('nombreModal', $nombreModal);
     }
 
 
