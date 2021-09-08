@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VerificationRequest;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
@@ -45,7 +46,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:web,workers,students')->except('verify');
+        $this->middleware('auth:web,workers,students')->except('verify', 'verifyWithModal');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
@@ -64,6 +65,9 @@ class VerificationController extends Controller
             ??  Student::find($request->route('id'))
             ??  Worker::find($request->route('id'));
 
+        $redirectUrl = $this->redirectPath();
+
+        
         if ($user === null){
             throw new AuthorizationException;
         }
@@ -76,12 +80,16 @@ class VerificationController extends Controller
             throw new AuthorizationException;
         }
 
+        if ($request->nombreModal !== null) {
+            $redirectUrl .= '?nombreModal='.$request->nombreModal;
+        }
+
         Auth::guard($user->guard)->login($user);
 
         if ($user->hasVerifiedEmail()) {
             return $request->wantsJson()
                         ? new JsonResponse([], 204)
-                        : redirect($this->redirectPath());
+                        : redirect($redirectUrl);
         }
 
         if ($user->markEmailAsVerified()) {
@@ -94,7 +102,7 @@ class VerificationController extends Controller
 
         return $request->wantsJson()
                     ? new JsonResponse([], 204)
-                    : redirect($this->redirectPath())->with('verified', true);
+                    : redirect($redirectUrl)->with('verified', true);
     }
 
     /**

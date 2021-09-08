@@ -225,16 +225,19 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
-     * has one
-     *  
+     * Actualiza el contacto de emergencia del usuario.
      * 
      * @return void
      */
     public function setEmergencyContactAttribute($value)
     {
-        $this->unirodadaUser()
-        ->updateOrCreate([ 'emergency_contact' => $value ]);
+        # Actualiza los datos de registro a la unirodada
+        # del usuario.
+        $this->unirodadaUser()->updateOrCreate([ 
+            'user_id' => $this->attributes['id']
+        ],[
+            'emergency_contact' => $value
+        ]); 
     }
 
     /**
@@ -250,22 +253,23 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
-     * has one
-     *  
+     * Actualiza el teléfono de contacto de emergencia del usuario.
      * 
      * @return void
      */
     public function setEmergencyContactPhoneAttribute($value)
     {
-        $this->unirodadaUser()
-        ->updateOrCreate([ 'emergency_contact_phone' => $value ]);
+        # Actualiza los datos de registro a la unirodada
+        # del usuario.
+        $this->unirodadaUser()->updateOrCreate([ 
+            'user_id' => $this->attributes['id']
+        ],[
+            'emergency_contact_phone' => $value
+        ]);
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
-     * has one
-     *  
+     * Actualiza la condición de salud del usuario.
      * 
      * @return object|null
      */
@@ -283,14 +287,17 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setHealthConditionAttribute($value)
     {
-        $this->unirodadaUser()
-        ->updateOrCreate([ 'health_condition' => $value ]);
+        # Actualiza los datos de registro a la unirodada
+        # del usuario.
+        $this->unirodadaUser()->updateOrCreate([ 
+            'user_id' => $this->attributes['id']
+        ],[
+            'health_condition' => $value
+        ]);
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
-     * has one
-     *  
+     * Actualiza el grupo del ciclista del usuario.
      * 
      * @return object|null
      */
@@ -308,7 +315,12 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setGrupoCiclistaAttribute($value)
     {
-        $this->unirodadaUser()
-        ->updateOrCreate([ 'group' => $value ]);
+        # Actualiza los datos de registro a la unirodada
+        # del usuario.
+        $this->unirodadaUser()->updateOrCreate([ 
+            'user_id' => $this->attributes['id']
+        ],[
+            'group' => $value
+        ]);
     }
 }

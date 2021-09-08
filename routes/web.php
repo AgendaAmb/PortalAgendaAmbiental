@@ -89,8 +89,7 @@ Route::get('/Bienvenida/{nombreModal?}', function ($NombreM=null) {
 })->name('Bienvenida');
 
 
-
-
+# Rutas de autenticación.
 Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles

@@ -73,13 +73,18 @@ class VerifyEmail extends Notification
      */
     protected function verificationUrl($notifiable)
     {
+        $params = [
+            'id' => $notifiable->getKey(),
+            'hash' => sha1($notifiable->getEmailForVerification()),
+        ];
+
+        if (session('nombreModal') !== null)
+            $params['nombreModal'] = session('nombreModal');
+
         return URL::temporarySignedRoute(
             'verification.verify',
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
-            [
-                'id' => $notifiable->getKey(),
-                'hash' => sha1($notifiable->getEmailForVerification()),
-            ]
+            $params
         );
     }
 }

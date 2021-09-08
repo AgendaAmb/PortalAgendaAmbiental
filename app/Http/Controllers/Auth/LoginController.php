@@ -32,6 +32,19 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm(Request $request)
+    {
+        # Guarda el nombre de la modal, en caso de que exista.
+        if ($request->nombreModal !== null)
+            $request->session()->put('nombreModal', $request->nombreModal);
+
+        return view('auth.login');
+    }
 
     /**
      * Create a new controller instance.

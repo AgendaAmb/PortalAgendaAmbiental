@@ -54,7 +54,6 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        return 'HOla mumdjp';
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
