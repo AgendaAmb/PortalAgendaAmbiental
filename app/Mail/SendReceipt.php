@@ -32,9 +32,8 @@ class SendReceipt extends Mailable
     {
         return $this->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
                     ->subject('Confirmación de registro a cursos/talleres')
-                    ->markdown('mail.workshops.registered-workshops', [
-                        'workshops' => $this->workshops,
-                    ])->attachData($this->receipt, 'Comprobante.pdf', [
+                    ->markdown('mail.workshops.send-receipt')
+                    ->attachData($this->receipt, 'Comprobante.pdf', [
                         'mime' => 'application/pdf'
                     ]);
     }
