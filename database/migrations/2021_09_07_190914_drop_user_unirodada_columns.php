@@ -14,10 +14,10 @@ class DropUserUnirodadaColumns extends Migration
     public function up()
     {
         Schema::table('externs', function (Blueprint $table) {
-            //$table->dropColumn('emergency_contact');
-            //$table->dropColumn('emergency_contact_phone');
-            //$table->dropColumn('health_condition');
-            //$table->dropColumn('grupoCiclista');
+            $table->dropColumn('emergency_contact');
+            $table->dropColumn('emergency_contact_phone');
+            $table->dropColumn('health_condition');
+            $table->dropColumn('grupoCiclista');
         });
 
         Schema::table('students', function (Blueprint $table) {
