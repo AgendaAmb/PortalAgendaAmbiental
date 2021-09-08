@@ -108,7 +108,7 @@ class HomeController extends Controller
         })->get();
 
          # Combina todos los tipos de usuario.
-        return $students->merge($workers)->merge($externs);
+        return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 
     /**
@@ -140,8 +140,9 @@ class HomeController extends Controller
         # Obtiene a todos los usuarios externos.
         $externs = Extern::all();
 
+
         # Combina todos los tipos de usuario.
-        return $students->merge($workers)->merge($externs);
+        return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 
 }
