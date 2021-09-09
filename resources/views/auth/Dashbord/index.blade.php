@@ -67,7 +67,7 @@
       </div>
 
     </div>
-    <div class="col-xl-2 col-lg-2 col-md-2 col-12 order-xl-2 order-0 px-0 mb-5 d-flex flex-column justify-content-start">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-12 order-xl-2 order-0 px-0 mb-5 d-flex flex-column justify-content-around">
       <div class="row justify-content-end align-items-center  ">
         <div class="col-6  col-xl-6 order-1 order-xl-1 px-0"><img
             src="{{asset('storage/imagenes/Logos/User-default.png')}}" class="img-fluid pl-5" alt="">
@@ -79,7 +79,6 @@
         </div>
 
       </div>
-      <!--
       <div class="row justify-content-end align-items-center  ">
        <div class="col-12 px-0 text-center">
         <a class="btn btn-primary w-100" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -91,7 +90,6 @@
           Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
         </div>
       </div>
-    -->
       </div>
      
 

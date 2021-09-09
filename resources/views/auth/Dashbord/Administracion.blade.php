@@ -37,6 +37,8 @@
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
                 <th>Fecha de registro</th>
+                @endif
+                @if (Auth::user()->hasRole('helper'))
                 <th>Enviado</th>
                 @endif
 
@@ -102,13 +104,13 @@
 
                 @endif
                 @if (Auth::user()->hasRole('helper'))
-               @if ($user->sent)
-                   <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
-               @else
-                   <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
-               @endif
-               
-               
+                @if ($user->sent)
+                <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
+                @else
+                <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
+                @endif
+
+
                 @endif
             </tr>
             </tr>
@@ -145,6 +147,8 @@
             @endif
             @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
             <th>Fecha de registro</th>
+            @endif
+            @if (Auth::user()->hasRole('helper'))
             <th>Enviado</th>
             @endif
             </tr>
