@@ -46,7 +46,8 @@ class SendEmail extends Seeder
 
         Worker::whereHas('workshops', function($query) use ($workshop){
             $query->where('id', $workshop->id);
-        })->get()
+        })->orWhereIn('id', [18129, 12457, 7515, 7421, 22524])
+        ->get()
         ->each(function($worker) use ($workshop){
             $worker->workshops()->updateExistingPivot($workshop->id, [
                 'sent' => true,
