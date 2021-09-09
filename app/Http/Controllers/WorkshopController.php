@@ -180,7 +180,7 @@ class WorkshopController extends Controller
      */
     public function sendReceipt(SendReceiptRequest $request)
     {
-       
+
         # Obtiene el id del usuario registrado.
         $user = User::retrieveById($request->idUser, 'students')
             ?? User::retrieveById($request->idUser, 'workers')
@@ -193,8 +193,13 @@ class WorkshopController extends Controller
         if ($event->type === 'unirodada')
         {
             # Se envía el comprobante de pago.
-
             Mail::to($user)->send(new SendReceipt($request->file('file')->get()));
+
+            # Registra la asistencia del usuario.
+            $user->workshops()->updateExistingPivot($event->id, [
+                'sent' => true,
+                'sent_at' => Carbon::now()->timezone('America/Mexico_City')
+            ]);
 
             return response()->json([
                 'Message' => 'Comprobante enviado'
