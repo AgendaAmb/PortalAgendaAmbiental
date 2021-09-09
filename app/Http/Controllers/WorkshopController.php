@@ -176,7 +176,8 @@ class WorkshopController extends Controller
         if ($event->type === 'unirodada')
         {
             # Se envía el comprobante de pago.
-            Mail::to($user)->send(new SendReceipt($request->file('file')));
+
+            Mail::to($user)->send(new SendReceipt($request->file('file')->get()));
 
             return response()->json([
                 'Message' => 'Comprobante enviado'
