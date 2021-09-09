@@ -15,7 +15,7 @@ trait WorkshopTrait
     {
 
         return $this->morphToMany(Workshop::class, 'user', 'user_workshop')
-                    ->withPivot('assisted_to_workshop');
+                    ->withPivot('assisted_to_workshop', 'sent', 'sent_at');
     }
 
 
