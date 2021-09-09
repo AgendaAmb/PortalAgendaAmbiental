@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\StoreWorkshopRequest;
+use App\Mail\RegisteredToMMUSConference;
 use App\Mail\RegisteredWorkshops;
 use App\Mail\SendReceipt;
 use Illuminate\Support\Arr;
 use App\Models\Auth\User;
 use App\Models\Workshop;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
@@ -117,7 +119,20 @@ class WorkshopController extends Controller
             if ($user->hasWorkshop($workshop))
                 continue;
 
-            $user->workshops()->attach($workshop_model->id);
+            # Envía una notificación adicional al usuario, en caso de que
+            # se haya registrado a la conferencia 2 del MMUS.
+            if ($workshop_model->name === 'curso movilidad y urbanismo')
+            {
+                Mail::to($user)->send(new RegisteredToMMUSConference);
+                $user->workshops()->attach($workshop_model->id, [
+                    'sent' => true,
+                    'sent_at' => Carbon::now()->timezone('America/Mexico_City')
+                ]);
+            }
+
+            $user->workshops()->attach($workshop_model->id, [
+                'sent' => false
+            ]);
         }
 
         # Obtiene los cursos registrados.

@@ -33,7 +33,7 @@ class SendReceipt extends Mailable
         return $this->from('rtic.ambiental@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
                     ->subject('Registro a la unirodada a la Cañada del Lobo')
                     ->markdown('mail.workshops.send-receipt')
-                    ->attachData($this->receipt, 'Comprobante.pdf', [
+                    ->attachData($this->receipt, 'Ficha de pago.pdf', [
                         'mime' => 'application/pdf'
                     ]);
     }
