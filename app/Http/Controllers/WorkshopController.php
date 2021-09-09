@@ -180,6 +180,7 @@ class WorkshopController extends Controller
      */
     public function sendReceipt(SendReceiptRequest $request)
     {
+       
         # Obtiene el id del usuario registrado.
         $user = User::retrieveById($request->idUser, 'students')
             ?? User::retrieveById($request->idUser, 'workers')

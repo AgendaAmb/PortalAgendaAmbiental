@@ -15,10 +15,11 @@
                 <th>Acciones</th>
                 <th>Clave única/RPE</th>
                 <th>Nombre</th>
-
+                
+                <th>Curp</th>
                 <th>Correo</th>
                 @if (!Auth::user()->hasRole('administrator'))
-                <th>Genero</th>
+                <th>Género</th>
                 @endif
                 <th>Teléfono</th>
                 @if (Auth::user()->hasRole('administrator'))
@@ -34,7 +35,7 @@
                 <th>Grupo ciclista</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator'))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
                 <th>Fecha de registro</th>
                 @endif
 
@@ -58,7 +59,7 @@
                 </td>
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
-
+                <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
                 <td>{{$user->email}}</td>
                 @if (!Auth::user()->hasRole('administrator'))
                 <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
@@ -95,7 +96,7 @@
                 <th>{{$user->grupoCiclista}}</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator'))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
                 <td>{{ $user->created_at }}</td>
                 @endif
             </tr>
@@ -110,7 +111,7 @@
             <th>Acciones</th>
             <th>Clave única/RPE</th>
             <th>Nombre</th>
-
+            <th>Curp</th>
 
             <th>Correo</th>
             @if (!Auth::user()->hasRole('administrator'))
@@ -129,9 +130,9 @@
             <th>Télefono de contacto de emergencia</th>
 
             <th>Grupo ciclista</th>
-            @if (Auth::user()->hasRole('administrator'))
-            <th>Fecha de registro</th>
             @endif
+            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
+            <th>Fecha de registro</th>
             @endif
             </tr>
         </tfoot>
@@ -155,9 +156,14 @@
                     </button>
                 </div>
                 @if (Auth::user()->hasrole('helper'))
+
                 <form @submit.prevent="MandarPagoUnirodada" method="post">
                     <div class="modal-body bg-white">
-
+                        <div class="col-12" v-if="asistenciaExito">
+                            <div class="alert alert-success text-center" role="alert">
+                                ¡¡Enviado con exito!!
+                            </div>
+                        </div>
                         <div class="form-row justify-content-center">
                             <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf"
                                 @change="cargarPdf($event,'pdfUniPago')">
@@ -165,20 +171,16 @@
                         <div class="row justify-content-end">
                             <div class="col-3 p-0">
 
-                                <button class="btn btn-success" type="submit" value="Submit">Registrar
-                                    asistencia</button v-if="!spinnerVisible">
+                                <button class="btn btn-success" type="submit" value="Submit"
+                                    v-if="!spinnerVisible">Enviar comprobante</button>
                                 <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status"
                                         aria-hidden="true"></span>
-                                    Enviar
+                                    Enviando
                                 </button>
 
                             </div>
-                            <div class="col-5" v-if="asistenciaExito">
-                                <div class="alert alert-success" role="alert">
-                                    ¡¡Asistencia registrada!!
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -213,8 +215,9 @@
                             <div class="row justify-content-end">
                                 <div class="col-3 p-0">
 
-                                    <button class="btn btn-success" type="submit" value="Submit">Registrar
-                                        asistencia</button v-if="!spinnerVisible">
+                                    <button class="btn btn-success" type="submit" value="Submit"
+                                        v-if="!spinnerVisible">Registrar
+                                        asistencia</button>
                                     <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                         <span class="spinner-border spinner-border-sm" role="status"
                                             aria-hidden="true"></span>
@@ -277,6 +280,7 @@
 },
   methods: {
     MandarPagoUnirodada:function(){
+        this.spinnerVisible=true
         const formData = new FormData();
              formData.append('idUser',this.user[0].id);
              formData.append('file', this.file);
@@ -291,14 +295,17 @@
                  }
              }).then(
                      res => {
-                         this.Guardando = false,
+                         console.log("hola"),
+                         
                          this.file = '',
-                         this.exito=true
+                         this.spinnerVisible=false,
+                         this.asistenciaExito=true
                      }
                  ).catch(
                      err => {
-                         this.exito=false;
-                         this.Guardando = false;
+                        console.log("adios"),
+                        this.spinnerVisible=false,
+                         this.asistenciaExito=false
 
                      }
                  )
