@@ -435,9 +435,9 @@
               id="botones">REGISTRO</a>
             </div>
               <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  ">
-            <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+            <a href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
               class="btn btn-secondary bg-light  text-muted  " href="#" role="button" id="botones"
-              download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">BASES </a>
+              download="Bases17gemas.pdf">BASES </a>
         </div>
               <div class=" col-4 col-xl-3 col-lg-3 col-md-6 col-sm-6 mr-xl-3 ">
             <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}"
@@ -468,8 +468,8 @@
                 </p>
 
                 <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las <a
-                    href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
-                    download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
+                    href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
+                    download="Bases17gemas.pdf">bases.</a></p>
 
               </div>
             </div>

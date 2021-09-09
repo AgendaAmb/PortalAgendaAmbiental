@@ -35,9 +35,9 @@
     <div class="nav nav-tabs justify-content-around my-1">
         <a class="nav-link w-25 p-1 m-0" aria-controls="nav-home" aria-selected="true"
         href={{route('Bienvenida',['nombreModal'=> '17Gemas'])}} >Registro</a>
-        <a class="nav-link w-25 p-1 m-0" download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf"
+        <a class="nav-link w-25 p-1 m-0" download="Bases17gemas.pdf"
             aria-controls="nav-home"
-            href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+            href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
             aria-selected="true">Bases</a>
         <a class="nav-link w-25 p-1 m-0" href="#" data-toggle="modal" data-target="#Concurso17gemas"
             aria-controls="nav-home" aria-selected="true">Cartel</a>
@@ -109,8 +109,8 @@
         donde subirás tus evidencias.</p>
     <br>
     Para mayor información consulta las <a
-        href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
-        download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases</a> </p>
+        href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
+        download="Bases17gemas.pdf">bases</a> </p>
     <br>
     <h3>Informes</h3>
 
@@ -160,9 +160,9 @@
                                 role="button" id="botones">REGISTRO</a>
                         </div>
                         <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
+                            <a href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
                                 class="btn btn-secondary bg-light  text-muted  " role="button" id="botones"
-                                download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">BASES </a>
+                                download="Bases17gemas.pdf">BASES </a>
                         </div>
                         -->
                         <div class=" col-4 col-xl-3 col-lg-3 col-md-6 col-sm-6 mr-xl-3 ">
@@ -204,8 +204,8 @@
                                 </p>
 
                                 <p style="font-size: 15px;" class="text-justify">Para mayor información consulta las <a
-                                        href="{{asset('storage/imagenes/17Gemas/UASLP-AgendaAmbiental_GemasSostenibilidad.pdf')}}"
-                                        download="UASLP-AgendaAmbiental_GemasSostenibilidad.pdf">bases.</a></p>
+                                        href="{{asset('storage/imagenes/17Gemas/Bases17gemas.pdf')}}"
+                                        download="Bases17gemas.pdf">bases.</a></p>
 
                             </div>
                         </div>
