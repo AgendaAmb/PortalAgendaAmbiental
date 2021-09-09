@@ -331,8 +331,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        dump($this->workshops()
+        return $this->workshops()
         ->tipo('unirodada')
-        ->first()->pivot->sent);
+        ->first()->pivot->sent;
     }
 }
