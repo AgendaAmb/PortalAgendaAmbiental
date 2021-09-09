@@ -97,10 +97,10 @@ Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=nu
 Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles
-Route::middleware([ 'auth:web,workers,students,helper', 'verified', 'role_any'])->group(function(){
+Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/Miportal', 'HomeController@panel')->name('panel');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator|helper')->name('Administracion');
+    Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
     Route::post('/GetWorkshops', 'WorkshopController@GetWorkshops');
     # Módulos de usuario
@@ -115,7 +115,7 @@ Route::middleware([ 'auth:web,workers,students,helper', 'verified', 'role_any'])
 
     # Envía un comprobante a un usuario.
     Route::post('/EnviaComprobante', 'WorkshopController@sendReceipt')
-        //->middleware('role:helper')
+        ->middleware('role:helper')
         ->name('EnviaComprobante');
 });
 
