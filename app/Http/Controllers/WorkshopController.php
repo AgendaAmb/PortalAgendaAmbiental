@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
 use App\Mail\SendReceipt;
@@ -160,7 +161,7 @@ class WorkshopController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
-    public function sendReceipt(Request $request)
+    public function sendReceipt(SendReceiptRequest $request)
     {
         # Obtiene el id del usuario registrado.
         $user = User::retrieveById($request->idUser, 'students')
@@ -173,7 +174,7 @@ class WorkshopController extends Controller
 
         if ($event->type === 'unirodada')
             # Se envía el comprobante de pago.
-            Mail::to($user)->send(new SendReceipt($request->file('Comprobante')));
+            Mail::to($user)->send(new SendReceipt($request->file('file')));
     }
 
 

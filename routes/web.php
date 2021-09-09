@@ -115,7 +115,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
     # Envía un comprobante a un usuario.
     Route::post('/EnviaComprobante', 'WorkshopController@sendReceipt')
-        ->middleware('role:helper')
+        //->middleware('role:helper')
         ->name('EnviaComprobante');
 });
 
