@@ -23,37 +23,37 @@ class SendEmail extends Seeder
         Student::whereHas('workshops', function($query) use ($workshop){
             $query->where('id', $workshop->id);
         })->get()
-        ->each(function($user) use ($workshop){
-            $user->workshops()->updateExistingPivot($workshop->id, [
+        ->each(function($student) use ($workshop){
+            $student->workshops()->updateExistingPivot($workshop->id, [
                 'sent' => true,
                 'sent_at' => Carbon::now()->timezone('America/Mexico_City')
             ]);
 
-            Mail::to($user)->send(new RegisteredToMMUSConference);
+            Mail::to($student)->send(new RegisteredToMMUSConference);
         });
 
         Extern::whereHas('workshops', function($query) use ($workshop){
             $query->where('id', $workshop->id);
         })->get()
-        ->each(function($user) use ($workshop){
-            $user->workshops()->updateExistingPivot($workshop->id, [
+        ->each(function($extern) use ($workshop){
+            $extern->workshops()->updateExistingPivot($workshop->id, [
                 'sent' => true,
                 'sent_at' => Carbon::now()->timezone('America/Mexico_City')
             ]);
 
-            Mail::to($user)->send(new RegisteredToMMUSConference);
+            Mail::to($extern)->send(new RegisteredToMMUSConference);
         });
 
         Worker::whereHas('workshops', function($query) use ($workshop){
             $query->where('id', $workshop->id);
         })->get()
-        ->each(function($user) use ($workshop){
-            $user->workshops()->updateExistingPivot($workshop->id, [
+        ->each(function($worker) use ($workshop){
+            $worker->workshops()->updateExistingPivot($workshop->id, [
                 'sent' => true,
                 'sent_at' => Carbon::now()->timezone('America/Mexico_City')
             ]);
 
-            Mail::to($user)->send(new RegisteredToMMUSConference);
+            Mail::to($worker)->send(new RegisteredToMMUSConference);
         });
     }
 }
