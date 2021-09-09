@@ -55,9 +55,10 @@ class HomeController extends Controller
     public function Administracion(){
 
         if (Auth::user()->hasRole('helper')) {
-
+           
            # Usuarios exclusivos de la unirodada
            $users = $this->getUnirodadaUsers();
+          
 
         } else {
 
