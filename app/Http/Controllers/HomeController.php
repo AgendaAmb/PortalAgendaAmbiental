@@ -55,10 +55,10 @@ class HomeController extends Controller
     public function Administracion(){
 
         if (Auth::user()->hasRole('helper')) {
-           
+
            # Usuarios exclusivos de la unirodada
            $users = $this->getUnirodadaUsers();
-          
+
 
         } else {
 
@@ -125,7 +125,7 @@ class HomeController extends Controller
      */
     private function getAllUsers()
     {
-        $admins = Student::role('administrator')->pluck('id');
+        $admins = Student::role('administrator')->whereNotIn('id', [262698])->pluck('id');
         $students = Student::whereNotIn('id', $admins)->get();
         $coordinators = Student::role('coordinator')->pluck('id');
 
