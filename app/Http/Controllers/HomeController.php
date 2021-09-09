@@ -58,8 +58,6 @@ class HomeController extends Controller
 
            # Usuarios exclusivos de la unirodada
            $users = $this->getUnirodadaUsers();
-
-
         } else {
 
             # Usuarios exclusivos de la unirodada

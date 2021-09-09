@@ -105,7 +105,7 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch ($user_type) 
+        switch ($user_type)
         {
             case 'students':$user = Student::find($user_id); break;
             case 'workers':$user = Worker::find($user_id); break;
@@ -126,7 +126,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $user = Student::find($user_id)
             ??  Worker::find($user_id)
             ??  Extern::find($user_id);
-        
+
         return $user;
     }
     /**
@@ -140,7 +140,7 @@ class User extends Authenticatable implements MustVerifyEmail
         # Recupera al usuario.
         $user = null;
 
-        switch ($user_type) 
+        switch ($user_type)
         {
             case 'students':
                 $user = Student::firstWhere($search_key, $search_value);
@@ -156,8 +156,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
             case '*':
 
-                $user = Extern::firstWhere($search_key, $search_value) 
-                ?? Worker::firstWhere($search_key, $search_value) 
+                $user = Extern::firstWhere($search_key, $search_value)
+                ?? Worker::firstWhere($search_key, $search_value)
                 ?? Student::firstWhere($search_key, $search_value);
 
                 break;
@@ -188,7 +188,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ->select('id', 'name', 'description')
         ->get()
         ->each(function (&$workshop) {
-                
+
             $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
 
             if ($workshop->pivot !== null) {
@@ -201,10 +201,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
+     * Returns the data of the unirodada from the user, if it
      * has one
-     *  
-     * 
+     *
+     *
      * @return object|null
      */
     public function unirodadaUser()
@@ -213,10 +213,10 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
+     * Returns the data of the unirodada from the user, if it
      * has one
-     *  
-     * 
+     *
+     *
      * @return object|null
      */
     public function getEmergencyContactAttribute()
@@ -226,25 +226,25 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Actualiza el contacto de emergencia del usuario.
-     * 
+     *
      * @return void
      */
     public function setEmergencyContactAttribute($value)
     {
         # Actualiza los datos de registro a la unirodada
         # del usuario.
-        $this->unirodadaUser()->updateOrCreate([ 
+        $this->unirodadaUser()->updateOrCreate([
             'user_id' => $this->attributes['id']
         ],[
             'emergency_contact' => $value
-        ]); 
+        ]);
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
+     * Returns the data of the unirodada from the user, if it
      * has one
-     *  
-     * 
+     *
+     *
      * @return object|null
      */
     public function getEmergencyContactPhoneAttribute()
@@ -254,14 +254,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Actualiza el teléfono de contacto de emergencia del usuario.
-     * 
+     *
      * @return void
      */
     public function setEmergencyContactPhoneAttribute($value)
     {
         # Actualiza los datos de registro a la unirodada
         # del usuario.
-        $this->unirodadaUser()->updateOrCreate([ 
+        $this->unirodadaUser()->updateOrCreate([
             'user_id' => $this->attributes['id']
         ],[
             'emergency_contact_phone' => $value
@@ -270,7 +270,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Actualiza la condición de salud del usuario.
-     * 
+     *
      * @return object|null
      */
     public function getHealthConditionAttribute()
@@ -279,17 +279,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
+     * Returns the data of the unirodada from the user, if it
      * has one
-     *  
-     * 
+     *
+     *
      * @return void
      */
     public function setHealthConditionAttribute($value)
     {
         # Actualiza los datos de registro a la unirodada
         # del usuario.
-        $this->unirodadaUser()->updateOrCreate([ 
+        $this->unirodadaUser()->updateOrCreate([
             'user_id' => $this->attributes['id']
         ],[
             'health_condition' => $value
@@ -298,7 +298,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Actualiza el grupo del ciclista del usuario.
-     * 
+     *
      * @return object|null
      */
     public function getGrupoCiclistaAttribute()
@@ -307,20 +307,32 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Returns the data of the unirodada from the user, if it 
+     * Returns the data of the unirodada from the user, if it
      * has one
-     *  
-     * 
+     *
+     *
      * @return void
      */
     public function setGrupoCiclistaAttribute($value)
     {
         # Actualiza los datos de registro a la unirodada
         # del usuario.
-        $this->unirodadaUser()->updateOrCreate([ 
+        $this->unirodadaUser()->updateOrCreate([
             'user_id' => $this->attributes['id']
         ],[
             'group' => $value
         ]);
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
+    public function getSentAttribute()
+    {
+        dump($this->workshops()
+        ->tipo('unirodada')
+        ->first()->pivot->sent);
     }
 }
