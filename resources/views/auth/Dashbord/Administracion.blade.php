@@ -15,7 +15,7 @@
                 <th>Acciones</th>
                 <th>Clave única/RPE</th>
                 <th>Nombre</th>
-                
+
                 <th>Curp</th>
                 <th>Correo</th>
                 @if (!Auth::user()->hasRole('administrator'))
@@ -37,6 +37,7 @@
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
                 <th>Fecha de registro</th>
+                <th>Enviado</th>
                 @endif
 
             </tr>
@@ -98,7 +99,18 @@
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
                 <td>{{ $user->created_at }}</td>
+
                 @endif
+                @if (Auth::user()->hasRole('helper'))
+               @if ($user->sent)
+                   <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
+               @else
+                   <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
+               @endif
+               
+               
+                @endif
+            </tr>
             </tr>
 
             @endforeach
@@ -133,6 +145,7 @@
             @endif
             @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
             <th>Fecha de registro</th>
+            <th>Enviado</th>
             @endif
             </tr>
         </tfoot>
