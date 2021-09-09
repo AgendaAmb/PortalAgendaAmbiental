@@ -129,10 +129,12 @@ class WorkshopController extends Controller
                     'sent_at' => Carbon::now()->timezone('America/Mexico_City')
                 ]);
             }
-
-            $user->workshops()->attach($workshop_model->id, [
-                'sent' => false
-            ]);
+            else
+            {
+                $user->workshops()->attach($workshop_model->id, [
+                    'sent' => false
+                ]);
+            }
         }
 
         # Obtiene los cursos registrados.

@@ -26,6 +26,6 @@ class RegisteredToMMUSConference extends Mailable
     {
         return $this->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
                     ->subject('Enlace conferencia “Movilidad y Urbanismo con enfoque de género” MMUS2021')
-                    ->markdown('mail.modules.registered-to-17-gemas');
+                    ->markdown('mail.workshops.registered-to-mmus-conference');
     }
 }
