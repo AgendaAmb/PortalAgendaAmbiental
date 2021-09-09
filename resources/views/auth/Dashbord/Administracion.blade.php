@@ -157,7 +157,7 @@
                 @if (Auth::user()->hasrole('helper'))
                 <form @submit.prevent="MandarPagoUnirodada" method="post">
                     <div class="modal-body bg-white">
-                     
+
                         <div class="form-row justify-content-center">
                             <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf"
                                 @change="cargarPdf($event,'pdfUniPago')">
@@ -283,7 +283,7 @@
              formData.append('_method', 'post');
              axios({
                  method: 'post',
-                
+
                  url: '/EnviaComprobante',
                  data: formData,
                  headers: {

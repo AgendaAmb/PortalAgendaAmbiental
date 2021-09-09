@@ -170,11 +170,21 @@ class WorkshopController extends Controller
 
         # Envía el comprobante de pago,en caso de que el evento
         # registrado haya sido una unirodada.
-        $event = Workshop::findOrFail($request->idWorkshop);
+        $event = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
 
         if ($event->type === 'unirodada')
+        {
             # Se envía el comprobante de pago.
             Mail::to($user)->send(new SendReceipt($request->file('file')));
+
+            return response()->json([
+                'Message' => 'Comprobante enviado'
+            ], JsonResponse::HTTP_OK);
+        }
+
+        return response()->json([
+            'Message' => 'No se envió el comprobante'
+        ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
 
 
