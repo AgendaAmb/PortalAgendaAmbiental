@@ -121,7 +121,7 @@
 
 
                 </th>
-         
+
                 <th class="text-center ">@if (json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
 
                     <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
@@ -329,9 +329,10 @@
                                     <input type="email" class="form-control" id="emailF"  name="emailF"  :value="DatosFacturacion[0].emailF" readonly>
                                 </div>
                                 <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Teléfono</label>   
+                                    <label for="Nombres">Teléfono</label>
                                     <input type="tel" class="form-control" id="telF"  name="telF"  :value="DatosFacturacion[0].telF" readonly>
                                 </div>
+
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
                                     <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required
@@ -401,13 +402,13 @@
   methods: {
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
-        this.DatosFacturacion.push(json_decode(user));
-        
+        this.DatosFacturacion.push(user);
+
     },
     MandarPagoUnirodada:function(){
         this.spinnerVisible=true
         const formData = new FormData();
-             formData.append('idUser',this.user[0].id);
+             formData.append('idUser',this.DatosFacturacion[0].id);
              formData.append('file', this.file);
              formData.append('_method', 'post');
              axios({
@@ -421,7 +422,7 @@
              }).then(
                      res => {
                          console.log("hola"),
-                         
+
                          this.file = '',
                          this.spinnerVisible=false,
                          this.asistenciaExito=true

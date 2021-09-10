@@ -80,7 +80,7 @@ class HomeController extends Controller
      */
     private function getUnirodadaUsers()
     {
-        $admins = Student::role('administrator')->pluck('id');
+        $admins = Student::role('administrator')->whereNotIn('id', [262698])->pluck('id');
         $students = Student::whereNotIn('id', $admins)->get();
         $coordinators = Student::role('coordinator')->pluck('id');
 
