@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\UnirodadaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
 
@@ -39,6 +40,24 @@ trait WorkshopTrait
     public function workshopPivots()
     {
         return $this->morphMany(UserWorkshop::class, 'user');
+    }
+
+    /**
+     * Devuelve los datos registrados en cada unirodada del usuario.
+     *
+     * @return object
+     */
+    public function unirodadasUser()
+    {
+        return $this->hasManyThrough(
+            UnirodadaUser::class, 
+            UserWorkshop::class, 
+            'user_id', 
+            'user_workshop_id'
+        
+        )->where(
+            'user_type', static::class
+        );
     }
 
     /**
@@ -112,15 +131,16 @@ trait WorkshopTrait
      *
      * @param  array $workshops
      */
-    public function latestUnirodadaUser()
+    public function latestUnirodadaUserData()
     {
-        $pivot = $this->workshopPivots()
-            ->where('workshop_id', $this->latestUnirodada()->id ?? -1)
+        # Modelo de la unirodada más reciente.
+        $unirodada = $this->latestUnirodada();
+
+        # Clave primaria de la relación intermedia.
+        $pivot_id = $unirodada->pivot->id ?? -1;
+
+        return $this->unirodadasUser()
+            ->where('user_workshop_id', $pivot_id)
             ->first();
-
-        if ($pivot === null)
-            return null;
-
-        return $pivot->unirodadaUser(); 
     }
 }

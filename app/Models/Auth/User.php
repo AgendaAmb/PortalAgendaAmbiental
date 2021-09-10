@@ -177,10 +177,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactAttribute()
     {
-        if ($this->latestUnirodadaUser() === null)
-            return null;
-
-        return $this->latestUnirodadaUser->emergency_contact ?? null;
+        return $this->latestUnirodadaUserData()->emergency_contact ?? null;
     }
 
     /**
@@ -192,10 +189,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactPhoneAttribute()
     {
-        if ($this->latestUnirodadaUser() === null)
-            return null;
-
-        return $this->latestUnirodadaUser->emergency_contact_phone ?? null;
+        return $this->latestUnirodadaUserData()->emergency_contact_phone ?? null;
     }
 
     /**
@@ -205,10 +199,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getHealthConditionAttribute()
     {
-        if ($this->latestUnirodadaUser() === null)
-            return null;
-
-        return $this->latestUnirodadaUser->health_condition ?? null;
+        return $this->latestUnirodadaUserData()->health_condition ?? null;
     }
 
     /**
@@ -218,10 +209,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getGrupoCiclistaAttribute()
     {
-        if ($this->latestUnirodadaUser() === null)
-            return null;
-
-        return $this->latestUnirodadaUser->group ?? null;
+        return $this->latestUnirodadaUserData()->group ?? null;
     }
 
     /**
@@ -231,7 +219,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        return $this->latestUnirodada()->pivot->sent;
+        return $this->latestUnirodada()->pivot->sent ?? null;
     }
 
     /**
