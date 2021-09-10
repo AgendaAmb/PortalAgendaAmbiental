@@ -122,7 +122,7 @@
 
                 </th>
          
-                <th class="text-center ">@if (json_decode($user->invoice_data)->isFacturaReq=='Si')
+                <th class="text-center ">@if (json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
 
                     <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
                             style="font-size: 25px;"></i></a>
