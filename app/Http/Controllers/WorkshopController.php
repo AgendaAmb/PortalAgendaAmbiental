@@ -100,7 +100,7 @@ class WorkshopController extends Controller
             # se haya registrado a la conferencia 2 del MMUS.
             if ($workshop_model->name === 'curso movilidad y urbanismo')
             {
-                Mail::to($user)->send(new RegisteredToMMUSConference);
+                //Mail::to($user)->send(new RegisteredToMMUSConference);
                 $user->workshops()->attach($workshop_model->id, [
                     'sent' => true,
                     'sent_at' => Carbon::now()->timezone('America/Mexico_City')
