@@ -532,7 +532,7 @@
 
               <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
               <div class="col-9">
-                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC">
+                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC" @change="ChecarBecas">
               </div>
             </div>
             <div class="form-group row " v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
@@ -777,6 +777,15 @@
 },
 
   methods:{
+    ChecarBecas:function(){
+    if (this.GrupoC.toUpperCase().replace(/ /g, "")=='FUP') {
+      console.log("SOY DE FUP");
+    }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
+      console.log("SOY DE STAFF");
+    }
+     
+    
+    },
     cargarPdf: function (e, index) {
              this.file='';
              this.file = e.target.files[0];
