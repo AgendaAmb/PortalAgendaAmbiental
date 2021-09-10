@@ -80,8 +80,10 @@
         </div>
 
       </div>
+     
       <div class="row justify-content-end align-items-center ml-1 ">
-        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0">
+        @if (Auth::user()->sent&&Auth::user()->invoice_data==null)
+        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0"  v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
           <a class="btn btn-secondary w-100 font-weight-bold" data-toggle="collapse" href="#collapseExample"
             role="button" aria-expanded="true" aria-controls="collapseExample">
             AVISOS
@@ -93,6 +95,8 @@
               <a href="" href="#" data-toggle="modal" data-target="#RegistroComprobanteP">Aquí</a></p>
           </div>
         </div>
+            
+        @endif
       </div>
 
 
@@ -532,7 +536,7 @@
 
               <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
               <div class="col-9">
-                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC">
+                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC" @change="ChecarBecas">
               </div>
             </div>
             <div class="form-group row " v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
@@ -777,6 +781,15 @@
 },
 
   methods:{
+    ChecarBecas:function(){
+    if (this.GrupoC.toUpperCase().replace(/ /g, "")=='FUP') {
+      console.log("SOY DE FUP");
+    }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
+      console.log("SOY DE STAFF");
+    }
+     
+    
+    },
     cargarPdf: function (e, index) {
              this.file='';
              this.file = e.target.files[0];
