@@ -6,6 +6,7 @@ use App\Models\UnirodadaUser;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -241,31 +242,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function getQuotePaidAttribute()
-    {
-        return $this->latestUnirodadaUserData()->invoice_data ?? null;
-    }
-
-    /**
-     * Actualiza el grupo del ciclista del usuario.
-     *
-     * @return object|null
-     */
-    public function setQuotePaidAttribute($value)
-    {
-        # Obtiene la unirodada más reciente del usuario.
-        $latest_user_unirodada = $this->latestUnirodadaUserData();
-
-        $latest_user_unirodada->quote_paid = $value;
-        $latest_user_unirodada->save();
-    }
-
-
-    /**
-     * Actualiza el grupo del ciclista del usuario.
-     *
-     * @return object|null
-     */
     public function getGrupoCiclistaAttribute()
     {
         return $this->latestUnirodadaUserData()->group ?? null;
@@ -298,25 +274,15 @@ class User extends Authenticatable implements MustVerifyEmail
         # Si el grupo del ciclista es un staff, se marca que
         # el usuario ya pagó la cuota.
         if ($array['group'] === 'staff')
-        {
-            $this->quote_paid = true;
-            $this->save();
-        }
+            $this->setWorkshopAsPaid($workshop->id);
+
+        # Si el grupo del ciclista de la fup, se marca que
+        # el usuario ya pagó la cuota, siempre y cuando no supere
+        # la cantidad de becas.
         else if ($array['group'] === 'fup')
         {
             # Obtiene el número de ciclistas de la FUP.
-            $fup_bikers = UnirodadaUser::whereIn('id', function($query) use ($workshop){
-                $query->select('id')
-                    ->where('workshop_id', $workshop->id);
-
-            })->where('group', 'fup')
-            ->count();
-
-            if ($fup_bikers <= 10)
-            {
-                $this->quote_paid = true;
-                $this->save();
-            }
+            $this->setWorkshopAsPaid($workshop->id);
         }
 
         # Actualiza los datos de la unirodada.

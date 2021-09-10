@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Models\UnirodadaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
+use Carbon\Carbon;
 
 trait WorkshopTrait
 {
@@ -74,9 +75,9 @@ trait WorkshopTrait
 
 
     /**
-     * Determina si el usuario está registrado en el módulo
+     * Registra el curso/taller de usuario como pagado
      *
-     * @param string $module
+     * @param int $workshop
      * @return bool
      */
     public function hasWorkshop(string $workshop)
@@ -86,6 +87,32 @@ trait WorkshopTrait
         ->where('name', $workshop)
         ->count() > 0;
     }
+
+    /**
+     * Registra la asistencia al curso / taller
+     *
+     * @param int $workshop
+     * @param bool $sent
+     * @return void
+     */
+    public function setWorkshopNotificationAsSent($workshop_id, $sent)
+    {
+    }
+
+    /**
+     * Determina si el usuario está registrado en el módulo
+     *
+     * @param string $module
+     * @return void
+     */
+    public function setWorkshopAsPaid($workshop_id)
+    {
+        $this->workshops()->updateExistingPivot($workshop_id, [
+            'paid' => true,
+            'paid_at' => Carbon::now()->timezone('America/Mexico_City')
+        ]);
+    }
+
 
     /**
      * Determina si el usuario está registrado en el módulo

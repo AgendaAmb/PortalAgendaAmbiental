@@ -107,6 +107,9 @@ class WorkshopController extends Controller
                     'sent_at' => Carbon::now()->timezone('America/Mexico_City')
                 ]);
             }
+
+            # Actualiza los datos del aspirante, en caso de que se haya
+            # inscrito a la unirodada.
             else if ($workshop_model->name === 'Unirodada cicloturística a la Cañada del Lobo')
             {
                 $user->updateUnirodadaData($workshop_model, [
