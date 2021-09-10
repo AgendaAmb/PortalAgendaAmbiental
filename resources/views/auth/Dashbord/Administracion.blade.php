@@ -40,6 +40,8 @@
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 <th>Enviado</th>
+                <th>Pago</th>
+                <th>Factura</th>
                 @endif
 
             </tr>
@@ -109,6 +111,29 @@
                 @else
                 <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
                 @endif
+                <th>
+                    @if (Auth::user()->invoice_data!=null)
+                    Si
+                    @else
+                    No
+                    @endif
+
+
+
+                </th>
+         
+                <th class="text-center ">@if (json_decode($user->invoice_data)->isFacturaReq=='Si')
+
+                    <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
+                            style="font-size: 25px;"></i></a>
+
+                    @else
+                    no
+                    @endif</th>
+
+
+
+
 
 
                 @endif
@@ -150,6 +175,8 @@
             @endif
             @if (Auth::user()->hasRole('helper'))
             <th>Enviado</th>
+            <th>Pago</th>
+            <th>Factura</th>
             @endif
             </tr>
         </tfoot>
@@ -254,6 +281,81 @@
                 </form>
                 @endif
 
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" id="modalComprobante">
+                    <h5 class="modal-title mx-auto text-white">Comprobante de pago Unibici</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body bg-white">
+                    <form @submit.prevent="MandarPagoUnirodada" method="post">
+                        <div class="modal-body bg-white">
+                            <div class="col-12" v-if="asistenciaExito">
+                                <div class="alert alert-success text-center" role="alert">
+                                    ¡¡Enviado con exito!!
+                                </div>
+                            </div>
+                            <div class="form-row ">
+
+
+                            </div>
+                            <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de
+                                facturación</h5>
+                            <div class="form-row ">
+                                <div class="form-group  was-validated col-12">
+                                    <label for="Nombres">Nombre Completo o razón social</label>
+                                    <input type="text" class="form-control" id="nombresF"  name="nombresF" value="{{json_decode($user->invoice_data)->nombresF}}" readonly
+                                        style="text-transform: capitalize;">
+                                </div>
+                                <div class="form-group  was-validated col-12">
+                                    <label for="Nombres">Domicilio fiscal</label>
+                                    <input type="text" class="form-control" id="DomicilioF"  name="DomicilioF" value="{{json_decode($user->invoice_data)->DomicilioF}}" readonly
+                                        style="text-transform: capitalize;">
+                                </div>
+                                <div class="form-group  was-validated col-6">
+                                    <label for="Nombres">RFC</label>
+                                    <input type="text" class="form-control" id="RFC"  name="RFC" value="{{json_decode($user->invoice_data)->RFC}}" readonly
+                                        style="text-transform: capitalize;">
+                                </div>
+                                <div class="form-group  was-validated col-6">
+                                    <label for="Nombres">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="emailF"  name="emailF"  value="{{json_decode($user->invoice_data)->emailF}}"readonly>
+                                </div>
+                                <div class="form-group  was-validated col-6">
+                                    <label for="Nombres">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telF"  name="telF"  value="{{json_decode($user->invoice_data)->telF}}" readonly>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Factura">Factura</label>
+                                    <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required
+                                        @change="cargarPdf($event,'Factura')">
+                                  </div>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="col-md-3 col-6 p-0">
+
+                                    <button class="btn btn-success" type="submit" value="Submit"
+                                        v-if="!spinnerVisible">Enviar comprobante</button>
+                                    <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                        <span class="spinner-border spinner-border-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        Enviando
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>

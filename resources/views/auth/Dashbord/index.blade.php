@@ -801,7 +801,8 @@
              formData.append('isFacturaReq',this.isFacturaReq);
              formData.append('DomicilioF',this.DomicilioF);
              formData.append('emailF',this.emailF);
-             formData.append('emailF',this.RFC);
+             formData.append('nombresF',this.nombresF);
+             formData.append('RFC',this.RFC);
 
              formData.append('telF',this.telF);
              formData.append('file', this.file);
