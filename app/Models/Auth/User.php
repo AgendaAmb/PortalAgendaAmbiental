@@ -2,7 +2,6 @@
 
 namespace App\Models\Auth;
 
-use App\Models\UnirodadaUser;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
@@ -25,13 +24,6 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The relationships that should always be loaded.
-     *
-     * @var array
-     */
-    protected $with = ['unirodadaUser'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -177,42 +169,6 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Send the email verification notification.
-     *
-     * @return void
-     */
-    public function getRegisteredWorkshops()
-    {
-        $workshops = $this
-        ->workshops()
-        ->select('id', 'name', 'description')
-        ->get()
-        ->each(function (&$workshop) {
-
-            $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
-
-            if ($workshop->pivot !== null) {
-                unset($workshop->pivot);
-            }
-
-        });
-
-        return $workshops->toArray();
-    }
-
-    /**
-     * Returns the data of the unirodada from the user, if it
-     * has one
-     *
-     *
-     * @return object|null
-     */
-    public function unirodadaUser()
-    {
-        return $this->morphOne(UnirodadaUser::class, 'user');
-    }
-
-    /**
      * Returns the data of the unirodada from the user, if it
      * has one
      *
@@ -221,23 +177,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactAttribute()
     {
-        return $this->unirodadaUser->emergency_contact ?? null;
-    }
+        if ($this->latestUnirodadaUser() === null)
+            return null;
 
-    /**
-     * Actualiza el contacto de emergencia del usuario.
-     *
-     * @return void
-     */
-    public function setEmergencyContactAttribute($value)
-    {
-        # Actualiza los datos de registro a la unirodada
-        # del usuario.
-        $this->unirodadaUser()->updateOrCreate([
-            'user_id' => $this->attributes['id']
-        ],[
-            'emergency_contact' => $value
-        ]);
+        return $this->latestUnirodadaUser->emergency_contact ?? null;
     }
 
     /**
@@ -249,23 +192,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactPhoneAttribute()
     {
-        return $this->unirodadaUser->emergency_contact_phone ?? null;
-    }
+        if ($this->latestUnirodadaUser() === null)
+            return null;
 
-    /**
-     * Actualiza el teléfono de contacto de emergencia del usuario.
-     *
-     * @return void
-     */
-    public function setEmergencyContactPhoneAttribute($value)
-    {
-        # Actualiza los datos de registro a la unirodada
-        # del usuario.
-        $this->unirodadaUser()->updateOrCreate([
-            'user_id' => $this->attributes['id']
-        ],[
-            'emergency_contact_phone' => $value
-        ]);
+        return $this->latestUnirodadaUser->emergency_contact_phone ?? null;
     }
 
     /**
@@ -275,25 +205,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getHealthConditionAttribute()
     {
-        return $this->unirodadaUser->health_condition ?? null;
-    }
+        if ($this->latestUnirodadaUser() === null)
+            return null;
 
-    /**
-     * Returns the data of the unirodada from the user, if it
-     * has one
-     *
-     *
-     * @return void
-     */
-    public function setHealthConditionAttribute($value)
-    {
-        # Actualiza los datos de registro a la unirodada
-        # del usuario.
-        $this->unirodadaUser()->updateOrCreate([
-            'user_id' => $this->attributes['id']
-        ],[
-            'health_condition' => $value
-        ]);
+        return $this->latestUnirodadaUser->health_condition ?? null;
     }
 
     /**
@@ -303,25 +218,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getGrupoCiclistaAttribute()
     {
-        return $this->unirodadaUser->group ?? null;
-    }
+        if ($this->latestUnirodadaUser() === null)
+            return null;
 
-    /**
-     * Returns the data of the unirodada from the user, if it
-     * has one
-     *
-     *
-     * @return void
-     */
-    public function setGrupoCiclistaAttribute($value)
-    {
-        # Actualiza los datos de registro a la unirodada
-        # del usuario.
-        $this->unirodadaUser()->updateOrCreate([
-            'user_id' => $this->attributes['id']
-        ],[
-            'group' => $value
-        ]);
+        return $this->latestUnirodadaUser->group ?? null;
     }
 
     /**
@@ -331,8 +231,24 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        return $this->workshops()
-        ->tipo('unirodada')
-        ->first()->pivot->sent;
+        return $this->latestUnirodada()->pivot->sent;
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
+    public function updateUnirodadaData($workshop, array $array)
+    {
+        # Registra la unirodada, si el usuario no está registrado
+        if (!$this->hasWorkshop($workshop->name))
+            $this->workshops()->attach($workshop->id, ['sent' => false]);
+
+        # Obtiene el modelo de la tabla pivote.
+        $pivot = $this->workshopPivots()->firstWhere('workshop_id', $workshop->id);
+
+        # Actualiza los datos de la unirodada.
+        $pivot->unirodadaUser()->updateOrCreate($array);
     }
 }

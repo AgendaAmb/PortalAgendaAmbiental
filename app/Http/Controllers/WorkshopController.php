@@ -7,7 +7,6 @@ use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredToMMUSConference;
 use App\Mail\RegisteredWorkshops;
 use App\Mail\SendReceipt;
-use Illuminate\Support\Arr;
 use App\Models\Auth\User;
 use App\Models\Workshop;
 use Carbon\Carbon;
@@ -53,11 +52,7 @@ class WorkshopController extends Controller
         $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
         $user->disability = $request->Discapacidad ?? $user->disability;
         $user->comments = $request->ComentariosSugerencias ?? $user->comments;
-        $user->emergency_contact = $request->NombreContacto ?? $user->emergency_contact;
-        $user->emergency_contact_phone = $request->CelularContacto ?? $user->emergency_contact_phone;
-        $user->grupoCiclista = $request->GrupoC ?? $user->grupoCiclista;
         $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
-        $user->health_condition = collect($request->CondicionSalud ?? [])->first() ?? $user->health_condition;
         $user->save();
 
         return response()->json([ 'status' => 200], 200);
@@ -75,30 +70,12 @@ class WorkshopController extends Controller
         # Usuario autenticado
         $user = $request->user();
 
-        # Bandera para determinar si hay un evento de unirodada
-        # registrado.
-
-        $has_unirodada = Arr::first($courses, function($value, $key){
-
-            return $value === 'Unirodada cicloturística a la Cañada del Lobo';
-        });
-
-        # Agrega la última unirodada, en caso de que haya sido registrada.
-        if ($has_unirodada)
-        {
-            $workshop = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
-
-            # Si el evento existe, se agrega al arreglo.
-            if ($workshop !== null)
-                $courses[] = $workshop->name;
-        }
-
-        # Cursos mmus del usuario.
+        # Cursos mmus del usuario y unirodadas.
         $workshops = $user->workshops()
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
             ->whereNotIn('name', $courses)
-            ->pluck('id');
+            ->pluck('workshops.id');
 
         # Se eliminan los cursos a los que no haya asistido y a
         # aquellos que haya eliminado del modal.
@@ -127,6 +104,15 @@ class WorkshopController extends Controller
                 $user->workshops()->attach($workshop_model->id, [
                     'sent' => true,
                     'sent_at' => Carbon::now()->timezone('America/Mexico_City')
+                ]);
+            }
+            else if ($workshop_model->name === 'Unirodada cicloturística a la Cañada del Lobo')
+            {
+                $user->updateUnirodadaData($workshop_model, [
+                    'emergency_contact' => $request->NombreContacto,
+                    'emergency_contact_phone' => $request->CelularContacto,
+                    'group' => $request->GrupoC,
+                    'health_condition' => collect($request->CondicionSalud ?? [])->first()
                 ]);
             }
             else

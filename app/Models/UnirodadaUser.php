@@ -14,10 +14,17 @@ class UnirodadaUser extends Model
     protected $guarded = [];
 
     /**
-     * Get the parent imageable model (extern, workers or students).
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function user()
-    {
-        return $this->morphTo();
-    }
+    protected $primaryKey = 'user_workshop_id';
+
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 }
