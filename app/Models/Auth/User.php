@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\UnirodadaUser;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
@@ -296,7 +297,27 @@ class User extends Authenticatable implements MustVerifyEmail
 
         # Si el grupo del ciclista es un staff, se marca que
         # el usuario ya pagó la cuota.
+        if ($array['group'] === 'staff')
+        {
+            $this->quote_paid = true;
+            $this->save();
+        }
+        else if ($array['group'] === 'fup')
+        {
+            # Obtiene el número de ciclistas de la FUP.
+            $fup_bikers = UnirodadaUser::whereIn('id', function($query) use ($workshop){
+                $query->select('id')
+                    ->where('workshop_id', $workshop->id);
 
+            })->where('group', 'fup')
+            ->count();
+
+            if ($fup_bikers <= 10)
+            {
+                $this->quote_paid = true;
+                $this->save();
+            }
+        }
 
         # Actualiza los datos de la unirodada.
         $pivot->unirodadaUser()->updateOrCreate($array);

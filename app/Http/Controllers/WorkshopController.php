@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SendPayFormRequest;
 use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\StoreWorkshopRequest;
-use App\Mail\RegisteredToMMUSConference;
 use App\Mail\RegisteredWorkshops;
 use App\Mail\SendReceipt;
 use App\Models\Auth\User;
@@ -14,7 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class WorkshopController extends Controller
 {
@@ -113,7 +112,7 @@ class WorkshopController extends Controller
                 $user->updateUnirodadaData($workshop_model, [
                     'emergency_contact' => $request->NombreContacto,
                     'emergency_contact_phone' => $request->CelularContacto,
-                    'group' => $request->GrupoC,
+                    'group' => Str::lower($request->GrupoC),
                     'health_condition' => collect($request->CondicionSalud ?? [])->first()
                 ]);
             }
