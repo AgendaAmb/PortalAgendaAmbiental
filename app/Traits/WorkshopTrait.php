@@ -50,11 +50,11 @@ trait WorkshopTrait
     public function unirodadasUser()
     {
         return $this->hasManyThrough(
-            UnirodadaUser::class, 
-            UserWorkshop::class, 
-            'user_id', 
+            UnirodadaUser::class,
+            UserWorkshop::class,
+            'user_id',
             'user_workshop_id'
-        
+
         )->where(
             'user_type', static::class
         );
