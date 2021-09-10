@@ -226,6 +226,12 @@ class WorkshopController extends Controller
         $data_array = $request->except('file', 'method');
         $data_array['file_path'] = $path;
 
+        # Determina si el usuario está registrado en la unirodada
+        if (!$user->hasWorkshop('Unirodada cicloturística a la Cañada del Lobo'))
+            return response()->json([
+                'Message' => 'El usuario no está registrado en la unirodada'
+            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
         # Guarda los datos fiscales, en caso de que existan.
         $user->invoice_data = $data_array;
         $user->save();
