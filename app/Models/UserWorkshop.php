@@ -21,6 +21,13 @@ class UserWorkshop extends MorphPivot
     protected $hidden = [];
 
     /**
+     * Timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool

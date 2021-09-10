@@ -2,21 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SendPayFormRequest;
-use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
-use App\Mail\SendReceipt;
 use App\Models\Auth\User;
 use App\Models\Workshop;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
+
 
 class WorkshopController extends Controller
 {
+/*
+    |--------------------------------------------------------------------------
+    | Workshop Controller
+    |--------------------------------------------------------------------------
+    |
+    | Controlador que gestiona la lógica de los cursos y talleres de 
+    | la agenda ambiental.
+    |
+    */
+
+    /**
+     * Controlador de unirodadas.
+     * 
+     * @var UnirodadaController
+     */
+    private $unirodada_controller;
+
+    /**
+     * Crea el controlador y las dependencias requeridas para su
+     * funcionamiento.
+     */
+    public function __construct()
+    {
+        $this->unirodada_controller = new UnirodadaController;
+    }
+
+
     public function GetWorkshops(Request $request){
         $user=User::userById($request->id);
         $Workshops=[];
@@ -73,6 +96,7 @@ class WorkshopController extends Controller
 
         # Cursos mmus del usuario y unirodadas.
         $workshops = $user->workshops()
+            ->WherePivotNull('paid')
             ->wherePivotNull('assisted_to_workshop')
             ->orWherePivot('assisted_to_workshop', false)
             ->whereNotIn('name', $courses)
@@ -97,34 +121,16 @@ class WorkshopController extends Controller
             if ($user->hasWorkshop($workshop))
                 continue;
 
-            # Envía una notificación adicional al usuario, en caso de que
-            # se haya registrado a la conferencia 2 del MMUS.
-            if ($workshop_model->name === 'curso movilidad y urbanismo')
-            {
-                //Mail::to($user)->send(new RegisteredToMMUSConference);
-                $user->workshops()->attach($workshop_model->id, [
-                    'sent' => true,
-                    'sent_at' => Carbon::now()->timezone('America/Mexico_City')
-                ]);
-            }
-
             # Actualiza los datos del aspirante, en caso de que se haya
             # inscrito a la unirodada.
             else if ($workshop_model->name === 'Unirodada cicloturística a la Cañada del Lobo')
-            {
-                $user->updateUnirodadaData($workshop_model, [
-                    'emergency_contact' => $request->NombreContacto,
-                    'emergency_contact_phone' => $request->CelularContacto,
-                    'group' => Str::lower($request->GrupoC),
-                    'health_condition' => collect($request->CondicionSalud ?? [])->first()
-                ]);
-            }
+
+                $this->unirodada_controller->registerUser($request, $user, $workshop_model);
             else
-            {
                 $user->workshops()->attach($workshop_model->id, [
                     'sent' => false
                 ]);
-            }
+            
         }
 
         # Obtiene los cursos registrados.
@@ -160,88 +166,6 @@ class WorkshopController extends Controller
 
         return response()->json([ 'Message' => 'Asistencia de usuario registrada' ], JsonResponse::HTTP_OK);
     }
-
-    /**
-     * Add a receipt to the registered event.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param object    $courses
-     * @return \Illuminate\Http\Response
-     */
-    public function sendPayForm(SendPayFormRequest $request)
-    {
-
-        # Obtiene el id del usuario registrado.
-        $user = User::retrieveById($request->idUser, 'students')
-            ?? User::retrieveById($request->idUser, 'workers')
-            ?? User::retrieveById($request->idUser, 'externs');
-
-        # Envía el comprobante de pago,en caso de que el evento
-        # registrado haya sido una unirodada.
-        $event = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
-
-        if ($event->type === 'unirodada')
-        {
-            # Se envía el comprobante de pago.
-            Mail::to($user)->send(new SendReceipt($request->file('file')->get()));
-
-            # Registra la asistencia del usuario.
-            $user->workshops()->updateExistingPivot($event->id, [
-                'sent' => true,
-                'sent_at' => Carbon::now()->timezone('America/Mexico_City')
-            ]);
-
-            return response()->json([
-                'Message' => 'Comprobante enviado'
-            ], JsonResponse::HTTP_OK);
-        }
-
-        return response()->json([
-            'Message' => 'No se envió el comprobante'
-        ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-    }
-
-    /**
-     * Add a receipt to the registered event.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param object    $courses
-     * @return \Illuminate\Http\Response
-     */
-    public function sendReceipt(SendReceiptRequest $request)
-    {
-        # Obtiene el id del usuario registrado.
-        $user = $request->user();
-
-        # Extensión del archivo.
-        $mime_type = '.'.$request->file('file')->extension();
-
-        # Almacena en storage.
-        $path = $request->file('file')->storePubliclyAs(
-            'workshops/'.$user->user_type.'/'.$user->id,
-            'Comprobante-de-pago-unirodada'.$mime_type
-        );
-
-        # Obtiene el arreglo de datos, que se guardará como json
-        $data_array = $request->except('file', 'method');
-        $data_array['file_path'] = $path;
-
-        # Determina si el usuario está registrado en la unirodada
-        if (!$user->hasWorkshop('Unirodada cicloturística a la Cañada del Lobo'))
-            return response()->json([
-                'Message' => 'El usuario no está registrado en la unirodada'
-            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-
-        # Guarda los datos fiscales, en caso de que existan.
-        $user->invoice_data = $data_array;
-        $user->save();
-
-        return response()->json([
-            'Message' => 'Datos capturados correctamente'
-        ], JsonResponse::HTTP_OK);
-    }
-
-
 
     /**
      * Store a newly created resource in storage.

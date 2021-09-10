@@ -332,11 +332,6 @@
                                     <label for="Nombres">Teléfono</label>
                                     <input type="tel" class="form-control" id="telF"  name="telF"  :value="DatosFacturacion[0].telF" readonly>
                                 </div>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> e798b4b2cbc13ab6496d8789a23eaa903bfa12e9
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
                                     <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required

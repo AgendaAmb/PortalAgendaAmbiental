@@ -89,17 +89,6 @@ trait WorkshopTrait
     }
 
     /**
-     * Registra la asistencia al curso / taller
-     *
-     * @param int $workshop
-     * @param bool $sent
-     * @return void
-     */
-    public function setWorkshopNotificationAsSent($workshop_id, $sent)
-    {
-    }
-
-    /**
      * Determina si el usuario está registrado en el módulo
      *
      * @param string $module
