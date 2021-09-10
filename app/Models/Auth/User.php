@@ -235,6 +235,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         $latest_user_unirodada->invoice_data = $new_invoice_data;
         $latest_user_unirodada->save();
+
     }
 
     /**
