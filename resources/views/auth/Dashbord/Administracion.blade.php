@@ -125,7 +125,7 @@
                 <th class="text-center ">@if (json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
 
                     <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
-                            style="font-size: 25px;"></i></a>
+                            style="font-size: 25px;"   @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
 
                     @else
                     no
@@ -284,7 +284,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="DatosFacturacion!=''">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary" id="modalComprobante">
@@ -311,26 +311,26 @@
                             <div class="form-row ">
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Nombre Completo o razón social</label>
-                                    <input type="text" class="form-control" id="nombresF"  name="nombresF" value="{{json_decode($user->invoice_data)->nombresF}}" readonly
+                                    <input type="text" class="form-control" id="nombresF"  name="nombresF" :value="DatosFacturacion[0].nombresF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Domicilio fiscal</label>
-                                    <input type="text" class="form-control" id="DomicilioF"  name="DomicilioF" value="{{json_decode($user->invoice_data)->DomicilioF}}" readonly
+                                    <input type="text" class="form-control" id="DomicilioF"  name="DomicilioF" :value="DatosFacturacion[0].DomicilioF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">RFC</label>
-                                    <input type="text" class="form-control" id="RFC"  name="RFC" value="{{json_decode($user->invoice_data)->RFC}}" readonly
+                                    <input type="text" class="form-control" id="RFC"  name="RFC" :value="DatosFacturacion[0].RFC" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="emailF"  name="emailF"  value="{{json_decode($user->invoice_data)->emailF}}"readonly>
+                                    <input type="email" class="form-control" id="emailF"  name="emailF"  :value="DatosFacturacion[0].emailF" readonly>
                                 </div>
                                 <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telF"  name="telF"  value="{{json_decode($user->invoice_data)->telF}}" readonly>
+                                    <label for="Nombres">Teléfono</label>   
+                                    <input type="tel" class="form-control" id="telF"  name="telF"  :value="DatosFacturacion[0].telF" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
@@ -374,7 +374,8 @@
     asistenciaExito:false,
     file:'',
     Guardando :false,
-    exito:true
+    exito:true,
+    DatosFacturacion:[]
 
   },
   mounted: function () {
@@ -398,6 +399,11 @@
   })
 },
   methods: {
+    cargarDatosFacturacion:function(user){
+        this.DatosFacturacion=[],
+        this.DatosFacturacion.push(json_decode(user));
+        
+    },
     MandarPagoUnirodada:function(){
         this.spinnerVisible=true
         const formData = new FormData();
