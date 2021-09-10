@@ -114,8 +114,12 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaComprobante', 'WorkshopController@sendReceipt')
+    Route::post('/EnviaFicha', 'WorkshopController@sendPayForm')
         ->middleware('role:helper')
+        ->name('EnviaFicha');
+
+    # Envía un comprobante a un usuario.
+    Route::post('/EnviaComprobante', 'WorkshopController@sendReceipt')
         ->name('EnviaComprobante');
 });
 
