@@ -332,6 +332,7 @@
                                     <label for="Nombres">Teléfono</label>   
                                     <input type="tel" class="form-control" id="telF"  name="telF"  :value="DatosFacturacion[0].telF" readonly>
                                 </div>
+                                
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
                                     <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required
@@ -401,7 +402,7 @@
   methods: {
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
-        this.DatosFacturacion.push(json_decode(user));
+        this.DatosFacturacion.push(user);
         
     },
     MandarPagoUnirodada:function(){
