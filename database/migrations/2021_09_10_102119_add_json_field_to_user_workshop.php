@@ -15,7 +15,6 @@ class AddJsonFieldToUserWorkshop extends Migration
     {
         Schema::table('unirodada_users', function (Blueprint $table) {
             $table->json('invoice_data')->nullable();
-
         });
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SendPayFormRequest;
 use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredToMMUSConference;
@@ -13,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class WorkshopController extends Controller
 {
@@ -164,7 +166,7 @@ class WorkshopController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
-    public function sendReceipt(SendReceiptRequest $request)
+    public function sendPayForm(SendPayFormRequest $request)
     {
 
         # Obtiene el id del usuario registrado.
@@ -196,6 +198,46 @@ class WorkshopController extends Controller
             'Message' => 'No se envió el comprobante'
         ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
+
+    /**
+     * Add a receipt to the registered event.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
+    public function sendReceipt(SendReceiptRequest $request)
+    {
+        # Obtiene el id del usuario registrado.
+        $user = $request->user();
+
+        # Extensión del archivo.
+        $mime_type = '.'.$request->file('file')->extension();
+
+        # Almacena en storage.
+        $path = $request->file('file')->storePubliclyAs(
+            'workshops/'.$user->user_type.'/'.$user->id,
+            'Comprobante-de-pago-unirodada'.$mime_type
+        );
+
+        # Obtiene el arreglo de datos, que se guardará como json
+        $data_array = $request->only(
+            'DomicilioF',
+            'emailF',
+            'telF'
+        );
+
+        $data_array['file_path'] = $path;
+
+        # Guarda los datos fiscales, en caso de que existan.
+        $user->invoice_data = $data_array;
+        $user->save();
+
+        return response()->json([
+            'Message' => 'Datos capturados correctamente'
+        ], JsonResponse::HTTP_OK);
+    }
+
 
 
     /**

@@ -224,6 +224,22 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
+    public function setInvoiceDataAttribute($value)
+    {
+        $new_invoice_data = json_encode($value);
+
+        # Obtiene la unirodada más reciente del usuario.
+        $latest_user_unirodada = $this->latestUnirodadaUserData();
+
+        $latest_user_unirodada->invoice_data = $new_invoice_data;
+        $latest_user_unirodada->save();
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
     public function getGrupoCiclistaAttribute()
     {
         return $this->latestUnirodadaUserData()->group ?? null;
