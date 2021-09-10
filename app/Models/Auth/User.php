@@ -249,17 +249,15 @@ class User extends Authenticatable implements MustVerifyEmail
      * Actualiza el grupo del ciclista del usuario.
      *
      * @return object|null
-     *
-    public function setInvoiceDataAttribute($value)
+     */
+    public function setQuotePaidAttribute($value)
     {
-        $new_invoice_data = json_encode($value);
-
         # Obtiene la unirodada más reciente del usuario.
         $latest_user_unirodada = $this->latestUnirodadaUserData();
 
-        $latest_user_unirodada->invoice_data = $new_invoice_data;
+        $latest_user_unirodada->quote_paid = $value;
         $latest_user_unirodada->save();
-    }*/
+    }
 
 
     /**
@@ -295,6 +293,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
         # Obtiene el modelo de la tabla pivote.
         $pivot = $this->workshopPivots()->firstWhere('workshop_id', $workshop->id);
+
+        # Si el grupo del ciclista es un staff, se marca que
+        # el usuario ya pagó la cuota.
+
 
         # Actualiza los datos de la unirodada.
         $pivot->unirodadaUser()->updateOrCreate($array);
