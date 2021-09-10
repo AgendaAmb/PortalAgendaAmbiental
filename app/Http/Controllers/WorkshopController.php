@@ -208,7 +208,6 @@ class WorkshopController extends Controller
      */
     public function sendReceipt(SendReceiptRequest $request)
     {
-        dd($request->all());
         # Obtiene el id del usuario registrado.
         $user = $request->user();
 
@@ -222,13 +221,7 @@ class WorkshopController extends Controller
         );
 
         # Obtiene el arreglo de datos, que se guardará como json
-        $data_array = $request->only(
-            'isFacturaReq',
-            'DomicilioF',
-            'emailF',
-            'telF'
-        );
-
+        $data_array = $request->except('file', 'method');
         $data_array['file_path'] = $path;
 
         # Guarda los datos fiscales, en caso de que existan.
