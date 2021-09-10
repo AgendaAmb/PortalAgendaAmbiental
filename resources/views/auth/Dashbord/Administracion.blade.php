@@ -305,7 +305,7 @@
              axios({
                  method: 'post',
 
-                 url: '/EnviaComprobante',
+                 url: '/EnviaFicha',
                  data: formData,
                  headers: {
                      'Content-Type': 'multipart/form-data'

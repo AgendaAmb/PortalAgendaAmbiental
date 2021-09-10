@@ -80,8 +80,10 @@
         </div>
 
       </div>
+     
       <div class="row justify-content-end align-items-center ml-1 ">
-        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0">
+        @if (Auth::user()->sent&&Auth::user()->invoice_data==null)
+        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0"  v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
           <a class="btn btn-secondary w-100 font-weight-bold" data-toggle="collapse" href="#collapseExample"
             role="button" aria-expanded="true" aria-controls="collapseExample">
             AVISOS
@@ -93,6 +95,8 @@
               <a href="" href="#" data-toggle="modal" data-target="#RegistroComprobanteP">Aquí</a></p>
           </div>
         </div>
+            
+        @endif
       </div>
 
 
