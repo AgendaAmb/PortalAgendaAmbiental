@@ -14,8 +14,9 @@ class AddGabyToHelpers extends Migration
      */
     public function up()
     {
-        $worker = Worker::find(22524);
+       /* $worker = Worker::find(22524);
         $worker->assignRole('helper');
+        */
     }
 
     /**
@@ -25,7 +26,9 @@ class AddGabyToHelpers extends Migration
      */
     public function down()
     {
+        /*
         $worker = Worker::find(22524);
         $worker->removeRole('helper');
+        */
     }
 }
