@@ -57,6 +57,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = ['user_type'];
 
     /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['workshops'];
+
+    /**
      * Obtiene el tipo de usuario
      *
      * @return string
@@ -200,6 +207,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getHealthConditionAttribute()
     {
         return $this->latestUnirodadaUserData()->health_condition ?? null;
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
+    public function getInvoiceDataAttribute()
+    {
+        return $this->latestUnirodadaUserData()->invoice_data ?? null;
     }
 
     /**

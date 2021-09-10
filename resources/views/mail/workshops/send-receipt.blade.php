@@ -1,3 +1,4 @@
+@php $header_color = '#87b854' @endphp
 @component('mail::message')
 # Estimado(a) usuario(a):<br><br>
 
