@@ -47,24 +47,17 @@ class HomeController extends Controller
             ->with('nombreModal', $nombreModal);
     }
 
-
-
     /**
      * Obtiene el listado de usuarios.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function Administracion(Request $request){
-
-        if ($request->user()->hasRole('helper')) {
-
-           # Usuarios exclusivos de la unirodada
-           $users = $this->getUnirodadaUsers();
-        } else {
-
-            # Usuarios exclusivos de la unirodada
-            $users = $this->getAllUsers();
-        }
+    public function Administracion(Request $request)
+    {
+        $users = $request->user()->hasRole('helper') 
+        
+        ?  $this->getUnirodadaUsers() # Usuarios exclusivos de la unirodada
+        :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
         return view('auth.Dashbord.Administracion')->with('users', $users)
