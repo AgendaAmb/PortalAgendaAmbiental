@@ -77,27 +77,19 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $with = ['workshops', 'roles'];
+    protected $with = ['workshops:id,name,description', 'roles:id,name'];
+
 
     /**
-     * Obtiene el tipo de usuario
+     * The user classes used by this class.
      *
-     * @return string
+     * @var array
      */
-    public function getUserTypeAttribute()
-    {
-        return $this->table;
-    }
-
-    /**
-     * Obtiene el tipo de usuario
-     *
-     * @return string
-     */
-    public function getGuardAttribute()
-    {
-        return $this->guard_name;
-    }
+    protected const USER_TYPES = [
+        'workers' => Worker::class,
+        'students' => Student::class,
+        'externs' => Extern::class
+    ];
 
     /**
      * Obtiene el tipo de usuario autenticado
@@ -144,6 +136,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $user;
     }
+
+    
+
     /**
      * Retrieves the specified user (Worker, Student, Extern) by
      * id and type
@@ -182,6 +177,76 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getUserTypeAttribute()
+    {
+        return $this->table;
+    }
+
+    /**
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getGuardAttribute()
+    {
+        return $this->guard_name;
+    }
+
+    /**
+     * Genera una consulta ORM, para obtener campos adicionales,
+     * acerca del usuario y de la unirodada especificada.
+     *
+     * @param string
+     * @return object
+     */
+    public function getUnirodadaDetailsQuery($unirodada)
+    {
+        return DB::table('unirodada_users')
+            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
+            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
+            ->where('user_workshop.user_id', '=', $this->id)
+            ->where('user_type', '=', static::class)
+            ->where('workshops.name', '=', $unirodada);
+    }
+
+    /**
+     * Obtiene un campo específico, acerca del usuario y su asistencia a
+     * algún evento de la unirodada.
+     *
+     * @param string $field
+     * @return object
+     */
+    public function getUnirodadaDetailsField($field)
+    {
+        return $this->getUnirodadaDetailsQuery(
+            'Unirodada cicloturística a la Cañada del Lobo'
+        )->latest('unirodada_users.created_at')
+        ->value($field) 
+        
+        ?? null;
+    }
+
+    /**
+     * Asigna un valor a campo específico, acerca del usuario y su asistencia 
+     * a algún evento de la unirodada.
+     *
+     * @param string $field
+     * @return object
+     */
+    public function setUnirodadaDetailsField($field, $value)
+    {
+        $this->getUnirodadaDetailsQuery(
+            'Unirodada cicloturística a la Cañada del Lobo'
+        )->update([ 
+            $field => $value 
+        ]);
+    }
+
+    /**
      * Send the email verification notification.
      *
      * @return void
@@ -200,17 +265,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('emergency_contact')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->emergency_contact ?? null;
+        return $this->getUnirodadaDetailsField('emergency_contact');
     }
 
     /**
@@ -222,13 +277,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setEmergencyContactAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'emergency_contact' => $value ]);
+        $this->setUnirodadaDetailsField('emergency_contact', $value);
     }
 
     /**
@@ -240,17 +289,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactPhoneAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('emergency_contact_phone')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->emergency_contact_phone ?? null;
+        return $this->getUnirodadaDetailsField('emergency_contact_phone');
     }
 
     /**
@@ -262,13 +301,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setEmergencyContactPhoneAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'emergency_contact_phone' => $value ]);
+        $this->setUnirodadaDetailsField('emergency_contact_phone', $value);
     }
 
     /**
@@ -278,17 +311,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getHealthConditionAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('health_condition')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->health_condition ?? null;
+        return $this->getUnirodadaDetailsField('health_condition');
     }
 
     /**
@@ -300,13 +323,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setHealthConditionAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'health_condition' => $value ]);
+        $this->setUnirodadaDetailsField('health_condition',$value);
     }
 
     /**
@@ -316,17 +333,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getInvoiceDataAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('invoice_data')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->invoice_data ?? null;
+        return $this->getUnirodadaDetailsField('invoice_data');
     }
 
     /**
@@ -336,13 +343,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setInvoiceDataAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'invoice_data' => json_encode($value) ]);
+        $this->setUnirodadaDetailsField('invoice_data', json_encode($value));
     }
 
     /**
@@ -352,17 +353,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getGrupoCiclistaAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('group')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->group ?? null;
+        return $this->getUnirodadaDetailsField('group');
     }
 
     /**
@@ -374,13 +365,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setGrupoCiclistaAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'group' => $value ]);
+        $this->setUnirodadaDetailsField('group', $value);
     }
 
     /**
@@ -390,17 +375,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        $unirodadaData = DB::table('unirodada_users')
-            ->select('user_workshop.sent as sent')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->latest('unirodada_users.created_at')
-            ->first();
-
-        return $unirodadaData->sent ?? null;
+        return $this->getUnirodadaDetailsField('user_workshop.sent');
     }
 
     /**
@@ -412,12 +387,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setSentAttribute($value)
     {
-        DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
-            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
-            ->where('user_workshop.user_id', '=', $this->id)
-            ->where('user_type', '=', static::class)
-            ->where('workshops.name', '=', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->update([ 'sent' => $value ]);
+        $this->setUnirodadaDetailsField('sent', $value);
     }
 }

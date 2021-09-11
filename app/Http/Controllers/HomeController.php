@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
+use App\Models\Auth\User;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 class HomeController extends Controller
 {
@@ -52,9 +54,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function Administracion(){
+    public function Administracion(Request $request){
 
-        if (Auth::user()->hasRole('helper')) {
+        if ($request->user()->hasRole('helper')) {
 
            # Usuarios exclusivos de la unirodada
            $users = $this->getUnirodadaUsers();
@@ -77,24 +79,19 @@ class HomeController extends Controller
      */
     private function getUnirodadaUsers()
     {
-        # Obtiene todos los estudiantes que no son admins y coordinadores
-        $admins = Student::role([ 'administrator', 'coordinator'])->pluck('id');
-        $students = Student::whereNotIn('id', $admins)->whereHas('workshops', function($query){
-
+        $students = Student::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-            
         })->get();
-
-        # Obtiene el id de los administradores y coordinadores
-        $admins = Worker::role([ 'administrator', 'coordinator'])->pluck('id');
-        $workers = Worker::whereNotIn('id', $admins)->whereHas('workshops', function($query){
-
+        
+        $workers = Worker::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->get()->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
         })->get();
 
-        # Obtiene a todos los usuarios externos.
         $externs = Extern::whereHas('workshops', function($query){
-
             $query->where('type', 'unirodada');
         })->get();
 
@@ -109,17 +106,15 @@ class HomeController extends Controller
      */
     private function getAllUsers()
     {
-        # Obtiene el id de los administradores y coordinadores
-        $admins = Student::role([ 'administrator', 'coordinator'])->pluck('id');
-        $students = Student::whereNotIn('id', $admins)->get();
+        $students = Student::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->get();
+        
+        $workers = Worker::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->get();
 
-        # Obtiene el id de los administradores y coordinadores
-        $admins = Worker::role([ 'administrator', 'coordinator'])->pluck('id');
-        $workers = Worker::whereNotIn('id', $admins)->get();
-
-        # Obtiene a todos los usuarios externos.
         $externs = Extern::all();
-
 
         # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
