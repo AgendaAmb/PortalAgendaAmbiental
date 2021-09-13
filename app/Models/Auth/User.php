@@ -389,4 +389,46 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->setUnirodadaDetailsField('sent', $value);
     }
+
+    /**
+     * Determina si el usuario pagó su cuota de inscripción a la unirodada.
+     *
+     * @return object|null
+     */
+    public function getPaidAttribute()
+    {
+        return $this->getUnirodadaDetailsField('user_workshop.paid');
+    }
+
+    /**
+     * Determina si el usuario pagó su cuota de inscripción a la unirodada.
+     *
+     * @return object|null
+     */
+    public function setPaidAttribute($value)
+    {
+        $this->setUnirodadaDetailsField('user_workshop.paid', $value);
+    }
+
+    /**
+     * Determina si el usuario pagó su cuota de inscripción a la unirodada.
+     *
+     * @return object|null
+     */
+    public function getPaidAtAttribute($value)
+    {
+        return $this->getUnirodadaDetailsField('user_workshop.paid_at');
+    }
+
+    
+
+    /**
+     * Determina si el usuario pagó su cuota de inscripción a la unirodada.
+     *
+     * @return object|null
+     */
+    public function setPaidAtAttribute($value)
+    {
+        $this->setUnirodadaDetailsField('user_workshop.paid_at', $value);
+    }
 }

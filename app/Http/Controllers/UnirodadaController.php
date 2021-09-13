@@ -36,7 +36,7 @@ class UnirodadaController extends Controller
             'user_id' => $user->id,
             'user_type' => get_class($user),
             'workshop_id' => $workshop->id,
-            'sent' => false
+            'sent' => false,
         ]);
 
         # Registra los datos de la unirodada del usuario.
@@ -60,11 +60,7 @@ class UnirodadaController extends Controller
         {
             # Total de ciclistas de la fup.
             $num_becas_fup = UnirodadaUser::where('group', 'fup')
-                ->whereIn( 'workshop_id',  UserWorkshop::where(
-                    
-                    'workshop_id', $workshop->id
-                
-                )->pluck('id')
+                ->whereIn('workshop_id',  UserWorkshop::where('workshop_id', $workshop->id)->pluck('id')
             );
 
             # Solo no se les cobra a los 10 primeros usuarios.
@@ -73,6 +69,16 @@ class UnirodadaController extends Controller
                 $user_workshop->paid = true;
                 $user_workshop->paid_at = Carbon::now()->locale('America/Mexico_City');
             }
+            else
+            {
+                $user_workshop->paid = false;
+            }
+        }
+
+        # El usuario aún no paga
+        else
+        {
+            $user_workshop->paid = false;
         }
     }
 
