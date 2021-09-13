@@ -51,7 +51,7 @@ class UnirodadaController extends Controller
         # A los staff no se les cobra
         if ($user_workshop->group === 'staff')
         {
-            $user_workshop->paid = true;
+            $user->paid = true;
             $user_workshop->paid_at = Carbon::now()->locale('America/Mexico_City');
         }
 
@@ -66,12 +66,12 @@ class UnirodadaController extends Controller
             # Solo no se les cobra a los 10 primeros usuarios.
             if ($num_becas_fup < 10)
             {
-                $user_workshop->paid = true;
-                $user_workshop->paid_at = Carbon::now()->locale('America/Mexico_City');
+                $user->paid = true;
+                $user->paid_at = Carbon::now()->locale('America/Mexico_City');
             }
             else
             {
-                $user_workshop->paid = false;
+                $user->paid = false;
             }
         }
 
@@ -145,6 +145,26 @@ class UnirodadaController extends Controller
 
         return response()->json([
             'Message' => 'Datos capturados correctamente'
+        ], JsonResponse::HTTP_OK);
+    }
+
+
+    /**
+     * Envía el comprobante de pago a un administrativo.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
+    public function cambiaStatusPago(Request $request)
+    {
+        # Obtiene al usuario y actualiza el estado de pago.
+        $user = User::userById($request->userId);
+        $user->paid = $request->nuevoEstadoPago;
+        $user->save();
+
+        return response()->json([
+            'Message' => 'Estado de pago actualizado'
         ], JsonResponse::HTTP_OK);
     }
 }
