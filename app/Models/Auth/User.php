@@ -49,6 +49,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
+        'created_at',
+        'updated_at',
         'email_verified_at',
         'access_token',
         'token',
@@ -68,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type'];
+    protected $appends = ['user_type','invoice_data'];
 
     /**
      * The relationships that should always be loaded.

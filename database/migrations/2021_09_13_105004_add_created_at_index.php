@@ -13,7 +13,17 @@ class AddCreatedAtIndex extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('externs', function (Blueprint $table) {
+
+        });
+
+        Schema::table('workers', function (Blueprint $table) {
+
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+
+        });
     }
 
     /**

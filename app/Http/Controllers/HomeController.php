@@ -88,7 +88,8 @@ class HomeController extends Controller
             $query->where('type', 'unirodada');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
-         # Combina todos los tipos de usuario.
+
+        # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 
@@ -99,6 +100,8 @@ class HomeController extends Controller
      */
     private function getAllUsers()
     {
+
+
         $students = Student::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
@@ -110,6 +113,7 @@ class HomeController extends Controller
         $externs = Extern::whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         # Combina todos los tipos de usuario.
+        dd($students->merge($workers)->merge($externs)->sortBy('created_at')->toJson());
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 

@@ -305,13 +305,12 @@
                                 @if (json_decode($user->invoice_data)!=null)
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <p class="d-none">{{$url=json_decode(($user->invoice_data)->file_path)}}</p>
-                                    <a href="{{asset($url)}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                    <a href="{{asset('json_decode($user->invoice_data)->file_path')}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
 
                                 </div>
                                 @endif
-                               
+
 
 
 
@@ -463,7 +462,8 @@
                     "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
                     "emergency_contact":'{{$user->emergency_contact}}',
                     "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
-                    "health_condition":'{{$user->health_condition}}'
+                    "health_condition":'{{$user->health_condition}}',
+                    "invoice_data": "{{$user->invoice_data}}"
                 });
     @endforeach
   })
