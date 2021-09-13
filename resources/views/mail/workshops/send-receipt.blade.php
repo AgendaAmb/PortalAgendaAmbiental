@@ -1,5 +1,4 @@
-@php $header_color = '#87b854' @endphp
-@component('mail::message')
+@component('mail::message', [ 'header_color' => '#87b854'])
 # Estimado(a) usuario(a):<br><br>
 
 Gracias por preinscribirse a la  Unirodada cicloturística a la Cañada del Lobo. <br><br>

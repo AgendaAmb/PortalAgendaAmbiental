@@ -93,6 +93,9 @@ class RegisterController extends Controller
             'middlename' => $data['ApellidoP'],
             'surname' => $data['ApellidoM'] ?? null,
 
+            # Edad
+            'age' => $data['Edad'] ?? null,
+
             # Etnia
             'ethnicity' => $data['GEtnico'] ?? null,
 

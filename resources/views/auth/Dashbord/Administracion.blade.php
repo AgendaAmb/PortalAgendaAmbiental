@@ -486,22 +486,22 @@
                      res => {
                          console.log("Exito")
 
-                       
+
                      }
                  ).catch(
                      err => {
                         console.log("Falso")
-                       
+
                      }
                  )
-        
+
     },
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
         this.DatosFacturacion.push(user);
     },
     MandarPagoUnirodada:function(){
-        
+
         this.spinnerVisible=true
         const formData = new FormData();
              formData.append('idUser',this.user[0].id);

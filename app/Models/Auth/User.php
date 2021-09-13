@@ -17,20 +17,20 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmail
 {
     # Trait para gestionar tokens.
-    use HasApiTokens, 
-    
+    use HasApiTokens,
+
     # Trait para enviar correos.
     Notifiable,
 
     # Trait para gestionar roles.
-    HasRoles, 
-    
+    HasRoles,
+
     # Trait para gestionar módulos.
-    ModuleTrait, 
-    
+    ModuleTrait,
+
     # Trait para gestionar los cursos y talleres.
-    WorkshopTrait, 
-    
+    WorkshopTrait,
+
     # Trait para aplicar "soft delete" a los modelos.
     SoftDeletes;
 
@@ -49,8 +49,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
-        'created_at',
-        'updated_at',
         'email_verified_at',
         'access_token',
         'token',
@@ -137,7 +135,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $user;
     }
 
-    
+
 
     /**
      * Retrieves the specified user (Worker, Student, Extern) by
@@ -225,13 +223,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->getUnirodadaDetailsQuery(
             'Unirodada cicloturística a la Cañada del Lobo'
         )->latest('unirodada_users.created_at')
-        ->value($field) 
-        
+        ->value($field)
+
         ?? null;
     }
 
     /**
-     * Asigna un valor a campo específico, acerca del usuario y su asistencia 
+     * Asigna un valor a campo específico, acerca del usuario y su asistencia
      * a algún evento de la unirodada.
      *
      * @param string $field
@@ -241,8 +239,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->getUnirodadaDetailsQuery(
             'Unirodada cicloturística a la Cañada del Lobo'
-        )->update([ 
-            $field => $value 
+        )->update([
+            $field => $value
         ]);
     }
 
@@ -420,7 +418,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->getUnirodadaDetailsField('user_workshop.paid_at');
     }
 
-    
+
 
     /**
      * Determina si el usuario pagó su cuota de inscripción a la unirodada.

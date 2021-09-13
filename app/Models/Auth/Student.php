@@ -16,12 +16,10 @@ class Student extends User implements LdapAuthenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 
-        'remember_token', 
-        'guid', 
-        'domain', 
-        'created_at', 
-        'updated_at',
+        'password',
+        'remember_token',
+        'guid',
+        'domain',
         'email_verified_at',
     ];
 
