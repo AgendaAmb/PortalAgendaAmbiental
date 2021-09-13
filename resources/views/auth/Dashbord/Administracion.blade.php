@@ -306,11 +306,7 @@
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-<<<<<<< HEAD
                                     <a :href="user[0].file_path" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
-=======
-                                    <a :href="user[0].invoice_data" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
->>>>>>> c8f3d057d663a208bbe5ddc19a6a459697c94eaf
                                             style="color: red;font-size: 25px;"></i></a>
                                 </div>
 
