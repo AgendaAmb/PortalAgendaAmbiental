@@ -343,7 +343,21 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setInvoiceDataAttribute($value)
     {
+        if ($value === 'null')
+            $this->setUnirodadaDetailsField('invoice_data', null);
         $this->setUnirodadaDetailsField('invoice_data', json_encode($value));
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
+    public function getInvoiceUrlAttribute()
+    {
+        $data = json_decode((string)$this->getUnirodadaDetailsField('invoice_data'), true);
+
+        return $data['file_path'];
     }
 
     /**
