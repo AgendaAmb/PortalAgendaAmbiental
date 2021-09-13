@@ -462,7 +462,7 @@
                     "emergency_contact":'{{$user->emergency_contact}}',
                     "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
                     "health_condition":'{{$user->health_condition}}',
-                    "invoice_data": "{{json_decode($user->invoice_data)}}"
+                    "invoice_data": "{{$user->invoice_data}}"
                 });
     @endforeach
   })
