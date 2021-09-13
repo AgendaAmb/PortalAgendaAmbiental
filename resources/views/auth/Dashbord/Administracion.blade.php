@@ -112,11 +112,14 @@
                 <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
                 @endif
                 <th>
+                <!--Auth::user()->invoice_data!=null-->
+                    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})"
                     @if (Auth::user()->invoice_data!=null)
-                    Si
-                    @else
-                    No
+                        checked disabled
+                        
                     @endif
+                    >
+                   Si
 
 
 
@@ -375,7 +378,8 @@
     file:'',
     Guardando :false,
     exito:true,
-    DatosFacturacion:[]
+    DatosFacturacion:[],
+    checkPago:[]
 
   },
   mounted: function () {
@@ -399,6 +403,12 @@
   })
 },
   methods: {
+    ConfirmarPago:function(user){
+        const formData = new FormData();
+        formData.append('idUser',this.user[0].id);
+            this.cargarUser(user),
+            console.log(this.user[0].id)
+    },
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
         this.DatosFacturacion.push(user);
