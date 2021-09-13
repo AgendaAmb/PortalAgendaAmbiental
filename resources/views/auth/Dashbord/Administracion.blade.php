@@ -448,9 +448,11 @@
 
   },
   mounted: function () {
-  this.$nextTick(function () {  
-    this.users = @json($users);
-  },
+  this.$nextTick(function () {
+      
+      this.users = @json($users);
+  })
+},
   methods: {
     ConfirmarPago:function(user){
             this.cargarUser(user),
