@@ -27,7 +27,7 @@ class UpdatePaidStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            'nuevoEstadoPago' => ['required', 'boolean'],
+            'nuevoEstadoPago' => ['required'],
             'idUsuario' => ['required']
         ];
     }
