@@ -343,6 +343,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setInvoiceDataAttribute($value)
     {
+        if ($value === 'null')
+            $this->setUnirodadaDetailsField('invoice_data', null);
         $this->setUnirodadaDetailsField('invoice_data', json_encode($value));
     }
 
