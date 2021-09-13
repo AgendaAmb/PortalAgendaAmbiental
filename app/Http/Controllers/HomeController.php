@@ -54,8 +54,8 @@ class HomeController extends Controller
      */
     public function Administracion(Request $request)
     {
-        $users = $request->user()->hasRole('helper') 
-        
+        $users = $request->user()->hasRole('helper')
+
         ?  $this->getUnirodadaUsers() # Usuarios exclusivos de la unirodada
         :  $this->getAllUsers();      # Todos los usuarios.
 
@@ -76,17 +76,17 @@ class HomeController extends Controller
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->get();
-        
+        })->whereNotNull('email_verified_at')->get();
+
         $workers = Worker::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->get();
+        })->whereNotNull('email_verified_at')->get();
 
         $externs = Extern::whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->get();
+        })->whereNotNull('email_verified_at')->get();
 
          # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
@@ -101,13 +101,13 @@ class HomeController extends Controller
     {
         $students = Student::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->get();
-        
+        })->whereNotNull('email_verified_at')->get();
+
         $workers = Worker::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->get();
+        })->whereNotNull('email_verified_at')->get();
 
-        $externs = Extern::all();
+        $externs = Extern::whereNotNull('email_verified_at')->all();
 
         # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
