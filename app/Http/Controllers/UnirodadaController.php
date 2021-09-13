@@ -162,7 +162,7 @@ class UnirodadaController extends Controller
         # Obtiene al usuario y actualiza el estado de pago.
         $user = User::userById($request->idUsuario);
         $user->paid = $request->nuevoEstadoPago;
-        $user->paid_at = $request->nuevoEstadoPago === true ? Carbon::now()->locale('America/Mexico_City') : null;
+        $user->paid_at = $request->nuevoEstadoPago === true ? Carbon::now() : null;
         $user->save();
 
         return response()->json([
