@@ -303,7 +303,6 @@
                                         disabled>
                                 </div>
                                 @if (json_decode($user->invoice_data)!=null)
-                                @endif
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
                                     <p class="d-none">{{$url=json_decode(($user->invoice_data)->file_path)}}</p>
@@ -311,6 +310,7 @@
                                             style="color: red;font-size: 25px;"></i></a>
 
                                 </div>
+                                @endif
                                
 
 
