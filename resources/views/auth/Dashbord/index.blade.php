@@ -80,10 +80,11 @@
         </div>
 
       </div>
-     
+
       <div class="row justify-content-end align-items-center ml-1 ">
         @if (Auth::user()->sent&&Auth::user()->invoice_data==null)
-        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0"  v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
+        <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0"
+          v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
           <a class="btn btn-secondary w-100 font-weight-bold" data-toggle="collapse" href="#collapseExample"
             role="button" aria-expanded="true" aria-controls="collapseExample">
             AVISOS
@@ -95,7 +96,7 @@
               <a href="" href="#" data-toggle="modal" data-target="#RegistroComprobanteP">Aquí</a></p>
           </div>
         </div>
-            
+
         @endif
       </div>
 
@@ -135,7 +136,7 @@
             <h5 class="modal-title3" id="exampleModalLabel" v-if="modalClick=='mmus'">Cursos o actividades en las que
               deseas participar</h5>
             <div id='ActividadesMMUS' v-if="modalClick=='mmus'">
-             <!--
+              <!--
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="curso sostenibilidad" id="Conferencia1"
                   v-model="checkedNames">
@@ -536,8 +537,12 @@
 
               <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
               <div class="col-9">
-                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC" @change="ChecarBecas">
+                <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC"
+                  @change="ChecarBecas">
               </div>
+              <span class="text-success" role="alert" v-if="Errores[4].Visible">
+                @{{Errores[4].Mensaje}}
+              </span>
             </div>
             <div class="form-group row " v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
               <div class="col-12">
@@ -649,80 +654,78 @@
         <div class="modal-body bg-white">
           <form @submit.prevent="MandarPagoUnirodada" method="post">
             <div class="modal-body bg-white">
-                <div class="col-12" v-if="asistenciaExito">
-                    <div class="alert alert-success text-center" role="alert">
-                        ¡¡Enviado con exito!!
-                    </div>
+              <div class="col-12" v-if="asistenciaExito">
+                <div class="alert alert-success text-center" role="alert">
+                  ¡¡Enviado con exito!!
                 </div>
-                <div class="form-row ">
-                  <div class="form-group col-md-4">
-                    <label for="isFacturaReq">¿Requieres factura?</label>
-                    <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
-                      <option disabled value="">Opción</option>
-                      <option value="Si" id="Si">Si</option>
-                      <option value="No" id="No">No</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="pdfUniPago">Comprobante de pago</label>
-                    <input type="file" name="pdfUniPago" id="pdfUniPago" accept=".png, .jpg, .jpeg,.pdf" required
-                        @change="cargarPdf($event,'pdfUniPago')">
-                  </div>
+              </div>
+              <div class="form-row ">
+                <div class="form-group col-md-4">
+                  <label for="isFacturaReq">¿Requieres factura?</label>
+                  <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
+                    <option disabled value="">Opción</option>
+                    <option value="Si" id="Si">Si</option>
+                    <option value="No" id="No">No</option>
+                  </select>
                 </div>
-                <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel" v-if="isFacturaReq=='Si'">Datos de facturación</h5>
-                <div class="form-row " v-if="isFacturaReq=='Si'">
-                  <div class="form-group  was-validated col-12">
-                    <label for="Nombres">Nombre Completo o razón social</label>
-                    <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF" 
-                      style="text-transform: capitalize;">
-                  </div>
-                  <div class="form-group  was-validated col-12">
-                    <label for="Nombres">Domicilio fiscal</label>
-                    <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required name="DomicilioF" 
-                      style="text-transform: capitalize;">
-                  </div>
-                  <div class="form-group  was-validated col-6">
-                    <label for="Nombres">RFC</label>
-                    <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC" 
-                      style="text-transform: capitalize;">
-                  </div>
-                  <div class="form-group  was-validated col-6">
-                    <label for="Nombres">Correo electrónico</label>
-                    <input type="email" class="form-control" id="emailF" v-model="emailF" required name="emailF" 
-                     >
-                  </div>
-                  <div class="form-group  was-validated col-6">
-                    <label for="Nombres">Teléfono</label>
-                    <input type="tel" class="form-control" id="telF" v-model="telF" required name="telF" 
-                     >
-                  </div>
+                <div class="form-group col-md-6">
+                  <label for="pdfUniPago">Comprobante de pago</label>
+                  <input type="file" name="pdfUniPago" id="pdfUniPago" accept=".png, .jpg, .jpeg,.pdf" required
+                    @change="cargarPdf($event,'pdfUniPago')">
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-md-3 col-6 p-0">
+              </div>
+              <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel" v-if="isFacturaReq=='Si'">
+                Datos de facturación</h5>
+              <div class="form-row " v-if="isFacturaReq=='Si'">
+                <div class="form-group  was-validated col-12">
+                  <label for="Nombres">Nombre Completo o razón social</label>
+                  <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF"
+                    style="text-transform: capitalize;">
+                </div>
+                <div class="form-group  was-validated col-12">
+                  <label for="Nombres">Domicilio fiscal</label>
+                  <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required
+                    name="DomicilioF" style="text-transform: capitalize;">
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="Nombres">RFC</label>
+                  <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC"
+                    style="text-transform: capitalize;">
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="Nombres">Correo electrónico</label>
+                  <input type="email" class="form-control" id="emailF" v-model="emailF" required name="emailF">
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="Nombres">Teléfono</label>
+                  <input type="tel" class="form-control" id="telF" v-model="telF" required name="telF">
+                </div>
+              </div>
+              <div class="row justify-content-end">
+                <div class="col-md-3 col-6 p-0">
 
-                        <button class="btn btn-success" type="submit" value="Submit"
-                            v-if="!spinnerVisible">Enviar comprobante</button>
-                        <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                            <span class="spinner-border spinner-border-sm" role="status"
-                                aria-hidden="true"></span>
-                            Enviando
-                        </button>
-
-                    </div>
+                  <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar
+                    comprobante</button>
+                  <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Enviando
+                  </button>
 
                 </div>
+
+              </div>
             </div>
 
-        </form>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 
-  <script>
-    var app = new Vue({
+<script>
+  var app = new Vue({
   el: '#panel',
   data: {
     ClaveU_RPE:'',
@@ -777,14 +780,18 @@
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
     this.Errores.push({Mensaje:"El nombre del contacto debe ser diferente al tuyo",Visible:false});
     this.Errores.push({Mensaje:"El teléfono y el teléfono de contacto no pueden ser iguales",Visible:false});
+    this.Errores.push({Mensaje:"Eres acredor a una beca por parte de Agenda Ambiental",Visible:false});
   })
 },
 
   methods:{
     ChecarBecas:function(){
+      this.Errores[4].Visible=false;
     if (this.GrupoC.toUpperCase().replace(/ /g, "")=='FUP') {
+      this.Errores[4].Visible=true;
       console.log("SOY DE FUP");
     }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
+      this.Errores[4].Visible=true;
       console.log("SOY DE STAFF");
     }
      
@@ -990,15 +997,15 @@
       }
     }
 })
-  </script>
-  @push('stylesheets')
-  <script>
-    $('.collapseExample').collapse('show')
-  </script>
-  <link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
-  <script src="{{asset('js/fullCalendar/main.js')}}"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+</script>
+@push('stylesheets')
+<script>
+  $('.collapseExample').collapse('show')
+</script>
+<link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
+<script src="{{asset('js/fullCalendar/main.js')}}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -1016,6 +1023,6 @@
           calendar.render();
         });
 
-  </script>
-  @endpush
-  @endsection
+</script>
+@endpush
+@endsection

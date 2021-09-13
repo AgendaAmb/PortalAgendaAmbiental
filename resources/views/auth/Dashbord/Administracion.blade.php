@@ -53,6 +53,7 @@
                 @if (Auth::user()->hasRole('administrator'))
                 <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
                 @endif
+                @if (Auth::user()->hasRole('administrator'))
                 <td>
                     @if ($user->getRegisteredWorkshops()!=[])
                     <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
@@ -60,8 +61,16 @@
                         <i class="fas fa-edit"></i>
                     </a>
                     @endif
-
                 </td>
+                @else
+                <td>
+                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
+                        @click="cargarUser({{$user}})">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                @endif
+
                 <td>{{$user->id}} </td>
                 <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
                 <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
@@ -111,34 +120,32 @@
                 @else
                 <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
                 @endif
-                <th>
-                <!--Auth::user()->invoice_data!=null-->
-                    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})"
-                    @if ($user->paid!=null||$user->paid)
-                        checked disabled
-                        
-                    @endif
-                    >
-                   Si
+
+                @if ($user->paid!=null||$user->paid)
+                <td class="text-center">
+
+                    <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
+                </td>
+                @else
+                <td>
+
+                    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}"
+                        @change="ConfirmarPago({{$user}})">
+                    Si
+                </td>
+
+                @endif
 
 
-
-                </th>
-
-                <th class="text-center ">@if (json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
+                <th class="text-center ">
+                    @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
 
                     <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
-                            style="font-size: 25px;"   @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
+                            style="font-size: 25px;" @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
 
                     @else
                     no
                     @endif</th>
-
-
-
-
-
-
                 @endif
             </tr>
             </tr>
@@ -195,7 +202,13 @@
                     </h5>
 
                     @else
+                    @if (Auth::user()->hasrole('coordinator'))
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Consultar información</h5>
+
+                    @else
                     <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Registrar asistencia</h5>
+
+                    @endif
 
                     @endif
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -239,15 +252,17 @@
                             <h5 class="modal-title3" id="exampleModalLabel"></h5>
                             <div class="form-group  ">
                                 <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control" :value="user[0].name" readonly>
+                                <input type="text" class="form-control"
+                                    :value="user[0].name+' '+user[0].middlename+' '+user[0].surname" readonly>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4 was-validated">
+                                <div class="form-group col-md-2 was-validated">
                                     <label for="Nombre">Clave</label>
 
                                     <input type="text" class="form-control" :value="user[0].id" readonly>
 
                                 </div>
+                                @if (Auth::user()->hasrole('Administrator'))
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Curso a registrar asistencia</label>
                                     <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
@@ -257,8 +272,51 @@
                                         </option>
                                     </select>
                                 </div>
+                                @endif
+
+                                <div class="form-group col-md-6  d-none">
+                                    <label for="CursosInscritos">Edad</label>
+                                    <input type="text" class="form-control" name="" id="" :value="user[0].age" disabled>
+                                </div>
+                                <div class="form-group col-md-5  ">
+                                    <label for="CursosInscritos">Correo </label>
+
+                                    <input type="text" class="form-control" name="" id="" :value="user[0].email"
+                                        disabled>
+                                </div>
+                                <div class="form-group col-md-5  ">
+                                    <label for="CursosInscritos">Dependencia</label>
+
+                                    <input type="text" class="form-control" name="" id="" :value="user[0].dependency"
+                                        disabled>
+                                </div>
+                                <div class="form-group col-md-6  ">
+
+                                    <label for="CursosInscritos">Correo Alterno</label>
+                                    <input type="text" class="form-control" name="" id="" :value="user[0].altern_email"
+                                        disabled>
+                                </div>
+
+                                <div class="form-group col-md-6  ">
+                                    <label for="CursosInscritos">Genero</label>
+                                    <input type="text" class="form-control" name="" id="" :value="user[0].gender"
+                                        disabled>
+                                </div>
+                                @if (json_decode($user->invoice_data)!=null)
+                                <div class="form-group col-md-6  ">
+                                    <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
+                                    <a href="{{asset('json_decode($user->invoice_data)->file_path')}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                            style="color: red;font-size: 25px;"></i></a>
+
+                                </div>
+                                @endif
+                               
+
+
+
 
                             </div>
+                            @if (Auth::user()->hasrole('Administrator'))
                             <div class="row justify-content-end">
                                 <div class="col-3 p-0">
 
@@ -278,6 +336,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+
                         </div>
 
                     </div>
@@ -287,7 +347,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="DatosFacturacion!=''">
+    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        v-if="DatosFacturacion!=''">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary" id="modalComprobante">
@@ -314,32 +375,36 @@
                             <div class="form-row ">
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Nombre Completo o razón social</label>
-                                    <input type="text" class="form-control" id="nombresF"  name="nombresF" :value="DatosFacturacion[0].nombresF" readonly
+                                    <input type="text" class="form-control" id="nombresF" name="nombresF"
+                                        :value="DatosFacturacion[0].nombresF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Domicilio fiscal</label>
-                                    <input type="text" class="form-control" id="DomicilioF"  name="DomicilioF" :value="DatosFacturacion[0].DomicilioF" readonly
+                                    <input type="text" class="form-control" id="DomicilioF" name="DomicilioF"
+                                        :value="DatosFacturacion[0].DomicilioF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">RFC</label>
-                                    <input type="text" class="form-control" id="RFC"  name="RFC" :value="DatosFacturacion[0].RFC" readonly
-                                        style="text-transform: capitalize;">
+                                    <input type="text" class="form-control" id="RFC" name="RFC"
+                                        :value="DatosFacturacion[0].RFC" readonly style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="emailF"  name="emailF"  :value="DatosFacturacion[0].emailF" readonly>
+                                    <input type="email" class="form-control" id="emailF" name="emailF"
+                                        :value="DatosFacturacion[0].emailF" readonly>
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telF"  name="telF"  :value="DatosFacturacion[0].telF" readonly>
+                                    <input type="tel" class="form-control" id="telF" name="telF"
+                                        :value="DatosFacturacion[0].telF" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
-                                    <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required
-                                        @change="cargarPdf($event,'Factura')">
-                                  </div>
+                                    <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf"
+                                        required @change="cargarPdf($event,'Factura')">
+                                </div>
                             </div>
                             <div class="row justify-content-end">
                                 <div class="col-md-3 col-6 p-0">
