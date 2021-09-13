@@ -305,7 +305,8 @@
                                 @if (json_decode($user->invoice_data)!=null)
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a href="{{asset('json_decode($user->invoice_data)->file_path')}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                    <p class="d-none">{{$url=json_decode(($user->invoice_data)->file_path)}}</p>
+                                    <a href="{{asset($url)}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
 
                                 </div>
