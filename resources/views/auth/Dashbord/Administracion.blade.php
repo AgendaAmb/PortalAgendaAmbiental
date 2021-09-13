@@ -306,7 +306,7 @@
                               
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_data['file_path']" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                    <a :href="user[0].file_path" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
                                 </div>
                                
@@ -463,7 +463,8 @@
                     "emergency_contact":'{{$user->emergency_contact}}',
                     "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
                     "health_condition":'{{$user->health_condition}}',
-                    "invoice_data": "{{$user->invoice_data}}"
+                    "invoice_data": "{{$user->invoice_data}}",
+                    "file_path": "{{$user->invoice_url}}"
                 });
     @endforeach
   })
