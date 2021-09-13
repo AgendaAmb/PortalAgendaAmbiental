@@ -107,7 +107,7 @@ class HomeController extends Controller
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereNotNull('email_verified_at')->get();
 
-        $externs = Extern::whereNotNull('email_verified_at')->all();
+        $externs = Extern::whereNotNull('email_verified_at')->get();
 
         # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
