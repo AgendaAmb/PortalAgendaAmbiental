@@ -113,7 +113,7 @@ class HomeController extends Controller
         $externs = Extern::whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         # Combina todos los tipos de usuario.
-        dd($students->merge($workers)->merge($externs)->sortBy('created_at')->toJson());
+     
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 

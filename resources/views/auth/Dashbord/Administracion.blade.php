@@ -302,14 +302,13 @@
                                     <input type="text" class="form-control" name="" id="" :value="user[0].gender"
                                         disabled>
                                 </div>
-                                @if (json_decode($user->invoice_data)!=null)
-                                <div class="form-group col-md-6  ">
+                              
+                                <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a href="{{asset('json_decode($user->invoice_data)->file_path')}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                    <a href="" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
-
                                 </div>
-                                @endif
+                               
 
 
 
