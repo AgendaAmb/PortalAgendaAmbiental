@@ -1,4 +1,1 @@
-./workshops
-
-# ignore files in folder logs
-!/workshops/.keep
+/workshops
