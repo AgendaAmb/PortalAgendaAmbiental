@@ -114,7 +114,7 @@
                 <th>
                 <!--Auth::user()->invoice_data!=null-->
                     <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})"
-                    @if (Auth::user()->invoice_data!=null)
+                    @if ($user->paid!=null||$user->paid)
                         checked disabled
                         
                     @endif
@@ -404,10 +404,32 @@
 },
   methods: {
     ConfirmarPago:function(user){
-        const formData = new FormData();
-        formData.append('idUser',this.user[0].id);
             this.cargarUser(user),
             console.log(this.user[0].id)
+        const formData = new FormData();
+        formData.append('idUsuario',this.user[0].id);
+        formData.append('nuevoEstadoPago',true);
+        axios({
+                 method: 'post',
+
+                 url: '/cambiaStatusPago',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("Exito")
+
+                       
+                     }
+                 ).catch(
+                     err => {
+                        console.log("Falso")
+                       
+                     }
+                 )
+        
     },
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
