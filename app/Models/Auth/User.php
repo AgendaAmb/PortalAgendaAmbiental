@@ -353,9 +353,11 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function getInvoiceURLAttribute()
+    public function getInvoiceUrlAttribute()
     {
-        return $this->getUnirodadaDetailsField('invoice_data');
+        $data = json_decode((string)$this->getUnirodadaDetailsField('invoice_data'), true);
+
+        return $data['file_path'];
     }
 
     /**
