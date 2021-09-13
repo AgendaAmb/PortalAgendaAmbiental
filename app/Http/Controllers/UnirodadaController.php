@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendPayFormRequest;
 use App\Http\Requests\SendReceiptRequest;
+use App\Http\Requests\UpdatePaidStatusRequest;
 use App\Mail\SendReceipt;
 use App\Models\Auth\User;
 use App\Models\UnirodadaUser;
@@ -156,7 +157,7 @@ class UnirodadaController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
-    public function cambiaStatusPago(Request $request)
+    public function cambiaStatusPago(UpdatePaidStatusRequest $request)
     {
         # Obtiene al usuario y actualiza el estado de pago.
         $user = User::userById($request->idUsuario);

@@ -2,10 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePaidStatusRequest extends FormRequest
 {
+    use JsonResponseTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      *
