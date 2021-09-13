@@ -63,7 +63,7 @@
                     @endif
                 </td>
                 @else
-              
+
                 <td>
                     <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                         @click="cargarUser({{$user}})">
@@ -303,13 +303,13 @@
                                     <input type="text" class="form-control" name="" id="" :value="user[0].gender"
                                         disabled>
                                 </div>
-                              
+
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_data['file_path']" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                    <a :href="user[0].invoice_data" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
                                 </div>
-                               
+
 
 
 
@@ -451,6 +451,8 @@
   this.$nextTick(function () {
 
     @foreach($users as $user)
+
+
                 this.users.push({
                     "id":'{{$user->id}}',
                     "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',

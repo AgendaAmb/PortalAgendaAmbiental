@@ -353,6 +353,16 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
+    public function getInvoiceURLAttribute()
+    {
+        return $this->getUnirodadaDetailsField('invoice_data');
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
     public function getGrupoCiclistaAttribute()
     {
         return $this->getUnirodadaDetailsField('group');
