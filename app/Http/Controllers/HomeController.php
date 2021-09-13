@@ -76,17 +76,17 @@ class HomeController extends Controller
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->get();
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         $workers = Worker::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->get();
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         $externs = Extern::whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->get();
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
          # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
@@ -101,13 +101,13 @@ class HomeController extends Controller
     {
         $students = Student::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereNotNull('email_verified_at')->get();
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         $workers = Worker::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereNotNull('email_verified_at')->get();
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
-        $externs = Extern::whereNotNull('email_verified_at')->get();
+        $externs = Extern::whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         # Combina todos los tipos de usuario.
         return $students->merge($workers)->merge($externs)->sortBy('created_at');

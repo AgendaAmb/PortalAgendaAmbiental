@@ -24,8 +24,6 @@ class Extern extends User
         'remember_token',
         'guid',
         'domain',
-        'created_at',
-        'updated_at',
         'email_verified_at',
         'access_token'
     ];

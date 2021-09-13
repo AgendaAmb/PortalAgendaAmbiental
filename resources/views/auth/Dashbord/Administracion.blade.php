@@ -116,7 +116,7 @@
                     <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})"
                     @if ($user->paid!=null||$user->paid)
                         checked disabled
-                        
+
                     @endif
                     >
                    Si
@@ -421,22 +421,22 @@
                      res => {
                          console.log("Exito")
 
-                       
+
                      }
                  ).catch(
                      err => {
                         console.log("Falso")
-                       
+
                      }
                  )
-        
+
     },
     cargarDatosFacturacion:function(user){
         this.DatosFacturacion=[],
         this.DatosFacturacion.push(user);
     },
     MandarPagoUnirodada:function(){
-        
+
         this.spinnerVisible=true
         const formData = new FormData();
              formData.append('idUser',this.user[0].id);

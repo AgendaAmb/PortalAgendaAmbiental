@@ -34,7 +34,8 @@ class SendReceipt extends Mailable
                     ->subject('Registro a la unirodada a la Cañada del Lobo')
                     ->markdown('mail.workshops.send-receipt')
                     ->attachData($this->receipt, 'Ficha de pago.pdf', [
-                        'mime' => 'application/pdf'
+                        'mime' => 'application/pdf',
+                        'header_color' => '#87b854'
                     ]);
     }
 }
