@@ -20,6 +20,18 @@ class UpdatePaidStatusRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        # Valida el correo de la uaslp.
+
+        $this->merge([ 'nuevoEstadoPago' => boolval($this->nuevoEstadoPago) ]);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -27,7 +39,7 @@ class UpdatePaidStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            'nuevoEstadoPago' => ['required'],
+            'nuevoEstadoPago' => ['required', 'boolean'],
             'idUsuario' => ['required']
         ];
     }
