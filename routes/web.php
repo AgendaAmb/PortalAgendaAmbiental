@@ -119,8 +119,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         ->name('EnviaFicha');
 
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaComprobante', 'UnirodadaController@sendReceipt')
-        ->name('EnviaComprobante');
+    Route::post('/EnviaComprobante', 'UnirodadaController@sendReceipt')->name('EnviaComprobante');
+
+    # Envía un comprobante a un usuario.
+    Route::post('/cambiaStatusPago', 'UnirodadaController@cambiaStatusPago')->name('cambiaStatusPago');
 });
 
 
