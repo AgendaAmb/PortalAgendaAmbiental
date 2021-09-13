@@ -448,29 +448,9 @@
 
   },
   mounted: function () {
-  this.$nextTick(function () {
-
-    @foreach($users as $user)
-
-
-                this.users.push({
-                    "id":'{{$user->id}}',
-                    "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
-                    "residence":'{{$user->residence}}',
-                    "ocupation":'{{$user->ocupation}}',
-                    "ethnicity":'{{$user->ethnicity}}',
-                    "disability":'{{$user->disability}}',
-                    "ethnicity":'{{$user->ethnicity}}',
-                    "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
-                    "emergency_contact":'{{$user->emergency_contact}}',
-                    "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
-                    "health_condition":'{{$user->health_condition}}',
-                    "invoice_data": "{{$user->invoice_data}}",
-                    "file_path": "{{$user->invoice_url}}"
-                });
-    @endforeach
-  })
-},
+  this.$nextTick(function () {  
+    this.users = @json($users);
+  },
   methods: {
     ConfirmarPago:function(user){
             this.cargarUser(user),

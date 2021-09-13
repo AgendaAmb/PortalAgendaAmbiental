@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type','invoice_data'];
+    protected $appends = ['user_type','invoice_data', 'invoice_url'];
 
     /**
      * The relationships that should always be loaded.
@@ -356,8 +356,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getInvoiceUrlAttribute()
     {
         $data = json_decode((string)$this->getUnirodadaDetailsField('invoice_data'), true);
-
-        return $data['file_path'];
+        return $data['file_path'] ?? null;
     }
 
     /**
