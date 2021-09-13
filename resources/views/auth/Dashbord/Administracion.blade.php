@@ -404,9 +404,10 @@
         this.DatosFacturacion.push(user);
     },
     MandarPagoUnirodada:function(){
+        
         this.spinnerVisible=true
         const formData = new FormData();
-             formData.append('idUser',this.DatosFacturacion[0].id);
+             formData.append('idUser',this.user[0].id);
              formData.append('file', this.file);
              formData.append('_method', 'post');
              axios({
