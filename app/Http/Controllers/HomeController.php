@@ -80,7 +80,7 @@ class HomeController extends Controller
         
         $workers = Worker::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->get()->whereHas('workshops', function($query){
+        })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
         })->get();
 
