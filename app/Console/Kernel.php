@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DatabaseBackup;
 use App\Models\Auth\Student;
 use App\Models\Workshop;
 use Illuminate\Console\Scheduling\Schedule;
@@ -15,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        DatabaseBackup::class
     ];
 
     /**
@@ -26,21 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        /*
-        $schedule->call(function () {
-
-            $user = Student::find(262698);
-            $workshop = Workshop::firstWhere('name', 'curso movilidad y urbanismo');
-
-            $user->workshops()->updateExistingPivot($workshop->id, [
-                'sent' => true,
-                'sent_at' =>
-            ])
-
-        })->everyMinute();*/
-
-
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('database:backup')->everyTwoMinutes();
     }
 
     /**
