@@ -198,12 +198,12 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
-                    @if (Auth::user()->hasrole('helper'))
+                    @if (Auth::user()->hasRole('helper'))
                     <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unirodada
                     </h5>
 
                     @else
-                    @if (Auth::user()->hasrole('coordinator'))
+                    @if (Auth::user()->hasRole('coordinator'))
                     <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Consultar información</h5>
 
                     @else
@@ -216,7 +216,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                @if (Auth::user()->hasrole('helper'))
+                @if (Auth::user()->hasRole('helper'))
 
                 <form @submit.prevent="MandarPagoUnirodada" method="post">
                     <div class="modal-body bg-white">
@@ -263,7 +263,7 @@
                                     <input type="text" class="form-control" :value="user[0].id" readonly>
 
                                 </div>
-                                @if (Auth::user()->hasrole('Administrator'))
+                                @if (Auth::user()->hasRole('Administrator'))
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Curso a registrar asistencia</label>
                                     <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
@@ -316,7 +316,7 @@
 
 
                             </div>
-                            @if (Auth::user()->hasrole('Administrator'))
+                            @if (Auth::user()->hasRole('Administrator'))
                             <div class="row justify-content-end">
                                 <div class="col-3 p-0">
 
@@ -448,9 +448,27 @@
 
   },
   mounted: function () {
-  this.$nextTick(function () {  
-    this.users = @json($users);
-  },
+  this.$nextTick(function () {
+
+    @foreach($users as $user)
+                this.users.push({
+                    "id":'{{$user->id}}',
+                    "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
+                    "residence":'{{$user->residence}}',
+                    "ocupation":'{{$user->ocupation}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "disability":'{{$user->disability}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
+                    "emergency_contact":'{{$user->emergency_contact}}',
+                    "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
+                    "health_condition":'{{$user->health_condition}}',
+                    "invoice_data": "{{$user->invoice_data}}",
+                    "file_path": "{{$user->invoice_url}}"
+                });
+    @endforeach
+  })
+},
   methods: {
     ConfirmarPago:function(user){
             this.cargarUser(user),
