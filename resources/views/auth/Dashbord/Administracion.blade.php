@@ -125,118 +125,261 @@
                 <td>{{ $user->created_at }}</td>
 
                 @endif
+                @if (Auth::user()->hasRole('coordinator'))
+                @if ($user->invoice_data!=null)
+                <td><a href="{{$user->invoice_data['']}}" target="_blank" rel="noopener noreferrer"> /td>
+                        @else
+                <td></td>
+                @endif
 
 
 
+</div>
+@endif
+@if (Auth::user()->hasRole('helper'))
+@if ($user->sent)
+<td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
+@else
+<td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
+@endif
+
+@if ($user->paid!=null||$user->paid)
+<td class="text-center">
+
+    <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
+</td>
+@else
+<td>
+
+    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}"
+        @change="ConfirmarPago({{$user}})">
+    Si
+</td>
+
+@endif
 
 
+<th class="text-center ">
+    @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
+
+    <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
+            style="font-size: 25px;" @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
+
+    @else
+    no
+    @endif</th>
+@endif
+</tr>
+</tr>
+
+@endforeach
+
+</tbody>
+<tfoot>
+    @if (Auth::user()->hasRole('administrator'))
+    <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+    @endif
+    <th>Acciones</th>
+    <th>Clave única/RPE</th>
+    <th>Nombre</th>
+    <th>Curp</th>
+
+    <th>Correo</th>
+    @if (!Auth::user()->hasRole('administrator'))
+    <th>Genero</th>
+    @endif
+    <th>Teléfono</th>
+    @if (Auth::user()->hasRole('administrator'))
+    <th>Rol</th>
+
+    <th>Sistema</th>
+    @endif
+    <th>Cursos/Talleres</th>
+    @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+    <th>Condición de salud</th>
+    <th>Nombre de contacto de emergencia</th>
+    <th>Télefono de contacto de emergencia</th>
+
+    <th>Grupo ciclista</th>
+    @endif
+    @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+    <th>Fecha de registro</th>
+    @endif
+    @if (Auth::user()->hasRole('coordinator'))
+    <th>Comporbante de pago</th>
+    @endif
+    @if (Auth::user()->hasRole('helper'))
+    <th>Enviado</th>
+    <th>Pago</th>
+    <th>Factura</th>
+    @endif
+    </tr>
+</tfoot>
+</table>
+
+<div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    v-if="user!=''">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header bg-primary ">
                 @if (Auth::user()->hasRole('helper'))
-                @if ($user->sent)
-                <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
+                <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unirodada
+                </h5>
+
                 @else
-                <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
-                @endif
+                @if (Auth::user()->hasRole('coordinator'))
+                <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Consultar información</h5>
 
-                @if ($user->paid!=null||$user->paid)
-                <td class="text-center">
-
-                    <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
-                </td>
                 @else
-                <td>
-
-                    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}"
-                        @change="ConfirmarPago({{$user}})">
-                    Si
-                </td>
+                <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Registrar asistencia</h5>
 
                 @endif
 
-
-                <th class="text-center ">
-                    @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
-
-                    <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
-                            style="font-size: 25px;" @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
-
-                    @else
-                    no
-                    @endif</th>
                 @endif
-            </tr>
-            </tr>
-
-            @endforeach
-
-        </tbody>
-        <tfoot>
-            @if (Auth::user()->hasRole('administrator'))
-            <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
-            @endif
-            <th>Acciones</th>
-            <th>Clave única/RPE</th>
-            <th>Nombre</th>
-            <th>Curp</th>
-
-            <th>Correo</th>
-            @if (!Auth::user()->hasRole('administrator'))
-            <th>Genero</th>
-            @endif
-            <th>Teléfono</th>
-            @if (Auth::user()->hasRole('administrator'))
-            <th>Rol</th>
-
-            <th>Sistema</th>
-            @endif
-            <th>Cursos/Talleres</th>
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
-            <th>Condición de salud</th>
-            <th>Nombre de contacto de emergencia</th>
-            <th>Télefono de contacto de emergencia</th>
-
-            <th>Grupo ciclista</th>
-            @endif
-            @if
-            (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-            <th>Fecha de registro</th>
-            @endif
-            @if (Auth::user()->hasRole('coordinator'))
-            <th>Comporbante de pago</th>
-            @endif
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             @if (Auth::user()->hasRole('helper'))
-            <th>Enviado</th>
-            <th>Pago</th>
-            <th>Factura</th>
-            @endif
-            </tr>
-        </tfoot>
-    </table>
 
-    <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        v-if="user!=''">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content ">
-                <div class="modal-header bg-primary ">
-                    @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unirodada
-                    </h5>
+            <form @submit.prevent="MandarPagoUnirodada" method="post">
+                <div class="modal-body bg-white">
+                    <div class="col-12" v-if="asistenciaExito">
+                        <div class="alert alert-success text-center" role="alert">
+                            ¡¡Enviado con exito!!
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf"
+                            @change="cargarPdf($event,'pdfUniPago')">
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-3 p-0">
 
-                    @else
-                    @if (Auth::user()->hasRole('coordinator'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Consultar información</h5>
+                            <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar
+                                comprobante</button>
+                            <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Enviando
+                            </button>
 
-                    @else
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Registrar asistencia</h5>
+                        </div>
 
-                    @endif
-
-                    @endif
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    </div>
                 </div>
-                @if (Auth::user()->hasRole('helper'))
 
+            </form>
+            @else
+            <form @submit.prevent="RegistrarAsistencia" method="post">
+                <div class="modal-body bg-white">
+                    <div class="container-fluid">
+                        <h5 class="modal-title3" id="exampleModalLabel"></h5>
+                        <div class="form-group  ">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control"
+                                :value="user[0].name+' '+user[0].middlename+' '+user[0].surname" readonly>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2 was-validated">
+                                <label for="Nombre">Clave</label>
+
+                                <input type="text" class="form-control" :value="user[0].id" readonly>
+
+                            </div>
+                            @if (Auth::user()->hasRole('administrator'))
+                            <div class="form-group col-md-6  ">
+                                <label for="CursosInscritos">Curso a registrar asistencia</label>
+                                <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
+                                    v-model="cursoAsistencia">
+
+                                    <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            @endif
+
+                            <div class="form-group col-md-6  ">
+                                <label for="CursosInscritos">Edad</label>
+                                <input type="text" class="form-control" name="" id="" :value="user[0].age" disabled>
+                            </div>
+                            <div class="form-group col-md-5  ">
+                                <label for="CursosInscritos">Correo </label>
+
+                                <input type="text" class="form-control" name="" id="" :value="user[0].email" disabled>
+                            </div>
+                            <div class="form-group col-md-5  ">
+                                <label for="CursosInscritos">Dependencia</label>
+
+                                <input type="text" class="form-control" name="" id="" :value="user[0].dependency"
+                                    disabled>
+                            </div>
+                            <div class="form-group col-md-6  ">
+
+                                <label for="CursosInscritos">Correo Alterno</label>
+                                <input type="text" class="form-control" name="" id="" :value="user[0].altern_email"
+                                    disabled>
+                            </div>
+
+                            <div class="form-group col-md-6  ">
+                                <label for="CursosInscritos">Genero</label>
+                                <input type="text" class="form-control" name="" id="" :value="user[0].gender" disabled>
+                            </div>
+
+                            <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
+                                <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
+                                <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
+                                        class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        @if (Auth::user()->hasRole('administrator'))
+                        <div class="row justify-content-end">
+                            <div class="col-3 p-0">
+
+                                <button class="btn btn-success" type="submit" value="Submit"
+                                    v-if="!spinnerVisible">Registrar
+                                    asistencia</button>
+                                <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    Registrando asistencia
+                                </button>
+
+                            </div>
+                            <div class="col-5" v-if="asistenciaExito">
+                                <div class="alert alert-success" role="alert">
+                                    ¡¡Asistencia registrada!!
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                    </div>
+
+                </div>
+            </form>
+            @endif
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    v-if="DatosFacturacion!=''">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary" id="modalComprobante">
+                <h5 class="modal-title mx-auto text-white">Comprobante de pago Unibici</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body bg-white">
                 <form @submit.prevent="MandarPagoUnirodada" method="post">
                     <div class="modal-body bg-white">
                         <div class="col-12" v-if="asistenciaExito">
@@ -244,16 +387,50 @@
                                 ¡¡Enviado con exito!!
                             </div>
                         </div>
-                        <div class="form-row justify-content-center">
-                            <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf"
-                                @change="cargarPdf($event,'pdfUniPago')">
+                        <div class="form-row ">
+
+
+                        </div>
+                        <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de
+                            facturación</h5>
+                        <div class="form-row ">
+                            <div class="form-group  was-validated col-12">
+                                <label for="Nombres">Nombre Completo o razón social</label>
+                                <input type="text" class="form-control" id="nombresF" name="nombresF"
+                                    :value="DatosFacturacion[0].nombresF" readonly style="text-transform: capitalize;">
+                            </div>
+                            <div class="form-group  was-validated col-12">
+                                <label for="Nombres">Domicilio fiscal</label>
+                                <input type="text" class="form-control" id="DomicilioF" name="DomicilioF"
+                                    :value="DatosFacturacion[0].DomicilioF" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+                            <div class="form-group  was-validated col-6">
+                                <label for="Nombres">RFC</label>
+                                <input type="text" class="form-control" id="RFC" name="RFC"
+                                    :value="DatosFacturacion[0].RFC" readonly style="text-transform: capitalize;">
+                            </div>
+                            <div class="form-group  was-validated col-6">
+                                <label for="Nombres">Correo electrónico</label>
+                                <input type="email" class="form-control" id="emailF" name="emailF"
+                                    :value="DatosFacturacion[0].emailF" readonly>
+                            </div>
+                            <div class="form-group  was-validated col-6">
+                                <label for="Nombres">Teléfono</label>
+                                <input type="tel" class="form-control" id="telF" name="telF"
+                                    :value="DatosFacturacion[0].telF" readonly>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Factura">Factura</label>
+                                <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required
+                                    @change="cargarPdf($event,'Factura')">
+                            </div>
                         </div>
                         <div class="row justify-content-end">
-                            <div class="col-3 p-0">
+                            <div class="col-md-3 col-6 p-0">
 
                                 <button class="btn btn-success" type="submit" value="Submit"
-                                    v-if="!spinnerVisible">Enviar
-                                    comprobante</button>
+                                    v-if="!spinnerVisible">Enviar comprobante</button>
                                 <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status"
                                         aria-hidden="true"></span>
@@ -266,187 +443,10 @@
                     </div>
 
                 </form>
-                @else
-                <form @submit.prevent="RegistrarAsistencia" method="post">
-                    <div class="modal-body bg-white">
-                        <div class="container-fluid">
-                            <h5 class="modal-title3" id="exampleModalLabel"></h5>
-                            <div class="form-group  ">
-                                <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control"
-                                    :value="user[0].name+' '+user[0].middlename+' '+user[0].surname" readonly>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-2 was-validated">
-                                    <label for="Nombre">Clave</label>
-
-                                    <input type="text" class="form-control" :value="user[0].id" readonly>
-
-                                </div>
-                                @if (Auth::user()->hasRole('administrator'))
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Curso a registrar asistencia</label>
-                                    <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
-                                        v-model="cursoAsistencia">
-
-                                        <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}
-                                        </option>
-                                    </select>
-                                </div>
-                                @endif
-
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Edad</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].age" disabled>
-                                </div>
-                                <div class="form-group col-md-5  ">
-                                    <label for="CursosInscritos">Correo </label>
-
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].email"
-                                        disabled>
-                                </div>
-                                <div class="form-group col-md-5  ">
-                                    <label for="CursosInscritos">Dependencia</label>
-
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].dependency"
-                                        disabled>
-                                </div>
-                                <div class="form-group col-md-6  ">
-
-                                    <label for="CursosInscritos">Correo Alterno</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].altern_email"
-                                        disabled>
-                                </div>
-
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Genero</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].gender"
-                                        disabled>
-                                </div>
-
-                                <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
-                                    <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
-                                            class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
-                                </div>
-
-
-
-
-
-
-                            </div>
-                            @if (Auth::user()->hasRole('administrator'))
-                            <div class="row justify-content-end">
-                                <div class="col-3 p-0">
-
-                                    <button class="btn btn-success" type="submit" value="Submit"
-                                        v-if="!spinnerVisible">Registrar
-                                        asistencia</button>
-                                    <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                                        <span class="spinner-border spinner-border-sm" role="status"
-                                            aria-hidden="true"></span>
-                                        Registrando asistencia
-                                    </button>
-
-                                </div>
-                                <div class="col-5" v-if="asistenciaExito">
-                                    <div class="alert alert-success" role="alert">
-                                        ¡¡Asistencia registrada!!
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-
-                        </div>
-
-                    </div>
-                </form>
-                @endif
-
             </div>
         </div>
     </div>
-    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        v-if="DatosFacturacion!=''">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary" id="modalComprobante">
-                    <h5 class="modal-title mx-auto text-white">Comprobante de pago Unibici</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body bg-white">
-                    <form @submit.prevent="MandarPagoUnirodada" method="post">
-                        <div class="modal-body bg-white">
-                            <div class="col-12" v-if="asistenciaExito">
-                                <div class="alert alert-success text-center" role="alert">
-                                    ¡¡Enviado con exito!!
-                                </div>
-                            </div>
-                            <div class="form-row ">
-
-
-                            </div>
-                            <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de
-                                facturación</h5>
-                            <div class="form-row ">
-                                <div class="form-group  was-validated col-12">
-                                    <label for="Nombres">Nombre Completo o razón social</label>
-                                    <input type="text" class="form-control" id="nombresF" name="nombresF"
-                                        :value="DatosFacturacion[0].nombresF" readonly
-                                        style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-12">
-                                    <label for="Nombres">Domicilio fiscal</label>
-                                    <input type="text" class="form-control" id="DomicilioF" name="DomicilioF"
-                                        :value="DatosFacturacion[0].DomicilioF" readonly
-                                        style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">RFC</label>
-                                    <input type="text" class="form-control" id="RFC" name="RFC"
-                                        :value="DatosFacturacion[0].RFC" readonly style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="emailF" name="emailF"
-                                        :value="DatosFacturacion[0].emailF" readonly>
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telF" name="telF"
-                                        :value="DatosFacturacion[0].telF" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="Factura">Factura</label>
-                                    <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf"
-                                        required @change="cargarPdf($event,'Factura')">
-                                </div>
-                            </div>
-                            <div class="row justify-content-end">
-                                <div class="col-md-3 col-6 p-0">
-
-                                    <button class="btn btn-success" type="submit" value="Submit"
-                                        v-if="!spinnerVisible">Enviar comprobante</button>
-                                    <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                                        <span class="spinner-border spinner-border-sm" role="status"
-                                            aria-hidden="true"></span>
-                                        Enviando
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 
 
