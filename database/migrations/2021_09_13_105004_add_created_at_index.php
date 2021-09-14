@@ -14,15 +14,15 @@ class AddCreatedAtIndex extends Migration
     public function up()
     {
         Schema::table('externs', function (Blueprint $table) {
-
+            $table->index('created_at');
         });
 
         Schema::table('workers', function (Blueprint $table) {
-
+            $table->index('created_at');
         });
 
         Schema::table('students', function (Blueprint $table) {
-
+            $table->index('created_at');
         });
     }
 
@@ -33,6 +33,17 @@ class AddCreatedAtIndex extends Migration
      */
     public function down()
     {
-        //
+
+        Schema::table('externs', function (Blueprint $table) {
+            $table->dropIndex(['created_at']);
+        });
+
+        Schema::table('workers', function (Blueprint $table) {
+            $table->dropIndex(['created_at']);
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropIndex(['created_at']);
+        });
     }
 }
