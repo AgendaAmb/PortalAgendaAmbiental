@@ -128,7 +128,7 @@
                    
                        
                   
-                </div>
+               
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
