@@ -61,7 +61,7 @@
                         <div class="col-lg-12 pt-5">
                             <p class="text-white  h6 mt-4">Para pertenecer a nuestra comunidad es necesario te
                                 registres, si aún no lo has hecho, podrás realizar tu registro <a
-                                    class="font-weight-bold" data-toggle="modal" data-target="#Registro">
+                                    class="font-weight-bold" data-toggle="modal" data-target="#Registro"  style="color: rgb(252, 202, 86);">
                                     {{ __(' aquí.') }}
                                 </a>
                             </p>

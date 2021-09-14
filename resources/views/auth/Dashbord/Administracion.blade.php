@@ -263,7 +263,7 @@
                                     <input type="text" class="form-control" :value="user[0].id" readonly>
 
                                 </div>
-                                @if (Auth::user()->hasRole('Administrator'))
+                                @if (Auth::user()->hasRole('administrator'))
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Curso a registrar asistencia</label>
                                     <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
@@ -316,7 +316,7 @@
 
 
                             </div>
-                            @if (Auth::user()->hasRole('Administrator'))
+                            @if (Auth::user()->hasRole('administrator'))
                             <div class="row justify-content-end">
                                 <div class="col-3 p-0">
 
