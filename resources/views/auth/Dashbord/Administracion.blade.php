@@ -275,7 +275,7 @@
                                 </div>
                                 @endif
 
-                                <div class="form-group col-md-6  d-none">
+                                <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Edad</label>
                                     <input type="text" class="form-control" name="" id="" :value="user[0].age" disabled>
                                 </div>
