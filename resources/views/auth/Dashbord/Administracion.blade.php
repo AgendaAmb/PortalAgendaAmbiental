@@ -263,7 +263,7 @@
                                     <input type="text" class="form-control" :value="user[0].id" readonly>
 
                                 </div>
-                                @if (Auth::user()->hasRole('Administrator'))
+                                @if (Auth::user()->hasRole('administrator'))
                                 <div class="form-group col-md-6  ">
                                     <label for="CursosInscritos">Curso a registrar asistencia</label>
                                     <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required
@@ -306,8 +306,8 @@
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
-                                            class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
+                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                                            style="color: red;font-size: 25px;"></i></a>
                                 </div>
 
 
@@ -316,7 +316,7 @@
 
 
                             </div>
-                            @if (Auth::user()->hasRole('Administrator'))
+                            @if (Auth::user()->hasRole('administrator'))
                             <div class="row justify-content-end">
                                 <div class="col-3 p-0">
 
