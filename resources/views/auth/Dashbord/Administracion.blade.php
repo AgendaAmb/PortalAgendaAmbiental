@@ -120,7 +120,7 @@
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
                 @if ($user->invoice_data!=null)
-                <td  ><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                <td  > <i class="far fa-file-pdf"
                     style="color: red;font-size: 25px;"></i></td>
                 @else
                 <td ></td>
