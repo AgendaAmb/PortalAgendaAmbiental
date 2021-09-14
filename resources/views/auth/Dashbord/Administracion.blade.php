@@ -110,12 +110,7 @@
                 <th>{{$user->emergency_contact}}</th>
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
-                    @if (Auth::user()->hasRole('coordinator'))
-                    @if ($user->invoice_data!=null)
-                    <i class="far fa-file-pdf" style="color: red;font-size: 25px;"></i>
-
-                    @endif
-                    @endif
+                    
                 </th>
 
                 <th>{{$user->grupoCiclista}}</th>
@@ -127,8 +122,8 @@
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
                 @if ($user->invoice_data!=null)
-                <td><a href="{{$user->invoice_data['']}}" target="_blank" rel="noopener noreferrer"> /td>
-                        @else
+                <td><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> /td>
+                @else
                 <td></td>
                 @endif
 
