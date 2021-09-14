@@ -28,8 +28,8 @@ class UnirodadaController extends Controller
     {
         # Verifica que la condición de salud no esté vacía.
         if (collect($request->CondicionSalud ?? [])->count() === 0)
-            return response()->json([ 
-                'message' => 'Selecciona el estado de salud' 
+            return response()->json([
+                'message' => 'Selecciona el estado de salud'
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
 
         # Registra al usuario a la unirodada.
@@ -102,7 +102,7 @@ class UnirodadaController extends Controller
         $event = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
 
         # Se envía el comprobante de pago.
-        Mail::to($user)->send(new SendReceipt($request->file('file')->get()));
+        Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($event->id, [

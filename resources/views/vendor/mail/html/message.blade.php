@@ -20,7 +20,7 @@
 
 {{-- Footer --}}
 @slot('footer')
-@component('mail::footer')
+@component('mail::footer', ['color' => $header_color ?? null, 'font_color' => $font_color ?? null])
 © {{ date('Y') }} {{ config('app.name') }}. @lang('Todos los derechos reservados.')
 @endcomponent
 @endslot
