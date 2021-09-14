@@ -45,6 +45,17 @@ return [
             'auth_mode' => null,
         ],
 
+        'smtp_unirodada' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('UNIRODADA_HOST'),
+            'password' => env('UNIRODADA_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],

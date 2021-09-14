@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
-use App\Models\Auth\User;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
 
 class HomeController extends Controller
 {
@@ -113,7 +111,7 @@ class HomeController extends Controller
         $externs = Extern::whereNotNull('email_verified_at')->orderBy('created_at')->get();
 
         # Combina todos los tipos de usuario.
-     
+
         return $students->merge($workers)->merge($externs)->sortBy('created_at');
     }
 
