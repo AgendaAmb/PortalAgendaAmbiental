@@ -35,11 +35,12 @@
                 <th>Grupo ciclista</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                @if
+                (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                 <th>Fecha de registro</th>
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
-                    <th>Comprobante de pago</th>
+                <th>Comprobante de pago</th>
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 <th>Enviado</th>
@@ -109,27 +110,26 @@
                 <th>{{$user->emergency_contact}}</th>
                 <th>
                     <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
+                    @if (Auth::user()->hasRole('coordinator'))
+                    @if ($user->invoice_data!=null)
+                    <i class="far fa-file-pdf" style="color: red;font-size: 25px;"></i>
+
+                    @endif
+                    @endif
                 </th>
 
                 <th>{{$user->grupoCiclista}}</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                 <td>{{ $user->created_at }}</td>
 
                 @endif
-                @if (Auth::user()->hasRole('coordinator'))
-                @if ($user->invoice_data!=null)
-                <td  > <i class="far fa-file-pdf"
-                    style="color: red;font-size: 25px;"></i></td>
-                @else
-                <td ></td>
-                @endif
-                   
-                       
-                  
-                </div>
-                @endif
+
+
+
+
+
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
                 <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
@@ -196,12 +196,13 @@
 
             <th>Grupo ciclista</th>
             @endif
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+            @if
+            (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
             <th>Fecha de registro</th>
             @endif
             @if (Auth::user()->hasRole('coordinator'))
             <th>Comporbante de pago</th>
-        @endif
+            @endif
             @if (Auth::user()->hasRole('helper'))
             <th>Enviado</th>
             <th>Pago</th>
@@ -251,7 +252,8 @@
                             <div class="col-3 p-0">
 
                                 <button class="btn btn-success" type="submit" value="Submit"
-                                    v-if="!spinnerVisible">Enviar comprobante</button>
+                                    v-if="!spinnerVisible">Enviar
+                                    comprobante</button>
                                 <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status"
                                         aria-hidden="true"></span>
@@ -324,8 +326,8 @@
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
-                                            style="color: red;font-size: 25px;"></i></a>
+                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
+                                            class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
                                 </div>
 
 
