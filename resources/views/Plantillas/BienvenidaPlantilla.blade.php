@@ -6,7 +6,7 @@
     @stack('st')
 
 </head>
-<div class="container-fluid py-2" style="background-color: #115089; ">
+<div class="container-fluid py-3" style="background-color: #115089; ">
     <div class="row justify-content-end ">
         <div class="col-xl-2 col-md-2  col-4 my-auto">
             <h4 style="color: white;" class="m-0 text-right"> Mi portal</h4>
