@@ -125,18 +125,7 @@
                 <td>{{ $user->created_at }}</td>
 
                 @endif
-                @if (Auth::user()->hasRole('coordinator'))
-                @if ($user->invoice_data!=null)
-                <td  ><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
-                    style="color: red;font-size: 25px;"></i></td>
-                @else
-                <td ></td>
-                @endif
-                   
-                       
-                  
                
-                @endif
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
                 <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
