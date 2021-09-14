@@ -35,8 +35,11 @@
                 <th>Grupo ciclista</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                 <th>Fecha de registro</th>
+                @endif
+                @if (Auth::user()->hasRole('coordinator'))
+                    <th>Comprobante de pago</th>
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 <th>Enviado</th>
@@ -111,9 +114,21 @@
                 <th>{{$user->grupoCiclista}}</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                 <td>{{ $user->created_at }}</td>
 
+                @endif
+                @if (Auth::user()->hasRole('coordinator'))
+                @if ($user->invoice_data!=null)
+                <td  ><a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
+                    style="color: red;font-size: 25px;"></i></td>
+                @else
+                <td ></td>
+                @endif
+                   
+                       
+                  
+                </div>
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
@@ -181,9 +196,12 @@
 
             <th>Grupo ciclista</th>
             @endif
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper'))
+            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
             <th>Fecha de registro</th>
             @endif
+            @if (Auth::user()->hasRole('coordinator'))
+            <th>Comporbante de pago</th>
+        @endif
             @if (Auth::user()->hasRole('helper'))
             <th>Enviado</th>
             <th>Pago</th>

@@ -86,7 +86,7 @@
 @endsection
 
 @section('ObjetivosTexto')
-<div class="pSize text-justify mt-5">
+<div class="pSize text-justify mt-5 p-3">
     <h3 class="h3Title">Objetivo general</h3>
     <ul>
         <li>Crear comunidad a través del trabajo en equipo y la formación continua de estudiantes capaces de
@@ -139,9 +139,11 @@
             UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona
             Universitaria,
             C.P.
-            78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7210 y 7215<br>Facebook: UniBici
-            UASLP<br>Instagram:
-            UniBici_UASLP<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+            78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7210 y 7215<br>
+            Facebook
+            <a href="https://www.facebook.com/UnihuertoUASLP" target="_blank" rel="noopener noreferrer">Unihuerto UASLP</a>
+            <br>
+            <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a></p>
 </div>
 @endsection
 
