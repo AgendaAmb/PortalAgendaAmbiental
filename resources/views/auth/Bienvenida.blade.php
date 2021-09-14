@@ -156,8 +156,9 @@
                             <source src="" type="video/mp4" autoplay>
                         </video>
                         -->
-                        <p>Instrucctivo de registro <a
+                        <p class="h5">Instructivo de registro <a
                                 href="{{asset('/storage/imagenes/introduccion/Instructivo_para_pertenecer_comunidad_AgendaAmbiental.pdf')}}"
+                                class="h5" style="color: rgb(252, 202, 86);"
                                 download="
                             Instructivo_para_pertenecer_comunidad_AgendaAmbiental.pdf">Descargar</a></p>
                     </div>

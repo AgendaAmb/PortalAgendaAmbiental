@@ -123,6 +123,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
     # Envía un comprobante a un usuario.
     Route::post('/cambiaStatusPago', 'UnirodadaController@cambiaStatusPago')->name('cambiaStatusPago');
+
+    # Previsualiza el comprobante de pago.
+    Route::get('/workshops/{userType}/{userId}/{fileName}', 'FileController@verComprobante')
+        ->middleware('role:administrator|coordinator|helper')
+        ->name('verComprobante');
 });
 
 
