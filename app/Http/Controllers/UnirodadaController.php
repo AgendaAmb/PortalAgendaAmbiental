@@ -54,25 +54,25 @@ class UnirodadaController extends Controller
         ]);
 
         # A los staff no se les cobra
-        if ($user_workshop->group === 'staff')
+        if ($user_workshop->unirodadaUser->group === 'staff')
         {
             $user->paid = true;
-            $user_workshop->paid_at = Carbon::now()->locale('America/Mexico_City');
+            $user->paid_at = Carbon::now();
         }
 
         # A la FUP se le otorgan 10 becas.
-        else if ($user_workshop->group === 'fup')
+        else if ($user_workshop->unirodadaUser->group === 'fup')
         {
             # Total de ciclistas de la fup.
             $num_becas_fup = UnirodadaUser::where('group', 'fup')
-                ->whereIn('workshop_id',  UserWorkshop::where('workshop_id', $workshop->id)->pluck('id')
-            );
+                ->whereIn('user_workshop_id',  UserWorkshop::where('workshop_id', $workshop->id)->pluck('id')
+            )->count();
 
             # Solo no se les cobra a los 10 primeros usuarios.
             if ($num_becas_fup < 10)
             {
                 $user->paid = true;
-                $user->paid_at = Carbon::now()->locale('America/Mexico_City');
+                $user->paid_at = Carbon::now();
             }
             else
                 $user->paid = false;
