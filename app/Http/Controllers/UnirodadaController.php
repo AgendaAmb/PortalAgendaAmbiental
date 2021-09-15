@@ -41,7 +41,7 @@ class UnirodadaController extends Controller
         ]);
 
         # Sanitiza el grupo de ciclistas.
-        $group = Str::trim($request->GrupoC);
+        $group = trim($request->GrupoC);
         $group = Str::lower($request->GrupoC);
 
         # Registra los datos de la unirodada del usuario.
@@ -83,6 +83,7 @@ class UnirodadaController extends Controller
         else
             $user_workshop->paid = false;
 
+        $user_workshop->save();
     }
 
     /**
