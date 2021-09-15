@@ -40,12 +40,16 @@ class UnirodadaController extends Controller
             'sent' => false,
         ]);
 
+        # Sanitiza el grupo de ciclistas.
+        $group = Str::trim($request->GrupoC);
+        $group = Str::lower($request->GrupoC);
+
         # Registra los datos de la unirodada del usuario.
         $user_workshop->unirodadaUser()->create([
             'user_workshop_id' => $user_workshop->id,
             'emergency_contact' => $request->NombreContacto,
             'emergency_contact_phone' => $request->CelularContacto,
-            'group' => Str::lower($request->GrupoC),
+            'group' => $group,
             'health_condition' => collect($request->CondicionSalud ?? [])->first()
         ]);
 
@@ -71,16 +75,14 @@ class UnirodadaController extends Controller
                 $user->paid_at = Carbon::now()->locale('America/Mexico_City');
             }
             else
-            {
                 $user->paid = false;
-            }
+
         }
 
         # El usuario aún no paga
         else
-        {
             $user_workshop->paid = false;
-        }
+
     }
 
     /**
