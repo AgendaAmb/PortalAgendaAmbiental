@@ -96,7 +96,7 @@
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
-                <td>{{$$user->paid?'Si':'No'}}</td>
+                <td>{{$user->paid?'Si':'No'}}</td>
 
                 @endif
 
