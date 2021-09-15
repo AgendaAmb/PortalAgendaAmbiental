@@ -72,7 +72,7 @@
           </th>
           <td style="text-align: left;">Tec. en Computación. Lorena Guadalupe Leija
             Martínez</td>
-          <td style="text-align: left;">Asistente PMPCA</td>
+          <td style="text-align: left;">Asistente PMPCA <br>Seguimiento CONACYT</td>
           <td>
             <center>(444) 826-2439</center>
           </td>
@@ -91,7 +91,7 @@
           <th scope="row">
             <center>7206</center>
           </th>
-          <td style="text-align: left;">Dr. José de Jesús Mejía Saavedra</td>
+          <td style="text-align: left;">Dra.Paola Elizabeth Díaz Flores</td>
           <td style="text-align: left;">Coordinación PMPCA</td>
           <td></td>
           <td>jjesus@uaslp.mx</td>
@@ -109,15 +109,7 @@
             pmpca@uaslp.mx
           </td>
         </tr>
-        <tr>
-          <th scope="row">
-            <center>7208</center>
-          </th>
-          <td style="text-align: left;">QFB Laura Begbeder Schiel</td>
-          <td style="text-align: left;">Seguimiento CONACYT</td>
-          <td></td>
-          <td>laura.begbeder@uaslp.mx</td>
-        </tr>
+     
         <tr>
           <th scope="row">
             <center>7209</center>
@@ -153,7 +145,7 @@
           <th scope="row">
             <center>7212</center>
           </th>
-          <td style="text-align: left;">Ing. Miguel Ángel González Cervantess</td>
+          <td style="text-align: left;">Ing. Miguel Ángel González Cervantes</td>
           <td style="text-align: left;">Proyectos de TI</td>
           <td></td>
           <td>miguel.gonzalez@uaslp.mx
@@ -180,7 +172,7 @@
         </tr>
         <tr>
           <th scope="row"></th>
-          <td style="text-align: left;">LDG Daniel Rocha Castillo</td>
+          <td style="text-align: left;">LDG María de Jesús Villarreal Iturriaga</td>
           <td style="text-align: left;">Diseño Gráfico</td>
           <td></td>
           <td>imagen.agenda@uaslp.mx</td>
