@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendPayFormRequest;
 use App\Http\Requests\SendReceiptRequest;
+use App\Http\Requests\UpdateLunchRequest;
 use App\Http\Requests\UpdatePaidStatusRequest;
 use App\Mail\SendReceipt;
 use App\Models\Auth\User;
@@ -170,6 +171,26 @@ class UnirodadaController extends Controller
 
         return response()->json([
             'Message' => 'Estado de pago actualizado'
+        ], JsonResponse::HTTP_OK);
+    }
+
+
+    /**
+     * Marca que el usuario recibirá lunch.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
+    public function actualizaLunchUsuario(UpdateLunchRequest $request)
+    {
+        # Obtiene al usuario y actualiza el estado de pago.
+        $user = User::userById($request->idUsuario);
+        $user->lunch = $request->lunch;
+        $user->save();
+
+        return response()->json([
+            'Message' => 'Cambiado el estado del lunch'
         ], JsonResponse::HTTP_OK);
     }
 }

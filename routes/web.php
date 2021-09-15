@@ -124,6 +124,9 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Envía un comprobante a un usuario.
     Route::post('/cambiaStatusPago', 'UnirodadaController@cambiaStatusPago')->name('cambiaStatusPago');
 
+    # Actualiza el lunch del usuario.
+    Route::post('/actualizaLunchUsuario', 'UnirodadaController@actualizaLunchUsuario')->name('actualizaLunchUsuario');
+
     # Previsualiza el comprobante de pago.
     Route::get('/workshops/{userType}/{userId}/{fileName}', 'FileController@verComprobante')
         ->middleware('role:administrator|coordinator|helper')
