@@ -301,7 +301,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-4 ">
+                                <div class="form-group col-md-4 " v-if="user[0].invoice_data!=null">
                                     <label for="Lunch">Registrar lunch</label>
                                     
                                     <select name="Lunch" id="Lunch" class="custom-select" required 
@@ -526,7 +526,6 @@
        
         axios({
                  method: 'post',
-
                  url: '/actualizaLunchUsuario',
                  data: formData,
                  headers: {
