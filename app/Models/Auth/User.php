@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type','invoice_data', 'invoice_url'];
+    protected $appends = ['user_type','invoice_data', 'invoice_url', 'group', 'lunch'];
 
     /**
      * The relationships that should always be loaded.
@@ -386,6 +386,28 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
+    public function getLunchAttribute()
+    {
+        return $this->getUnirodadaDetailsField('lunch');
+    }
+
+    /**
+     * Returns the data of the unirodada from the user, if it
+     * has one
+     *
+     *
+     * @return object|null
+     */
+    public function setLunchAttribute($value)
+    {
+        $this->setUnirodadaDetailsField('lunch', $value);
+    }
+
+    /**
+     * Actualiza el grupo del ciclista del usuario.
+     *
+     * @return object|null
+     */
     public function getSentAttribute()
     {
         return $this->getUnirodadaDetailsField('user_workshop.sent');
@@ -432,8 +454,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->getUnirodadaDetailsField('user_workshop.paid_at');
     }
-
-
 
     /**
      * Determina si el usuario pagó su cuota de inscripción a la unirodada.
