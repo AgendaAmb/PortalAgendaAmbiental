@@ -28,7 +28,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        # Obtiene el num de usuarios que son de la fup.
+        $fup_users = DB::table('unirodada_users')
+            ->join('user_workshop', 'user_workshop.id', '=', 'user_workshop_id')
+            ->join('workshops', 'workshops.id', '=', 'workshop_id')
+            ->where('workshops.name', 'Unirodada cicloturística a la Cañada del Lobo')
+            ->where('unirodada_users.group', 'fup')
+            ->count();
+
+        return view('home')
+        ->with('fup_users', $fup_users);
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
 
@@ -58,18 +67,9 @@ class HomeController extends Controller
         ?  $this->getUnirodadaUsers() # Usuarios exclusivos de la unirodada
         :  $this->getAllUsers();      # Todos los usuarios.
 
-        # Obtiene el num de usuarios que son de la fup.
-        $fup_users = DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop.id', '=', 'user_workshop_id')
-            ->join('workshops', 'workshops.id', '=', 'workshop_id')
-            ->where('workshops.name', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->where('unirodada_users.group', 'fup')
-            ->count();
-
         # Obtiene todos los tipos de usuarios
         return view('auth.Dashbord.Administracion')->with('users', $users)
-            ->with('Modulos',Auth::user()->userModules)
-            ->with('fup_users', $fup_users);
+            ->with('Modulos',Auth::user()->userModules);
     }
 
 
