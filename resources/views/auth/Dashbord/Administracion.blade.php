@@ -25,6 +25,7 @@
                 @if (Auth::user()->hasRole('administrator'))
                 <th>Rol</th>
                 <th>Sistema</th>
+                <th>Pago unirodada</th>
                 @endif
                 <th>Cursos/Talleres</th>
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
@@ -95,6 +96,7 @@
                     <li>{{$Modulo->name}}</li>
                     @endforeach
                 </td>
+                <td>{{$user->paid?'Si':'No'}}</td>
 
                 @endif
 
@@ -146,7 +148,6 @@
 
                 @if ($user->paid!=null||$user->paid)
                 <td class="text-center">
-
                     <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
                 </td>
                 @else
@@ -194,6 +195,7 @@
             <th>Rol</th>
 
             <th>Sistema</th>
+            <th>Pago unirodada</th>
             @endif
             <th>Cursos/Talleres</th>
             @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
@@ -298,6 +300,16 @@
                                         </option>
                                     </select>
                                 </div>
+
+                                <div class="form-group col-md-4 ">
+                                    <label for="Lunch">Registrar lunch</label>
+                                    <select name="Lunch" id="Lunch" class="custom-select" required
+                                        v-model="Lunch" >
+                                       <option value="Si">Si</option>
+                                       <option value="Si">No</option>
+                                    </select>
+                                </div>
+                                
                                 @endif
 
                                 <div class="form-group col-md-6  ">
@@ -469,7 +481,8 @@
     Guardando :false,
     exito:true,
     DatosFacturacion:[],
-    checkPago:[]
+    checkPago:[],
+    Lunch:''
 
   },
   mounted: function () {
