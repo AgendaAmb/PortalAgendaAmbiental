@@ -27,8 +27,10 @@ class UpdateLunchRequest extends FormRequest
     protected function prepareForValidation()
     {
         # Valida el campo del lunch.
-        if ($this->lunch !== null)
-            $this->merge([ 'lunch' => boolval($this->lunch) ]);
+        if ($this->lunch === 'true')
+            $this->merge([ 'lunch' => true ]);
+        else if ($this->lunch === 'false')
+            $this->merge([ 'lunch' => false ]);
     }
 
     /**

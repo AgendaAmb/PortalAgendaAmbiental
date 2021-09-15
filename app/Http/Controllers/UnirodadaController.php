@@ -186,8 +186,12 @@ class UnirodadaController extends Controller
     {
         # Obtiene al usuario y actualiza el estado de pago.
         $user = User::userById($request->idUsuario);
+
+        dd($request->lunch);
         $user->lunch = $request->lunch;
         $user->save();
+
+        dd($user->lunch);
 
         return response()->json([
             'Message' => 'Cambiado el estado del lunch'
