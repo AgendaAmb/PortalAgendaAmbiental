@@ -538,8 +538,11 @@
               <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
               <div class="col-9">
                 <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC"
-                  @change="ChecarBecas">
+                  @change="ChecarBecas({{$fup_users}})">
               </div>
+              <span class="text-danger" role="alert" v-if="Errores[5].Visible">
+                @{{Errores[5].Mensaje}}
+              </span>
               <span class="text-success" role="alert" v-if="Errores[4].Visible">
                 @{{Errores[4].Mensaje}}
               </span>
@@ -619,8 +622,12 @@
                 </label>
               </div>
             </div>
-            <div class="modal-footer justify-content-start">
-              <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE"
+          
+            <div class="modal-footer justify-content-start"  >
+              <button id="submit" type="submit" 
+             
+            
+              class="btn btn-primary" style="background-color: #0160AE"
                 v-if="!spinnerVisible">Aceptar</button>
               <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -781,15 +788,24 @@
     this.Errores.push({Mensaje:"El nombre del contacto debe ser diferente al tuyo",Visible:false});
     this.Errores.push({Mensaje:"El teléfono y el teléfono de contacto no pueden ser iguales",Visible:false});
     this.Errores.push({Mensaje:"Eres acredor a una beca por parte de Agenda Ambiental",Visible:false});
+    this.Errores.push({Mensaje:"Lo sentimos se ha alcanzado el limite de becas aprobadas y tu registro necesitara realizar el pago.",Visible:false});
   })
 },
 
   methods:{
-    ChecarBecas:function(){
+    ChecarBecas:function(fupUser){
+      console.log(fupUser);
       this.Errores[4].Visible=false;
+      this.Errores[5].Visible=false;
+     
     if (this.GrupoC.toUpperCase().replace(/ /g, "")=='FUP') {
+      if (fupUser>=10) {
+        this.Errores[5].Visible=true;
+      }else{
+
       this.Errores[4].Visible=true;
-      console.log("SOY DE FUP");
+      }
+      
     }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
       this.Errores[4].Visible=true;
       console.log("SOY DE STAFF");

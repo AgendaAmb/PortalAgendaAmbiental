@@ -45,14 +45,19 @@ class HomeController extends Controller
     public function panel(Request $request){
 
         $nombreModal = session('nombreModal') ?? null;
-
+        $fup_users = DB::table('unirodada_users')
+        ->join('user_workshop', 'user_workshop.id', '=', 'user_workshop_id')
+        ->join('workshops', 'workshops.id', '=', 'workshop_id')
+        ->where('workshops.name', 'Unirodada cicloturística a la Cañada del Lobo')
+        ->where('unirodada_users.group', 'fup')
+        ->count();
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
 
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
-            ->with('nombreModal', $nombreModal);
+            ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users);
     }
 
     /**

@@ -303,11 +303,13 @@
 
                                 <div class="form-group col-md-4 ">
                                     <label for="Lunch">Registrar lunch</label>
-                                    <select name="Lunch" id="Lunch" class="custom-select" required
-                                        v-model="Lunch" >
+                                    
+                                    <select name="Lunch" id="Lunch" class="custom-select" required 
+                                        v-model="Lunch"  @change="RegistrarLunch(user[0].id)">
                                        <option value="Si">Si</option>
-                                       <option value="Si">No</option>
+                                       <option value="No">No</option>
                                     </select>
+
                                 </div>
                                 
                                 @endif
@@ -482,7 +484,8 @@
     exito:true,
     DatosFacturacion:[],
     checkPago:[],
-    Lunch:''
+    Lunch:'',
+    lunchRegister:false
 
   },
   mounted: function () {
@@ -501,12 +504,50 @@
                     "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
                     "health_condition":'{{$user->health_condition}}',
                     "invoice_data": "{{$user->invoice_data}}",
-                    "file_path": "{{$user->invoice_url}}"
+                    "file_path": "{{$user->invoice_url}}",
+                    "lunch":"{{$user->lunch}}"
                 });
     @endforeach
   })
 },
   methods: {
+    RegistrarLunch:function(idUser){
+        const formData = new FormData();
+        formData.append('idUsuario',idUser);
+        //console.log("soy lunch",this.Lunch);
+        if (this.Lunch=='Si') {
+           
+            formData.append('lunch',true);
+        }else{
+           
+            formData.append('lunch',false);
+        }
+      
+       
+        axios({
+                 method: 'post',
+
+                 url: '/actualizaLunchUsuario',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("Exito")
+                         this.lunchRegister=true
+                         this.lunch='';
+
+                     }
+                 ).catch(
+                     err => {
+                        console.log("Falso")
+
+                     }
+                 )
+
+        
+    },
     ConfirmarPago:function(user){
             this.cargarUser(user),
             console.log(this.user[0].id)
@@ -602,6 +643,15 @@
         this.user=[],
         this.CursosInscritos=[],
         this.user.push(user);
+            console.log("soy lunch", this.user[0].lunch)
+             console.log(this.user[0].lunch==1)
+        if (this.user[0].lunch==1) {
+            this.Lunch='Si'
+            
+        }else{
+            this.Lunch=''
+        }
+        
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
             };
