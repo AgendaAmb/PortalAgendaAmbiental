@@ -124,7 +124,8 @@
 
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-                <td>{{ $user->created_at }}</td>
+                
+                <td>{{ Carbon\Carbon::parse($user->created_at)->format('Dd/M/Y')}}</td>
 
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
