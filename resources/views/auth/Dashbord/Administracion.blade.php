@@ -5,7 +5,7 @@
 @include('auth.Dashbord.navbar')
 @endsection
 @section('ContenidoPrincipal')
-<div class="container-fluid mt-3" id="apps">
+<div class="container-fluid my-3" id="apps">
     <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
         <thead>
             <tr>
