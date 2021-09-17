@@ -1,3 +1,4 @@
+
 @extends('Bienvenido')
 
 @section('navbarModulos')
@@ -116,7 +117,7 @@
                     <i class="far fa-file-pdf"
                     style="color: red;font-size: 25px;"></i>
                     @endif
-                        
+
                     @endif
                 </th>
 
@@ -124,8 +125,8 @@
 
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-                
-                <td>{{ Carbon\Carbon::parse($user->created_at)->format('Dd/M/Y')}}</td>
+
+                <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd MMMM YYYY, h:mm:ss a')}}</td>
 
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
@@ -135,10 +136,10 @@
                 @else
                 <td ></td>
                 @endif
-                   
-                       
-                  
-               
+
+
+
+
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
@@ -304,15 +305,15 @@
 
                                 <div class="form-group col-md-4 " v-if="user[0].invoice_data!=null">
                                     <label for="Lunch">Registrar lunch</label>
-                                    
-                                    <select name="Lunch" id="Lunch" class="custom-select" required 
+
+                                    <select name="Lunch" id="Lunch" class="custom-select" required
                                         v-model="Lunch"  @change="RegistrarLunch(user[0].id)">
                                        <option value="Si">Si</option>
                                        <option value="No">No</option>
                                     </select>
 
                                 </div>
-                                
+
                                 @endif
 
                                 <div class="form-group col-md-6  ">
@@ -517,14 +518,14 @@
         formData.append('idUsuario',idUser);
         //console.log("soy lunch",this.Lunch);
         if (this.Lunch=='Si') {
-           
+
             formData.append('lunch',true);
         }else{
-           
+
             formData.append('lunch',false);
         }
-      
-       
+
+
         axios({
                  method: 'post',
                  url: '/actualizaLunchUsuario',
@@ -546,7 +547,7 @@
                      }
                  )
 
-        
+
     },
     ConfirmarPago:function(user){
             this.cargarUser(user),
@@ -647,11 +648,11 @@
              console.log(this.user[0].lunch==1)
         if (this.user[0].lunch==1) {
             this.Lunch='Si'
-            
+
         }else{
             this.Lunch=''
         }
-        
+
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
             };
