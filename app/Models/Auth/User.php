@@ -2,16 +2,20 @@
 
 namespace App\Models\Auth;
 
+use App\Models\Module;
+use App\Models\Workshop;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -183,7 +187,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getUserTypeAttribute()
     {
-        return $this->table;
+        return $this->guard_name;
     }
 
     /**
@@ -463,5 +467,130 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setPaidAtAttribute($value)
     {
         $this->setUnirodadaDetailsField('user_workshop.paid_at', $value);
+    }
+
+    /**
+     * A model may have multiple roles.
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Role::class,
+            'model_has_roles',
+            'model_id',
+            'role_id',
+            'id',
+            'id'
+        )->withPivot('model_type');
+    }
+
+    /**
+     * Obtiene los módulos a los que está registrado este usuario.
+     *
+     * @return object
+     */
+    public function workshops(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Workshop::class,
+            'user_workshop',
+            'user_id',
+            'workshop_id',
+            'id',
+            'id'
+        )->withPivot(
+            'id', 
+            'user_type',
+            'sent', 
+            'sent_at', 
+            'paid', 
+            'paid_at'
+        );
+    }
+
+    /**
+     * Obtiene los módulos a los que está registrado este usuario.
+     *
+     * @return object
+     */
+    public function userModules(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Module::class, 
+            'module_user',
+            'user_id',
+            'module_id',
+            'id',
+            'id'
+        )->withPivot('user_type');
+    }
+
+    /**
+     * Assign the given role to the model.
+     *
+     * @param array|string|int|\Spatie\Permission\Contracts\Role ...$roles
+     *
+     * @return $this
+     */
+    public function assignRole(...$roles)
+    {
+        foreach ($roles as $role)
+        {
+            if (is_int($role))
+                $this->roles()->attach($role, ['model_type' => static::class]);
+
+            else if(is_string($role))
+            {
+                $role_id = Role::where('name', $role)->where('guard_name', $this->guard_name)->value('id');
+                $this->roles()->attach($role_id, ['model_type' => static::class]);
+            }
+        }
+    }
+
+    /**
+     * Assign the given workshop to the model.
+     *
+     * @param array|string|int|\Spatie\Permission\Contracts\Role ...$roles
+     *
+     * @return $this
+     */
+    public function assignWorkshop(...$workshops)
+    {
+        foreach ($workshops as $workshop)
+        {
+            if (is_int($workshop))
+                $this->workshops()->attach($workshop, ['user_type' => static::class, 'sent' => false]);
+
+            else if(is_string($workshop))
+            {
+                $workshop_id = Workshop::where('name', $workshop)->value('id');
+                $this->workshops()->attach($workshop_id, ['user_type' => static::class, 'sent' => false]);
+            }
+        }
+    }
+
+    /**
+     * Assign the given module to the model.
+     *
+     * @param array|string|int|\Spatie\Permission\Contracts\Role ...$roles
+     *
+     * @return $this
+     */
+    public function assignModule(...$modules)
+    {
+        foreach ($modules as $module)
+        {
+            if (is_int($module))
+                $this->modules()->attach($module, ['user_type' => static::class]);
+            else if (is_a($module, Module::class))
+                $this->modules()->attach($module->id, ['user_type' => static::class]);
+            else if(is_string($module))
+            {
+                $module_id = Workshop::where('name', $module)->value('id');
+
+                if ($module_id !== null)
+                    $this->workshops()->attach($module_id, ['user_type' => static::class]);
+            }
+        }
     }
 }

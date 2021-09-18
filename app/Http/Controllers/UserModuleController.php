@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserModuleRequest;
-use App\Jobs\SendVerificationEmail;
 use App\Models\Auth\User;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;

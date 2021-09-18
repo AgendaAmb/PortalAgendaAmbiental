@@ -8,17 +8,6 @@ use Carbon\Carbon;
 trait ModuleTrait
 {
     /**
-     * Obtiene los módulos a los que está registrado este usuario.
-     *
-     * @return object
-     */
-    public function userModules()
-    {
-        return $this->morphToMany(Module::class, 'user', 'module_user');
-    }
-
-
-    /**
      * Determina si el usuario está registrado en el módulo
      *
      * @param string $module
@@ -54,7 +43,7 @@ trait ModuleTrait
      */
     public function attachModule(Module $module)
     {
-        $this->userModules()->attach($module->id);
+        $this->userModules()->attach($module->id, ['user_type' => static::class]);
     }
 
     /**

@@ -153,6 +153,7 @@ class RegisterController extends Controller
             case 'ALUMNOS':
 
                 $id = $new_user_data['ClaveUASLP'];
+                $new_user_data['type'] = Student::class;
                 unset($new_user_data['DirectorioActivo']);
                 unset($new_user_data['ClaveUASLP']);
                 $user = Student::updateOrCreate([ 'id' => $id ],  $new_user_data);
@@ -163,6 +164,7 @@ class RegisterController extends Controller
             case 'UASLP':
 
                 $id = $new_user_data['ClaveUASLP'];
+                $new_user_data['type'] = Worker::class;
                 unset($new_user_data['DirectorioActivo']);
                 unset($new_user_data['ClaveUASLP']);
                 $user = Worker::updateOrCreate([ 'id' => $id ],  $new_user_data);
@@ -177,6 +179,7 @@ class RegisterController extends Controller
             default:
 
                 # El usuario externo no pertenece a ninguna facultad
+                $new_user_data['type'] = Extern::class;
                 unset($new_user_data['dependency']);
                 unset($new_user_data['DirectorioActivo']);
                 unset($new_user_data['ClaveUASLP']);

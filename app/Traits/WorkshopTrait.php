@@ -2,10 +2,12 @@
 
 namespace App\Traits;
 
+use App\Models\Module;
 use App\Models\UnirodadaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait WorkshopTrait
 {
@@ -66,11 +68,21 @@ trait WorkshopTrait
      *
      * @return object
      */
-    public function workshops()
+    public function workshops(): BelongsToMany
     {
-        return $this->morphToMany(Workshop::class, 'user', 'user_workshop')
-            ->using(UserWorkshop::class)
-            ->withPivot('id', 'sent', 'sent_at',);
+        return $this->belongsToMany(
+            Workshop::class, 
+            'user_workshop',
+            'id',
+            'workshop_id'
+
+        )->withPivot(
+            'id', 
+            'sent', 
+            'sent_at', 
+            'paid', 
+            'paid_at'
+        );
     }
 
 

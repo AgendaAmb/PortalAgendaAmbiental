@@ -3,7 +3,6 @@
 namespace App\Models\Auth;
 
 use App\Notifications\ResetPassword;
-use Illuminate\Database\Eloquent\Model;
 
 class Extern extends User
 {
@@ -37,5 +36,15 @@ class Extern extends User
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @return object
+     */
+    public static function all($columns = ['*'])
+    {
+        return User::where('type', Extern::class)->get();
     }
 }

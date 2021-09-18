@@ -127,9 +127,7 @@ class WorkshopController extends Controller
 
                 $this->unirodada_controller->registerUser($request, $user, $workshop_model);
             else
-                $user->workshops()->attach($workshop_model->id, [
-                    'sent' => false
-                ]);
+                $user->assignWorkshop($workshop_model->id);
             
         }
 

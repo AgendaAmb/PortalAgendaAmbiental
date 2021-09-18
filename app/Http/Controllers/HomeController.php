@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
+use App\Models\Auth\User;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -85,25 +86,12 @@ class HomeController extends Controller
      */
     private function getUnirodadaUsers()
     {
-        $students = Student::whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereHas('workshops', function($query){
-            $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
-        $workers = Worker::whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereHas('workshops', function($query){
-            $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
-        $externs = Extern::whereHas('workshops', function($query){
-            $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
-
         # Combina todos los tipos de usuario.
-        return $students->merge($workers)->merge($externs)->sortBy('created_at');
+        return User::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->whereHas('workshops', function($query){
+            $query->where('type', 'unirodada');
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
     /**
@@ -113,21 +101,10 @@ class HomeController extends Controller
      */
     private function getAllUsers()
     {
-
-
-        $students = Student::whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
-        $workers = Worker::whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
-        $externs = Extern::whereNotNull('email_verified_at')->orderBy('created_at')->get();
-
         # Combina todos los tipos de usuario.
-
-        return $students->merge($workers)->merge($externs)->sortBy('created_at');
+        return User::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
 }

@@ -22,4 +22,14 @@ class Worker extends User
      * @var bool
      */
     public $incrementing = false;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @return object
+     */
+    public static function all($columns = ['*'])
+    {
+        return User::where('type', Worker::class)->get();
+    }
 }
