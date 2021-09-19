@@ -31,6 +31,7 @@ class UserController extends Controller
             $request->search_key, $request->search_value, $request->user_type
         );
 
+        
         return $user;
     }
 
