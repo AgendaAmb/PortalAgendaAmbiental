@@ -7,11 +7,39 @@ use App\Notifications\ResetPassword;
 class Extern extends User
 {
     /**
+     * Model table.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
      * Model guard.
      *
      * @var string
      */
     protected $guard_name = 'web';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'int';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.

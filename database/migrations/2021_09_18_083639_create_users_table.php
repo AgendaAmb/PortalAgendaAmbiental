@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
@@ -92,7 +93,6 @@ class CreateUsersTable extends Migration
         });
 
         Schema::table('module_user', function (Blueprint $table) {
-
             $table->dropIndex('user_types');
             $table->foreign(['user_id', 'user_type'])
                 ->references(['id', 'type'])
@@ -102,6 +102,9 @@ class CreateUsersTable extends Migration
 
             $table->dropColumn('email_verified_at');
             $table->dropSoftDeletes();
+
+
+            $table->primary(['module_id','user_id','user_type']);
         });
     }
 
@@ -114,10 +117,11 @@ class CreateUsersTable extends Migration
     {
         Schema::table('module_user', function (Blueprint $table) {
 
+            $table->dropPrimary(['module_id','user_id','user_type']);
             $table->dropForeign(['user_id', 'user_type']);
             $table->index(['user_type', 'user_id'], 'user_types');
 
-            $table->timestamp('email_verified_at');
+            $table->date('email_verified_at')->default(Carbon::now());
             $table->softDeletes();
         });
 

@@ -126,7 +126,7 @@
                 @endif
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
 
-                <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd MMMM YYYY, h:mm:ss a')}}</td>
+                <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, h:mm:ss a')}}</td>
 
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))

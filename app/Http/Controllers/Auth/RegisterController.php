@@ -177,6 +177,7 @@ class RegisterController extends Controller
                 break;
 
             default:
+                $id = Extern::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
 
                 # El usuario externo no pertenece a ninguna facultad
                 $new_user_data['type'] = Extern::class;
@@ -184,7 +185,7 @@ class RegisterController extends Controller
                 unset($new_user_data['DirectorioActivo']);
                 unset($new_user_data['ClaveUASLP']);
                 unset($new_user_data['CorreoAlterno']);
-                $user = Extern::create($new_user_data);
+                $user = Extern::updateOrCreate([ 'id' => $id ],  $new_user_data);
                 $guard = 'web';
 
                 break;

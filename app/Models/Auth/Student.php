@@ -25,7 +25,7 @@ class Student extends User implements LdapAuthenticatable
     ];
 
     /**
-     * Model guard.
+     * Model table.
      *
      * @var string
      */
