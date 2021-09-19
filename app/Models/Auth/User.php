@@ -87,7 +87,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'workshops:id,name,description', 
         'roles:id,name', 
         'userModules', 
-        'unirodadasUser'
+        'unirodadasUser.userWorkshop'
     ];
 
 
@@ -366,7 +366,9 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getInvoiceUrlAttribute()
     {
-        $data = json_decode((string)$this->getUnirodadaDetailsField('invoice_data'), true);
+        $invoice_data = $this->unirodadasUser->last()->invoice_data ?? '{}';
+
+        $data = json_decode((string)$invoice_data, true);
         return $data['file_path'] ?? null;
     }
 
@@ -421,7 +423,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        return $this->getUnirodadaDetailsField('user_workshop.sent');
+        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        return $user_workshop->sent ?? null;
     }
 
     /**
@@ -443,7 +446,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPaidAttribute()
     {
-        return $this->getUnirodadaDetailsField('user_workshop.paid');
+        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        return $user_workshop->paid ?? null;
     }
 
     /**
@@ -463,7 +467,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPaidAtAttribute($value)
     {
-        return $this->getUnirodadaDetailsField('user_workshop.paid_at');
+        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        return $user_workshop->paid_at ?? null;
     }
 
     /**
