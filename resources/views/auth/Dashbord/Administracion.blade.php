@@ -29,7 +29,7 @@
                 <th>Pago unirodada</th>
                 @endif
                 <th>Cursos/Talleres</th>
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
@@ -37,7 +37,7 @@
                 <th>Grupo ciclista</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
                 <th>Fecha de registro</th>
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
@@ -88,8 +88,8 @@
 
                 @if (Auth::user()->hasRole('administrator'))
                 <td>
-                    @foreach ($user->getRoleNames() as $rol)
-                    <li>{{$rol}}</li>
+                    @foreach ($user->roles as $rol)
+                    <li>{{$rol->name}}</li>
                     @endforeach
                 </td>
                 <td>
@@ -107,7 +107,7 @@
                     <li>{{$workshops->description}}</li>
                     @endforeach
                 </td>
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
                 <th>{{$user->health_condition}}</th>
                 <th>{{$user->emergency_contact}}</th>
                 <th>
@@ -124,7 +124,7 @@
                 <th>{{$user->grupoCiclista}}</th>
 
                 @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
 
                 <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, h:mm:ss a')}}</td>
 
@@ -200,14 +200,14 @@
             <th>Pago unirodada</th>
             @endif
             <th>Cursos/Talleres</th>
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+            @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
 
             <th>Grupo ciclista</th>
             @endif
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+            @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
             <th>Fecha de registro</th>
             @endif
             @if (Auth::user()->hasRole('coordinator'))
