@@ -94,7 +94,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $with = [
         'workshops:id,name,description,type,work_edge,start_date,end_date', 
         'roles:id,name', 
-        'userModules:id,name,url', 
+        'userModules', 
         'unirodadasUser',
         'unirodadasUser.userWorkshop'
     ];
