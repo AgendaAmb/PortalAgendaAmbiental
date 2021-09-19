@@ -107,4 +107,12 @@ class Student extends User implements LdapAuthenticatable
     {
         return parent::unirodadasUser()->where('user_type', Student::class);
     }
+
+    /**
+     * A model may have multiple roles.
+     */
+    public static function find($id)
+    {
+        return self::where('id', $id)->where('type', Student::class)->first();
+    }
 }

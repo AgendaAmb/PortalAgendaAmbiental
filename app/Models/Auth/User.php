@@ -76,7 +76,14 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['user_type','invoice_data', 'invoice_url', 'lunch'];
+    protected $appends = [
+        'user_type',
+        'invoice_data', 
+        'invoice_url', 
+        'lunch', 
+        'paid', 
+        'paid_at'
+    ];
 
     /**
      * The relationships that should always be loaded.

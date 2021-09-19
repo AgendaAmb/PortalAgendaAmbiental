@@ -93,4 +93,12 @@ class Worker extends User
     {
         return parent::unirodadasUser()->where('user_type', Worker::class);
     }
+
+    /**
+     * A model may have multiple roles.
+     */
+    public static function find($id)
+    {
+        return self::where('id', $id)->where('type', Worker::class)->first();
+    }
 }

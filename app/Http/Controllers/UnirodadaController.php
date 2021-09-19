@@ -7,7 +7,10 @@ use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\UpdateLunchRequest;
 use App\Http\Requests\UpdatePaidStatusRequest;
 use App\Mail\SendReceipt;
+use App\Models\Auth\Extern;
+use App\Models\Auth\Student;
 use App\Models\Auth\User;
+use App\Models\Auth\Worker;
 use App\Models\UnirodadaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
@@ -97,22 +100,22 @@ class UnirodadaController extends Controller
     public function sendPayForm(SendPayFormRequest $request)
     {
         # Obtiene el id del usuario registrado.
-        $user = User::retrieveById($request->idUser, 'students')
-            ?? User::retrieveById($request->idUser, 'workers')
-            ?? User::retrieveById($request->idUser, 'externs');
+        $user = Student::find($request->idUser)
+            ?? Worker::find($request->idUser)
+            ?? Extern::find($request->idUser);
 
         # Envía el comprobante de pago,en caso de que el evento
         # registrado haya sido una unirodada.
         $event = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
-
-        # Se envía el comprobante de pago.
-        Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($event->id, [
             'sent' => true,
             'sent_at' => Carbon::now()->timezone('America/Mexico_City')
         ]);
+
+        # Se envía el comprobante de pago.
+        Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'
