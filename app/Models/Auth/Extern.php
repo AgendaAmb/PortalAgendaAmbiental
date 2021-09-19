@@ -4,6 +4,7 @@ namespace App\Models\Auth;
 
 use App\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Extern extends User
 {
@@ -82,7 +83,7 @@ class Extern extends User
      *
      * @return object
      */
-    public function unirodadasUser()
+    public function unirodadasUser(): HasManyThrough
     {
         return parent::unirodadasUser()->where('user_type', Extern::class);
     }

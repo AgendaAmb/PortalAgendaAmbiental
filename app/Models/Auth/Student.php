@@ -3,6 +3,7 @@
 namespace App\Models\Auth;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use LdapRecord\Laravel\Auth\HasLdapUser;
 use LdapRecord\Laravel\Auth\LdapAuthenticatable;
 use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
@@ -103,7 +104,7 @@ class Student extends User implements LdapAuthenticatable
      *
      * @return object
      */
-    public function unirodadasUser()
+    public function unirodadasUser(): HasManyThrough
     {
         return parent::unirodadasUser()->where('user_type', Student::class);
     }

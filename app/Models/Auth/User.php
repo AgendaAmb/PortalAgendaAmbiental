@@ -11,6 +11,7 @@ use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -91,9 +92,10 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $with = [
-        'workshops', 
+        'workshops:id,name,description,type,work_edge,start_date,end_date', 
         'roles:id,name', 
-        'userModules', 
+        'userModules:id,name,url', 
+        'unirodadasUser',
         'unirodadasUser.userWorkshop'
     ];
 
@@ -108,6 +110,37 @@ class User extends Authenticatable implements MustVerifyEmail
         'students' => Student::class,
         'externs' => Extern::class
     ];
+
+    /**
+     * The user classes used by this class.
+     *
+     * @var array
+     */
+    public const COLUMNS = [
+        'id',
+        'type',
+        'name',
+        'middlename',
+        'surname',
+        'age',
+        'gender',
+        'nationality',
+        'residence',
+        'zip_code',
+        'email',
+        'altern_email',
+        'phone_number',
+        'curp',
+        'ocupation',
+        'ethnicity',
+        'disability',
+        'courses',
+        'interested_on_further_courses',
+        'comments',
+        'created_at',
+        'email_verified_at',
+    ];
+
 
     /**
      * Obtiene el tipo de usuario autenticado
@@ -339,7 +372,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function setHealthConditionAttribute($value)
+    public function setHealthConditionAttribute($value): void
     {
         $this->setUnirodadaDetailsField('health_condition',$value);
     }
@@ -359,7 +392,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function setInvoiceDataAttribute($value)
+    public function setInvoiceDataAttribute($value): void
     {
         if ($value === 'null')
             $this->setUnirodadaDetailsField('invoice_data', null);
@@ -396,7 +429,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function setGrupoCiclistaAttribute($value)
+    public function setGrupoCiclistaAttribute($value): void
     {
         $this->setUnirodadaDetailsField('group', $value);
     }
@@ -472,7 +505,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function getPaidAtAttribute($value)
+    public function getPaidAtAttribute()
     {
         $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
         return $user_workshop->paid_at ?? null;
@@ -483,7 +516,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function setPaidAtAttribute($value)
+    public function setPaidAtAttribute($value): void
     {
         $this->setUnirodadaDetailsField('user_workshop.paid_at', $value);
     }
@@ -551,7 +584,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return $this
      */
-    public function assignRole(...$roles)
+    public function assignRole(...$roles): void
     {
         foreach ($roles as $role)
         {
@@ -573,7 +606,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return $this
      */
-    public function assignWorkshop(...$workshops)
+    public function assignWorkshop(...$workshops): void
     {
         foreach ($workshops as $workshop)
         {
@@ -595,7 +628,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return $this
      */
-    public function assignModule(...$modules)
+    public function assignModule(...$modules): void
     {
         foreach ($modules as $module)
         {
@@ -618,7 +651,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object
      */
-    public function unirodadasUser()
+    public function unirodadasUser(): HasManyThrough
     {
         return $this->hasManyThrough(
             UnirodadaUser::class,   # Tabla donde están los datos de la unirodada
@@ -630,5 +663,25 @@ class User extends Authenticatable implements MustVerifyEmail
             'id',                   # Clave primaria de la tabla pivote.
 
         );
+    }
+
+    /**
+     * Obtiene un arreglo de los talleres registrados por el usuario.
+     *
+     * @return array
+     */
+    public function getRegisteredWorkshops(): array
+    {
+        $workshops = $this->workshops->each(function (&$workshop) {
+
+            $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
+
+            if ($workshop->pivot !== null) {
+                unset($workshop->pivot);
+            }
+
+        });
+
+        return $workshops->toArray();
     }
 }

@@ -87,7 +87,9 @@ class HomeController extends Controller
     private function getUnirodadaUsers()
     {
         # Combina todos los tipos de usuario.
-        return User::whereDoesntHave('roles', function($query){
+        return User::select(
+            User::COLUMNS
+        )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
@@ -102,7 +104,9 @@ class HomeController extends Controller
     private function getAllUsers()
     {
         # Combina todos los tipos de usuario.
-        return User::whereDoesntHave('roles', function($query){
+        return User::select(
+            User::COLUMNS
+        )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }

@@ -11,28 +11,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait WorkshopTrait
 {
-    /**
-     * Send the email verification notification.
-     *
-     * @return void
-     */
-    public function getRegisteredWorkshops()
-    {
-        $workshops = $this
-        ->workshops()
-        ->get()
-        ->each(function (&$workshop) {
-
-            $workshop->asistenciaUsuario = $workshop->pivot->assisted_to_workshop ?? null;
-
-            if ($workshop->pivot !== null) {
-                unset($workshop->pivot);
-            }
-
-        });
-
-        return $workshops->toArray();
-    }
 
     /**
      * Devuelve los modelos pivote de los talleres de
