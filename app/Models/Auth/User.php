@@ -3,6 +3,8 @@
 namespace App\Models\Auth;
 
 use App\Models\Module;
+use App\Models\UnirodadaUser;
+use App\Models\UserWorkshop;
 use App\Models\Workshop;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
@@ -81,7 +83,12 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $with = ['workshops:id,name,description', 'roles:id,name', 'userModules'];
+    protected $with = [
+        'workshops:id,name,description', 
+        'roles:id,name', 
+        'userModules', 
+        'unirodadasUser'
+    ];
 
 
     /**
@@ -269,7 +276,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactAttribute()
     {
-        return $this->getUnirodadaDetailsField('emergency_contact');
+        return $this->unirodadasUser->last()->emergency_contact ?? null;
     }
 
     /**
@@ -281,7 +288,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setEmergencyContactAttribute($value)
     {
-        $this->setUnirodadaDetailsField('emergency_contact', $value);
+        $this->setUnirodadaDetailsField('emergency_contact',$value);
     }
 
     /**
@@ -293,7 +300,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getEmergencyContactPhoneAttribute()
     {
-        return $this->getUnirodadaDetailsField('emergency_contact_phone');
+        return $this->unirodadasUser->last()->emergency_contact_phone ?? null;
     }
 
     /**
@@ -315,7 +322,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getHealthConditionAttribute()
     {
-        return $this->getUnirodadaDetailsField('health_condition');
+        return $this->unirodadasUser->last()->health_condition ?? null;
     }
 
     /**
@@ -337,7 +344,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getInvoiceDataAttribute()
     {
-        return $this->getUnirodadaDetailsField('invoice_data');
+        return $this->unirodadasUser->last()->invoice_data?? null;
     }
 
     /**
@@ -370,7 +377,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getGrupoCiclistaAttribute()
     {
-        return $this->getUnirodadaDetailsField('group');
+        return $this->unirodadasUser->last()->group ?? null;
     }
 
     /**
@@ -392,7 +399,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getLunchAttribute()
     {
-        return $this->getUnirodadaDetailsField('lunch');
+        return $this->unirodadasUser->last()->lunch ?? null;
     }
 
     /**
@@ -592,5 +599,24 @@ class User extends Authenticatable implements MustVerifyEmail
                     $this->workshops()->attach($module_id, ['user_type' => static::class]);
             }
         }
+    }
+
+    /**
+     * Devuelve los datos registrados en cada unirodada del usuario.
+     *
+     * @return object
+     */
+    public function unirodadasUser()
+    {
+        return $this->hasManyThrough(
+            UnirodadaUser::class,   # Tabla donde están los datos de la unirodada
+            UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
+            'user_id',              # Llave que asocia al modelo con la tabla intermedia. 
+            'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse 
+                                    # con la tabla intermedia.
+            'id',                   # Clave primaria de la tabla de usuarios.
+            'id',                   # Clave primaria de la tabla pivote.
+
+        );
     }
 }

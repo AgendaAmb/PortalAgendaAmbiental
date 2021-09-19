@@ -83,4 +83,14 @@ class Worker extends User
     {
         return parent::userModules()->wherePivot('user_type', Worker::class);
     }
+
+    /**
+     * Devuelve los datos registrados en cada unirodada del usuario.
+     *
+     * @return object
+     */
+    public function unirodadasUser()
+    {
+        return parent::unirodadasUser()->where('user_type', Worker::class);
+    }
 }

@@ -97,4 +97,14 @@ class Student extends User implements LdapAuthenticatable
     {
         return parent::userModules()->wherePivot('user_type', Student::class);
     }
+
+    /**
+     * Devuelve los datos registrados en cada unirodada del usuario.
+     *
+     * @return object
+     */
+    public function unirodadasUser()
+    {
+        return parent::unirodadasUser()->where('user_type', Student::class);
+    }
 }

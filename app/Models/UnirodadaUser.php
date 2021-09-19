@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class UnirodadaUser extends Model
 {
@@ -27,4 +28,15 @@ class UnirodadaUser extends Model
      * @var bool
      */
     public $incrementing = false;
+
+
+    /**
+     * Obtiene el taller al que corresponde la unirodada.
+     *
+     * @return object
+     */
+    public function userWorkshop(): BelongsTo
+    {
+        return $this->belongsTo(UserWorkshop::class);
+    }
 }

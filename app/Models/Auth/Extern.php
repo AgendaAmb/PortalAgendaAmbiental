@@ -75,4 +75,14 @@ class Extern extends User
     {
         return User::where('type', Extern::class)->get();
     }
+
+    /**
+     * Devuelve los datos registrados en cada unirodada del usuario.
+     *
+     * @return object
+     */
+    public function unirodadasUser()
+    {
+        return parent::unirodadasUser()->where('user_type', Extern::class);
+    }
 }
