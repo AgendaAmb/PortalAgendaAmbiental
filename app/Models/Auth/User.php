@@ -239,7 +239,7 @@ class User extends Authenticatable implements MustVerifyEmail
         else if ($this->type === Student::class)
             return 'students';
         else if ($this->type === Extern::class)
-            return 'extenrs';
+            return 'externs';
 
         return $this->guard_name;
     }
