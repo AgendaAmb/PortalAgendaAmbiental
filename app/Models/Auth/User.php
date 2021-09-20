@@ -238,6 +238,8 @@ class User extends Authenticatable implements MustVerifyEmail
             return 'workers';
         else if ($this->type === Student::class)
             return 'students';
+        else if ($this->type === Extern::class)
+            return 'extenrs';
 
         return $this->guard_name;
     }
