@@ -1,4 +1,3 @@
-
 @extends('Bienvenido')
 
 @section('navbarModulos')
@@ -29,7 +28,7 @@
                 <th>Pago unirodada</th>
                 @endif
                 <th>Cursos/Talleres</th>
-                @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                 <th>Condición de salud</th>
                 <th>Nombre de contacto de emergencia</th>
                 <th>Télefono de contacto de emergencia</th>
@@ -37,7 +36,7 @@
                 <th>Grupo ciclista</th>
 
                 @endif
-                @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                 <th>Fecha de registro</th>
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
@@ -88,8 +87,8 @@
 
                 @if (Auth::user()->hasRole('administrator'))
                 <td>
-                    @foreach ($user->roles as $rol)
-                    <li>{{$rol->name}}</li>
+                    @foreach ($user->getRoleNames() as $rol)
+                    <li>{{$rol}}</li>
                     @endforeach
                 </td>
                 <td>
@@ -107,7 +106,7 @@
                     <li>{{$workshops->description}}</li>
                     @endforeach
                 </td>
-                @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                 <th>{{$user->health_condition}}</th>
                 <th>{{$user->emergency_contact}}</th>
                 <th>
@@ -117,16 +116,16 @@
                     <i class="far fa-file-pdf"
                     style="color: red;font-size: 25px;"></i>
                     @endif
-
+                        
                     @endif
                 </th>
 
                 <th>{{$user->grupoCiclista}}</th>
 
                 @endif
-                @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
-
-                <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, h:mm:ss a')}}</td>
+                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                
+                <td>{{ Carbon\Carbon::parse($user->created_at)->format('Dd/M/Y')}}</td>
 
                 @endif
                 @if (Auth::user()->hasRole('coordinator'))
@@ -136,10 +135,10 @@
                 @else
                 <td ></td>
                 @endif
-
-
-
-
+                   
+                       
+                  
+               
                 @endif
                 @if (Auth::user()->hasRole('helper'))
                 @if ($user->sent)
@@ -200,14 +199,14 @@
             <th>Pago unirodada</th>
             @endif
             <th>Cursos/Talleres</th>
-            @if (Auth::user()->hasAnyRole(['administrator','coordinator']))
+            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
             <th>Condición de salud</th>
             <th>Nombre de contacto de emergencia</th>
             <th>Télefono de contacto de emergencia</th>
 
             <th>Grupo ciclista</th>
             @endif
-            @if (Auth::user()->hasAnyRole(['administrator','helper','coordinator']))
+            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
             <th>Fecha de registro</th>
             @endif
             @if (Auth::user()->hasRole('coordinator'))
@@ -305,15 +304,15 @@
 
                                 <div class="form-group col-md-4 " v-if="user[0].invoice_data!=null">
                                     <label for="Lunch">Registrar lunch</label>
-
-                                    <select name="Lunch" id="Lunch" class="custom-select" required
+                                    
+                                    <select name="Lunch" id="Lunch" class="custom-select" required 
                                         v-model="Lunch"  @change="RegistrarLunch(user[0].id)">
                                        <option value="Si">Si</option>
                                        <option value="No">No</option>
                                     </select>
 
                                 </div>
-
+                                
                                 @endif
 
                                 <div class="form-group col-md-6  ">
@@ -350,6 +349,7 @@
                                     <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
                                             style="color: red;font-size: 25px;"></i></a>
                                 </div>
+                                
 
 
 
@@ -518,14 +518,14 @@
         formData.append('idUsuario',idUser);
         //console.log("soy lunch",this.Lunch);
         if (this.Lunch=='Si') {
-
+           
             formData.append('lunch',true);
         }else{
-
+           
             formData.append('lunch',false);
         }
-
-
+      
+       
         axios({
                  method: 'post',
                  url: '/actualizaLunchUsuario',
@@ -547,7 +547,7 @@
                      }
                  )
 
-
+        
     },
     ConfirmarPago:function(user){
             this.cargarUser(user),
@@ -648,11 +648,11 @@
              console.log(this.user[0].lunch==1)
         if (this.user[0].lunch==1) {
             this.Lunch='Si'
-
+            
         }else{
             this.Lunch=''
         }
-
+        
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
             };
