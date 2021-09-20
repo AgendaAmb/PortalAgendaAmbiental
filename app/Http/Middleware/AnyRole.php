@@ -16,11 +16,12 @@ class AnyRole
      */
     public function handle($request, Closure $next)
     {
-        /** @var App/Models/Auth/User */
-        $user = Auth::user();
+        $user = Auth::guard('workers')->user()
+            ?? Auth::guard('students')->user()
+            ?? Auth::guard('web')->user();
 
         # Deniega el acceso a usuarios sin un rol.
-        if ($user->roles()->count() === 0)
+        if ($user !== null && $user->roles()->count() === 0)
             return abort(403, 'Unauthorized to access');
 
         return $next($request);
