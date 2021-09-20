@@ -79,10 +79,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $appends = [
         'user_type',
-        'invoice_data', 
-        'invoice_url', 
-        'lunch', 
-        'paid', 
+        'invoice_data',
+        'invoice_url',
+        'lunch',
+        'paid',
         'paid_at'
     ];
 
@@ -92,9 +92,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $with = [
-        'workshops:id,name,description,type,work_edge,start_date,end_date', 
-        'roles:id,name', 
-        'userModules', 
+        'workshops:id,name,description,type,work_edge,start_date,end_date',
+        'roles:id,name',
+        'userModules',
         'unirodadasUser',
         'unirodadasUser.userWorkshop'
     ];
@@ -234,6 +234,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getUserTypeAttribute()
     {
+        if ($this->type === Worker::class)
+            return 'workers';
+        else if ($this->type === Student::class)
+            return 'students';
+
         return $this->guard_name;
     }
 
@@ -551,11 +556,11 @@ class User extends Authenticatable implements MustVerifyEmail
             'id',
             'id'
         )->withPivot(
-            'id', 
+            'id',
             'user_type',
-            'sent', 
-            'sent_at', 
-            'paid', 
+            'sent',
+            'sent_at',
+            'paid',
             'paid_at'
         );
     }
@@ -568,7 +573,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userModules(): BelongsToMany
     {
         return $this->belongsToMany(
-            Module::class, 
+            Module::class,
             'module_user',
             'user_id',
             'module_id',
@@ -656,8 +661,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(
             UnirodadaUser::class,   # Tabla donde están los datos de la unirodada
             UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
-            'user_id',              # Llave que asocia al modelo con la tabla intermedia. 
-            'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse 
+            'user_id',              # Llave que asocia al modelo con la tabla intermedia.
+            'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse
                                     # con la tabla intermedia.
             'id',                   # Clave primaria de la tabla de usuarios.
             'id',                   # Clave primaria de la tabla pivote.

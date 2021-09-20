@@ -26,6 +26,20 @@ class Student extends User implements LdapAuthenticatable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'user_type',
+        'invoice_data',
+        'invoice_url',
+        'lunch',
+        'paid',
+        'paid_at'
+    ];
+
+    /**
      * Model table.
      *
      * @var string
