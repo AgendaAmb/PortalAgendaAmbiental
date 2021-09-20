@@ -116,4 +116,14 @@ class Student extends User implements LdapAuthenticatable
     {
         return self::where('id', $id)->where('type', Student::class)->first();
     }
+
+    /**
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getUserTypeAttribute()
+    {
+        return 'students';
+    }
 }

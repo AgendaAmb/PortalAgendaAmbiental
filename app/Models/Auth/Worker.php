@@ -102,4 +102,14 @@ class Worker extends User
     {
         return self::where('id', $id)->where('type', Worker::class)->first();
     }
+
+    /**
+     * Obtiene el tipo de usuario
+     *
+     * @return string
+     */
+    public function getUserTypeAttribute()
+    {
+        return 'workers';
+    }
 }
