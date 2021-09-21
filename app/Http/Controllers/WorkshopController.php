@@ -86,7 +86,7 @@ class WorkshopController extends Controller
         return response()->json([ 'status' => 200], 200);
         } catch (Exception $e)
         {
-            Storage::append('el error fue:'. $e->getMessage());
+            Storage::append('algo.txt', 'el error fue:'. $e->getMessage());
             throw $e;
         }
     }
