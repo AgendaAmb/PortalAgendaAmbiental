@@ -40,7 +40,7 @@
             </a>
           </div>
           @endif
-         
+
         </div>
         <div class="row  ">
           <div class="col  d-flex align-items-center my-xl-5 my-2 px-0">
@@ -176,13 +176,14 @@
                   Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP
                 </label>
               </div>
+              <!--
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Unirodada cicloturística a la Cañada del Lobo"
                   id="Unirodada" v-model="checkedNames">
                 <label class="form-check-label" for="Unirodada">
                   Unirodada cicloturística a la Cañada del Lobo
                 </label>
-              </div>
+              </div>-->
               <br>
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
@@ -625,11 +626,11 @@
                 </label>
               </div>
             </div>
-          
+
             <div class="modal-footer justify-content-start"  >
-              <button id="submit" type="submit" 
-             
-            
+              <button id="submit" type="submit"
+
+
               class="btn btn-primary" style="background-color: #0160AE"
                 v-if="!spinnerVisible">Aceptar</button>
               <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
@@ -750,7 +751,7 @@
     spinnerVisible:false,
     CURP:'',
     LugarResidencia:'',
-   
+
     isDiscapacidad:'',
     Discapacidad:'',
     Genero:'',
@@ -800,7 +801,7 @@
       console.log(fupUser);
       this.Errores[4].Visible=false;
       this.Errores[5].Visible=false;
-     
+
     if (this.GrupoC.toUpperCase().replace(/ /g, "")=='FUP') {
       if (fupUser>=10) {
         this.Errores[5].Visible=true;
@@ -808,13 +809,13 @@
 
       this.Errores[4].Visible=true;
       }
-      
+
     }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
       this.Errores[4].Visible=true;
       console.log("SOY DE STAFF");
     }
-     
-    
+
+
     },
     cargarPdf: function (e, index) {
              this.file='';
@@ -842,15 +843,15 @@
                  }
              }).then(
                      res => {
-                        
-                         
+
+
                          this.file = '',
                          this.spinnerVisible=false,
                          this.asistenciaExito=true
                      }
                  ).catch(
                      err => {
-                      
+
                         this.spinnerVisible=false,
                          this.asistenciaExito=false
 
@@ -858,13 +859,13 @@
                  )
     },
     VerificaNumeroContacto:function(){
-    
+
       if ( this.CelularContacto==this.tel) {
         this.Errores[3].Visible=true
       }else{
         this.Errores[3].Visible=false
       }
-       
+
     },
     VerificaNombreContacto:function(){
       nombreCompleto=this.nombres+this.ApellidoP+this.ApellidoM
@@ -888,24 +889,24 @@
     levantaModal:function(data){
         this.DatosUsuario(data),
         $('#Registro17gemas').modal('show')
-        
+
     },
     activaModal:function(){
       //*urlanterior
-      
+
       let fechaRegistro=new Date('{{Auth::user()->created_at}}')
       let hora =new Date()
       let diferencia=Math.abs(hora - fechaRegistro)
-      
+
       let diasDiferencia = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
       console.log(diasDiferencia)
       if (diasDiferencia>1) {
-        
+
       } else {
         this.DatosUsuario('mmus'),
       $('#Registro17gemas').modal('show')
       }
-    
+
     },
     checarAsistenciaCursos:function(){
       this.CursosC='{{Auth::user()->courses}}',
@@ -935,7 +936,7 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
-      
+
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
@@ -959,7 +960,7 @@
             };
             var data = {
        	        "emailR":this.emailR,
-               
+
                 "Genero":this.Genero,
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
@@ -980,7 +981,7 @@
 
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
-            
+
               this.spinnerVisible=false,
                window.location.href = this.url+'17Gemas/'
                )).catch((err) => {
@@ -990,7 +991,7 @@
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
-            
+
               console.log(response.data),
               this.spinnerVisible=false,
               $('#Registro17gemas').modal('hide'),
@@ -1002,7 +1003,7 @@
            }else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
-              
+
               console.log(response.data),
              this.spinnerVisible=false,
              $('#Registro17gemas').modal('hide'),
@@ -1028,7 +1029,7 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
-            
+
             headerToolbar: {
               start: 'prev,next',
                 center:'title',
@@ -1036,7 +1037,7 @@
             initialView: 'dayGridMonth'
 
           });
-          
+
           calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();
