@@ -39,7 +39,7 @@ class UnirodadaController extends Controller
         # Registra al usuario a la unirodada.
         $user_workshop = UserWorkshop::create([
             'user_id' => $user->id,
-            'user_type' => get_class($user),
+            'user_type' => $user->type,
             'workshop_id' => $workshop->id,
             'sent' => false,
         ]);
