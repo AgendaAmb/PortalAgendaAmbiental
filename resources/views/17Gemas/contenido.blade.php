@@ -70,7 +70,7 @@
         Deberás documentar tu actividad, universitaria o por tu cuenta, a través de:
     </p>
     <ol>
-        <li> Un solo video corto de máximo dos minutos de duración que contenga:</li>
+        <li> Un solo video corto de máximo dos minutos de duración (formato horizontal):</li>
         <ul>
             <li> Toma video selfie donde digas tu nombre, si eres empleado o estudiante, de qué campus, entidad o
                 facultad, carrera y edad (máximo 20 segundos).</li>
