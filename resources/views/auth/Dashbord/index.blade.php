@@ -177,7 +177,7 @@
                   Intervenciones y reordenamiento: Cebratón y Proyecto MUS-ZUP
                 </label>
               </div>
-
+              <!--
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Unirodada cicloturística a la Cañada del Lobo"
                   id="Unirodada" v-model="checkedNames">
@@ -185,7 +185,7 @@
                   Unirodada cicloturística a la Cañada del Lobo
                 </label>
               </div>
-
+            -->
               <br>
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
