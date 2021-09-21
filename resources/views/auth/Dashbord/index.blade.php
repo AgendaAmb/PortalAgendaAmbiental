@@ -27,7 +27,7 @@
             </a>
           </div>
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
@@ -125,7 +125,7 @@
           v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
           <div class="row">
             <div class="col-12">
-              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid mt-4" alt="">
             </div>
           </div>
         </div>
