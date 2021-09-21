@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Auth\Extern;
 use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,8 +18,8 @@ class AgregaUsuarioMaru extends Migration
     {
         $idWorkshop = DB::table('user_workshop')
         ->insertGetId([
-            'user_id' => 213321,
-            'user_type' => Student::class,
+            'user_id' => 42,
+            'user_type' => Extern::class,
             'workshop_id' => 6,
             'paid' => false
         ]);
