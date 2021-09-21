@@ -27,8 +27,7 @@
             </a>
           </div>
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
-
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
@@ -115,6 +114,7 @@
         <div class="modal-header bg-primary" id="modalGemas">
           <h5 class="modal-title mx-auto" v-if="modalClick=='17Gemas'">17 gemas para la Uni sostenible</h5>
           <h5 class="modal-title mx-auto" v-if="modalClick=='mmus'">Movilidad urbana sustentable 2021</h5>
+          <h5 class="modal-title mx-auto" v-if="modalClick=='Rodada'">Movilidad urbana sustentable 2021</h5>
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -138,6 +138,7 @@
             <br>
             <h5 class="modal-title3" id="exampleModalLabel" v-if="modalClick=='mmus'">Cursos o actividades en las que
               deseas participar</h5>
+              
             <div id='ActividadesMMUS' v-if="modalClick=='mmus'">
               <!--
               <div class="form-check">
@@ -183,7 +184,8 @@
                 <label class="form-check-label" for="Unirodada">
                   Unirodada cicloturística a la Cañada del Lobo
                 </label>
-              </div>-->
+              </div>
+            -->
               <br>
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
@@ -645,7 +647,8 @@
           </form>
         </div>
         <div class="modal-body" v-else>
-          ¡¡Registro completo, antes del evento te enviaremos un correo con todas las indicaciones.!!<br>
+          <img src="{{asset('/storage/imagenes/mmus2021/RegistroCerradoRodada.png')}}" class="img-fluid" alt="">
+         
         </div>
 
       </div>
@@ -947,6 +950,7 @@
         this.url='{{env('APP_URL')}}',
         this.Ocupacion='{{Auth::user()->ocupation}}'
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
+          this.isRegisterRodada=true,
        this.check_one(),
        this.CondicionSalud='{{Auth::user()->health_condition}}'
         }
