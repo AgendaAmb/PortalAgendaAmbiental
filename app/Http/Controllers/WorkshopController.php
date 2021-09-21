@@ -59,34 +59,36 @@ class WorkshopController extends Controller
     {
         try
         {
+            # Cursos registrados por el usuario
+            $courses = collect($request->cursosInscritosMMUS ?? []);
 
-        # Cursos registrados por el usuario
-        $courses = collect($request->cursosInscritosMMUS ?? []);
+            # Usuario autenticado
+            $user = $request->user();
 
-        # Usuario autenticado
-        $user = $request->user();
+            # Registra al usuario al evento o cursos especificados.
+            $this->registerCourses($request, $courses);
 
-        # Registra al usuario al evento o cursos especificados.
-        $this->registerCourses($request, $courses);
+            # Actualiza los datos del usuario.
+            $user->zip_code = $request->CP ?? $user->zip_code;
+            $user->residence = $request->LugarResidencia ?? $user->residence;
+            $user->ocupation = $request->Ocupacion ?? $user->ocupation;
+            $user->ethnicity = $request->GEtnico ?? $user->ethnicity;
+            $user->disability = $request->Discapacidad ?? $user->disability;
+            $user->ocupation = $request->Ocupacion ?? $user->ocupation;
+            $user->courses = $request->CursoCursado ?? $user->courses;
+            $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+            $user->disability = $request->Discapacidad ?? $user->disability;
+            $user->comments = $request->ComentariosSugerencias ?? $user->comments;
+            $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+            $user->save();
 
-        # Actualiza los datos del usuario.
-        $user->zip_code = $request->CP ?? $user->zip_code;
-        $user->residence = $request->LugarResidencia ?? $user->residence;
-        $user->ocupation = $request->Ocupacion ?? $user->ocupation;
-        $user->ethnicity = $request->GEtnico ?? $user->ethnicity;
-        $user->disability = $request->Discapacidad ?? $user->disability;
-        $user->ocupation = $request->Ocupacion ?? $user->ocupation;
-        $user->courses = $request->CursoCursado ?? $user->courses;
-        $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
-        $user->disability = $request->Discapacidad ?? $user->disability;
-        $user->comments = $request->ComentariosSugerencias ?? $user->comments;
-        $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
-        $user->save();
-
-        return response()->json([ 'status' => 200], 200);
-        } catch (Exception $e)
+            return response()->json([ 'status' => 200], 200);
+        }
+        catch (Exception $e)
         {
-            Storage::append('algo.txt', 'el error fue:'. $e->getMessage());
+            Storage::append('Errores.txt', 'Ocurrio un error al registrar los datos del usuario');
+            Storage::append('Errores.txt', 'El error fue:'. $e->getMessage());
+            Storage::append('Errores.txt', '');
             throw $e;
         }
     }
