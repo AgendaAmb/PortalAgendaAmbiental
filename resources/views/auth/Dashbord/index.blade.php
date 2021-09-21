@@ -27,7 +27,7 @@
             </a>
           </div>
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
