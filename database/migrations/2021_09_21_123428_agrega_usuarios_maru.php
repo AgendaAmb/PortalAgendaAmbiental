@@ -20,7 +20,7 @@ class AgregaUsuariosMaru extends Migration
 
         $idWorkshop = DB::table('user_workshop')
         ->insertGetId([
-            'user_id' => 223311,
+            'user_id' => 213321,
             'user_type' => Student::class,
             'workshop_id' => 6,
             'paid' => false
