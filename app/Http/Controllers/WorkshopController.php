@@ -6,10 +6,11 @@ use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
 use App\Models\Auth\User;
 use App\Models\Workshop;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\Storage;
 
 class WorkshopController extends Controller
 {
@@ -18,14 +19,14 @@ class WorkshopController extends Controller
     | Workshop Controller
     |--------------------------------------------------------------------------
     |
-    | Controlador que gestiona la lógica de los cursos y talleres de 
+    | Controlador que gestiona la lógica de los cursos y talleres de
     | la agenda ambiental.
     |
     */
 
     /**
      * Controlador de unirodadas.
-     * 
+     *
      * @var UnirodadaController
      */
     private $unirodada_controller;
@@ -56,6 +57,9 @@ class WorkshopController extends Controller
      */
     public function store(StoreWorkshopRequest $request)
     {
+        try
+        {
+
         # Cursos registrados por el usuario
         $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -80,6 +84,11 @@ class WorkshopController extends Controller
         $user->save();
 
         return response()->json([ 'status' => 200], 200);
+        } catch (Exception $e)
+        {
+            Storage::append('el error fue:'. $e->getMessage());
+            throw $e;
+        }
     }
 
     /**
@@ -128,7 +137,7 @@ class WorkshopController extends Controller
                 $this->unirodada_controller->registerUser($request, $user, $workshop_model);
             else
                 $user->assignWorkshop($workshop_model->id);
-            
+
         }
 
         # Obtiene los cursos registrados.
