@@ -13,6 +13,10 @@
     {{-- Body --}}
     {{ $slot }}
 
+    @slot('despedida')
+    {{ $despedida ?? null }}
+    @endslot
+
     @slot('firma')
     {{ $firma ?? null }}
     @endslot
