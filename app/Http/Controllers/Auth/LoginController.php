@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -66,7 +68,19 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        
+        $user = $request->user('workers') 
+            ?? $request->user('students')
+            ?? $request->user('web');
+
+        if (Auth::guard('workers')->check())
+            Log::info('Inicio de sesión como trabajador');
+        else if (Auth::guard('students')->check())
+            Log::info('Inicio de sesión como estudiante');
+        else if (Auth::guard('web')->check())
+            Log::info('Inicio de sesión como externo');
+
+        Log::info('Datos de usuario: ', $user->toArray());
+
         return redirect($this->redirectTo);
     }
 

@@ -131,7 +131,7 @@
         </div>
 
 
-        <div class="modal-body" v-else-if="modalClick!='Rodada'?true:isRegisterRodada?false:true">
+        <div class="modal-body" v-else-if="TipoUsuario=='externs'?false:modalClick!='Rodada'?true:isRegisterRodada?false:true">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
