@@ -44,7 +44,7 @@ class EnvioCorreo extends Command
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada')
-                ->where('user_workshop.paid', false);
+                ->where('user_workshop.paid', '<>', true);
         })->whereNotNull('email_verified_at')->get()->each(function($user){
 
             dump($user->email);
