@@ -40,9 +40,19 @@ class EnvioCorreo extends Command
      */
     public function handle()
     {
-        $user = User::find(262698);
+        $users = User::whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->whereHas('workshops', function($query){
+            $query->where('type', 'unirodada');
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get()->each(function($user){
 
-        Mail::mailer('smtp_unirodada')->to($user)->send(new GestionEmail);
+            if($user->paid === false){
+                dump($user->email);
+            }
+                //Mail::mailer('smtp_unirodada')->to($user)->send(new GestionEmail);
+        });
+
+        dump($users->count());
 
         return 0;
     }

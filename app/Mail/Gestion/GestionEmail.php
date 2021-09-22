@@ -25,7 +25,7 @@ class GestionEmail extends Mailable
     public function build()
     {
         return $this->from('unibici@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
-            ->subject('Registro a la unirodada a la Cañada del Lobo')->markdown('mail.gestion.layout', [
+            ->subject('Aviso pago de unirodada')->markdown('mail.gestion.layout', [
             'header_color' => '#87b854',
             'footer_color' => 'white',
             'with_image' => false,
