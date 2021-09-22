@@ -581,7 +581,9 @@ class User extends Authenticatable implements MustVerifyEmail
             'module_id',
             'id',
             'id'
-        )->withPivot('user_type');
+        )->wherePivot(
+            'user_type', $this->type
+        );
     }
 
     /**
