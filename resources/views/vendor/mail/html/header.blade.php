@@ -21,6 +21,6 @@ else
         </a>
     </td>
 </tr>
-<tr style=" margin-top: -3px;">
+<tr style="padding-top: -3px;">
     <td style="{{ $header_bottom_color }}"></td>
 </tr>
