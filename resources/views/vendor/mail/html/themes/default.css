@@ -123,6 +123,13 @@ img {
     text-decoration: none;
 }
 
+.headerBottom {
+    display: block;
+    margin-top: -3px;
+    width: 100%; 
+    height: 20px;
+}
+
 /* Logo */
 
 .logo {
