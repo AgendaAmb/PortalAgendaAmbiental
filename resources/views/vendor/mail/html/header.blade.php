@@ -1,7 +1,7 @@
 @php
 
 if($color === null) 
-    $color = 'background-color: #005faf;';
+    $color = 'background-color: #005faf; padding-bottom: 3px';
 else 
     $color = 'background-color: '.$color.';';
 
@@ -21,6 +21,6 @@ else
         </a>
     </td>
 </tr>
-<tr style="{{ $header_bottom_color }}">
-    <td></td>
+<tr>
+    <td style="{{ $header_bottom_color }}"></td>
 </tr>
