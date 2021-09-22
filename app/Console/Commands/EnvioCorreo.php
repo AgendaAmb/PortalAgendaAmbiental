@@ -43,8 +43,9 @@ class EnvioCorreo extends Command
         $users = User::whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
-            $query->where('type', 'unirodada');
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get()->each(function($user){
+            $query->where('type', 'unirodada')
+                ->where('user_workshop.paid', false);
+        })->whereNotNull('email_verified_at')->get()->each(function($user){
 
             if($user->paid === false){
                 dump($user->email);
