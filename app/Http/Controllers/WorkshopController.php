@@ -9,6 +9,7 @@ use App\Models\Workshop;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,9 +87,7 @@ class WorkshopController extends Controller
         }
         catch (Exception $e)
         {
-            Storage::append('Errores.txt', 'Ocurrio un error al registrar los datos del usuario');
-            Storage::append('Errores.txt', 'El error fue:'. $e->getMessage());
-            Storage::append('Errores.txt', '');
+            Log::error('Ocurrió un error: '.$e->getMessage());
             throw $e;
         }
     }
@@ -103,7 +102,7 @@ class WorkshopController extends Controller
     private function registerCourses(Request $request, $courses)
     {
         # Usuario autenticado
-        $user = $request->user();
+        $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
 
         # Cursos mmus del usuario y unirodadas.
         $workshops = $user->workshops()
@@ -113,9 +112,14 @@ class WorkshopController extends Controller
             ->whereNotIn('name', $courses)
             ->pluck('workshops.id');
 
+
         # Se eliminan los cursos a los que no haya asistido y a
         # aquellos que haya eliminado del modal.
         $user->workshops()->detach($workshops);
+
+        # Guarda en el log los cursos eliminados.
+        Log::info('Se han desasociado los siguientes cursos: ', $workshops->toArray());
+        Log::info('Para el usuario: '.$user->email);
 
         # Agrega cada uno de los cursos
         foreach ($courses as $workshop)
@@ -151,7 +155,12 @@ class WorkshopController extends Controller
         # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
         if ($workshops->count() > 0)
+        {
+            Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
+            Log::info('Al usuario: '.$user->email);
+
             Mail::to($user)->send(new RegisteredWorkshops($workshops));
+        }
     }
 
     /**
