@@ -47,9 +47,7 @@ class EnvioCorreo extends Command
                 ->where('user_workshop.paid', false);
         })->whereNotNull('email_verified_at')->get()->each(function($user){
 
-            if($user->paid === false){
-                dump($user->email);
-            }
+            dump($user->email);
                 //Mail::mailer('smtp_unirodada')->to($user)->send(new GestionEmail);
         });
 
