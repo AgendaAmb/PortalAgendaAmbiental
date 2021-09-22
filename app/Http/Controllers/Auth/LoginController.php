@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
 {
@@ -66,7 +69,9 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        
+        Log::info($user->toJson());
+
+
         return redirect($this->redirectTo);
     }
 
