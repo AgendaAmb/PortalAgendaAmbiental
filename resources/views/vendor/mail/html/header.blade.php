@@ -8,7 +8,7 @@ else
 if($header_bottom_color === null) 
     $header_bottom_color = 'background-color: #012878;';
 else 
-    $header_bottom_color = 'display:block; background-color: '.$header_bottom_color.'; width: 100%; height: 20px; margin-top: -3px';
+    $header_bottom_color = 'display:block; background-color: '.$header_bottom_color.'; width: 100%; height: 20px;';
 
 @endphp
 
