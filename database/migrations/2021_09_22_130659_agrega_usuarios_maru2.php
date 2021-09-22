@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Auth\Extern;
 use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
