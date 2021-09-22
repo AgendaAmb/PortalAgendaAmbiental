@@ -69,6 +69,19 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
+        $user = $request->user('workers') 
+            ?? $request->user('students')
+            ?? $request->user('web');
+
+        if (Auth::guard('workers')->check())
+            Log::info('Inicio de sesión como trabajador');
+        else if (Auth::guard('students')->check())
+            Log::info('Inicio de sesión como estudiante');
+        else if (Auth::guard('web')->check())
+            Log::info('Inicio de sesión como externo');
+
+        Log::info('Datos de usuario: ', $user->toArray());
+
         return redirect($this->redirectTo);
     }
 
