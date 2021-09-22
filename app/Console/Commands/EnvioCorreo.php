@@ -48,8 +48,6 @@ class EnvioCorreo extends Command
             Mail::mailer('smtp_unirodada')->to($user)->send(new GestionEmail);
         });
 
-        dump($users->count());
-
         return 0;
     }
 }
