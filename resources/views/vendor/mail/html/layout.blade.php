@@ -7,17 +7,17 @@
             
             @font-face {
                 font-family: "MyriadPro-Bold";
-                src: url(/TiposDeLetra/MyriadPro-Bold.otf);
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Bold.otf');
             }
 
             @font-face {
                 font-family: "MyriadPro-Light";
-                src: url(/TiposDeLetra/MyriadPro-Light.otf);
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Light.otf');
             }
 
             @font-face {
                 font-family: "MyriadPro-Regular";
-                src: url(/TiposDeLetra/MyriadPro-Regular.otf);
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Regular.otf');
             }
 
             @media screen and (max-width: 800px) {

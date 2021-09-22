@@ -1,9 +1,23 @@
 /* Base */
+@font-face {
+    font-family: "MyriadPro-Bold";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Bold.otf') format('otf');
+}
+
+@font-face {
+    font-family: "MyriadPro-Light";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Light.otf') format('otf');
+}
+
+@font-face {
+    font-family: "MyriadPro-Regular";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Regular.otf') format('otf');
+}
 
 body,
 body *:not(html):not(style):not(br):not(tr):not(code) {
     box-sizing: border-box;
-    font-family: "MyriadPro-Regular";
+    font-family: "MyriadPro-Regular", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     position: relative;
 }
 
@@ -16,7 +30,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100% !important;
-    font-family: "MyriadPro-Regular"
+    font-family: "MyriadPro-Regular", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 }
 
 p,
@@ -124,7 +138,7 @@ img {
     background-color: #edf2f7;
     border-bottom: 1px solid #edf2f7;
     border-top: 1px solid #edf2f7;
-    font-family: "MyriadPro-Regular";
+    font-family: "Myriad Pro", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
