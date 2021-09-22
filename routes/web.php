@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\Educacion\EducacionEmail;
 use App\Mail\Gestion\GestionEmail;
 use App\Mail\RTIC\RTICEmail;
 use Illuminate\Support\Facades\Auth;
@@ -152,7 +153,7 @@ Route::get('correo/gestion', function(){
 
 Route::get('correo/educacion', function(){
 
-    return new GestionEmail();
+    return new EducacionEmail();
 });
 
 
