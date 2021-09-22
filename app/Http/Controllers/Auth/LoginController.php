@@ -69,9 +69,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        Log::info($user->toJson());
-
-
         return redirect($this->redirectTo);
     }
 
