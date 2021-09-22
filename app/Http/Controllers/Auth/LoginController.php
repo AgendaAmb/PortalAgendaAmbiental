@@ -69,8 +69,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        Log::info('Inicio de sesión con correo: '.$user->email);
-
         return redirect($this->redirectTo);
     }
 
