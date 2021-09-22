@@ -20,21 +20,9 @@
                 src: url(/TiposDeLetra/MyriadPro-Regular.otf);
             }
 
-            tbody > tr > td.mensaje {
-                width: 65% !important;
-                display: block;
-                padding-left: 50px;
-            }
-
-            @media only screen and (max-width: 800px) {
+            @media screen and (max-width: 800px) {
                 .inner-body {
                     width: 100% !important;
-                }
-
-                tbody > tr > td.mensaje {
-                    width: 85% !important;
-                    display: block;
-                    padding-left: 50px;
                 }
                 
                 .footer {
@@ -42,49 +30,58 @@
                 }
             }
             
-            @media only screen and (max-width: 500px) {
+            @media screen and (max-width: 500px) {
                 .button {
                     width: 100% !important;
                 }
+            }
 
-                tbody > tr > td.mensaje {
-                    width: 95% !important;
-                    display: block;
+            @media screen and (min-width: 900px) {
+                .mensaje {
+                    width: 75% !important;
+                    margin-top: 40px;
                     padding-left: 50px;
+                    display: block;
+                }
+            }
+
+            @media screen and (min-width: 600px) and (max-width: 899px) {
+                .mensaje {
+                    width: 85% !important;
+                    margin-top: 40px;
+                    padding-left: 50px;
+                    display: block;
+                }
+            }
+
+            @media screen and (min-width: 300px) and (max-width: 599px){
+                .mensaje {
+                    width: 95% !important;
+                    margin-top: 40px;
+                    padding-left: 50px;
+                    display: block;
                 }
             }
         </style>
     </head>
     <body>
         <table style="width:100%;">
-            <thead>
-                {{ $header ?? '' }}
-            </thead>
+            <thead> {{ $header ?? '' }} </thead>
             <tbody>
                 <tr>
-                    <td style="padding-top:50px; padding-left: 50px; display:block;  font-weight:bold;"> {{ Illuminate\Mail\Markdown::parse($saludo ?? 'Estimad@ usuari@:') }}</td>
+                    <td style="padding-top:50px; padding-left: 50px; display:block;  font-weight:bold;"><h1>  {{ $saludo ?? 'Estimad@ usuari@:' }} </h1></td>
                 </tr>
                 <tr>
-                    <td class="mensaje">{{ Illuminate\Mail\Markdown::parse($slot) }}</td>
+                    <td class="mensaje"><p style="text-align: justify;">{{ $slot }}</p></td>
                 </tr>
                 <tr>
-                    <td>
-
-                        <div style="padding-top:50px; padding-left: 50px; display:block;  font-weight:bold;">
-                        {{ Illuminate\Mail\Markdown::parse($despedida ?? 'Atentamente') }}
-                        </div>
-
-                        <div style="padding:25px; display:block;"> 
-                        {{ $firma ?? '' }}
-                        </div>
-                    </td>
+                    <td style="padding-top:50px; padding-left: 50px; display:block; font-weight:bold;"><h1> {{ $despedida ?? 'Atentamente' }} </h1></td>
+                </tr>
+                <tr>
+                    <td style="padding-top:50px; padding-left: 25px; display:block; font-weight:bold;"> {{ $firma ?? '' }} </td>
                 </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td align="center">{{ $footer ?? '' }}</td>
-                </tr>
-            </tfoot>
+            <tfoot>{{ $footer ?? '' }}</tfoot>
         </table>
     </body>
 </html>

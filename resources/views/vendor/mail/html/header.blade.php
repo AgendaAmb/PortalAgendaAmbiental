@@ -5,6 +5,11 @@ if($color === null)
 else 
     $color = 'background-color: '.$color.';';
 
+if($header_bottom_color === null) 
+    $header_bottom_color = 'background-color: #012878;';
+else 
+    $header_bottom_color = 'display:block; background-color: '.$header_bottom_color.'; width: 100%; height: 20px; margin-top: -3px';
+
 @endphp
 
 <tr>
@@ -16,3 +21,5 @@ else
         </a>
     </td>
 </tr>
+<tr>
+<td style="{{ $header_bottom_color }}"></td></tr>
