@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\RTIC\RTICEmail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -136,6 +137,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/workshops/{userType}/{userId}/{fileName}', 'FileController@verComprobante')
         ->middleware('role:administrator|coordinator|helper')
         ->name('verComprobante');
+});
+
+Route::get('correo', function(){
+
+    return new RTICEmail();
 });
 
 
