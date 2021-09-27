@@ -354,7 +354,7 @@
                                 <option value="Mauricio" id="MU">Mauricio</option>
                                 <option value="Mauritania" id="MR">Mauritania</option>
                                 <option value="Mayotte" id="YT">Mayotte</option>
-                                <option value="México" id="MX">México</option>
+                                <option value="México"  id="MX" >México</option>
                                 <option value="Micronesia" id="FM">Micronesia</option>
                                 <option value="Moldavia" id="MD">Moldavia</option>
                                 <option value="Mónaco" id="MC">Mónaco</option>
@@ -611,7 +611,7 @@
   },
   mounted:function () {
   this.$nextTick(function () {
-
+    this.Pais='México';
     this.ChecarUrl(),
     this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
