@@ -176,20 +176,25 @@ propios.';
                         institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
                         reducción del consumo de energía, la migración hacia el uso de energías renovables, la
                         realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la
-                        participación de la comunidad y el compromiso de sensibilizar a la población.<p></p>
+                        participación de la comunidad y el compromiso de sensibilizar a la población.
+                    </p>
 
-
-                        <h4>Más información</h4>
-                        <p style="font-size: 14px !important;">
-                            <br>Agenda Ambiental de la UASLP<br>
-                            Universidad Autónoma de San Luis Potosí<br>
-                            Manuel Nava No. 201, segundo piso<br>
-                            Zona Universitaria, C.P. 78210<br>
-                            San Luis Potosí, S.L.P.<br>
-                            Tel. 826-2300 Ext. 7215<br>
-                            <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a>
-                            <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
-                        </p>
+                    <h4>Descargas</h4>
+                    <ul>
+                        <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" download> Descargar </a></li>
+                        
+                    </ul>
+                    <h4>Más información</h4>
+                    <p style="font-size:15px !important;text-align: justify;">
+                        Agenda Ambiental de la UASLP<br>
+                        Universidad Autónoma de San Luis Potosí<br>
+                        Manuel Nava No. 201, segundo piso<br>
+                        Zona Universitaria, C.P. 78210<br>
+                        San Luis Potosí, S.L.P.<br>
+                        Tel. 826-2300 Ext. 7215<br>
+                        <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a> <br>
+                        <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
+                    </p>
                 </div>
             </div>
 

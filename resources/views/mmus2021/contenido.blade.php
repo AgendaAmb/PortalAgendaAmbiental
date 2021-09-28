@@ -469,7 +469,7 @@
                                     MUS-ZUP</h2>
 
 
-                                <span><b>Lugar: </b> Av. Industrias y Manuel Nava</span>
+                                <span><b>Lugar: </b> Niño Artillero y Manuel Nava</span>
                                 <br>
                                 <span><b>Fecha: </b> Jueves 30 de septiembre 2021 </span>
                                 <br>
