@@ -153,7 +153,100 @@ $months[] = $date;
         2021
     --}}
 <div class="row tab-content mx-2 justify-content-center" id="myTabContent">
-    <div class="tab-pane fade show active " id="agosto2" role="tabpanel" aria-labelledby="agosto2-tab">
+    <div class="tab-pane fade show active " id="septiembre2" role="tabpanel" aria-labelledby="septiembre2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}"
+                                    class="imgCaoursel w-100 p-0 p-0" alt="First slide">
+                            </a>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}"
+                                    class="imgCaoursel w-100 p-0 p-0" alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                                    alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="agosto2" role="tabpanel" aria-labelledby="agosto2-tab">
         <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
@@ -197,10 +290,10 @@ $months[] = $date;
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
                             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel  w-100 p-0 p-0  "
-                                    alt="First slide">
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0  " alt="First slide">
                             </a>
-                            
+
 
                         </div>
                     </div>
@@ -214,7 +307,7 @@ $months[] = $date;
                                 <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
                                     class="imgCaoursel  w-100 p-0 p-0 " alt="First slide">
                             </a>
-                            
+
 
                         </div>
                     </div>
