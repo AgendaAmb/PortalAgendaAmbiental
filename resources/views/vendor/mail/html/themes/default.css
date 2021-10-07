@@ -1,22 +1,36 @@
 /* Base */
+@font-face {
+    font-family: "MyriadPro-Bold";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Bold.otf') format('otf');
+}
+
+@font-face {
+    font-family: "MyriadPro-Light";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Light.otf') format('otf');
+}
+
+@font-face {
+    font-family: "MyriadPro-Regular";
+    src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Regular.otf') format('otf');
+}
 
 body,
 body *:not(html):not(style):not(br):not(tr):not(code) {
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: "MyriadPro-Regular", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     position: relative;
 }
 
 body {
     -webkit-text-size-adjust: none;
     background-color: #ffffff;
-    color: #718096;
+    color: black;
     height: 100%;
     line-height: 1.4;
     margin: 0;
     padding: 0;
     width: 100% !important;
+    font-family: "MyriadPro-Regular", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 }
 
 p,
@@ -38,7 +52,7 @@ a img {
 /* Typography */
 
 h1 {
-    color: #3d4852;
+    color: black;
     font-size: 18px;
     font-weight: bold;
     margin-top: 0;
@@ -103,10 +117,17 @@ img {
 }
 
 .header a {
-    color: #3d4852;
+    color: black;
     font-size: 19px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.headerBottom {
+    display: block;
+    margin-top: -3px;
+    width: 100%; 
+    height: 20px;
 }
 
 /* Logo */
@@ -124,6 +145,7 @@ img {
     background-color: #edf2f7;
     border-bottom: 1px solid #edf2f7;
     border-top: 1px solid #edf2f7;
+    font-family: "Myriad Pro", "Segoe UI Web (West European)",Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -140,7 +162,7 @@ img {
     box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015);
     margin: 0 auto;
     padding: 0;
-    width: 570px;
+    width: 100%;
 }
 
 /* Subcopy */
@@ -175,7 +197,7 @@ img {
 }
 
 .footer a {
-    color: #b0adc5;
+    color: black;
     text-decoration: underline;
 }
 
@@ -196,11 +218,10 @@ img {
 }
 
 .table td {
-    color: #74787e;
+    color: black;
     font-size: 15px;
     line-height: 18px;
     margin: 0;
-    padding: 10px 0;
 }
 
 .content-cell {

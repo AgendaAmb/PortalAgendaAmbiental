@@ -1,27 +1,30 @@
 @component('mail::layout')
-{{-- Header --}}
-@slot('header')
-@component('mail::header', ['url' => config('app.url'), 'color' => $header_color ?? null])
+    {{-- Header --}}
+    @slot('header')
+        @component('mail::header', ['url' => config('app.url'), 'color' => $header_color ?? null, 'header_bottom_color' => $header_bottom_color ?? ''])
 
-@endcomponent
-@endslot
+        @endcomponent
+    @endslot
 
-{{-- Body --}}
-{{ $slot }}
+    @slot('saludo')
+    {{ $saludo ?? null }}
+    @endslot
 
-{{-- Subcopy --}}
-@isset($subcopy)
-@slot('subcopy')
-@component('mail::subcopy')
-{{ $subcopy }}
-@endcomponent
-@endslot
-@endisset
+    {{-- Body --}}
+    {{ $slot }}
 
-{{-- Footer --}}
-@slot('footer')
-@component('mail::footer', ['color' => $header_color ?? null, 'font_color' => $font_color ?? null])
-© {{ date('Y') }} {{ config('app.name') }}. @lang('Todos los derechos reservados.')
-@endcomponent
-@endslot
+    @slot('despedida')
+    {{ $despedida ?? null }}
+    @endslot
+
+    @slot('firma')
+    {{ $firma ?? null }}
+    @endslot
+
+    {{-- Footer --}}
+    @slot('footer')
+        @component('mail::footer', ['color' => $header_color ?? null, 'font_color' => $font_color ?? null, 'eje_trabajo' => $eje_trabajo ?? null])
+        © {{ date('Y') }} {{ config('app.name') }}. @lang('Todos los derechos reservados.')
+        @endcomponent
+    @endslot
 @endcomponent
