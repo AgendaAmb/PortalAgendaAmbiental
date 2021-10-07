@@ -217,12 +217,14 @@ propios.';
                 </div>
               </div>
               <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                  
                     <div class="modal-body">
-                        <iframe style="width: 100%;height: 500px;;" src="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" frameborder="0"></iframe>
+                       
+                        <iframe style="width: 100%;height: 500px;;"  src="https://docs.google.com/viewer?url=http://148.224.134.160/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"  frameborder="0"></iframe>
                     </div>
+
                   
                   </div>
                 </div>
@@ -373,7 +375,7 @@ propios.';
                     <ul>
                         <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf">
                             Ver pdf
-                              </button></li>
+                        </button></li>
                         <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank" rel="noopener noreferrer">Descargar</a>
                     </ul>
                 </div>
