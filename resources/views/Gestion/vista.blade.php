@@ -197,6 +197,9 @@ propios.';
                 </div>
                 <div class="tab-pane fade" id="Descargas" role="tabpanel" aria-labelledby="contact-tab">
                     <ul>
+                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf">
+                        Ver pdf
+                          </button></li>
                         <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank" rel="noopener noreferrer">Descargar</a>
                     </ul>
                 </div>
@@ -213,7 +216,17 @@ propios.';
                     </p>
                 </div>
               </div>
-           
+              <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                 
+                    <div class="modal-body">
+                        <iframe style="width: 100%;height: 500px;;" src="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" frameborder="0"></iframe>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
               <!--
                 <div class="pSize text-justify m-3">
                 <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
@@ -358,6 +371,9 @@ propios.';
                 </div>
                 <div class="tab-pane fade" id="v-pills-Biblioteca" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                     <ul>
+                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf">
+                            Ver pdf
+                              </button></li>
                         <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank" rel="noopener noreferrer">Descargar</a>
                     </ul>
                 </div>
