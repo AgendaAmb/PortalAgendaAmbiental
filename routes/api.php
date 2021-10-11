@@ -17,42 +17,24 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
     # Obtener usuario.
-    Route::get('/', 'UserController@show')->name('showUser');
+    Route::get('/', 'UserController@show')->name('showUser');       // <--- Verificar si está siendo utilizada.
 
     # Obtener usuario autenticado.
-    Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
+    Route::get('/whoami', 'UserController@whoAmI')->name('whoami'); // <--- Verificar si está siendo utilizada.
 
     # Búsqueda de usuario.
-    Route::get('/search', 'UserController@search')->name('search');
+    Route::get('/search', 'UserController@search')->name('search'); // <--- Verificar si está siendo utilizada.
 });
 
-
-
-# Registra a un usuario, desde un sub-sistema.
-Route::get('/users/{user_type}/{user_id}', 'UserController@show')->name('users.show');
-
-
-
 # Rutas para los sub-sistemas.
-Route::middleware('client')->group(function(){
+Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(function(){
 
     # Registro / recuperación de usuarios. 
-    Route::get('/users', 'UserController@index')->name('users.index');
-    Route::post('/users', 'UserController@store')->name('users.store');
-    //Route::get('/users/{user_type}/{user_id}', 'UserController@show')->name('users.show');
+    Route::get('/', 'UserController@index')->name('index');
+    Route::post('/', 'UserController@store')->name('store');
+    Route::get('/{user_type}/{user_id}', 'UserController@show')->name('show');
 
-
-
-
-
-
-
-    
-    
-    # Registra a un usuario desde una aplicación cliente.
-    Route::post('/registra', 'Auth\RegisterController@register');
-
-    # Módulos de usuario.
+    # Modulos de usuario.
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
 
     # Obtener usuario.

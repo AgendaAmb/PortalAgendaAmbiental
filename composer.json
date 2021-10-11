@@ -18,7 +18,8 @@
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.4",
-        "spatie/laravel-permission": "^4.2"
+        "spatie/laravel-permission": "^4.2",
+        "spatie/laravel-query-builder": "^3.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

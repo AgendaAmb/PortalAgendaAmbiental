@@ -12,6 +12,8 @@ use App\Models\Auth\Worker;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class UserController extends Controller
 {
@@ -69,6 +71,27 @@ class UserController extends Controller
     }
 
     /**
+     * Retrieves a list of users.
+     */
+    public function index()
+    {
+        # Atributos que no se devuelven.
+        $hidden = [
+            'invoice_data','invoice_url','lunch','paid','paid_at',
+            'courses','comments','interested_on_further_courses', 'domain'
+        ];
+
+        # Obtiene los tipos de usuario.
+        $users = QueryBuilder::for(User::class)
+            ->allowedFilters([AllowedFilter::exact('email')])
+            ->setEagerLoads([])
+            ->get()
+            ->makeHidden($hidden);
+
+        return new JsonResponse($users, JsonResponse::HTTP_OK);
+    }
+
+    /**
      * Retrieves an user.
      *
      * @param string $user_type
@@ -83,29 +106,19 @@ class UserController extends Controller
             ->where('type', User::USER_TYPES[$user_type] ?? 'null')
             ->first();
 
+        # El usuario no fue encontrado.
         if ($user === null)
             return new JsonResponse($user, JsonResponse::HTTP_NOT_FOUND);
         
+        # Oculta atributos que no se requieren en otros sistemas.
         $user->makeHidden([
-            'invoice_data',
-            'invoice_url',
-            'lunch',
-            'paid',
-            'paid_at',
-            'interested_on_further_courses',
-            'courses',
-            'comments',
-            'age'
+            'invoice_data','invoice_url','lunch','paid',
+            'paid_at','interested_on_further_courses','courses',
+            'comments','age'
         ]);
 
         return new JsonResponse($user, JsonResponse::HTTP_OK);
     }
-
-
-
-
-
-
 
     /**
      * Retrieves an user by search parameters.
