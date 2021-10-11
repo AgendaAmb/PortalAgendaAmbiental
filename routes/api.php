@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
     # Obtener usuario.
-    Route::get('/', 'UserController@show')->name('show');
+    Route::get('/', 'UserController@show')->name('showUser');
 
     # Obtener usuario autenticado.
     Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
@@ -27,9 +27,28 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 });
 
 
-# Aplicaciones cliente.
+
+# Registra a un usuario, desde un sub-sistema.
+Route::get('/users/{user_type}/{user_id}', 'UserController@show')->name('users.show');
+
+
+
+# Rutas para los sub-sistemas.
 Route::middleware('client')->group(function(){
 
+    # Registro / recuperación de usuarios. 
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::post('/users', 'UserController@store')->name('users.store');
+    //Route::get('/users/{user_type}/{user_id}', 'UserController@show')->name('users.show');
+
+
+
+
+
+
+
+    
+    
     # Registra a un usuario desde una aplicación cliente.
     Route::post('/registra', 'Auth\RegisterController@register');
 
