@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\Educacion\EducacionEmail;
+use App\Mail\Gestion\GestionEmail;
+use App\Mail\RTIC\RTICEmail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -137,6 +140,34 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         ->middleware('role:administrator|coordinator|helper')
         ->name('verComprobante');
 });
+
+Route::get('correo/rtic', function(){
+
+    return new RTICEmail();
+});
+
+Route::get('correo/gestion', function(){
+
+    return new GestionEmail();
+});
+
+Route::get('correo/educacion', function(){
+
+    return new EducacionEmail();
+});
+
+
+Route::get('correo/vinculacion', function(){
+
+    return new GestionEmail();
+});
+
+
+Route::get('correo/comunicacion', function(){
+
+    return new GestionEmail();
+});
+
 
 
 # Expedición de tokens y autorización por parte del

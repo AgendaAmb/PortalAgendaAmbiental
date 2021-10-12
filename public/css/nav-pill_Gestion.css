@@ -1,6 +1,6 @@
 
 .nav-tabs .nav-link.active, .nav-tabs .show > .nav-link{
-    background-color: gray;
+    background-color: #BCBEC0;
     color: white;
 }
 .nav-tabs .nav-link{
@@ -15,8 +15,7 @@
     padding:10px 30px;
     justify-content: center;
     text-align: center;
-    border: 1px solid #dee2e6;
-   
+    border: 1px solid #dee2e6; 
 }
 .nav-tabs{
     border-bottom: 0px solid #dee2e6;
@@ -25,9 +24,46 @@
     background-color: gray;
 }
 
+#myTab .nav-link{
+    background-color: #1C75BC;
+    color: white;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-weight:900;
+    font-size: 14px;
+    width: 20%;
+    border-radius: 0px 0px 0px 0px;
+    padding:10px 30px;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #dee2e6; 
+}
+#myTab .nav-link.active, .nav-tabs .show > .nav-link{
+    background-color: #BCBEC0;
+    color: white;
+}
+#myTab .nav-link:hover{
+    background-color: #BCBEC0;
+}
+.nav-pills .nav-link{
+    background-color: #1C75BC;
+    color: white;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-weight:900;
+    font-size: 14px;
+   width: auto;
+   
+    justify-content: center;
+    text-align: center;
+  
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #BCBEC0;
+}
 
 
- 
 @media only screen and (min-width: 10px) and (max-width: 575px){
     .nav-tabs .nav-link{
         width: 20%;
