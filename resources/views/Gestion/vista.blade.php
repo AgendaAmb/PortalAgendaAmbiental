@@ -214,8 +214,7 @@ Tabs de Gestión Institucional.
                                 institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
                                 reducción del consumo de energía, la migración hacia el uso de energías renovables, la
                                 realización de mejores prácticas energéticas y de transporte, la creación del conocimiento,
-                                la
-                                participación de la comunidad y el compromiso de sensibilizar a la población.
+                                la participación de la comunidad y el compromiso de sensibilizar a la población.
                             </p>
                           
                         </div>
