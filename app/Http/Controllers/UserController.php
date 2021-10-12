@@ -119,7 +119,7 @@ class UserController extends Controller
         $user->makeHidden([
             'invoice_data','invoice_url','lunch','paid',
             'paid_at','interested_on_further_courses','courses',
-            'comments','age'
+            'comments','age', 'type'
         ]);
 
         return new JsonResponse($user, JsonResponse::HTTP_OK);
