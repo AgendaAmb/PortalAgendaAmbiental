@@ -9,6 +9,7 @@ use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
 use App\Models\Auth\Worker;
+use App\Models\Module;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -28,7 +29,7 @@ class UserController extends Controller
 
     /**
      * Tipos de usuario
-     * 
+     *
      * @var array
      */
     private const USER_TYPES = [
@@ -50,7 +51,7 @@ class UserController extends Controller
 
         # Datos de la solicitud
         $data = $request->except(
-            'module_id', 'pertenece_uaslp', 'clave_uaslp', 
+            'module_id', 'pertenece_uaslp', 'clave_uaslp',
             'directorio_activo','password','rpassword',
             'other_gender','is_disabled'
         );
@@ -59,7 +60,7 @@ class UserController extends Controller
         $data['type'] = $user_types[$request->directorio_activo] ?? $user_types['EXTERNO'];
         $data['id'] = $request->clave_uaslp ?? Extern::withTrashed()
             ->where('type', Extern::class)->latest()
-            ->value('id') + 1 
+            ->value('id') + 1
             ?? 1;
 
         # Crea al usuario.
@@ -73,7 +74,7 @@ class UserController extends Controller
     /**
      * Retrieves a list of users.
      */
-    public function index()
+    public function index(Request $request)
     {
         # Atributos que no se devuelven.
         $hidden = [
@@ -81,11 +82,15 @@ class UserController extends Controller
             'courses','comments','interested_on_further_courses', 'domain'
         ];
 
+        # Módulos de usuario.
+        $modules = count($request->only('module')) > 0 ? $request->only('module') : Module::pluck('id');
+
+
         # Obtiene los tipos de usuario.
         $users = QueryBuilder::for(User::class)
             ->allowedFilters([AllowedFilter::exact('email')])
-            ->setEagerLoads([])
-            ->get()
+            ->setEagerLoads([ 'userModules' => fn($query) =>  $query->count() > 0 ])
+            ->whereHas('userModules', fn($query) => $query->whereIn('modules.id', $modules))->get()
             ->makeHidden($hidden);
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
@@ -109,7 +114,7 @@ class UserController extends Controller
         # El usuario no fue encontrado.
         if ($user === null)
             return new JsonResponse($user, JsonResponse::HTTP_NOT_FOUND);
-        
+
         # Oculta atributos que no se requieren en otros sistemas.
         $user->makeHidden([
             'invoice_data','invoice_url','lunch','paid',
@@ -132,7 +137,7 @@ class UserController extends Controller
             $request->search_key, $request->search_value, $request->user_type
         );
 
-        
+
         return $user;
     }
 
