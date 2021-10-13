@@ -40,12 +40,12 @@ propios.';
 </div>
 
 {{--
-    Tabs de Gestión Institucional.
+Tabs de Gestión Institucional.
 --}}
 
 <x-tab-panel>
     {{--
-        Grupo de botones de los tabs.
+    Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons">
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
@@ -70,7 +70,7 @@ propios.';
     <x-slot name="tabContent">
 
         {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE RESIDUOS.
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE RESIDUOS.
         --}}
         <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-4" role="tabpanel"
             aria-labelledby="nav-home-tab">
@@ -95,7 +95,7 @@ propios.';
         </x-tab-panel-content>
 
         {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE AGUA.
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE AGUA.
         --}}
         <x-tab-panel-content class="tab-pane fade show " id="tab-panel-1" role="tabpanel"
             aria-labelledby="nav-home-tab">
@@ -109,7 +109,7 @@ propios.';
         </x-tab-panel-content>
 
         {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE ENERGÍA.
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE ENERGÍA.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-2" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s2" titulo="PROGRAMA UNIVERSITARIO DE ENERGÍA"
@@ -123,8 +123,11 @@ propios.';
                 <x-tab-panel-image :imageURL="asset('img/Gestion/UNIBICI.png')" urlhref="{{route('Unibici')}}" />
                 <x-tab-panel-image :imageURL="asset('img/Gestion/AUTO-COMPARTIDO.png')" />
             </x-tab-panel-footer>
-            <!--
+
+
+
             <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
+            <p>
                 La producción y el consumo energético son los principales responsables del aumento de la temperatura del
                 planeta. El consumo energético en México es de 2 billones de Mega Watts hora (MWh) de los cuales solo el
                 25% proviene de energías renovables. La Ley General de Cambio Climático tiene como objeto incrementar la
@@ -138,248 +141,22 @@ propios.';
                 ambiental y social negativo migrando hacia el uso de energías renovables, la movilidad urbana eficiente,
                 la creación del conocimiento, la participación de la comunidad y el compromiso institucional a través de
                 sus políticas y lineamientos.
-            <ul class="nav nav-tabs w-100 justify-content-around my-4" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link active  w-100" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="home" aria-selected="true">Objetivo general</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link  w-100" id="profile-tab" data-toggle="tab" href="#específicos" role="tab" aria-controls="profile" aria-selected="false">Objetivos específicos</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link  w-100" id="contact-tab" data-toggle="tab" href="#Descripcion" role="tab" aria-controls="contact" aria-selected="false">Descripción</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link  w-100" id="contact-tab" data-toggle="tab" href="#Descargas" role="tab" aria-controls="contact" aria-selected="false">Biblioteca</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link  w-100" id="contact-tab" data-toggle="tab" href="#Informacion" role="tab" aria-controls="contact" aria-selected="false">Más información</a>
-                  </li>
-              </ul>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab"> 
-                    <p>Manejar y gestionar en todo el quehacer de la UASLP estrategias que garanticen el uso responsable
-                    de la energía de forma integral mediante enfoques de desarrollo sostenible que consideran la
-                    movilidad urbana sostenible, el uso de energías renovables y aplicaciones de eficiencia
-                    energética.</p>
-                </div>
-                <div class="tab-pane fade" id="específicos" role="tabpanel" aria-labelledby="profile-tab">
-                    <ul>
-                        <li>Diagnóstico y creación del conocimiento y de las aplicaciones sustentables energéticas en la
-                            actualidad por nuestra comunidad universitaria a través de la comisión de energía. </li>
-                        <li>Estrategias de comunicación, educación y participación de la comunidad en donde se promuevan
-                            y apliquen conocimientos establecidos en busca del uso eficiente de energías renovables.
-                        </li>
-                        <li>Incidir y fomentar la movilidad urbana sostenible mediante proyectos de urbanismo táctico
-                            priorizando los flujos peatonales, movilidad virtual (teletrabajo), electromovilidad y el
-                            uso de transporte colectivo. </li>
-                        <li>Promoción e implementación de la movilidad urbana sostenible a través de programas
-                            institucionales como: Programa Unibici, Programa Autocompartido y Programa Viernes de bici y
-                            creación de más programas. </li>
-                        <li>Realizar foros, conferencias, mesas de trabajo y debate para la integración y participación
-                            intercultural en busca de estrategias técnicas, así como el desarrollo de herramientas
-                            tecnológicas sustentables en bien del desarrollo de energías limpias.</li>
-                        <li>Realizar y modificar instalaciones energéticas eficientes, que consideran energías
-                            renovables y aplicaciones de luminarias tipo LED, que consideren en el diseño la
-                            bioclimática, la orientación y distancia de los edificios. </li>
-                        <li>Extender y vincular el uso eficiente de energías renovables a la sociedad así como la
-                            aplicación de movilidad urbana sostenible mediante programas, proyectos y gestiones
-                            multidisciplinarias e interdisciplinarias.</li>
-                    </ul>
+            </p>
 
-                </div>
-                <div class="tab-pane fade" id="Descripcion" role="tabpanel" aria-labelledby="contact-tab">
-                    El presente programa se dirige a la comunidad universitaria de la
-                        UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
-                        impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
-                        institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
-                        reducción del consumo de energía, la migración hacia el uso de energías renovables, la
-                        realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la
-                        participación de la comunidad y el compromiso de sensibilizar a la población.
-                </div>
-                <div class="tab-pane fade" id="Descargas" role="tabpanel" aria-labelledby="contact-tab">
-                    <ul>
-                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf">
-                        Ver pdf
-                          </button></li>
-                        <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank" rel="noopener noreferrer">Descargar</a>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="Informacion" role="tabpanel" aria-labelledby="contact-tab">
-                    <p style="font-size:15px !important;text-align: justify;">
-                        Agenda Ambiental de la UASLP<br>
-                        Universidad Autónoma de San Luis Potosí<br>
-                        Manuel Nava No. 201, segundo piso<br>
-                        Zona Universitaria, C.P. 78210<br>
-                        San Luis Potosí, S.L.P.<br>
-                        Tel. 826-2300 Ext. 7215<br>
-                        <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a> <br>
-                        <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
-                    </p>
-                </div>
-              </div>
-              <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content">
-                 
-                    <div class="modal-body">
-                       
-                        <iframe style="width: 100%;height: 500px;;"  src="https://docs.google.com/viewer?url=http://148.224.134.160/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"  frameborder="0"></iframe>
+            <div class="row my-4">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-general"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">Objetivo general</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-especificos"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">Objetivos específicos</a>
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-Descripcion"
+                            role="tab" aria-controls="v-pills-messages" aria-selected="false">Descripción</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Biblioteca"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Biblioteca</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-informacion"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Más información</a>
                     </div>
-
-                  
-                  </div>
-                </div>
-              </div>
-              <!--
-                <div class="pSize text-justify m-3">
-                <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
-                La producción y el consumo energético son los principales responsables del aumento de la temperatura del
-                planeta. El consumo energético en México es de 2 billones de Mega Watts hora (MWh) de los cuales solo el
-                25% proviene de energías renovables. La Ley General de Cambio Climático tiene como objeto incrementar la
-                producción de energía limpia hasta un 35% para el 2024 y promover la transición hacia una economía
-                competitiva, sustentable y de bajas emisiones de carbono buscando disminuir el impacto negativo del uso
-                de energía en todos los sectores.
-                La UASLP se suma a través de su Programa Universitario de Energía, el cual pretende incidir, fomentar y
-                fortalecer el vínculo de la comunidad UASLP con su hábitat, sensibilizando del impacto negativo que
-                generan algunos tipos de producción de energía para así introducir nuevas estrategias de ahorro de
-                consumo energético mediante el cumplimiento de estándares y criterios en donde se minimice un impacto
-                ambiental y social negativo migrando hacia el uso de energías renovables, la movilidad urbana eficiente,
-                la creación del conocimiento, la participación de la comunidad y el compromiso institucional a través de
-                sus políticas y lineamientos.
-
-                <div style="font-size: 15px; font-family: 'Myraid light';" class="mt-4">
-                    <h3>Objetivo general</h3>
-                    <p>Manejar y gestionar en todo el quehacer de la UASLP estrategias que garanticen el uso responsable
-                        de la energía de forma integral mediante enfoques de desarrollo sostenible que consideran la
-                        movilidad urbana sostenible, el uso de energías renovables y aplicaciones de eficiencia
-                        energética.</p>
-                    <br>
-                    <h3>Objetivos específicos</h3>
-                    <ul>
-                        <li>Diagnóstico y creación del conocimiento y de las aplicaciones sustentables energéticas en la
-                            actualidad por nuestra comunidad universitaria a través de la comisión de energía. </li>
-                        <li>Estrategias de comunicación, educación y participación de la comunidad en donde se promuevan
-                            y apliquen conocimientos establecidos en busca del uso eficiente de energías renovables.
-                        </li>
-                        <li>Incidir y fomentar la movilidad urbana sostenible mediante proyectos de urbanismo táctico
-                            priorizando los flujos peatonales, movilidad virtual (teletrabajo), electromovilidad y el
-                            uso de transporte colectivo. </li>
-                        <li>Promoción e implementación de la movilidad urbana sostenible a través de programas
-                            institucionales como: Programa Unibici, Programa Autocompartido y Programa Viernes de bici y
-                            creación de más programas. </li>
-                        <li>Realizar foros, conferencias, mesas de trabajo y debate para la integración y participación
-                            intercultural en busca de estrategias técnicas, así como el desarrollo de herramientas
-                            tecnológicas sustentables en bien del desarrollo de energías limpias.</li>
-                        <li>Realizar y modificar instalaciones energéticas eficientes, que consideran energías
-                            renovables y aplicaciones de luminarias tipo LED, que consideren en el diseño la
-                            bioclimática, la orientación y distancia de los edificios. </li>
-                        <li>Extender y vincular el uso eficiente de energías renovables a la sociedad así como la
-                            aplicación de movilidad urbana sostenible mediante programas, proyectos y gestiones
-                            multidisciplinarias e interdisciplinarias.</li>
-                    </ul><br>
-                    <h3>Descripción</h3>
-                    <p style="text-align: justify;">El presente programa se dirige a la comunidad universitaria de la
-                        UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
-                        impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
-                        institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
-                        reducción del consumo de energía, la migración hacia el uso de energías renovables, la
-                        realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la
-                        participación de la comunidad y el compromiso de sensibilizar a la población.
-                    </p>
-
-                    <h4>Descargas</h4>
-                    <ul>
-                        <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" download> Descargar </a></li>
-                        
-                    </ul>
-                    <h4>Más información</h4>
-                    <p style="font-size:15px !important;text-align: justify;">
-                        Agenda Ambiental de la UASLP<br>
-                        Universidad Autónoma de San Luis Potosí<br>
-                        Manuel Nava No. 201, segundo piso<br>
-                        Zona Universitaria, C.P. 78210<br>
-                        San Luis Potosí, S.L.P.<br>
-                        Tel. 826-2300 Ext. 7215<br>
-                        <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a> <br>
-                        <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
-                    </p>
-                </div>
-            
-            </div>
-        -->
-        <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
-        La producción y el consumo energético son los principales responsables del aumento de la temperatura del
-        planeta. El consumo energético en México es de 2 billones de Mega Watts hora (MWh) de los cuales solo el
-        25% proviene de energías renovables. La Ley General de Cambio Climático tiene como objeto incrementar la
-        producción de energía limpia hasta un 35% para el 2024 y promover la transición hacia una economía
-        competitiva, sustentable y de bajas emisiones de carbono buscando disminuir el impacto negativo del uso
-        de energía en todos los sectores.
-        La UASLP se suma a través de su Programa Universitario de Energía, el cual pretende incidir, fomentar y
-        fortalecer el vínculo de la comunidad UASLP con su hábitat, sensibilizando del impacto negativo que
-        generan algunos tipos de producción de energía para así introducir nuevas estrategias de ahorro de
-        consumo energético mediante el cumplimiento de estándares y criterios en donde se minimice un impacto
-        ambiental y social negativo migrando hacia el uso de energías renovables, la movilidad urbana eficiente,
-        la creación del conocimiento, la participación de la comunidad y el compromiso institucional a través de
-        sus políticas y lineamientos.
-        <div class="row my-4">
-            <div class="col-3">
-              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-home" aria-selected="true">Objetivo general</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-especificos" role="tab" aria-controls="v-pills-profile" aria-selected="false">Objetivos específicos</a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-Descripcion" role="tab" aria-controls="v-pills-messages" aria-selected="false">Descripción</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Biblioteca" role="tab" aria-controls="v-pills-settings" aria-selected="false">Biblioteca</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-informacion" role="tab" aria-controls="v-pills-settings" aria-selected="false">Más información</a>
-            </div>
-            </div>
-            <div class="col-9">
-              <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <p>Manejar y gestionar en todo el quehacer de la UASLP estrategias que garanticen el uso responsable
-                        de la energía de forma integral mediante enfoques de desarrollo sostenible que consideran la
-                        movilidad urbana sostenible, el uso de energías renovables y aplicaciones de eficiencia
-                        energética.</p>
-                </div>
-                <div class="tab-pane fade" id="v-pills-especificos" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <ul>
-                        <li>Diagnóstico y creación del conocimiento y de las aplicaciones sustentables energéticas en la
-                            actualidad por nuestra comunidad universitaria a través de la comisión de energía. </li>
-                        <li>Estrategias de comunicación, educación y participación de la comunidad en donde se promuevan
-                            y apliquen conocimientos establecidos en busca del uso eficiente de energías renovables.
-                        </li>
-                        <li>Incidir y fomentar la movilidad urbana sostenible mediante proyectos de urbanismo táctico
-                            priorizando los flujos peatonales, movilidad virtual (teletrabajo), electromovilidad y el
-                            uso de transporte colectivo. </li>
-                        <li>Promoción e implementación de la movilidad urbana sostenible a través de programas
-                            institucionales como: Programa Unibici, Programa Autocompartido y Programa Viernes de bici y
-                            creación de más programas. </li>
-                        <li>Realizar foros, conferencias, mesas de trabajo y debate para la integración y participación
-                            intercultural en busca de estrategias técnicas, así como el desarrollo de herramientas
-                            tecnológicas sustentables en bien del desarrollo de energías limpias.</li>
-                        <li>Realizar y modificar instalaciones energéticas eficientes, que consideran energías
-                            renovables y aplicaciones de luminarias tipo LED, que consideren en el diseño la
-                            bioclimática, la orientación y distancia de los edificios. </li>
-                        <li>Extender y vincular el uso eficiente de energías renovables a la sociedad así como la
-                            aplicación de movilidad urbana sostenible mediante programas, proyectos y gestiones
-                            multidisciplinarias e interdisciplinarias.</li>
-                    </ul>
-
-                </div>
-                <div class="tab-pane fade" id="v-pills-Descripcion" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    El presente programa se dirige a la comunidad universitaria de la
-                    UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
-                    impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
-                    institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
-                    reducción del consumo de energía, la migración hacia el uso de energías renovables, la
-                    realización de mejores prácticas energéticas y de transporte, la creación del conocimiento, la
-                    participación de la comunidad y el compromiso de sensibilizar a la población.
-                </div>
-                <div class="tab-pane fade" id="v-pills-Biblioteca" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <ul>
-                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf">
-                            Ver pdf
-                        </button></li>
-                        <li>Lineamientos LED Depto. Mantenimiento <a href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank" rel="noopener noreferrer">Descargar</a>
-                    </ul>
                 </div>
                 <div class="col-9">
                     <div class="tab-content" id="v-pills-tabContent">
@@ -430,21 +207,23 @@ propios.';
                         </div>
                         <div class="tab-pane fade" id="v-pills-Descripcion" role="tabpanel"
                             aria-labelledby="v-pills-messages-tab">
-                            El presente programa se dirige a la comunidad universitaria de la
-                            UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
-                            impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
-                            institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
-                            reducción del consumo de energía, la migración hacia el uso de energías renovables, la
-                            realización de mejores prácticas energéticas y de transporte, la creación del conocimiento,
-                            la
-                            participación de la comunidad y el compromiso de sensibilizar a la población.
+                            <p>
+                                El presente programa se dirige a la comunidad universitaria de la
+                                UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
+                                impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
+                                institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
+                                reducción del consumo de energía, la migración hacia el uso de energías renovables, la
+                                realización de mejores prácticas energéticas y de transporte, la creación del conocimiento,
+                                la participación de la comunidad y el compromiso de sensibilizar a la población.
+                            </p>
+
                         </div>
                         <div class="tab-pane fade" id="v-pills-Biblioteca" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
                             <ul>
-                                <li>Lineamientos LED Depto. Mantenimiento <a
-                                        href="/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf" target="_blank"
-                                        rel="noopener noreferrer">Descargar</a>
+                                <li>Lineamientos LED Depto. Mantenimiento
+                                    <a data-toggle="modal" href=""data-target="#pdf">PDF</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="v-pills-informacion" role="tabpanel"
@@ -465,11 +244,30 @@ propios.';
                     </div>
                 </div>
             </div>
-        -->
+            <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+
+                    <div class="modal-content">
+                        <div class="col-12  p-0">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <iframe style="width: 100%;height: 750px;"
+                                src="https://docs.google.com/viewer?url=http://148.224.134.160/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"
+                                frameborder="0"></iframe>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
         </x-tab-panel-content>
 
         {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD.
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-3" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s3" titulo="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
@@ -491,7 +289,7 @@ propios.';
 
 
         {{--
-            Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
         --}}
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-5" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s5" titulo="BIBLIOTECA"
@@ -509,11 +307,12 @@ propios.';
         </x-tab-panel-content>
     </x-slot>
 </x-tab-panel>
+
 @endsection
 
 {{--
-    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
-    los botones del nav-tab
+Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+los botones del nav-tab
 --}}
 @push('stylesheets')
 <link href="{{ asset('css/nav-pill_Gestion.css') }}" rel="stylesheet" type="text/css">
@@ -521,21 +320,21 @@ propios.';
 
 
 {{--
-    Hace push a la pila de las hojas de estilo, para indicar estilos y color de
-    los botones del nav-tab
+Hace push a la pila de las hojas de estilo, para indicar estilos y color de
+los botones del nav-tab
 --}}
 @push('scripts')
 <script src="{{ asset('js/odsGestion.js') }}"></script>
 <!--
 <script>
     window.addEventListener("resize", function(){
-    $(function() 
+    $(function()
   {
     if (screen.width > 10 && screen.width <575) {
-  
+
    $('#v-pills-tab').removeClass('nav-pills');
    $('#v-pills-tab').addClass('nav-tabs');
-   
+
 
 
  }else if(screen.width >575){
@@ -545,14 +344,14 @@ propios.';
   });
 });
 
-$(function() 
+$(function()
   {
     if (screen.width > 10 && screen.width <575) {
-  
+
    $('#v-pills-tab').removeClass('nav-pills');
    $('#v-pills-tab').addClass('nav-tabs');
- 
-  
+
+
 
  }else if(screen.width >575){
    $('#v-pills-tab').removeClass('nav-tabs');
@@ -560,9 +359,9 @@ $(function()
  }
 });
 
-   
 
-    
+
+
 </script>
 -->
 @endpush
