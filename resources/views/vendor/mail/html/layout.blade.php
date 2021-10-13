@@ -1,54 +1,87 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<style>
-@media only screen and (max-width: 600px) {
-.inner-body {
-width: 100% !important;
-}
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            
+            @font-face {
+                font-family: "MyriadPro-Bold";
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Bold.otf');
+            }
 
-.footer {
-width: 100% !important;
-}
-}
+            @font-face {
+                font-family: "MyriadPro-Light";
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Light.otf');
+            }
 
-@media only screen and (max-width: 500px) {
-.button {
-width: 100% !important;
-}
-}
-</style>
+            @font-face {
+                font-family: "MyriadPro-Regular";
+                src: url('https://ambiental.uaslp.mx/TiposDeLetra/MyriadPro-Regular.otf');
+            }
 
-<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-<tr>
-<td align="center">
-<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-{{ $header ?? '' }}
+            @media screen and (max-width: 800px) {
+                .inner-body {
+                    width: 100% !important;
+                }
+                
+                .footer {
+                        width: 100% !important;
+                }
+            }
+            
+            @media screen and (max-width: 500px) {
+                .button {
+                    width: 100% !important;
+                }
+            }
 
-<!-- Email Body -->
-<tr>
-<td class="body" width="100%" cellpadding="0" cellspacing="0">
-<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-<!-- Body content -->
-<tr>
-<td class="content-cell">
-{{ Illuminate\Mail\Markdown::parse($slot) }}
+            @media screen and (min-width: 900px) {
+                .mensaje {
+                    width: 75% !important;
+                    margin-top: 40px;
+                    padding-left: 50px;
+                    display: block;
+                }
+            }
 
-{{ $subcopy ?? '' }}
-</td>
-</tr>
-</table>
-</td>
-</tr>
+            @media screen and (min-width: 600px) and (max-width: 899px) {
+                .mensaje {
+                    width: 85% !important;
+                    margin-top: 40px;
+                    padding-left: 50px;
+                    display: block;
+                }
+            }
 
-{{ $footer ?? '' }}
-</table>
-</td>
-</tr>
-</table>
-</body>
+            @media screen and (min-width: 300px) and (max-width: 599px){
+                .mensaje {
+                    width: 95% !important;
+                    margin-top: 40px;
+                    padding-left: 50px;
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <table style="width:100%;">
+            <thead> {{ $header ?? '' }} </thead>
+            <tbody>
+                <tr>
+                    <td style="padding-top:50px; padding-left: 50px; display:block;  font-weight:bold;"><h1>  {{ $saludo ?? 'Estimad@ usuari@:' }} </h1></td>
+                </tr>
+                <tr>
+                    <td class="mensaje"><p style="text-align: justify;">{{ $slot }}</p></td>
+                </tr>
+                <tr>
+                    <td style="padding-top:50px; padding-left: 50px; display:block; font-weight:bold;"><h1> {{ $despedida ?? 'Atentamente' }} </h1></td>
+                </tr>
+                <tr>
+                    <td style="padding-top:50px; padding-left: 25px; display:block; font-weight:bold;"> {{ $firma ?? '' }} </td>
+                </tr>
+            </tbody>
+            <tfoot>{{ $footer ?? '' }}</tfoot>
+        </table>
+    </body>
 </html>
