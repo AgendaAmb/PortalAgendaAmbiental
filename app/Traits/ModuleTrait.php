@@ -56,35 +56,4 @@ trait ModuleTrait
     {
         $this->userModules()->detach($module->id);
     }
-
-    /**
-     * Verifica el correo electrónico del usuario en
-     * el módulo indicado.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function verifyEmailOn(Module $module)
-    {
-        $this->userModules()
-             ->updateExistingPivot($module->id, [
-            'email_verified_at' => Carbon::now()
-        ]);
-    }
-
-    /**
-     * Verifica el correo electrónico del usuario en
-     * el módulo indicado.
-     *
-     * @param Module $module
-     * @return void
-     */
-    public function hasEmailVerifiedOn(Module $module)
-    {
-        return $this
-                ->userModules()
-                ->wherePivot('module_id', $module->id)
-                ->wherePivotNotNull('email_verified_at')
-                ->get() !== null;
-    }
 }

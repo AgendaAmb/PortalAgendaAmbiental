@@ -26,20 +26,23 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
     Route::get('/search', 'UserController@search')->name('search'); // <--- Verificar si está siendo utilizada.
 });
 
-
 # Rutas para los sub-sistemas.
 Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(function(){
 
     # Registro / recuperación de usuarios.
-    Route::get('/usuarios', 'UserController@index')->name('index');
+    Route::get('/', 'UserController@index')->name('index');
     Route::post('/', 'UserController@store')->name('store');
-    Route::get('/{user_type}/{user_id}', 'UserController@show')->name('show');
 
-    # Modulos de usuario.
-    Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
+    # Registro / Recuperación de módulos de usuario.
+    Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
+    Route::post('modulos', 'UserModuleController@store')->name('modulos.store');
 
     # Obtener usuario.
     Route::get('/searchuser', 'UserController@search')->name('search');
+});
+
+# Ruta exclusiva de 17 Gemas (por ahora será para que no truene :v).
+Route::middleware('client')->group(function(){
 
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');

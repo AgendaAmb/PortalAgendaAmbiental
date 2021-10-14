@@ -6,7 +6,6 @@ use App\Http\Requests\StoreUserModuleRequest;
 use App\Models\Auth\User;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Crypt;
 
 class UserModuleController extends Controller
 {
@@ -18,7 +17,7 @@ class UserModuleController extends Controller
      */
     public function index(Module $module)
     {
-        return $module->users();
+        return new JsonResponse($module->users, JsonResponse::HTTP_OK);
     }
 
     /**
@@ -40,28 +39,5 @@ class UserModuleController extends Controller
         }
 
         return response('User already registered', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param string $module,
-     * @param string $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function verifyEmail($module, $user)
-    {
-        /** @var Module */
-        $decrypted_module = Crypt::decrypt($module);
-        
-        /** @var User */
-        $decrypted_user = Crypt::decrypt($user);
-
-        # Verifica el email del usuario en el módulo.
-        $decrypted_user->verifyEmailOn($decrypted_module);
-
-
-        return redirect()->route('login');
     }
 }
