@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Auth\User;
 use App\Traits\UserTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
