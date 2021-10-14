@@ -41,6 +41,9 @@ Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(functi
 # Ruta exclusiva de 17 Gemas (por ahora será para que no truene :v).
 Route::middleware('client')->group(function(){
 
+    # Módulos de usuario.
+    Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);
+
     # Obtener usuario.
     Route::get('/searchuser', 'UserController@search')->name('search');
 
