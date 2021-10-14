@@ -36,13 +36,13 @@ Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(functi
     # Registro / Recuperación de módulos de usuario.
     Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
     Route::post('modulos', 'UserModuleController@store')->name('modulos.store');
-
-    # Obtener usuario.
-    Route::get('/searchuser', 'UserController@search')->name('search');
 });
 
 # Ruta exclusiva de 17 Gemas (por ahora será para que no truene :v).
 Route::middleware('client')->group(function(){
+
+    # Obtener usuario.
+    Route::get('/searchuser', 'UserController@search')->name('search');
 
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
