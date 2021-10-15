@@ -30,7 +30,7 @@ class UserModuleController extends Controller
     {
         # Usuario autenticado
         $user = User::retrieveById($request->user_id, $request->user_type);
-        $module = Module::findOrFail($request->module_id);
+        $module = Module::find($request->module_id);
 
         # Añade el módulo al usuario, si no pertenece a él.
         if (!$user->hasModule($module->name))
