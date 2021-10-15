@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 # Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
-    # Obtener usuario.
-    Route::get('/', 'UserController@show')->name('showUser');       // <--- Verificar si está siendo utilizada.
-
     # Obtener usuario autenticado.
-    Route::get('/whoami', 'UserController@whoAmI')->name('whoami'); // <--- Verificar si está siendo utilizada.
+    Route::get('/whoami', 'UserController@whoAmI')->name('whoami'); 
 
     # Búsqueda de usuario.
     Route::get('/search', 'UserController@search')->name('search'); // <--- Verificar si está siendo utilizada.
@@ -36,9 +33,11 @@ Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(functi
     # Registro / Recuperación de módulos de usuario.
     Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
     Route::post('modulos', 'UserModuleController@store')->name('modulos.store');
+
+
 });
 
-# Ruta exclusiva de 17 Gemas (por ahora será para que no truene :v).
+# Rutas exclusiva de 17 Gemas. Por ahora están así para que no truene, pero van arriba >:v
 Route::middleware('client')->group(function(){
 
     # Módulos de usuario.
