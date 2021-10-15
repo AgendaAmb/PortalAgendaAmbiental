@@ -26,6 +26,28 @@ class UserModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function nuevo(StoreUserModuleRequest $request)
+    {
+        # Usuario autenticado
+        $user = User::retrieveById($request->user_id, $request->user_type);
+        $module = Module::findOrFail($request->module_id);
+
+        # Añade el módulo al usuario, si no pertenece a él.
+        if (!$user->hasModule($module->name))
+        {
+            $user->attachModule($module);
+            return response('Successful', JsonResponse::HTTP_OK);
+        }
+
+        return response('User already registered', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Module $module, StoreUserModuleRequest $request)
     {
         # Usuario autenticado
@@ -33,7 +55,7 @@ class UserModuleController extends Controller
 
         # Añade el módulo al usuario, si no pertenece a él.
         if (!$user->hasModule($module->name))
-        { 
+        {
             $user->attachModule($module);
             return response('Successful', JsonResponse::HTTP_OK);
         }

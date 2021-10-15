@@ -16,7 +16,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $user->notify(new VerifyEmail());
+        //$user->notify(new VerifyEmail());
     }
 
     /**
@@ -38,7 +38,7 @@ class UserObserver
      */
     public function deleted(User $user)
     {
-        
+
     }
 
     /**

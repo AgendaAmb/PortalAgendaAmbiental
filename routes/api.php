@@ -32,9 +32,7 @@ Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(functi
 
     # Registro / Recuperación de módulos de usuario.
     Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
-    Route::post('modulos', 'UserModuleController@store')->name('modulos.store');
-
-
+    Route::post('modulos', 'UserModuleController@nuevo')->name('modulos.nuevo');
 });
 
 # Rutas exclusiva de 17 Gemas. Por ahora están así para que no truene, pero van arriba >:v
