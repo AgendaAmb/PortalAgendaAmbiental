@@ -20,6 +20,7 @@ Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
 
+
 Route::get('/Concurso17gemas', function ($NombreM=null) {
     return view('17Gemas.contenido')->with('NombreM',$NombreM);
 })->name('Gemas');
@@ -167,7 +168,6 @@ Route::get('correo/comunicacion', function(){
 
     return new GestionEmail();
 });
-
 
 
 # Expedición de tokens y autorización por parte del

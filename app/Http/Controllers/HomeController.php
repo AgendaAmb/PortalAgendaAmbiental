@@ -74,11 +74,13 @@ class HomeController extends Controller
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
+
+
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);
     }
 
-
+    
     /**
      * Obtiene el listado de usuarios de la unirodada.
      *

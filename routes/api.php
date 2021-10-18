@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/getAllModules', 'ModuleController@getAllModules')->name('getAllModules');
 # Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
+   
 
     # Obtener usuario.
     Route::get('/', 'UserController@show')->name('show');
@@ -24,6 +25,7 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 
     # Búsqueda de usuario.
     Route::get('/search', 'UserController@search')->name('search');
+   
 });
 
 
@@ -38,7 +40,7 @@ Route::middleware('client')->group(function(){
 
     # Obtener usuario.
     Route::get('/searchuser', 'UserController@search')->name('search');
-
+   
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
 });
