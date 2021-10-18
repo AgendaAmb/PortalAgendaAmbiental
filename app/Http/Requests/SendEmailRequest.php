@@ -24,7 +24,8 @@ class SendEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'work_edge' => ['required', 'in:Gestión,Educación,Vinculación,Comunicación,RTIC']
+            'work_edge' => ['required', 'in:Gestión,Educación,Vinculación,Comunicación,RTIC'],
+            'emails.*' => []
         ];
     }
 }

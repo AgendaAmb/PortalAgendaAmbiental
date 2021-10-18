@@ -14,12 +14,14 @@ class CreateCorreosTable extends Migration
     public function up()
     {
         Schema::create('correos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('email')->unique();
-            
-            $table->foreignId('eje_id')
-                ->constrained('ejes')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger('eje_id')->nullable();
+
+            $table->foreign('eje_id')
+            ->references('id')
+            ->on('ejes')
+            ->onDelete('cascade');
 
             $table->timestamps();
         });
