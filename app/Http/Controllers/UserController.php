@@ -94,8 +94,7 @@ class UserController extends Controller
                 AllowedFilter::exact('email'),
             ])
             ->setEagerLoads([])
-            ->whereHas('userModules', fn($query) => $query->whereIn('modules.id', $modules))->get()
-            ->makeHidden($hidden);
+            ->get()->makeHidden($hidden);
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
     }
@@ -127,22 +126,6 @@ class UserController extends Controller
         ]);
 
         return new JsonResponse($user, JsonResponse::HTTP_OK);
-    }
-
-    /**
-     * Retrieves an user by search parameters.
-     *
-     * @var string
-     */
-    public function search(SearchUserRequest $request)
-    {
-        # Recupera al usuario.
-        $user = User::retrieveBySearchKey(
-            $request->search_key, $request->search_value, $request->user_type
-        );
-
-
-        return $user;
     }
 
     /**
