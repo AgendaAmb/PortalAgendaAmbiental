@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Correos;
+use App\Http\Requests\SendEmailRequest;
 use Illuminate\Http\Request;
 
 class CorreosController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendEmail(SendEmailRequest $request)
+    {
+
+    }
+
     /**
      * Display a listing of the resource.
      *
