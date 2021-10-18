@@ -247,12 +247,12 @@
                 <div class="form-row">
                     <label for="validationDefault01">Correo remitente</label>
                     <div class="col-md-6 mb-3">
-                        <select class="custom-select" id="validationDefault04" required>
+                        <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
                             <option selected disabled value="">Remitente</option>
-                            <option>Gestión</option>
-                            <option>Educación</option>
-                            <option>Vinculación</option>
-                            <option>Comunicación</option>
+                            <option>coordinacion.academica@uaslp.mx</option>
+                            <option>pmpca@uaslp.mx</option>
+                            <option>pmpca.enrem@uaslp.mx</option>
+                            <option>imarec.academico@uaslp.mx</option>
                           </select>
                     </div>
                 </div>
@@ -568,7 +568,8 @@
     Lunch:'',
     lunchRegister:false,
     modulos:[],
-    workshop:[]
+    workshop:[],
+    CorreoRemitente:''
 
   },
   mounted: function () {
