@@ -24,7 +24,7 @@ class CorreosController extends Controller
 
         $users = User::whereHas('workshops', function($query) use ($data){
             $query->where('name', $data['Destinatario']);
-        })->first();
+        })->get();
 
 
         Mail::to($users)->send(new EmailLayout($data['Contenido']), $eje, $data['Asunto']);
