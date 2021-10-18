@@ -3,13 +3,31 @@
 namespace App\Http\Requests;
 
 use App\Traits\JsonResponseTrait;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
 class RegisterRequest extends FormRequest
 {
+    /**
+     * Send a JSON response for any failed validation.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator $validator
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        Log::error('Usuario no registrado. Errores:');
+        Log::error($validator->errors()->toArray());
+
+        return parent::failedValidation($validator);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
