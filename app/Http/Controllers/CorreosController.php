@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Correos;
+use App\Models\Correos;
 use Illuminate\Http\Request;
 
 class CorreosController extends Controller
