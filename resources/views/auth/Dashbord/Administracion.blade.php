@@ -243,7 +243,7 @@
         </div>
         <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <h1 class="text-center mt-3">Correos</h1>
-            <form action="" method="post" class="text-left">
+            <form @submit.prevent="enviarCorreo" method="post" class="text-left">
 
                 <div class="form-group row was-validated justify-content-center">
                     <label for="emailR" class="col-sm-1 col-form-label">Correo remitente</label>
@@ -286,6 +286,21 @@
                     <div class="col-4">
                         <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
                     </div>
+                </div>
+               
+                <div class="form-group row justify-content-end">
+                    <div class="col-md-6 col-6 p-0">
+
+                        <button class="btn btn-success" type="submit" value="Submit"
+                            v-if="!spinnerVisible">Enviar correo</button>
+                        <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                            <span class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                            Enviando
+                        </button>
+
+                    </div>
+
                 </div>
             </form>
 
