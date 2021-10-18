@@ -59,7 +59,11 @@ class CreatePermissionTables extends Migration
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_roles_model_id_model_type_index');
+            $table->foreign([$columnNames['model_morph_key'], 'model_type'])
+                ->references(['id', 'type'])
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('role_id')
                 ->references('id')

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Correos extends Model
 {
-    protected $table = 'Correos';
+    protected $table = 'correos';
 
     public function eje()
     {
