@@ -1033,7 +1033,10 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
+            dateClick:function(info){
+            $('#Registro17gemas').modal('show')
 
+          },
             headerToolbar: {
               start: 'prev,next',
                 center:'title',
@@ -1041,7 +1044,7 @@
             initialView: 'dayGridMonth'
 
           });
-
+         
           calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();

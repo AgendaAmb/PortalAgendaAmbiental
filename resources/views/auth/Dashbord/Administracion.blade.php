@@ -12,8 +12,8 @@
                 aria-selected="true">Usuarios</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" @click="cargarModulos()"
-                aria-selected="false">Correos</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                @click="cargarModulos()" aria-selected="false">Correos</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
@@ -241,52 +241,50 @@
                 </tfoot>
             </table>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <h1 class="text-center">Correos</h1>
-            <form action="" method="post">
-                <div class="form-row">
-                    <label for="validationDefault01">Correo remitente</label>
-                    <div class="col-md-6 mb-3">
+        <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h1 class="text-center mt-3">Correos</h1>
+            <form action="" method="post" class="text-left">
+
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Correo remitente</label>
+                    <div class="col-4">
                         <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
                             <option selected disabled value="">Remitente</option>
-                            <option>coordinacion.academica@uaslp.mx</option>
-                            <option>pmpca@uaslp.mx</option>
-                            <option>pmpca.enrem@uaslp.mx</option>
-                            <option>imarec.academico@uaslp.mx</option>
-                          </select>
+                            <option :value="correo.email" v-for="correo in Correos">@{{correo.email}}</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-row">
-                    <label for="validationDefault01">Para</label>
-                    <div class="col-md-6 mb-3">
-                        <select class="custom-select" id="validationDefault05" required>
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Destinatario</label>
+                    <div class="col-4">
+                        <select class="custom-select" id="validationDefault05" required v-model="Destinatario">
                             <option selected disabled value="">Destinatario</option>
-                            <option value="" v-for="work in workshop">@{{work.name}}</option>
-                            <option value="" v-for="modulo in modulos">@{{modulo.name}}</option>
-                          </select>
+                            <option :value="work.name" v-for="work in workshop">@{{work.name}}</option>
+                            <option :value="modulo.name" v-for="modulo in modulos">@{{modulo.name}}</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-row">
-                   
-                    <label for="validationDefault01">CC</label>
-                    
-                    <div class="col-md-6 mb-3">
-                    <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 75%">
-                        <option value="" v-for="user in users">@{{user.name}}</option>
-                      </select>
+
+                <div class="form-group row was-validated justify-content-center d-none">
+                    <label for="emailR" class="col-sm-1 col-form-label">CC</label>
+                    <div class="col-4">
+                        <select class="js-example-basic-multiple" v-model="cc" name="CC[]" multiple="multiple" style="width: 100%" >
+                            <option :value="user.id" v-for="user in users">@{{user.name}}</option>
+                        </select>
                     </div>
-                    
                 </div>
-                <div class="form-row">
-                    <label for="validationDefault03">Asunto</label>
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" id="validationDefault03" required>
-                      </div>
+
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Asunto</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
+                    </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6 ">
-                        <label for="validationDefault03">Contenido</label>
-                        <textarea name="" id=""  class="form-control"></textarea>
+                
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Contenido</label>
+                    <div class="col-4">
+                        <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
                     </div>
                 </div>
             </form>
@@ -569,7 +567,12 @@
     lunchRegister:false,
     modulos:[],
     workshop:[],
-    CorreoRemitente:''
+    CorreoRemitente:'',
+    Correos:[],
+    Destinatario:'',
+    Asunto:'',
+    Contenido:'',
+    cc:[]
 
   },
   mounted: function () {
@@ -595,13 +598,44 @@
   })
 },
   methods: {
+    enviarCorreo:function(){
+        const formData = new FormData();
+        formData.append('idUsuarioEnvio','{{Auth::user()->id}}');
+        form.Data.append('CorreoRemitente',this.CorreoRemitente);
+        form.Data.append('Destinatario',this.Destinatario);
+        form.Data.append('Asunto',this.Asunto);
+        form.Data.append('Contenido',this.Contenido);
+
+        axios({
+                 method: 'post',
+                 url: '/actualizaLunchUsuario',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("Exito")
+                     
+
+                     }
+                 ).catch(
+                     err => {
+                        console.log("Falso")
+
+                     }
+                 )
+
+    },
     cargarModulos:function(){
         axios.get('/api/getAllModules').then(res => {
             this.modulos=res.data.modulos;
             this.workshop=res.data.workshop;
+            this.Correos=res.data.Correos;
             console.log( this.modulos);
         })
     },
+    
     RegistrarLunch:function(idUser){
         const formData = new FormData();
         formData.append('idUsuario',idUser);
@@ -771,7 +805,7 @@
 })
 </script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
     $('.js-example-basic-multiple').select2({
         
 });
