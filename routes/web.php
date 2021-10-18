@@ -1,8 +1,6 @@
 <?php
 
-use App\Mail\Educacion\EducacionEmail;
-use App\Mail\Gestion\GestionEmail;
-use App\Mail\RTIC\RTICEmail;
+use App\Mail\EmailLayout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -143,6 +141,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
     # Envía un correo electrónico.
     Route::post('/sendEmail', 'CorreosController@sendEmail');
+});
+
+Route::get('emailview', function () {
+    return new EmailLayout('foo', 'Vinculación');
 });
 
 # Expedición de tokens y autorización por parte del

@@ -141,6 +141,20 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
     ];
 
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        /*
+        static::retrieved(function ($user) {
+            $user->load([
+                'roles' => fn($q) => $q->select('id','name')->where('model_type', $user->type),
+            ]);
+        });*/
+    }
 
     /**
      * Obtiene el tipo de usuario autenticado
