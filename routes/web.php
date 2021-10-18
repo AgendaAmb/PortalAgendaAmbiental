@@ -142,7 +142,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         ->name('verComprobante');
 
     # Envía un correo electrónico.
-    Route::post('/sendEmail', 'CorreosController@store');
+    Route::post('/sendEmail', 'CorreosController@sendEmail');
 });
 
 # Expedición de tokens y autorización por parte del

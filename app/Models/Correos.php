@@ -10,6 +10,6 @@ class Correos extends Model
 
     public function eje()
     {
-        return $this->belongsTo(eje::class);
+        return $this->belongsTo(ejes::class);
     }
 }

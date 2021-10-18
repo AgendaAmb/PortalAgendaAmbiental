@@ -15,7 +15,7 @@ class CorreosController extends Controller
      */
     public function sendEmail(SendEmailRequest $request)
     {
-
+        dd($request->all());
     }
 
     /**
