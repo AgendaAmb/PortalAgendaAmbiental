@@ -140,35 +140,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/workshops/{userType}/{userId}/{fileName}', 'FileController@verComprobante')
         ->middleware('role:administrator|coordinator|helper')
         ->name('verComprobante');
+
+    # Envía un correo electrónico.
+    Route::post('/sendEmail', 'CorreosController@sendEmail');
 });
-
-Route::get('correo/rtic', function(){
-
-    return new RTICEmail();
-});
-
-Route::get('correo/gestion', function(){
-
-    return new GestionEmail();
-});
-
-Route::get('correo/educacion', function(){
-
-    return new EducacionEmail();
-});
-
-
-Route::get('correo/vinculacion', function(){
-
-    return new GestionEmail();
-});
-
-
-Route::get('correo/comunicacion', function(){
-
-    return new GestionEmail();
-});
-
 
 # Expedición de tokens y autorización por parte del
 # sistema central.

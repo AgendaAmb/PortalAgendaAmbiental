@@ -20,6 +20,21 @@ class CreateModulesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('module_user', function (Blueprint $table) {
+            $table->foreignId('module_id')->constrained('modules');
+            $table->unsignedBigInteger('user_id');
+            $table->string('user_type');
+
+            $table->foreign(['user_id', 'user_type'])
+                ->references(['id', 'type'])
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+
+            $table->primary(['module_id','user_id','user_type']);
+        });
     }
 
     /**
@@ -29,6 +44,7 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('module_user');
         Schema::dropIfExists('modules');
     }
 }

@@ -1,10 +1,13 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWorkersTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +16,12 @@ class CreateWorkersTable extends Migration
      */
     public function up()
     {
-        Schema::create('workers', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+        Schema::create('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->string('type');
+
+            $table->primary(['id', 'type']);
+
             $table->string('curp', 18)->nullable()->unique();
             $table->string('name');
             $table->string('email')->unique();
@@ -34,9 +41,6 @@ class CreateWorkersTable extends Migration
             $table->string('password')->nullable();
             $table->string('interested_on_further_courses')->nullable();
             $table->string('comments')->nullable();
-            $table->string('emergency_contact')->nullable();
-            $table->string('emergency_contact_phone')->nullable();
-            $table->string('health_condition')->nullable();
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
@@ -56,6 +60,6 @@ class CreateWorkersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workers');
+        Schema::dropIfExists('users');
     }
 }

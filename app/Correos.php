@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Correos extends Model
 {
-    protected $table = 'Correos';
+    protected $table = 'correos';
 
     public function eje()
     {
-        return $this->belongsTo(eje::class);
+        return $this->belongsTo(ejes::class);
     }
 }

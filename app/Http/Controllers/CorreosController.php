@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SendEmailRequest;
 use App\Models\Correos;
 use Illuminate\Http\Request;
 
 class CorreosController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendEmail(SendEmailRequest $request)
+    {
+        //$correo = Correos::firstWhere('email', )
+    }
+
     /**
      * Display a listing of the resource.
      *

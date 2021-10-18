@@ -23,6 +23,14 @@ class RoleSeeder extends Seeder
 
             # Usuario
             [ 'name' => 'user' ],
+
+            # Coordinador
+            [ 'name' => 'coordinator', 'guard_name' => 'workers' ],
+            [ 'name' => 'coordinator', 'guard_name' => 'students' ],
+
+            # Ayudante
+            [ 'name' => 'helper', 'guard_name' => 'workers' ],
+            [ 'name' => 'helper', 'guard_name' => 'students' ]
         ];
 
         foreach ( $roles as $role)
