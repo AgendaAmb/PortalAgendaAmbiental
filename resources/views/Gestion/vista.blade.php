@@ -48,6 +48,9 @@ Tabs de Gestión Institucional.
     Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons">
+        <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
+            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS"
+            class="nav-link active d-lg-block  d-xl-block d-md-block d-sm-block d-none " />
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
             nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
         <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
@@ -56,15 +59,14 @@ Tabs de Gestión Institucional.
         <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
             nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
             class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
-        <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
-            nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS"
-            class="nav-link active d-lg-block  d-xl-block d-md-block d-sm-block d-none " />
+        
 
 
 
-
+        <!--
         <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BIBLIOTECA"
             class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" nombreRes="BIBLIOTECA" />
+        -->
     </x-slot>
 
     <x-slot name="tabContent">
@@ -83,13 +85,14 @@ Tabs de Gestión Institucional.
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/proserem.png')" urlhref="{{route('Proserem')}}" />
+                    :imageURL="asset('img/Gestion/Proserem_Logo.png')" urlhref="{{route('Proserem')}}" />
                 <!-- <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" urlhref="{{route('ConsumoResponsable')}}"  />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
-                <x-tab-panel-image :imageURL="asset('img/Gestion/ESPACIOS-LIBRES-DE-HUMO.png')" />
-                <x-tab-panel-image :imageURL="asset('storage/imagenes/Logos/BannerSup_ECR.png')"
-                    urlhref="{{route('ConsumoResponsable')}}" widthBo=w-75 />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_ConsumoResponsable.png')"
+                    urlhref="{{route('ConsumoResponsable')}}"  />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_HumoLibre.png')" urlhref="#"/>
+              
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
@@ -103,8 +106,8 @@ Tabs de Gestión Institucional.
                 descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
                 class="tab-pane fade show active " role="tabpanel" aria-labelledby="nav-home-tab">
 
-                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')" />
-                <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')" />
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')"  />
+                <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')"  />
             </x-slider>
         </x-tab-panel-content>
 
@@ -120,11 +123,12 @@ Tabs de Gestión Institucional.
                 <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image :imageURL="asset('img/Gestion/UNIBICI.png')" urlhref="{{route('Unibici')}}" />
-                <x-tab-panel-image :imageURL="asset('img/Gestion/AUTO-COMPARTIDO.png')" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unibici.png')" urlhref="{{route('Unibici')}}" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_AutoCompartido.png')" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_EspaciosHabit.png')" />
             </x-tab-panel-footer>
-
-
+           
+           
 
             <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
             <p>
@@ -142,7 +146,7 @@ Tabs de Gestión Institucional.
                 la creación del conocimiento, la participación de la comunidad y el compromiso institucional a través de
                 sus políticas y lineamientos.
             </p>
-
+           
             <div class="row my-4">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -216,7 +220,7 @@ Tabs de Gestión Institucional.
                                 realización de mejores prácticas energéticas y de transporte, la creación del conocimiento,
                                 la participación de la comunidad y el compromiso de sensibilizar a la población.
                             </p>
-
+                          
                         </div>
                         <div class="tab-pane fade" id="v-pills-Biblioteca" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
@@ -246,7 +250,7 @@ Tabs de Gestión Institucional.
             </div>
             <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
-
+                    
                     <div class="modal-content">
                         <div class="col-12  p-0">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -254,7 +258,7 @@ Tabs de Gestión Institucional.
                             </button>
                         </div>
                         <div class="modal-body">
-
+                            
                             <iframe style="width: 100%;height: 750px;"
                                 src="https://docs.google.com/viewer?url=http://148.224.134.160/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"
                                 frameborder="0"></iframe>
@@ -278,19 +282,43 @@ Tabs de Gestión Institucional.
                 <x-imagen-slider :linkImagen="asset('img/Gestion/biodiversidad2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unihuerto.png')" urlhref="{{route('Unihuerto')}}" />
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
+                :imageURL="asset('img/Gestion/Logo_ManejoJardines.png')" urlhref="#"/>
+                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
+                    :imageURL="asset('img/Gestion/Logo_ManejoFauna.png')" urlhref="#"/>
+                    <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
+                    :imageURL="asset('img/Gestion/Logo_Biodiversidad.png')"  urlhref="#"/>
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto "
+                    :imageURL="asset('img/Gestion/Logo_DateRespiro.png')" urlhref="{{route('DateUnRespiro')}}" />
+
+            </x-tab-panel-footer>
+        </x-tab-panel-content>
+
+        {{--
+        Tab correspondiente a PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD.
+        --}}
+        <x-tab-panel-content class="tab-pane fade show" id="tab-panel-3" role="tabpanel" aria-labelledby="nav-home-tab">
+            <x-slider idSlider="s3" titulo="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
+                descripcion="Integra el manejo de la flora y fauna de los campus universitarios para que sean congruentes con la ecología del entorno, funcionales, con arquitectura del paisaje que incluya las especies endémicas y que se promueva la interacción, respeto y sana convivencia recreativa y académica. Los jardines universitarios deben basarse en un diseño de acuerdo a las características bioclimáticas de cada región de nuestros campus universitarios. Los huertos urbanos  aportan al sistema ecológico beneficios ambientales como regulación de la temperatura, promoción de la biodiversidad vegetal y de fauna, con especial énfasis en los polinizadores, y el campo de experimentación para estrategias de producción sostenible de hortalizas y una cultura de alimentación sana."
+                class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/biodiversidad1.png')" />
+                <x-imagen-slider :linkImagen="asset('img/Gestion/biodiversidad2.png')" />
+            </x-slider>
+            <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Bn_Unihuerto.png')" urlhref="{{route('Unihuerto')}}" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" />
-                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto w-75"
+                    :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" urlhref="#"/>
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
                     :imageURL="asset('img/Gestion/DATE-UN-RESPIRO.png')" urlhref="{{route('DateUnRespiro')}}" />
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
 
-        {{--
-        Tab correspondiente a PROGRAMA UNIVERSITARIO DE GESTIÓN DE RIESGOS.
-        --}}
+       <!--Biblioteca-->
+        <!--
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-5" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s5" titulo="BIBLIOTECA"
                 descripcion="En esta sección encontraras literatura relacionada a los diferentes programas de la Gestión Institucional de la Agenda Ambiental, de manera que puedas consultar o descargar documentos relacionados a temáticas como: sustancias y materiales regulados, emisiones a la atmosfera, gestión y tecnología del agua, movilidad urbana sostenible, eficiencia energética, espacios habitables, arquitectura del paisaje, bioclimática, manejo de flora y fauna, huertos urbanos y mucho más. "
@@ -305,6 +333,7 @@ Tabs de Gestión Institucional.
                     urlhref="{{asset('storage/imagenes/introduccion/Guiadelarbolado_y_otrasformasvegetales.pdf')}}" />
             </x-tab-panel-footer>
         </x-tab-panel-content>
+        -->
     </x-slot>
 </x-tab-panel>
 
