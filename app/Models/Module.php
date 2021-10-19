@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Auth\User;
 use App\Traits\UserTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -15,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Module extends Model
 {  
-    use UserTrait, SoftDeletes;
+    use SoftDeletes;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,4 +29,13 @@ class Module extends Model
         'updated_at',
     ];
 
+    /**
+     * Gets the list of all users of this module
+     *
+     * @return object
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

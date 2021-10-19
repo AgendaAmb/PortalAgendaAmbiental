@@ -17,9 +17,6 @@ Route::get('/getAllModules', 'ModuleController@getAllModules')->name('getAllModu
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
    
 
-    # Obtener usuario.
-    Route::get('/', 'UserController@show')->name('show');
-
     # Obtener usuario autenticado.
     Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
 
@@ -28,12 +25,20 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
    
 });
 
+# Rutas para los sub-sistemas.
+Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(function(){
 
-# Aplicaciones cliente.
+    # Registro, recuperación y actualización de usuarios.
+    Route::get('/', 'UserController@index')->name('index');
+    Route::post('/', 'UserController@store')->name('store');
+
+    # Registro / Recuperación de módulos de usuario.
+    Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
+    Route::post('modulos', 'UserModuleController@nuevo')->name('modulos.nuevo');
+});
+
+# Rutas exclusiva de 17 Gemas. Por ahora están así para que no truene, pero van arriba >:v
 Route::middleware('client')->group(function(){
-
-    # Registra a un usuario desde una aplicación cliente.
-    Route::post('/registra', 'Auth\RegisterController@register');
 
     # Módulos de usuario.
     Route::resource('modules.users', 'UserModuleController')->only([ 'store', 'index']);

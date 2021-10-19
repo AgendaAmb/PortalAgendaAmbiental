@@ -58,9 +58,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
         'created_at',
         'updated_at',
+        'deleted_at',
         'email_verified_at',
         'access_token',
         'token',
+        'guid',
     ];
 
     /**
@@ -105,7 +107,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected const USER_TYPES = [
+    public const USER_TYPES = [
         'workers' => Worker::class,
         'students' => Student::class,
         'externs' => Extern::class

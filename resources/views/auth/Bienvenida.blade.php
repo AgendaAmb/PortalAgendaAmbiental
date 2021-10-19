@@ -21,19 +21,16 @@
 
                 </div>
                 <div class="col-12 text-justify mt-3 px-0">
-                    <p class="">
+                    <p class=" h6">
                         Les brindamos una cordial bienvenida a Mi Portal, diseñado para la colaboración de la Agenda
                         Ambiental, facilitando un espacio de comunicación y gestión.
                         <br>
-
                         Nuestro portal te brinda las herramientas para facilitar el diálogo, la colaboración, la gestión
                         académica y administrativa, así como la difusión de eventos y noticias,
                         <br>
-
                         Nos responsabilizamos del manejo, tratamiento, uso y protección de aquellos datos que son
                         proporcionados.
                         <br>
-
                         Si ya realizaste tu registro inicia sesión para colaborar activamente con tu cuenta, si aún no
                         lo haces realiza tu Registro.
                     </p>
@@ -49,10 +46,10 @@
                     </div>
                 </div>
                 <div class="col-12 mt-5 px-0">
-                    <div class="container  p-0">
+                    <div class="container p-0">
                         <p class="h4 font-weight-bold" style="color:rgb(18, 98, 174)">ADMINISTRATIVOS / DOCENTES </p>
                         <div class="col-lg-12  col-xl-12 text-justify  p-0 mb-4">
-                            <p class=" text-muted h6"> Ingresa con tu cuenta de correo institucional, ya que el usuario
+                            <p class=" h6"> Ingresa con tu cuenta de correo institucional, ya que el usuario
                                 y
                                 contraseña son los mismos. Si no cuentas con tu cuenta de correo, lo puede habilitar <a
                                     href=" https://tic.uaslp.mx/habilitacorreo">
