@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/getAllModules', 'ModuleController@getAllModules')->name('getAllModules');
+Route::post('/registerWorkShop', 'WorkshopController@registerWorkShop')->name('registerWorkShop');
 # Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
    

@@ -195,4 +195,25 @@ class WorkshopController extends Controller
     {
         return Workshop::all();
     }
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function registerWorkShop(Request $request)
+    {
+     
+        $workshop = new Workshop();
+        $workshop->name=$request->nombreT;
+        $workshop->description=$request->DescripcionT;
+        $workshop->type=$request->TEvento;
+        $workshop->work_edge=$request->Eje;
+        $workshop->star_date=$request->FechaInicio;
+        $workshop->end_date=$request->FechaFin;
+        $workshop->save();
+        Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+      
+    }
 }

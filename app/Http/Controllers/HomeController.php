@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
+use App\ejes;
 use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,9 @@ class HomeController extends Controller
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
-            ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users);
+            ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users)
+            ->with('Ejes',ejes::all())
+            ;
     }
 
     /**
