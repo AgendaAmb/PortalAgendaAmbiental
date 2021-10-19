@@ -195,6 +195,10 @@ class WorkshopController extends Controller
     {
         return Workshop::all();
     }
+    public function getAllWorkshops(){
+     
+        return response()->json(Workshop::all());
+    }
      /**
      * Store a newly created resource in storage.
      *
@@ -209,7 +213,7 @@ class WorkshopController extends Controller
         $workshop->description=$request->DescripcionT;
         $workshop->type=$request->TEvento;
         $workshop->work_edge=$request->Eje;
-        $workshop->star_date=$request->FechaInicio;
+        $workshop->start_date=$request->FechaInicio;
         $workshop->end_date=$request->FechaFin;
         $workshop->save();
         Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");

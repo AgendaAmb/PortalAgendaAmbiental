@@ -10,6 +10,7 @@ use App\Models\Auth\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Workshop;
 
 class HomeController extends Controller
 {
@@ -61,6 +62,7 @@ class HomeController extends Controller
             ->with('user_workshops', Auth::user()->workshops)
             ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users)
             ->with('Ejes',ejes::all())
+            ->with('workshops',Workshop::all())
             ;
     }
 

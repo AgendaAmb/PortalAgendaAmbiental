@@ -1162,10 +1162,23 @@
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
            
+          
+           events:[
+             @foreach($workshops as $workshop)
+              {
+                title:'{{$workshop->name}}',
+                start:'{{$workshop->start_date}}',
+                end:'{{$workshop->end_date}}',
+                color:"#FFCCAA",
+                textColor:"#000000"
+              },
+           @endforeach
+           ],
             dateClick:function(info){
               if (roles) {
-               
-                  console.log(info);
+                $('#FechaInicio').val(info.dateStr);
+                  console.log('{{$workshops[0]->id}}');
+
                  $('#RegistraWorshop').modal('show')
                 
               }
