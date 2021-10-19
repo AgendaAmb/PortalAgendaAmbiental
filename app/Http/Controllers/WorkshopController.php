@@ -207,7 +207,7 @@ class WorkshopController extends Controller
      */
     public function registerWorkShop(Request $request)
     {
-     
+
         $workshop = new Workshop();
         $workshop->name=$request->nombreT;
         $workshop->description=$request->DescripcionT;
@@ -218,6 +218,6 @@ class WorkshopController extends Controller
         $workshop->save();
         Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
         return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
-      
+
     }
 }
