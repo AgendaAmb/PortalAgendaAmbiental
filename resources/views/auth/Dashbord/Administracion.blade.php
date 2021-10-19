@@ -280,14 +280,14 @@
                         <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
                     </div>
                 </div>
-                
+
                 <div class="form-group row was-validated justify-content-center">
                     <label for="emailR" class="col-sm-1 col-form-label">Contenido</label>
                     <div class="col-4">
                         <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
                     </div>
                 </div>
-               
+
                 <div class="form-group row justify-content-end">
                     <div class="col-md-6 col-6 p-0">
 
@@ -616,14 +616,14 @@
     enviarCorreo:function(){
         const formData = new FormData();
         formData.append('idUsuarioEnvio','{{Auth::user()->id}}');
-        form.Data.append('CorreoRemitente',this.CorreoRemitente);
-        form.Data.append('Destinatario',this.Destinatario);
-        form.Data.append('Asunto',this.Asunto);
-        form.Data.append('Contenido',this.Contenido);
+        formData.append('CorreoRemitente',this.CorreoRemitente);
+        formData.append('Destinatario',this.Destinatario);
+        formData.append('Asunto',this.Asunto);
+        formData.append('Contenido',this.Contenido);
 
         axios({
                  method: 'post',
-                 url: '/actualizaLunchUsuario',
+                 url: '/sendEmail',
                  data: formData,
                  headers: {
                      'Content-Type': 'multipart/form-data'
@@ -631,7 +631,7 @@
              }).then(
                      res => {
                          console.log("Exito")
-                     
+
 
                      }
                  ).catch(
@@ -650,7 +650,7 @@
             console.log( this.modulos);
         })
     },
-    
+
     RegistrarLunch:function(idUser){
         const formData = new FormData();
         formData.append('idUsuario',idUser);
@@ -822,9 +822,9 @@
 <script>
     $(document).ready(function() {
     $('.js-example-basic-multiple').select2({
-        
+
 });
-    
+
 });
 </script>
 

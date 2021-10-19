@@ -24,11 +24,11 @@ class SendEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'work_edge' => ['required', 'string', 'in:Gestión,Educación,Vinculación,Comunicación,RTIC'],
-            'emails' => ['required', 'array'],
-            'emails.*' => ['required','email'],
-            'subject' => ['required','string'],
-            'content' => ['required','string'],
+            'idUsuarioEnvio' => ['required','exists:users,id','numeric'],
+            'CorreoRemitente' => ['required', 'exists:correos,email', 'email'],
+            'Destinatario' => ['required', 'string'],
+            'Asunto' => ['required', 'string'],
+            'Contenido' => ['required', 'string']
         ];
     }
 }

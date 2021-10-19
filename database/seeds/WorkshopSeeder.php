@@ -17,7 +17,7 @@ class WorkshopSeeder extends Seeder
         $workshops = [
             [
                 'name' => 'curso sostenibilidad',
-                'description' => 'Conferencia 1: Sostenibilidad energética en la pandemia',
+                'description' => 'z',
                 'type' => 'curso',
             ],
             [

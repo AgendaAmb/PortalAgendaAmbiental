@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SendEmailRequest;
-use App\Models\Correos;
+use App\Correos;
+use App\Mail\EmailLayout;
+use App\Models\Auth\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CorreosController extends Controller
 {
@@ -15,7 +19,17 @@ class CorreosController extends Controller
      */
     public function sendEmail(SendEmailRequest $request)
     {
-        //$correo = Correos::firstWhere('email', )
+        $data = $request->validated();
+        $eje = Correos::firstWhere('email', $data['CorreoRemitente'])->eje->name;
+
+        $users = User::whereHas('workshops', function($query) use ($data){
+            $query->where('name', $data['Destinatario']);
+        })->get();
+
+
+        Mail::to($users)->send(new EmailLayout($data['Contenido']), $eje, $data['Asunto']);
+
+        return new JsonResponse(['message' => 'Correo enviado exitosamente'], JsonResponse::HTTP_OK);
     }
 
     /**
