@@ -15,6 +15,7 @@ class TabPanelImage extends Component
     public $isBlank;
     public $isDownload;
     public $widthBo;
+    
     /**
      * Create a new component instance.
      *
@@ -27,6 +28,7 @@ class TabPanelImage extends Component
         $this->isBlank=$isBlank;
         $this->isDownload=$isDownload;
         $this->widthBo=$widthBo;
+
     }
 
     /**
