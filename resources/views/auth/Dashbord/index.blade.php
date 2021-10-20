@@ -46,7 +46,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/17Gemas/Banner_seccion.png')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_Seccion.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item active">
                   <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100"
