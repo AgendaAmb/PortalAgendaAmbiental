@@ -60,6 +60,11 @@ class WorkshopController extends Controller
     {
         try
         {
+            # Cursos del unihuerto
+            if ($request->checkedFecha !== null)
+                return $this->registerUnihuerto($request, $request->checkedFecha);
+
+
             # Cursos registrados por el usuario
             $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -170,6 +175,66 @@ class WorkshopController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
+    private function registerUnihuerto(Request $request, $fechas)
+    {
+        $workshop = $fechas[0] === 'Octubre'
+        ? Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first()
+        : Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first();
+
+        # Registra el siguiente curso, en caso de que el usuario ya
+        # se haya registrado.
+        if ($workshop === null)
+            return new JsonResponse(['message' => 'Taller no encontrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
+        # Usuario.
+        $user = $request->user();
+
+        # Cursos.
+        $workshops = $user->workshops()
+            ->WherePivotNull('paid')
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->whereNotIn('workshops.id', [ $workshop->id ])
+            ->pluck('workshops.id');
+
+        # Se eliminan los cursos a los que no haya asistido y a
+        # aquellos que haya eliminado del modal.
+        $user->workshops()->detach($workshops);
+
+
+        # Registra el siguiente curso, en caso de que el usuario ya
+        # se haya registrado.
+        if ($user->hasWorkshop($workshop))
+            return new JsonResponse(['message' => 'Usuario ya registrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
+        $user->assignWorkshop($workshop->id);
+
+         # Obtiene los cursos registrados.
+        $workshops = $user->workshops()
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->get();
+
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+        if ($workshops->count() > 0)
+        {
+            Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
+            Log::info('Al usuario: '.$user->email);
+
+            Mail::to($user)->send(new RegisteredWorkshops($workshops));
+        }
+
+        return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
     public function markAsistence(Request $request)
     {
         # Obtiene el id del usuario registrado.
@@ -196,7 +261,7 @@ class WorkshopController extends Controller
         return Workshop::all();
     }
     public function getAllWorkshops(){
-     
+
         return response()->json(Workshop::all());
     }
      /**
