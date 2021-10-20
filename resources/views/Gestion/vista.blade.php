@@ -59,7 +59,7 @@ Tabs de Gestión Institucional.
         <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
             nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
             class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
-        
+
 
 
 
@@ -85,14 +85,14 @@ Tabs de Gestión Institucional.
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/Proserem_Logo.png')" urlhref="{{route('Proserem')}}" />
+                    :imageURL="asset('img/Gestion/Proserem_Logo.png')" urlhref="{{route('Proserem')}}" widthBo="w-75" />
                 <!-- <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/ECR.png')" urlhref="{{route('ConsumoResponsable')}}"  />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/REUTRONIC.png')" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Gestion/CAMBALACHE.png')" />-->
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_ConsumoResponsable.png')"
-                    urlhref="{{route('ConsumoResponsable')}}"  />
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_HumoLibre.png')" urlhref="#"/>
-              
+                    urlhref="{{route('ConsumoResponsable')}}" widthBo="w-75" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_HumoLibre.png')" urlhref="#" widthBo="w-75" />
+
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
@@ -106,8 +106,8 @@ Tabs de Gestión Institucional.
                 descripcion="Se encarga del manejo apropiado e integral del agua en todo el quehacer de la UASLP a través de aspectos técnicos de eficiencia y tratamiento, investigación e innovación y comunicación a la comunidad."
                 class="tab-pane fade show active " role="tabpanel" aria-labelledby="nav-home-tab">
 
-                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')"  />
-                <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')"  />
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/agua1.jpg')" />
+                <x-imagen-slider :linkImagen="asset('img/Gestion/agua2.jpg')" />
             </x-slider>
         </x-tab-panel-content>
 
@@ -119,18 +119,19 @@ Tabs de Gestión Institucional.
                 descripcion="Implementa el buen uso de la energía promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la estrategia para la transición hacia las energías renovables; tomando en cuenta las instalaciones, los equipos, la operación, el uso de energías renovables y la iluminación eficiente, buscando no causar impacto ambiental negativo y cumpliendo con estándares y criterios."
                 class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
 
-                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/energia1.png')" />
-                <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" />
+                <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/energia1.png')" widthBo="w-75" />
+                <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" widthBo="w-75" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unibici.png')" urlhref="{{route('Unibici')}}" />
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_AutoCompartido.png')" />
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_EspaciosHabit.png')" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unibici.png')" urlhref="{{route('Unibici')}}"
+                    widthBo="w-75" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_AutoCompartido.png')" widthBo="w-75" />
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_EspaciosHabit.png')" widthBo="w-75" />
             </x-tab-panel-footer>
-           
-           
 
-            <h1 class="text-bold">Programa Universitario de Energía (PUE)</h1>
+
+
+            <h1 class="text-bold mt-5">Programa Universitario de Energía (PUE)</h1>
             <p>
                 La producción y el consumo energético son los principales responsables del aumento de la temperatura del
                 planeta. El consumo energético en México es de 2 billones de Mega Watts hora (MWh) de los cuales solo el
@@ -146,7 +147,7 @@ Tabs de Gestión Institucional.
                 la creación del conocimiento, la participación de la comunidad y el compromiso institucional a través de
                 sus políticas y lineamientos.
             </p>
-           
+
             <div class="row my-4">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -213,20 +214,23 @@ Tabs de Gestión Institucional.
                             aria-labelledby="v-pills-messages-tab">
                             <p>
                                 El presente programa se dirige a la comunidad universitaria de la
-                                UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía que
-                                impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el compromiso
+                                UASLP, así como a todo aquel que esté interesado en un mejor manejo y uso de la energía
+                                que
+                                impacte en la huella ecológica, planteado desde diferentes enfoques como lo es el
+                                compromiso
                                 institucional de la aplicación y fomento a la movilidad urbana sostenible, el control y
                                 reducción del consumo de energía, la migración hacia el uso de energías renovables, la
-                                realización de mejores prácticas energéticas y de transporte, la creación del conocimiento,
+                                realización de mejores prácticas energéticas y de transporte, la creación del
+                                conocimiento,
                                 la participación de la comunidad y el compromiso de sensibilizar a la población.
                             </p>
-                          
+
                         </div>
                         <div class="tab-pane fade" id="v-pills-Biblioteca" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
                             <ul>
                                 <li>Lineamientos LED Depto. Mantenimiento
-                                    <a data-toggle="modal" href=""data-target="#pdf">PDF</a>
+                                    <a data-toggle="modal" href="" data-target="#pdf">PDF</a>
                                 </li>
                             </ul>
                         </div>
@@ -250,7 +254,7 @@ Tabs de Gestión Institucional.
             </div>
             <div class="modal fade" id="pdf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
-                    
+
                     <div class="modal-content">
                         <div class="col-12  p-0">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -258,7 +262,7 @@ Tabs de Gestión Institucional.
                             </button>
                         </div>
                         <div class="modal-body">
-                            
+
                             <iframe style="width: 100%;height: 750px;"
                                 src="https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"
                                 frameborder="0"></iframe>
@@ -281,16 +285,21 @@ Tabs de Gestión Institucional.
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/biodiversidad1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/biodiversidad2.png')" />
             </x-slider>
-            <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unihuerto.png')" urlhref="{{route('Unihuerto')}}" />
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
-                :imageURL="asset('img/Gestion/Logo_ManejoJardines.png')" urlhref="#"/>
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/Logo_ManejoFauna.png')" urlhref="#"/>
-                    <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/Logo_Biodiversidad.png')"  urlhref="#"/>
-                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto "
+            <x-tab-panel-footer class="row justify-content-around">
+
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unihuerto.png')" urlhref="{{route('Unihuerto')}}"
+                    widthBo="w-75" />
+                
+                <x-tab-panel-image class="col-7 col-sm-4 col-md-3 my-3 mx-auto " widthBo="w-75"
                     :imageURL="asset('img/Gestion/Logo_DateRespiro.png')" urlhref="{{route('DateUnRespiro')}}" />
+                <x-tab-panel-image class="col-7 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
+                    :imageURL="asset('img/Gestion/Logo_Biodiversidad.png')" urlhref="#" />
+
+                    <x-tab-panel-image class="col-10 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
+                    :imageURL="asset('img/Gestion/Logo_ManejoJardines.png')" urlhref="#" />
+
+                <x-tab-panel-image class="col-10 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
+                    :imageURL="asset('img/Gestion/Logo_ManejoFauna.png')" urlhref="#" />
 
             </x-tab-panel-footer>
         </x-tab-panel-content>
@@ -309,7 +318,7 @@ Tabs de Gestión Institucional.
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Bn_Unihuerto.png')" urlhref="{{route('Unihuerto')}}" />
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto"
-                    :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" urlhref="#"/>
+                    :imageURL="asset('img/Gestion/Bn-manejoanimal.png')" urlhref="#" />
                 <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto"
                     :imageURL="asset('img/Gestion/DATE-UN-RESPIRO.png')" urlhref="{{route('DateUnRespiro')}}" />
 
@@ -317,7 +326,7 @@ Tabs de Gestión Institucional.
         </x-tab-panel-content>
 
 
-       <!--Biblioteca-->
+        <!--Biblioteca-->
         <!--
         <x-tab-panel-content class="tab-pane fade show" id="tab-panel-5" role="tabpanel" aria-labelledby="nav-home-tab">
             <x-slider idSlider="s5" titulo="BIBLIOTECA"
