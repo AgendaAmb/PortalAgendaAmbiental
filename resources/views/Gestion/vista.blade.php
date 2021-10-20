@@ -260,7 +260,7 @@ Tabs de Gestión Institucional.
                         <div class="modal-body">
                             
                             <iframe style="width: 100%;height: 750px;"
-                                src="https://docs.google.com/viewer?url=http://148.224.134.160/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"
+                                src="https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/GreenMetric/Lineamientos_LED_Mant_Electrico.pdf&embedded=true"
                                 frameborder="0"></iframe>
                         </div>
 
