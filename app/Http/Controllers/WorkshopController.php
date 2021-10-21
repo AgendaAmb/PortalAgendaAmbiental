@@ -188,6 +188,8 @@ class WorkshopController extends Controller
 
         # Usuario.
         $user = $request->user();
+        $user->academic_degree = $request->NAcademico ?? $user->academic_degree;
+        $user->save();
 
         # Cursos.
         $workshops = $user->workshops()
@@ -209,21 +211,9 @@ class WorkshopController extends Controller
 
         $user->assignWorkshop($workshop->id);
 
-         # Obtiene los cursos registrados.
-        $workshops = $user->workshops()
-            ->wherePivotNull('assisted_to_workshop')
-            ->orWherePivot('assisted_to_workshop', false)
-            ->get();
-
-        # Si el usuario registró más de un curso, se
-        # le envía un correo electrónico de confirmación.
-        if ($workshops->count() > 0)
-        {
-            Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
-            Log::info('Al usuario: '.$user->email);
-
-            Mail::to($user)->send(new RegisteredWorkshops($workshops));
-        }
+        Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
+        Log::info('Al usuario: '.$user->email);
+        Mail::to($user)->send(new RegisteredWorkshops([$workshop]));
 
         return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
