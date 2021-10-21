@@ -17,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
     # Obtener usuario autenticado.
-    Route::get('/whoami', 'UserController@whoAmI')->name('whoami'); 
-
-    # Búsqueda de usuario.
-    Route::get('/search', 'UserController@search')->name('search'); // <--- Verificar si está siendo utilizada.
+    Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
 });
 
 

@@ -82,22 +82,18 @@ class UserController extends Controller
             'courses','comments','interested_on_further_courses', 'domain'
         ];
 
-        # Módulos de usuario.
-        $modules = count($request->only('module')) > 0 ? $request->only('module') : Module::pluck('id');
-
-
         # Obtiene los tipos de usuario.
         $users = QueryBuilder::for(User::class)
+            ->allowedFields(['id', 'user_type','name','middlename','surname','email','curp'])
             ->allowedIncludes(['userModules'])
             ->allowedFilters([
-                AllowedFilter::exact('modules.id'),
+                AllowedFilter::exact('userModules.id'),
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('type'),
                 AllowedFilter::exact('email'),
             ])
             ->setEagerLoads([])
-            ->whereHas('userModules', fn($query) => $query->whereIn('modules.id', $modules))->get()
-            ->makeHidden($hidden);
+            ->get()->makeHidden($hidden);
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
     }
@@ -129,22 +125,6 @@ class UserController extends Controller
         ]);
 
         return new JsonResponse($user, JsonResponse::HTTP_OK);
-    }
-
-    /**
-     * Retrieves an user by search parameters.
-     *
-     * @var string
-     */
-    public function search(SearchUserRequest $request)
-    {
-        # Recupera al usuario.
-        $user = User::retrieveBySearchKey(
-            $request->search_key, $request->search_value, $request->user_type
-        );
-
-
-        return $user;
     }
 
     /**
