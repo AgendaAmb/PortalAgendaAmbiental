@@ -13,28 +13,34 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('url');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (!Schema::hasTable('modules'))
+        {
+            Schema::create('modules', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('url');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
 
-        Schema::create('module_user', function (Blueprint $table) {
-            $table->foreignId('module_id')->constrained('modules');
-            $table->unsignedBigInteger('user_id');
-            $table->string('user_type');
+        if (!Schema::hasTable('module_user'))
+        {
+            Schema::create('module_user', function (Blueprint $table) {
+                $table->foreignId('module_id')->constrained('modules');
+                $table->unsignedBigInteger('user_id');
+                $table->string('user_type');
 
-            $table->foreign(['user_id', 'user_type'])
-                ->references(['id', 'type'])
-                ->on('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+                $table->foreign(['user_id', 'user_type'])
+                    ->references(['id', 'type'])
+                    ->on('users')
+                    ->cascadeOnDelete()
+                    ->cascadeOnUpdate();
 
 
-            $table->primary(['module_id','user_id','user_type']);
-        });
+                $table->primary(['module_id','user_id','user_type']);
+            });
+        }
     }
 
     /**
