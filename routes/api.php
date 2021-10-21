@@ -20,14 +20,11 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
     Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
 });
 
-
-Route::get('/usuarios', 'UserController@index')->name('index');
-
 # Rutas para los sub-sistemas.
 Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(function(){
 
     # Registro / recuperación de usuarios.
-    //Route::get('/', 'UserController@index')->name('index');
+    Route::get('/', 'UserController@index')->name('index');
     Route::post('/', 'UserController@store')->name('store');
 
     # Registro / Recuperación de módulos de usuario.
