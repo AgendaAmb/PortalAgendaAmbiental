@@ -844,6 +844,7 @@
               </label>
 
             </div>
+
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="Noviembre" id="Noviembre" v-model="checkedFecha"
                 @click="check_two()">
@@ -853,6 +854,7 @@
 
             </div>
             <br>
+            
             <h5 class="modal-title3" id="exampleModalLabel">Datos académicos</h5>
             <div class="form-row">
               <div class="form-group col-md-6 was-validated ">
@@ -868,13 +870,46 @@
                   <option value="Otro" id="Otro">Otro</option>
                 </select>
               </div>
+              <div class="form-group col-md-6">
+                <label for="isFacturaReq">¿Requieres factura?</label>
+                <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
+                  <option disabled value="">Opción</option>
+                  <option value="Si" id="Si">Si</option>
+                  <option value="No" id="No">No</option>
+                </select>
+              </div>
               <div class="form-group col-md-6 was-validated" v-if="NAcademico=='Otro'">
                 <label for="Especificar">Especificar</label>
                 <input type="text" class="form-control" id="Especificar" v-model="Especificar" required
                   name="Especificar">
               </div>
             </div>
-
+            <div class="form-row " v-if="isFacturaReq=='Si'">
+              <h5 class="modal-title3" id="exampleModalLabel">Datos de facturación</h5>
+              <div class="form-group  was-validated col-12">
+                <label for="Nombres">Nombre Completo o razón social</label>
+                <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF"
+                  style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-12">
+                <label for="Nombres">Domicilio fiscal</label>
+                <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required
+                  name="DomicilioF" style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">RFC</label>
+                <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC"
+                  style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">Correo electrónico</label>
+                <input type="email" class="form-control" id="emailF" v-model="emailF" required name="emailF">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">Teléfono</label>
+                <input type="tel" class="form-control" id="telF" v-model="telF" required name="telF">
+              </div>
+            </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
             <div class="form-group  was-validated">
 
@@ -1299,7 +1334,13 @@
                 "CelularContacto":this.CelularContacto,
                 "GrupoC":this.GrupoC,
                 "NAcademico":this.NAcademico,
-                "checkedFecha":this.checkedFecha
+                "checkedFecha":this.checkedFecha,
+                "isFacturaReq":this.isFacturaReq,
+                'DomicilioF':this.DomicilioF,
+                'emailF':this.emailF,
+                'nombresF':this.nombresF,
+                'RFC':this.RFC,
+                'telF':this.telF
 
             }
             if (this.modalClick=='Agricultura') {
