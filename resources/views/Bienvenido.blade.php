@@ -45,7 +45,7 @@
         @yield('navbarModulos')
     </nav>
 
-    <main class="container-fluid">
+    <main class="container-fluid" id="app">
 
         @yield('Introduccion')
         @yield('ContenidoPrincipal')
@@ -61,5 +61,5 @@
 
 
 </body>
-
+@stack('vuescrip')
 </html>

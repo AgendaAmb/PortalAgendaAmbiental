@@ -686,6 +686,16 @@ a.nav-item.nav-link.nav-button{
 color:white;
 font-size: 12px;
 }
+#link  {
+    color: #fecc56;
+    text-decoration: none;
+    background-color: transparent;
+}
+#link:hover {
+    color: #ffb710;
+    text-decoration: none;
+    background-color: transparent;
+}
 #videoRegistro{
     height: 350px;width: 100%;
 }

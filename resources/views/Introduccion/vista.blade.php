@@ -59,16 +59,17 @@
           </div>
 
         </div>
-        <div class="carousel-item ">
+      -->
+        <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
-              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -77,20 +78,20 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               
-              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
-                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
           </div>
 
         </div>
-      -->
-        <div class="carousel-item active">
+      
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a  href={{route('Gemas')}}>

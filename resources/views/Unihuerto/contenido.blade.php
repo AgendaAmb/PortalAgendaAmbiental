@@ -79,6 +79,8 @@
             aria-controls="nav-profile" aria-selected="false"> Curso De <br> Jardineria Sostenible</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerFunicultura" role="tab"
             aria-controls="nav-profile" aria-selected="false"> Taller: Fungicultura <br> en Unihuerto</a>
+            <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerAgricultura" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Taller: Agricultura urbana<br>  ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?</a>
 
     </div>
 </div>
@@ -440,6 +442,136 @@
                                     piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
                                     Ext. 7210<br>
                                     <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                </p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalTallerAgricultura" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Unihuerto/TallerAgricultura_Cartel.png')}}" class="img-fluid"
+                                alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                           <!--
+                            <a href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/Ref_Fungicultura"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " target="_blank"
+                                role="button">REGISTRATE </a>
+                           -->
+                        </div>
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unihuerto/CARTEL-FUNGICULTURA.jpg')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="CARTEL-FUNGICULTURA.jpg">CARTEL GENERAL </a>
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'"><br>
+                            <h4>Taller: Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?</h4><br>
+                            <!--
+                            <h4>Dirigido a</h4>
+                            <p>Estudiantes UASLP y público general.</p><br>
+                            -->
+                            <h4>Dirigido a:</h4>
+                            Público en general<br><br>
+                            <h4>Objetivo:</h4>
+                            Informar y sensibilizar sobre agricultura orgánica básica<br><br>
+                            <h4>Lugar, fecha y horario</h4>
+                                <b>Fecha:&nbsp;</b> sábado 30 de octubre del 2021 o sábado 27 de noviembre del 2021 <br>
+                                <b>Hora: &nbsp;</b> 9:00 a 14:00 horas <br>
+                                  
+                                 
+                                  
+
+
+                                   <b>Lugar: &nbsp;</b>Unihuerto en Unitecho, Facultad de Ingeniería<br>
+                                   <div class="row my-3">
+                                       <div class="col-12">
+                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unitecho.png')}}" alt="" class="w-100 h-auto" >
+                                       </div>
+                                   </div>
+                                   <h4>Ponente:</h4>
+                                   Equipo Unihuerto
+                                   <br><br>
+                                   
+                                 
+
+                                    
+                                   <h4>Programa</h4>
+                                   <ol>
+                                    <li>Alimentación sostenible.</li>
+                                    <li>Soberanía y seguridad alimentaria.</li>
+                                    <li>Método biointesivo. </li>
+                                    <li>Fitotecnia básica. </li>
+                                    <li>Diseño e implementación de huertos. </li>
+                                   
+                                    </ol>
+                                   <br>
+                                    <h4 class="font-weight-bold text-center mt-2 text-light"> <b>Cupo limitado de acuerdo a medidas Covid</b> </h4>
+                                    <h4 class="font-weight-bold text-center mt-2 text-light"> <b>Costo: $150</b> </h4><br>
+                                    <b>Fecha límite para pre-registro: &nbsp;</b>
+                                    <ul>
+                                        <li> 29 octubre del 2021 a las 12:00 horas</li>
+                                        <li>26 de noviembre del 2021 a las 12:00 horas</li>
+                                    </ul>
+                                    <br>
+                                   
+                                </b>
+                            
+                          
+                                <h4>Registro</h4>
+                                <p > <b>Pasos para registro de participantes:</b> 
+                                </p>
+                               <p>
+                               
+                                Si aún no perteneces a la comunidad de Agenda Ambiental  da clic en el botón “registro” llena el formulario para pertenecer a la comunidad , te llegará un correo de verificación,
+                                el cual deberás validar y una vez en Mi portal da clic en el banner del taller y complementa el regitro. <br>
+                                Si ya perteneces a la comunidad de Agenda Ambiental ingresa <a href="https://ambiental.uaslp.mx/login?Nuevo=0" id="link">Mi portal</a> para complementar el registro.<br>
+                                Después de llenar este formulario quedarás preinscrito al curso, recibiras un correo de confirmación y posteriormente 48 horas después se te enviará tu ficha de pago via correo electronico.
+                                Para entrar nuevamente a la plataforma solo tendrás que dar clic en “Mi Portal” desde 
+                                <a href="https://ambiental.uaslp.mx" id="link">https://ambiental.uaslp.mx</a>
+                                
+                                
+                               </p>
+                                <br>
+                                <h4>Formas de pago</h4>
+                               <p>
+                                Las fichas de pago se pueden pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: 
+                                <a href=" https://www.finanzas.uaslp.mx/Multipagos"id="link" target="_blank" rel="noopener noreferrer"> https://www.finanzas.uaslp.mx/Multipagos</a>
+                               
+                               </p>
+                               <p>*En caso de requerir factura favor de indicarlo y mandar datos fiscales</p>
+                                <h4>Informes</h4>
+                                <p><b>Programa Unihuerto<br>Agenda Ambiental de la
+                                    UASLP</b> <br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                    piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
+                                    Ext. 7210<br>
+                                    <a href="mailto:unihuerto@uaslp.mx"id="link">unihuerto@uaslp.mx</a>
                                 </p>
                             </b>
                         </div>

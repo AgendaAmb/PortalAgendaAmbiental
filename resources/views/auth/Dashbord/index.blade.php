@@ -23,10 +23,10 @@
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroAgricultura" @click="DatosUsuario('Agricultura')">
-              <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-          <div class="col px-0">
+          <div class="col px-0 d-none" >
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
@@ -46,7 +46,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/17Gemas/Banner_seccion.png')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_Seccion.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item active">
                   <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100"
@@ -1361,7 +1361,7 @@
 <link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
 <script src="{{asset('js/fullCalendar/main.js')}}"></script>
 <script>
-  var roles = '{{Auth::user()->hasRole('helper')}}';
+  var roles = '{{Auth::user()->hasRole('Administrator')}}';
   console.log(roles);
   document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
