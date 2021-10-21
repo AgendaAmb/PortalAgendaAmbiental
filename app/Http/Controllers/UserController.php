@@ -84,6 +84,7 @@ class UserController extends Controller
 
         # Obtiene los tipos de usuario.
         $users = QueryBuilder::for(User::class)
+            ->setEagerLoads([])
             ->allowedFields(['id', 'user_type','name','middlename','surname','email','curp'])
             ->allowedIncludes(['userModules'])
             ->allowedFilters([
@@ -92,7 +93,6 @@ class UserController extends Controller
                 AllowedFilter::exact('type'),
                 AllowedFilter::exact('email'),
             ])
-            ->setEagerLoads([])
             ->get()->makeHidden($hidden);
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
