@@ -79,6 +79,8 @@
             aria-controls="nav-profile" aria-selected="false"> Curso De <br> Jardineria Sostenible</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerFunicultura" role="tab"
             aria-controls="nav-profile" aria-selected="false"> Taller: Fungicultura <br> en Unihuerto</a>
+            <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerAgricultura" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Taller: Agricultura urbana<br>  ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?</a>
 
     </div>
 </div>
@@ -508,7 +510,11 @@
 
 
                                    <b>Lugar: &nbsp;</b>Unihuerto en Unitecho, Facultad de Ingeniería<br>
-                                   <p class="text-danger">****IMAGEN FALTANTE****</p>
+                                   <div class="row my-3">
+                                       <div class="col-12">
+                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unitecho.png')}}" alt="" class="w-100 h-auto" >
+                                       </div>
+                                   </div>
                                    <h4>Ponente:</h4>
                                    Equipo Unihuerto
                                    <br><br>
@@ -541,17 +547,22 @@
                                 <h4>Registro</h4>
                                 <p > <b>Pasos para registro de participantes:</b> 
                                 </p>
-                                <ol>
-                                    <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
-                                    <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
-                                    <li>A más tardar en 48 horas recibirá un correo electrónico con la ficha, así como las indicaciones del proceso de pago. La ficha que le enviemos tendrá una vigencia de únicamente dos días para ser pagada, de lo contrario se cancelará. </li>
-                                   
-                                </ol>
+                               <p>
+                               
+                                Si aún no perteneces a la comunidad de Agenda Ambiental  da clic en el botón “registro” llena el formulario para pertenecer a la comunidad , te llegará un correo de verificación,
+                                el cual deberás validar y una vez en Mi portal da clic en el banner del taller y complementa el regitro. <br>
+                                Si ya perteneces a la comunidad de Agenda Ambiental ingresa <a href="https://ambiental.uaslp.mx/login?Nuevo=0" id="link">Mi portal</a> para complementar el registro.<br>
+                                Después de llenar este formulario quedarás preinscrito al curso, recibiras un correo de confirmación y posteriormente 48 horas después se te enviará tu ficha de pago via correo electronico.
+                                Para entrar nuevamente a la plataforma solo tendrás que dar clic en “Mi Portal” desde 
+                                <a href="https://ambiental.uaslp.mx" id="link">https://ambiental.uaslp.mx</a>
+                                
+                                
+                               </p>
                                 <br>
                                 <h4>Formas de pago</h4>
                                <p>
                                 Las fichas de pago se pueden pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: 
-                                <a href=" https://www.finanzas.uaslp.mx/Multipagos" target="_blank" rel="noopener noreferrer"> https://www.finanzas.uaslp.mx/Multipagos</a>
+                                <a href=" https://www.finanzas.uaslp.mx/Multipagos"id="link" target="_blank" rel="noopener noreferrer"> https://www.finanzas.uaslp.mx/Multipagos</a>
                                
                                </p>
                                <p>*En caso de requerir factura favor de indicarlo y mandar datos fiscales</p>
@@ -560,7 +571,7 @@
                                     UASLP</b> <br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
                                     piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
                                     Ext. 7210<br>
-                                    <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                    <a href="mailto:unihuerto@uaslp.mx"id="link">unihuerto@uaslp.mx</a>
                                 </p>
                             </b>
                         </div>
