@@ -4,8 +4,4 @@
     @endslot
 
     {{$content}}
-
-    @slot('firma')
-    <img src="{{ asset('/storage/imagenes/Logos/rtic.png') }}">
-    @endslot
 @endcomponent

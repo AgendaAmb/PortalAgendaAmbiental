@@ -146,7 +146,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 });
 
 Route::get('emailview', function () {
-    return new EmailLayout('foo', 'Vinculación');
+    return new EmailLayout('foo', 'Gestión ambiental');
 });
 
 # Expedición de tokens y autorización por parte del
