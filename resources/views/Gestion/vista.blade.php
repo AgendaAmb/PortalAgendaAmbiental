@@ -191,7 +191,7 @@ Tabs de Gestión Institucional.
                                <li v-for="P in PUR">@{{P.Nombre}}
                                 <a data-toggle="modal" href="" data-target="#pdf" @click="idPUR=P.id">&nbsp;PDF</a>
                             </li>
-                               
+
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="v-pills-informacion" role="tabpanel"
@@ -222,9 +222,9 @@ Tabs de Gestión Institucional.
                             </button>
                         </div>
                         <div class="modal-body">
-                            
-                           
-                           
+
+
+
                             <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
                                 :src=PUR[idPUR-1].Url></iframe>
                         </div>
@@ -367,7 +367,7 @@ Tabs de Gestión Institucional.
                         <div class="tab-pane fade" id="v-pills-BibliotecaPUE" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
                             <ul>
-                                @if (Auth::user())
+                                @if (Auth::guard('workers')->user() || Auth::guard('students')->user() || Auth::user())
                                 <li>Lineamientos LED Depto. Mantenimiento
                                     <a data-toggle="modal" href="" data-target="#pdfPUE">PDF</a>
                                 </li>
@@ -393,7 +393,7 @@ Tabs de Gestión Institucional.
                 </div>
             </div>
             <div class="modal fade" id="pdfPUE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              
+
                 <div class="modal-dialog modal-xl">
 
                     <div class="modal-content">
@@ -404,7 +404,7 @@ Tabs de Gestión Institucional.
                         </div>
                         <div class="modal-body">
 
-                         
+
                             <iframe style="width: 100%;height: 750px;" v-if="idPUE!=''"
                                 :src=PUE[idPUE-1].Url></iframe>
                         </div>
@@ -413,7 +413,7 @@ Tabs de Gestión Institucional.
                     </div>
                 </div>
             </div>
-            
+
         </x-tab-panel-content>
 
         {{--
@@ -563,7 +563,7 @@ los botones del nav-tab
         "Nombre":' Procedimiento para la disposición correcta de papel post consumo.',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/PROCD_DISP_PAPEL.pdf&embedded=true',
     });
-   
+
     this.PUR.push({
         "id":9,
         "Nombre":'Procedimiento para Manejo de Pilas',
@@ -579,13 +579,13 @@ los botones del nav-tab
         "Nombre":'Infografías Proserem',
         "Url":'#',
     });
-    
+
     this.PUR.push({
         "id":12,
         "Nombre":'Infografía Manejo de Aceite',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png&embedded=true',
     });
- 
+
   })
 },
 })
