@@ -1402,7 +1402,7 @@
 <link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
 <script src="{{asset('js/fullCalendar/main.js')}}"></script>
 <script>
-  var roles = '{{Auth::user()->hasRole('Administrator')}}';
+  var roles = '{{Auth::user()->hasRole('administrator')}}';
   console.log(roles);
   document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
