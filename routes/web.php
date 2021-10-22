@@ -30,7 +30,8 @@ Route::get('/Concurso17gemas', function ($NombreM=null) {
 
 Route::get('/gestión', function () {
     return view('Gestion.vista');
-})->name('Gestion');
+})->middleware('auth:web,workers,students')
+->name('Gestion');
 
 Route::get('/educación/{nombreModal?}',function ($NombreM=null){
     return view('Educacion.vista')->with('NombreM',$NombreM);
