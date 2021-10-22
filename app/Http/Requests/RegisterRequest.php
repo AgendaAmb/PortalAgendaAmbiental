@@ -50,6 +50,25 @@ class RegisterRequest extends FormRequest
             'username' => $this->email ?? null
         ]);
 
+        $response_data = $response->json()['data'];
+
+        $this->merge([
+            'altern_email' => Str::lower($this->CorreoAlterno ?? ''),
+            'name' => $this->Nombres,
+            'middlename' => $this->ApellidoP,
+            'surname' => $this->ApellidoM,
+            'email' => Str::lower($this->email),
+            'nationality' => $this->Pais,
+            'phone_number' => $this->Tel,
+            'curp' => Str::upper($this->CURP ?? ''),
+            'age' => $this->Edad,
+            'residence' => $this->LugarResidencia,
+            'gender' => $this->OtroGenero === null ? $this->Genero : $this->Genero.' - '.$this->OtroGenero,
+            'ethnicity' => $this->GEtnico,
+
+        ]);
+
+
         # Guarda los datos recuperados del directorio activo en la solicitud.
         if ($response->successful())
         {
