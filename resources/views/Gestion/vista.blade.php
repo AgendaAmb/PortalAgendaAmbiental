@@ -367,9 +367,11 @@ Tabs de Gestión Institucional.
                         <div class="tab-pane fade" id="v-pills-BibliotecaPUE" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
                             <ul>
+                                @if (Auth::user())
                                 <li>Lineamientos LED Depto. Mantenimiento
                                     <a data-toggle="modal" href="" data-target="#pdfPUE">PDF</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="v-pills-informacionPUE" role="tabpanel"
