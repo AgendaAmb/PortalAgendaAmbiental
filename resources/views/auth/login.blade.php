@@ -635,7 +635,7 @@
         //this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
         //this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
         var urlactual='{{url()->full()}}'
-
+        console.log( this.urlAnterior);
         this.urlAnterior== 'https://ambiental.uaslp.mx/Bienvenida/17Gemas'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida/mmus'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida'?this.levantaModal():''
