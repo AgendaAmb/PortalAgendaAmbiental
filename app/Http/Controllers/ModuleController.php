@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use App\Correos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Workshop;
 
 class ModuleController extends Controller
 {
@@ -81,5 +83,17 @@ class ModuleController extends Controller
     public function destroy(Module $module)
     {
         //
+    }
+
+    public function getAllModules(){
+        $module = Module::all();
+        $workshop=Workshop::all();
+        $Correos=Correos::all();
+        
+        return response()->json([
+            'modulos' =>  $module,
+            'workshop'=>$workshop,
+            'Correos'=>$Correos
+        ]);
     }
 }

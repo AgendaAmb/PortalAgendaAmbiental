@@ -12,13 +12,15 @@ class UserWorkshop extends MorphPivot
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [];
+
+
 
     /**
      * Timestamps.

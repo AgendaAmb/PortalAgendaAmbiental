@@ -22,17 +22,17 @@
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('mmus')">
-              <img src="{{ asset('/storage/imagenes/mmus2021/2.png')}}" class="img-fluid pr-xl-1 px-1">
+            <a href="#" data-toggle="modal" data-target="#RegistroAgricultura" @click="DatosUsuario('Agricultura')">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/Unihuerto-05.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-          <div class="col px-0">
+          <div class="col px-0 d-none" >
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
           @if(Auth::user()->user_type!="externs")
-          <div class="col px-0"  >
+          <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
 
               <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-xl-1 px-1 mt-1 mt-xl-0">
@@ -46,7 +46,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/17Gemas/Banner_seccion.png')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_Seccion.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item active">
                   <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100"
@@ -95,7 +95,8 @@
         <div class="collapse show px-0" id="collapseExample">
           <div class="card card-body" style="font-size: 15px;border: 0px solid rgba(0, 0, 0, 0.125);">
             <p class="">Recuerda subir tu comprobante de pago de la Unirodada
-              <a href="" href="#" data-toggle="modal" data-target="#RegistroComprobanteP">Aquí</a></p>
+              <a href="" href="#" data-toggle="modal" data-target="#RegistroComprobanteP">Aquí</a>
+            </p>
           </div>
         </div>
 
@@ -107,6 +108,9 @@
 
 
   </div>
+
+
+
 
   <div class="modal fade" id="Registro17gemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -125,13 +129,15 @@
           v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
           <div class="row">
             <div class="col-12">
-              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid mt-4" alt="">
+              <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid mt-4"
+                alt="">
             </div>
           </div>
         </div>
 
 
-        <div class="modal-body" v-else-if="TipoUsuario=='externs'?false:modalClick!='Rodada'?true:isRegisterRodada?false:true">
+        <div class="modal-body"
+          v-else-if="TipoUsuario=='externs'?false:modalClick!='Rodada'?true:isRegisterRodada?false:true">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -629,11 +635,8 @@
               </div>
             </div>
 
-            <div class="modal-footer justify-content-start"  >
-              <button id="submit" type="submit"
-
-
-              class="btn btn-primary" style="background-color: #0160AE"
+            <div class="modal-footer justify-content-start">
+              <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE"
                 v-if="!spinnerVisible">Aceptar</button>
               <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -735,6 +738,305 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="RegistraWorshop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary" id="modalComprobante">
+          <h5 class="modal-title mx-auto text-white">Registrar actividad</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body bg-white">
+          <form @submit.prevent="registrarWorshop" method="post">
+            <div class="modal-body bg-white">
+              <div class="col-12" v-if="asistenciaExito">
+                <div class="alert alert-success text-center" role="alert">
+                  ¡¡Enviado con exito!!
+                </div>
+              </div>
+              <div class="form-row was-validated ">
+                <div class="form-group col-md-12">
+                  <label for="nombreT">Nombre de la actividad</label>
+                  <input type="text" class="form-control" id="nombreT" v-model="nombreT" required name="nombreT">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="DescripcionT">Descripción</label>
+                  <input type="text" class="form-control" id="DescripcionT" v-model="DescripcionT" required
+                    name="DescripcionT">
+                </div>
+
+              </div>
+
+              <div class="form-row ">
+                <div class="form-group  was-validated col-6">
+                  <label for="TEvento">Tipo de evento</label>
+                  <select id="TEvento" class="form-control" v-model="TEvento" required name="TEvento">
+                    <option disabled value="">Tipo de evento</option>
+                    <option value="Curso" id="Curso">Curso</option>
+                    <option value="Taller" id="Taller">Taller</option>
+                    <option value="unirodada" id="unirodada">unirodada</option>
+                    <option value="Conferencia" id="Conferencia">Conferencia</option>
+                  </select>
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="Eje">Eje al que pertenece</label>
+                  <select id="Eje" class="form-control" v-model="Eje" required name="Eje">
+                    <option disabled value="">Eje</option>
+                    @foreach ($Ejes as $Eje)
+
+                    <option value="{{$Eje->id}}" id="{{$Eje->id}}">{{$Eje->name}}
+                      @endforeach
+
+                  </select>
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="FechaInicio">Fecha de inicio</label>
+                  <input type="datetime-local" id="FechaInicio" class="form-control" v-model="FechaInicio" required>
+                </div>
+                <div class="form-group  was-validated col-6">
+                  <label for="FechaFin">Fecha de fin</label>
+                  <input type="datetime-local" id="FechaFin" class="form-control" v-model="FechaFin">
+                </div>
+
+              </div>
+              <div class="row justify-content-end">
+                <div class="col-md-3 col-6 p-0">
+
+                  <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Registrar
+                  </button>
+                  <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Registrando
+                  </button>
+
+                </div>
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="RegistroAgricultura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary" id="modalGemas">
+          <h5 class="modal-title mx-auto text-white">Agricultura urbana</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-white p-5">
+          <form @submit.prevent="uaslpUser()">
+            @csrf
+            <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
+
+            <label for="Nombres">Fecha en la que deseas participar</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Octubre" id="Octubre" v-model="checkedFecha"
+                @click="check_two()">
+              <label class="form-check-label" for="con100te">
+                Sábado 30 de Octubre
+              </label>
+
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Noviembre" id="Noviembre" v-model="checkedFecha"
+                @click="check_two()">
+              <label class="form-check-label" for="Noviembre">
+                Sábado 27 de Noviembre
+              </label>
+
+            </div>
+            <br>
+            
+            <h5 class="modal-title3" id="exampleModalLabel">Datos académicos</h5>
+            <div class="form-row">
+              <div class="form-group col-md-6 was-validated ">
+                <label for="Nombres">Nivel académico</label>
+                <select id="NAcademico" class="form-control" v-model="NAcademico" required name="NAcademico">
+                  <option disabled value="">Nivel académico</option>
+                  <option value="Bachillerato" id="Bachillerato">Bachillerato</option>
+                  <option value="Licenciatura" id="Licenciatura">Licenciatura</option>
+                  <option value="Maestria" id="Maestria">Maestria</option>
+                  <option value="Especialidad" id="Especialidad">Especialidad</option>
+                  <option value="Doctorado" id="Doctorado">Doctorado</option>
+                  <option value="Posdoctorado" id="Posdoctorado">Posdoctorado</option>
+                  <option value="Otro" id="Otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="isFacturaReq">¿Requieres factura?</label>
+                <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
+                  <option disabled value="">Opción</option>
+                  <option value="Si" id="Si">Si</option>
+                  <option value="No" id="No">No</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6 was-validated" v-if="NAcademico=='Otro'">
+                <label for="Especificar">Especificar</label>
+                <input type="text" class="form-control" id="Especificar" v-model="Especificar" required
+                  name="Especificar">
+              </div>
+            </div>
+            <div class="form-row " v-if="isFacturaReq=='Si'">
+              <h5 class="modal-title3" id="exampleModalLabel">Datos de facturación</h5>
+              <div class="form-group  was-validated col-12">
+                <label for="Nombres">Nombre Completo o razón social</label>
+                <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF"
+                  style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-12">
+                <label for="Nombres">Domicilio fiscal</label>
+                <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required
+                  name="DomicilioF" style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">RFC</label>
+                <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC"
+                  style="text-transform: capitalize;">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">Correo electrónico</label>
+                <input type="email" class="form-control" id="emailF" v-model="emailF" required name="emailF">
+              </div>
+              <div class="form-group  was-validated col-6">
+                <label for="Nombres">Teléfono</label>
+                <input type="tel" class="form-control" id="telF" v-model="telF" required name="telF">
+              </div>
+            </div>
+            <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
+            <div class="form-group  was-validated">
+
+              <label for="Nombres">Nombre(s)</label>
+              <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" readonly
+                style="text-transform: capitalize;">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 was-validated">
+                <label for="ApellidoP">Apellido paterno</label>
+                <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required readonly
+                  name="ApellidoP" style="text-transform: capitalize;">
+              </div>
+              <div class="form-group col-md-6  was-validated">
+                <label for="ApellidoM">Apellido materno</label>
+                <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
+                  name="ApellidoM" style="text-transform: capitalize;">
+              </div>
+            </div>
+
+
+            <div class="form-group row was-validated">
+              <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
+              <div class="col-9">
+                <input type="emailR" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
+              </div>
+            </div>
+            <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
+              <div class="form-group col-md-6">
+                <label for="ClaveU_RPE">clave única/RPE</label>
+                <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
+                  required>
+              </div>
+              <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
+                <label for="Facultad">Facultad de adscripción</label>
+                <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
+                  v-model="Facultad">
+              </div>
+            </div>
+
+            <div class="form-row row was-validated">
+              <div class="col-md-6 mb-3">
+                <label for="tel">Teléfono</label>
+                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
+                  @if(Auth::user()->user_type!="externs")
+
+                @else
+                readonly
+                @endif
+                >
+              </div>
+
+
+            </div>
+
+            <hr>
+            <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
+            <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
+              <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres
+                en
+                la Agenda Ambiental?</label>
+              <div class="col-5">
+                <select id="isAsistencia" class="form-control" v-model="isAsistencia" required name="isAsistencia">
+                  <option disabled value="">Opción</option>
+                  <option value="Si" id="Si">Si</option>
+                  <option value="No" id="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row was-validated" v-if="modalClick!='Rodada'?isAsistencia==='Si'?true:false:false">
+              <div class="col-md-12">
+                <label for="CursosC">¿Cuales?</label>
+                <input type="text" class="form-control" id="CursosC" required name="CursosC" v-model="CursosC">
+              </div>
+            </div>
+            <div class="form-group row was-validated">
+              <label for="InteresAsistencia" class="col-sm-12 col-form-label">¿Te interesaria seguir
+                participando en actividades de la Agenda Ambiental?</label>
+              <div class="col-12 col-xl-5">
+                <select id="InteresAsistencia" class="form-control" v-model="InteresAsistencia" required
+                  name="InteresAsistencia">
+                  <option disabled value="">Opción</option>
+                  <option value="Si" id="Si">Si</option>
+                  <option value="No" id="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row " v-if="modalClick!='Rodada'">
+              <label for="ComentariosSugerencias" class="col-sm-12 col-form-label">Comentarios o
+                suguerencias</label>
+              <div class="col-md-12">
+                <textarea name="ComentariosSugerencias" id="ComentariosSugerencias" rows="5" class="form-control"
+                  v-model="ComentariosSugerencias">
+                </textarea>
+              </div>
+            </div>
+
+            <div class="form-group ">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                  Al enviar la información confirmo que he leído y acepto el
+                  <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
+
+                </label>
+              </div>
+            </div>
+
+            <div class="modal-footer justify-content-start">
+              <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE"
+                v-if="!spinnerVisible">Aceptar</button>
+              <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Registrando...
+              </button>
+              <div class="alert alert-success" role="alert" v-if="Guardado">
+                ¡¡Te has registrado con exito!!
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 
 
@@ -781,8 +1083,16 @@
     RFC:'',
     DomicilioF:'',
     emailF:'',
-    telF:''
-
+    telF:'',
+    nombreT:'',
+    DescripcionT:'',
+    TEvento:'',
+    Eje:'',
+    FechaInicio:'',
+    FechaFin:'',
+    checkedFecha:[],
+    NAcademico:'',
+    Especificar:''
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -800,6 +1110,44 @@
 },
 
   methods:{
+    registrarWorshop:function(){
+      this.spinnerVisible=true
+        const formData = new FormData();
+             formData.append('idUser','{{Auth::id()}}');
+             formData.append('nombreT',this.nombreT);
+             formData.append('DescripcionT',this.DescripcionT);
+             formData.append('TEvento',this.TEvento);
+             formData.append('Eje',this.Eje);
+             formData.append('FechaInicio',this.FechaInicio);
+             formData.append('FechaFin',this.FechaFin);
+           
+             formData.append('_method', 'post');
+             axios({
+                 method: 'post',
+
+                 url: 'api/registerWorkShop',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+
+
+                         this.file = '',
+                         this.spinnerVisible=false,
+                         this.asistenciaExito=true
+                     }
+                 ).catch(
+                     err => {
+
+                        this.spinnerVisible=false,
+                         this.asistenciaExito=false
+
+                     }
+                 )
+    },
+
     ChecarBecas:function(fupUser){
       console.log(fupUser);
       this.Errores[4].Visible=false;
@@ -926,6 +1274,9 @@
     check_one: function(){
         this.CondicionSalud = [];
     },
+    check_two: function(){
+        this.checkedFecha = [];
+    },
     DatosUsuario:function(ModalClick){
         this.nombres= '{{Auth::user()->name}}',
         this.ApellidoP='{{Auth::user()->middlename}}',
@@ -949,6 +1300,7 @@
         this.Guardado=false,
         this.url='{{env('APP_URL')}}',
         this.Ocupacion='{{Auth::user()->ocupation}}'
+       
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
           this.isRegisterRodada=true,
        this.check_one(),
@@ -980,9 +1332,30 @@
                 "CondicionSalud":this.CondicionSalud,
                 "NombreContacto":this.NombreContacto,
                 "CelularContacto":this.CelularContacto,
-                "GrupoC":this.GrupoC
-            }
+                "GrupoC":this.GrupoC,
+                "NAcademico":this.NAcademico,
+                "checkedFecha":this.checkedFecha,
+                "isFacturaReq":this.isFacturaReq,
+                'DomicilioF':this.DomicilioF,
+                'emailF':this.emailF,
+                'nombresF':this.nombresF,
+                'RFC':this.RFC,
+                'telF':this.telF
 
+            }
+            if (this.modalClick=='Agricultura') {
+              axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
+              console.log(response.data),
+              this.spinnerVisible=false,
+              $('#RegistroAgricultura').modal('hide'),
+              $('#Registro17gemas').modal('hide'),
+              this.Guardado=true
+              )).catch((err) => {
+                  this.Errores[0].Visible,
+                  this.Guardado=false
+              })
+
+           }else
            if (this.modalClick=='17Gemas') {
             axios.post(this.url+'17Gemas/api/register',data).then(response => (
 
@@ -1029,11 +1402,35 @@
 <link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
 <script src="{{asset('js/fullCalendar/main.js')}}"></script>
 <script>
+  var roles = '{{Auth::user()->hasRole('administrator')}}';
+  console.log(roles);
   document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
+           
+          
+           events:[
+             @foreach($workshops as $workshop)
+              {
+                title:'{{$workshop->name}}',
+                start:'{{$workshop->start_date}}',
+                end:'{{$workshop->end_date}}',
+                color:"#FFCCAA",
+                textColor:"#000000"
+              },
+           @endforeach
+           ],
+            dateClick:function(info){
+              if (roles) {
+                $('#FechaInicio').val(info.dateStr);
+                
 
+                 $('#RegistraWorshop').modal('show')
+                
+              }
+
+          },
             headerToolbar: {
               start: 'prev,next',
                 center:'title',
@@ -1041,7 +1438,7 @@
             initialView: 'dayGridMonth'
 
           });
-
+         
           calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();

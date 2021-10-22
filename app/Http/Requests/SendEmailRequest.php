@@ -13,7 +13,7 @@ class SendEmailRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class SendEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'work_edge' => ['required', 'in:gestion,educacion,vinculacion,comunicacion,rtic']
+            'idUsuarioEnvio' => ['required','exists:users,id','numeric'],
+            'CorreoRemitente' => ['required', 'exists:correos,email', 'email'],
+            'Destinatario' => ['required', 'string'],
+            'Asunto' => ['required', 'string'],
+            'Contenido' => ['required', 'string']
         ];
     }
 }

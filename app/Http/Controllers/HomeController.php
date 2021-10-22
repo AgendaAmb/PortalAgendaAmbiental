@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
+use App\ejes;
 use App\Models\Auth\Worker;
+use App\Models\UnirodadaUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Workshop;
 
 class HomeController extends Controller
 {
@@ -30,12 +33,7 @@ class HomeController extends Controller
     public function index()
     {
         # Obtiene el num de usuarios que son de la fup.
-        $fup_users = DB::table('unirodada_users')
-            ->join('user_workshop', 'user_workshop.id', '=', 'user_workshop_id')
-            ->join('workshops', 'workshops.id', '=', 'workshop_id')
-            ->where('workshops.name', 'Unirodada cicloturística a la Cañada del Lobo')
-            ->where('unirodada_users.group', 'fup')
-            ->count();
+        $fup_users = DB::table('unirodada_users')->where('unirodada_users.group', 'fup')->count();
 
         return view('home')
         ->with('fup_users', $fup_users);
@@ -46,19 +44,18 @@ class HomeController extends Controller
     public function panel(Request $request){
 
         $nombreModal = session('nombreModal') ?? null;
-        $fup_users = DB::table('unirodada_users')
-        ->join('user_workshop', 'user_workshop.id', '=', 'user_workshop_id')
-        ->join('workshops', 'workshops.id', '=', 'workshop_id')
-        ->where('workshops.name', 'Unirodada cicloturística a la Cañada del Lobo')
-        ->where('unirodada_users.group', 'fup')
-        ->count();
+        $fup_users = DB::table('unirodada_users')->where('unirodada_users.group', 'fup')->count();
+        
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
 
         return view('auth.Dashbord.index')
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
-            ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users);
+            ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users)
+            ->with('Ejes',ejes::all())
+            ->with('workshops',Workshop::all())
+            ;
     }
 
     /**
@@ -74,11 +71,13 @@ class HomeController extends Controller
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
+
+
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);
     }
 
-
+    
     /**
      * Obtiene el listado de usuarios de la unirodada.
      *
@@ -109,7 +108,9 @@ class HomeController extends Controller
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator'])
                 ->whereNotIn('users.id', [12457, 25389]);
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+        })->whereNotNull('email_verified_at')
+        ->orderBy('created_at', 'desc')
+        ->get();
     }
 
 }

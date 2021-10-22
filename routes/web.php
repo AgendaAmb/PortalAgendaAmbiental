@@ -1,8 +1,6 @@
 <?php
 
-use App\Mail\Educacion\EducacionEmail;
-use App\Mail\Gestion\GestionEmail;
-use App\Mail\RTIC\RTICEmail;
+use App\Mail\EmailLayout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -19,6 +17,7 @@ use Illuminate\Http\Request;
 Route::get('/', function ($NombreM=null) {
     return view('Introduccion.vista')->with('NombreM',$NombreM);
 })->name('Index');
+
 
 Route::get('/Concurso17gemas', function ($NombreM=null) {
     return view('17Gemas.contenido')->with('NombreM',$NombreM);
@@ -119,6 +118,8 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
+
+   
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
@@ -140,6 +141,13 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/workshops/{userType}/{userId}/{fileName}', 'FileController@verComprobante')
         ->middleware('role:administrator|coordinator|helper')
         ->name('verComprobante');
+
+    # Envía un correo electrónico.
+    Route::post('/sendEmail', 'CorreosController@sendEmail');
+});
+
+Route::get('emailview', function () {
+    return new EmailLayout('foo', 'Vinculación');
 });
 
 # Expedición de tokens y autorización por parte del

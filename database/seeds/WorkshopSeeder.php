@@ -15,12 +15,12 @@ class WorkshopSeeder extends Seeder
     public function run()
     {
         $workshops = [
-            [ 
+            [
                 'name' => 'curso sostenibilidad',
-                'description' => 'Conferencia 1: Sostenibilidad energética en la pandemia',
+                'description' => 'z',
                 'type' => 'curso',
             ],
-            [ 
+            [
                 'name' => 'curso movilidad y urbanismo',
                 'description' => 'Conferencia 2: Movilidad y Urbanismo con enfoque de género',
                 'type' => 'curso',
@@ -29,8 +29,8 @@ class WorkshopSeeder extends Seeder
                 'name' => 'curso conduce con100te',
                 'description' => 'Curso-taller: Conduce Con💯te',
                 'type' => 'curso',
-            ], 
-            [ 
+            ],
+            [
                 'name' => 'curso mus-uaslp',
                 'description' => 'Mesa de trabajo: MUS-UASLP',
                 'type' => 'curso'

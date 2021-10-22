@@ -6,220 +6,315 @@
 @endsection
 @section('ContenidoPrincipal')
 <div class="container-fluid my-3" id="apps">
-    <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
-        <thead>
-            <tr>
-                @if (Auth::user()->hasRole('administrator'))
-                <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
-                @endif
-                <th>Acciones</th>
-                <th>Clave única/RPE</th>
-                <th>Nombre</th>
-
-                <th>Curp</th>
-                <th>Correo</th>
-                @if (!Auth::user()->hasRole('administrator'))
-                <th>Género</th>
-                @endif
-                <th>Teléfono</th>
-                @if (Auth::user()->hasRole('administrator'))
-                <th>Rol</th>
-                <th>Sistema</th>
-                <th>Pago unirodada</th>
-                @endif
-                <th>Cursos/Talleres</th>
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
-                <th>Condición de salud</th>
-                <th>Nombre de contacto de emergencia</th>
-                <th>Télefono de contacto de emergencia</th>
-
-                <th>Grupo ciclista</th>
-
-                @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-                <th>Fecha de registro</th>
-                @endif
-                @if (Auth::user()->hasRole('coordinator'))
-                    <th>Comprobante de pago</th>
-                @endif
-                @if (Auth::user()->hasRole('helper'))
-                <th>Enviado</th>
-                <th>Pago</th>
-                <th>Factura</th>
-                @endif
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-
-            <tr>
-                @if (Auth::user()->hasRole('administrator'))
-                <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
-                @endif
-                @if (Auth::user()->hasRole('administrator'))
-                <td>
-                    @if ($user->getRegisteredWorkshops()!=[])
-                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                        @click="cargarUser({{$user}})">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    @endif
-                </td>
-                @else
-
-                <td>
-                    <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                        @click="cargarUser({{$user}})">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                </td>
-                @endif
-
-                <td>{{$user->id}} </td>
-                <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
-                <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
-                <td>{{$user->email}}</td>
-                @if (!Auth::user()->hasRole('administrator'))
-                <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
-                @endif
-                <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
-
-                @if (Auth::user()->hasRole('administrator'))
-                <td>
-                    @foreach ($user->getRoleNames() as $rol)
-                    <li>{{$rol}}</li>
-                    @endforeach
-                </td>
-                <td>
-                    @foreach ($user->userModules as $key => $Modulo)
-                    <li>{{$Modulo->name}}</li>
-                    @endforeach
-                </td>
-                <td>{{$user->paid?'Si':'No'}}</td>
-
-                @endif
-
-
-                <td>
-                    @foreach ($user->workshops as $key => $workshops)
-                    <li>{{$workshops->description}}</li>
-                    @endforeach
-                </td>
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
-                <th>{{$user->health_condition}}</th>
-                <th>{{$user->emergency_contact}}</th>
-                <th>
-                    <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
-                    @if (Auth::user()->hasRole('coordinator'))
-                    @if ($user->invoice_data!=null)
-                    <i class="far fa-file-pdf"
-                    style="color: red;font-size: 25px;"></i>
-                    @endif
-
-                    @endif
-                </th>
-
-                <th>{{$user->grupoCiclista}}</th>
-
-                @endif
-                @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-
-                <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, h:mm:ss a')}}</td>
-
-                @endif
-                @if (Auth::user()->hasRole('coordinator'))
-                @if ($user->invoice_data!=null)
-                <td  ><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
-                    style="color: red;font-size: 25px;"></i></td>
-                @else
-                <td ></td>
-                @endif
-
-
-
-
-                @endif
-                @if (Auth::user()->hasRole('helper'))
-                @if ($user->sent)
-                <td class="text-center" style="color: green; font-size:25px; "><i class="fas fa-check-circle"></i></td>
-                @else
-                <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i></td>
-                @endif
-
-                @if ($user->paid!=null||$user->paid)
-                <td class="text-center">
-                    <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
-                </td>
-                @else
-                <td>
-
-                    <input type="checkbox" name="{{$user->id.$user->middlename}}" id="{{$user->id.$user->middlename}}"
-                        @change="ConfirmarPago({{$user}})">
-                    Si
-                </td>
-
-                @endif
-
-
-                <th class="text-center ">
-                    @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
-
-                    <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i class="fas fa-eye text-primary "
-                            style="font-size: 25px;" @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
-
-                    @else
-                    no
-                    @endif</th>
-                @endif
-            </tr>
-            </tr>
-
-            @endforeach
-
-        </tbody>
-        <tfoot>
-            @if (Auth::user()->hasRole('administrator'))
-            <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
-            @endif
-            <th>Acciones</th>
-            <th>Clave única/RPE</th>
-            <th>Nombre</th>
-            <th>Curp</th>
-
-            <th>Correo</th>
-            @if (!Auth::user()->hasRole('administrator'))
-            <th>Genero</th>
-            @endif
-            <th>Teléfono</th>
-            @if (Auth::user()->hasRole('administrator'))
-            <th>Rol</th>
-
-            <th>Sistema</th>
-            <th>Pago unirodada</th>
-            @endif
-            <th>Cursos/Talleres</th>
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
-            <th>Condición de salud</th>
-            <th>Nombre de contacto de emergencia</th>
-            <th>Télefono de contacto de emergencia</th>
-
-            <th>Grupo ciclista</th>
-            @endif
-            @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-            <th>Fecha de registro</th>
-            @endif
-            @if (Auth::user()->hasRole('coordinator'))
-            <th>Comporbante de pago</th>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Usuarios</a>
+        </li>
+        @if (Auth::user()->hasRole('administrator'))
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                @click="cargarModulos()" aria-selected="false">Correos</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                aria-selected="false">Contact</a>
+        </li>
         @endif
-            @if (Auth::user()->hasRole('helper'))
-            <th>Enviado</th>
-            <th>Pago</th>
-            <th>Factura</th>
-            @endif
-            </tr>
-        </tfoot>
-    </table>
+      
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        @if (Auth::user()->hasRole('administrator'))
+                        <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                        @endif
+                        <th>Acciones</th>
+                        <th>Clave única/RPE</th>
+                        <th>Nombre</th>
+
+                        <th>Curp</th>
+                        <th>Correo</th>
+                        @if (!Auth::user()->hasRole('administrator'))
+                        <th>Género</th>
+                        @endif
+                        <th>Teléfono</th>
+                        @if (Auth::user()->hasRole('administrator'))
+                        <th>Rol</th>
+                        <th>Sistema</th>
+                        <th>Pago unirodada</th>
+                        @endif
+                        <th>Cursos/Talleres</th>
+                        @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                        <th>Condición de salud</th>
+                        <th>Nombre de contacto de emergencia</th>
+                        <th>Télefono de contacto de emergencia</th>
+
+                        <th>Grupo ciclista</th>
+
+                        @endif
+                        @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                        <th>Fecha de registro</th>
+                        @endif
+                        @if (Auth::user()->hasRole('coordinator'))
+                        <th>Comprobante de pago</th>
+                        @endif
+                        @if (Auth::user()->hasRole('helper'))
+                        <th>Enviado</th>
+                        <th>Pago</th>
+                        <th>Factura</th>
+                        @endif
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+
+                    <tr>
+                        @if (Auth::user()->hasRole('administrator'))
+                        <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                        @endif
+                        @if (Auth::user()->hasRole('administrator'))
+                        <td>
+                            @if ($user->getRegisteredWorkshops()!=[])
+                            <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
+                                @click="cargarUser({{$user}})">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            @endif
+                        </td>
+                        @else
+
+                        <td>
+                            <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
+                                @click="cargarUser({{$user}})">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                        @endif
+
+                        <td>{{$user->id}} </td>
+                        <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
+                        <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
+                        <td>{{$user->email}}</td>
+                        @if (!Auth::user()->hasRole('administrator'))
+                        <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
+                        @endif
+                        <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
+
+                        @if (Auth::user()->hasRole('administrator'))
+                        <td>
+                            @foreach ($user->getRoleNames() as $rol)
+                            <li>{{$rol}}</li>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach ($user->userModules as $key => $Modulo)
+                            <li>{{$Modulo->name}}</li>
+                            @endforeach
+                        </td>
+                        <td>{{$user->paid?'Si':'No'}}</td>
+
+                        @endif
+
+
+                        <td>
+                            @foreach ($user->workshops as $key => $workshops)
+                            <li>{{$workshops->description}}</li>
+                            @endforeach
+                        </td>
+                        @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                        <th>{{$user->health_condition}}</th>
+                        <th>{{$user->emergency_contact}}</th>
+                        <th>
+                            <a href="tel:{{$user->emergency_contact_phone}}">{{$user->emergency_contact_phone}}</a>
+                            @if (Auth::user()->hasRole('coordinator'))
+                            @if ($user->invoice_data!=null)
+                            <i class="far fa-file-pdf" style="color: red;font-size: 25px;"></i>
+                            @endif
+
+                            @endif
+                        </th>
+
+                        <th>{{$user->grupoCiclista}}</th>
+
+                        @endif
+                        @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+
+                        <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
+                            h:mm:ss a')}}</td>
+
+                        @endif
+                        @if (Auth::user()->hasRole('coordinator'))
+                        @if ($user->invoice_data!=null)
+                        <td><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i
+                                    class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></td>
+                        @else
+                        <td></td>
+                        @endif
+
+
+
+
+                        @endif
+                        @if (Auth::user()->hasRole('helper'))
+                        @if ($user->sent)
+                        <td class="text-center" style="color: green; font-size:25px; "><i
+                                class="fas fa-check-circle"></i></td>
+                        @else
+                        <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i>
+                        </td>
+                        @endif
+
+                        @if ($user->paid!=null||$user->paid)
+                        <td class="text-center">
+                            <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
+                        </td>
+                        @else
+                        <td>
+
+                            <input type="checkbox" name="{{$user->id.$user->middlename}}"
+                                id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})">
+                            Si
+                        </td>
+
+                        @endif
+
+
+                        <th class="text-center ">
+                            @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
+
+                            <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i
+                                    class="fas fa-eye text-primary " style="font-size: 25px;"
+                                    @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
+
+                            @else
+                            no
+                            @endif
+                        </th>
+                        @endif
+                    </tr>
+                    </tr>
+
+                    @endforeach
+
+                </tbody>
+                <tfoot>
+                    @if (Auth::user()->hasRole('administrator'))
+                    <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                    @endif
+                    <th>Acciones</th>
+                    <th>Clave única/RPE</th>
+                    <th>Nombre</th>
+                    <th>Curp</th>
+
+                    <th>Correo</th>
+                    @if (!Auth::user()->hasRole('administrator'))
+                    <th>Genero</th>
+                    @endif
+                    <th>Teléfono</th>
+                    @if (Auth::user()->hasRole('administrator'))
+                    <th>Rol</th>
+
+                    <th>Sistema</th>
+                    <th>Pago unirodada</th>
+                    @endif
+                    <th>Cursos/Talleres</th>
+                    @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
+                    <th>Condición de salud</th>
+                    <th>Nombre de contacto de emergencia</th>
+                    <th>Télefono de contacto de emergencia</th>
+
+                    <th>Grupo ciclista</th>
+                    @endif
+                    @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+                    <th>Fecha de registro</th>
+                    @endif
+                    @if (Auth::user()->hasRole('coordinator'))
+                    <th>Comporbante de pago</th>
+                    @endif
+                    @if (Auth::user()->hasRole('helper'))
+                    <th>Enviado</th>
+                    <th>Pago</th>
+                    <th>Factura</th>
+                    @endif
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h1 class="text-center mt-3">Correos</h1>
+            <form @submit.prevent="enviarCorreo" method="post" class="text-left">
+
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Correo remitente</label>
+                    <div class="col-4">
+                        <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
+                            <option selected disabled value="">Remitente</option>
+                            <option :value="correo.email" v-for="correo in Correos">@{{correo.email}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Destinatario</label>
+                    <div class="col-4">
+                        <select class="custom-select" id="validationDefault05" required v-model="Destinatario">
+                            <option selected disabled value="">Destinatario</option>
+                            <option :value="work.name" v-for="work in workshop">@{{work.name}}</option>
+                            <option :value="modulo.name" v-for="modulo in modulos">@{{modulo.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row was-validated justify-content-center d-none">
+                    <label for="emailR" class="col-sm-1 col-form-label">CC</label>
+                    <div class="col-4">
+                        <select class="js-example-basic-multiple" v-model="cc" name="CC[]" multiple="multiple" style="width: 100%" >
+                            <option :value="user.id" v-for="user in users">@{{user.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Asunto</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
+                    </div>
+                </div>
+
+                <div class="form-group row was-validated justify-content-center">
+                    <label for="emailR" class="col-sm-1 col-form-label">Contenido</label>
+                    <div class="col-4">
+                        <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-end">
+                    <div class="col-md-6 col-6 p-0">
+
+                        <button class="btn btn-success" type="submit" value="Submit"
+                            v-if="!spinnerVisible">Enviar correo</button>
+                        <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                            <span class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                            Enviando
+                        </button>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+
+
+
+
+
 
     <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="user!=''">
@@ -305,10 +400,10 @@
                                 <div class="form-group col-md-4 " v-if="user[0].invoice_data!=null">
                                     <label for="Lunch">Registrar lunch</label>
 
-                                    <select name="Lunch" id="Lunch" class="custom-select" required
-                                        v-model="Lunch"  @change="RegistrarLunch(user[0].id)">
-                                       <option value="Si">Si</option>
-                                       <option value="No">No</option>
+                                    <select name="Lunch" id="Lunch" class="custom-select" required v-model="Lunch"
+                                        @change="RegistrarLunch(user[0].id)">
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
                                     </select>
 
                                 </div>
@@ -346,8 +441,8 @@
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
                                     <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
-                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf"
-                                            style="color: red;font-size: 25px;"></i></a>
+                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
+                                            class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
                                 </div>
 
 
@@ -487,7 +582,15 @@
     DatosFacturacion:[],
     checkPago:[],
     Lunch:'',
-    lunchRegister:false
+    lunchRegister:false,
+    modulos:[],
+    workshop:[],
+    CorreoRemitente:'',
+    Correos:[],
+    Destinatario:'',
+    Asunto:'',
+    Contenido:'',
+    cc:[]
 
   },
   mounted: function () {
@@ -513,6 +616,44 @@
   })
 },
   methods: {
+    enviarCorreo:function(){
+        const formData = new FormData();
+        formData.append('idUsuarioEnvio','{{Auth::user()->id}}');
+        formData.append('CorreoRemitente',this.CorreoRemitente);
+        formData.append('Destinatario',this.Destinatario);
+        formData.append('Asunto',this.Asunto);
+        formData.append('Contenido',this.Contenido);
+
+        axios({
+                 method: 'post',
+                 url: '/sendEmail',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("Exito")
+
+
+                     }
+                 ).catch(
+                     err => {
+                        console.log("Falso")
+
+                     }
+                 )
+
+    },
+    cargarModulos:function(){
+        axios.get('/api/getAllModules').then(res => {
+            this.modulos=res.data.modulos;
+            this.workshop=res.data.workshop;
+            this.Correos=res.data.Correos;
+            console.log( this.modulos);
+        })
+    },
+
     RegistrarLunch:function(idUser){
         const formData = new FormData();
         formData.append('idUsuario',idUser);
@@ -681,14 +822,21 @@
     }
 })
 </script>
+<script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
 
+});
+
+});
+</script>
 
 @push('stylesheets')
 
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
 
@@ -701,6 +849,7 @@
 <script src="{{asset('/css/DataTable/Buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('/css/DataTable/Buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('/css/DataTable/Buttons/js/buttons.colVis.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
  $('#example').DataTable( {

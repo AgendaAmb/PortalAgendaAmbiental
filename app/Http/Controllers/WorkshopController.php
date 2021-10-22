@@ -60,6 +60,11 @@ class WorkshopController extends Controller
     {
         try
         {
+            # Cursos del unihuerto
+            if ($request->checkedFecha !== null)
+                return $this->registerUnihuerto($request, $request->checkedFecha);
+
+
             # Cursos registrados por el usuario
             $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -170,6 +175,56 @@ class WorkshopController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
+    private function registerUnihuerto(Request $request, $fechas)
+    {
+        $workshop = $fechas[0] === 'Octubre'
+        ? Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first()
+        : Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first();
+
+        # Registra el siguiente curso, en caso de que el usuario ya
+        # se haya registrado.
+        if ($workshop === null)
+            return new JsonResponse(['message' => 'Taller no encontrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
+        # Usuario.
+        $user = $request->user();
+        $user->academic_degree = $request->NAcademico ?? $user->academic_degree;
+        $user->save();
+
+        # Cursos.
+        $workshops = $user->workshops()
+            ->WherePivotNull('paid')
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->whereNotIn('workshops.id', [ $workshop->id ])
+            ->pluck('workshops.id');
+
+        # Se eliminan los cursos a los que no haya asistido y a
+        # aquellos que haya eliminado del modal.
+        $user->workshops()->detach($workshops);
+
+
+        # Registra el siguiente curso, en caso de que el usuario ya
+        # se haya registrado.
+        if ($user->hasWorkshop($workshop))
+            return new JsonResponse(['message' => 'Usuario ya registrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
+        $user->assignWorkshop($workshop->id);
+
+        Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
+        Log::info('Al usuario: '.$user->email);
+        Mail::to($user)->send(new RegisteredWorkshops([$workshop]));
+
+        return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param object    $courses
+     * @return \Illuminate\Http\Response
+     */
     public function markAsistence(Request $request)
     {
         # Obtiene el id del usuario registrado.
@@ -194,5 +249,30 @@ class WorkshopController extends Controller
     public function index()
     {
         return Workshop::all();
+    }
+    public function getAllWorkshops(){
+
+        return response()->json(Workshop::all());
+    }
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function registerWorkShop(Request $request)
+    {
+
+        $workshop = new Workshop();
+        $workshop->name=$request->nombreT;
+        $workshop->description=$request->DescripcionT;
+        $workshop->type=$request->TEvento;
+        $workshop->work_edge=$request->Eje;
+        $workshop->start_date=$request->FechaInicio;
+        $workshop->end_date=$request->FechaFin;
+        $workshop->save();
+        Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+
     }
 }

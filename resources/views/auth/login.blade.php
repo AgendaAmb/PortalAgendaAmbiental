@@ -637,6 +637,7 @@
         this.urlAnterior== 'https://ambiental.uaslp.mx/Bienvenida/17Gemas'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida/mmus'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida'?this.levantaModal():''
+        this.urlAnterior=='https://ambiental.uaslp.mx/Agricultura'?this.levantaModal():''
 
     },
       //*Metodo para verificar que las contraseñas sean iguales*//
