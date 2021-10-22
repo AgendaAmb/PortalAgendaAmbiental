@@ -9,6 +9,7 @@ use App\Models\Workshop;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -60,9 +61,11 @@ class WorkshopController extends Controller
     {
         try
         {
+            $response = new JsonResponse(['status' => 200], JsonResponse::HTTP_OK);
+
             # Cursos del unihuerto
             if ($request->checkedFecha !== null)
-                return $this->registerUnihuerto($request, $request->checkedFecha);
+                $response = $this->registerUnihuerto($request, $request->checkedFecha);
 
 
             # Cursos registrados por el usuario
@@ -86,9 +89,26 @@ class WorkshopController extends Controller
             $user->disability = $request->Discapacidad ?? $user->disability;
             $user->comments = $request->ComentariosSugerencias ?? $user->comments;
             $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+            $user->academic_degree = $request->NAcademico ?? $user->academic_degree;
             $user->save();
 
-            return response()->json([ 'status' => 200], 200);
+
+            # Verifica si hay datos de facturación.
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ],[
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
+            }
+
+            return $response;
         }
         catch (Exception $e)
         {
@@ -188,8 +208,6 @@ class WorkshopController extends Controller
 
         # Usuario.
         $user = $request->user();
-        $user->academic_degree = $request->NAcademico ?? $user->academic_degree;
-        $user->save();
 
         # Cursos.
         $workshops = $user->workshops()
