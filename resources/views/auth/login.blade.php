@@ -625,6 +625,8 @@
 
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=0'?'':$('#Registro').modal('show')
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1'?$('#Registro').modal('show'):''
+        urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1&modal=Agricultura'?$('#Registro').modal('show'):''
+        
        
     },
     ChecarUrl:function(){
