@@ -29,8 +29,7 @@ Route::get('/Concurso17gemas', function ($NombreM=null) {
 
 Route::get('/gestión', function () {
     return view('Gestion.vista');
-})->middleware('auth:web,workers,students')
-->name('Gestion');
+})->name('Gestion');
 
 Route::get('/educación/{nombreModal?}',function ($NombreM=null){
     return view('Educacion.vista')->with('NombreM',$NombreM);
@@ -119,7 +118,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
 
-   
+
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
