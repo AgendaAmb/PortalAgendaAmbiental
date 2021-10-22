@@ -24,7 +24,7 @@ class CorreosController extends Controller
 
         $users = User::whereHas('workshops', function($query) use ($data){
             $query->where('name', $data['Destinatario']);
-        })->orWhereHas('modules', function($query) use ($data){
+        })->orWhereHas('userModules', function($query) use ($data){
             $query->where('name', $data['Destinatario']);
         })->get();
 
