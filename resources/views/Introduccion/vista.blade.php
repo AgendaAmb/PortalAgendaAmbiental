@@ -260,8 +260,18 @@
             </a>
           </div>
         </div>
+        
       -->
-        <div class="carousel-item active">
+      <div class="carousel-item active">
+        <div class="slide-box">
+          <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
+            <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="imgCaoursel "
+            alt="First slide">
+        </a>
+        </div>
+      </div>
+     
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Gemas')}}>
               <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
