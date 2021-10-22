@@ -28,10 +28,7 @@ class CorreosController extends Controller
             $query->where('name', $data['Destinatario']);
         })->get();
 
-
-        dd($users);
         Mail::to($users)->send(new EmailLayout($data['Contenido']), $eje, $data['Asunto']);
-
         return new JsonResponse(['message' => 'Correo enviado exitosamente'], JsonResponse::HTTP_OK);
     }
 
