@@ -93,11 +93,12 @@ class WorkshopController extends Controller
             $user->save();
 
             # Verifica si hay datos de facturación.
-            if ($request->isFacturaReq) {
+            if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
-                    ->where('user_id', $user->id)
-                    ->where('user_type', $user->type)
-                    ->update([
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ],[
                         'rfc' => $request->RFC,
                         'name' => $request->nombresF,
                         'email' => $request->emailF,
