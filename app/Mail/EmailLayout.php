@@ -30,11 +30,11 @@ class EmailLayout extends Mailable
      * @var string[]
      */
     public $layouts = [
-        'Gestión' => 'mail.gestion.layout' ,
+        'Gestión ambiental' => 'mail.gestion.layout' ,
         'Educación' => 'mail.educacion.layout' ,
         'Vinculación' => 'mail.vinculacion.layout',
         'Comunicación' => 'mail.comunicacion.layout',
-        'RTIC' => 'mail.rtic.layout'
+        'Administración' => 'mail.rtic.layout'
     ];
 
     /**
@@ -49,7 +49,7 @@ class EmailLayout extends Mailable
      *
      * @return void
      */
-    public function __construct($message = null, $layout = 'RTIC', $subject = 'Notificación de Mi Portal de Agenda Ambiental')
+    public function __construct($message = null, $layout = 'Administración', $subject = 'Notificación de Mi Portal de Agenda Ambiental')
     {
         $this->message = $message;
         $this->layout = $layout;

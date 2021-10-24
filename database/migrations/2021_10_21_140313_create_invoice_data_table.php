@@ -28,6 +28,7 @@ class CreateInvoiceDataTable extends Migration
                 ->on('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
         });
     }
 

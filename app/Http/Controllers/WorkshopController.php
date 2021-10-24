@@ -92,6 +92,7 @@ class WorkshopController extends Controller
             $user->academic_degree = $request->NAcademico ?? $user->academic_degree;
             $user->save();
 
+
             # Verifica si hay datos de facturación.
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')

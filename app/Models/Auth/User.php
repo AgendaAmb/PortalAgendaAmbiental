@@ -97,7 +97,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'workshops:id,name,description,type,work_edge,start_date,end_date',
         'roles:id,name',
         'userModules',
-        'unirodadasUser',
         'unirodadasUser.userWorkshop'
     ];
 

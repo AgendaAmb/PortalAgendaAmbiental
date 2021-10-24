@@ -118,7 +118,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
 
-   
+
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
@@ -146,7 +146,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 });
 
 Route::get('emailview', function () {
-    return new EmailLayout('foo', 'Vinculación');
+    return new EmailLayout('foo', 'Gestión ambiental');
 });
 
 # Expedición de tokens y autorización por parte del

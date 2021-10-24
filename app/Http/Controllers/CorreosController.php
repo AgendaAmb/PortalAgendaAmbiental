@@ -24,11 +24,11 @@ class CorreosController extends Controller
 
         $users = User::whereHas('workshops', function($query) use ($data){
             $query->where('name', $data['Destinatario']);
+        })->orWhereHas('userModules', function($query) use ($data){
+            $query->where('name', $data['Destinatario']);
         })->get();
 
-
-        Mail::to($users)->send(new EmailLayout($data['Contenido']), $eje, $data['Asunto']);
-
+        Mail::to($users)->send(new EmailLayout($data['Contenido'], $eje, $data['Asunto']));
         return new JsonResponse(['message' => 'Correo enviado exitosamente'], JsonResponse::HTTP_OK);
     }
 

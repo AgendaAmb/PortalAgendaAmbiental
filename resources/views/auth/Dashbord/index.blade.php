@@ -23,7 +23,7 @@
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroAgricultura" @click="DatosUsuario('Agricultura')">
-              <img src="{{ asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/Unihuerto-05.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0 d-none" >
@@ -1402,7 +1402,7 @@
 <link rel="stylesheet" href="{{asset('css/fullCalendar/main.css')}}">
 <script src="{{asset('js/fullCalendar/main.js')}}"></script>
 <script>
-  var roles = '{{Auth::user()->hasRole('Administrator')}}';
+  var roles = '{{Auth::user()->hasRole('administrator')}}';
   console.log(roles);
   document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');

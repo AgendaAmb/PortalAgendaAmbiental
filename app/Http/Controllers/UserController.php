@@ -82,18 +82,17 @@ class UserController extends Controller
             'courses','comments','interested_on_further_courses', 'domain'
         ];
 
-        # Módulos de usuario.
-        $modules = count($request->only('module')) > 0 ? $request->only('module') : Module::pluck('id');
-
-
         # Obtiene los tipos de usuario.
         $users = QueryBuilder::for(User::class)
+            ->setEagerLoads([])
+            ->allowedFields(['id','type','name','middlename','surname','email','curp'])
+            ->allowedIncludes(['userModules'])
             ->allowedFilters([
+                AllowedFilter::exact('userModules.id'),
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('type'),
                 AllowedFilter::exact('email'),
             ])
-            ->setEagerLoads([])
             ->get()->makeHidden($hidden);
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
