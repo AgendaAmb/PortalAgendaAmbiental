@@ -85,7 +85,7 @@ class UserController extends Controller
         # Obtiene los tipos de usuario.
         $users = QueryBuilder::for(User::class)
             ->setEagerLoads([])
-            ->allowedFields(['id', 'user_type','name','middlename','surname','email','curp'])
+            ->allowedFields(['id','type','name','middlename','surname','email','curp'])
             ->allowedIncludes(['userModules'])
             ->allowedFilters([
                 AllowedFilter::exact('userModules.id'),
