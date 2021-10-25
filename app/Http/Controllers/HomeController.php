@@ -67,7 +67,7 @@ class HomeController extends Controller
     {
         $users = $request->user()->hasRole('helper')
 
-        ?  $this->getUnirodadaUsers() # Usuarios exclusivos de la unirodada
+        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
@@ -92,6 +92,18 @@ class HomeController extends Controller
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
             $query->where('type', 'unirodada');
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+    }
+
+    private function getAgriculturaUsers()
+    {
+        # Combina todos los tipos de usuario.
+        return User::select(
+            User::COLUMNS
+        )->whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', ['administrator','coordinator']);
+        })->whereHas('workshops', function($query){
+            $query->where('type', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(30 Octubre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
