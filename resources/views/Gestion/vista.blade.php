@@ -221,12 +221,12 @@ Tabs de Gestión Institucional.
                                 <span aria-hidden="true">X</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-
-
-
+                        <div class="modal-body" v-if="idPUR!=15">
                             <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
                                 :src=PUR[idPUR-1].Url></iframe>
+                        </div>
+                        <div class="modal-body" v-else>
+                            <img :src=PUR[idPUR-1].Url alt="" class="img-fluid">
                         </div>
 
 
@@ -576,14 +576,29 @@ los botones del nav-tab
     });
     this.PUR.push({
         "id":11,
-        "Nombre":'Infografías Proserem',
-        "Url":'#',
+        "Nombre":'Infografía Proserem',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/InfografiaProserem.pdf&embedded=true',
     });
-
     this.PUR.push({
         "id":12,
+        "Nombre":'Infografía inorganicos no reciclables',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Inorganicos-no-reciclabes.pdf&embedded=true',
+    });
+    this.PUR.push({
+        "id":13,
+        "Nombre":'Infografía inorganicos reciclables',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Inorganicos-reciclables.pdf&embedded=true',
+    });
+    this.PUR.push({
+        "id":14,
+        "Nombre":'Infografía organicos reciclables',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Organicos-reciclables.pdf&embedded=true',
+    });
+   
+    this.PUR.push({
+        "id":15,
         "Nombre":'Infografía Manejo de Aceite',
-        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png&embedded=true',
+        "Url":'https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png',
     });
 
   })
