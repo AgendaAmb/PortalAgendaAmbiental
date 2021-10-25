@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Module;
 use App\Correos;
+use App\Models\EmailAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Workshop;
+use Illuminate\Http\JsonResponse;
 
 class ModuleController extends Controller
 {
@@ -85,12 +87,13 @@ class ModuleController extends Controller
         //
     }
 
-    public function getAllModules(){
+    public function getAllModules()
+    {
         $module = Module::all();
         $workshop=Workshop::all();
-        $Correos=Correos::all();
+        $Correos =EmailAccount::all();
         
-        return response()->json([
+        return new JsonResponse([
             'modulos' =>  $module,
             'workshop'=>$workshop,
             'Correos'=>$Correos

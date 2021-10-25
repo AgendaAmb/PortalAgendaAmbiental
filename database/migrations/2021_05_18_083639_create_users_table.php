@@ -41,6 +41,7 @@ class CreateUsersTable extends Migration
             $table->string('ethnicity')->nullable();
             $table->string('disability')->nullable();
             $table->string('courses')->nullable();
+            $table->string('academic_degree')->nullable();
             $table->string('password')->nullable();
             $table->string('interested_on_further_courses')->nullable();
             $table->string('comments')->nullable();

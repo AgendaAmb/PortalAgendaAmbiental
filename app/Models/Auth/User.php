@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Models\Role;
@@ -49,6 +48,27 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $guarded = [];
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'int';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -80,10 +100,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $appends = [
-        'user_type',
         'invoice_data',
         'invoice_url',
-        'lunch',
         'paid',
         'paid_at'
     ];
@@ -94,7 +112,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $with = [
-        'workshops:id,name,description,type,work_edge,start_date,end_date',
+        'workshops:id,name,description,type,work_edge_id,start_date,end_date',
         'roles:id,name',
         'userModules',
         'unirodadasUser.userWorkshop'
@@ -118,53 +136,30 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     public const COLUMNS = [
-        'id',
-        'type',
-        'name',
-        'middlename',
-        'surname',
-        'age',
-        'gender',
-        'nationality',
-        'residence',
-        'zip_code',
-        'email',
-        'altern_email',
-        'phone_number',
-        'curp',
-        'ocupation',
-        'ethnicity',
-        'disability',
-        'courses',
-        'interested_on_further_courses',
-        'comments',
-        'created_at',
-        'email_verified_at',
+        'id', 'type', 'users.name as name',
+        'middlename', 'surname', 'age',
+        'gender', 'nationality', 'residence',
+        'zip_code', 'users.email as email',
+        'altern_email', 'phone_number', 'curp',
+        'ocupation', 'ethnicity','disability',
+        'courses','interested_on_further_courses',
+        'comments','created_at','email_verified_at',
     ];
 
     /**
-     * The "booted" method of the model.
+     * Set the eager loads for this table.
      *
-     * @return void
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    protected static function booted()
+    public static function setEagerLoads($query, $relations = [
+        'workshops:id,name,description,type,work_edge,start_date,end_date',
+        'roles:id,name',
+        'userModules',
+        'unirodadasUser.userWorkshop'
+    ])
     {
-        /*
-        static::retrieved(function ($user) {
-            $user->load([
-                'roles' => fn($q) => $q->select('id','name')->where('model_type', $user->type),
-            ]);
-        });*/
-    }
-
-    /**
-     * Obtiene el tipo de usuario autenticado
-     *
-     * @return object
-     */
-    public static function authUser()
-    {
-        return Auth::guard('students')->user() ?? Auth::guard('workers')->user() ?? Auth::user();
+        return $query->with($relations);
     }
 
     /**
@@ -201,72 +196,6 @@ class User extends Authenticatable implements MustVerifyEmail
             ??  Extern::find($user_id);
 
         return $user;
-    }
-
-
-
-    /**
-     * Retrieves the specified user (Worker, Student, Extern) by
-     * id and type
-     *
-     * @return object
-     */
-    public static function retrieveBySearchKey($search_key, $search_value, $user_type)
-    {
-        # Recupera al usuario.
-        $user = null;
-
-        switch ($user_type)
-        {
-            case 'students':
-                $user = Student::firstWhere($search_key, $search_value);
-                break;
-
-            case 'workers':
-                $user = Worker::firstWhere($search_key, $search_value);
-                break;
-
-            case 'externs':
-                $user = Extern::firstWhere($search_key, $search_value);
-                break;
-
-            case '*':
-
-                $user = Extern::firstWhere($search_key, $search_value)
-                ?? Worker::firstWhere($search_key, $search_value)
-                ?? Student::firstWhere($search_key, $search_value);
-
-                break;
-        }
-
-        return $user;
-    }
-
-    /**
-     * Obtiene el tipo de usuario
-     *
-     * @return string
-     */
-    public function getUserTypeAttribute()
-    {
-        if ($this->type === Worker::class)
-            return 'workers';
-        else if ($this->type === Student::class)
-            return 'students';
-        else if ($this->type === Extern::class)
-            return 'externs';
-
-        return $this->guard_name;
-    }
-
-    /**
-     * Obtiene el tipo de usuario
-     *
-     * @return string
-     */
-    public function getGuardAttribute()
-    {
-        return $this->guard_name;
     }
 
     /**
@@ -461,28 +390,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object|null
      */
-    public function getLunchAttribute()
-    {
-        return $this->unirodadasUser->last()->lunch ?? null;
-    }
-
-    /**
-     * Returns the data of the unirodada from the user, if it
-     * has one
-     *
-     *
-     * @return object|null
-     */
-    public function setLunchAttribute($value)
-    {
-        $this->setUnirodadaDetailsField('lunch', $value);
-    }
-
-    /**
-     * Actualiza el grupo del ciclista del usuario.
-     *
-     * @return object|null
-     */
     public function getSentAttribute()
     {
         $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
@@ -611,12 +518,12 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($roles as $role)
         {
             if (is_int($role))
-                $this->roles()->attach($role, ['model_type' => static::class]);
+                $this->roles()->attach($role, ['model_type' => $this->type]);
 
             else if(is_string($role))
             {
-                $role_id = Role::where('name', $role)->where('guard_name', $this->guard_name)->value('id');
-                $this->roles()->attach($role_id, ['model_type' => static::class]);
+                $role_id = Role::where('name', $role)->value('id');
+                $this->roles()->attach($role_id, ['model_type' => $this->type]);
             }
         }
     }
@@ -633,12 +540,12 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($workshops as $workshop)
         {
             if (is_int($workshop))
-                $this->workshops()->attach($workshop, ['user_type' => static::class, 'sent' => false]);
+                $this->workshops()->attach($workshop, ['user_type' => $this->type, 'sent' => false]);
 
             else if(is_string($workshop))
             {
                 $workshop_id = Workshop::where('name', $workshop)->value('id');
-                $this->workshops()->attach($workshop_id, ['user_type' => static::class, 'sent' => false]);
+                $this->workshops()->attach($workshop_id, ['user_type' => $this->type, 'sent' => false]);
             }
         }
     }
@@ -655,15 +562,15 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($modules as $module)
         {
             if (is_int($module))
-                $this->modules()->attach($module, ['user_type' => static::class]);
+                $this->modules()->attach($module, ['user_type' => $this->type]);
             else if (is_a($module, Module::class))
-                $this->modules()->attach($module->id, ['user_type' => static::class]);
+                $this->modules()->attach($module->id, ['user_type' => $this->type]);
             else if(is_string($module))
             {
                 $module_id = Workshop::where('name', $module)->value('id');
 
                 if ($module_id !== null)
-                    $this->workshops()->attach($module_id, ['user_type' => static::class]);
+                    $this->workshops()->attach($module_id, ['user_type' => $this->type]);
             }
         }
     }

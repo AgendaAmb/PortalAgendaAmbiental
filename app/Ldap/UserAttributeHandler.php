@@ -17,8 +17,10 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
+        $user =  User::where('id', $databaseUser->id)->where('type', $databaseUser->type)->first();
+        
         # Verifica que el usuario tenga un rol
-        if ($databaseUser->roles()->count() === 0)
+        if ($user->roles()->count() === 0)
             throw ValidationException::withMessages([ 
                 'email' => 'Debes de registrarte, antes de poder acceder.' 
             ]);

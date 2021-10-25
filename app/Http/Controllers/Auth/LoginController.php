@@ -80,6 +80,7 @@ class LoginController extends Controller
             Log::info('Inicio de sesión como externo');
 
         Log::info('Datos de usuario: ', $user->toArray());
+        Auth::login($user);
 
         return redirect($this->redirectTo);
     }

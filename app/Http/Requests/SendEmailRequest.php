@@ -25,7 +25,7 @@ class SendEmailRequest extends FormRequest
     {
         return [
             'idUsuarioEnvio' => ['required','exists:users,id','numeric'],
-            'CorreoRemitente' => ['required', 'exists:correos,email', 'email'],
+            'CorreoRemitente' => ['required', 'exists:email_accounts,email', 'email'],
             'Destinatario' => ['required', 'string'],
             'Asunto' => ['required', 'string'],
             'Contenido' => ['required', 'string']

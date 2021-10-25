@@ -15,6 +15,9 @@ class CreateUnirodadaUsersTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('unirodada_users'))
+            return;
+
         Schema::create('unirodada_users', function (Blueprint $table) {
             $table->unsignedBigInteger('user_workshop_id');
 

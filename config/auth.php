@@ -46,6 +46,16 @@ return [
             'provider' => 'users'
         ],
 
+        'externs' => [
+            'driver' => 'session',
+            'provider' => 'externs',
+        ],
+
+        'externs-api' => [
+            'driver' => 'session',
+            'provider' => 'externs',
+        ],
+
         'workers' => [
             'driver' => 'session',
             'provider' => 'workers'
@@ -86,6 +96,11 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Auth\User::class
+        ],
+
+        'externs' => [
             'driver' => 'eloquent',
             'model' => App\Models\Auth\Extern::class
         ],
@@ -142,7 +157,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'externs',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

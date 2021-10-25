@@ -46,7 +46,7 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:web,workers,students')->except('verify', 'verifyWithModal');
+        $this->middleware('auth')->except('verify', 'verifyWithModal');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
@@ -61,10 +61,7 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
-        $user = Extern::find($request->route('id'))
-            ??  Student::find($request->route('id'))
-            ??  Worker::find($request->route('id'));
-
+        $user = User::find($request->id);
         $redirectUrl = $this->redirectPath();
 
 
@@ -84,7 +81,7 @@ class VerificationController extends Controller
             $request->session()->put('nombreModal', $request->nombreModal);
         }
 
-        Auth::guard($user->guard)->login($user);
+        Auth::login($user);
 
         if ($user->hasVerifiedEmail()) {
             return $request->wantsJson()

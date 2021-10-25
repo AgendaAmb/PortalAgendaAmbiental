@@ -128,7 +128,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{ route('register') }}" method="post">
+                <form action="{{ route('register') }}" method="post" v-on:submit.prevent="registraUsuario">
                     @csrf
                     <div class="form-row">
                         <div class="form-group mr-3">
@@ -456,16 +456,12 @@
                     </div>
 
                     <div class="form-row" v-if="blockCampos==false?Pais === 'México'?true:false:false">
-                        <div class="form-group col-md-12 @error('CURP') is-invalid @else was-validated @enderror">
+                        <div class="form-group col-md-12">
                             <label for="CURP ">CURP</label>
-                            <input type="text" class="form-control" id="CURP" required
-                                style="text-transform: uppercase;" maxlength="18" name="CURP" value="{{ old('CURP') }}">
+                            <input type="text" :class="inputClassFor('curp')" v-model="curp" id="CURP" required style="text-transform: uppercase;" maxlength="18" name="CURP">
 
-                            @error('CURP')
-                            <div class="invalid-feedback">
-                                Tu CURP no es válido
-                            </div>
-                            @enderror
+                            
+                            <span class="text-danger" role="alert" v-if="'curp' in errors">@{{ errors.curp }}</span>
                         </div>
                     </div>
                     <div class="form-group  was-validated" v-if="!blockCampos">
@@ -489,9 +485,8 @@
                     </div>
                     <div class="form-row was-validated" v-if="!blockCampos">
                         <div class=" form-group col-md-2">
-                            <label for="Edad">Edad</label>
-                            <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1"
-                                max="100" required>
+                            <label for="birth_date">Fecha de nacimiento </label>
+                            <input type="date" name="birth_date" id="birth_date" v-model="birth_date" class="form-control" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Genero">Género</label>
@@ -515,7 +510,7 @@
                     <div class="form-group row was-validated" v-if="!blockCampos">
                         <div class="form-group col-md-4 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
-                            <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
+                            <input type="tel" class="form-control" id="Tel" required v-model="Tel" name="Tel" autocomplete="Tel">
                         </div>
                         <div class="col-md-4 ">
                             <label for="CP">Codigo Postal</label>
@@ -583,11 +578,12 @@
     var app = new Vue({
   el: '#Registro',
   data: {
+    curp: null,
     PerteneceUaslp:'',
-    Pais:'',
+    Pais:null,
     userInfo:'',
-    emailR:'',
-    nombres:'',
+    emailR:null,
+    nombres:null,
     ApellidoP:'',
     ApellidoM:'',
     passwordR:'',
@@ -598,6 +594,7 @@
     Genero:'',
     OtroGenero:'',
     GEtnico:'',
+    Tel: null,
     CP:'',
     isDiscapacidad:'',
     Discapacidad:'',
@@ -607,7 +604,9 @@
     registroVa:'',
     CorreoAlterno:'',
     Ocupacion:'',
-    blockCampos:false
+    blockCampos:false,
+    birth_date: null,
+    errors: {}
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -617,7 +616,81 @@
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
   })
 },
+
   methods:{
+    inputClassFor(model){
+      return {
+        'form-control': true,
+        'is-invalid': this[model] === null || model in this.errors,
+        'is-valid': this[model] !== null && !(model in this.errors)
+      };
+    },
+    
+    registraUsuario() {
+
+        axios.post('/register', {
+            curp: this.curp,
+            email: this.emailR,
+            name: this.nombres,
+            middlename: this.ApellidoP,
+            surname: this.ApellidoM,
+            birth_date: this.birth_date,
+            altern_email: this.CorreoAlterno,
+            password: this.password,
+            passwordR: this.passwordR,
+            nationality: this.Pais,
+            residence: this.LugarResidencia,
+            gender: this.Genero,
+            phone_number: this.Tel,
+            other_gender: this.OtroGenero,
+            isDiscapacidad: this.isDiscapacidad,
+            disability: this.Discapacidad,
+            ethnicity: this.GEtnico
+        }).then(response => {
+            // Redirecciona al portal de usuario.
+            window.location.href = '/home';
+        
+        }).catch(error => {
+            data = error.response.data['errors'];
+
+            // Notifica al usuario los errores en el registro.
+            Object.keys(data).forEach(key => {
+                Vue.set(this.errors, key, data[key][0]);
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+        /*
+            .then(response => (
+                this.spinnerVisible=false,
+                this.nombres = response['data']['data']['name'],
+                this.ApellidoM= response['data']['data']['last_surname'],
+                this.ApellidoP= response['data']['data']['first_surname'],
+                this.Pais="México",
+                this.Facultad=response['data']['data']['Dependencia'],
+                this.userInfo=response['data']['data'],
+                this.emailR=response['data']['data']['email'],
+                this.Errores[0].Visible=false),
+                this.blockCampos=false
+                ).catch((err) => {
+                    this.spinnerVisible=false,
+                this.Errores[0].Visible=true;
+                this.ApellidoM='';
+                this.ApellidoP='';
+                this.nombres='';
+                this.blockCampos=true;
+
+        });*/
+    },
+
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
 

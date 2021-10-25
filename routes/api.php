@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+Auth::routes();
+
 Route::get('/getAllModules', 'ModuleController@getAllModules')->name('getAllModules');
 Route::get('/getAllWorkshops', 'WorkshopController@getAllWorkshops')->name('getAllWorkshops');
 Route::post('/registerWorkShop', 'WorkshopController@registerWorkShop')->name('registerWorkShop');

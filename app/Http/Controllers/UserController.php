@@ -74,7 +74,7 @@ class UserController extends Controller
     /**
      * Retrieves a list of users.
      */
-    public function index(Request $request)
+    public function index()
     {
         # Atributos que no se devuelven.
         $hidden = [
@@ -144,12 +144,9 @@ class UserController extends Controller
      */
     public function updateUserData(Request $request)
     {
-        $user = User::retrieveById($request->id, $request->user_type);
-        $user->residence = $request->residence ?? $user->residence;
-        $user->ocupation = $request->ocupation ?? $user->ocupation;
-        $user->disability = $request->disability ?? $user->disability;
-        $user->interested_on_further_courses = $request->interested_on_further_courses ?? $user->interested_on_further_courses;
-        $user->save();
+        $user = User::where('id', $request->id)
+            ->where('type', $request->user_type)
+            ->update($request->only('residence', 'ocupation', 'disability', 'interested_on_further_courses'));
 
         Mail::to($user)->send(new RegisteredTo17Gemas);
         return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);

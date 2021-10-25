@@ -13,6 +13,9 @@ class CreateInvoiceDataTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('invoice_data'))
+            return;
+
         Schema::create('invoice_data', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->string('user_type');

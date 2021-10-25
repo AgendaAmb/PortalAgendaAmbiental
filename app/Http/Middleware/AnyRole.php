@@ -16,9 +16,7 @@ class AnyRole
      */
     public function handle($request, Closure $next)
     {
-        $user = Auth::guard('workers')->user()
-            ?? Auth::guard('students')->user()
-            ?? Auth::guard('web')->user();
+        $user = $request->user();
 
         # Deniega el acceso a usuarios sin un rol.
         if ($user !== null && $user->roles()->count() === 0)

@@ -34,7 +34,6 @@ class Student extends User implements LdapAuthenticatable
         'user_type',
         'invoice_data',
         'invoice_url',
-        'lunch',
         'paid',
         'paid_at'
     ];
