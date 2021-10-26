@@ -45,12 +45,24 @@ class EmailLayout extends Mailable
     public $layout;
 
     /**
+     * Eje de trabajo.
+     *
+     * @var string
+     */
+    public $work_edge;
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($message = null, $layout = 'Administración', $subject = 'Notificación de Mi Portal de Agenda Ambiental')
-    {
+    public function __construct(
+        $message = null,
+        $work_edge = 'Administración',
+        $subject = 'Notificación de Mi Portal de Agenda Ambiental',
+        $layout = null
+    ){
+        $this->work_edge = $work_edge;
         $this->message = $message;
         $this->layout = $layout;
         $this->subject = $subject;
@@ -63,8 +75,10 @@ class EmailLayout extends Mailable
      */
     public function build()
     {
+        $layout = $this->layout ?? $this->layouts[$this->work_edge];
+
         return $this
             ->subject($this->subject)
-            ->markdown($this->layouts[$this->layout], ['content' => $this->message]);
+            ->markdown($layout, ['content' => $this->message]);
     }
 }
