@@ -128,7 +128,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{ route('register') }}" method="post">
+                <form v-on:submit.prevent="registraUsuario">
                     @csrf
                     <div class="form-row">
                         <div class="form-group mr-3">
@@ -638,7 +638,7 @@
                 "CP":this.CP,
                 "Ocupacion":this.Ocupacion,
                 "GEtnico":this.GEtnico,
-                "Discapacidad":this.Discapacidad   
+                "Discapacidad":this.Discapacidad
             }
             axios({
                  method: 'post',
@@ -652,13 +652,13 @@
                      res => {
 
 
-                       
+
                      }
                  ).catch(
                      err => {
-
-                     
-
+                        // Obtiene los errores.
+                        var errors = err.data;
+                        console.log(errors);
                      }
                  )
     }
@@ -671,8 +671,8 @@
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=0'?'':$('#Registro').modal('show')
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1'?$('#Registro').modal('show'):''
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1&modal=Agricultura'?$('#Registro').modal('show'):''
-        
-       
+
+
     },
     ChecarUrl:function(){
        this.urlAnterior='{{url()->previous()}}'
@@ -680,7 +680,7 @@
         //this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
         //this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
         var urlactual='{{url()->full()}}'
-       
+
         this.urlAnterior== 'https://ambiental.uaslp.mx/Bienvenida/17Gemas'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida/mmus'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida'?this.levantaModal():''
@@ -712,7 +712,7 @@
         },
 
         uaslpUser:function(){
-         
+
             this.spinnerVisible=true;
            if(this.emailR!=''){
             var data = {

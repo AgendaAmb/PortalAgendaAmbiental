@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Traits\JsonResponseTrait;
+use App\Exceptions\RegisterException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
@@ -22,10 +21,13 @@ class RegisterRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        Log::error('Usuario no registrado. Errores:');
-        Log::error($validator->errors()->toArray());
+        $errors = collect($validator->errors()->toArray())
+        ->mapWithKeys(function($v, $k){
+            return [$k => $v[0]];
 
-        return parent::failedValidation($validator);
+        })->toArray();
+
+        throw new RegisterException($this->all(), $errors);
     }
 
     /**
