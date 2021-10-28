@@ -458,7 +458,7 @@
                     <div class="form-row" v-if="blockCampos==false?Pais === 'México'?true:false:false">
                         <div class="form-group col-md-12 @error('CURP') is-invalid @else was-validated @enderror">
                             <label for="CURP ">CURP</label>
-                            <input type="text" class="form-control" id="CURP" required
+                            <input type="text" class="form-control" id="CURP" required v-model="CURP"
                                 style="text-transform: uppercase;" maxlength="18" name="CURP" value="{{ old('CURP') }}">
 
                             @error('CURP')
@@ -515,7 +515,7 @@
                     <div class="form-group row was-validated" v-if="!blockCampos">
                         <div class="form-group col-md-4 was-validated">
                             <label for="inputCity">Teléfono de contacto</label>
-                            <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel">
+                            <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel" v-model="Celular">
                         </div>
                         <div class="col-md-4 ">
                             <label for="CP">Codigo Postal</label>
@@ -607,7 +607,9 @@
     registroVa:'',
     CorreoAlterno:'',
     Ocupacion:'',
-    blockCampos:false
+    blockCampos:true,
+    CURP:'',
+    Celular:''
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -618,6 +620,49 @@
   })
 },
   methods:{
+   registraUsuario:function(){
+    this.spinnerVisible=true;
+           if(this.emailR!=''){
+            var data = {
+       	        "email":this.emailR,
+                "CorreoAlterno":this.CorreoAlterno,
+                "Pais":this.Pais,
+                "LugarResidencia":this.LugarResidencia,
+                "CURP":this.CURP,
+                "nombres":this.nombres,
+                "ApellidoP":this.ApellidoP,
+                "ApellidoM":this.ApellidoM,
+                "Edad":this.Edad,
+                "Genero":this.Genero,
+                "Celular":this.Celular,
+                "CP":this.CP,
+                "Ocupacion":this.Ocupacion,
+                "GEtnico":this.GEtnico,
+                "Discapacidad":this.Discapacidad   
+            }
+            axios({
+                 method: 'post',
+
+                 url: '/register',
+                 data: data,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+
+
+                       
+                     }
+                 ).catch(
+                     err => {
+
+                     
+
+                     }
+                 )
+    }
+   },
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
 

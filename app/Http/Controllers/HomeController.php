@@ -67,7 +67,7 @@ class HomeController extends Controller
     {
         $users = $request->user()->hasRole('helper')
 
-        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la unirodada
+        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
