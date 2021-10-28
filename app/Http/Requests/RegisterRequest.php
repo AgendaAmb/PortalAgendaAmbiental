@@ -12,6 +12,51 @@ use Illuminate\Support\Str;
 class RegisterRequest extends FormRequest
 {
     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            // Errores del nombre
+            'Nombres.required' => 'El nombre del usuario es requerido',
+            'Nombres.max' => 'La longitud del nombre es demasiado larga',
+
+            // Errores del apellido paterno
+            'ApellidoP.required' => 'El apellido paterno es requerido',
+            'ApellidoP.max' => 'La longitud del apellido paterno es demasiado larga',
+
+            // Errores del apellido materno
+            'ApellidoM.max' => 'La longitud del apellido materno es demasiado larga',
+
+            // Errores de la edad
+            'Edad.required' => 'La edad es requerida',
+            'Edad.numeric' => 'La edad debe ser numérica',
+
+            // Errores del lugar de residencia
+            'LugarResidencia' => 'El lugar de residencia es requerido',
+
+            // Errores del género
+            'Genero.required' => 'El género es requerido',
+            'Genero.in' => 'El género especificado no es válido',
+
+            // Errores para el otro género
+            'OtroGenero.required_if' => 'Especificá qué otro género',
+
+            // Errores del curp.
+            'CURP.unique' => 'Este curp ya está registrado en el sistema',
+            'CURP.regex' => 'El formato de tu curp no es válido',
+
+            // Errores del email.
+            'Email.required' => 'El correo electrónico es requerido.',
+            'Email.unique' => 'Este correo electrónico ya está registrado en el sistema',
+
+
+        ];
+    }
+
+    /**
      * Send a JSON response for any failed validation.
      *
      * @param  \Illuminate\Contracts\Validation\Validator $validator
@@ -59,7 +104,7 @@ class RegisterRequest extends FormRequest
 
             $this->merge([
                 'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
-                'DirectorioActivo' => $response_data['DirectorioActivo'],
+                'DirectorioActivo' => $response_data['DirectorioActivo'] ?? 'ALUMNOS',
                 'ClaveUASLP' => $response_data['ClaveUASLP'],
                 'email' => Str::lower($this->email),
                 'Nombres' => Str::upper($response_data['name']),
