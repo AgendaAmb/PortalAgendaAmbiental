@@ -547,9 +547,9 @@
                                <p>
                                
                                 Si aún no perteneces a la comunidad de Agenda Ambiental  da clic en el botón “registro” llena el formulario para pertenecer a la comunidad , te llegará un correo de verificación,
-                                el cual deberás validar y una vez en Mi portal da clic en el banner del taller y complementa el regitro. <br>
-                                Si ya perteneces a la comunidad de Agenda Ambiental ingresa <a href="https://ambiental.uaslp.mx/login?Nuevo=0" id="link">Mi portal</a> para complementar el registro.<br>
-                                Después de llenar este formulario quedarás preinscrito al curso, recibiras un correo de confirmación y posteriormente 48 horas después se te enviará tu ficha de pago via correo electronico.
+                                el cual deberás validar y una vez en Mi portal da clic en el banner del taller y complementa el registro. <br>
+                                Si ya perteneces a la comunidad de Agenda Ambiental, ingresa  <a href="https://ambiental.uaslp.mx/login?Nuevo=0" id="link">Mi portal</a> y llena el registro del taller.<br>
+                                Después de llenar este formulario quedarás preinscrito al curso, recibirás un correo de confirmación y despues de 48 horas se te enviará tu ficha de pago vía correo electrónico.
                                 Para entrar nuevamente a la plataforma solo tendrás que dar clic en “Mi Portal” desde 
                                 <a href="https://ambiental.uaslp.mx" id="link">https://ambiental.uaslp.mx</a>
                                 
@@ -562,7 +562,7 @@
                                 <a href=" https://www.finanzas.uaslp.mx/Multipagos"id="link" target="_blank" rel="noopener noreferrer"> https://www.finanzas.uaslp.mx/Multipagos</a>
                                
                                </p>
-                               <p>*En caso de requerir factura favor de indicarlo y mandar datos fiscales</p>
+                               <p>* &nbsp;En caso de requerir factura favor de indicarlo y mandar datos fiscales.</p>
                                 <h4>Informes</h4>
                                 <p><b>Programa Unihuerto<br>Agenda Ambiental de la
                                     UASLP</b> <br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
