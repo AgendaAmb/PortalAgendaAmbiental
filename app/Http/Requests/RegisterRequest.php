@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Exceptions\RegisterException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
@@ -30,12 +31,15 @@ class RegisterRequest extends FormRequest
             // Errores del apellido materno
             'ApellidoM.max' => 'La longitud del apellido materno es demasiado larga',
 
-            // Errores de la edad
+            // Errores de la edad.
             'Edad.required' => 'La edad es requerida',
             'Edad.numeric' => 'La edad debe ser numérica',
 
+            // Errores del país de nacimiento.
+            'Pais.required' => 'El Pais de nacimiento es requerido',
+
             // Errores del lugar de residencia
-            'LugarResidencia' => 'El lugar de residencia es requerido',
+            'LugarResidencia.required' => 'El lugar de residencia es requerido',
 
             // Errores del género
             'Genero.required' => 'El género es requerido',
@@ -49,10 +53,19 @@ class RegisterRequest extends FormRequest
             'CURP.regex' => 'El formato de tu curp no es válido',
 
             // Errores del email.
-            'Email.required' => 'El correo electrónico es requerido.',
-            'Email.unique' => 'Este correo electrónico ya está registrado en el sistema',
+            'email.required' => 'El correo electrónico es requerido',
+            'email.unique' => 'Este correo electrónico ya está registrado en el sistema',
 
+            // Contraseña
+            'password.required' => 'La contraseña es requerida',
 
+            // Verificación de la contraseña.
+            'passwordR.required' => 'La confirmación de la contraseña es requerida',
+            'passwordR.same' => 'Las contraseñas no coinciden',
+
+            // Teléfono de contacto.
+            'Tel.required' => 'El número de teléfono es requerido',
+            'Tel.numeric' => 'El número de teléfono debe de ser numérico',
         ];
     }
 
@@ -66,11 +79,15 @@ class RegisterRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        $errors = collect($validator->errors()->toArray())
-        ->mapWithKeys(function($v, $k){
-            return [$k => $v[0]];
+        $messages = collect([
+            'Error '.JsonResponse::HTTP_UNPROCESSABLE_ENTITY,
+            'Tu registro no pudo ser completado exitosamente por los siguientes motivos:'
+        ]);
 
-        })->toArray();
+        # Obtiene los errores y los devuelve como arreglo.
+        $errors = array_values($validator->errors()->toArray());
+        $errors = collect($errors)->map(fn($error) => $error[0]);
+        $errors = $messages->merge($errors)->toArray();
 
         throw new RegisterException($this->all(), $errors);
     }
