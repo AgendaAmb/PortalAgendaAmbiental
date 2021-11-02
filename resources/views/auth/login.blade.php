@@ -659,9 +659,7 @@
 
                  url: '/register',
                  data: data,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
+                
              }).then(
                      res => {
                         banError=false,
@@ -673,13 +671,13 @@
                  ).catch(
                      err => {
                         // Obtiene los errores.
-                        banError=true,
-                        banRegistro=false,
-                        this.ErroresR= err.data;
-                        if (this.ErroresR=='') {
-                            this.Errores.push("Ha ocurrido un error inesperado, recarga la página y vuelve a intentar.");
-                        }
-                        console.log( err.data);
+                        this.banError=true,
+                        this.banRegistro=false,
+                        this.ErroresR= err.response.data;
+                        this.spinnerVisible=false;
+    
+                       
+                        console.log( err.response);
                         console.log(this.ErroresR);
                      }
                  )
