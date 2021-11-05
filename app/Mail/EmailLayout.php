@@ -49,9 +49,9 @@ class EmailLayout extends Mailable
      *
      * @return void
      */
-    public function __construct($message = null, $layout = 'Administración', $subject = 'Notificación de Mi Portal de Agenda Ambiental')
+    public function __construct($message = '', $layout = 'Administración', $subject = 'Notificación de Mi Portal de Agenda Ambiental')
     {
-        $this->message = $message;
+        $this->message = str_replace(["\r\n","\r","\n"], '<br>', $message);
         $this->layout = $layout;
         $this->subject = $subject;
     }

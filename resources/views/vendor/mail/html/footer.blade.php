@@ -11,7 +11,7 @@ else
         @isset($eje_trabajo)
         <h1 style="color: white; font-size: 30px; text-transform: uppercase; display:block; margin: 0 auto; text-align: center; letter-spacing: 4px;"> {{ $eje_trabajo }} </h1>
         @else
-        {{ Illuminate\Mail\Markdown::parse($slot) }}
+        <p style="color: white; display:block; margin: 0 auto; text-align: center;">{{ $slot }}</p>
         @endisset
     </td>
 </tr>

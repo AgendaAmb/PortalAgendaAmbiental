@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <td class="mensaje">
-                        <p>{{ $slot }}</p>
+                        <p>{!! $slot !!}</p>
                     </td>
                 </tr>
                 <tr>

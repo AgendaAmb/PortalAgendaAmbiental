@@ -3,5 +3,5 @@
     Estimado(a) usuario(a):
     @endslot
 
-    {{$content}}
+    {!!$content!!}
 @endcomponent
