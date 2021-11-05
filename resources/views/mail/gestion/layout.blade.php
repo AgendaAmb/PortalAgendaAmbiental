@@ -3,5 +3,5 @@
     Buenas tardes:
     @endslot
 
-    {{$content}}
+    {!!$content!!}
 @endcomponent

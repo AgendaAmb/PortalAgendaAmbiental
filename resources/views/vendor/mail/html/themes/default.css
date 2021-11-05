@@ -53,6 +53,10 @@ body, body *:not(html):not(style):not(br):not(tr):not(code) {
     margin: 0 auto;
 }
 
+.mensaje > p {
+    text-align: justify;
+}
+
 .saludo > h3 {
     margin-top: 5%;
     margin-right: auto;
@@ -74,10 +78,14 @@ body, body *:not(html):not(style):not(br):not(tr):not(code) {
 }
 
 .content-cell {
-    max-width: 100vw;
-    padding: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
+.content-cell > p {
+    padding-left: 32px;
+    padding-right: 32px;
+}
 
 /* Buttons */
 

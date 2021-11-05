@@ -127,8 +127,16 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <form action="{{ route('register') }}" method="post">
+                
+                <div class="alert alert-danger" role="alert" v-if="banError?!banRegistro?true:false:false">
+                   <ul>
+                       <li v-for="error in ErroresR">@{{error}}</li>
+                   </ul>
+                  </div>
+                  <div class="alert alert-success" role="alert" v-else-if="banRegistro?!banError?true:false:false">
+                    <p>Tu registro se a realizado con exito, verifica tu correo y podras acceder a Mi portal.</p>
+                  </div>
+                <form @submit.prevent="registraUsuario">
                     @csrf
                     <div class="form-row">
                         <div class="form-group mr-3">
@@ -177,7 +185,7 @@
                     <div class="form-row" v-if="PerteneceUaslp === 'No'">
                         <div class="form-group col-md-12 was-validated">
                             <label for="email">Ingresa un correo electrónico</label>
-                            <input type="email" class="form-control" id="emailR" name="email" required>
+                            <input type="email" class="form-control" id="emailR" name="email" required v-model="emailR">
                         </div>
                         <div class="form-group col-md-6 was-validated">
                             <label for="password">Contraseña</label>
@@ -565,13 +573,15 @@
                             </label>
                         </div>
                     </div>
-                    <div class="modal-footer justify-content-start">
+                    <div class="modal-footer justify-content-start"v-if="!spinnerVisible">
                         <button id="submit" type="submit" class="btn btn-primary"
                             style="background-color: #0160AE">Registrar</button>
-                        <!--
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        -->
+                      
                     </div>
+                    <button class="btn btn-light mt-md-5" type="button" disabled v-if="spinnerVisible">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Cargando...</span>
+                    </button>
                 </form>
             </div>
 
@@ -609,7 +619,11 @@
     Ocupacion:'',
     blockCampos:true,
     CURP:'',
-    Celular:''
+    Celular:'',
+    banError:false,
+    banRegistro:false,
+    ErroresR:[]
+
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -638,27 +652,33 @@
                 "CP":this.CP,
                 "Ocupacion":this.Ocupacion,
                 "GEtnico":this.GEtnico,
-                "Discapacidad":this.Discapacidad   
+                "Discapacidad":this.Discapacidad
             }
             axios({
                  method: 'post',
 
                  url: '/register',
                  data: data,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
+                
              }).then(
                      res => {
+                        banError=false,
+                        banRegistro=true,
+                        this.spinnerVisible=false;
 
 
-                       
                      }
                  ).catch(
                      err => {
-
-                     
-
+                        // Obtiene los errores.
+                        this.banError=true,
+                        this.banRegistro=false,
+                        this.ErroresR= err.response.data;
+                        this.spinnerVisible=false;
+    
+                       
+                        console.log( err.response);
+                        console.log(this.ErroresR);
                      }
                  )
     }
@@ -671,8 +691,8 @@
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=0'?'':$('#Registro').modal('show')
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1'?$('#Registro').modal('show'):''
         urlactual=='https://ambiental.uaslp.mx/login?Nuevo=1&modal=Agricultura'?$('#Registro').modal('show'):''
-        
-       
+
+
     },
     ChecarUrl:function(){
        this.urlAnterior='{{url()->previous()}}'
@@ -680,7 +700,7 @@
         //this.urlAnterior=='https://ambiental.uaslp.mx/GemasDeLaUnisostenibilidad'?this.levantaModal():''
         //this.urlAnterior=='https://ambiental.uaslp.mx/Concurso17gemas'?this.levantaModal():''
         var urlactual='{{url()->full()}}'
-       
+
         this.urlAnterior== 'https://ambiental.uaslp.mx/Bienvenida/17Gemas'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida/mmus'?this.levantaModal():''
         this.urlAnterior=='https://ambiental.uaslp.mx/Bienvenida'?this.levantaModal():''
@@ -712,7 +732,7 @@
         },
 
         uaslpUser:function(){
-         
+
             this.spinnerVisible=true;
            if(this.emailR!=''){
             var data = {
@@ -721,7 +741,7 @@
             }
         axios.post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user',data)
             .then(response => (
-                this.spinnerVisible=false,
+              
                 this.nombres = response['data']['data']['name'],
                 this.ApellidoM= response['data']['data']['last_surname'],
                 this.ApellidoP= response['data']['data']['first_surname'],
@@ -730,7 +750,8 @@
                 this.userInfo=response['data']['data'],
                 this.emailR=response['data']['data']['email'],
                 this.Errores[0].Visible=false),
-                this.blockCampos=false
+                this.blockCampos=false,
+                this.spinnerVisible=false
                 ).catch((err) => {
                     this.spinnerVisible=false,
                 this.Errores[0].Visible=true;

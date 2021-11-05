@@ -2,16 +2,73 @@
 
 namespace App\Http\Requests;
 
-use App\Traits\JsonResponseTrait;
+use App\Exceptions\RegisterException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
 class RegisterRequest extends FormRequest
 {
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            // Errores del nombre
+            'Nombres.required' => 'El nombre del usuario es requerido',
+            'Nombres.max' => 'La longitud del nombre es demasiado larga',
+
+            // Errores del apellido paterno
+            'ApellidoP.required' => 'El apellido paterno es requerido',
+            'ApellidoP.max' => 'La longitud del apellido paterno es demasiado larga',
+
+            // Errores del apellido materno
+            'ApellidoM.max' => 'La longitud del apellido materno es demasiado larga',
+
+            // Errores de la edad.
+            'Edad.required' => 'La edad es requerida',
+            'Edad.numeric' => 'La edad debe ser numérica',
+
+            // Errores del país de nacimiento.
+            'Pais.required' => 'El Pais de nacimiento es requerido',
+
+            // Errores del lugar de residencia
+            'LugarResidencia.required' => 'El lugar de residencia es requerido',
+
+            // Errores del género
+            'Genero.required' => 'El género es requerido',
+            'Genero.in' => 'El género especificado no es válido',
+
+            // Errores para el otro género
+            'OtroGenero.required_if' => 'Especificá qué otro género',
+
+            // Errores del curp.
+            'CURP.unique' => 'Este curp ya está registrado en el sistema',
+            'CURP.regex' => 'El formato de tu curp no es válido',
+
+            // Errores del email.
+            'email.required' => 'El correo electrónico es requerido',
+            'email.unique' => 'Este correo electrónico ya está registrado en el sistema',
+
+            // Contraseña
+            'password.required' => 'La contraseña es requerida',
+
+            // Verificación de la contraseña.
+            'passwordR.required' => 'La confirmación de la contraseña es requerida',
+            'passwordR.same' => 'Las contraseñas no coinciden',
+
+            // Teléfono de contacto.
+            'Tel.required' => 'El número de teléfono es requerido',
+            'Tel.numeric' => 'El número de teléfono debe de ser numérico',
+        ];
+    }
+
     /**
      * Send a JSON response for any failed validation.
      *
@@ -22,10 +79,17 @@ class RegisterRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        Log::error('Usuario no registrado. Errores:');
-        Log::error($validator->errors()->toArray());
+        $messages = collect([
+            'Error '.JsonResponse::HTTP_UNPROCESSABLE_ENTITY,
+            'Tu registro no pudo ser completado exitosamente por los siguientes motivos:'
+        ]);
 
-        return parent::failedValidation($validator);
+        # Obtiene los errores y los devuelve como arreglo.
+        $errors = array_values($validator->errors()->toArray());
+        $errors = collect($errors)->map(fn($error) => $error[0]);
+        $errors = $messages->merge($errors)->toArray();
+
+        throw new RegisterException($this->all(), $errors);
     }
 
     /**
@@ -57,7 +121,7 @@ class RegisterRequest extends FormRequest
 
             $this->merge([
                 'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
-                'DirectorioActivo' => $response_data['DirectorioActivo'],
+                'DirectorioActivo' => $response_data['DirectorioActivo'] ?? 'ALUMNOS',
                 'ClaveUASLP' => $response_data['ClaveUASLP'],
                 'email' => Str::lower($this->email),
                 'Nombres' => Str::upper($response_data['name']),

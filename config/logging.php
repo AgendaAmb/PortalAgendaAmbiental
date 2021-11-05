@@ -41,6 +41,12 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'register' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/register/failed_requests.log'),
+            'level' => 'debug',
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
@@ -50,7 +56,7 @@ return [
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
+            'level' => 'error',
             'days' => 14,
         ],
 
