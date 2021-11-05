@@ -206,8 +206,8 @@ class WorkshopController extends Controller
         if ($workshop === null)
             return new JsonResponse(['message' => 'Taller no encontrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
 
-        # Usuario.
-        $user = $request->user();
+        # Usuario autenticado
+        $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
 
         # Cursos.
         $workshops = $user->workshops()
