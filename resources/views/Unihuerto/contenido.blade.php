@@ -467,7 +467,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unihuerto/TallerAgricultura_Cartel.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartero-Unihuerto.png')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -479,7 +479,7 @@
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unihuerto/TallerAgricultura_Cartel.png')}}"
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartero-Unihuerto.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="CARTEL-FUNGICULTURA.jpg">CARTEL GENERAL </a>
 

@@ -146,13 +146,15 @@
                 <div class="row p-xl-5 p-3 " style="color: white;">
                     <div class="col-12 mt-xl-5">
                         <p class="d-none">Puedes seguir las instrucciones de este video para registrarte</p>
+                        <!--
                         <img src="{{asset('/storage/imagenes/Logos/Binvenida.png')}}" alt="" srcset=""
                             class="img-fluid">
-                        <!--
-                        <video controls  id="videoRegistro">
-                            <source src="" type="video/mp4" autoplay>
-                        </video>
                         -->
+                        
+                        <video controls  id="videoRegistro">
+                            <source src="{{asset('/storage/Videos/Registro-MiPortal.mp4')}}" type="video/mp4" loop autoplay muted >
+                        </video>
+                    
                         <p class="h5 mt-3">Instructivo de registro <a
                                 href="{{asset('/storage/imagenes/introduccion/Instructivo_para_pertenecer_comunidad_AgendaAmbiental.pdf')}}"
                                 class="h5" style="color: rgb(252, 202, 86);"

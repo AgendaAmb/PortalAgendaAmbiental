@@ -69,7 +69,7 @@
                   alt="First slide">
               </a>
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_2.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/Unihuerto/Unihuerto-03.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -83,7 +83,7 @@
                   alt="First slide">
               </a>
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_2.png')}}" class="imgCaoursel "
+                <img src="{{asset('/storage/imagenes/Unihuerto/Unihuerto-03.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
