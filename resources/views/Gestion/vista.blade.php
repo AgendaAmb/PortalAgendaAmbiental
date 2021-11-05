@@ -435,7 +435,7 @@ Tabs de Gestión Institucional.
                 <x-tab-panel-image class="col-7 col-sm-4 col-md-3 my-3 mx-auto " widthBo="w-75"
                     :imageURL="asset('img/Gestion/Logo_DateRespiro.png')" urlhref="{{route('DateUnRespiro')}}" />
                 <x-tab-panel-image class="col-7 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
-                    :imageURL="asset('img/Gestion/Logo_Biodiversidad.png')" urlhref="#" />
+                    :imageURL="asset('img/Gestion/Logo_Biodiversidad.png')" urlhref="https://ambiental.uaslp.mx/Biodiversidad/" />
 
                 <x-tab-panel-image class="col-10 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
                     :imageURL="asset('img/Gestion/Logo_ManejoJardines.png')" urlhref="#" />
