@@ -246,66 +246,102 @@
         </div>
         <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <h1 class="text-center mt-3">Correos</h1>
-            <form @submit.prevent="enviarCorreo" method="post" class="text-left">
+            <div class="row">
+              
+                <div class="col-6">
+                    <form @submit.prevent="enviarCorreo" method="post" class="text-left">
 
-                <div class="form-group row was-validated justify-content-center">
-                    <label for="emailR" class="col-sm-1 col-form-label">Correo remitente</label>
-                    <div class="col-4">
-                        <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
-                            <option selected disabled value="">Remitente</option>
-                            <option :value="correo.email" v-for="correo in Correos">@{{correo.email}}</option>
-                        </select>
-                    </div>
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Correo remitente</label>
+                            <div class="col-9">
+                                <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
+                                    <option selected disabled value="">Remitente</option>
+                                    <option :value="correo" v-for="correo in Correos">@{{correo.email}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Destinatario</label>
+                            <div class="col-9">
+                                <select class="custom-select" id="validationDefault05" required v-model="Destinatario">
+                                    <option selected disabled value="">Destinatario</option>
+                                    <option :value="work.name" v-for="work in workshop">@{{work.name}}</option>
+                                    <option :value="modulo.name" v-for="modulo in modulos">@{{modulo.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start d-none">
+                            <label for="emailR" class="col-sm-2 col-form-label">CC</label>
+                            <div class="col-9">
+                                <select class="js-example-basic-multiple" v-model="cc" name="CC[]" multiple="multiple" style="width: 100%" >
+                                    <option :value="user.id" v-for="user in users">@{{user.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Asunto</label>
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Contenido</label>
+                            <div class="col-9">
+                                <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row justify-content-end">
+                            <div class="col-md-6 col-6 p-0">
+        
+                                <button class="btn btn-success" type="submit" value="Submit"
+                                    v-if="!spinnerVisible">Enviar correo</button>
+                                <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    Enviando
+                                </button>
+        
+                            </div>
+        
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group row was-validated justify-content-center">
-                    <label for="emailR" class="col-sm-1 col-form-label">Destinatario</label>
-                    <div class="col-4">
-                        <select class="custom-select" id="validationDefault05" required v-model="Destinatario">
-                            <option selected disabled value="">Destinatario</option>
-                            <option :value="work.name" v-for="work in workshop">@{{work.name}}</option>
-                            <option :value="modulo.name" v-for="modulo in modulos">@{{modulo.name}}</option>
-                        </select>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
+                            <div class="row justify-content-center">
+                                <img src="{{asset('/storage/imagenes/Logos/LogoAgendaUaslp.png')}}" height="125" width="150" alt="">
+                            </div>
+                        </div>
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#086588':CorreoRemitente.eje_id==2?'background-color:#009100':CorreoRemitente.eje_id==3?'background-color:#C39c00':CorreoRemitente.eje_id==4?'background-color:#001d56':CorreoRemitente.eje_id==5?'background-color:#9e0000':'background-color:#FFFFFF'">
+                            <div class="row justify-content-start" style="height: 20px;width: 100px">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row">
+
+                            </div>
+                            <div class="row justify-content-start">
+                                <img src="{{asset('/storage/imagenes/Logos/rtic.png')}}" height="125" width="auto" alt="">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
+                            <div class="row justify-content-start" style="height: 125px;width: auto;">
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
+            </div>
 
-                <div class="form-group row was-validated justify-content-center d-none">
-                    <label for="emailR" class="col-sm-1 col-form-label">CC</label>
-                    <div class="col-4">
-                        <select class="js-example-basic-multiple" v-model="cc" name="CC[]" multiple="multiple" style="width: 100%" >
-                            <option :value="user.id" v-for="user in users">@{{user.name}}</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row was-validated justify-content-center">
-                    <label for="emailR" class="col-sm-1 col-form-label">Asunto</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
-                    </div>
-                </div>
-
-                <div class="form-group row was-validated justify-content-center">
-                    <label for="emailR" class="col-sm-1 col-form-label">Contenido</label>
-                    <div class="col-4">
-                        <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-end">
-                    <div class="col-md-6 col-6 p-0">
-
-                        <button class="btn btn-success" type="submit" value="Submit"
-                            v-if="!spinnerVisible">Enviar correo</button>
-                        <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                            <span class="spinner-border spinner-border-sm" role="status"
-                                aria-hidden="true"></span>
-                            Enviando
-                        </button>
-
-                    </div>
-
-                </div>
-            </form>
+           
 
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
@@ -617,9 +653,10 @@
 },
   methods: {
     enviarCorreo:function(){
+       
         const formData = new FormData();
         formData.append('idUsuarioEnvio','{{Auth::user()->id}}');
-        formData.append('CorreoRemitente',this.CorreoRemitente);
+        formData.append('CorreoRemitente',this.CorreoRemitente.email);
         formData.append('Destinatario',this.Destinatario);
         formData.append('Asunto',this.Asunto);
         formData.append('Contenido',this.Contenido);
@@ -650,7 +687,7 @@
             this.modulos=res.data.modulos;
             this.workshop=res.data.workshop;
             this.Correos=res.data.Correos;
-            console.log( this.modulos);
+            console.log( this.Correos);
         })
     },
 
@@ -1034,7 +1071,7 @@
         "responsive": true, "lengthChange": false, "autoWidth": false,
         dom:
         "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
-        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-22'tr>>" +
         "<'row'<'col-sm-4'i><'col-sm-4 text-center'l><'col-sm-4'p>>",
         buttons: [
              'csv', 'excel', 'pdf', 'print'
