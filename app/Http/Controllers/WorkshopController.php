@@ -233,6 +233,7 @@ class WorkshopController extends Controller
 
         Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
         Log::info('Al usuario: '.$user->email);
+      
         Mail::to($user)->send(new RegisteredWorkshops([$workshop]));
 
         return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
