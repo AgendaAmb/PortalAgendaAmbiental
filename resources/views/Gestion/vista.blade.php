@@ -34,6 +34,7 @@ propios.';
 @endphp
 
 @section('ContenidoPrincipal')
+
 <div class="row justify-content-around my-3">
     <x-o-d-s-wheel />
     <x-ejeTrabajo :titulo="$titulo" :descripcion="$texto" :imagen="'noHayxd.png'" />
@@ -495,6 +496,7 @@ Hace push a la pila de las hojas de estilo, para indicar estilos y color de
 los botones del nav-tab
 --}}
 @push('stylesheets')
+
 <link href="{{ asset('css/nav-pill_Gestion.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
@@ -505,6 +507,7 @@ los botones del nav-tab
 --}}
 @push('scripts')
 <script src="{{ asset('js/odsGestion.js') }}"></script>
+
 @endpush
 @push('vuescrip')
     <script>
@@ -601,8 +604,21 @@ los botones del nav-tab
         "Url":'https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png',
     });
 
+  this.levantaModal()
   })
 },
+methods:{
+    levantaModal:function(){
+        var urlactual='{{url()->full()}}'
+       
+        if (urlactual=="http://127.0.0.1:8000/gesti%C3%B3n/pdf") {
+            this.idPUR=15;
+            $('#{{$NombreM}}').modal('show')
+        }
+    }
+}
 })
-    </script>
+
+
+</script>
 @endpush

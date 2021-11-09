@@ -27,8 +27,8 @@ Route::get('/Concurso17gemas', function ($NombreM=null) {
   //  return view('Introduccion.vista')->with('NombreM',$NombreM);
 //})->name('Modal17Gemas');
 
-Route::get('/gestión', function () {
-    return view('Gestion.vista');
+Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
+    return view('Gestion.vista')->with('NombreM',$NombreM);
 })->name('Gestion');
 
 Route::get('/educación/{nombreModal?}',function ($NombreM=null){
