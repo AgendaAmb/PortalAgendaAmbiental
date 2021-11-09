@@ -189,58 +189,6 @@ class WorkshopController extends Controller
      * @param object    $courses
      * @return \Illuminate\Http\Response
      */
-    private function registerUnihuerto(Request $request, $fechas)
-    {
-        $workshop = $fechas[0] === 'Noviembre'
-        ?  Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first()
-        : Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first();
-       
-      
-        # Registra el siguiente curso, en caso de que el usuario ya
-        # se haya registrado.
-        if ($workshop === null)
-            return new JsonResponse(['message' => 'Taller no encontrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-
-        # Usuario autenticado
-        $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
-        $user = User::where('id', $user->id)->where('type', $user->type)->first();
-
-        # Cursos.
-        $workshops = $user->workshops()
-            ->WherePivotNull('paid')
-            ->wherePivotNull('assisted_to_workshop')
-            ->orWherePivot('assisted_to_workshop', false)
-            ->whereNotIn('workshops.id', [ $workshop->id ])
-            ->pluck('workshops.id');
-
-        # Se eliminan los cursos a los que no haya asistido y a
-        # aquellos que haya eliminado del modal.
-        $user->workshops()->detach($workshops);
-
-
-        # Registra el siguiente curso, en caso de que el usuario ya
-        # se haya registrado.
-        if ($user->hasWorkshop($workshop))
-            return new JsonResponse(['message' => 'Usuario ya registrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-            
-           
-        $user->workshops()->attach($workshop->id,['user_type'=>$user->type]);
-
-        Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
-        Log::info('Al usuario: '.$user->email);
-      
-        Mail::to($user)->send(new RegisteredWorkshops([$workshop]));
-
-        return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param object    $courses
-     * @return \Illuminate\Http\Response
-     */
     public function markAsistence(Request $request)
     {
         # Obtiene el id del usuario registrado.
