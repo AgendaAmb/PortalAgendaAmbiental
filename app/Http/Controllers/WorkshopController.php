@@ -75,7 +75,8 @@ class WorkshopController extends Controller
             $user = $request->user();
 
             # Registra al usuario al evento o cursos especificados.
-            $this->registerCourses($request, $courses);
+            if ($courses->count() > 0)
+                $this->registerCourses($request, $courses);
 
             # Actualiza los datos del usuario.
             $user->zip_code = $request->CP ?? $user->zip_code;
@@ -209,6 +210,7 @@ class WorkshopController extends Controller
 
         # Usuario autenticado
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+        $user = User::where('id', $user->id)->where('type', $user->type)->first();
 
         # Cursos.
         $workshops = $user->workshops()
