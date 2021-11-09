@@ -197,10 +197,10 @@ class WorkshopController extends Controller
      */
     private function registerUnihuerto(Request $request, $fechas)
     {
-        $workshop = $fechas[0] === 'Octubre'
+        $workshop = $fechas[0] === 'Noviembre'
         ? Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first()
         : Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first();
-
+      
         # Registra el siguiente curso, en caso de que el usuario ya
         # se haya registrado.
         if ($workshop === null)
