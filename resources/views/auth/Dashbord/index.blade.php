@@ -837,6 +837,7 @@
 
             <label for="Nombres">Fecha en la que deseas participar</label>
             <div class="form-check">
+             <!--
               <input class="form-check-input" type="checkbox" value="Octubre" id="Octubre" v-model="checkedFecha"
                 @click="check_two()">
               <label class="form-check-label" for="con100te">
@@ -844,7 +845,7 @@
               </label>
 
             </div>
-
+          -->
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="Noviembre" id="Noviembre" v-model="checkedFecha"
                 @click="check_two()">
