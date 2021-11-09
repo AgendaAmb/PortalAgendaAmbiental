@@ -67,7 +67,7 @@ class WorkshopController extends Controller
             if ($request->checkedFecha !== null)
                 $response = $this->registerUnihuerto($request, $request->checkedFecha);
 
-
+            
             # Cursos registrados por el usuario
             $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -198,8 +198,9 @@ class WorkshopController extends Controller
     private function registerUnihuerto(Request $request, $fechas)
     {
         $workshop = $fechas[0] === 'Noviembre'
-        ? Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first()
-        : Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first();
+        ?  Workshop::where('start_date', '>=', '2021-11-01')->where('end_date', '<=', '2021-11-30')->first()
+        : Workshop::where('start_date', '>=', '2021-10-01')->where('end_date', '<=', '2021-10-31')->first();
+       
       
         # Registra el siguiente curso, en caso de que el usuario ya
         # se haya registrado.
@@ -226,8 +227,9 @@ class WorkshopController extends Controller
         # se haya registrado.
         if ($user->hasWorkshop($workshop))
             return new JsonResponse(['message' => 'Usuario ya registrado'], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-
-        $user->assignWorkshop($workshop->id);
+            
+           
+        $user->workshops()->attach($workshop->id,['user_type'=>$user->type]);
 
         Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
         Log::info('Al usuario: '.$user->email);
