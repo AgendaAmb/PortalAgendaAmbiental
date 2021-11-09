@@ -611,7 +611,7 @@ methods:{
     levantaModal:function(){
         var urlactual='{{url()->full()}}'
        
-        if (urlactual=="http://127.0.0.1:8000/gesti%C3%B3n/pdf") {
+        if (urlactual=="https://ambiental.uaslp.mx/gesti%C3%B3n/pdf") {
             this.idPUR=15;
             $('#{{$NombreM}}').modal('show')
         }
