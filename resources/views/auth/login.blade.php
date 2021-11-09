@@ -136,7 +136,7 @@
                   <div class="alert alert-success" role="alert" v-else-if="banRegistro?!banError?true:false:false">
                     <p>Tu registro se a realizado con exito, verifica tu correo y podras acceder a Mi portal.</p>
                   </div>
-                <form @submit.prevent="registraUsuario">
+                <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
                         <div class="form-group mr-3">
