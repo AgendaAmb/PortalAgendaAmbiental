@@ -61,13 +61,6 @@ class WorkshopController extends Controller
     {
         try
         {
-            $response = new JsonResponse(['status' => 200], JsonResponse::HTTP_OK);
-
-            # Cursos del unihuerto
-            if ($request->checkedFecha !== null)
-                $response = $this->registerUnihuerto($request, $request->checkedFecha);
-
-            
             # Cursos registrados por el usuario
             $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -109,7 +102,7 @@ class WorkshopController extends Controller
                     ]);
             }
 
-            return $response;
+            return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
         }
         catch (Exception $e)
         {
