@@ -155,7 +155,7 @@
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Oct2021.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Nov2021.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -169,7 +169,7 @@
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Oct2021.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Nov2021.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -290,7 +290,7 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Oct2021.png')}}"
+              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Nov2021.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
