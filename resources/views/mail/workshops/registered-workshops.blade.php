@@ -3,10 +3,15 @@
 
 Muchas gracias por registrarse a las siguientes actividades :<br><br>
 <ul>
-@foreach($workshops as $workshop)
-    <li> {{ $workshop->description }} </li>
+    @if (is_array($workshops))
+    @foreach($workshops as $workshop)
+    <li> {{ $workshop->name }} </li>
 @endforeach
 </ul><br>
+    @else
+    <li> {{ $workshops->name }} </li>
+    @endif
+
 
 Agradecemos su registro. Se le enviará un correo con las indicaciones para cada actividad registrada. <br><br><br>
 Saludos cordiales. <br>

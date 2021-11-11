@@ -122,7 +122,8 @@ class WorkshopController extends Controller
     {
         # Usuario autenticado
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
-
+      
+       
         # Cursos mmus del usuario y unirodadas.
         $workshops = $user->workshops()
             ->WherePivotNull('paid')
@@ -178,7 +179,12 @@ class WorkshopController extends Controller
             Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
             Log::info('Al usuario: '.$user->email);
 
-            Mail::to($user)->send(new RegisteredWorkshops($workshops));
+            
+        }
+        if($request->checkedFecha!=[]){
+            $workshop_model = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
+            $user->assignWorkshop($workshop_model->id);
+            Mail::to($user)->send(new RegisteredWorkshops($workshop_model));
         }
     }
 
