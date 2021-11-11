@@ -102,7 +102,7 @@ class HomeController extends Controller
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
-            $query->where('type', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(30 Octubre)');
+            $query->where('type', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
     /**
