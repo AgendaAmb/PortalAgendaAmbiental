@@ -117,7 +117,7 @@ class UnirodadaController extends Controller
         ]);
 
         # Se envía el comprobante de pago.
-       Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
+        Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'

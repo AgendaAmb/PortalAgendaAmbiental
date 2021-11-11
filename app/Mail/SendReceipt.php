@@ -30,7 +30,7 @@ class SendReceipt extends Mailable
     public function build()
     {
         return $this->from('unibici@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
-                    ->subject('Registro a la unirodada a la Cañada del Lobo')
+                    ->subject('Registro al taller de Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)')
                     ->markdown('mail.workshops.send-receipt', [
                         'header_color' => '#87b854',
                         'footer_color' => 'white',
