@@ -485,8 +485,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getSentAttribute()
     {
-        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
-        return $user_workshop->sent ?? null;
+        $sent = $this->workshops->last()->pivot->sent ?? 0;
+        return $sent === 1;
     }
 
     /**
