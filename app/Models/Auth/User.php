@@ -565,13 +565,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function workshops(): BelongsToMany
     {
-        return $this->belongsToMany(
-            Workshop::class,
+        return $this->belongsToMany(Workshop::class,
             'user_workshop',
             'user_id',
-            'workshop_id',
-            'id',
-            'id'
+            'workshop_id'
         )->withPivot(
             'id',
             'user_type',
