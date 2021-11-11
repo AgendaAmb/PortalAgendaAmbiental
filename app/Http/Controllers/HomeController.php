@@ -101,7 +101,7 @@ class HomeController extends Controller
         return User::select(
             User::COLUMNS
         )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
+            $query->whereIn('roles.name', ['administrator','coordinator','helper']);
         })->whereHas('workshops', function($query){
             $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
