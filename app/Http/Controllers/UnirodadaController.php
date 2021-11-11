@@ -105,6 +105,7 @@ class UnirodadaController extends Controller
             ?? Extern::find($request->idUser);
             
         $user = User::where('id', $user->id)->where('type', $user->type)->first();
+
         # Envía el comprobante de pago,en caso de que el evento
         # registrado haya sido una unirodada.
         $event = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
@@ -116,7 +117,7 @@ class UnirodadaController extends Controller
         ]);
 
         # Se envía el comprobante de pago.
-       $user->send(new SendReceipt($request->file('file')->get()));
+       Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'

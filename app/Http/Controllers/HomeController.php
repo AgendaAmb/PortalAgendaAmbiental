@@ -65,7 +65,8 @@ class HomeController extends Controller
      */
     public function Administracion(Request $request)
     {
-        $users = $request->user()->hasRole('helper')
+        $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
+        $users = $user->hasRole('helper')
 
         ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
@@ -95,13 +96,15 @@ class HomeController extends Controller
             $query->where('type', 'unirodada');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
+
+    
     private function getAgriculturaUsers()
     {
         # Combina todos los tipos de usuario.
         return User::select(
             User::COLUMNS
         )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator','helper']);
+            $query->whereIn('roles.name', []);
         })->whereHas('workshops', function($query){
             $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
