@@ -72,6 +72,10 @@ class HomeController extends Controller
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
+        $users = $user->hasRole('coordinator')
+
+        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
+        :  $this->getAllUsers();      # Todos los usuarios.
 
 
         return view('auth.Dashbord.Administracion')->with('users', $users)
@@ -93,7 +97,7 @@ class HomeController extends Controller
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', ['administrator','coordinator']);
         })->whereHas('workshops', function($query){
-            $query->where('type', 'unirodada');
+            $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
