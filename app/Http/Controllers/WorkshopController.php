@@ -139,7 +139,7 @@ class WorkshopController extends Controller
         # Guarda en el log los cursos eliminados.
         Log::info('Se han desasociado los siguientes cursos: ', $workshops->toArray());
         Log::info('Para el usuario: '.$user->email);
-
+        Log::info('Cursos que se va a inscribir: '.$courses);
         # Agrega cada uno de los cursos
         foreach ($courses as $workshop)
         {
