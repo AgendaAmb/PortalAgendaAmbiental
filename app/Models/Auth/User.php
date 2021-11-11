@@ -630,12 +630,12 @@ class User extends Authenticatable implements MustVerifyEmail
         foreach ($workshops as $workshop)
         {
             if (is_int($workshop))
-                $this->workshops()->attach($workshop, ['user_type' => static::class, 'sent' => false]);
+                $this->workshops()->attach($workshop, ['user_type' => $this->type, 'sent' => false]);
 
             else if(is_string($workshop))
             {
                 $workshop_id = Workshop::where('name', $workshop)->value('id');
-                $this->workshops()->attach($workshop_id, ['user_type' => static::class, 'sent' => false]);
+                $this->workshops()->attach($workshop_id, ['user_type' => $this->type, 'sent' => false]);
             }
         }
     }
