@@ -103,10 +103,11 @@ class UnirodadaController extends Controller
         $user = Student::find($request->idUser)
             ?? Worker::find($request->idUser)
             ?? Extern::find($request->idUser);
-
+            
+        $user = User::where('id', $user->id)->where('type', $user->type)->first();
         # Envía el comprobante de pago,en caso de que el evento
         # registrado haya sido una unirodada.
-        $event = Workshop::firstWhere('name', 'Unirodada cicloturística a la Cañada del Lobo');
+        $event = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($event->id, [
@@ -115,7 +116,7 @@ class UnirodadaController extends Controller
         ]);
 
         # Se envía el comprobante de pago.
-        Mail::mailer('smtp_unirodada')->to($user)->send(new SendReceipt($request->file('file')->get()));
+       $user->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'
