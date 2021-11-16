@@ -92,6 +92,7 @@ class UserController extends Controller
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('type'),
                 AllowedFilter::exact('email'),
+                AllowedFilter::exact('curp'),
             ])
             ->get()->makeHidden($hidden);
 
