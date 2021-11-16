@@ -28,7 +28,7 @@ Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('u
 });
 
 # Rutas para los sub-sistemas.
-Route::middleware('client')->prefix('usuarios')->name('usuarios.')->group(function(){
+Route::middleware(['client', 'throttle:200,1'])->prefix('usuarios')->name('usuarios.')->group(function(){
 
     # Registro / recuperación de usuarios.
     Route::get('/', 'UserController@index')->name('index');
