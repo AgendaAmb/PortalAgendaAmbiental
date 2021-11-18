@@ -26,7 +26,7 @@ class CorreosController extends Controller
             $query->where('name', $data['Destinatario']);
         })->orWhereHas('userModules', function($query) use ($data){
             $query->where('name', $data['Destinatario']);
-        })->where('email', 'A262698@alumnos.uaslp.mx')->get();
+        })->get();
 
 
         Mail::to($users)->send(new EmailLayout($data['Contenido'], $eje, $data['Asunto']));
