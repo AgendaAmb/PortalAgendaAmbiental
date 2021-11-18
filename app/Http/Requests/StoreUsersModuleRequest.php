@@ -28,7 +28,7 @@ class StoreUsersModuleRequest extends FormRequest
     {
         return [
             'users.*.module_id' => ['required','exists:modules,id'],
-            'users.*.user_id' => [ 'required','numeric','exists:users.id' ],
+            'users.*.user_id' => [ 'required','numeric','exists:users,id' ],
             'users.*.user_type' => [ 'required', 'in:externs,students,workers']
         ];
     }
