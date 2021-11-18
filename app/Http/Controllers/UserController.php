@@ -60,7 +60,7 @@ class UserController extends Controller
             $data['id'] = $data['clave_uaslp'];
         else
         {
-            $id = Extern::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
+            $id = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
             $data['id'] = $id;
         }
             
