@@ -61,7 +61,7 @@ class UserController extends Controller
         else
         {
             $id = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
-            $data['id'] = $id;
+            $data['id'] = $id + 1;
         }
             
         
