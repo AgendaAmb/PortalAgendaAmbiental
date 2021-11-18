@@ -22,6 +22,10 @@ class UserModuleController extends Controller
         # Recupera al usuario.
         $user = User::where('id', $data['user_id'])->where('type', $data['user_type'])->first();
 
+        # El usuario no existe.
+        if ($user === null)
+            return false;
+
         # Recupera el módulo de usuario
         $has_module = $user->userModules()->where('modules.id', $data['module_id'])->count() > 0;
 
