@@ -59,7 +59,7 @@ class UserController extends Controller
             $data['type'] = self::USER_TYPES['EXTERNO'];
         }
 
-        Log::info('Datos del nuevo usuario', json_encode($data, JSON_PRETTY_PRINT));
+        Log::info('Datos del nuevo usuario', $data);
         
         $cropped_data = collect($data)->except(
             'module_id', 'pertenece_uaslp', 'clave_uaslp',
