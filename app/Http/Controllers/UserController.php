@@ -13,6 +13,7 @@ use App\Models\Auth\Worker;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -62,6 +63,7 @@ class UserController extends Controller
         {
             $id = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
             $data['id'] = $id + 1;
+            Log::info($data['id']);
         }
             
         
