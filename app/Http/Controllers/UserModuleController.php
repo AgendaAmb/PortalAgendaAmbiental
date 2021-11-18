@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserModuleRequest;
+use App\Http\Requests\StoreUsersModuleRequest;
 use App\Models\Auth\User;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;
@@ -69,7 +70,7 @@ class UserModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeMany(StoreUserModuleRequest $request)
+    public function storeMany(StoreUsersModuleRequest $request)
     {
         # Usuarios de la petición.
         $users = $request->users;
