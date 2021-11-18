@@ -37,7 +37,7 @@ class UserModuleController extends Controller
             return false;
 
         # Se agrega el módulo.
-        $user->userModules()->attach($data['module_id']);
+        $user->userModules()->attach($data['module_id'],['user_type' => $type]);
 
         # El módulo fue agregado.
         return true;
