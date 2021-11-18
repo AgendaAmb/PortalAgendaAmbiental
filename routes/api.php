@@ -33,10 +33,12 @@ Route::middleware(['client'])->prefix('usuarios')->name('usuarios.')->group(func
     # Registro / recuperación de usuarios.
     Route::get('/', 'UserController@index')->name('index');
     Route::post('/', 'UserController@store')->name('store');
+    Route::post('/storeMany', 'UserController@storeMany')->name('storeMany');
 
     # Registro / Recuperación de módulos de usuario.
     Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
     Route::post('modulos', 'UserModuleController@nuevo')->name('modulos.nuevo');
+    Route::post('modulos/storeMany', 'UserModuleController@storeMany')->name('modulos.storeMany');
 });
 
 # Rutas exclusiva de 17 Gemas. Por ahora están así para que no truene, pero van arriba >:v

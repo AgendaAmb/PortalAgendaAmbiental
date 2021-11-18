@@ -6,9 +6,35 @@ use App\Http\Requests\StoreUserModuleRequest;
 use App\Models\Auth\User;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class UserModuleController extends Controller
 {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  array $data
+     * @return bool
+     */
+    private function newUserModule(array $data)
+    {
+        # Recupera al usuario.
+        $user = User::where('id', $data['user_id'])->where('type', $data['user_type'])->first();
+
+        # Recupera el módulo de usuario
+        $has_module = $user->userModules()->where('modules.id', $data['module_id'])->count() > 0;
+
+        # No agrega el módulo de usuario.
+        if ($has_module === true)
+            return false;
+
+        # Se agrega el módulo.
+        $user->userModules()->attach($data['module_id']);
+
+        # El módulo fue agregado.
+        return true;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -28,18 +54,33 @@ class UserModuleController extends Controller
      */
     public function nuevo(StoreUserModuleRequest $request)
     {
-        # Usuario autenticado
-        $user = User::retrieveById($request->user_id, $request->user_type);
-        $module = Module::find($request->module_id);
+        # Devuelve el resultado de agregar el módulo.
+        if ($this->newUserModule($request->validated()) === false)
+            return new JsonResponse([
+                'message' => 'User already registered'
+            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
 
-        # Añade el módulo al usuario, si no pertenece a él.
-        if (!$user->hasModule($module->name))
-        {
-            $user->attachModule($module);
-            return response('Successful', JsonResponse::HTTP_OK);
-        }
+        return new JsonResponse(['message' => 'Usuario registrado'], JsonResponse::HTTP_OK);
+    }
+    
+    /**
+     * Agrega a muchos usuarios a un módulo.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeMany(StoreUserModuleRequest $request)
+    {
+        # Usuarios de la petición.
+        $users = $request->users;
 
-        return response('User already registered', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        # Resultados al agregar a los usuarios.
+        $results = [];
+
+        foreach ($users as $user)
+            $results[] = $this->newUserModule($user);
+        
+        return new JsonResponse($results, JsonResponse::HTTP_OK);
     }
 
     /**
