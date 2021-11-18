@@ -58,16 +58,15 @@ class UserController extends Controller
         {
             $cropped_data['id'] = $data['clave_uaslp'];
             $cropped_data['type'] = self::USER_TYPES[$data['directorio_activo']];
-            $user = User::create($cropped_data);
         }
         else
         {
-            $cropped_data['id'] = Extern::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
+            $cropped_data['id'] = Extern::withTrashed()->where('type', Extern::class)->count() + 1;
             $cropped_data['type'] = self::USER_TYPES['EXTERNO'];
-            $user = Extern::create($cropped_data);
         }
 
         # Crea al usuario.
+        $user = User::create($cropped_data);
         $user->id = $cropped_data['id'];
         $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
 
