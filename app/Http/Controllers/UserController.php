@@ -58,6 +58,8 @@ class UserController extends Controller
             $data['id'] = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
             $data['type'] = self::USER_TYPES['EXTERNO'];
         }
+
+        Log::info('Datos del nuevo usuario', json_encode($data, JSON_PRETTY_PRINT));
         
         $cropped_data = collect($data)->except(
             'module_id', 'pertenece_uaslp', 'clave_uaslp',
