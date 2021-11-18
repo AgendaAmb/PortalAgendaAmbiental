@@ -61,7 +61,7 @@ class UserController extends Controller
         }
         else
         {
-            $cropped_data['id'] = Extern::withTrashed()->where('type', Extern::class)->count() + 1;
+            $cropped_data['id'] = User::withTrashed()->where('type', Extern::class)->max('id') + 1;
             $cropped_data['type'] = self::USER_TYPES['EXTERNO'];
         }
 
