@@ -59,9 +59,11 @@ class UserController extends Controller
         if (isset($data['clave_uaslp']))
             $data['id'] = $data['clave_uaslp'];
         else
-            $data['id'] = (
-                Extern::withTrashed()->where('type', Extern::class)->latest()->value('id') ?? 0
-            ) + 1;
+        {
+            $id = Extern::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
+            $data['id'] = $id;
+        }
+            
         
         $cropped_data = collect($data)->except(
             'module_id', 'pertenece_uaslp', 'clave_uaslp',
