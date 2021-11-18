@@ -47,25 +47,17 @@ class UserController extends Controller
      */
     private function newUser($data)
     {
-        # Obtiene los tipos de usuario.
-        $user_types = self::USER_TYPES;
-
-        # Asigna el directorio activo al usuario.
-        $data['type'] = $user_types['EXTERNO'];
-
-        if (isset($data['directorio_activo']))
-            $data['type'] = $user_types[$data['directorio_activo']];
-
         # Asigna el id al usuario.
-        if (isset($data['clave_uaslp']))
+        if ($data['pertenece_uaslp'] === true)
+        {
             $data['id'] = $data['clave_uaslp'];
+            $data['type'] = self::USER_TYPES[$data['directorio_activo']];
+        }
         else
         {
-            $id = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
-            $data['id'] = $id + 1;
-            Log::info($data['id']);
+            $data['id'] = User::withTrashed()->where('type', Extern::class)->latest()->value('id') + 1 ?? 1;
+            $data['type'] = self::USER_TYPES['EXTERNO'];
         }
-            
         
         $cropped_data = collect($data)->except(
             'module_id', 'pertenece_uaslp', 'clave_uaslp',
