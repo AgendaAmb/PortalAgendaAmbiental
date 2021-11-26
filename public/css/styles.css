@@ -696,6 +696,11 @@ font-size: 12px;
     text-decoration: none;
     background-color: transparent;
 }
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+  }
 #videoRegistro{
     height: 350px;width: 100%;
 }
@@ -733,6 +738,8 @@ font-size: 12px;
     
     background-color: #e66c6b;
 }
+
+
 @media only screen and (min-width: 638px) and (max-width: 765px)
 {
 

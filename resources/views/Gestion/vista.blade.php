@@ -49,20 +49,18 @@ Tabs de Gestión Institucional.
     Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons" >
+        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
+        nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
+            nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+            <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
+                nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" nombreRes="ENERGÍA"
+                class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
             nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS"
             class="nav-link active d-lg-block  d-xl-block d-md-block d-sm-block d-none " />
-        <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
-            nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
-        <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
-            nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" nombreRes="ENERGÍA"
-            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
-        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
-            nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD"
-            class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
-
-
-
+    
 
         <!--
         <x-tab-panel-button id="v-pills-boton5" idTabPanelContent="#tab-panel-5" nombre="BIBLIOTECA"
@@ -223,6 +221,10 @@ Tabs de Gestión Institucional.
                             </button>
                         </div>
                         <div class="modal-body" v-if="idPUR!=15">
+                            <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
+                                :src=PUR[idPUR-1].Url></iframe>
+                        </div>
+                        <div class="modal-body" v-else-if="idPUR!=16">
                             <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
                                 :src=PUR[idPUR-1].Url></iframe>
                         </div>
@@ -602,6 +604,16 @@ los botones del nav-tab
         "id":15,
         "Nombre":'Infografía Manejo de Aceite',
         "Url":'https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png',
+    });
+    this.PUR.push({
+        "id":16,
+        "Nombre":'Infografía de Consumo Responsable',
+        "Url":'https://ambiental.uaslp.mx/SGA/PUR/ConsumoResponsable.jpg',
+    });
+    this.PUR.push({
+        "id":17,
+        "Nombre":'Directorio Público ',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Directorio_Público_Residuos.pdf&embedded=true',
     });
 
   this.levantaModal()

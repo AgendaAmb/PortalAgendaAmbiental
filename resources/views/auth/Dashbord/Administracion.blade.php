@@ -324,7 +324,8 @@
 
                         <div class="col-12">
                             <div class="row">
-
+                                <pre>  @{{Contenido}}</pre>
+                                <div id="summernote">Hello Summernote</div>
                             </div>
                             <div class="row justify-content-start">
                                 <img src="{{asset('/storage/imagenes/Logos/rtic.png')}}" height="125" width="auto" alt="">
@@ -358,7 +359,7 @@
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
                     @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unirodada
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unihuerto
                     </h5>
 
                     @else
@@ -626,7 +627,8 @@
     Destinatario:'',
     Asunto:'',
     Contenido:'',
-    cc:[]
+    cc:[],
+    Summernote:''
 
   },
   mounted: function () {
@@ -649,6 +651,9 @@
                     "lunch":"{{$user->lunch}}"
                 });
     @endforeach
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
   })
 },
   methods: {
@@ -866,6 +871,12 @@
 });
 
 });
+var markupStr = $('#summernote').summernote('code');
+   
+console.log(markupStr);
+    
+
+
 </script>
 
 @push('stylesheets')
@@ -875,9 +886,10 @@
 <link rel="stylesheet" href="{{asset('/css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-
-
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <script src="{{asset('/css/DataTable/datatables.min.js')}}"></script>
+
 <script src="{{asset('/css/DataTable/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('/css/DataTable/Responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('/css/DataTable/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
