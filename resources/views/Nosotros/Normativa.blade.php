@@ -7,5 +7,5 @@ institución y sus requerimiento, así como la Visión UASLP 2023, y los program
 objetivos y estrategias del Plan Institucional de Desarrollo 2013-2023.
 <br>
 <br>
-Mas información <a target="blank" href="//www.uaslp.mx/universidad/normativa-universitaria">AQUÍ</a>
+Mas información <a target="blank" href="http://www.uaslp.mx/universidad/normativa-universitaria">AQUÍ</a>
 </div>

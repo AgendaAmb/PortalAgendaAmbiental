@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserModuleRequest extends FormRequest
+class StoreUsersModuleRequest extends FormRequest
 {
     use JsonResponseTrait;
 
@@ -27,9 +27,9 @@ class StoreUserModuleRequest extends FormRequest
     public function rules()
     {
         return [
-            'module_id' => ['required','exists:modules,id'],
-            'user_id' => [ 'required','numeric','exists:users,id' ],
-            'user_type' => [ 'required', 'in:externs,students,workers']
+            'users.*.module_id' => ['required','exists:modules,id'],
+            'users.*.user_id' => [ 'required','numeric','exists:users,id' ],
+            'users.*.user_type' => [ 'required', 'in:externs,students,workers']
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchUserRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\StoreUsersRequest;
 use App\Mail\RegisteredTo17Gemas;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
@@ -12,6 +13,7 @@ use App\Models\Auth\Worker;
 use App\Models\Module;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -39,6 +41,40 @@ class UserController extends Controller
     ];
 
     /**
+     * Creates a new user. 
+     *
+     * @param array $data
+     */
+    private function newUser($data)
+    {
+        $cropped_data = collect($data)->except(
+            'module_id', 'pertenece_uaslp', 'clave_uaslp',
+            'directorio_activo','password','rpassword',
+            'other_gender','is_disabled'
+        )->toArray();
+
+        # Asigna el id al usuario.
+        if ($data['pertenece_uaslp'] === true)
+        {
+            $cropped_data['id'] = $data['clave_uaslp'];
+            $cropped_data['type'] = self::USER_TYPES[$data['directorio_activo']];
+        }
+        else
+        {
+            $cropped_data['id'] = User::withTrashed()->where('type', Extern::class)->max('id') + 1;
+            $cropped_data['type'] = self::USER_TYPES['EXTERNO'];
+        }
+
+        # Crea al usuario.
+        $user = User::create($cropped_data);
+        $user->id = $cropped_data['id'];
+        $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
+
+        return $user;
+    }
+
+
+    /**
      * Creates a new user. This method is only available for
      * sub-systems
      *
@@ -46,30 +82,32 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        # Obtiene los tipos de usuario.
-        $user_types = self::USER_TYPES;
-
-        # Datos de la solicitud
-        $data = $request->except(
-            'module_id', 'pertenece_uaslp', 'clave_uaslp',
-            'directorio_activo','password','rpassword',
-            'other_gender','is_disabled'
-        );
-
-        # Agrega el id y el tipo de usuario.
-        $data['type'] = $user_types[$request->directorio_activo] ?? $user_types['EXTERNO'];
-        $data['id'] = $request->clave_uaslp ?? Extern::withTrashed()
-            ->where('type', Extern::class)->latest()
-            ->value('id') + 1
-            ?? 1;
-
-        # Crea al usuario.
-        $user = User::create($data);
-        $user->id = $data['id'];
-        $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
+        # Genera al usuario
+        $user = $this->newUser($request->validated());
 
         return new JsonResponse($user, JsonResponse::HTTP_CREATED);
     }
+
+    /**
+     * Creates a new user. This method is only available for
+     * sub-systems
+     *
+     * @param StoreUserRequest $request
+     */
+    public function storeMany(StoreUsersRequest $request)
+    {
+        # Datos de la solicitud
+        $users = $request->users;
+        $new_users = [];
+
+        # Arreglo con nuevos usuarios.
+        foreach ($users as $user)
+            $new_users[] = $this->newUser($user);
+        
+
+        return new JsonResponse($new_users, JsonResponse::HTTP_CREATED);
+    }
+
 
     /**
      * Retrieves a list of users.
@@ -92,6 +130,7 @@ class UserController extends Controller
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('type'),
                 AllowedFilter::exact('email'),
+                AllowedFilter::exact('curp'),
             ])
             ->get()->makeHidden($hidden);
 
