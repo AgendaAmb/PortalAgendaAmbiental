@@ -220,14 +220,11 @@ Tabs de Gestión Institucional.
                                 <span aria-hidden="true">X</span>
                             </button>
                         </div>
-                        <div class="modal-body" v-if="idPUR!=15">
+                        <div class="modal-body" v-if="idPUR!=15?idPUR!=16:true?false:false">
                             <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
                                 :src=PUR[idPUR-1].Url></iframe>
                         </div>
-                        <div class="modal-body" v-else-if="idPUR!=16">
-                            <iframe style="width: 100%;height: 750px;" v-if="idPUR!=''"
-                                :src=PUR[idPUR-1].Url></iframe>
-                        </div>
+                    
                         <div class="modal-body" v-else>
                             <img :src=PUR[idPUR-1].Url alt="" class="img-fluid">
                         </div>
