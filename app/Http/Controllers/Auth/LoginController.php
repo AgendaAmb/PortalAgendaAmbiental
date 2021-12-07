@@ -93,7 +93,7 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         # Datos del API si existen.
-        $user_request = Http::post('http://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [ 'username' => $request->email ]);
+        $user_request = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [ 'username' => $request->email ]);
 
         # Intenta acceder como externo.
         if ($user_request->status() !== 200)
