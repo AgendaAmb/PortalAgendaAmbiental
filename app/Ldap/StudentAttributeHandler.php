@@ -2,6 +2,7 @@
 
 namespace App\Ldap;
 
+use App\Models\Auth\Student;
 use App\Models\Auth\User;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -18,7 +19,7 @@ class StudentAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $databaseUser = User::where('id', $databaseUser->id)->where('type', 'students')->first();
+        $databaseUser = User::where('id', $databaseUser->id)->where('type', Student::class)->first();
 
         # Verifica que el usuario tenga un rol
         if ($databaseUser->roles()->count() === 0)

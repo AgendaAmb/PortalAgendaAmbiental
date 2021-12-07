@@ -18,7 +18,7 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $databaseUser = User::where('id', $databaseUser->id)->where('type', 'workers')->first();
+        $databaseUser = User::where('id', $databaseUser->id)->where('type', Worker::class)->first();
 
         # Verifica que el usuario tenga un rol
         if ($databaseUser->roles()->count() === 0)
