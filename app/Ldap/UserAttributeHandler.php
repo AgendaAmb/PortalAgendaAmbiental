@@ -3,7 +3,6 @@
 namespace App\Ldap;
 
 use App\Models\Auth\User;
-use App\Models\Auth\Worker;
 use Illuminate\Validation\ValidationException;
 use LdapRecord\Models\ActiveDirectory\User as LdapUser;
 
@@ -18,8 +17,6 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $databaseUser = Worker::find($databaseUser->id);
-
         # Verifica que el usuario tenga un rol
         if ($databaseUser->roles()->count() === 0)
             throw ValidationException::withMessages([ 
