@@ -92,21 +92,19 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        # Datos del API si existen.
-        $user_request = Http::post(env('API_URL'), [ 'username' => $request->email ]);
+        # Inicio de sesión como trabajador
+        if (Auth::guard('workers')->attempt([ 'mail' => $request->email, 'password' => $request->password ]))
+            return true;
 
-        # Intenta acceder como externo.
-        if ($user_request->status() !== 200)
-            return Auth::guard('web')->attempt($request->only('email', 'password'));
+        # Inicio de sesión como alumno
+        if (Auth::guard('students')->attempt([ 'mail' => $request->email, 'password' => $request->password ]))
+            return true;
 
-        $user_data = $user_request->json()['data'];
-        
-        # Acceder como trabajador.
-        if ($user_data['DirectorioActivo'] === 'UASLP')
-            return Auth::guard('workers')->attempt([ 'mail' => $user_data['email'], 'password' => $request->password ]);
+        # Inicio de sesión como externo.
+        if (Auth::attempt([ 'email' => $request->email, 'password' => $request->password ]))
+            return true;
 
-        # Acceder como alumno.
-        else
-            return Auth::guard('students')->attempt([ 'mail' => $user_data['email'], 'password' => $request->password ]);
+        # Inicio de sesión no exitoso.
+        return false;
     }
 }
