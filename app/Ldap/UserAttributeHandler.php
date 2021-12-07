@@ -20,6 +20,10 @@ class UserAttributeHandler
     {
         $databaseUser = User::where('id', $databaseUser->id)->where('type', Worker::class)->first();
 
+        # Si el usuario es nulo, se devuelve nada
+        if ($databaseUser === null)
+            return false;
+
         # Verifica que el usuario tenga un rol
         if ($databaseUser->roles()->count() === 0)
             throw ValidationException::withMessages([ 
