@@ -19,6 +19,7 @@ class StudentAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
+        dd($databaseUser);
         $databaseUser = Student::find($databaseUser->id);
 
         # Verifica que el usuario tenga un rol
