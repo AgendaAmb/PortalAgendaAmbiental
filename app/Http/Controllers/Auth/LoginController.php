@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -68,19 +69,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {   
-        $user = $request->user('workers') 
-            ?? $request->user('students')
-            ?? $request->user('web');
-
-        if (Auth::guard('workers')->check())
-            Log::info('Inicio de sesión como trabajador');
-        else if (Auth::guard('students')->check())
-            Log::info('Inicio de sesión como estudiante');
-        else if (Auth::guard('web')->check())
-            Log::info('Inicio de sesión como externo');
-
-        Log::info('Datos de usuario: ', $user->toArray());
-
         return redirect($this->redirectTo);
     }
 
@@ -93,11 +81,13 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         # Inicio de sesión como trabajador
-        if (Auth::guard('workers')->attempt([ 'mail' => $request->email, 'password' => $request->password ]))
+        if (Auth::guard('workers')->attempt([ 'mail' => $request->email, 'password' => $request->password ])
+        ||  Auth::guard('workers')->attempt([ 'samaccountname' => $request->email, 'password' => $request->password ]))
             return true;
 
         # Inicio de sesión como alumno
-        if (Auth::guard('students')->attempt([ 'mail' => $request->email, 'password' => $request->password ]))
+        if (Auth::guard('students')->attempt([ 'mail' => $request->email, 'password' => $request->password ])
+        ||  Auth::guard('students')->attempt([ 'samaccountname' => $request->email, 'password' => $request->password ]))
             return true;
 
         # Inicio de sesión como externo.
@@ -105,6 +95,8 @@ class LoginController extends Controller
             return true;
 
         # Inicio de sesión no exitoso.
-        return false;
+        throw ValidationException::withMessages([ 
+            'email' => 'Usuario y/o contraseña incorrectos.' 
+        ]);
     }
 }

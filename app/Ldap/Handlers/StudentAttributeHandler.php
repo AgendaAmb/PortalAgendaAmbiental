@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Ldap;
+namespace App\Ldap\Handlers;
 
-use App\Models\Auth\Student;
 use App\Models\Auth\User;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 use LdapRecord\Models\ActiveDirectory\User as LdapUser;
 
 class StudentAttributeHandler
@@ -19,18 +17,6 @@ class StudentAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $databaseUser = User::where('id', $databaseUser->id)->where('type', Student::class)->first();
-
-        # Si el usuario es nulo, se devuelve nada
-        if ($databaseUser === null)
-            return false;
-
-        # Verifica que el usuario tenga un rol
-        if ($databaseUser->roles()->count() === 0)
-            throw ValidationException::withMessages([ 
-                'email' => 'Debes de registrarte, antes de poder acceder.' 
-            ]);
-
         # Quita el A a la clave única.
         $databaseUser->id = Str::of($ldapUser->getFirstAttribute('samaccountname'))->replaceMatches('/[Aa]/', '');
 

@@ -1,5 +1,9 @@
 <?php
 
+use App\Ldap\Handlers\StudentAttributeHandler;
+use App\Ldap\Handlers\WorkerAttributeHandler;
+use App\Ldap\Rules\WorkersRule;
+
 return [
 
     /*
@@ -87,19 +91,21 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Auth\Extern::class
+            'model' => App\Models\Auth\User::class
         ],
 
         'workers' => [
             'driver' => 'ldap',
             'model' => LdapRecord\Models\ActiveDirectory\User::class,
-            'rules' => [],
+            'rules' => [
+                WorkersRule::class
+            ],
 
             'database' => [
                 'model' => App\Models\Auth\Worker::class,
                 'sync_passwords' => true,
                 'sync_attributes' => [
-                    App\Ldap\UserAttributeHandler::class
+                    WorkerAttributeHandler::class
                 ],
                 'sync_existing' => [
                     'email' => 'mail',
@@ -116,7 +122,7 @@ return [
                 'model' => App\Models\Auth\Student::class,
                 'sync_passwords' => true,
                 'sync_attributes' => [
-                    App\Ldap\StudentAttributeHandler::class
+                    StudentAttributeHandler::class
                 ],
                 'sync_existing' => [
                     'email' => 'mail',

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Ldap;
+namespace App\Ldap\Handlers;
 
 use App\Models\Auth\User;
-use App\Models\Auth\Worker;
-use Illuminate\Validation\ValidationException;
 use LdapRecord\Models\ActiveDirectory\User as LdapUser;
 
-class UserAttributeHandler
+class WorkerAttributeHandler
 {
     /**
      * Determina la forma de guardar los atributos del usuario del directorio activo
@@ -18,19 +16,6 @@ class UserAttributeHandler
      */
     public function handle(LdapUser $ldapUser, User $databaseUser)
     {
-        $databaseUser = User::where('id', $databaseUser->id)->where('type', Worker::class)->first();
-
-        # Si el usuario es nulo, se devuelve nada
-        if ($databaseUser === null)
-            return false;
-
-        # Verifica que el usuario tenga un rol
-        if ($databaseUser->roles()->count() === 0)
-            throw ValidationException::withMessages([ 
-                'email' => 'Debes de registrarte, antes de poder acceder.' 
-            ]);
-
-
         // Obtiene los apellidos del usuario.
         $surnames = explode(' ', $ldapUser->getFirstAttribute('sn'), 2);
 
