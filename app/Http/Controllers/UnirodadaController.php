@@ -28,6 +28,7 @@ class UnirodadaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function registerUser(Request $request, $user, $workshop)
     {
         # Verifica que la condición de salud no esté vacía.

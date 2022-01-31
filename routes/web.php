@@ -117,6 +117,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarTallerUsuario', 'WorkshopController@store')->name('RegistrarTallerUsuario');
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
+    # Registro a unihuertocasa feb - marzo 2022.
+    //Route::post('/RegistrarUnihuertoCasaUsuario','WorkshopController@RegistrarUnihuertoCasaUsuario')->name('RegistrarUnihuertoCasaUsuario');
+
+    Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
+
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 

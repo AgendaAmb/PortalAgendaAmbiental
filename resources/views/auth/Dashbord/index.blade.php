@@ -22,23 +22,23 @@
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="DatosUsuario('UnihuertoCasa')">
+            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="DatosUsuario('Unitrueque')">
+            <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
               <img src="{{ asset('/storage/imagenes/Unitrueque/registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0 d-none" >
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('Rodada')">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
             </a>
           </div>
           @if(Auth::user()->user_type!="externs")
           <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="DatosUsuario('17Gemas')">
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
 
               <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-xl-1 px-1 mt-1 mt-xl-0">
             </a>
@@ -117,8 +117,14 @@
 
   </div>
 
-{{-- Modal con el registro para: 17 gemas --}}
+{{-- Modales con programas vigentes  --}}
+@include("RegistroModales.UnihuertoCasa")
+
+@include("RegistroModales.Unitrueque")
+
 @include("RegistroModales.17gemas")
+
+{{-- Modales Programas pasados --}}
 
 @include("RegistroModales.ComprobanteP")
 
@@ -320,6 +326,7 @@
     ChecarUrl:function(){
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
+      '{{$nombreModal}}'=='UnihuertoCasa'?this.levantaModal('UnihuertoCasa'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -330,6 +337,7 @@
     },
     levantaModal:function(data){
         this.DatosUsuario(data),
+        console.log("data:" + data);
         $('#Registro17gemas').modal('show')
 
     },
@@ -367,6 +375,11 @@
     },
     check_two: function(){
         this.checkedFecha = [];
+    },
+    AbrirModal: function(ModalClick){
+      //esta funcion setea los datos del usuario segun el modal que se dio click
+      this.DatosUsuario(ModalClick);
+      $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
         this.nombres= '{{Auth::user()->name}}',
@@ -468,7 +481,21 @@
                   this.Errores[0].Visible,
                   this.Guardado=false
             })
-           }else{
+           }
+           else if(this.modalClick=='UnihuertoCasa'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'/RegistrarUnihuertoCasaUsuario',data).then(response => (
+
+              console.log(response.data),
+              this.spinnerVisible=false,
+              $('#UnihuertoCasa').modal('hide'),
+              this.Guardado=true
+               )).catch((err) => {
+                  this.Errores[0].Visible,
+                  this.Guardado=false
+            })
+           }
+           else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
 

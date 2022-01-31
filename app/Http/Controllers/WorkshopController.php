@@ -245,4 +245,11 @@ class WorkshopController extends Controller
         return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
 
     }
+/*
+    public function registrarUsuario(Request $request){
+        return response()->json([
+            'Message' => 'correcto mi estimado'
+        ], JsonResponse::HTTP_OK);
+    }
+    */
 }
