@@ -3,6 +3,7 @@
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\Worker;
+use App\Models\Auth\User;
 use App\Models\Module;
 use Illuminate\Database\Seeder;
 
@@ -11,6 +12,7 @@ class UserSeeder extends Seeder
     /**
      * Usuarios del app
     */
+    /*
     private $users =  [
         /*
         [
@@ -166,9 +168,10 @@ class UserSeeder extends Seeder
             "modules" => [ 'Control Escolar', 'Biodiversidad' ],
             "roles" => [ 'administrator' ],
             'user_type' => Worker::class,
-        ],*/
+        ],
 
     ];
+    */
 
 
     /**
@@ -178,6 +181,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'id' => 1,
+            'name' => 'Miguel T',
+            'email' => 'a278737@alumnos.uaslp.mx',
+            'middlename' => 'Miguel',
+            'surname' => 'T',
+            'password' => bcrypt('1'),
+            'type' => Extern::class,
+        ]);
+        /*
         foreach ($this->users as $user)
         {
             # Quita la llave 'modules'
@@ -201,5 +214,6 @@ class UserSeeder extends Seeder
             foreach ($user['roles'] as $roleName)
                 $user_model->assignRole($roleName);
         }
+        */
     }
 }

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             ModuleSeeder::class,
             PassportSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class,
+            //UserSeeder::class,
             WorkshopSeeder::class,
             EjesSeeder::class,
             CorreosSeeder::class,

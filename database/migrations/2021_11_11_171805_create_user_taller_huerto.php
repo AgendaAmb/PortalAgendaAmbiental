@@ -14,6 +14,7 @@ class CreateUserTallerHuerto extends Migration
      */
     public function up()
     {
+        /*
         $workshop_model = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
 
         $user=User::find(25137);
@@ -22,7 +23,7 @@ class CreateUserTallerHuerto extends Migration
         
         $user2=User::find(278452);
         $user2->assignWorkshop($workshop_model->id);
-     
+*/
     }
 
     /**
@@ -32,6 +33,6 @@ class CreateUserTallerHuerto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_taller_huerto');
+        //Schema::dropIfExists('user_taller_huerto');
     }
 }
