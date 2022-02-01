@@ -243,13 +243,77 @@ class WorkshopController extends Controller
         $workshop->save();
         Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
         return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+}
+//*
+    public function RegistrarUnihuertoCasaUsuario(Request $request){
+        try{
+            //throw new \Exception("mi excepcion");//para prueba
 
+            //0. validar datos
+            $request->validate([
+                'Clave' => 'Required' //solo la clave porque es lo que realmente nos importa
+            ]);
+            //1. actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if($request->NAcademico != ""){
+                $user->academic_degree = $request->NAcademico;
+            }
+            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+                $user->interested_on_further_courses = true;
+                $user->comments = $request->ComentariosSugerencias;
+            }
+            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+                $user->courses = $request->CursosC;
+            }
+            $user->save();
+            //2. checamos si requiere factura
+            if($request->isFacturaReq == "Si" || $request->isFacturaReq == "si"){
+                DB::table('invoice_data')
+                        ->updateOrInsert([
+                            'user_id' => $user->id,
+                            'user_type' => $user->type
+                        ],[
+                            'rfc' => $request->RFC,
+                            'name' => $request->nombresF,
+                            'email' => $request->emailF,
+                            'address' =>  $request->DomicilioF,
+                            'phone' => $request->telF
+                        ]);
+            }
+            //3. crear registro
+            DB::table('user_workshop')
+                ->updateOrInsert([
+                    'workshop_id' => 9, // 9 = unihuerto en casa
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'assisted_to_workshop' => null,
+                    'sent' => null,
+                    'sent_at' =>  null,
+                    'paid' => null,
+                    'paid_at' => null
+                ]);
+            Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+        }catch(\Exception $e){
+            return response()->json([ 'Message' => $e->getMessage() ],500);
+        }
+        
+        //4. si todo sale bien regresamo un ok
+        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
     }
-/*
-    public function registrarUsuario(Request $request){
-        return response()->json([
-            'Message' => 'correcto mi estimado'
-        ], JsonResponse::HTTP_OK);
+    //*/
+    public function ChecarUnihuertoCasaUsuario(Request $request){//Esta inscrito?
+        //return response()->json($request, JsonResponse::HTTP_OK);
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id',9)
+            ->where('user_id',$request->Clave)
+            ->get();
+            
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if( $insc->count() > 0 ){
+            return response()->json(true, JsonResponse::HTTP_OK);
+        }else{
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
     }
-    */
 }

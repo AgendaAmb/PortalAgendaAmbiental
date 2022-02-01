@@ -537,7 +537,6 @@
         </div>
         <div class="modal-body" v-else>
           <img src="{{asset('/storage/imagenes/mmus2021/RegistroCerradoRodada.png')}}" class="img-fluid" alt="">
-
         </div>
 
       </div>

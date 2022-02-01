@@ -189,7 +189,8 @@
     FechaFin:'',
     checkedFecha:[],
     NAcademico:'',
-    Especificar:''
+    Especificar:'',
+    InscritoUnihuertoCasa:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -379,6 +380,7 @@
     AbrirModal: function(ModalClick){
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
+      this.checarInscripcionUnihuertoCasa();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -484,16 +486,23 @@
            }
            else if(this.modalClick=='UnihuertoCasa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'/RegistrarUnihuertoCasaUsuario',data).then(response => (
-
-              console.log(response.data),
-              this.spinnerVisible=false,
-              $('#UnihuertoCasa').modal('hide'),
-              this.Guardado=true
-               )).catch((err) => {
-                  this.Errores[0].Visible,
-                  this.Guardado=false
-            })
+              axios.post(this.url+'/RegistrarUnihuertoCasaUsuario',data).then(response => {
+                  console.log(response.status);
+                  if(response.status == 200){
+                    //console.log(response.data);
+                    this.spinnerVisible=false;
+                    $('#UnihuertoCasa').modal('hide');
+                    this.Guardado=true;
+                  }else{
+                    console.log("Mensaje: " + response.data.Message);
+                  }
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
            }
            else{
             data['TipoEvento'] = 'unirodada'
@@ -509,6 +518,16 @@
            }
 
         }
+      },
+      checarInscripcionUnihuertoCasa: function(){
+        console.log("ffff");
+        axios.post(this.url + '/ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            console.log(response.data);
+            this.InscritoUnihuertoCasa = response.data;
+          }).catch((err) => {
+            console.log(err);
+          })
       }
     }
 })

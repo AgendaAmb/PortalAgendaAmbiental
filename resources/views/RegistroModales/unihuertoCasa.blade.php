@@ -20,8 +20,7 @@
           </div>
         </div>
 
-
-        <div class="modal-body bg-white">
+        <div class="modal-body bg-white" v-if="!InscritoUnihuertoCasa">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -223,12 +222,10 @@
             </div>
 
           </form>
-        </div>
-        <div class="modal-body" v-else>
-          <img src="{{asset('/storage/imagenes/mmus2021/RegistroCerradoRodada.png')}}" class="img-fluid" alt="">
-
-        </div>
-
+        </div> 
+        <div class="modal-body bg-white" v-else>
+          <div>Ya te encuentras registrado</div>
+        </div> 
       </div>
     </div>
   </div>
