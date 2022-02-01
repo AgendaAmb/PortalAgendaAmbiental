@@ -520,10 +520,10 @@
         }
       },
       checarInscripcionUnihuertoCasa: function(){
-        console.log("ffff");
+        //console.log("ffff");
         axios.post(this.url + '/ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             this.InscritoUnihuertoCasa = response.data;
           }).catch((err) => {
             console.log(err);
