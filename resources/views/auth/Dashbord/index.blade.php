@@ -28,7 +28,7 @@
           </div>
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
-              <img src="{{ asset('/storage/imagenes/Unitrueque/registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           <div class="col px-0 d-none" >
