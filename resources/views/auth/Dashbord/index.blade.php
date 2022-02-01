@@ -513,17 +513,15 @@
              $('#Registro17gemas').modal('hide'),
              this.Guardado=true
                )).catch((err) => {
-                  this.Errores[0].Visible
+                  this.Errores[0].Visible;
             })
            }
 
         }
       },
       checarInscripcionUnihuertoCasa: function(){
-        //console.log("ffff");
         axios.post(this.url + '/ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            //console.log(response.data);
             this.InscritoUnihuertoCasa = response.data;
           }).catch((err) => {
             console.log(err);
