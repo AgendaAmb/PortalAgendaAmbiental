@@ -164,7 +164,7 @@
         <p style="!important;"><b>Laura Daniela Hernández Rodríguez</b><br><b>Sistema de Gestión
                 Ambiental</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava
             No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext.
-            7210<br><a href="mailto:proserem@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
+            7210<br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
     </div>
 </div>
 
@@ -185,7 +185,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Nov2021.png')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_Enero22.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -193,9 +193,9 @@
                         class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
 
                         <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CONSUMO-GENERAL.png')}}"
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="CONSUMO-GENERAL.png">CARTEL SEMESTRAL</a>
+                                download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
                         </div>
                    
 

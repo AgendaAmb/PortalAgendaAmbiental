@@ -90,7 +90,7 @@
           </div>
 
         </div>
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
@@ -145,18 +145,18 @@
             </div>
           </div>
 
-        </div>
+        </div>-->
 
        
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -164,12 +164,12 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Promotores1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Promotores2.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -181,11 +181,11 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/BannerECR_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Nov2021.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/BannerECR_2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -195,11 +195,11 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/introduccion/BannerECR_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Nov2021.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/BannerECR_2.png')}}" class="imgCaoursel "
                   alt="First slide">
 
               </a>
@@ -273,8 +273,8 @@
       data-ride="carousel">
 
       <div class="carousel-inner">
-<!--
-        <div class="carousel-item ">
+
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('mmus2021')}}>
               <img src="{{ asset('storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
