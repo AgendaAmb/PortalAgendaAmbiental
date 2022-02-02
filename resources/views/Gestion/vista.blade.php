@@ -49,13 +49,14 @@ Tabs de Gestión Institucional.
     Grupo de botones de los tabs.
     --}}
     <x-slot name="tabButtons" >
-        <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
-        nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+        
         <x-tab-panel-button id="v-pills-boton1" idTabPanelContent="#tab-panel-1" nombre="PROGRAMA UNIVERSITARIO DE AGUA"
             nombreRes="AGUA" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
             <x-tab-panel-button id="v-pills-boton2" idTabPanelContent="#tab-panel-2"
                 nombre="PROGRAMA UNIVERSITARIO DE ENERGÍA" nombreRes="ENERGÍA"
                 class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
+                <x-tab-panel-button id="v-pills-boton3" nombreRes="BIODIVERSIDAD" idTabPanelContent="#tab-panel-3"
+        nombre="PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD" class="nav-link d-lg-block d-xl-block d-md-block d-sm-block d-none" />
 
         <x-tab-panel-button id="v-pills-boton4" idTabPanelContent="#tab-panel-4"
             nombre="PROGRAMA UNIVERSITARIO DE RESIDUOS" nombreRes="RESIDUOS"
@@ -202,8 +203,8 @@ Tabs de Gestión Institucional.
                                 Zona Universitaria, C.P. 78210<br>
                                 San Luis Potosí, S.L.P.<br>
                                 Tel. 826-2300 Ext. 7215<br>
-                                <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a> <br>
-                                <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
+                                <a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a> <br>
+                                <a href="mailto:proserem@uaslp.mx">proserem@uaslp.mx</a>
                             </p>
 
                         </div>
@@ -383,8 +384,8 @@ Tabs de Gestión Institucional.
                                 Zona Universitaria, C.P. 78210<br>
                                 San Luis Potosí, S.L.P.<br>
                                 Tel. 826-2300 Ext. 7215<br>
-                                <a href="mailto:Gestion.ambiental@uaslp.mx">Gestion.ambiental@uaslp.mx</a> <br>
-                                <a href="mailto:Unibici@uaslp.mx">Unibici@uaslp.mx</a>
+                                <a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a> <br>
+                                <a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a>
                             </p>
 
                         </div>
@@ -444,6 +445,106 @@ Tabs de Gestión Institucional.
                     :imageURL="asset('img/Gestion/Logo_ManejoFauna.png')" urlhref="#" />
 
             </x-tab-panel-footer>
+
+        <h1 class="text-bold mt-5">Programa Universitario de Biodiversidad (PUB)</h1>
+            <p>Biodiversidad es la variedad de todos los tipos y formas de vida, desde los genes a las especies, a través de una amplia escala de ecosistemas (Gastón, 1996). México ocupa el cuarto lugar con la mayor diversidad biológica en el mundo, superado tan solo por Brasil, Colombia e Indonesia, representa el 1.4% de la superficie de la tierra y contiene entre el 10% y 12% de todas las especies de vertebrados conocidas en el planeta. 
+            En 2016, el Programa de las Naciones Unidas para el Medio Ambiente (PNUMA) alertó un aumento mundial de las epidemias zoonóticas y señaló que el 75 % de todas las enfermedades infecciosas nuevas en humanos son zoonóticas y que dichas enfermedades están estrechamente relacionadas con la salud de los ecosistemas.
+            Actualmente el panorama es crítico, la conservación de la biodiversidad representa un reto muy grande para el mundo. Para lograrlo se requiere de estudios, tecnología, capital humano capaz y un alto nivel de cooperación internacional; en las últimas décadas se han realizado esfuerzos por lograr este objetivo en donde se destaca la Cumbre de Río o Cumbre de la Tierra de 1992, el plan de acción de Agenda 21, la Agenda 2030 en donde se impacta sobre todo al objetivo 15: Vida de ecosistemas terrestres y pensando en prevenir, detener y revertir la degradación de los ecosistemas de todo el mundo, las Naciones Unidas han declarado la Década para la Restauración de los Ecosistemas (2021-2030).
+            </p>
+
+            <div class="row my-4">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-generalPUB"
+                            role="tab" aria-controls="v-pills-home" aria-selected="true">Objetivo general</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-especificosPUB"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">Objetivos específicos</a>
+                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-DescripcionPUB"
+                            role="tab" aria-controls="v-pills-messages" aria-selected="false">Descripción</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-BibliotecaPUB"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Biblioteca</a>
+                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-informacionPUB"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Más información</a>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-generalPUB" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            <p>Manejar integralmente en todo el quehacer de la UASLP la flora y fauna que se encuentra en los espacios y jardines de los campus universitarios de forma sostenible y respetuosa.</p>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-especificosPUB" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <ul>
+                                <li>Continuar con los programas, proyectos y gestiones multidisciplinarias e interdisciplinarias para el diagnóstico y creación del conocimiento al respecto de las especies albergadas en los campus de la UASLP con la comisión de expertos que considera la salud, la seguridad y el medio ambiente.
+                                </li>
+                                <li>Generar estrategias de comunicación, educación y participación de la comunidad en donde se den a conocer y se apliquen los procedimientos para un buen manejo de los jardines y los animales no humanos.
+                                </li>
+                                <li>Tomar en cuenta en el manejo a las especies de fauna amenazadas y en peligro de extinción, que son benéficas para el ambiente, la polinización, la calidad del aire, así como las que traen un desequilibrio al ecosistema en el que se encuentran o en las actividades humanas. </li>
+                                <li>Considerar las especies de flora en los jardines, jardineras, techos y patios que contengan un diseño paisajístico, con vegetación endémica y con cuidados agroecológicos de control de plagas y poda. </li>
+                                <li>Replicar, escalar e implementar en más lugares el programa Unihuerto así como la creación de nuevos programas que incidan y aseguren la seguridad alimentaria, la creación y permanencia de espacios verdes y el respeto animal.</li>
+                                <li>Realizar foros, conferencias y mesas de trabajo para la integración y participación de todos los actores, así como cursos de capacitación para el personal de jardinería y mantenimiento. </li>
+                            </ul>
+
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-DescripcionPUB" role="tabpanel"
+                            aria-labelledby="v-pills-messages-tab">
+                            <p>
+                                El presente programa se dirige a la comunidad universitaria de la
+                                UASLP, así como a todo aquel que esté interesado en el manejo sostenible de las especies de 
+                                de flora y fauna que se encuentran en nuestro entorno promoviendo interacciones benéficas y respetuosas. Con estrategias de huertos urbanos, reforestación, sistemas de producción sostenible, aprovechamiento de recursos biológicos, impulso y cuidado de polinizadores entre otras. Mantenemos la búsqueda del conocimiento a través de la experimentación con participación de la comunidad y el compromiso de sensibilizar a la población. El PUB cuenta con procedimientos, lineamientos, guías, capacitación, reportes de incidencia y de recomendación, colaboración con el Departamento de Mantenimiento y expertos en la Facultad de Agronomía, Facultad del Hábitat.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-BibliotecaPUB" role="tabpanel"
+                            aria-labelledby="v-pills-settings-tab">
+                            <ul>
+                               <li v-for="P in PUB">@{{P.Nombre}}
+                                <a data-toggle="modal" href="" data-target="#pdfPUB" @click="idPUB=P.id">&nbsp;PDF</a>
+                            </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-informacionPUB" role="tabpanel"
+                            aria-labelledby="v-pills-settings-tab">
+                            <p style="font-size:15px !important;text-align: justify;">
+                                Agenda Ambiental de la UASLP<br>
+                                Universidad Autónoma de San Luis Potosí<br>
+                                Manuel Nava No. 201, segundo piso<br>
+                                Zona Universitaria, C.P. 78210<br>
+                                San Luis Potosí, S.L.P.<br>
+                                Tel. 826-2300 Ext. 7215<br>
+                                <a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a> <br>
+                                <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="pdfPUB" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                <div class="modal-dialog modal-xl">
+
+                    <div class="modal-content">
+                        <div class="col-12  p-0">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <iframe style="width: 100%;height: 750px;" v-if="idPUB!=''"
+                                :src=PUB[idPUB-1].Url></iframe>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
         </x-tab-panel-content>
 
         {{--
@@ -515,12 +616,24 @@ los botones del nav-tab
     data: {
     PUE:[],
     PUR:[],
+    PUB:[],
     idPUR:'',
-    idPUE:''
+    idPUE:'',
+    idPUB:''
   },
   mounted: function () {
   this.$nextTick(function () {
-      this.PUE.push({
+        this.PUB.push({
+        "id":1,
+        "Nombre":'Guía para jardines universitarios.',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUB/Guia_Jardines_UASLP.pdf&embedded=true',
+    });
+    this.PUB.push({
+        "id":2,
+        "Nombre":'El Huerto Sustentable.',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUB/ElHuertoSustentable.pdf&embedded=true',
+    });        
+    this.PUE.push({
           "id":1,
         "Nombre":'Lineamientos LED Depto. Mantenimiento.',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUE/Lineamientos_LED_Mant_Electrico.pdf&embedded=true',
