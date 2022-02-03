@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-primary" id="modalGemas">
-          <h5 class="modal-title mx-auto text-white">UNIHUERTO EN CASA FEBRERO - MAYO 2020</h5>
+          <h5 class="modal-title mx-auto text-white">UNIHUERTO EN CASA FEBRERO - MAYO 2022</h5>
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
