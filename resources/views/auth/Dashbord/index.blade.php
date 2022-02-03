@@ -190,7 +190,8 @@
     checkedFecha:[],
     NAcademico:'',
     Especificar:'',
-    InscritoUnihuertoCasa:false
+    InscritoUnihuertoCasa:false,
+    InscritoUnitrueque:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -218,7 +219,7 @@
              formData.append('Eje',this.Eje);
              formData.append('FechaInicio',this.FechaInicio);
              formData.append('FechaFin',this.FechaFin);
-           
+
              formData.append('_method', 'post');
              axios({
                  method: 'post',
@@ -380,7 +381,9 @@
     AbrirModal: function(ModalClick){
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
+      //Nuevos Cursos
       this.checarInscripcionUnihuertoCasa();
+      this.checarInscripcionUnitrueque();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -406,7 +409,7 @@
         this.Guardado=false,
         this.url='{{env('APP_URL')}}',
         this.Ocupacion='{{Auth::user()->ocupation}}'
-       
+
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
           this.isRegisterRodada=true,
        this.check_one(),
@@ -504,6 +507,26 @@
                   this.Guardado=false;
               })
            }
+           else if(this.modalClick=='Unitrueque'){
+               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+               axios.post(this.url+'/RegistrartruequeUsuario',data).then(response => {
+                   console.log(response.status);
+                   if(response.status == 200){
+                       //console.log(response.data);
+                       this.spinnerVisible=false;
+                       $('#UnihuertoCasa').modal('hide');
+                       this.Guardado=true;
+                   }else{
+                       console.log("Mensaje: " + response.data.Message);
+                   }
+               }).catch((err) => {
+                   console.log(err);
+                   if(err.response.data.Message)
+                       console.log("Mensaje: " + err.response.data.Message);
+                   this.Errores[0].Visible;
+                   this.Guardado=false;
+               })
+           }
            else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
@@ -526,6 +549,14 @@
           }).catch((err) => {
             console.log(err);
           })
+      },
+      checarInscripcionUnitrueque: function(){
+          axios.post(this.url + '/ChecarUnitruequeUsuario',{ "Clave":this.ClaveU_RPE })
+              .then(response => {
+                  this.InscritoUnitrueque = response.data;
+              }).catch((err) => {
+              console.log(err);
+          })
       }
     }
 })
@@ -543,8 +574,8 @@
           var calendarEl = document.getElementById('calendar');
 
           var calendar = new FullCalendar.Calendar(calendarEl, {
-           
-          
+
+
            events:[
              @foreach($workshops as $workshop)
               {
@@ -559,10 +590,10 @@
             dateClick:function(info){
               if (roles) {
                 $('#FechaInicio').val(info.dateStr);
-                
+
 
                  $('#RegistraWorshop').modal('show')
-                
+
               }
 
           },
@@ -573,7 +604,7 @@
             initialView: 'dayGridMonth'
 
           });
-         
+
           calendar.setOption('contentHeight', "auto");
           calendar.setOption('locale','Es');
           calendar.render();

@@ -121,6 +121,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarUnihuertoCasaUsuario','WorkshopController@RegistrarUnihuertoCasaUsuario')->name('RegistrarUnihuertoCasaUsuario');
     Route::post('/ChecarUnihuertoCasaUsuario','WorkshopController@ChecarUnihuertoCasaUsuario')->name('ChecarUnihuertoCasaUsuario');
 
+    # Registro a unitrueque.
+    Route::post('/RegistrarUnitruequeUsuario','WorkshopController@RegisttruequeUsuario')->name('RegistrarUnitruequeUsuario');
+    Route::post('/ChecarUnitruequeUsuario','WorkshopController@ChetruequeUsuario')->name('ChecarUnitruequeUsuario');
+
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento

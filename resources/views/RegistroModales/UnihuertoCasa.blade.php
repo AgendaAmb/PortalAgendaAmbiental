@@ -24,28 +24,8 @@
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
-
-            <!--<label for="Nombres">Fecha en la que deseas participar</label>
-            <div class="form-check">
-             
-              <input class="form-check-input" type="checkbox" value="Octubre" id="Octubre" v-model="checkedFecha"
-                @click="check_two()">
-              <label class="form-check-label" for="con100te">
-                Sábado 30 de Octubre
-              </label>
-
-            </div>
-          
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Noviembre" id="Noviembre" v-model="checkedFecha"
-                @click="check_two()">
-              <label class="form-check-label" for="Noviembre">
-                Sábado 27 de Noviembre
-              </label>
-
-            </div>-->
             <br>
-            
+
             <h5 class="modal-title3" id="exampleModalLabel">Datos académicos</h5>
             <div class="form-row">
               <div class="form-group col-md-6 was-validated ">
@@ -222,10 +202,10 @@
             </div>
 
           </form>
-        </div> 
+        </div>
         <div class="modal-body bg-white" v-else>
           <div>Ya te encuentras registrado</div>
-        </div> 
+        </div>
       </div>
     </div>
   </div>
