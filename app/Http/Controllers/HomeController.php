@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workshop;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -72,9 +73,7 @@ class HomeController extends Controller
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
-        $users = $user->hasRole('coordinator')
-
-        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
+        $users = $user->hasRole('coordinator') ? $this->getUsersCurrentWorkshop() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
 
 
@@ -103,6 +102,38 @@ class HomeController extends Controller
 
     
     private function getAgriculturaUsers()
+    {
+        # Combina todos los tipos de usuario.
+        return User::select(
+            User::COLUMNS
+        )->whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', []);
+        })->whereHas('workshops', function($query){
+            $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+    }
+
+    private function getUsersCurrentWorkshop()
+    {
+        # Combina todos los tipos de usuario.
+        return User::select(
+            User::COLUMNS
+        )->whereDoesntHave('roles', function($query){
+            $query->whereIn('roles.name', []);
+        })->whereHas('workshops', function($query){
+            $query->where('end_date','>',Carbon::now());
+        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+/*
+        return DB::table('user_workshop')
+            ->where('workshop_id',10)
+            ->whereDate('DeadLine', '>', Carbon::now())->count();
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->get();
+*/
+    }
+
+    private function get()
     {
         # Combina todos los tipos de usuario.
         return User::select(
