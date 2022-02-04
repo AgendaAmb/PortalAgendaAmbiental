@@ -1,5 +1,5 @@
 @component('mail::message', [ 'header_color' => $header_color, 'font_color' => $footer_color])
-# Estimado(a) usuario(a):<br><br>
+Estimado(a) usuario(a):<br><br>
 
 Gracias por preinscribirse al Curso-Taller: Unihuerto en casa. <br><br>
 
