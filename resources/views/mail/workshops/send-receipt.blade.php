@@ -4,7 +4,7 @@
 Gracias por preinscribirse al Curso-Taller: Unihuerto en casa. <br><br>
 
 Anexo le estamos enviando su ficha de pago y le recordamos que tiene cuatro días
-hábiles para realizar su pago y enviar su comprabante <br><br>
+hábiles para realizar su pago y enviar su comprobante. <br><br>
 
 NOTA: Queda oficialmente inscrito (a) una vez hecho el pago. <br><br>
 
