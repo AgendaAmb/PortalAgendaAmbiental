@@ -524,7 +524,7 @@
                    if(response.status == 200){
                        console.log(response.data);
                        this.spinnerVisible=false;
-                       $('#UnihuertoCasa').modal('hide');
+                       $('#Unitrueque').modal('hide');
                        this.Guardado=true;
                    }else{
                        console.log("Mensaje: " + response.data.Message);

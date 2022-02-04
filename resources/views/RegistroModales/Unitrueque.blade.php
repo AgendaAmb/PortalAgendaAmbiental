@@ -48,6 +48,7 @@
                       </div>
                   </div>
 
+                  <hr>
                   {{-- datos personales --}}
                   <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
             <div class="form-group  was-validated">
@@ -106,15 +107,15 @@
                   {{-- Informacion para el unitrueque --}}
                   <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información unitrueque</h5>
                   <div v-if="modalClick!='Rodada'">
-                      <div class="form-group row">
-                        <label for="Materialesintercambio" class="col-sm-7 col-form-label">Material(es), artículo(s), sustancia(s) o servicio(s) a intercambiar</label>
+                      <div class="form-group">
+                        <label for="Materialesintercambio" class="row col-sm-7 col-form-label">Material(es), artículo(s), sustancia(s) o servicio(s) a intercambiar</label>
                         <div>
-                            <input id="Materialesintercambio" type="text" class="form-control w-100" v-model="MaterialesIntercambio" required name="MaterialesIntercambio">
+                            <input id="Materialesintercambio" type="text" class="form-control" v-model="MaterialesIntercambio" required name="MaterialesIntercambio">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Cantidadaproximada" class="col-sm-7 col-form-label">Cantidad aproximada (indicar unidad)</label>
-                        <div class="row">
+                        <div class="col-5">
                             <input id="Cantidadaproximada" type="text" class="form-control" v-model="Cantidad" required name="Cantidad">
                         </div>
                       </div>
@@ -135,7 +136,7 @@
                         </div>
                       </div>
                   </div>
-
+                  <hr>
                   <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
                   <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
                       <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres
