@@ -190,6 +190,11 @@
     checkedFecha:[],
     NAcademico:'',
     Especificar:'',
+    //variables para unitrueque
+    MaterialesIntercambio:'',
+    Cantidad:'', 
+    Mobiliario:'',//si o no
+    EmpresaParticipante:'',
     InscritoUnihuertoCasa:false,
     InscritoUnitrueque:false
   },
@@ -449,7 +454,12 @@
                 'emailF':this.emailF,
                 'nombresF':this.nombresF,
                 'RFC':this.RFC,
-                'telF':this.telF
+                'telF':this.telF,
+                //campos para unitrueque
+                'MaterialesIntercambio':this.MaterialesIntercambio,
+                'Cantidad':this.Cantidad, 
+                'Mobiliario':this.Mobiliario,
+                'EmpresaParticipante':this.EmpresaParticipante, 
 
             }
             if (this.modalClick=='Agricultura') {
@@ -509,10 +519,10 @@
            }
            else if(this.modalClick=='Unitrueque'){
                //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-               axios.post(this.url+'/RegistrartruequeUsuario',data).then(response => {
+               axios.post(this.url+'/RegistrarUnitruequeUsuario',data).then(response => {
                    console.log(response.status);
                    if(response.status == 200){
-                       //console.log(response.data);
+                       console.log(response.data);
                        this.spinnerVisible=false;
                        $('#UnihuertoCasa').modal('hide');
                        this.Guardado=true;
