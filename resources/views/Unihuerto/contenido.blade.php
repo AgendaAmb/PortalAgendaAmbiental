@@ -342,7 +342,7 @@
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Unitrueque.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_UnirodadaN.jpg">CARTEL</a>
+                                download="Cartel_Unitrueque.jpg">CARTEL</a>
 
                         </div>
 
