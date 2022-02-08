@@ -94,7 +94,7 @@
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque])}}>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
                 <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>

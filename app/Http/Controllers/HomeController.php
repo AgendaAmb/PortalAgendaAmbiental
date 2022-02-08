@@ -115,13 +115,15 @@ class HomeController extends Controller
 
     private function getUsersCurrentWorkshop()
     {
+       // $now = Carbon::now();
+        //$date = Carbon::parse($now)->toDateString();
         # Combina todos los tipos de usuario.
         return User::select(
             User::COLUMNS
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', []);
         })->whereHas('workshops', function($query){
-            $query->where('end_date','>',Carbon::now());
+            $query->where('end_date','>','2022-02-08 00:00:00');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
 /*
         return DB::table('user_workshop')

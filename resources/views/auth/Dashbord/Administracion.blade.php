@@ -56,7 +56,7 @@
 
                         @endif
                         @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-                        <th>Fecha de registro</th>
+                        <th>Fecha de registro al portal</th>
                         @endif
                         @if (Auth::user()->hasRole('coordinator'))
                         <th>Comprobante de pago</th>
@@ -143,7 +143,7 @@
                         @endif
                         @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
 
-                        <td>registro al portal: {{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
+                        <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
                             h:mm:ss a')}}</td>
 
                         @endif
