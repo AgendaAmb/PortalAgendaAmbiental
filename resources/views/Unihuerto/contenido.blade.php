@@ -35,6 +35,11 @@
                         alt="...">
                 </div>
                 <div class="carousel-item">
+                        <img src="{{asset('storage/imagenes/Unitrueque/BINT_Unitrueque.png')}}" alt=""
+                            class="d-block w-100" alt="...">
+                    </a>
+                </div>
+                <div class="carousel-item">
                         <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}" alt=""
                             class="d-block w-100" alt="...">
                     </a>
@@ -362,7 +367,7 @@
                                 <p>Lugar: Unihuerto en Jardín T, Facultad de Ingeniería<br>Evento presencial con medidas sanitarias.<br>
                                     <div class="col-12">
                                            <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unitecho.png')}}" alt="" class="w-100 h-auto" >
-                                    </div>
+                                    </div><br>
                                     Fechas (sábados):
                                     <ul>
                                         <li>12 de febrero del 2022</li>
@@ -377,7 +382,7 @@
                                 <ol>
                                     <li>Llenar correctamente el registro.</li>
                                     <li>Llevar y recoger sus elementos o mobiliario propios (revisar que está autorizado).</li>
-                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos (<a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a>).</li>
+                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos ( <a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a> ).</li>
                                     <li>Intercambiar de manera no monetaria bajo acuerdo entre las partes interesadas productos, materiales y servicios.</li>
                                 </ol>
                                 </p><br>

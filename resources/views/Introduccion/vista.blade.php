@@ -90,16 +90,16 @@
           </div>
 
         </div>
-        <!--<div class="carousel-item ">
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{asset('/storage/imagenes/Unihuerto/Unihuerto-03.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -108,12 +108,12 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{ asset('/storage/imagenes/Unihuerto/TallerAgricultura_1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
+                <img src="{{ asset('/storage/imagenes/Unitrueque/B_UniTrueque1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerAgricultura'])}}>
-                <img src="{{asset('/storage/imagenes/Unihuerto/Unihuerto-03.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -121,7 +121,7 @@
 
         </div>
       
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a  href={{route('Gemas')}}>
@@ -151,11 +151,11 @@
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
                 <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
                 <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
@@ -164,11 +164,11 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
                 <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'CartelUnihuerto'])}}>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
                 <img src="{{ asset('/storage/imagenes/Unihuerto/B_Unihuerto2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
