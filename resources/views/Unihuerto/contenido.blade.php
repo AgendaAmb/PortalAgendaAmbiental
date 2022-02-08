@@ -337,7 +337,7 @@
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Unitrueque.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_UnirodadaN.jpg">CARTEL GENERAL </a>
+                                download="Cartel_UnirodadaN.jpg">CARTEL</a>
 
                         </div>
 
@@ -345,7 +345,7 @@
                     <div class="row justify-content-center">
                         <div class="col-10"
                             style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'"><br>
-                            <h4>Unitrueque UASLP</h4><br><br>
+                            <h4 align="center">Unitrueque UASLP</h4><br><br>
                             <h4>Introducción</h4>
                             <p>Los mercados de intercambio o trueque datan antes que el dinero, históricamente han representado la base de la economía individual, familiar y de sistemas por muchas generaciones.<br><br>El modelo económico generalizado y principal que llevamos a cabo actualmente se basa en  el dinero y deja muchos recursos subutilizados ya que se centra en un solo objeto, según Jacque Fresco “el dinero es solo una abreviatura del trabajo y los productos” por lo que es importante poder aprovechar de manera más eficiente todos los recursos disponibles, para ello Fresco propone la implementación de una economía basada en recursos, este tipo de modelo económico encuentra similitudes en pensamientos como la permacultura que considera dentro de su dinámica la creación de bancos de tiempo y tiendas de intercambio.<br><br>El modelo conocido como “Economía circular” propone un sistema económico que está estructurado con objetivos de reducción de consumo de recursos formando un ciclo de bucle cerrado enfocado en reciclaje y reuso de recursos tendiendo a minimización de flujos y emisiones (Prieto-Sandoval et al., 2018) es un modelo apropiado para el desarrollo sostenible  en donde se aprovecha con la mayor eficiencia de los recursos pensando en el uso de “residuos” y otros materiales como recursos o “fuentes de riqueza”.<br><br>El trueque contribuye a los Objetivos del Desarrollo Sostenible 1: Fin de la pobreza, 2. Hambre cero, 8: Trabajo decente y crecimiento económico y 12: Producción y consumo responsable; a través de mitigar la contaminación producida por la obsolescencia programada al dar una nueva vida a productos que se consideraría residuos, restaurar el tejido social, ofrecer opciones que garanticen alimentación, calidad de vida y cubrir necesidades.<br><br>En el mundo se están creando cada vez más nuevas formas de economía alternativa, como antecedente la UASLP maneja los “Vales de despensa”. La economía alternativa ayuda a diversificar, dar opciones y crear autonomía.</p><br>
                             <h4>Dirigido a:</h4>
@@ -357,34 +357,43 @@
                                 <li>Generar un espacio regular para el intercambio de recursos.</li>
                                 <li>Extender el alcance de programas como: “cambalache de libros”.</li>
                                 <li>Ofrecer un espacio de convivencia que ayude a establecer lazos entre la comunidad.</li>
-                            </ul><br><br>
+                            </ul><br>
                             <h4>Lugar, fecha y horario</h4>
-                                <p><b>Lugar:</b>Unihuerto en Jardín T, Facultad de Ingeniería<br>Evento presencial con medidas sanitarias.<br><br>
-                                    <img src=""><br><br>
-                                    Fechas (sábados):<br>
+                                <p>Lugar: Unihuerto en Jardín T, Facultad de Ingeniería<br>Evento presencial con medidas sanitarias.<br>
+                                    <div class="col-12">
+                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unitecho.png')}}" alt="" class="w-100 h-auto" >
+                                    </div>
+                                    Fechas (sábados):
                                     <ul>
                                         <li>12 de febrero del 2022</li>
                                         <li>12 de marzo del 2022</li>
                                         <li>14 de mayo del 2022</li>
                                         <li>11 de junio del 2022</li>
                                     </ul><br>
-                                    <b>Horario:</b> 9:00 a 14:00 horas
+                                    Horario: 9:00 a 14:00 horas
                             </p><br>
                                 <h4>Requisitos</h4>
                                 <p>
                                 <ol>
                                     <li>Llenar correctamente el registro.</li>
                                     <li>Llevar y recoger sus elementos o mobiliario propios (revisar que está autorizado).</li>
-                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos (descargables en esta página).</li>
+                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos (<a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a>).</li>
                                     <li>Intercambiar de manera no monetaria bajo acuerdo entre las partes interesadas productos, materiales y servicios.</li>
                                 </ol>
                                 </p><br>
-                                <h4>Registro</h4><br><br>
-                                <p>Pasos para registro de participantes:<br>
+                                <h4>Registro</h4>
+                                <p>Pasos para registro de participantes:
                                     <ul>
                                         <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
                                         <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda INSCRITO.</li>
                                     </ul></p><br>
+                                <h4>Bibliografía</h4>  
+                                <p>
+                                    <ul>
+                                        <li>Fresco, J. (2002). Lo mejor que el dinero no puede comparar, más allá de la política, la pobreza y la guerra. Estados Unidos de América. Venus Fla.</li>
+                                        <li>Prieto-Sandoval, V. Jaca C., Ormazabal, M. (2018). Towards a consensus on the circular economy. Journal of Cleaner Production.</li>
+                                    </ul>
+                                </p><br>  
                                 <h4>Más información</h4>
                                 <p>Unihuerto de la UASLP<br>Sistema de Gestión Ambiental<br>Agenda Ambiental de la
                                     UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
