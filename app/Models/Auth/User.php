@@ -596,7 +596,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'user_id',
             'workshop_id'
         )
-        ->whereDate('end_date','>=','2022-02-08') //anadi esta linea para ver solo los usuarios con cursos vigentes
+        ->whereDate('end_date','>=',Carbon::now()) //anadi esta linea para ver solo los usuarios con cursos vigentes
         ->withPivot(
             'id',
             'user_type',
