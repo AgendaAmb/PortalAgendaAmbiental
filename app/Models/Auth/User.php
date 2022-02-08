@@ -9,6 +9,7 @@ use App\Models\Workshop;
 use App\Notifications\VerifyEmail;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -162,6 +163,12 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object
      */
+
+     /*
+    public function workshops(){
+        return $this->hasMany('App\Models\Workshop');
+    } */
+
     public static function authUser()
     {
         return Auth::guard('students')->user() ?? Auth::guard('workers')->user() ?? Auth::user();
@@ -563,13 +570,34 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object
      */
+    /*
     public function workshops(): BelongsToMany
     {
         return $this->belongsToMany(Workshop::class,
             'user_workshop',
             'user_id',
             'workshop_id'
-        )->withPivot(
+        )
+        ->withPivot(
+            'id',
+            'user_type',
+            'sent',
+            'sent_at',
+            'paid',
+            'paid_at'
+        );
+    }
+    */
+
+    public function workshops(): BelongsToMany
+    {
+        return $this->belongsToMany(Workshop::class,
+            'user_workshop',
+            'user_id',
+            'workshop_id'
+        )
+        ->whereDate('end_date','>=','2022-02-08') //anadi esta linea para ver solo los usuarios con cursos vigentes
+        ->withPivot(
             'id',
             'user_type',
             'sent',

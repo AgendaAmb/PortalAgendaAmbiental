@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workshop;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 class HomeController extends Controller
 {
@@ -69,7 +70,7 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
         $users = $user->hasRole('helper')
 
-        ?  $this->getAgriculturaUsers() # Usuarios exclusivos de la Agricultura 30 octubre
+        ?  $this->getUsersCurrentWorkshop() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
@@ -122,9 +123,8 @@ class HomeController extends Controller
             User::COLUMNS
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', []);
-        })->whereHas('workshops', function($query){
-            $query->where('end_date','>','2022-02-08 00:00:00');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+        //NOTA: en esta funcion va una query anidada que filtraba la consulta con un where sobre la relacion de user-workshops
 /*
         return DB::table('user_workshop')
             ->where('workshop_id',10)

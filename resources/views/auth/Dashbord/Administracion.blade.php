@@ -6,6 +6,8 @@
 @endsection
 @section('ContenidoPrincipal')
 <div class="container-fluid my-3" id="apps">
+    
+    
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -122,7 +124,7 @@
 
                         <td>
                             @foreach ($user->workshops as $key => $workshops)
-                                <li>{{$workshops->description}}</li>
+                                <li>{{$workshops->description}}</li> {{-- CURSOS VIGENTES --}}
                             @endforeach
                         </td>
                         @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
