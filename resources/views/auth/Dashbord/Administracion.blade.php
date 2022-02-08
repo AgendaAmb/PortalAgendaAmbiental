@@ -122,7 +122,7 @@
 
                         <td>
                             @foreach ($user->workshops as $key => $workshops)
-                            <li>{{$workshops->description}}</li>
+                                <li>{{$workshops->description}}</li>
                             @endforeach
                         </td>
                         @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
@@ -143,7 +143,7 @@
                         @endif
                         @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
 
-                        <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
+                        <td>registro al portal: {{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
                             h:mm:ss a')}}</td>
 
                         @endif
@@ -160,13 +160,14 @@
 
                         @endif
                         @if (Auth::user()->hasRole('helper'))
-                        @if ($user->sent)
-                        <td class="text-center" style="color: green; font-size:25px; "><i
-                                class="fas fa-check-circle"></i></td>
-                        @else
-                        <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i>
-                        </td>
-                        @endif
+                            @if ($user->sent)
+                                <td class="text-center" style="color: green; font-size:25px; "><i
+                                        class="fas fa-check-circle"></i></td>
+                                    {{-- icono palomita --}}
+                            @else
+                                <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i>
+                                </td>{{-- icono tachita --}}
+                            @endif
 
                         @if ($user->paid!=null||$user->paid)
                         <td class="text-center">
@@ -230,7 +231,7 @@
                     <th>Grupo ciclista</th>
                     @endif
                     @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
-                    <th>Fecha de registro</th>
+                        <th>Fecha de registro: </th> {{-- fecha para el registro(CHECAR --}}
                     @endif
                     @if (Auth::user()->hasRole('coordinator'))
                     <th>Comporbante de pago</th>

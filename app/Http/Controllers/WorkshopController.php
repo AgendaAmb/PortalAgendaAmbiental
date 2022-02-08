@@ -318,6 +318,7 @@ class WorkshopController extends Controller
     }
 
     public function RegistrarUnitruequeUsuario(Request $request){
+        //return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
         try{
             //throw new \Exception("mi excepcion");//para prueba
 
@@ -350,6 +351,20 @@ class WorkshopController extends Controller
                     'paid' => null,
                     'paid_at' => null
                 ]);
+            //3. creaamos registro para la uniformacion en tabla unitrueque_user
+            $ws = DB::table('user_workshop')
+            ->where('workshop_id',10)
+            ->where('user_id',$user->id)
+            ->get();
+
+            DB::table('unitrueque_users')
+                ->updateOrInsert([
+                    'user_workshop_id' => $ws[0]->id, // 10 = unitrueque
+                    'MaterialesIntercambio' => $request->MaterialesIntercambio,
+                    'Mobiliario' => $request->Mobiliario,
+                    'Cantidad' => $request->Cantidad,
+                    'EmpresaParticipante' => $request->EmpresaParticipante,
+                ]);
             Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
         }catch(\Exception $e){
             return response()->json([ 'Message' => $e->getMessage() ],500);
@@ -360,18 +375,18 @@ class WorkshopController extends Controller
     }
     //*/
     public function ChecarUnitruequeUsuario(Request $request){//Esta inscrito?
-        //return response()->json($request, JsonResponse::HTTP_OK);
-        $insc = DB::table('user_workshop')
+            $insc = DB::table('user_workshop')
             ->where('workshop_id',10)
             ->where('user_id',$request->Clave)
             ->get();
 
-        //return response()->json($insc, JsonResponse::HTTP_OK);
-
-        if( $insc->count() > 0 ){
-            return response()->json(true, JsonResponse::HTTP_OK);
-        }else{
-            return response()->json(false, JsonResponse::HTTP_OK);
-        }
+            //return response()->json($insc, JsonResponse::HTTP_OK);
+            
+            if( $insc->count() > 0 ){
+                return response()->json(true, JsonResponse::HTTP_OK);
+            }else{
+                return response()->json(false, JsonResponse::HTTP_OK);
+            }
+        
     }
 }

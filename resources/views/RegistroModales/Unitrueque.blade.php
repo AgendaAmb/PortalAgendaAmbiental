@@ -47,61 +47,95 @@
                                  name="Especificar">
                       </div>
                   </div>
+
+                  <hr>
+                  {{-- datos personales --}}
                   <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
-                  <div class="form-group  was-validated">
+            <div class="form-group  was-validated">
 
-                      <label for="Nombres">Nombre(s)</label>
-                      <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" readonly
-                             style="text-transform: capitalize;">
+              <label for="Nombres">Nombre(s)</label>
+              <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" readonly
+                style="text-transform: capitalize;">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 was-validated">
+                <label for="ApellidoP">Apellido paterno</label>
+                <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required readonly
+                  name="ApellidoP" style="text-transform: capitalize;">
+              </div>
+              <div class="form-group col-md-6  was-validated">
+                <label for="ApellidoM">Apellido materno</label>
+                <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
+                  name="ApellidoM" style="text-transform: capitalize;">
+              </div>
+            </div>
+
+
+            <div class="form-group row was-validated">
+              <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
+              <div class="col-9">
+                <input type="emailR" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
+              </div>
+            </div>
+            <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
+              <div class="form-group col-md-6">
+                <label for="ClaveU_RPE">clave única/RPE</label>
+                <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
+                  required>
+              </div>
+              <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
+                <label for="Facultad">Facultad de adscripción</label>
+                <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
+                  v-model="Facultad">
+              </div>
+            </div>
+
+            <div class="form-row row was-validated">
+              <div class="col-md-6 mb-3">
+                <label for="tel">Teléfono</label>
+                <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
+                  @if(Auth::user()->user_type!="externs")
+
+                @else
+                readonly
+                @endif
+                >
+              </div>
+            </div>
+
+                  <hr>
+                  {{-- Informacion para el unitrueque --}}
+                  <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información unitrueque</h5>
+                  <div v-if="modalClick!='Rodada'">
+                      <div class="form-group">
+                        <label for="Materialesintercambio" class="row col-sm-7 col-form-label">Material(es), artículo(s), sustancia(s) o servicio(s) a intercambiar</label>
+                        <div>
+                            <input id="Materialesintercambio" type="text" class="form-control" v-model="MaterialesIntercambio" required name="MaterialesIntercambio">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Cantidadaproximada" class="col-sm-7 col-form-label">Cantidad aproximada (indicar unidad)</label>
+                        <div class="col-5">
+                            <input id="Cantidadaproximada" type="text" class="form-control" v-model="Cantidad" required name="Cantidad">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="llevamobiliario" class="col-sm-7 col-form-label">¿Lleva mobiliario?</label>
+                        <div class="col-5">
+                            <select id="llevamobiliario" class="form-control" v-model="Mobiliario" required name="Mobiliario">
+                                <option disabled value="">Opción</option>
+                                <option value="Si" id="Si">Si</option>
+                                <option value="No" id="No">No</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="EmpresaParticipante" class="col-sm-7 col-form-label">Nombre de empresa, tienda, colectivo o asociación que participa en el trueque (en caso de tener)</label>
+                        <div class="col-5">
+                            <input id="EmpresaParticipante" type="text" class="form-control" v-model="EmpresaParticipante">
+                        </div>
+                      </div>
                   </div>
-                  <div class="form-row">
-                      <div class="form-group col-md-6 was-validated">
-                          <label for="ApellidoP">Apellido paterno</label>
-                          <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required readonly
-                                 name="ApellidoP" style="text-transform: capitalize;">
-                      </div>
-                      <div class="form-group col-md-6  was-validated">
-                          <label for="ApellidoM">Apellido materno</label>
-                          <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
-                                 name="ApellidoM" style="text-transform: capitalize;">
-                      </div>
-                  </div>
-
-
-                  <div class="form-group row was-validated">
-                      <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
-                      <div class="col-9">
-                          <input type="emailR" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
-                      </div>
-                  </div>
-                  <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
-                      <div class="form-group col-md-6">
-                          <label for="ClaveU_RPE">clave única/RPE</label>
-                          <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
-                                 required>
-                      </div>
-                      <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
-                          <label for="Facultad">Facultad de adscripción</label>
-                          <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
-                                 v-model="Facultad">
-                      </div>
-                  </div>
-
-                  <div class="form-row row was-validated">
-                      <div class="col-md-6 mb-3">
-                          <label for="tel">Teléfono</label>
-                          <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
-                                 @if(Auth::user()->user_type!="externs")
-
-                                 @else
-                                 readonly
-                              @endif
-                          >
-                      </div>
-
-
-                  </div>
-
                   <hr>
                   <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
                   <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
@@ -116,6 +150,7 @@
                           </select>
                       </div>
                   </div>
+
                   <div class="form-group row was-validated" v-if="modalClick!='Rodada'?isAsistencia==='Si'?true:false:false">
                       <div class="col-md-12">
                           <label for="CursosC">¿Cuales?</label>
