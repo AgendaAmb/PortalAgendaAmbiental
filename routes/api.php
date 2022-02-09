@@ -53,3 +53,5 @@ Route::middleware('client')->group(function(){
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
 });
+
+Route::post('RegisterExternalUser','UserController@RegisterExternalUser')->name('RegisterExternalUser');

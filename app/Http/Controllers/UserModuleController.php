@@ -111,4 +111,9 @@ class UserModuleController extends Controller
 
         return response('User already registered', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
+
+    //Nuevas funciones
+    public function RegisterExternalUser(){
+        
+    }
 }

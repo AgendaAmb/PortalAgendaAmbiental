@@ -92,7 +92,7 @@
                         <td>
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                                 @click="cargarUser({{$user}})">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-edit"></i><small>pago unihuerto-casa</small>
                             </a>
                         </td>
                         @endif
@@ -362,7 +362,7 @@
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
                     @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unihuerto
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unihuerto en casa 2022
                     </h5>
 
                     @else

@@ -108,8 +108,9 @@ class UnirodadaController extends Controller
         $user = User::where('id', $user->id)->where('type', $user->type)->first();
 
         # Envía el comprobante de pago,en caso de que el evento
-        # registrado haya sido una unirodada.
-        $event = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
+        # registrado haya sido una unihuerto casa 2022.
+        
+        $event = Workshop::find(9); //workshop 9 = unihuerto casa
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($event->id, [
