@@ -193,4 +193,14 @@ class UserController extends Controller
         Mail::to($user)->send(new RegisteredTo17Gemas);
         return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
     }
+
+    //StoreUserRequest es simplemente una clase que extiende de la clase request
+    public function RegisterExternalUser(StoreUserRequest $request)
+    {
+        return new JsonResponse("hola", JsonResponse::HTTP_CREATED);
+        # Genera al usuario
+        $user = $this->newUser($request->validated());//funcion que crea el usuario ya validado
+
+        return new JsonResponse($user, JsonResponse::HTTP_CREATED);
+    }
 }
