@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/getAllModules', 'ModuleController@getAllModules')->name('getAllModules');
 Route::get('/getAllWorkshops', 'WorkshopController@getAllWorkshops')->name('getAllWorkshops');
 Route::post('/registerWorkShop', 'WorkshopController@registerWorkShop')->name('registerWorkShop');
+
+Route::post('/RegisterExternalUser','UserController@RegisterExternalUser')->name('RegisterExternalUser');
+
 # Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
    
@@ -53,5 +56,3 @@ Route::middleware('client')->group(function(){
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
 });
-
-Route::post('RegisterExternalUser','UserController@RegisterExternalUser')->name('RegisterExternalUser');
