@@ -366,7 +366,7 @@
                             <h4>Lugar, fecha y horario</h4>
                                 <p>Lugar: Unihuerto en Jardín T, Facultad de Ingeniería<br>Evento presencial con medidas sanitarias.<br>
                                     <div class="col-12">
-                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unitecho.png')}}" alt="" class="w-100 h-auto" >
+                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unihuerto.png')}}" alt="" class="w-100 h-auto" >
                                     </div><br>
                                     Fechas (sábados):
                                     <ul>
