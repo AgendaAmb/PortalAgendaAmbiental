@@ -43,7 +43,14 @@ propios.';
 {{--
 Tabs de Gestión Institucional.
 --}}
-
+<x-carousel>
+    <x-slot name="navtabs">
+        <x-carousel.tab> PROGRAMA UNIVERSITARIO DE AGUA </x-carousel.tab>
+        <x-carousel.tab> PROGRAMA UNIVERSITARIO DE ENERGÍA </x-carousel.tab>
+        <x-carousel.tab> PROGRAMA UNIVERSITARIO DE BIODIVERSIDAD </x-carousel.tab>
+        <x-carousel.tab> PROGRAMA UNIVERSITARIO DE RESIDUOS </x-carousel.tab>
+    </x-slot>
+</x-carousel>
 <x-tab-panel >
     {{--
     Grupo de botones de los tabs.
@@ -80,6 +87,7 @@ Tabs de Gestión Institucional.
                 descripcion="Busca el manejo apropiado de las sustancias y materiales reguladas, residuos peligrosos, residuos de manejo especial, residuos sólidos urbanos, emisiones y descargas al aire, agua o suelo que utilizamos en todas las operaciones académicas y administrativas para garantizar la seguridad, salud, prevención de contaminación al ambiente y el cumplimiento legal."
                 class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
 
+                
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/residuos1.png')" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/residuos2.png')" />
             </x-slider>
@@ -258,6 +266,7 @@ Tabs de Gestión Institucional.
                 descripcion="Implementa el buen uso de la energía promoviendo la movilidad urbana sostenible, la eficiencia eléctrica y la estrategia para la transición hacia las energías renovables; tomando en cuenta las instalaciones, los equipos, la operación, el uso de energías renovables y la iluminación eficiente, buscando no causar impacto ambiental negativo y cumpliendo con estándares y criterios."
                 class="tab-pane fade show" role="tabpanel" aria-labelledby="nav-home-tab">
 
+                
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Gestion/energia1.png')" widthBo="w-75" />
                 <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" widthBo="w-75" />
             </x-slider>
