@@ -242,7 +242,7 @@ class WorkshopController extends Controller
         $workshop->end_date=$request->FechaFin;
         $workshop->save();
         Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
-        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
 }
 //*
     public function RegistrarUnihuertoCasaUsuario(Request $request){
@@ -298,7 +298,7 @@ class WorkshopController extends Controller
         }
 
         //4. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
     }
     //*/
     public function ChecarUnihuertoCasaUsuario(Request $request){//Esta inscrito?
@@ -371,7 +371,7 @@ class WorkshopController extends Controller
         }
 
         //3. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso resgitrado' ], JsonResponse::HTTP_OK);
+        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
     }
     //*/
     public function ChecarUnitruequeUsuario(Request $request){//Esta inscrito?
