@@ -19,6 +19,7 @@ Route::get('/', function ($NombreM=null) {
 })->name('Index');
 
 
+
 Route::get('/Concurso17gemas', function ($NombreM=null) {
     return view('17Gemas.contenido')->with('NombreM',$NombreM);
 })->name('Gemas');
@@ -99,6 +100,8 @@ Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=nu
 })->middleware([ 'guest:web','guest:students','guest:workers' ])
 ->name('Bienvenida');
 
+
+Route::get('/pruebacorreo','HomeController@pruebacorreo');
 
 # Rutas de autenticación.
 Auth::routes(['verify' => true]);

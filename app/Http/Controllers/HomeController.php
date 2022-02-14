@@ -6,6 +6,7 @@ use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
 use App\ejes;
+use App\Mail\PruebaMail;
 use App\Models\Auth\Worker;
 use App\Models\UnirodadaUser;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Workshop;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -162,6 +164,14 @@ class HomeController extends Controller
         })->whereNotNull('email_verified_at')
         ->orderBy('created_at', 'desc')
         ->get();
+    }
+
+    public function pruebacorreo()
+    {   
+        //Mail::to()
+        //Mail::to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
+        Mail::mailer('smtp')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
+        return "si se envio el mail";
     }
 
 }

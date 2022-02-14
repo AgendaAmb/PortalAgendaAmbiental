@@ -29,7 +29,7 @@ class SendReceipt extends Mailable
      */
     public function build()
     {
-        return $this->from('unibici@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
+        return $this->from('rtic.ambiental@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
                     ->subject('Registro al Curso-Taller: Unihuerto en casa 2022')
                     ->markdown('mail.workshops.send-receipt', [
                         'header_color' => '#87b854',
