@@ -45,13 +45,13 @@ return [
             'auth_mode' => null,
         ],
 
-        'smtp_unirodada' => [
+        'smtp_unihuerto' => [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('UNIRODADA_HOST'),
-            'password' => env('UNIRODADA_PASSWORD'),
+            'username' => env('UNIHUERTO_HOST'),
+            'password' => env('UNIHUERTO_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
         ],

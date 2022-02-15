@@ -170,7 +170,7 @@ class HomeController extends Controller
     {   
         //Mail::to()
         //Mail::to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
-        Mail::mailer('smtp')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
+        Mail::mailer('smtp_unihuerto')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
         return "si se envio el mail";
     }
 
