@@ -607,6 +607,24 @@ class User extends Authenticatable implements MustVerifyEmail
         );
     }
 
+    public function workshopsUnihuerto(): BelongsToMany
+    {
+        return $this->belongsToMany(Workshop::class,
+            'user_workshop',
+            'user_id',
+            'workshop_id'
+        )
+    ->where('workshops.id','=',9) //anadi esta linea para ver solo los usuarios con cursos vigentes
+        ->withPivot(
+            'id',
+            'user_type',
+            'sent',
+            'sent_at',
+            'paid',
+            'paid_at'
+        );
+    }
+
     /**
      * Obtiene los módulos a los que está registrado este usuario.
      *

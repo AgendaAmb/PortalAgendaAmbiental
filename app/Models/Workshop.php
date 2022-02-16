@@ -34,4 +34,8 @@ class Workshop extends Model
     {
         return $query->where('type', $tipo);
     }
+
+    public function Users(){
+        return $this->belongsToMany('App\Models\Auth\User', 'user_workshop', 'workshop_id', 'user_id');
+    }
 }

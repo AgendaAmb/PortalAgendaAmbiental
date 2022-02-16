@@ -89,7 +89,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    private function getUnirodadaUsers()
+    private function getAgriculturaUsers()
     {
      
         # Combina todos los tipos de usuario.
@@ -105,16 +105,37 @@ class HomeController extends Controller
     
     private function getUnihuertoUsers()
     {
+        /*
+        dd(User::
+            whereNotNull('email_verified_at')
+            ->whereHas('workshops', function($query){
+                //dd($query);
+                $query->where('workshops.id',9); //id 9 = unihuerto
+            })
+            ->orderBy('created_at')
+            ->get()
+        );
+        */
+/*
+        $results = DB::select( DB::raw("SELECT u.*
+            FROM users u
+            JOIN user_workshop uw ON u.id = uw.user_id
+            JOIN workshops w ON uw.workshop_id = w.id
+            WHERE w.id = 9
+        "));
+*/
         # Combina todos los tipos de usuario.
-        return User::select(
-            User::COLUMNS
-        )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', []);
-        })->whereHas('workshops', function($query){
-            $query->where('name','Curso-taller: Unihuerto en Casa'); //id 9 = unihuerto
-        })->whereNotNull('email_verified_at')
-        ->orderBy('created_at')
-        ->get();
+        $res = User::with('workshops')
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function($query){
+                $query->where('user_workshop.workshop_id',9);
+                    return $query;
+                 //id 9 = unihuerto
+            })
+            ->get();
+        //dd($results);
+        return $res;
     }
 
     private function getUsersCurrentWorkshop()
