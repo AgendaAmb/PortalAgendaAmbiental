@@ -162,7 +162,7 @@
 
                         @endif
                         @if (Auth::user()->hasRole('helper'))
-                            @if ($user->sent)
+                            @if ($user->sent == true)
                                 <td class="text-center" style="color: green; font-size:25px; "><i
                                         class="fas fa-check-circle"></i></td>
                                     {{-- icono palomita --}}

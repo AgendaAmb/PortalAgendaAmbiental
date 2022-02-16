@@ -72,7 +72,7 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
         $users = $user->hasRole('helper')
 
-        ?  $this->getUsersCurrentWorkshop() # Usuarios exclusivos de la Agricultura 30 octubre
+        ?  $this->getUnihuertoUsers() # Usuarios exclusivos de la Agricultura 30 octubre
         :  $this->getAllUsers();      # Todos los usuarios.
 
         # Obtiene todos los tipos de usuarios
@@ -104,7 +104,7 @@ class HomeController extends Controller
     }
 
     
-    private function getAgriculturaUsers()
+    private function getUnihuertoUsers()
     {
         # Combina todos los tipos de usuario.
         return User::select(
@@ -112,7 +112,7 @@ class HomeController extends Controller
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', []);
         })->whereHas('workshops', function($query){
-            $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
+            $query->where('workshops.id',9); //id 9 = unihuerto
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
