@@ -77,8 +77,7 @@ class HomeController extends Controller
 
         # Obtiene todos los tipos de usuarios
         $users = $user->hasRole('coordinator') ? $this->getUsersCurrentWorkshop() # Usuarios exclusivos de la Agricultura 30 octubre
-        :  $this->getAllUsers();      # Todos los usuarios.
-
+        :  $this->getAllUsers(); # Todos los usuarios.
 
         return view('auth.Dashbord.Administracion')->with('users', $users)
             ->with('Modulos',Auth::user()->userModules);
@@ -112,8 +111,10 @@ class HomeController extends Controller
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', []);
         })->whereHas('workshops', function($query){
-            $query->where('workshops.id',9); //id 9 = unihuerto
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+            $query->where('name','Curso-taller: Unihuerto en Casa'); //id 9 = unihuerto
+        })->whereNotNull('email_verified_at')
+        ->orderBy('created_at')
+        ->get();
     }
 
     private function getUsersCurrentWorkshop()
@@ -125,7 +126,9 @@ class HomeController extends Controller
             User::COLUMNS
         )->whereDoesntHave('roles', function($query){
             $query->whereIn('roles.name', []);
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
+        })->whereNotNull('email_verified_at')
+        ->orderBy('created_at')
+        ->get();
         //NOTA: en esta funcion va una query anidada que filtraba la consulta con un where sobre la relacion de user-workshops
 /*
         return DB::table('user_workshop')
@@ -137,17 +140,6 @@ class HomeController extends Controller
 */
     }
 
-    private function get()
-    {
-        # Combina todos los tipos de usuario.
-        return User::select(
-            User::COLUMNS
-        )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', []);
-        })->whereHas('workshops', function($query){
-            $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
-        })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
-    }
     /**
      * Obtiene todo el listado de usuarios.
      *
@@ -158,10 +150,7 @@ class HomeController extends Controller
         # Combina todos los tipos de usuario.
         return User::select(
             User::COLUMNS
-        )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator'])
-                ->whereNotIn('users.id', [12457, 25389]);
-        })->whereNotNull('email_verified_at')
+        )->whereNotNull('email_verified_at')
         ->orderBy('created_at', 'desc')
         ->get();
     }
