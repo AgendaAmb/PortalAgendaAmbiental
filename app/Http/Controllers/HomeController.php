@@ -70,17 +70,20 @@ class HomeController extends Controller
     public function Administracion(Request $request)
     {
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
-        $users = $user->hasRole('helper')
 
-        ?  $this->getUnihuertoUsers() # Usuarios exclusivos de la Agricultura 30 octubre
-        :  $this->getAllUsers();      # Todos los usuarios.
+        if($user->hasRole('helper')){
+            $users = $this->getUnihuertoUsers();# Usuarios de unihuerto
+        }else if($user->hasRole('coordinator')){
+            $users = $this->getUsersCurrentWorkshop(); # Usuarios con workshops vigentes
+        }else{//en dado caso es administrador
+            $users = $this->getAllUsers(); # Todos los usuarios.
+        }
 
-        # Obtiene todos los tipos de usuarios
-        $users = $user->hasRole('coordinator') ? $this->getUsersCurrentWorkshop() # Usuarios exclusivos de la Agricultura 30 octubre
-        :  $this->getAllUsers(); # Todos los usuarios.
 
-        return view('auth.Dashbord.Administracion')->with('users', $users)
-            ->with('Modulos',Auth::user()->userModules);
+        return view('auth.Dashbord.Administracion',[
+            'users' =>  $users,
+            'Modulos' => Auth::user()->userModules,
+        ]);
     }
 
     
@@ -105,60 +108,40 @@ class HomeController extends Controller
     
     private function getUnihuertoUsers()
     {
-        /*
-        dd(User::
-            whereNotNull('email_verified_at')
-            ->whereHas('workshops', function($query){
-                //dd($query);
-                $query->where('workshops.id',9); //id 9 = unihuerto
+        # Consulta bien mortal para traer todo lo que se pide.
+        $res = User::select(User::COLUMNS)
+            ->whereDoesntHave('roles', function($query){
+                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
             })
-            ->orderBy('created_at')
-            ->get()
-        );
-        */
-/*
-        $results = DB::select( DB::raw("SELECT u.*
-            FROM users u
-            JOIN user_workshop uw ON u.id = uw.user_id
-            JOIN workshops w ON uw.workshop_id = w.id
-            WHERE w.id = 9
-        "));
-*/
-        # Combina todos los tipos de usuario.
-        $res = User::with('workshops')
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function($query){
-                $query->where('user_workshop.workshop_id',9);
-                    return $query;
-                 //id 9 = unihuerto
-            })
+                return $query->where('workshops.id',9); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function($q){
+                return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
             ->get();
-        //dd($results);
+        
+        //dd($res);
         return $res;
     }
 
     private function getUsersCurrentWorkshop()
     {
-       // $now = Carbon::now();
-        //$date = Carbon::parse($now)->toDateString();
-        # Combina todos los tipos de usuario.
-        return User::select(
-            User::COLUMNS
-        )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', []);
-        })->whereNotNull('email_verified_at')
-        ->orderBy('created_at')
-        ->get();
-        //NOTA: en esta funcion va una query anidada que filtraba la consulta con un where sobre la relacion de user-workshops
-/*
-        return DB::table('user_workshop')
-            ->where('workshop_id',10)
-            ->whereDate('DeadLine', '>', Carbon::now())->count();
+       # Consulta bien mortal para traer todo lo que se pide.
+       $res = User::select(User::COLUMNS)
+            /*
+            ->whereDoesntHave('roles', function($query){
+                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            })
+            */
+            //->whereDate('',>=,)
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->get();
-*/
+   
+        //dd($res);
+        return $res;
     }
 
     /**

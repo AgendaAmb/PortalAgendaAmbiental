@@ -716,6 +716,20 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return object
      */
+    public function UserWorkshops(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Workshop::class,   # Tabla donde están los datos de la unirodada
+            UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
+            'workshop_id',              # Llave que asocia al modelo con la tabla intermedia.
+            'id',     # Llave que utiliza la tabla intermedia, para asociarse
+                                    # con la tabla intermedia.
+            'id',                   # Clave primaria de la tabla de usuarios.
+            'id',                   # Clave primaria de la tabla pivote.
+
+        );
+    }
+
     public function unirodadasUser(): HasManyThrough
     {
         return $this->hasManyThrough(
