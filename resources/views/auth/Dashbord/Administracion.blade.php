@@ -90,10 +90,12 @@
                         @else
 
                         <td>
+                            @if (Auth::user()->hasRole('helper'))
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                                 @click="cargarUser({{$user}})">
                                 <i class="fas fa-edit"></i><small>pago unihuerto-casa</small>
                             </a>
+                            @endif
                         </td>
                         @endif
 
