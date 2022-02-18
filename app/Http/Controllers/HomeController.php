@@ -74,7 +74,7 @@ class HomeController extends Controller
         if($user->hasRole('helper')){
             $users = $this->getUnihuertoUsers();# Usuarios de unihuerto
         }else if($user->hasRole('coordinator')){
-            $users = $this->getUsersCurrentWorkshop(); # Usuarios con workshops vigentes
+            $users = $this->getGestionAmbientalUsers(); # Usuarios con workshops vigentes
         }else{//en dado caso es administrador
             $users = $this->getAllUsers(); # Todos los usuarios.
         }
@@ -119,6 +119,26 @@ class HomeController extends Controller
                 return $query->where('workshops.id',9); //where para sacar solo a los usuarios del unihuerto
             })->with(['workshops' => function($q){
                 return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        
+        //dd($res);
+        return $res;
+    }
+
+    private function getGestionAmbientalUsers()
+    {
+        # Consulta bien mortal para traer todo lo que se pide.
+        $res = User::select(User::COLUMNS)
+            ->whereDoesntHave('roles', function($query){
+                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function($query){
+                return $query->where('workshops.work_edge',2); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function($q){
+                return $q->where('workshops.work_edge',2); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
         
