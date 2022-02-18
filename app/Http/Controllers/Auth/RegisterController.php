@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -54,7 +55,9 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
+        //return $request;
         event(new Registered($user = $this->create($request->all())));
+        //return "si";
 
         $this->guard()->login($user);
 
@@ -129,6 +132,8 @@ class RegisterController extends Controller
         # Usuario y auth guard.
         [ $user, $guard ] = $this->createUser($new_user_data);
 
+        //dd($guard);
+
         # Asigna rol de usuario.
         $user->assignRole('user');
         $user->save();
@@ -147,6 +152,7 @@ class RegisterController extends Controller
      */
     private function createUser(array $new_user_data)
     {
+        
         # Tipo de usuario, en base al DA
         switch ($new_user_data['DirectorioActivo'])
         {

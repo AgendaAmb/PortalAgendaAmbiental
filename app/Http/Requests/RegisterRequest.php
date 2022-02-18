@@ -111,12 +111,24 @@ class RegisterRequest extends FormRequest
     {
         # Valida el correo de la uaslp.
         $response = Http::post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user', [
-            'username' => $this->email ?? null
+            'username' => $this->Clave ?? null
         ]);
+
+
+        /*
+        //precheca si se trata de un usuario antiguo con otro domin io de la uaslp
+        if(str_contains($this->email,'fi.uaslp.mx')){
+            $this->merge([
+                'DirectorioActivo' => 'UASLP',
+                'ClaveUASLP' => $this->Clave,
+            ]);
+        }
+        */
 
         # Guarda los datos recuperados del directorio activo en la solicitud.
         if ($response->successful())
         {
+            //throw new RegisterException($this->all(), $response);
             $response_data = $response->json()['data'];
 
             $this->merge([
@@ -132,6 +144,7 @@ class RegisterRequest extends FormRequest
         }
         else
         {
+            //throw new RegisterException($this->all(), $response);
             $this->merge([
                 'CURP' => $this->CURP !== null ? Str::upper($this->CURP) : null,
                 'email' => Str::lower($this->email),
@@ -149,8 +162,11 @@ class RegisterRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
+        //return [];
+        ///*
         return [
             'Nombres' => [ 'required', 'string', 'max:255' ],
             'ApellidoP' => [ 'required', 'string', 'max:255' ],
@@ -172,5 +188,6 @@ class RegisterRequest extends FormRequest
             'OtroGenero' => ['nullable','required_if:Genero,Otro'],
             //'CorreoAlterno' => ['required'],
         ];
+        //*/
     }
 }

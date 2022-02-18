@@ -162,6 +162,7 @@
                                 @{{Errores[0].Mensaje}}
                             </span>
                         </div>
+                        <input type="hidden" name="Clave" v-model="Clave">
                         <input type="hidden" name="Dependencia" v-model="Facultad">
                         <div class="form-group col-md-1 col-sm-1 col-1 ">
 
@@ -622,8 +623,8 @@
     Celular:'',
     banError:false,
     banRegistro:false,
-    ErroresR:[]
-
+    ErroresR:[],
+    Clave:''
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -652,7 +653,8 @@
                 "CP":this.CP,
                 "Ocupacion":this.Ocupacion,
                 "GEtnico":this.GEtnico,
-                "Discapacidad":this.Discapacidad
+                "Discapacidad":this.Discapacidad,
+                "Clave":this.Clave
             }
             axios({
                  method: 'post',
@@ -741,7 +743,8 @@
             }
         axios.post('https://ambiental.uaslp.mx/apiagenda/api/users/uaslp-user',data)
             .then(response => (
-              
+                //console.log(response['data']['data']['ClaveUASLP']),
+                this.Clave = response['data']['data']['ClaveUASLP'],
                 this.nombres = response['data']['data']['name'],
                 this.ApellidoM= response['data']['data']['last_surname'],
                 this.ApellidoP= response['data']['data']['first_surname'],
