@@ -76,7 +76,7 @@
 
                     <tr>
                         @if (Auth::user()->hasRole('administrator'))
-                        <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
+                            <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
                         @endif
                         @if (Auth::user()->hasRole('administrator'))
                         <td>
@@ -89,13 +89,14 @@
                         </td>
                         @else
 
-                        <td>
-                            @if (Auth::user()->hasRole('helper'))
+                        <td>   
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                                 @click="cargarUser({{$user}})">
-                                <i class="fas fa-edit"></i><small>pago unihuerto-casa</small>
+                                <i class="fas fa-edit"></i>
+                                @if (Auth::user()->hasRole('helper'))
+                                    <small>pago unihuerto-casa</small>
+                                @endif
                             </a>
-                            @endif
                         </td>
                         @endif
 
@@ -154,13 +155,10 @@
                         @if (Auth::user()->hasRole('coordinator'))
                         @if ($user->invoice_data!=null)
                         <td><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i
-                                    class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></td>
+                            class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></td>
                         @else
                         <td></td>
                         @endif
-
-
-
 
                         @endif
                         @if (Auth::user()->hasRole('helper'))
