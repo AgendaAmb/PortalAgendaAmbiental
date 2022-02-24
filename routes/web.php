@@ -128,6 +128,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarUnitruequeUsuario','WorkshopController@RegistrarUnitruequeUsuario')->name('RegistrarUnitruequeUsuario');
     Route::post('/ChecarUnitruequeUsuario','WorkshopController@ChecarUnitruequeUsuario')->name('ChecarUnitruequeUsuario');
 
+    # Registro a huerto a la mesa.
+    Route::post('/RegistrarHuertoMesa','WorkshopController@RegistrarHuertoMesaUsuario')->name('RegistrarHuertoMesaUsuario');
+    Route::post('/ChecarHuertoMesaUsuario','WorkshopController@ChecarHuertoMesaUsuario')->name('ChecarHuertoMesaUsuario');    
+
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento

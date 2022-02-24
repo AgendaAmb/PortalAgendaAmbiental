@@ -21,11 +21,18 @@
       <div class="col-12  d-flex align-items-center flex-column">
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
-          <div class="col px-0">
+          @role("Administrator")
+          <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
+          @endif
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
+              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>          
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
               <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
@@ -51,7 +58,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/UnihuertoCasa/Banner.png')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('/storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
@@ -118,13 +125,14 @@
   </div>
 
 {{-- Modales con programas vigentes  --}}
-@include("RegistroModales.UnihuertoCasa")
+@include("RegistroModales.HuertoMesa")
 
 @include("RegistroModales.Unitrueque")
 
 @include("RegistroModales.17gemas")
 
 {{-- Modales Programas pasados --}}
+@include("RegistroModales.UnihuertoCasa")
 
 @include("RegistroModales.ComprobanteP")
 
@@ -334,6 +342,7 @@
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       '{{$nombreModal}}'=='UnihuertoCasa'?this.levantaModal('UnihuertoCasa'):''
+      '{{$nombreModal}}'=='HuertoMesa'?this.levantaModal('HuertoMesa'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -387,6 +396,7 @@
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
       //Nuevos Cursos
+      this.checarInscripcionHuertoMesa();
       this.checarInscripcionUnihuertoCasa();
       this.checarInscripcionUnitrueque();
       $('#' + ModalClick).modal('show');
@@ -517,6 +527,26 @@
                   this.Guardado=false;
               })
            }
+           else if(this.modalClick=='HuertoMesa'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+              axios.post(this.url+'/RegistrarHuertoMesaUsuario',data).then(response => {
+                  console.log(response.status);
+                  if(response.status == 200){
+                    //console.log(response.data);
+                    this.spinnerVisible=false;
+                    $('#HuertoMesa').modal('hide');
+                    this.Guardado=true;
+                  }else{
+                    console.log("Mensaje: " + response.data.Message);
+                  }
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
+           }           
            else if(this.modalClick=='Unitrueque'){
                //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
                axios.post(this.url+'/RegistrarUnitruequeUsuario',data).then(response => {
@@ -552,6 +582,14 @@
 
         }
       },
+      checarInscripcionHuertoMesa: function(){
+        axios.post(this.url + '/ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            this.InscritoHuertoMesa = response.data;
+          }).catch((err) => {
+            console.log(err);
+          })
+      },      
       checarInscripcionUnihuertoCasa: function(){
         axios.post(this.url + '/ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
