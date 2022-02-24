@@ -39,7 +39,7 @@
 
                         <th>Curp</th>
                         <th>Correo</th>
-                        @if (!Auth::user()->hasRole('administrator'))
+                        @if (Auth::user()->hasRole('coordinator'))
                         <th>Género</th>
                         @endif
                         <th>Teléfono</th>
@@ -104,7 +104,7 @@
                         <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
                         <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
                         <td>{{$user->email}}</td>
-                        @if (!Auth::user()->hasRole('administrator'))
+                        @if (Auth::user()->hasRole('coordinator'))
                         <td>{{$user->gender==null?"Sin Registro":$user->gender}}</td>
                         @endif
                         <td>{{$user->phone_number==null?"Sin Regitro":$user->phone_number}}</td>
@@ -170,6 +170,27 @@
                                 <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i>
                                 </td>{{-- icono tachita --}}
                             @endif
+                        {{--
+                            <td>
+                            @foreach ($user->workshops->pivot as $w)
+                                @if ($w->sent == true)
+                                    <div class="text-center" style="color: green; font-size:25px; ">
+                                        <i class="fas fa-check-circle"></i>
+                                        <small>
+                                            @foreach ($user->workshop as $ws)
+                                                {{$ws->id==$w->workshop_id ? $ws->name : ''}}
+                                            @endforeach
+                                        </small>
+                                    </div>
+                                        <!-- icono palomita -->
+                                @else
+                                    <div class="text-center" style="color: red; font-size:25px; ">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div><!-- icono tachita -->
+                                @endif
+                            @endforeach
+                            </td>
+                        --}}
 
                         @if ($user->paid!=null||$user->paid)
                         <td class="text-center">
