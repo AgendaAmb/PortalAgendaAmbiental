@@ -31,6 +31,10 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
+                    <img src="{{asset('storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block img-fluid"
+                        alt="...">
+                </div>
+                <div class="carousel-item">
                     <img src="{{asset('storage/imagenes/Unihuerto/BINT_Unihuerto.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
@@ -87,8 +91,8 @@
             aria-controls="nav-home" aria-selected="true">Curso Taller <br> Unihuerto En Casa</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnitrueque" role="tab"
             aria-controls="nav-profile" aria-selected="false"> UniTrueque <br> UASLP</a>
-        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerFunicultura" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> &nbsp; <br> &nbsp;</a>
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerHuertoalaMesa" role="tab"
+            aria-controls="nav-profile" aria-selected="false"> Mini Taller <br> Del Huerto a la mesa</a>
             <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerAgricultura" role="tab"
             aria-controls="nav-profile" aria-selected="false"> &nbsp;<br> &nbsp;</a>
 
@@ -416,7 +420,7 @@
         </div>
     </div>
 </div>
-<!--<div class="modal fade" id="modalTallerFunicultura" tabindex="-1" role="dialog"
+<div class="modal fade" id="modalTallerHuertoalaMesa" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -430,7 +434,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unihuerto/CARTEL-FUNGICULTURA.jpg')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_HuertoalaMesa.png')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -443,11 +447,11 @@
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " target="_blank"
                                 role="button">REGISTRATE </a>
                            -->
-                        <!--</div>
+                        </div>
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unihuerto/CARTEL-FUNGICULTURA.jpg')}}"
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_HuertoalaMesa.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="CARTEL-FUNGICULTURA.jpg">CARTEL GENERAL </a>
+                                download="Cartel_HuertoalaMesa.png">CARTEL</a>
 
                         </div>
 
@@ -455,42 +459,61 @@
                     <div class="row justify-content-center">
                         <div class="col-10"
                             style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'"><br>
-                            <h4>Taller: Fungicultura en Unihuerto</h4><br><br>
+                            <h4>Mini Taller: Del Huerto a la mesa</h4><br><br>
+                            <h4>Justificación</h4>
+                            <p>La agricultura orgánica es una herramienta indispensable para lograr diferentes aspectos que promueven el cuidado del medio y un mejor estilo de vida.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Promover la sana alimentación y su fácil acceso a través de la agricultura orgánica de pequeña escala.</p><br>
+                            <h4>Objetivos específicos</h4>
+                            <p><ul>
+                                <li>Sensibilizar respecto a la problemática ambiental y la importancia de la agricultura sostenible.</li>
+                                <li>Informar respecto a las características básicas para la implementación y el desarrollo de un huerto urbano.</li>
+                                <li>Relacionar la agricultura con la alimentación y su importancia para la salud humana y la salud pública.</li>
+                                <li>Orientar respecto a la nutrición y su acceso.</li>
+                                </ul>
+                            </p><br>
                             <h4>Dirigido a</h4>
-                            <p>Estudiantes UASLP y público general.</p><br>
-
-                            <h4>Lugar, fecha y horario</h4>
-                            <p></p>
+                            <p>Todos los trabajadores de la Universidad, docentes, investigadores, alumnos, administrativos y público en general.</p><br>
+                            <h4>Descripción</h4>
+                            <p>Curso-taller teórico práctico donde se revisará:<br>
+                                <ul>
+                                    <li>La problemática ambiental en la producción de alimentos y agricultura urbana como alternativa de producción de alimentos para autoconsumo.</li>
+                                    <li>La introducción a la planificación del huerto, fenología básica de las plantas y las labores generales de cultivo.</li>
+                                    <li>Importancia y conceptos de la nutrición, beneficios de los alimentos e impacto en la salud.</li>
+                                    <li>La universidad como ambiente obesogénico y recomendaciones de platillos saludables y fáciles.</li>
+                                </ul>
+                            </p><br>
+                            <h4>Horario</h4>
+                            <p>10:00 a 14:00 horas</p><br>
+                            <h4>Lugar</h4>
+                            <p><ul>
+                                    <li>Teoría: Sala de usos múltiples (a lado de auditorio)</li>
+                                    <li>Práctica: Unihuerto de Unidad Académica Multidisciplinaria Zona Media (atrás de edificio de Laboratorios de Ingeniería Civil)</li>
+                                </ul>
+                            </p><br>                                   
+                                                                   
+                            <h4>Cuota de recuperación (incluye materiales):</h4>                    
+                            <p>$150 Comunidad universitaria<br>$200 Externos
+                            </p><br>
                             
-                                <b>Fecha:</b> viernes 16 de junio del 2021 <br>
-                                    <b>Hora: </b> 10:00 a 12:00 horas <br>
-                                    <b>Bimodal:</b> Presencial (cupo limitado), a distancia (Zoom) <br>
-                                    <b>Lugar: </b>Zoom y Casa de fungicultura de Unihuerto <br>
-                                   
-                                    <h2 class="font-weight-bold text-center mt-2 text-light"> <b>SIN COSTO</b> </h2>
-                                </b>
-                            
-                            <p></p><br>
-                                <h4>Registro</h4>
-                                <p > <b>Pasos para registro de participantes:</b> 
+                            <h4>Registro</h4>
+                                <p>Pasos para registro de participantes: 
                                 </p>
                                 <ol>
                                     <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
                                     <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
-                                    <li>Se te enviara un correo en un lapso de 48 horas que confirme tu participación ya sea presencial (CUPO LIMITADO) o en caso de ser en línea se te envía un link para asistir. </li>
-                                   
+                                    <li>Se te enviará un correo en un lapso de 48 horas con la ficha de pago.</li>  
                                 </ol>
                                 <br>
-                                
-                               
+                                CUPO LIMITADO</p><br>
                                 <h4>Informes</h4>
-                                <p><b>Programa Unihuerto<br>Agenda Ambiental de la
-                                    UASLP</b> <br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                <p><b>Agenda Ambiental de la UASLP</b><br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
                                     piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
                                     Ext. 7210<br>
                                     <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
                                 </p>
-                            </b>
+                                <p><b>Unisalud</b><br>Servicios Estudiantiles<br>Universidad Autónoma de San Luis Potosí<br>Tel. 826-2300 Ext. 5556<br><a href="mailto:unisalud@uaslp.mx">unisalud@uaslp.mx</a></p>
+                                <p><b>Promotores Ambientales Zona Media</b><br><a href="mailto:florencio.reyes@uaslp.mx">florencio.reyes@uaslp.mx</a></p>
                         </div>
                     </div>
                 </div>
@@ -499,7 +522,7 @@
 
         </div>
     </div>
-</div>-->
+</div>
 <!--<div class="modal fade" id="modalTallerAgricultura" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
