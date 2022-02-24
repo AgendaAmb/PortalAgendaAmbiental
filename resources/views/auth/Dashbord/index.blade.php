@@ -21,7 +21,7 @@
       <div class="col-12  d-flex align-items-center flex-column">
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
-          @role("Administrator")
+          @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
@@ -204,7 +204,9 @@
     Mobiliario:'',//si o no
     EmpresaParticipante:'',
     InscritoUnihuertoCasa:false,
-    InscritoUnitrueque:false
+    InscritoUnitrueque:false,
+    InscritoHuertoMesa:false
+    
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -585,9 +587,10 @@
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + '/ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
+            console.log(response.data);
             this.InscritoHuertoMesa = response.data;
           }).catch((err) => {
-            console.log(err);
+            console.log(err.response.data);
           })
       },      
       checarInscripcionUnihuertoCasa: function(){

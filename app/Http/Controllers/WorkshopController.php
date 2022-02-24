@@ -389,4 +389,84 @@ class WorkshopController extends Controller
             }
         
     }
+
+    public function RegistrarHuertoMesaUsuario(Request $request){
+        //return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
+        try{
+            //throw new \Exception("mi excepcion");//para prueba
+
+            //0. validar datos
+            $request->validate([
+                'Clave' => 'Required' //solo la clave porque es lo que realmente nos importa
+            ]);
+            //1. actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if($request->NAcademico != ""){
+                $user->academic_degree = $request->NAcademico;
+            }
+            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+                $user->interested_on_further_courses = true;
+                $user->comments = $request->ComentariosSugerencias;
+            }
+            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+                $user->courses = $request->CursosC;
+            }
+            $user->save();
+            //2. crear registro
+            DB::table('user_workshop')
+                ->updateOrInsert([
+                    'workshop_id' => 11, // 11 = del huerto a la mesa 
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'assisted_to_workshop' => null,
+                    'sent' => null,
+                    'sent_at' =>  null,
+                    'paid' => null,
+                    'paid_at' => null
+                ]);
+
+            $ws = DB::table('user_workshop')
+                ->where('workshop_id',11)
+                ->where('user_id',$user->id)
+                ->get();
+                /*
+            //3. creaamos registro para la uniformacion en tabla unitrueque_user (solo crear nueva tabla cuando se necesite)
+
+            DB::table('unitrueque_users')
+                ->updateOrInsert([
+                    'user_workshop_id' => $ws[0]->id, // 11 = unitrueque
+                    'MaterialesIntercambio' => $request->MaterialesIntercambio,
+                    'Mobiliario' => $request->Mobiliario,
+                    'Cantidad' => $request->Cantidad,
+                    'EmpresaParticipante' => $request->EmpresaParticipante,
+                ]);
+            Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+            */
+        }catch(\Exception $e){
+            return response()->json([ 'Message' => $e->getMessage() ],500);
+        }
+        
+
+        //3. si todo sale bien regresamo un ok
+        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+    }
+    //*/
+    public function ChecarHuertoMesaUsuario(Request $request){//Esta inscrito?
+        try{
+            $insc = DB::table('user_workshop')
+            ->where('workshop_id',11)
+            ->where('user_id',$request->Clave)
+            ->get();
+
+            //return response()->json($insc, JsonResponse::HTTP_OK);
+            
+            if( $insc->count() > 0 ){
+                return response()->json(true, JsonResponse::HTTP_OK);
+            }else{
+                return response()->json(false, JsonResponse::HTTP_OK);
+            }
+        }catch(\Exception $e){
+            return response()->json($e->getMessage(), JsonResponse::HTTP_OK);
+        }
+    }
 }
