@@ -162,35 +162,36 @@
 
                         @endif
                         @if (Auth::user()->hasRole('helper'))
+                        {{-- 
                             @if ($user->sent == true)
                                 <td class="text-center" style="color: green; font-size:25px; "><i
                                         class="fas fa-check-circle"></i></td>
-                                    {{-- icono palomita --}}
+                                    <!-- icono palomita -->
                             @else
                                 <td class="text-center" style="color: red; font-size:25px; "><i class="fas fa-times-circle"></i>
-                                </td>{{-- icono tachita --}}
+                                </td><!-- icono tachita -->
                             @endif
-                        {{--
+                        --}}
+                               
                             <td>
-                            @foreach ($user->workshops->pivot as $w)
-                                @if ($w->sent == true)
-                                    <div class="text-center" style="color: green; font-size:25px; ">
-                                        <i class="fas fa-check-circle"></i>
+                            @foreach ($user->workshops as $w)
+                                    @if ($w->pivot->sent == true)
+                                        <div class="text-center" style="color: green; font-size:25px; ">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div><!-- icono palomita -->
                                         <small>
-                                            @foreach ($user->workshop as $ws)
-                                                {{$ws->id==$w->workshop_id ? $ws->name : ''}}
+                                            @foreach ($user->workshops as $ws)
+                                                {{$ws->id==$w->pivot->workshop_id ? $ws->name : ''}}
                                             @endforeach
                                         </small>
-                                    </div>
-                                        <!-- icono palomita -->
-                                @else
-                                    <div class="text-center" style="color: red; font-size:25px; ">
-                                        <i class="fas fa-times-circle"></i>
-                                    </div><!-- icono tachita -->
-                                @endif
+                                    @else
+                                        <div class="text-center" style="color: red; font-size:25px; ">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div><!-- icono tachita -->
+                                    @endif
                             @endforeach
                             </td>
-                        --}}
+                        
 
                         @if ($user->paid!=null||$user->paid)
                         <td class="text-center">
