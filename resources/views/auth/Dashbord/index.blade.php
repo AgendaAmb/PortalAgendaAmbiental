@@ -30,7 +30,7 @@
           @endif
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
-              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>          
           <div class="col px-0">
