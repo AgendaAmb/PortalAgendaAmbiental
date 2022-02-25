@@ -17,9 +17,7 @@ use Illuminate\Http\Request;
 
 Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
 
-Route::get('/Concurso17gemas', function ($NombreM=null) {
-    return view('17Gemas.contenido')->with('NombreM',$NombreM);
-})->name('Gemas');
+Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('Gemas');
 
 //Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
   //  return view('Introduccion.vista')->with('NombreM',$NombreM);
@@ -99,8 +97,6 @@ Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=nu
 
 
 Route::get('/pruebacorreo','HomeController@pruebacorreo');
-
-Route::post('/miLogin', 'LoginController@login')->name('miLogin');
 
 # Rutas de autenticación.
 Auth::routes(['verify' => true]);
