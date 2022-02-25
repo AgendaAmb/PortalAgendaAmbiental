@@ -78,20 +78,42 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
+
+    /*
+    public function login(Request $request){//sobrescribir funcion que ya existe (en AutenticateUsers)
+        $siono = $this->attemptLogin($request);
+        if($siono){
+            $credentials = $request->only('email', 'password');
+            Auth::attempt($credentials);
+            return redirect($this->redirectTo);
+        }
+        return back();
+    }
+    */
+    
     protected function attemptLogin(Request $request)
     {
+        //return "Hola";
+        $useremail = "";
+        if(!str_contains($request->email,"@")){
+            $tmpuser = User::find($request->email);
+            $useremail = $tmpuser->email;
+        }else{
+            $useremail = $request->email;
+        }
+
         # Inicio de sesión como trabajador
-        if (Auth::guard('workers')->attempt([ 'mail' => $request->email, 'password' => $request->password ])
-        ||  Auth::guard('workers')->attempt([ 'samaccountname' => $request->email, 'password' => $request->password ]))
+        if (Auth::guard('workers')->attempt([ 'mail' => $useremail, 'password' => $request->password ])
+        ||  Auth::guard('workers')->attempt([ 'samaccountname' => $useremail, 'password' => $request->password ]))
             return true;
 
         # Inicio de sesión como alumno
-        if (Auth::guard('students')->attempt([ 'mail' => $request->email, 'password' => $request->password ])
-        ||  Auth::guard('students')->attempt([ 'samaccountname' => $request->email, 'password' => $request->password ]))
+        if (Auth::guard('students')->attempt([ 'mail' => $useremail, 'password' => $request->password ])
+        ||  Auth::guard('students')->attempt([ 'id' => $useremail, 'password' => $request->password ]))
             return true;
 
         # Inicio de sesión como externo.
-        if (Auth::attempt([ 'email' => $request->email, 'password' => $request->password ]))
+        if (Auth::attempt([ 'email' => $useremail, 'password' => $request->password ]))
             return true;
 
         # Inicio de sesión no exitoso.

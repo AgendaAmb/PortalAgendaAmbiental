@@ -394,7 +394,6 @@ class WorkshopController extends Controller
         //return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
         try{
             //throw new \Exception("mi excepcion");//para prueba
-
             //0. validar datos
             $request->validate([
                 'Clave' => 'Required' //solo la clave porque es lo que realmente nos importa

@@ -11,14 +11,16 @@ class PruebaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $contenido;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($contenido)
     {
-        //
+        $this->contenido = $contenido;
     }
 
     /**
@@ -32,10 +34,6 @@ class PruebaMail extends Mailable
 
         return $this->from('unihuerto@uaslp.mx', 'Laura Daniela Hernández Rodríguez')
             ->subject('Registro al Curso-Taller: Unihuerto en casa 2022')
-            ->markdown('mail.workshops.send-receipt', [
-                'header_color' => '#87b854',
-                'footer_color' => 'white',
-                'with_image' => false
-            ]);
+            ->markdown($this->contenido);
     }
 }

@@ -223,8 +223,8 @@ class HomeController extends Controller
     public function pruebacorreo()
     {   
         //Mail::to()
-        //Mail::to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
-        Mail::mailer('smtp_unihuerto')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
+        Mail::to("a278737@alumnos.uaslp.mx")->send(new PruebaMail('Hola'));
+        //Mail::mailer('smtp_unihuerto')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
         return "si se envio el mail";
     }
 
