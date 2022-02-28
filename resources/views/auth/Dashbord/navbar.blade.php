@@ -30,6 +30,10 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                 </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="http://ControlEscolar.test/controlescolar/{{Auth::user()->id}}">Control Escolar<span class="sr-only"></span></a>
+                </li>
                 @endif
                
             </ul>
