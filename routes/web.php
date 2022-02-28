@@ -23,6 +23,8 @@ Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('G
   //  return view('Introduccion.vista')->with('NombreM',$NombreM);
 //})->name('Modal17Gemas');
 
+//Route::view('/gestión/{nombreModal?}','Gestion.vista',['NombreM' => $NombreM])->name('Gestion');
+
 Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
     return view('Gestion.vista')->with('NombreM',$NombreM);
 })->name('Gestion');
