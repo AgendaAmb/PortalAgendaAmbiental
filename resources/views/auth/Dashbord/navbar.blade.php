@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="http://ControlEscolar.test/controlescolar/{{Auth::user()->id}}">Control Escolar<span class="sr-only"></span></a>
+                    <a class="nav-link" href="http://ControlEscolar.test/controlescolar/auth/{{Auth::user()->id}}">Control Escolar<span class="sr-only"></span></a>
                 </li>
                 @endif
                
