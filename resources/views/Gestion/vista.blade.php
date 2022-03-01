@@ -625,11 +625,16 @@ los botones del nav-tab
   this.$nextTick(function () {
         this.PUB.push({
         "id":1,
+        "Nombre":'Guía del arbolado y otras formas vegetales en situación de banqueta. Ciudad de San Luis Potosí',
+        "Url":'https://uaslpedu-my.sharepoint.com/:b:/g/personal/agenda_ambiental_uaslp_mx/EW16O92xpARNp2ug3TWdfEgB9jtCSaGguXqk3sTsE9pUqA?e=rdxsVt'
+    });
+    this.PUB.push({
+        "id":2,
         "Nombre":'Guía para jardines universitarios.',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUB/Guia_Jardines_UASLP.pdf&embedded=true',
     });
     this.PUB.push({
-        "id":2,
+        "id":3,
         "Nombre":'El Huerto Sustentable.',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUB/ElHuertoSustentable.pdf&embedded=true',
     });        
