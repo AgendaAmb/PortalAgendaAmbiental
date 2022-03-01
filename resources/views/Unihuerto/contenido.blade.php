@@ -490,7 +490,7 @@
                             </p><br>                                   
                                                                    
                             <h4>Cuota de recuperación (incluye materiales):</h4>                    
-                            <p>$150 Comunidad universitaria<br>$200 Externos
+                            <p>$200 Costo general
                             </p><br>
                             
                             <h4>Registro</h4>
