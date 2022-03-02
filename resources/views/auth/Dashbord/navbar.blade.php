@@ -31,8 +31,18 @@
                     <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                 </li>
 
+
                 <li class="nav-item ">
-                    <a class="nav-link" href="http://127.0.0.1:8080/controlescolar/auth/{{Auth::user()->id}}">Control Escolar<span class="sr-only"></span></a>
+                    <div class="nav-link">
+                        <form action="{{route("PreloginControlEscolar")}}" method="post">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                            <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" type="submit">
+                                Control Escolar
+                                <span class="sr-only"></span>
+                            </button>
+                        </form>
+                    </div>
                 </li>
                 @endif
                

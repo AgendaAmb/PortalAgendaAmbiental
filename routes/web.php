@@ -110,6 +110,9 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator|helper')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
     Route::post('/GetWorkshops', 'WorkshopController@GetWorkshops');
+
+    Route::post('PreloginControlEscolar','HomeController@PreloginControlEscolar')->name('PreloginControlEscolar');
+
     # Módulos de usuario
     Route::resource('modules', ModuleController::class);
 
