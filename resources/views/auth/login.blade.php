@@ -157,7 +157,7 @@
                                 botón con el icono de lupa</label>
                         </div>
                         <div class="form-group col-md-4 col-sm-4 col-6 was-validated">
-                            <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" required>
+                            <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" :readonly="uaslpUpdated" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
                             </span>
@@ -479,7 +479,7 @@
                     </div>
                     <div class="form-group  was-validated" v-if="!blockCampos">
                         <label for="inputAddress">Nombre(s)</label>
-                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres"
+                        <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" :readonly="uaslpUpdated"
                             style="text-transform: capitalize;">
                     </div>
 
@@ -487,12 +487,12 @@
 
                         <div class="form-group col-md-6 was-validated">
                             <label for="inputAddress2">Apellido paterno</label>
-                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required
+                            <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required :readonly="uaslpUpdated"
                                 name="ApellidoP" style="text-transform: capitalize;">
                         </div>
                         <div class="form-group col-md-6  was-validated">
                             <label for="inputCity">Apellido materno</label>
-                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" name="ApellidoM"
+                            <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" name="ApellidoM" :readonly="uaslpUpdated"
                                 style="text-transform: capitalize;">
                         </div>
                     </div>
@@ -623,6 +623,7 @@
     Celular:'',
     banError:false,
     banRegistro:false,
+    uaslpUpdated:false,
     ErroresR:[],
     Clave:''
   },
@@ -754,7 +755,8 @@
                 this.emailR=response['data']['data']['email'],
                 this.Errores[0].Visible=false),
                 this.blockCampos=false,
-                this.spinnerVisible=false
+                this.spinnerVisible=false,
+                this.uaslpUpdated = true
                 ).catch((err) => {
                     this.spinnerVisible=false,
                 this.Errores[0].Visible=true;
