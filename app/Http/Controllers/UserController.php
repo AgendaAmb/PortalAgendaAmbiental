@@ -202,6 +202,8 @@ class UserController extends Controller
         //return new JsonResponse("Hola :D",200);
         $user = null;
 
+        return new JsonResponse($request, JsonResponse::HTTP_BAD_REQUEST);
+
         if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
             try{
                 $user = $this->newUser($request->validated());//funcion que crea el usuario ya validado
@@ -224,9 +226,11 @@ class UserController extends Controller
             return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
         }
 
+        /*
         return new JsonResponse([
             $request->module_id, $user->id, $user->type
         ], JsonResponse::HTTP_BAD_REQUEST);
+        */
 
         //Si llega hasta aca es porque todo salio bien
         return new JsonResponse(["¡Usuario Creado!",$user], JsonResponse::HTTP_CREATED);
