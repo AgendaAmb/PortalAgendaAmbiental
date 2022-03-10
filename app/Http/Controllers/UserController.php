@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -199,12 +200,31 @@ class UserController extends Controller
     {
         //return "x";
         //return new JsonResponse("Hola :D",200);
+        $user = null;
+
+        if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
+            try{
+                $user = $this->newUser($request->validated());//funcion que crea el usuario ya validado
+            }catch(\Exception $e){
+                return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
+            }
+        }else{
+            try{
+                $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
+            }catch(\Exception $e){
+                return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
+            }
+        }
+
         # Genera al usuario
         try{
-            $user = $this->newUser($request->validated());//funcion que crea el usuario ya validado
+            //funcion que crea el moodule_user
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         }catch(\Exception $e){
             return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
         }
+
+
 
         //Si llega hasta aca es porque todo salio bien
         return new JsonResponse(["¡Usuario Creado!",$user], JsonResponse::HTTP_CREATED);

@@ -17,10 +17,25 @@
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
                 @foreach ($Modulos as $Modulo)
-             
-               <li class="nav-item" >
-                <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
-            </li>
+
+                    @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 || Auth::user()->hasRole('administrator'))
+                        <li class="nav-item ">
+                            <div class="nav-link">
+                                <form action="{{route("PreloginControlEscolar")}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" type="submit">
+                                        Control Escolar
+                                        <span class="sr-only"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
+                        </li>
+                    @endif
               
                
                
@@ -32,18 +47,7 @@
                 </li>
 
 
-                <li class="nav-item ">
-                    <div class="nav-link">
-                        <form action="{{route("PreloginControlEscolar")}}" method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                            <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" type="submit">
-                                Control Escolar
-                                <span class="sr-only"></span>
-                            </button>
-                        </form>
-                    </div>
-                </li>
+               
                 @endif
                
             </ul>
