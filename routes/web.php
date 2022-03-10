@@ -175,6 +175,15 @@ Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students
         ->withoutMiddleware('auth:web,workers,students');
 });
 
+/*
+
+Route::get('pp',function(){
+    $user = App\Models\Auth\User::where('email','a278737@alumnos.uaslp.mx')->first();
+    //Illuminate\Support\Facades\DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [2, 278737,'App\Models\Auth\Student']);
+    //return 'si';
+    return $user;
+});
+*/
 
 
 /*Rutas para redireccion de rutas anteriores de agenda ambiental */
