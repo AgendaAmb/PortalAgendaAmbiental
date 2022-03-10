@@ -196,7 +196,7 @@ class UserController extends Controller
     }
 
     //StoreUserRequest es simplemente una clase que extiende de la clase request
-    public function RegisterExternalUser(StoreUserRequest $request)
+    public function RegisterExternalUser(Request $request)
     {
         //return "x";
         //return new JsonResponse("Hola :D",200);
