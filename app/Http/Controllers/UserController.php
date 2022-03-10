@@ -265,6 +265,6 @@ class UserController extends Controller
         */
 
         //Si llega hasta aca es porque todo salio bien
-        return new JsonResponse(["¡Usuario Creado!",$user], JsonResponse::HTTP_CREATED);
+        return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user], JsonResponse::HTTP_CREATED);
     }
 }
