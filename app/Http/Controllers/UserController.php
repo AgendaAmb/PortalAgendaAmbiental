@@ -224,7 +224,9 @@ class UserController extends Controller
             return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
         }
 
-
+        return new JsonResponse([
+            $request->module_id, $user->id, $user->type
+        ], JsonResponse::HTTP_BAD_REQUEST);
 
         //Si llega hasta aca es porque todo salio bien
         return new JsonResponse(["¡Usuario Creado!",$user], JsonResponse::HTTP_CREATED);
