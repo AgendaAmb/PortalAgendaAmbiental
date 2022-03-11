@@ -380,22 +380,28 @@
                                         <li>11 de junio del 2022</li>
                                     </ul><br>
                                     Horario: 9:00 a 14:00 horas
-                            </p><br>
-                                <h4>Requisitos</h4>
-                                <p>
-                                <ol>
-                                    <li>Llenar correctamente el registro.</li>
-                                    <li>Llevar y recoger sus elementos o mobiliario propios (revisar que está autorizado).</li>
-                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos ( <a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a> ).</li>
-                                    <li>Intercambiar de manera no monetaria bajo acuerdo entre las partes interesadas productos, materiales y servicios.</li>
-                                </ol>
                                 </p><br>
                                 <h4>Registro</h4>
                                 <p>Pasos para registro de participantes:
                                     <ul>
                                         <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
                                         <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda INSCRITO.</li>
-                                    </ul></p><br>
+                                    </ul></p><br>                                
+                                <h4>Lineamientos Unitrueque</h4>
+                                <p>
+                                <ol>
+                                    <li>Haber llenado correctamente el registro en la página web.</li>
+                                    <li>Llevar y recoger sus elementos o mobiliario propios.</li>
+                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos ( <a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a> ).</li>
+                                    <li>Intercambiar de manera no monetaria (no dinero) bajo acuerdo entre las partes interesadas productos, materiales y servicios.</li>
+                                    <li>No intervenir ni influenciar en otros intercambios, los Unitrueques se acuerdan entre las partes bajo lo que cada persona considere adecuado.</li>
+                                    <li>Valorizar tus productos, materiales y servicios previamente al Unitrueque.</li>
+                                    <li>Asegurar que los productos o materiales estén en buenas condiciones.</li>
+                                    <li>Considerar los principios de consumo responsable como “Repensar que es lo que realmente necesito”.</li>
+                                    <li>Realizar los Unitrueques de forma pacífica.</li>
+                                    <li>Quien inculpa en los lineamientos ya no puede participar.</li>
+                                </ol>
+                                </p><br>
                                 <h4>Bibliografía</h4>  
                                 <p>
                                     <ul>
