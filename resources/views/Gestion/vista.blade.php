@@ -626,7 +626,7 @@ los botones del nav-tab
         this.PUB.push({
         "id":1,
         "Nombre":'Guía del arbolado y otras formas vegetales en situación de banqueta. Ciudad de San Luis Potosí',
-        "Url":'https://docs.google.com/viewer?url=https://uaslpedu-my.sharepoint.com/:b:/g/personal/agenda_ambiental_uaslp_mx/EW16O92xpARNp2ug3TWdfEgB9jtCSaGguXqk3sTsE9pUqA?e=rdxsVt&embedded=true',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUB/Guiadelarbolado_y_otrasformasvegetales.pdf&embedded=true',
     });
     this.PUB.push({
         "id":2,
