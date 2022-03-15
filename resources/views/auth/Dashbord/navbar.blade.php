@@ -18,7 +18,7 @@
                 </li>
                 @foreach ($Modulos as $Modulo)
 
-                    @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 || Auth::user()->hasRole('administrator'))
+                    @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
                         <li class="nav-item ">
                             <div class="nav-link">
                                 <form action="{{route("PreloginControlEscolar")}}" method="post">
@@ -30,6 +30,9 @@
                                     </button>
                                 </form>
                             </div>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                         </li>
                     @else
                         <li class="nav-item" >
