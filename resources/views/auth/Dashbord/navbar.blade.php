@@ -31,9 +31,6 @@
                                 </form>
                             </div>
                         </li>
-                        <li class="nav-item" >
-                            <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
-                        </li>
                     @else
                         <li class="nav-item" >
                             <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
