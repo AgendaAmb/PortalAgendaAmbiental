@@ -239,6 +239,11 @@ class UserController extends Controller
                 }
 
                 $user = $this->newUser($request);//funcion que crea el usuario ya validado
+                
+                # Crea module user
+                DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+               
+                
             }catch(\Exception $e){
                 return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
             }
@@ -249,20 +254,6 @@ class UserController extends Controller
                 return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
             }
         }
-
-        # Genera al usuario
-        try{
-            //funcion que crea el moodule_user
-            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
-        }catch(\Exception $e){
-            return new JsonResponse($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST);
-        }
-
-        /*
-        return new JsonResponse([
-            $request->module_id, $user->id, $user->type
-        ], JsonResponse::HTTP_BAD_REQUEST);
-        */
 
         //Si llega hasta aca es porque todo salio bien
         return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user], JsonResponse::HTTP_CREATED);
