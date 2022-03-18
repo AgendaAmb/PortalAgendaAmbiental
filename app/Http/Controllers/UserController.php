@@ -64,7 +64,8 @@ class UserController extends Controller
         }
         else
         {
-            $cropped_data['id'] = User::withTrashed()->where('type', Extern::class)->max('id') + 1;
+            $last_user = User::withTrashed()->where('type', Extern::class)->max('id');
+            $cropped_data['id'] = $last_user->id + 1; //selecciona el id solamente del ultimo usuario externo registrado, el de mayor numero
             $cropped_data['type'] = self::USER_TYPES['externs'];
         }
 
@@ -221,7 +222,7 @@ class UserController extends Controller
                     'name' => ['required', 'string', 'max:255' ],
                     'middlename' => ['required','string','max:255'],
                     'surname' => ['nullable'],
-                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString()],
                     'ocupation' => ['required', 'string', 'max:255'],
                     'gender' => [ 'required', 'string', 'in:Masculino,Femenino,No especificar,Otro' ],
                     'other_gender' => ['nullable','required_if:gender,Otro'],
