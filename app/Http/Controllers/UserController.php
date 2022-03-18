@@ -233,45 +233,44 @@ class UserController extends Controller
         //Usuario a retornar
         $user = null;
 
-        //Validacion de datos recibidos desde portal
-        try{
-            $val = Validator::make($request->all(),[
-                'module_id' => ['required', 'exists:modules,id'],
-                'pertenece_uaslp' => ['required', 'boolean'],
-                'tipo_usuario' => ['required', 'string', 'max:255'],
-                'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
-                'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
-                'email' => [ 'required', 'unique:users,email', 'string', 'email', 'max:255' ],
-                'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
-                'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
-                'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
-                'curp' => ['nullable', 'required_if:no_curp,false', 'unique:users,curp', 'size:18', $this->curp_pattern,],
-                'no_curp' => ['required', 'boolean'],
-                'name' => ['required', 'string', 'max:255' ],
-                'middlename' => ['required','string','max:255'],
-                'surname' => ['required','string','max:255'],
-                'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
-                'ocupation' => ['required', 'string', 'max:255'],
-                'gender' => [ 'required', 'string', 'in:Masculino,Femenino,No especificar,Otro' ],
-                'other_gender' => ['nullable','required_if:gender,Otro'],
-                'nationality' => ['required','string','max:255'],
-                'residence' => ['required','string','max:255'],
-                'zip_code' => ['required', 'numeric'],
-                'phone_number' => ['required','numeric'],
-                'is_disabled' => ['required', 'boolean'],
-                'ethnicity' => ['nullable','string','max:255'],
-                'disability' => ['nullable','required_if:is_disabled,true']
-            ]);
-
-            if ($val->fails()) {
-                return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
-            }
-        }catch(\Exception $e){
-            return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
-        }
-
         //Existe o no en portal
         if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
+            //Validacion de datos recibidos desde portal
+            try{
+                $val = Validator::make($request->all(),[
+                    'module_id' => ['required', 'exists:modules,id'],
+                    'pertenece_uaslp' => ['required', 'boolean'],
+                    'tipo_usuario' => ['required', 'string', 'max:255'],
+                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
+                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
+                    'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
+                    'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
+                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
+                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
+                    'curp' => ['nullable', 'required_if:no_curp,false', 'unique:users,curp', 'size:18', $this->curp_pattern,],
+                    'no_curp' => ['required', 'boolean'],
+                    'name' => ['required', 'string', 'max:255' ],
+                    'middlename' => ['required','string','max:255'],
+                    'surname' => ['required','string','max:255'],
+                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+                    'ocupation' => ['required', 'string', 'max:255'],
+                    'gender' => [ 'required', 'string', 'in:Masculino,Femenino,No especificar,Otro' ],
+                    'other_gender' => ['nullable','required_if:gender,Otro'],
+                    'nationality' => ['required','string','max:255'],
+                    'residence' => ['required','string','max:255'],
+                    'zip_code' => ['required', 'numeric'],
+                    'phone_number' => ['required','numeric'],
+                    'is_disabled' => ['required', 'boolean'],
+                    'ethnicity' => ['nullable','string','max:255'],
+                    'disability' => ['nullable','required_if:is_disabled,true']
+                ]);
+
+                if ($val->fails()) {
+                    return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
+                }
+            }catch(\Exception $e){
+                return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
+            }
             $user = $this->newUser($request);   //Crea al usuario y retorna el modelo completo
             //Agrega el modelo del usuario a la base de datos
             DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
