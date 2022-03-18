@@ -52,7 +52,7 @@ class UserController extends Controller
     private function newUser($data)
     {
         //Elimina datos que no son necesarios para guardar nuevo usuario en portal
-        return 'error al crear modelo de usuario';
+        // return new JsonResponse('Si llego hasta aqui', JsonResponse::HTTP_OK);
 
         //Cropped data from control escolar
         if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
@@ -90,7 +90,7 @@ class UserController extends Controller
                 $cropped_data['type'] = self::USER_TYPES['externs']; //usuario externo
             }
         }catch(\Exception $e){
-            return 'error al asignar ID';
+            return new JsonResponse('Error al asignar ID', JsonResponse::HTTP_BAD_REQUEST);
         }
 
         try{
@@ -99,7 +99,7 @@ class UserController extends Controller
             $user->id = $cropped_data['id'];
             $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
         }catch(\Exception $e){
-            return 'error al crear modelo de usuario';
+            return new JsonResponse('No se puede crear el usuario', JsonResponse::HTTP_BAD_REQUEST);
         }
 
         //retorna el modelo del usuario
