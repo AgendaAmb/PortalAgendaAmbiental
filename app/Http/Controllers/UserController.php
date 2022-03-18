@@ -52,17 +52,24 @@ class UserController extends Controller
     private function newUser($data)
     {
         //Elimina datos que no son necesarios para guardar nuevo usuario en portal
+        return 'error al crear modelo de usuario';
 
         //Cropped data from control escolar
-        $cropped_data = collect($data)->except(
-            'module_id', 'pertenece_uaslp', 'clave_uaslp',
-            'tipo_usuario','directorio_activo','rpassword',
-            'other_gender','is_disabled'
-        )->toArray();
+        if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
+            $cropped_data = collect($data)->except(
+                'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                'tipo_usuario','directorio_activo',
+                'other_gender','is_disabled'
+            )->toArray();
+        }else{
+            $cropped_data = collect($data)->except(
+                'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                'tipo_usuario','rpassword',
+                'other_gender','is_disabled'
+            )->toArray();
+        }
 
         try{
-            //crear hash de contraseña
-            $cropped_data ['password'] = Hash::make($cropped_data ['password'] ?? null);
              # Asigna el id al usuario.
             if ($data['pertenece_uaslp'] === true)
             {
@@ -71,7 +78,15 @@ class UserController extends Controller
             }
             else
             {
-                $cropped_data['id'] = User::withTrashed()->where('type', Extern::class)->max('id') + 1;
+                //crear hash de contraseña
+
+                $cropped_data ['password'] = Hash::make($cropped_data ['password'] ?? null);
+
+                //Encuentra al ultimo usuari externo agregado incluso en soft deletes
+                $last_user = User::withTrashed()->where('type', Extern::class)->max('id');
+
+                //Nuevo id
+                $cropped_data['id'] = $last_user->id + 1;
                 $cropped_data['type'] = self::USER_TYPES['externs']; //usuario externo
             }
         }catch(\Exception $e){
