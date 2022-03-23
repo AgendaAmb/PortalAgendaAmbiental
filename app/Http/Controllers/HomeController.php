@@ -49,7 +49,7 @@ class HomeController extends Controller
 
         $nombreModal = session('nombreModal') ?? null;
         $fup_users = DB::table('unirodada_users')->where('unirodada_users.group', 'fup')->count();
-        
+
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
 
@@ -86,7 +86,7 @@ class HomeController extends Controller
         ]);
     }
 
-    
+
     /**
      * Obtiene el listado de usuarios de la unirodada.
      *
@@ -94,7 +94,7 @@ class HomeController extends Controller
      */
     private function getAgriculturaUsers()
     {
-     
+
         # Combina todos los tipos de usuario.
         return User::select(
             User::COLUMNS
@@ -105,7 +105,7 @@ class HomeController extends Controller
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
 
-    
+
     private function getUnihuertoUsers()
     {
         # Consulta bien mortal para traer todo lo que se pide.
@@ -121,7 +121,7 @@ class HomeController extends Controller
                 return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
         //dd($res);
         return $res;
     }
@@ -142,7 +142,7 @@ class HomeController extends Controller
                 return $q->whereIn('workshops.id',[9,11]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
         //dd($res);
         return $res;
     }
@@ -162,7 +162,7 @@ class HomeController extends Controller
                 return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
         //dd($res);
         return $res;
     }
@@ -182,7 +182,7 @@ class HomeController extends Controller
                 return $q->where('workshops.work_edge',2); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
         //dd($res);
         return $res;
     }
@@ -200,7 +200,7 @@ class HomeController extends Controller
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->get();
-   
+
         //dd($res);
         return $res;
     }
@@ -221,7 +221,7 @@ class HomeController extends Controller
     }
 
     public function pruebacorreo()
-    {   
+    {
         //Mail::to()
         Mail::to("a278737@alumnos.uaslp.mx")->send(new PruebaMail('Hola'));
         //Mail::mailer('smtp_unihuerto')->to("a278737@alumnos.uaslp.mx")->send(new PruebaMail);
@@ -233,8 +233,8 @@ class HomeController extends Controller
         //return env("CONTROL_ESCOLAR_ACCESS_KEY");
         //return "s";
         $ak = env("CONTROL_ESCOLAR_ACCESS_KEY")!="" ? env("CONTROL_ESCOLAR_ACCESS_KEY") : "" ;
-        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/".$r->user_id . "?ak=" . $ak);
-            //->with("user_id",$r->user_id)
-            //->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
+        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/".$r->user_id . "?ak=" . $ak)
+            ->with("user_id",$r->user_id)
+            ->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
     }
 }
