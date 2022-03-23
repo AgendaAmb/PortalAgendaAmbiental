@@ -130,7 +130,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
     # Registro a huerto a la mesa.
     Route::post('/RegistrarHuertoMesaUsuario','WorkshopController@RegistrarHuertoMesaUsuario')->name('RegistrarHuertoMesaUsuario');
-    Route::post('/ChecarHuertoMesaUsuario','WorkshopController@ChecarHuertoMesaUsuario')->name('ChecarHuertoMesaUsuario');    
+    Route::post('/ChecarHuertoMesaUsuario','WorkshopController@ChecarHuertoMesaUsuario')->name('ChecarHuertoMesaUsuario');
 
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
@@ -198,4 +198,3 @@ Route::redirect('/vinculacion/index.html', '/vinculación', 301);
 Route::redirect('/daterespiro/index.html', '/DateUnRespiro', 301);
 Route::redirect('/gestion-2/index.html', '/gestión', 301);
 Route::redirect('/mmus/index.html', '/MovilidadUrbanaSostenible', 301);
-

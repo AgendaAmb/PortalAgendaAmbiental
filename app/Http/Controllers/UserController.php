@@ -238,11 +238,11 @@ class UserController extends Controller
             //Validacion de datos recibidos desde portal
             try{
                 $val = Validator::make($request->all(),[
-                    'module_id' => ['required', 'numeric'],
+                    'module_id' => ['required'],
                     'pertenece_uaslp' => ['required', 'boolean'],
                     'tipo_usuario' => ['required', 'string', 'max:255'],
                     'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
-                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
+                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'string'],
                     'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
                     'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
                     'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
@@ -273,10 +273,16 @@ class UserController extends Controller
             }
             $user = $this->newUser($request);   //Crea al usuario y retorna el modelo completo
             //Agrega el modelo del usuario a la base de datos
-            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         }else{
             $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
         }
+
+        try{
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+        }catch(\Exception $e){
+            return new JsonResponse(["El usuario ya ha sido creado",$user->id], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
 
         //Si llega hasta aca es porque todo salio bien
         return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user->id], JsonResponse::HTTP_CREATED);

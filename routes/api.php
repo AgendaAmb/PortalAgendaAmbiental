@@ -19,16 +19,16 @@ Route::post('/registerWorkShop', 'WorkshopController@registerWorkShop')->name('r
 Route::post('/RegisterExternalUser','UserController@RegisterExternalUser')->name('RegisterExternalUser');
 
 # Usuarios autenticados.
-Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
-   
+// Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){
 
-    # Obtener usuario autenticado.
-    Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
 
-    # Búsqueda de usuario.
-    Route::get('/search', 'UserController@search')->name('search');
-   
-});
+//     # Obtener usuario autenticado.
+//     Route::get('/whoami', 'UserController@whoAmI')->name('whoami');
+
+//     # Búsqueda de usuario.
+//     Route::get('/search', 'UserController@search')->name('search');
+
+// });
 
 # Rutas para los sub-sistemas.
 Route::middleware(['client'])->prefix('usuarios')->name('usuarios.')->group(function(){
@@ -52,7 +52,7 @@ Route::middleware('client')->group(function(){
 
     # Obtener usuario.
     Route::get('/searchuser', 'UserController@search')->name('search');
-   
+
     # Actualiza los datos del usuario especificado.
     Route::post('/updateUserData', 'UserController@updateUserData')->name('updateUserData');
 });
