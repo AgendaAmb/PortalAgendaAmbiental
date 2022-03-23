@@ -278,6 +278,7 @@ class UserController extends Controller
 
             //Actualizar fecha de nacimiento
             $user->birth_date = $request->birth_date;
+            $user->save(); // update the model
         }
 
         try{
