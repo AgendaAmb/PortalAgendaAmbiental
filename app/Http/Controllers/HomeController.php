@@ -233,8 +233,8 @@ class HomeController extends Controller
         //return env("CONTROL_ESCOLAR_ACCESS_KEY");
         //return "s";
         $ak = env("CONTROL_ESCOLAR_ACCESS_KEY")!="" ? env("CONTROL_ESCOLAR_ACCESS_KEY") : "" ;
-        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/".$r->user_id . "?ak=" . $ak)
-            ->with("user_id",$r->user_id)
-            ->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
+        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/".$r->user_id . "?ak=" . $ak);
+            // ->with("user_id",$r->user_id)
+            // ->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
     }
 }
