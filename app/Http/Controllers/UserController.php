@@ -238,7 +238,7 @@ class UserController extends Controller
             //Validacion de datos recibidos desde portal
             try{
                 $val = Validator::make($request->all(),[
-                    'module_id' => ['required', 'exists:modules,id'],
+                    'module_id' => ['required', 'numeric'],
                     'pertenece_uaslp' => ['required', 'boolean'],
                     'tipo_usuario' => ['required', 'string', 'max:255'],
                     'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
@@ -252,9 +252,9 @@ class UserController extends Controller
                     'name' => ['required', 'string', 'max:255' ],
                     'middlename' => ['required','string','max:255'],
                     'surname' => ['required','string','max:255'],
-                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+                    'birth_date' => ['required','date'],
                     'ocupation' => ['required', 'string', 'max:255'],
-                    'gender' => [ 'required', 'string', 'in:Masculino,Femenino,No especificar,Otro' ],
+                    'gender' => [ 'required', 'string'],
                     'other_gender' => ['nullable','required_if:gender,Otro'],
                     'nationality' => ['required','string','max:255'],
                     'residence' => ['required','string','max:255'],
