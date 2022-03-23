@@ -275,6 +275,9 @@ class UserController extends Controller
             //Agrega el modelo del usuario a la base de datos
         }else{
             $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
+
+            //Actualizar fecha de nacimiento
+            $user->birth_date = $request->birth_date;
         }
 
         try{
