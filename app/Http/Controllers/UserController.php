@@ -53,17 +53,18 @@ class UserController extends Controller
     {
         //Elimina datos que no son necesarios para guardar nuevo usuario en portal
         // return new JsonResponse('Si llego hasta aqui', JsonResponse::HTTP_OK);
-
         //Cropped data from control escolar
         if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
             $cropped_data = collect($data)->except(
                 'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                'birth_country','residence_country',
                 'tipo_usuario','directorio_activo',
                 'other_gender','is_disabled'
             )->toArray();
         }else{
             $cropped_data = collect($data)->except(
                 'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                'birth_country','residence_country',
                 'tipo_usuario','rpassword',
                 'other_gender','is_disabled'
             )->toArray();
@@ -238,33 +239,74 @@ class UserController extends Controller
             //Validacion de datos recibidos desde portal
             try{
                 $val = Validator::make($request->all(),[
-                    'module_id' => ['required'],
-                    'pertenece_uaslp' => ['required', 'boolean'],
+                    'module_id' => ['required','numeric'],
                     'tipo_usuario' => ['required', 'string', 'max:255'],
-                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
-                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'string'],
+                    'pertenece_uaslp' => ['required', 'boolean'],
+                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true',  'prohibited_if:pertenece_uaslp,false','numeric'],
+                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'prohibited_if:pertenece_uaslp,false', 'string'],
                     'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
                     'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
-                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
-                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
-                    'curp' => ['nullable', 'required_if:no_curp,false', 'unique:users,curp', 'size:18', $this->curp_pattern,],
+                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'string', 'max:255'],
+                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'same:password', 'string', 'max:255'],
                     'no_curp' => ['required', 'boolean'],
-                    'name' => ['required', 'string', 'max:255' ],
-                    'middlename' => ['required','string','max:255'],
-                    'surname' => ['required','string','max:255'],
-                    'birth_date' => ['required','date'],
+                    'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
+                    'name' => ['required', 'string', 'max:255'],
+                    'middlename' => ['required', 'string', 'max:255'],
+                    'surname' => ['required', 'string', 'max:255'],
+                    'birth_date' => ['required', 'date', 'before:' . Carbon::now()->toString(),],
                     'ocupation' => ['required', 'string', 'max:255'],
-                    'gender' => [ 'required', 'string'],
-                    'other_gender' => ['nullable','required_if:gender,Otro'],
-                    'nationality' => ['required','string','max:255'],
-                    'residence' => ['required','string','max:255'],
+                    'gender' => ['required', 'string', 'in:Masculino,Femenino,Otro,No especificar'],
+                    'other_gender' => ['nullable', 'required_if:gender,Otro'],
+                    'birth_country' => ['required', 'string', 'max:255'],
+                    'residence_country' => ['required', 'string', 'max:255'],
                     'zip_code' => ['required', 'numeric'],
-                    'phone_number' => ['required','numeric'],
+                    'phone_number' => ['required', 'numeric'],
                     'is_disabled' => ['required', 'boolean'],
-                    'ethnicity' => ['nullable','string','max:255'],
-                    'disability' => ['nullable','required_if:is_disabled,true']
+                    'ethnicity' => ['required', 'string', 'max:255'],
+                    'disability' => ['nullable', 'required_if:is_disabled,true'],
+                    'nationality' => ['required', 'same:birth_country'],
+                    'residence' => ['required', 'same:residence_country']
                 ]);
 
+                /*
+                Se extraera del modelo la siguiente info
+
+                curp
+
+                name
+                middlename
+                surname
+
+                email
+                altern email
+                gender
+
+                birth_country => as nationality
+                residence => as residence_country
+
+                phone_number
+                zip_code
+                ocupation
+                ethnicity
+                disability
+                password
+
+                */
+
+                /*
+                    Faltarian siguientes datos
+
+                    Age
+                    Type (se agregara al momento de crear el usuario)
+
+                */
+
+                /*
+                    Se agregara al modelo de usuario
+
+                    Fecha de nacimiento (actulizara)
+
+                */
                 if ($val->fails()) {
                     return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
                 }
@@ -277,8 +319,9 @@ class UserController extends Controller
             $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
 
             //Actualizar fecha de nacimiento
-            $user->birth_date = $request->birth_date;
-            $user->save(); // update the model
+            // $user->birth_date = $request->birth_date;
+            // $user->update(); // update the model
+            DB::table('users')->where('email', $request->email)->update(['birth_date'=>$request->birth_date]);
         }
 
         try{
