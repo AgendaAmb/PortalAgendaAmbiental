@@ -54,21 +54,26 @@ class UserController extends Controller
         //Elimina datos que no son necesarios para guardar nuevo usuario en portal
         // return new JsonResponse('Si llego hasta aqui', JsonResponse::HTTP_OK);
         //Cropped data from control escolar
-        if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
-            $cropped_data = collect($data)->except(
-                'module_id', 'pertenece_uaslp', 'clave_uaslp',
-                'birth_country','residence_country',
-                'tipo_usuario','directorio_activo',
-                'other_gender','is_disabled'
-            )->toArray();
-        }else{
-            $cropped_data = collect($data)->except(
-                'module_id', 'pertenece_uaslp', 'clave_uaslp',
-                'birth_country','residence_country',
-                'tipo_usuario','rpassword',
-                'other_gender','is_disabled'
-            )->toArray();
+        try{
+            if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
+                $cropped_data = collect($data)->except(
+                    'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                    'birth_country','residence_country',
+                    'tipo_usuario','directorio_activo',
+                    'other_gender','is_disabled'
+                )->toArray();
+            }else{
+                $cropped_data = collect($data)->except(
+                    'module_id', 'pertenece_uaslp', 'clave_uaslp',
+                    'birth_country','residence_country',
+                    'tipo_usuario','rpassword',
+                    'other_gender','is_disabled'
+                )->toArray();
+            }
+        }catch(\Exception $e){
+            return null;
         }
+
 
         try{
              # Asigna el id al usuario.
@@ -91,7 +96,7 @@ class UserController extends Controller
                 $cropped_data['type'] = self::USER_TYPES['externs']; //usuario externo
             }
         }catch(\Exception $e){
-            return new JsonResponse('Error al asignar ID', JsonResponse::HTTP_BAD_REQUEST);
+            return null;
         }
 
         try{
@@ -100,10 +105,9 @@ class UserController extends Controller
             $user->id = $cropped_data['id'];
             $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
         }catch(\Exception $e){
-            return new JsonResponse('No se puede crear el usuario', JsonResponse::HTTP_BAD_REQUEST);
+            return null;
         }
 
-        //retorna el modelo del usuario
         return $user;
     }
 
@@ -332,6 +336,11 @@ class UserController extends Controller
 
 
         //Si llega hasta aca es porque todo salio bien
-        return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user->id], JsonResponse::HTTP_CREATED);
+        if($user!=null){
+            return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user->id], JsonResponse::HTTP_CREATED);
+        }
+
+        return new JsonResponse(["Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",$user], JsonResponse::HTTP_CREATED);
+
     }
 }
