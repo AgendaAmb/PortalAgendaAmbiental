@@ -237,82 +237,82 @@ class UserController extends Controller
         //Existe o no en portal
         if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
             //Validacion de datos recibidos desde portal
-            try{
-                $val = Validator::make($request->all(),[
-                    'module_id' => ['required','numeric'],
-                    'tipo_usuario' => ['required', 'string', 'max:255'],
-                    'pertenece_uaslp' => ['required', 'boolean'],
-                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true',  'prohibited_if:pertenece_uaslp,false','numeric'],
-                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'prohibited_if:pertenece_uaslp,false', 'string'],
-                    'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
-                    'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
-                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'string', 'max:255'],
-                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'same:password', 'string', 'max:255'],
-                    'no_curp' => ['required', 'boolean'],
-                    'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
-                    'name' => ['required', 'string', 'max:255'],
-                    'middlename' => ['required', 'string', 'max:255'],
-                    'surname' => ['required', 'string', 'max:255'],
-                    'birth_date' => ['required', 'date', 'before:' . Carbon::now()->toString(),],
-                    'ocupation' => ['required', 'string', 'max:255'],
-                    'gender' => ['required', 'string', 'in:Masculino,Femenino,Otro,No especificar'],
-                    'other_gender' => ['nullable', 'required_if:gender,Otro'],
-                    'birth_country' => ['required', 'string', 'max:255'],
-                    'residence_country' => ['required', 'string', 'max:255'],
-                    'zip_code' => ['required', 'numeric'],
-                    'phone_number' => ['required', 'numeric'],
-                    'is_disabled' => ['required', 'boolean'],
-                    'ethnicity' => ['required', 'string', 'max:255'],
-                    'disability' => ['nullable', 'required_if:is_disabled,true'],
-                    'nationality' => ['required', 'same:birth_country'],
-                    'residence' => ['required', 'same:residence_country']
-                ]);
+            // try{
+            //     $val = Validator::make($request->all(),[
+            //         'module_id' => ['required','numeric'],
+            //         'tipo_usuario' => ['required', 'string', 'max:255'],
+            //         'pertenece_uaslp' => ['required', 'boolean'],
+            //         'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true',  'prohibited_if:pertenece_uaslp,false','numeric'],
+            //         'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'prohibited_if:pertenece_uaslp,false', 'string'],
+            //         'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
+            //         'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
+            //         'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'string', 'max:255'],
+            //         'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'same:password', 'string', 'max:255'],
+            //         'no_curp' => ['required', 'boolean'],
+            //         'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
+            //         'name' => ['required', 'string', 'max:255'],
+            //         'middlename' => ['required', 'string', 'max:255'],
+            //         'surname' => ['required', 'string', 'max:255'],
+            //         'birth_date' => ['required', 'date', 'before:' . Carbon::now()->toString(),],
+            //         'ocupation' => ['required', 'string', 'max:255'],
+            //         'gender' => ['required', 'string'],
+            //         'other_gender' => ['nullable', 'required_if:gender,Otro'],
+            //         'birth_country' => ['required', 'string', 'max:255'],
+            //         'residence_country' => ['required', 'string', 'max:255'],
+            //         'zip_code' => ['required', 'numeric'],
+            //         'phone_number' => ['required', 'numeric'],
+            //         'is_disabled' => ['required', 'boolean'],
+            //         'ethnicity' => ['required', 'string', 'max:255'],
+            //         'disability' => ['nullable', 'required_if:is_disabled,true'],
+            //         'nationality' => ['required', 'same:birth_country'],
+            //         'residence' => ['required', 'same:residence_country']
+            //     ]);
 
-                /*
-                Se extraera del modelo la siguiente info
+            //     /*
+            //     Se extraera del modelo la siguiente info
 
-                curp
+            //     curp
 
-                name
-                middlename
-                surname
+            //     name
+            //     middlename
+            //     surname
 
-                email
-                altern email
-                gender
+            //     email
+            //     altern email
+            //     gender
 
-                birth_country => as nationality
-                residence => as residence_country
+            //     birth_country => as nationality
+            //     residence => as residence_country
 
-                phone_number
-                zip_code
-                ocupation
-                ethnicity
-                disability
-                password
+            //     phone_number
+            //     zip_code
+            //     ocupation
+            //     ethnicity
+            //     disability
+            //     password
 
-                */
+            //     */
 
-                /*
-                    Faltarian siguientes datos
+            //     /*
+            //         Faltarian siguientes datos
 
-                    Age
-                    Type (se agregara al momento de crear el usuario)
+            //         Age
+            //         Type (se agregara al momento de crear el usuario)
 
-                */
+            //     */
 
-                /*
-                    Se agregara al modelo de usuario
+            //     /*
+            //         Se agregara al modelo de usuario
 
-                    Fecha de nacimiento (actulizara)
+            //         Fecha de nacimiento (actulizara)
 
-                */
-                if ($val->fails()) {
-                    return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
-                }
-            }catch(\Exception $e){
-                return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
-            }
+            //     */
+            //     if ($val->fails()) {
+            //         return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
+            //     }
+            // }catch(\Exception $e){
+            //     return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
+            // }
             $user = $this->newUser($request);   //Crea al usuario y retorna el modelo completo
             //Agrega el modelo del usuario a la base de datos
         }else{
