@@ -224,7 +224,7 @@ class UserController extends Controller
                     'pertenece_uaslp' => ['required', 'boolean'],
                     'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
                     'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
-                    'email' => [ 'required', 'unique:users,email', 'string', 'email', 'max:255' ],
+                    'email' => [ 'required', 'string', 'email', 'max:255' ],
                     'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
                     'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
                     'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
