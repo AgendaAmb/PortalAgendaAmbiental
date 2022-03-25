@@ -54,26 +54,7 @@ class UserController extends Controller
         //Elimina datos que no son necesarios para guardar nuevo usuario en portal
         // return new JsonResponse('Si llego hasta aqui', JsonResponse::HTTP_OK);
         //Cropped data from control escolar
-        try{
-            if ($data['pertenece_uaslp'] === true){ //Comunidad AA o Comunidad UASLP
-                $cropped_data = collect($data)->except(
-                    'module_id', 'pertenece_uaslp', 'clave_uaslp',
-                    'birth_country','residence_country',
-                    'tipo_usuario','directorio_activo',
-                    'other_gender','is_disabled'
-                )->toArray();
-            }else{
-                $cropped_data = collect($data)->except(
-                    'module_id', 'pertenece_uaslp', 'clave_uaslp',
-                    'birth_country','residence_country',
-                    'tipo_usuario','rpassword',
-                    'other_gender','is_disabled'
-                )->toArray();
-            }
-        }catch(\Exception $e){
-            return null;
-        }
-
+        $cropped_data = collect($data)->except(['pertenece_uaslp'])->toArray();
 
         try{
              # Asigna el id al usuario.
@@ -85,7 +66,6 @@ class UserController extends Controller
             else
             {
                 //crear hash de contraseña
-
                 $cropped_data ['password'] = Hash::make($cropped_data ['password'] ?? null);
 
                 //Encuentra al ultimo usuari externo agregado incluso en soft deletes
@@ -99,14 +79,11 @@ class UserController extends Controller
             return null;
         }
 
-        try{
             # Crea al usuario.
             $user = User::create($cropped_data);
             $user->id = $cropped_data['id'];
             $user->makeHidden(['invoice_data','invoice_url','lunch','paid','paid_at']);
-        }catch(\Exception $e){
-            return null;
-        }
+
 
         return $user;
     }
@@ -240,84 +217,103 @@ class UserController extends Controller
 
         //Existe o no en portal
         if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
-            //Validacion de datos recibidos desde portal
-            // try{
-            //     $val = Validator::make($request->all(),[
-            //         'module_id' => ['required','numeric'],
-            //         'tipo_usuario' => ['required', 'string', 'max:255'],
-            //         'pertenece_uaslp' => ['required', 'boolean'],
-            //         'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true',  'prohibited_if:pertenece_uaslp,false','numeric'],
-            //         'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'prohibited_if:pertenece_uaslp,false', 'string'],
-            //         'email' => ['required', 'unique:users,email', 'string', 'email', 'max:255' ],
-            //         'altern_email' => ['required', 'different:email', 'string', 'email', 'max:255' ],
-            //         'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'string', 'max:255'],
-            //         'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'prohibited_if:pertenece_uaslp,true', 'same:password', 'string', 'max:255'],
-            //         'no_curp' => ['required', 'boolean'],
-            //         'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
-            //         'name' => ['required', 'string', 'max:255'],
-            //         'middlename' => ['required', 'string', 'max:255'],
-            //         'surname' => ['required', 'string', 'max:255'],
-            //         'birth_date' => ['required', 'date', 'before:' . Carbon::now()->toString(),],
-            //         'ocupation' => ['required', 'string', 'max:255'],
-            //         'gender' => ['required', 'string'],
-            //         'other_gender' => ['nullable', 'required_if:gender,Otro'],
-            //         'birth_country' => ['required', 'string', 'max:255'],
-            //         'residence_country' => ['required', 'string', 'max:255'],
-            //         'zip_code' => ['required', 'numeric'],
-            //         'phone_number' => ['required', 'numeric'],
-            //         'is_disabled' => ['required', 'boolean'],
-            //         'ethnicity' => ['required', 'string', 'max:255'],
-            //         'disability' => ['nullable', 'required_if:is_disabled,true'],
-            //         'nationality' => ['required', 'same:birth_country'],
-            //         'residence' => ['required', 'same:residence_country']
-            //     ]);
+            // Validacion de datos recibidos desde portal
+            try{
+                $val = Validator::make($request->all(),[
+                    'module_id' => ['required', 'exists:modules,id'],
+                    'pertenece_uaslp' => ['required', 'boolean'],
+                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
+                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
+                    'email' => [ 'required', 'unique:users,email', 'string', 'email', 'max:255' ],
+                    'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
+                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
+                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
+                    'no_curp' => ['required', 'boolean'],
+                    'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
+                    'name' => ['required', 'string', 'max:255' ],
+                    'middlename' => ['required','string','max:255'],
+                    'surname' => ['nullable'],
+                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+                    'ocupation' => ['required', 'string', 'max:255'],
+                    'gender' => [ 'required', 'string'],
+                    'other_gender' => ['nullable','required_if:gender,Otro'],
+                    'nationality' => ['required','string','max:255'],
+                    'residence' => ['required','string','max:255'],
+                    'birth_country' => ['required', 'string', 'max:255'],
+                    'residence_country' => ['required', 'string', 'max:255'],
+                    'zip_code' => ['required', 'numeric'],
+                    'phone_number' => ['required','numeric'],
+                    'is_disabled' => ['required', 'boolean'],
+                    'ethnicity' => ['nullable','string','max:255'],
+                    'disability' => ['nullable','required_if:is_disabled,true']
+                ]);
 
-            //     /*
-            //     Se extraera del modelo la siguiente info
+                /*
+                Se extraera del modelo la siguiente info
 
-            //     curp
+                curp
 
-            //     name
-            //     middlename
-            //     surname
+                name
+                middlename
+                surname
 
-            //     email
-            //     altern email
-            //     gender
+                email
+                altern email
+                gender
 
-            //     birth_country => as nationality
-            //     residence => as residence_country
+                birth_country => as nationality
+                residence => as residence_country
 
-            //     phone_number
-            //     zip_code
-            //     ocupation
-            //     ethnicity
-            //     disability
-            //     password
+                phone_number
+                zip_code
+                ocupation
+                ethnicity
+                disability
+                password
 
-            //     */
+                */
 
-            //     /*
-            //         Faltarian siguientes datos
+                /*
+                    Faltarian siguientes datos
 
-            //         Age
-            //         Type (se agregara al momento de crear el usuario)
+                    Age
+                    Type (se agregara al momento de crear el usuario)
 
-            //     */
+                */
 
-            //     /*
-            //         Se agregara al modelo de usuario
+                /*
+                    Se agregara al modelo de usuario
 
-            //         Fecha de nacimiento (actulizara)
+                    Fecha de nacimiento (actulizara)
 
-            //     */
-            //     if ($val->fails()) {
-            //         return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
-            //     }
-            // }catch(\Exception $e){
-            //     return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
-            // }
-            $user = $this->newUser($request);   //Crea al usuario y retorna el modelo completo
+                */
+                if ($val->fails()) {
+                    return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
+                }
+            }catch(\Exception $e){
+                return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
+            }
+
+            //split the data from request
+
+            if ($request->pertenece_uaslp === true){ //Comunidad AA o Comunidad UASLP
+                $data = $request->except([
+                    'module_id', 'clave_uaslp',
+                    'no_curp',
+                    'birth_country','residence_country',
+                    'tipo_usuario','directorio_activo',
+                    'other_gender','is_disabled'
+                ]);
+            }else{
+                $data = $request->except([
+                    'module_id', 'no_curp',
+                    'birth_country','residence_country',
+                    'tipo_usuario','rpassword',
+                    'other_gender','is_disabled'
+                ]);
+            }
+
+            $user = $this->newUser($data);   //Crea al usuario y retorna el modelo completo
             //Agrega el modelo del usuario a la base de datos
         }else{
             $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
@@ -328,19 +324,17 @@ class UserController extends Controller
             DB::table('users')->where('email', $request->email)->update(['birth_date'=>$request->birth_date]);
         }
 
+        //El modelo de usuario no se creo
+        if($user === null){
+            return new JsonResponse(['message'=>"Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",'user_id'=>$user], JsonResponse::HTTP_CREATED);
+        }
+
         try{
             DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         }catch(\Exception $e){
             return new JsonResponse(["El usuario ya ha sido creado",$user->id], JsonResponse::HTTP_BAD_REQUEST);
         }
 
-
-        //Si llega hasta aca es porque todo salio bien
-        if($user!=null){
-            return new JsonResponse(["¡Usuario Creado! y/o modulo actualizado",$user->id], JsonResponse::HTTP_CREATED);
-        }
-
-        return new JsonResponse(["Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",$user], JsonResponse::HTTP_CREATED);
-
+        return new JsonResponse(['message'=>"¡Usuario Creado! y/o modulo actualizado",'user_id'=>$user->id], JsonResponse::HTTP_CREATED);
     }
 }
