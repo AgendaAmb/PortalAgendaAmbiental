@@ -61,7 +61,7 @@ class UserController extends Controller
             if ($data['pertenece_uaslp'] === true)
             {
                 $cropped_data['id'] = $data['clave_uaslp'];
-                $cropped_data['type'] = self::USER_TYPES['students']; //Pertenecen a la UASLP
+                $cropped_data['type'] = self::USER_TYPES['ALUMNO']; //Pertenecen a la UASLP
             }
             else
             {
@@ -73,7 +73,7 @@ class UserController extends Controller
 
                 //Nuevo id
                 $cropped_data['id'] = $last_user->id + 1;
-                $cropped_data['type'] = self::USER_TYPES['externs']; //usuario externo
+                $cropped_data['type'] = self::USER_TYPES['EXTERNO']; //usuario externo
             }
         }catch(\Exception $e){
             return null;
@@ -224,7 +224,7 @@ class UserController extends Controller
                     'pertenece_uaslp' => ['required', 'boolean'],
                     'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
                     'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
-                    'email' => [ 'required', 'string', 'email', 'max:255' ],
+                    'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
                     'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
                     'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
                     'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
