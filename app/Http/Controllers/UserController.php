@@ -322,8 +322,11 @@ class UserController extends Controller
             try{
                 $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
 
-                //Actualizar fecha de nacimiento
+                //Actualizar datos que vienen de control escolar
                 $user->birth_date = $request->birth_date ?? $request->birth_date;
+                $user->altern_email = $request->altern_email ?? $request->altern_email;
+
+                //save the model and save in to data base
                 $user->update(); // update the model
             }catch(\Exception $e){
                 // respuesta mala return null
