@@ -20,6 +20,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -316,15 +317,24 @@ class UserController extends Controller
             $user = $this->newUser($data);   //Crea al usuario y retorna el modelo completo
             //Agrega el modelo del usuario a la base de datos
         }else{
-            $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
 
-            //Actualizar fecha de nacimiento
-            $user->birth_date = $request->birth_date ?? $request->birth_date;
-            $user->update(); // update the model
+            //Get user form portal
+            try{
+                $user = User::where('email',$request->email)->first();//saca el usuario que ya esta en el portal
+
+                //Actualizar fecha de nacimiento
+                $user->birth_date = $request->birth_date ?? $request->birth_date;
+                $user->update(); // update the model
+            }catch(\Exception $e){
+                // respuesta mala return null
+                return new JsonResponse(['message'=>"El usuario no se pudo obtener o actualizar de la base de datos",'user_id'=>null], JsonResponse::HTTP_CREATED);
+            }
+
         }
 
         //El modelo de usuario no se creo
         if($user === null){
+            //respuesta mala return null
             return new JsonResponse(['message'=>"Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",'user_id'=>$user], JsonResponse::HTTP_CREATED);
         }
 
