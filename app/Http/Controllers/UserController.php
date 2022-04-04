@@ -289,10 +289,10 @@ class UserController extends Controller
 
                 */
                 if ($val->fails()) {
-                    return new JsonResponse(['Datos no validos', $val->errors()], JsonResponse::HTTP_BAD_REQUEST);
+                    return new JsonResponse(['message'=>'Datos no validos', 'errors'=>$val->errors()], JsonResponse::HTTP_CREATED);
                 }
             }catch(\Exception $e){
-                return new JsonResponse(["Error al mandar los datos, verifique",], JsonResponse::HTTP_BAD_REQUEST);
+                return new JsonResponse(["Error al mandar los datos, verifique",'user_id'=>null], JsonResponse::HTTP_CREATED);
             }
 
             //split the data from request
@@ -344,7 +344,7 @@ class UserController extends Controller
         try{
             DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         }catch(\Exception $e){
-            return new JsonResponse(["El usuario ya ha sido creado",$user->id], JsonResponse::HTTP_BAD_REQUEST);
+            return new JsonResponse(['message'=>"El usuario ya ha sido creado",'user_id'=>$user->id], JsonResponse::HTTP_CREATED);
         }
 
         return new JsonResponse(['message'=>"¡Usuario Creado! y/o modulo actualizado",'user_id'=>$user->id], JsonResponse::HTTP_CREATED);
