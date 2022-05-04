@@ -6,17 +6,10 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8">
     <p class="text-justify pSize pt-3 pt-xl-3 pt-lg-3  pt-md-0 my-5">
-        Los Residuos Sólidos Urbanos (RSU), también llamados basura común, están compuestos en su mayoría de materiales
-        que pueden ser reutilizados o reciclados, y que de no ser así pueden perdurar en el ambiente durante mucho
-        tiempo como los plásticos o el aluminio, o generar gases de efecto invernadero como los residuos de alimentos,
-        causando afectaciones no solo en el ambiente sino en la salud humana de aquellas personas es situaciones más
-        vulnerables. Preocupados por esto, se elaboró un plan de acción para la gestión y manejo de los RSU generados
-        por la UASLP precisando de un programa de valorización y reciclaje a nivel institucional.
+        Son programas de actualización profesional, formación general o especializada en temas ambientales. Se dirige hacia la capacitación para el manejo de los instrumentos de gestión ambiental (evaluación de impacto ambiental, planeación y ordenamientos ecológicos, manejo de áreas naturales protegidas), normativas vigentes o conceptos, metodologías y técnicas de educación ambiental.
         <br><br>
 
-        El Proserem busca que desde la Universidad estos residuos sean disminuidos a través del consumo responsable,
-        categorizados en el momento de su disposición y valorizados para que cada material que pueda ser reincorporado a
-        la cadena productiva lo sea, cerrando ciclos de vida en fuente.
+        Esta modalidad ofrece oportunidades flexibles, diversificadas y de gran calidad a personas adultas que desean o requieren profundizar o extender su conocimiento hacia áreas complementarias para su desarrollo profesional, o que quieren conocer las últimas tendencias relacionadas con la sostenibilidad.
         <br><br>
 
 </div>
@@ -25,7 +18,9 @@
 @section('BannerBotones')
 <div class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/Proserem/BI_Proserem.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/Cursos/B_RE.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/Cursos/B_REI.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/Cursos/B_SC.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
@@ -45,7 +40,7 @@
 -->
 
 
-<div class="mt-1 col-md-12 col-sm-12 p-0">
+<!--<div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-around">
         <a class="nav-link w-50 p-1 m-0 " data-toggle="modal" data-target="#modalCursoProserem" role="tab"
             aria-controls="nav-home" aria-selected="true">Curso Taller Responsabilidad Integral En <br> Laboratorios Y Talleres</a>
@@ -53,7 +48,7 @@
             aria-selected="false">Upcycle  Marroquería Con Materiales <br> Reciclados</a>
            
     </div>
-</div>
+</div>-->
 
 @endsection
 
@@ -96,7 +91,7 @@
 </div>
 @endsection
 
-@section('Modales')
+<!--@section('Modales')
 <div class="modal fade" id="modalCursoProserem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
@@ -368,7 +363,7 @@
     //console.log({{$NombreM}});
      $('#{{$NombreM}}').modal('show')
  </script>
-@endsection
+@endsection-->
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
