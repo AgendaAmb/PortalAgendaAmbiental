@@ -69,9 +69,9 @@ gestión y vinculación con la sociedad.';
                 <x-imagen-slider :linkImagen="asset('img/Educacion/EDUCACION-FORMAL2.png')" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" urlhref="https://ambiental.uaslp.mx/pmpca/" isBlank="true"/>
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true"/>
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="https://ambiental.uaslp.mx/Cursos" isBlank="true"/>
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" urlhref="https://ambiental.uaslp.mx/pmpca/" isBlank="true"/>
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true"/>
+                <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="https://ambiental.uaslp.mx/Cursos" isBlank="true"/>
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
