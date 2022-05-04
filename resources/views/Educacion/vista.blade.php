@@ -107,7 +107,7 @@ gestión y vinculación con la sociedad.';
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/introduccion/PromotoresReal.png')}}"
+                            <img src="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
