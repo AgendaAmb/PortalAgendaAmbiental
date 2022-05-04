@@ -1,4 +1,4 @@
-<div class="modal fade" id="UnirodadaRios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="PromotoresHuasteca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-primary" id="modalGemas">
@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <div class="modal-body bg-white" v-if="!InscritoUnirodadaRios">
+        <div class="modal-body bg-white" v-if="!InscritoPromotoresHuasteca">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -41,44 +41,10 @@
                   <option value="Otro" id="Otro">Otro</option>
                 </select>
               </div>
-              <div class="form-group col-md-6">
-                <label for="isFacturaReq">¿Requieres factura?</label>
-                <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
-                  <option disabled value="">Opción</option>
-                  <option value="Si" id="Si">Si</option>
-                  <option value="No" id="No">No</option>
-                </select>
-              </div>
               <div class="form-group col-md-6 was-validated" v-if="NAcademico=='Otro'">
                 <label for="Especificar">Especificar</label>
                 <input type="text" class="form-control" id="Especificar" v-model="Especificar" required
                   name="Especificar">
-              </div>
-            </div>
-            <div class="form-row " v-if="isFacturaReq=='Si'">
-              <h5 class="modal-title3" id="exampleModalLabel">Datos de facturación</h5>
-              <div class="form-group  was-validated col-12">
-                <label for="Nombres">Nombre Completo o razón social</label>
-                <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF"
-                  style="text-transform: capitalize;">
-              </div>
-              <div class="form-group  was-validated col-12">
-                <label for="Nombres">Domicilio fiscal</label>
-                <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required
-                  name="DomicilioF" style="text-transform: capitalize;">
-              </div>
-              <div class="form-group  was-validated col-6">
-                <label for="Nombres">RFC</label>
-                <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC"
-                  style="text-transform: capitalize;">
-              </div>
-              <div class="form-group  was-validated col-6">
-                <label for="Nombres">Correo electrónico</label>
-                <input type="email" class="form-control" id="emailF" v-model="emailF" required name="emailF">
-              </div>
-              <div class="form-group  was-validated col-6">
-                <label for="Nombres">Teléfono</label>
-                <input type="tel" class="form-control" id="telF" v-model="telF" required name="telF">
               </div>
             </div>
             <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>

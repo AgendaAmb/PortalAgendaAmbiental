@@ -21,28 +21,15 @@
       <div class="col-12  d-flex align-items-center flex-column">
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
-          @if(Auth::user()->hasRole('administrator'))
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
-              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div>
-          @endif
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
-              <img src="{{ asset('/storage/imagenes/Unihuerto/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div>          
+
+          {{-- visible --}}
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
               <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-          <div class="col px-0 d-none" >
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('Rodada')">
-              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
-            </a>
-          </div>
+
+          {{-- visible  --}}
           @if(Auth::user()->user_type!="externs")
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
@@ -51,6 +38,53 @@
             </a>
           </div>
           @endif
+
+          {{-- visible  --}}
+          @if(Auth::user()->hasRole('administrator'))
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
+              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+          @endif
+
+          {{-- ************************************************************************************************************* --}}
+
+          {{-- Unirodada rios  --}}
+          {{-- <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#UnirodadaRios" @click="AbrirModal('UnirodadaRios')">
+              <img src="{{ asset('/storage/imagenes/Unibici/Unirodada_rios.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div> --}}
+
+          {{-- Del huerto a la mesa husteca  --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#HuertoMesaHuasteca" @click="AbrirModal('HuertoMesaHuasteca')">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/UnihuertoHuasteca.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+
+          {{-- Promotores ambientales  --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#PromotoresHuasteca" @click="AbrirModal('PromotoresHuasteca')">
+              <img src="{{ asset('/storage/imagenes/Promotores/PromotoresAmbientales.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+
+          {{-- ************************************************************************************************************* --}}
+          
+
+          {{-- <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
+              <img src="{{ asset('/storage/imagenes/Unihuerto/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div> --}}
+
+          {{-- <div class="col px-0 d-none" >
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('Rodada')">
+              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
+            </a>
+          </div> --}}
 
         </div>
         <div class="row  ">
@@ -125,6 +159,13 @@
   </div>
 
 {{-- Modales con programas vigentes  --}}
+
+@include("RegistroModales.HuertoMesaHuasteca")
+
+@include("RegistroModales.PromotoresHuasteca")
+
+@include("RegistroModales.UnirodadaRios")
+
 @include("RegistroModales.HuertoMesa")
 
 @include("RegistroModales.Unitrueque")
@@ -205,8 +246,10 @@
     EmpresaParticipante:'',
     InscritoUnihuertoCasa:false,
     InscritoUnitrueque:false,
-    InscritoHuertoMesa:false
-    
+    InscritoHuertoMesa:false,
+    InscritoHuertoMesaHuasteca:false,
+    InscritoPromotoresHuasteca:false,
+    InscritoUnirodadaRios:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -401,6 +444,9 @@
       this.checarInscripcionHuertoMesa();
       this.checarInscripcionUnihuertoCasa();
       this.checarInscripcionUnitrueque();
+      this.checarInscripcionHuertoMesaHuasteca();
+      this.checarInscripcionPromotoresHuasteca();
+      this.checarInscripcionUnirodadaRios();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -569,6 +615,58 @@
                    this.Guardado=false;
                })
            }
+           else if(this.modalClick=='HuertoMesaHuasteca'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+              axios.post(this.url+'/RegistrarHuertoMesaHuastecaUsuario',data).then(response => {
+                  console.log(response.status);
+                  if(response.status == 200){
+                    //console.log(response.data);
+                    this.spinnerVisible=false;
+                    $('#HuertoMesaHuasteca').modal('hide');
+                    this.Guardado=true;
+                  }else{
+                    console.log("Mensaje: " + response.data.Message);
+                  }
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
+           }
+           else if(this.modalClick=='PromotoresHuasteca'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+              axios.post(this.url+'/RegistrarPromotoresHuastecaUsuario',data).then(response => {
+                  console.log(response.status);
+                  if(response.status == 200){
+                    //console.log(response.data);
+                    this.spinnerVisible=false;
+                    $('#PromotoresHuasteca').modal('hide');
+                    this.Guardado=true;
+                  }else{
+                    console.log("Mensaje: " + response.data.Message);
+                  }
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
+           }  
+           else if(this.modalClick=='UnirodadaRios'){
+            data['TipoEvento'] = 'unirodada'
+            console.log(data); 
+            axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
+             console.log(response.data),
+             this.spinnerVisible=false,
+             $('#UnirodadaRios').modal('hide'),
+             this.Guardado=true
+            )).catch((err) => {
+              this.Errores[0].Visible;
+            })
+           } 
            else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
@@ -584,6 +682,33 @@
 
         }
       },
+      checarInscripcionHuertoMesaHuasteca: function(){
+        axios.post(this.url + '/ChecarHuertoMesaHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            console.log(response.data);
+            this.InscritoHuertoMesaHuasteca = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      },
+      checarInscripcionPromotoresHuasteca: function(){
+        axios.post(this.url + '/ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            console.log(response.data);
+            this.InscritoPromotoresHuasteca = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      },
+      checarInscripcionUnirodadaRios: function(){
+        axios.post(this.url + '/ChecarUnirodadaRiosUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            console.log(response.data);
+            this.InscritoUnirodadaRios = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      }, 
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + '/ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
