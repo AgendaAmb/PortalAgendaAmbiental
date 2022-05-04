@@ -142,7 +142,7 @@
                             <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}"
                                     class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                    download="Cartel_UnirodadaRios.png">CARTEL GENERAL </a>
+                                    download="Cartel_UnirodadaRios.png">CARTEL</a>
                             </div>
 
                         </div>
@@ -157,7 +157,7 @@
                                         <h3 style="color: #5c94d7;">Dirigido a:</h3>
                                         <p>Comunidad universitaria y público en general</p><br>
                                         <h3 style="color: #5c94d7;">Punto de salida y llegada:</h3>
-                                        <p>Agenda Ambiental de la UASLP (12 km aproximadamente)</p><br>
+                                        <p>Agenda Ambiental de la UASLP (12 km aproximadamente)</p>
                                         <br>
                                         <h3 style="color: #5c94d7;">Objetivo:</h3>
                                         <p>Reflexionar acerca de la importancia de los ríos y el desarrollo urbano en las ciudades, promover la movilidad urbana sostenible, las ciudades seguras y conectadas y el uso de medios de transporte de cero emisiones como la bicicleta.</p>
@@ -168,12 +168,11 @@
                                         <br>
                                         <p align="center">No olvides llevar agua, casco y bicicleta en buen estado.</p>
                                         <br>
-                                        <br>
                                         <p align="center">Contaremos con medidas Covid, apoyo de Protección Civil Universitaria,
                                             policía vial municipal, ambulancia, camioneta de arrastre y bloquedores.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Registro</h3>
-                                        <p>Pasos para registro de participantes:</p><br><br>
+                                        <h3 style="color: #5c94d7;">Registro:</h3>
+                                        <p>Pasos para registro de participantes:</p>
                                         <ol>
                                             <li>Llena correctamente el formulario de registro en línea que se encuentra
                                                 como botón en esta página.</li>
