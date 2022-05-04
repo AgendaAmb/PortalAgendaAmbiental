@@ -70,7 +70,7 @@ gestión y vinculación con la sociedad.';
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" urlhref="https://ambiental.uaslp.mx/pmpca/" isBlank="true" widthBo="w-75" />
-                <x-tab-panel-image :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true" widthBo="w-75" />
+                <x-tab-panel-image :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true" widthBo="w-75" />
                 <x-tab-panel-image :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="https://ambiental.uaslp.mx/Cursos" isBlank="true" widthBo="w-75" />
             </x-tab-panel-footer>
         </x-tab-panel-content>
@@ -87,7 +87,7 @@ gestión y vinculación con la sociedad.';
                         class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab" >
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
-                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/introduccion/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/introduccion/Promotores2.png')"/>
+                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/introduccion/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/introduccion/Promotores2.png')" urlhref="https://ambiental.uaslp.mx/educación/CartelPromotores"/>
             </x-slider>
         </x-tab-panel-content>
     </x-slot>
@@ -115,13 +115,13 @@ gestión y vinculación con la sociedad.';
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/introduccion/PromotoresReal.png')}}"
+                            <a href="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb.png')}}"
                                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
                                 height: 35px;
                                 font-weight: 900;
                                 width: 145px;
                                 "
-                                download="PromotoresReal.png">CARTEL GENERAL </a>
+                                download="Cartel_PromotoresAmb.png">CARTEL</a>
                         </div>
 
                     </div>
