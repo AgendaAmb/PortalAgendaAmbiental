@@ -87,7 +87,7 @@ gestión y vinculación con la sociedad.';
                         class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab" >
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
-                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/Promotores/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/Promotores/Promotores2.png')" urlhref="https://ambiental.uaslp.mx/educación/CartelPromotores"/>
+                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/Promotores/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/Promotores/Promotores2.png')" urlhref="https://ambiental.uaslp.mx/Educacion/CartelPromotores"/>
             </x-slider>
         </x-tab-panel-content>
     </x-slot>
@@ -114,6 +114,10 @@ gestión y vinculación con la sociedad.';
                     <div
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'PromotoresHuasteca'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb.png')}}"
                                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;

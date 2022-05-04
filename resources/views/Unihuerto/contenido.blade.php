@@ -31,7 +31,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block img-fluid"
+                    <img src="{{asset('storage/imagenes/Unihuerto/BINT_HuertoalaMesaHuasteca.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
                 <div class="carousel-item">
@@ -92,7 +92,7 @@
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnitrueque" role="tab"
             aria-controls="nav-profile" aria-selected="false"> UniTrueque <br> UASLP</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerHuertoalaMesa" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> Mini Taller <br> Del Huerto a la mesa</a>
+            aria-controls="nav-profile" aria-selected="false"> Mini Taller <br> Del Huerto a la mesa Zona Huasteca</a>
             <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerAgricultura" role="tab"
             aria-controls="nav-profile" aria-selected="false"> &nbsp;<br> &nbsp;</a>
 
@@ -440,7 +440,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_HuertoalaMesa.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_UnihuertoHuasteca.png')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -448,13 +448,13 @@
                         class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'HuertoMesa'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <a href={{route('Bienvenida',['nombreModal'=> 'HuertoMesaHuasteca'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_HuertoalaMesa.png')}}"
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_UnihuertoHuasteca.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_HuertoalaMesa.png">CARTEL</a>
+                                download="Cartel_UnihuertoHuasteca.png">CARTEL</a>
 
                         </div>
 
@@ -462,7 +462,7 @@
                     <div class="row justify-content-center">
                         <div class="col-10"
                             style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'"><br>
-                            <h4>Mini Taller: Del Huerto a la mesa</h4><br><br>
+                            <h4>Mini Taller: Del Huerto a la mesa<br>Zona Huasteca</h4><br><br>
                             <h4>Justificación</h4>
                             <p>La agricultura orgánica es una herramienta indispensable para lograr diferentes aspectos que promueven el cuidado del medio y un mejor estilo de vida.</p><br>
                             <h4>Objetivo general</h4>
@@ -476,7 +476,7 @@
                                 </ul>
                             </p><br>
                             <h4>Dirigido a</h4>
-                            <p>Todos los trabajadores de la Universidad, docentes, investigadores, alumnos, administrativos y público en general.</p><br>
+                            <p>Todos la comunidad UASLP, alumnos, trabajadores, docentes, investigadores, administrativos y público en general.</p><br>
                             <h4>Descripción</h4>
                             <p>Curso-taller teórico práctico donde se revisará:<br>
                                 <ul>
@@ -490,25 +490,22 @@
                             <p>10:00 a 14:00 horas</p><br>
                             <h4>Lugar</h4>
                             <p><ul>
-                                    <li>Teoría: Sala de usos múltiples (a lado de auditorio)</li>
-                                    <li>Práctica: Unihuerto de Unidad Académica Multidisciplinaria Zona Media (atrás de edificio de Laboratorios de Ingeniería Civil)</li>
+                                    <li>Teoría: Sala de usos múltiples</li>
+                                    <li>Práctica: Unihuerto de Unidad Académica Multidisciplinaria Zona Huasteca (atrás de edificio de gimnasio)</li>
                                 </ul>
                             </p><br>                                   
-                                                                   
-                            <h4>Cuota de recuperación (incluye materiales):</h4>                    
-                            <p>$200 Costo general
-                            </p><br>
+                            <p align="center">SIN COSTO</p><br>
                             
                             <h4>Registro</h4>
                                 <p>Pasos para registro de participantes: 
                                 </p>
                                 <ol>
                                     <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
-                                    <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
-                                    <li>Se te enviará un correo en un lapso de 48 horas con la ficha de pago.</li>  
+                                    <li>Al finalizar y dar clic en el botón enviar, queda PRE-INSCRITO.</li>
+                                    <li>Se envía un correo en un lapso de 48 horas confirmando su asistencia.</li>  
                                 </ol>
                                 <br>
-                                CUPO LIMITADO</p><br>
+                                <p>CUPO LIMITADO</p><br>
                                 <h4>Informes</h4>
                                 <p><b>Agenda Ambiental de la UASLP</b><br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
                                     piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
@@ -516,7 +513,7 @@
                                     <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
                                 </p>
                                 <p><b>Unisalud</b><br>Servicios Estudiantiles<br>Universidad Autónoma de San Luis Potosí<br>Tel. 826-2300 Ext. 5556<br><a href="mailto:unisalud@uaslp.mx">unisalud@uaslp.mx</a></p>
-                                <p><b>Promotores Ambientales Zona Media</b><br><a href="mailto:florencio.reyes@uaslp.mx">florencio.reyes@uaslp.mx</a></p>
+                                <p><b>Unidad Ambiental Zona Huasteca</b><br><a href="mailto:oscar.malibran@uaslp.mx">oscar.malibran@uaslp.mx</a></p>
                         </div>
                     </div>
                 </div>
