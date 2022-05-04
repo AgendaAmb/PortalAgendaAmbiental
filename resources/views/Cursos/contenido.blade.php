@@ -1,39 +1,10 @@
 @extends('Bienvenido')
 
 @php
-$titulo = '<strong> ¿Qué hacemos? </strong>';
-$texto = 'Mediante este eje, la
-Agenda Ambiental de la UASLP busca apoyar
-las actividades académicas cotidianas de
-aquellos que están interesados en incorporar
-o fortalecer la perspectiva ambiental y de
-sostenibilidad en los planes y programas de
-estudios, a través del diseño y puesta en
-práctica de programas específicos de
-innovación educativa y producción de
-materiales. Además de lo anterior, se
-ofrecen programas educativos sobre temas de
-ambiente y sostenibilidad para dar respuesta
-a las necesidades de capacitación de la
-sociedad, a nivel estatal, nacional e
-internacional.
-
+$titulo = '<strong> Educación ambiental continua </strong>';
+$texto = 'Son programas de actualización profesional, formación general o especializada en temas ambientales. Se dirigen hacia la capacitación para el manejo de los instrumentos de gestión ambiental (evaluación de impacto ambiental, planeación y ordenamiento ecológicos, manejo de áreas naturales protegidas), normativas vigentes o conceptos, metodologías y técnicas de educación ambiental. 
 <br><br>
-De esta manera la Agenda Ambiental
-contribuye de manera importante en la
-consecución de los rasgos de la visión
-definidos en el PIDE 2013-2023,
-específicamente en el principio 14
-“Perspectiva Ambiental”, en el que se
-expresa el interés por parte de la UASLP por
-contribuir a la construcción de una cultura
-de convivencia con la naturaleza, de
-protección del ambiente y al aprovechamiento
-sostenible de los recursos naturales,
-articulada en todo el quehacer
-universitario, específicamente en sus
-funciones de docencia, investigación,
-gestión y vinculación con la sociedad.';
+Esta modalidad ofrece oportunidades flexibles, diversificadas y de gran calidad a personas adultas que desean o requieren profundizar o extender su conocimiento hacia áreas complementarias para su desarrollo profesional, o que quieren conocer las últimas tendencias relacionadas con la sostenibilidad.';
 @endphp
 
 @section('ContenidoPrincipal')
@@ -56,7 +27,45 @@ gestión y vinculación con la sociedad.';
 
     <x-slot name="tabContent">
 
-        {{--
+        @section('BannerBotones')
+<div class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
+    <div class="col-12">
+        <img src="{{asset('img/Educacion/B_RE.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('img/Educacion/B_REI.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('img/Educacion/B_SC.png')}}" class="img-fluid" alt="" srcset="">
+    </div>
+
+</div>
+
+<!--
+<div
+    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoProserem"id="CICLOCON">
+            CURSO TALLER <br> RESPONSABILIDAD <br> INTEGRAL EN LABORATORIOS <br> Y TALLERES
+        </a>
+        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoUPCYCLE" id="CICLOCON">
+           UPCYCLE <br> MARROQUERÍA CON <br>MATERIALES RECICLADOS
+        </a>
+    </div>
+
+
+
+<div class="mt-1 col-md-12 col-sm-12 p-0">
+    <div class="nav nav-tabs justify-content-around">
+        <a class="nav-link w-50 p-1 m-0 " data-toggle="modal" data-target="#modalCursoProserem" role="tab"
+            aria-controls="nav-home" aria-selected="true">Curso Taller Responsabilidad Integral En <br> Laboratorios Y Talleres</a>
+        <a class="nav-link w-50 p-1 m-0" data-toggle="modal"  data-target="#modalCursoUPCYCLE" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Upcycle  Marroquería Con Materiales <br> Reciclados</a>
+           
+    </div>
+</div>-->
+
+@endsection
+
+
+        <!--{{--
             Tab correspondiente a EDUCACIÓN FORMAL.
         --}}
         <x-tab-panel-content class="tab-pane fade show active" id="tab-panel-1" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -71,7 +80,6 @@ gestión y vinculación con la sociedad.';
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" urlhref="https://ambiental.uaslp.mx/pmpca/" isBlank="true"/>
                 <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true"/>
-                <x-tab-panel-image class="col-10 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="https://ambiental.uaslp.mx/Cursos" isBlank="true"/>
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
@@ -89,7 +97,7 @@ gestión y vinculación con la sociedad.';
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
                 <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/introduccion/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/introduccion/Promotores2.png')"/>
             </x-slider>
-        </x-tab-panel-content>
+        </x-tab-panel-content>-->
     </x-slot>
 </x-tab-panel>
 
