@@ -87,7 +87,7 @@ gestión y vinculación con la sociedad.';
                         class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab" >
 
                 <x-imagen-slider :primerImagen=true :linkImagen="asset('img/Educacion/EDUCAION-NOFORMAL.png')" />
-                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/introduccion/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/introduccion/Promotores2.png')" urlhref="https://ambiental.uaslp.mx/educación/CartelPromotores"/>
+                <x-imagen-slider :isDobleImg=true :linkImagen="asset('storage/imagenes/Promotores/Promotores1.png')"  :linkImagen2="asset('storage/imagenes/Promotores/Promotores2.png')" urlhref="https://ambiental.uaslp.mx/educación/CartelPromotores"/>
             </x-slider>
         </x-tab-panel-content>
     </x-slot>
