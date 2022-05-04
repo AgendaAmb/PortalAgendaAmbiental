@@ -108,6 +108,7 @@
         <ul>
             <li>Procedimiento para realizar Unirodadas <a href="/GreenMetric/PROCD_Unirodadas.pdf" download> Descargar </a></li>
         </ul>
+        <br>
         <h4 class="h3Title">Más Información</h4>
         <p style="font-size: 14px !important;"><b>Sistema de Gestión Ambiental</b><br>Agenda Ambiental de la
             UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria,
@@ -117,7 +118,7 @@
     </div>
     @endsection
 
-    <!--@section('Modales')
+    @section('Modales')
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
@@ -196,7 +197,7 @@
             </div>
         </div>
     </div>
-    @endsection-->
+    @endsection
 
 
     <!--@section('Modales')
