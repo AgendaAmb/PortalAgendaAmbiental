@@ -35,7 +35,7 @@
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-center">
             <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
-                aria-controls="nav-home" aria-selected="true"> Unirodada 30 De Abril</a>
+                aria-controls="nav-home" aria-selected="true"> Unirodada por los ríos 2022</a> 
           
                
         </div>
@@ -117,7 +117,89 @@
     </div>
     @endsection
 
-    @section('Modales')
+    <!--@section('Modales')
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body py-0">
+                    <div class="col-12 mb-4 ml-3 p-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                                <img src="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div
+                            class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                            <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}"
+                                    class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                    download="Cartel_UnirodadaRios.png">CARTEL GENERAL </a>
+                            </div>
+
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <br><br>
+                                <h4>Unirodada por los Ríos</h4><br><br>
+                                <div class="elementor-text-editor elementor-clearfix">
+                                    <div style="font-size: 14px; font-family: 'Myraid light';">
+                                        <p align="center">Sábado 21 de mayo del 2022<br>8:00 - 11:00 horas<br>Costo: $50.00<br><br></p>
+                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
+                                        <p>Comunidad universitaria y público en general</p><br>
+                                        <h3 style="color: #5c94d7;">Punto de salida y llegada:</h3>
+                                        <p>Agenda Ambiental de la UASLP (12 km aproximadamente)</p><br>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
+                                        <p>Reflexionar acerca de la importancia de los ríos y el desarrollo urbano en las ciudades, promover la movilidad urbana sostenible, las ciudades seguras y conectadas y el uso de medios de transporte de cero emisiones como la bicicleta.</p>
+                                        <br>
+                                        <br>
+                                        <h5 align="center">¡Habrá plática respecto a los ríos y el urbanismo y regalos sorpresa!</h5>
+                                        <br>
+                                        <br>
+                                        <p align="center">No olvides llevar agua, casco y bicicleta en buen estado.</p>
+                                        <br>
+                                        <br>
+                                        <p align="center">Contaremos con medidas Covid, apoyo de Protección Civil Universitaria,
+                                            policía vial municipal, ambulancia, camioneta de arrastre y bloquedores.</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Registro</h3>
+                                        <p>Pasos para registro de participantes:</p><br><br>
+                                        <ol>
+                                            <li>Llena correctamente el formulario de registro en línea que se encuentra
+                                                como botón en esta página.</li>
+                                            <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
+                                            <li>Se te enviará un correo en un lapso de 48 horas con la ficha de pago.</li>
+                                        </ol>
+                                        <br><br>
+                                        <h3 style="color: #5c94d7;">Informes</h3>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @endsection-->
+
+
+    <!--@section('Modales')
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
@@ -218,7 +300,7 @@
             </div>
         </div>
     </div>
-    @endsection
+    @endsection-->
 
     @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
