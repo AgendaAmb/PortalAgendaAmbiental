@@ -25,31 +25,6 @@
 
 </div>
 
-<!--
-<div
-    class="row mt-1 col-md-12 col-sm-12 pl-md-4 justify-content-xl-start  justify-content-lg-start  justify-content-md-start justify-content-around">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoProserem"id="CICLOCON">
-            CURSO TALLER <br> RESPONSABILIDAD <br> INTEGRAL EN LABORATORIOS <br> Y TALLERES
-        </a>
-        <a class="btn btnCur m-2 " href="#" role="button group" data-toggle="modal" data-target="#modalCursoUPCYCLE" id="CICLOCON">
-           UPCYCLE <br> MARROQUERÍA CON <br>MATERIALES RECICLADOS
-        </a>
-    </div>
--->
-
-
-<!--<div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-around">
-        <a class="nav-link w-50 p-1 m-0 " data-toggle="modal" data-target="#modalCursoProserem" role="tab"
-            aria-controls="nav-home" aria-selected="true">Curso Taller Responsabilidad Integral En <br> Laboratorios Y Talleres</a>
-        <a class="nav-link w-50 p-1 m-0" data-toggle="modal"  data-target="#modalCursoUPCYCLE" role="tab" aria-controls="nav-profile"
-            aria-selected="false">Upcycle  Marroquería Con Materiales <br> Reciclados</a>
-           
-    </div>
-</div>-->
-
 @endsection
 
 @section('ObjetivosTexto')
@@ -91,8 +66,8 @@
 </div>
 @endsection
 
-<!--@section('Modales')
-<div class="modal fade" id="modalCursoProserem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+@section('Modales')
+<!--<div class="modal fade" id="modalCursoProserem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -358,12 +333,12 @@
 
         </div>
     </div>
-</div>
+</div>-->
 <script>
     //console.log({{$NombreM}});
      $('#{{$NombreM}}').modal('show')
  </script>
-@endsection-->
+@endsection
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
