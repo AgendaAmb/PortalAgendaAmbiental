@@ -71,7 +71,7 @@ gestión y vinculación con la sociedad.';
             <x-tab-panel-footer class="row justify-content-between">
                 <x-tab-panel-image class="col-7 col-sm-5 col-md-3 my-3 mx-auto" :imageURL="asset('img/Educacion/pmpca-logo.png')" urlhref="https://ambiental.uaslp.mx/pmpca/" isBlank="true" widthBo="w-75" />
                 <x-tab-panel-image :imageURL="asset('img/Educacion/imarec-logo.png')" urlhref="https://ambiental.uaslp.mx/imarec/" urlhref="https://ambiental.uaslp.mx/imarec/" isBlank="true" widthBo="w-75" />
-                <x-tab-panel-image :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="https://ambiental.uaslp.mx/Cursos" isBlank="true" widthBo="w-75" />
+                <x-tab-panel-image :imageURL="asset('img/Educacion/cursos-logo.png')" urlhref="Cursos" isBlank="true" widthBo="w-75" />
             </x-tab-panel-footer>
         </x-tab-panel-content>
 
