@@ -27,7 +27,7 @@
 
 @endsection
 
-@section('ObjetivosTexto')
+<!--@section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
 
 
@@ -67,7 +67,7 @@
 @endsection
 
 @section('Modales')
-<!--<div class="modal fade" id="modalCursoProserem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="modalCursoProserem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -333,12 +333,12 @@
 
         </div>
     </div>
-</div>-->
+</div>
 <script>
     //console.log({{$NombreM}});
      $('#{{$NombreM}}').modal('show')
  </script>
-@endsection
+@endsection-->
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
