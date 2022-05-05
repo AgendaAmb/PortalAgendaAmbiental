@@ -49,6 +49,10 @@ Route::get('/Unibici', function () {
     return view('Unibici.contenido');
 })->name('Unibici');
 
+Route::get('/Cursos', function () {
+    return view('Cursos.contenido');
+})->name('Cursos');
+
 Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
