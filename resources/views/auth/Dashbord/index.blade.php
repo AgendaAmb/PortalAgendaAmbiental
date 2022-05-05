@@ -446,7 +446,7 @@
       this.checarInscripcionUnitrueque();
       this.checarInscripcionHuertoMesaHuasteca();
       this.checarInscripcionPromotoresHuasteca();
-      this.checarInscripcionUnirodadaRios();
+      // this.checarInscripcionUnirodadaRios();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
