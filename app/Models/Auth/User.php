@@ -303,7 +303,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getUnirodadaDetailsField($field)
     {
         return $this->getUnirodadaDetailsQuery(
-            'Unirodada cicloturística a la Cañada del Lobo'
+            'Unirodada por los ríos'
         )->latest('unirodada_users.created_at')
         ->value($field)
 
@@ -320,7 +320,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setUnirodadaDetailsField($field, $value)
     {
         $this->getUnirodadaDetailsQuery(
-            'Unirodada cicloturística a la Cañada del Lobo'
+            'Unirodada por los ríos'
         )->update([
             $field => $value
         ]);

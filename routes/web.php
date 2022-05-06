@@ -139,9 +139,13 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarHuertoMesaHuastecaUsuario','WorkshopController@RegistrarHuertoMesaHuastecaUsuario')->name('RegistrarHuertoMesaHuastecaUsuario');
     Route::post('/ChecarHuertoMesaHuastecaUsuario','WorkshopController@ChecarHuertoMesaHuastecaUsuario')->name('ChecarHuertoMesaHuastecaUsuario');
 
+    # Registro a Rodada por los Rios
+    Route::post('/RegistrarRodadaRioUsuario', 'WorkshopController@RegistrarRodadaRioUsuario')->name('RegistrarRodadaRioUsuario');
+    Route::post('/ChecarRodadaRioUsuario', 'WorkshopController@ChecarRodadaRioUsuario')->name('ChecarRodadaRioUsuario');
+
     # Registro a promotores huasteca.
-    Route::post('/RegistrarPromotoresHuastecaUsuario','WorkshopController@RegistrarPromotoresHuastecaUsuario')->name('RegistrarPromotoresHuastecaUsuario');
-    Route::post('/ChecarPromotoresHuastecaUsuario','WorkshopController@ChecarPromotoresHuastecaUsuario')->name('ChecarPromotoresHuastecaUsuario');
+    Route::post('/RegistrarPromotoresHuastecaUsuario', 'WorkshopController@RegistrarPromotoresHuastecaUsuario')->name('RegistrarPromotoresHuastecaUsuario');
+    Route::post('/ChecarPromotoresHuastecaUsuario', 'WorkshopController@ChecarPromotoresHuastecaUsuario')->name('ChecarPromotoresHuastecaUsuario');
 
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 

@@ -51,11 +51,11 @@
           {{-- ************************************************************************************************************* --}}
 
           {{-- Unirodada rios  --}}
-          {{-- <div class="col px-0">  
+          <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#UnirodadaRios" @click="AbrirModal('UnirodadaRios')">
               <img src="{{ asset('/storage/imagenes/Unibici/Unirodada_rios.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div> --}}
+          </div>
 
           {{-- Del huerto a la mesa husteca  --}}
           <div class="col px-0">  
@@ -133,7 +133,7 @@
       </div>
 
       <div class="row justify-content-end align-items-center ml-1 ">
-        @if (Auth::user()->sent&&Auth::user()->invoice_data==null)
+        {{-- @if(Auth::user()->sent&&Auth::user()->invoice_data==null)
         <div class=" col-md-11 col-xl-12 col-lg-12 col-12 px-0"
           v-if="checkedNames.includes('Unirodada cicloturística a la Cañada del Lobo')">
           <a class="btn btn-secondary w-100 font-weight-bold" data-toggle="collapse" href="#collapseExample"
@@ -141,6 +141,7 @@
             AVISOS
           </a>
         </div>
+
         <div class="collapse show px-0" id="collapseExample">
           <div class="card card-body" style="font-size: 15px;border: 0px solid rgba(0, 0, 0, 0.125);">
             <p class="">Recuerda subir tu comprobante de pago de la Unirodada
@@ -148,8 +149,8 @@
             </p>
           </div>
         </div>
+        @endif --}}
 
-        @endif
       </div>
 
 
@@ -351,8 +352,7 @@
                  }
              }).then(
                      res => {
-
-
+                        console.log(response.data),
                          this.file = '',
                          this.spinnerVisible=false,
                          this.asistenciaExito=true
@@ -430,6 +430,7 @@
                     '{{$E['name']}}'
                 )
       @endforeach
+      console.log(this.checkedNames);
     },
     check_one: function(){
         this.CondicionSalud = [];
@@ -446,7 +447,7 @@
       this.checarInscripcionUnitrueque();
       this.checarInscripcionHuertoMesaHuasteca();
       this.checarInscripcionPromotoresHuasteca();
-      // this.checarInscripcionUnirodadaRios();
+      this.checarInscripcionUnirodadaRios();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -657,14 +658,23 @@
            }  
            else if(this.modalClick=='UnirodadaRios'){
             data['TipoEvento'] = 'unirodada'
-            console.log(data); 
-            axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
-             console.log(response.data),
-             this.spinnerVisible=false,
-             $('#UnirodadaRios').modal('hide'),
-             this.Guardado=true
-            )).catch((err) => {
-              this.Errores[0].Visible;
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'/RegistrarRodadaRioUsuario',data).then(response => {
+                console.log(response.status);
+                if(response.status == 200){
+                  //console.log(response.data);
+                  this.spinnerVisible=false;
+                  $('#UnirodadaRios').modal('hide');
+                  this.Guardado=true;
+                }else{
+                  console.log("Mensaje: " + response.data.Message);
+                }
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
             })
            } 
            else{
@@ -701,7 +711,7 @@
           })
       },
       checarInscripcionUnirodadaRios: function(){
-        axios.post(this.url + '/ChecarUnirodadaRiosUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + '/ChecarRodadaRioUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             console.log(response.data);
             this.InscritoUnirodadaRios = response.data;

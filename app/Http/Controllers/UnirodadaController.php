@@ -110,7 +110,7 @@ class UnirodadaController extends Controller
         # Envía el comprobante de pago,en caso de que el evento
         # registrado haya sido una unihuerto casa 2022.
         
-        $event = Workshop::find(9); //workshop 9 = unihuerto casa
+        $event = Workshop::find(12); //workshop 9 = unihuerto casa
 
         # Registra la asistencia del usuario.
         $user->workshops()->updateExistingPivot($event->id, [
@@ -119,7 +119,7 @@ class UnirodadaController extends Controller
         ]);
 
         # Se envía el comprobante de pago.
-        Mail::mailer('smtp_unihuerto')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
+        Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'
