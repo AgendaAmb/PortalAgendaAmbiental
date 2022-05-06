@@ -77,7 +77,6 @@ Route::get('/CicloConferencias', function () {
     return view('Conferencias.contenido');
 })->name('CicloConf');
 
-
 Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
     return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);
 })->name('ConsumoResponsable');
