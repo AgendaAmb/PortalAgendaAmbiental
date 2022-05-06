@@ -18,13 +18,13 @@
 @section('BannerBotones')
 <div class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-4 ">
-        <img src="{{asset('storage/imagenes/Cursos/B_RE.png')}}" class="img-fluid" alt="" srcset="">
+        <a href="https://ambiental.uaslp.mx/imarec/docs/CA/Curso_REG.pdf"><img src="{{asset('storage/imagenes/Cursos/B_RE.png')}}" class="img-fluid" alt="" srcset=""></a>
     </div>
     <div class="col-4 ">    
-        <img src="{{asset('storage/imagenes/Cursos/B_REI.png')}}" class="img-fluid" alt="" srcset="">
+        <a href="https://ambiental.uaslp.mx/imarec/docs/CA/Curso_RI.pdf"><img src="{{asset('storage/imagenes/Cursos/B_REI.png')}}" class="img-fluid" alt="" srcset=""></a>
     </div>
     <div class="col-4 ">        
-        <img src="{{asset('storage/imagenes/Cursos/B_SC.png')}}" class="img-fluid" alt="" srcset="">
+        <a href="https://ambiental.uaslp.mx/imarec/docs/CA/Curso_SCMU.pdf"><img src="{{asset('storage/imagenes/Cursos/B_SC.png')}}" class="img-fluid" alt="" srcset=""></a>
     </div>
 
 </div>
