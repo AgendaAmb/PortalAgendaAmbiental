@@ -136,8 +136,7 @@
                                 <img src="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}" class="img-fluid" alt="">
                             </div>
                         </div>
-                        <div
-                            class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
                             <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href={{route('Bienvenida',['nombreModal'=> 'UnirodadaRios'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
