@@ -34,7 +34,7 @@
 
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-center">
-            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="modalUnirodada" role="tab"
                 aria-controls="nav-home" aria-selected="true"> Unirodada por los ríos 2022</a> 
           
                
@@ -119,7 +119,7 @@
     @endsection
 
     @section('Modales')
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade" id="modalUnirodada" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -199,6 +199,10 @@
             </div>
         </div>
     </div>
+    <script>
+    //console.log({{$NombreM}});
+     $('#{{$NombreM}}').modal('show')
+    </script>
     @endsection
 
 
@@ -305,6 +309,6 @@
     </div>
     @endsection-->
 
-    @push('stylesheets')
+@push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
