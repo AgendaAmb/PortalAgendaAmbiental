@@ -558,7 +558,7 @@
            }
            else if(this.modalClick=='UnihuertoCasa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-              axios.post(this.url+'/RegistrarUnihuertoCasaUsuario',data).then(response => {
+              axios.post(this.url+'RegistrarUnihuertoCasaUsuario',data).then(response => {
                   console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
@@ -578,7 +578,7 @@
            }
            else if(this.modalClick=='HuertoMesa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-              axios.post(this.url+'/RegistrarHuertoMesaUsuario',data).then(response => {
+              axios.post(this.url+'RegistrarHuertoMesaUsuario',data).then(response => {
                   console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
@@ -598,7 +598,7 @@
            }           
            else if(this.modalClick=='Unitrueque'){
                //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-               axios.post(this.url+'/RegistrarUnitruequeUsuario',data).then(response => {
+               axios.post(this.url+'RegistrarUnitruequeUsuario',data).then(response => {
                    console.log(response.status);
                    if(response.status == 200){
                        console.log(response.data);
@@ -618,7 +618,7 @@
            }
            else if(this.modalClick=='HuertoMesaHuasteca'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-              axios.post(this.url+'/RegistrarHuertoMesaHuastecaUsuario',data).then(response => {
+              axios.post(this.url+'RegistrarHuertoMesaHuastecaUsuario',data).then(response => {
                   console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
@@ -638,7 +638,7 @@
            }
            else if(this.modalClick=='PromotoresHuasteca'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-              axios.post(this.url+'/RegistrarPromotoresHuastecaUsuario',data).then(response => {
+              axios.post(this.url+'RegistrarPromotoresHuastecaUsuario',data).then(response => {
                   console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
@@ -659,7 +659,7 @@
            else if(this.modalClick=='UnirodadaRios'){
             data['TipoEvento'] = 'unirodada'
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'/RegistrarRodadaRioUsuario',data).then(response => {
+            axios.post(this.url+'RegistrarRodadaRioUsuario',data).then(response => {
                 console.log(response.status);
                 if(response.status == 200){
                   //console.log(response.data);
@@ -693,7 +693,7 @@
         }
       },
       checarInscripcionHuertoMesaHuasteca: function(){
-        axios.post(this.url + '/ChecarHuertoMesaHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarHuertoMesaHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             console.log(response.data);
             this.InscritoHuertoMesaHuasteca = response.data;
@@ -702,7 +702,7 @@
           })
       },
       checarInscripcionPromotoresHuasteca: function(){
-        axios.post(this.url + '/ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             console.log(response.data);
             this.InscritoPromotoresHuasteca = response.data;
@@ -711,7 +711,7 @@
           })
       },
       checarInscripcionUnirodadaRios: function(){
-        axios.post(this.url + '/ChecarRodadaRioUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarRodadaRioUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             console.log(response.data);
             this.InscritoUnirodadaRios = response.data;
@@ -720,7 +720,7 @@
           })
       }, 
       checarInscripcionHuertoMesa: function(){
-        axios.post(this.url + '/ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             console.log(response.data);
             this.InscritoHuertoMesa = response.data;
@@ -729,7 +729,7 @@
           })
       },      
       checarInscripcionUnihuertoCasa: function(){
-        axios.post(this.url + '/ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             this.InscritoUnihuertoCasa = response.data;
           }).catch((err) => {
@@ -737,7 +737,7 @@
           })
       },
       checarInscripcionUnitrueque: function(){
-          axios.post(this.url + '/ChecarUnitruequeUsuario',{ "Clave":this.ClaveU_RPE })
+          axios.post(this.url + 'ChecarUnitruequeUsuario',{ "Clave":this.ClaveU_RPE })
               .then(response => {
                   this.InscritoUnitrueque = response.data;
               }).catch((err) => {
