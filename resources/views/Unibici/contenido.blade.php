@@ -199,11 +199,7 @@
             </div>
         </div>
     </div>
-    <script>
-    //console.log({{$NombreM}});
-     $('#{{$NombreM}}').modal('show')
-    </script>
-    @endsection
+
 
 
     <!--@section('Modales')
@@ -309,6 +305,11 @@
     </div>
     @endsection-->
 
+    <script>
+    //console.log({{$NombreM}});
+     $('#{{$NombreM}}').modal('show')
+    </script>
+    @endsection
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
 @endpush
