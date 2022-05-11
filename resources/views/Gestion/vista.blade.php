@@ -262,7 +262,7 @@ Tabs de Gestión Institucional.
                 <x-imagen-slider :linkImagen="asset('img/Gestion/energia2.png')" widthBo="w-75" />
             </x-slider>
             <x-tab-panel-footer class="row justify-content-between">
-                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unibici.png')" urlhref="{{route('Unibici')}}"
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Unibici.png')" urlhref="{{route('Unibici',['nombreModal'=> 'UnirodadaRios'])}}"
                     widthBo="w-75" />
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_AutoCompartido.png')" widthBo="w-75" />
                 <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_EspaciosHabit.png')" widthBo="w-75" />

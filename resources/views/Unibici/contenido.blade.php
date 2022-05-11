@@ -200,8 +200,9 @@
         </div>
     </div>
     <script>
-    console.log({{$NombreM}});
-    $('#{{$NombreM}}').modal('show')
+    // console.log({{ $NombreM }});
+    // $('#{{$NombreM}}').modal('show')
+    $('#UnirodadaRios').modal('show')
     </script>
     @endsection
     @push('stylesheets')
