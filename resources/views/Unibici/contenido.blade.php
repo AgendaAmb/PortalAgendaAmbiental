@@ -34,7 +34,7 @@
 
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-center">
-            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#exampleModalCenter" role="tab"
+            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#UnirodadaRios" role="tab"
                 aria-controls="nav-home" aria-selected="true"> Unirodada por los ríos 2022</a> 
           
                
@@ -119,7 +119,7 @@
     @endsection
 
     @section('Modales')
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade" id="UnirodadaRios" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -199,112 +199,11 @@
             </div>
         </div>
     </div>
+    <script>
+    console.log({{$NombreM}});
+    $('#{{$NombreM}}').modal('show')
+    </script>
     @endsection
-
-
-    <!--@section('Modales')
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
-            <div class="modal-content">
-
-                <div class="modal-body py-0">
-                    <div class="col-12 mb-4 ml-3 p-0">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">X</span>
-                        </button>
-                    </div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                                <img src="{{asset('storage/imagenes/Unibici/Unirodada.png')}}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div
-                            class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-
-                            <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                <a href="{{asset('storage/imagenes/Unibici/Unirodada.png')}}"
-                                    class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                    download="Cartel_UnirodadaN.jpg">CARTEL GENERAL </a>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-10"
-                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
-                                <br><br>
-                                <h4>Unirodada del día del niño 2021
-                                </h4><br><br>
-                                <div class="elementor-text-editor elementor-clearfix">
-                                    <div style="font-size: 14px; font-family: 'Myraid light';">
-                                        <p align="center">El programa Unibici de la Agenda Ambiental en colaboración con
-                                            la Facultad de
-                                            Contaduría y Administración, Unisalud y Deportes de Servicios Estudiantiles
-                                            de la UASLP invitan a
-                                            la:</p>
-                                        <h5 align="center">Unirodada del día del niño</h5><br>
-                                        <p align="center">Viernes 30 de abril del 2021<br><br></p>
-                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
-                                        <p>Niñas y niños de todas las edades, comunidad universitaria y público en
-                                            general</p><br>
-                                        <h3 style="color: #5c94d7;">Punto de salida mayores de 15 años:</h3>
-                                        <p>Canchas de la Facultad de Contaduría y Administración (17:00 horas) (8 km)
-                                        </p><br>
-                                        <h3 style="color: #5c94d7;">Punto de encuentro con niños:</h3>
-                                        <p>Agenda Ambiental de la UASLP (17:40 horas) (2.5 km)</p><br>
-                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
-                                        <p>Promover la movilidad urbana sostenible, la implementación de ciudades
-                                            incluyentes, sanas y
-                                            seguras, la divulgación de las ciclovías de nuestra ciudad y la promoción
-                                            del correcto uso de la
-                                            bicicleta como medio de transporte.</p>
-                                        <br>
-                                        <p align="center">EVENTO SIN COSTO<br><br>No olvides llevar agua, casco y
-                                            bicicleta en buen estado.
-                                        </p>
-                                        <br>
-                                        <p>Contaremos con medidas Covid, apoyo de Protección Civil Universitaria,
-                                            policía vial municipal,
-                                            ambulancia, camioneta de arrastre, bloquedores y protocolo de niños
-                                            ciclistas.<br><br>Unisalud de
-                                            Servicios Estudiantiles ofrecerá evaluaciones físicas (peso, talla, masa
-                                            muscular, masa grasa, % de
-                                            agua, presión arterial, prueba rápida de glucosa) con su Unidad Médica
-                                            Móvil.<br><br>Primeros 20
-                                            inscritos obtendrán un viaje de cortesía para la Unirodada de parte de
-                                            empresa de bicis de renta
-                                            YOY.</p><br>
-                                        <h3 style="color: #5c94d7;">Fecha límite de registro:</h3>
-                                        <p>Jueves 29 de abril a las 0:00 horas</p><br>
-                                        <h3 style="color: #5c94d7;">Inscripción</h3>
-                                        <p>
-                                        </p>
-                                        <ol>
-                                            <li>Inscríbete llenando el formato de registro en línea que se encuentra
-                                                como botón en esta página.
-                                            </li>
-                                            <li>En 24 horas te llegara un correo con detalles de la unirodada y respecto
-                                                al uso de bicicletas
-                                                las bicicletas YOY (para los primeros inscritos).</li>
-                                        </ol>
-                                        <p></p><br>
-                                    </div>
-                                    <div class="col-md-1"></div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    @endsection-->
-
     @push('stylesheets')
-<link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
-@endpush
+    <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
+    @endpush
