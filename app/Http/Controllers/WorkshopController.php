@@ -497,7 +497,7 @@ class WorkshopController extends Controller
             //2. crear registro
             DB::table('user_workshop')
                 ->updateOrInsert([
-                    'workshop_id' => 13, // 12 = del huerto a la mesa huasteca 
+                    'workshop_id' => 13, // 13 = del huerto a la mesa huasteca 
                     'user_id' => $user->id,
                     'user_type' => $user->type,
                     'assisted_to_workshop' => null,
@@ -575,7 +575,7 @@ class WorkshopController extends Controller
             //2. crear registro
             DB::table('user_workshop')
                 ->updateOrInsert([
-                    'workshop_id' => 14, // 11 = promotores huasteca 
+                    'workshop_id' => 14, // 14 = promotores huasteca 
                     'user_id' => $user->id,
                     'user_type' => $user->type,
                     'assisted_to_workshop' => null,

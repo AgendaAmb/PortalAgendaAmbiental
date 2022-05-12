@@ -704,7 +704,7 @@
       checarInscripcionPromotoresHuasteca: function(){
         axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.InscritoPromotoresHuasteca = response.data;
           }).catch((err) => {
             console.log(err.response.data);
@@ -713,7 +713,7 @@
       checarInscripcionUnirodadaRios: function(){
         axios.post(this.url + 'ChecarRodadaRioUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            // console.log("Rodada rio: " + response.data);
             this.InscritoUnirodadaRios = response.data;
           }).catch((err) => {
             console.log(err.response.data);
@@ -722,7 +722,7 @@
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + 'ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.InscritoHuertoMesa = response.data;
           }).catch((err) => {
             console.log(err.response.data);

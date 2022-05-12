@@ -9,19 +9,7 @@
         </button>
       </div>
 
-      <div class="container-fluid bg-white"
-        v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
-        <div class="row">
-          <div class="col-12">
-            <img src="{{asset('storage/imagenes/17Gemas/Banner_RegistroCompleto.png')}}" class="img-fluid mt-4"
-              alt="">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="modal-body bg-white"
-        v-else-if="TipoUsuario=='externs'?false:InscritoUnirodadaRios?false:true">
+      <div class="modal-body bg-white" v-if="!InscritoUnirodadaRios">
         <form @submit.prevent="uaslpUser()">
           @csrf
           <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
@@ -212,10 +200,9 @@
 
         </form>
       </div>
-      <div class="modal-body" v-else>
-        <img src="{{asset('/storage/imagenes/mmus2021/RegistroCerradoRodada.png')}}" class="img-fluid" alt="">
+      <div class="modal-body bg-white" v-else>
+        <div>Ya se encuentra registrado, por favor, espere indicaciones por correo electrónico.</div>
       </div>
-
     </div>
   </div>
 </div>
