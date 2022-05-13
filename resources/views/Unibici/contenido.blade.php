@@ -156,7 +156,7 @@
                                 <h4>Unirodada por los Ríos</h4><br><br>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
-                                        <p align="center">Sábado 21 de mayo del 2022<br>8:00 - 11:00 horas<br>Costo: $50.00<br><br></p>
+                                        <p align="center">Organiza Unibici de Agenda Ambiental en colaboración con la Facultad de Contaduría y Administración, Unisalud de Servicios Estudiantiles, La pulga, Centro Cultura Alemán y Derechos Urbanos<br>Sábado 21 de mayo del 2022<br>8:00 - 11:00 horas<br>Costo: $50.00<br><br></p>
                                         <h3 style="color: #5c94d7;">Dirigido a:</h3>
                                         <p>Comunidad universitaria y público en general</p><br>
                                         <h3 style="color: #5c94d7;">Punto de salida y llegada:</h3>
