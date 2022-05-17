@@ -276,7 +276,7 @@
                                         <br>
                                         <br>
                                         <h3 style="color: #5c94d7;">Informes</h3>
-                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:A332976@alumnos.uaslp.mx">A332976@alumnos.uaslp.mx</a><br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
                                     </div>
                                     <div class="col-md-1"></div>
                                 </div>
