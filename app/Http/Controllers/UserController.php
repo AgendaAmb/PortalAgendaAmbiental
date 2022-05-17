@@ -192,6 +192,7 @@ class UserController extends Controller
         return $request->user();
     }
 
+
     /**
      * Retrieves the current authenticated user.
      *
@@ -208,6 +209,28 @@ class UserController extends Controller
 
         Mail::to($user)->send(new RegisteredTo17Gemas);
         return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
+    }
+
+    public function updateModuleUser(Request $request)
+    {
+        try{
+            $request->validate([
+                'id' => ['required', 'numeric'],
+                'module_id' => ['required', 'numeric'],
+            ]);
+        }catch(\Exception $e){
+            return new JsonResponse(['message'=>"Request invalido"], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try{
+            $user = User::where('id',$request->id)->first();
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+        }catch(\Exception $e){
+            return new JsonResponse(['message'=>"El usuario ya ha sido creado",'user_id'=>$user->id], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        return new JsonResponse(['message'=>"Modulo actualizado"], JsonResponse::HTTP_CREATED);
+
     }
 
     //StoreUserRequest es simplemente una clase que extiende de la clase request

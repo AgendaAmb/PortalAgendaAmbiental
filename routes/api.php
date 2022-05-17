@@ -17,6 +17,7 @@ Route::get('/getAllWorkshops', 'WorkshopController@getAllWorkshops')->name('getA
 Route::post('/registerWorkShop', 'WorkshopController@registerWorkShop')->name('registerWorkShop');
 
 Route::post('/RegisterExternalUser','UserController@RegisterExternalUser')->name('RegisterExternalUser');
+Route::post('/UpdateModuleUser','UserController@UpdateModuleUser')->name('UpdateModuleUser');
 
 # Usuarios autenticados.
 Route::middleware('auth:api,students-api,workers-api')->prefix('users')->name('users.')->group(function(){

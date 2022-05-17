@@ -17,7 +17,6 @@
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
                 @foreach ($Modulos as $Modulo)
-
                     @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
                         <li class="nav-item ">
                             <div class="nav-link">
@@ -36,20 +35,20 @@
                             <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                         </li>
                     @endif
-              
-               
-               
+
+
+
                 @endforeach
-              
+
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator') ||Auth::user()->hasRole('helper'))
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                 </li>
 
 
-               
+
                 @endif
-               
+
             </ul>
         </div>
         <div class="container justify-content-end">
@@ -60,7 +59,7 @@
                     <span class="sr-only">
 
                     </span>
-                    
+
                 </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -68,8 +67,9 @@
                 </li>
             </ul>
         </div>
-       
+
 
 
     </div>
 </nav>
+
