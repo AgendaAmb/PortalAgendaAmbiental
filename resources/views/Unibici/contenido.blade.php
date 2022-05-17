@@ -37,7 +37,7 @@
             <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#UnirodadaRios" role="tab"
                 aria-controls="nav-home" aria-selected="true"> Unirodada por los ríos 2022</a> 
             <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#Foro" role="tab"
-                aria-controls="nav-home" aria-selected="true"> Foro SMU</a>    
+                aria-controls="nav-home" aria-selected="true"> Foro Sistema de Movilidad Urbana</a>    
         </div>
     </div>
 
@@ -234,7 +234,7 @@
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <br><br>
-                                <h4>Foro</h4><br><br>
+                                <h4>Foro Sistema de Movilidad Urbana</h4><br><br>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
                                         <p align="center">Con actores clave y expertos para integrar los ejes estratégicos del sistema de movilidad urbana<br><br></p>
