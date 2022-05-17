@@ -214,7 +214,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                                <img src="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}" class="img-fluid" alt="">
+                                <img src="{{asset('storage/imagenes/Unibici/Cartel_Foro Movilidad.png')}}" class="img-fluid" alt="">
                             </div>
                         </div>
                         <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
@@ -293,8 +293,8 @@
     </div>    
     <script>
     // console.log({{ $NombreM }});
-    // $('#{{$NombreM}}').modal('show')
-    $('#UnirodadaRios').modal('show')
+    $('#{{$NombreM}}').modal('show')
+    // $('#UnirodadaRios').modal('show')
     </script>
     @endsection
     @push('stylesheets')
