@@ -468,7 +468,7 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerHuertoalaMesa'])}}>
-              <img src="{{ asset('storage/imagenes/UnihuertoHusteca1.png')}}"
+              <img src="{{ asset('storage/imagenes/Unihuerto/UnihuertoHusteca1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
