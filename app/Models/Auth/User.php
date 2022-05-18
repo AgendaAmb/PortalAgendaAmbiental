@@ -113,6 +113,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'externs' => Extern::class
     ];
 
+    public const USER_TYPES_CE = [
+        'students' => 'App\\Models\\Auth\\Student',
+        'workers' => 'App\\Models\\Auth\\Worker',
+        'externs' => 'App\\Models\\Auth\\Extern'
+    ];
+
     /**
      * The user classes used by this class.
      *

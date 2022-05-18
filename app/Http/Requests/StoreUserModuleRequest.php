@@ -27,7 +27,7 @@ class StoreUserModuleRequest extends FormRequest
     public function rules()
     {
         return [
-            'module_id' => ['required','exists:modules,id'],
+            'module_id' => ['required','numeric','exists:modules,id'],
             'user_id' => [ 'required','numeric','exists:users,id' ],
             'user_type' => [ 'required', 'in:externs,students,workers']
         ];
