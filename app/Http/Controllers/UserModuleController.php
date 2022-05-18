@@ -87,7 +87,7 @@ class UserModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function nuevo(StoreUserModuleRequest $request)
+    public function nuevo(Request $request)
     {
         # Devuelve el resultado de agregar el módulo.
         // if ($this->newUserModule($request->validated()) === false)
@@ -96,12 +96,17 @@ class UserModuleController extends Controller
             // ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
 
         try{
-            $request = $request->validated();
+            $request->validate([
+                'module_id' => ['required','numeric','exists:modules,id'],
+                'user_id' => [ 'required','numeric','exists:users,id' ],
+                'user_type' => [ 'required', 'in:externs,students,workers']
+            ]);
+
             # Recupera el tipo de clase del usuario.
-            $type = User::USER_TYPES_CE[$request['user_type']];
+            $type = User::USER_TYPES_CE[$request->user_type];
             # Recupera al usuario.
-            $user = User::where('id', $request['user_id'])->first();
-            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request['module_id'], $user->id, $type]);
+            $user = User::where('id', $request->user_id)->first();
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $type]);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => 'User already registered'
@@ -158,7 +163,7 @@ class UserModuleController extends Controller
 
     }
 
-    public function deleteModulo(StoreUserModuleRequest $request )
+    public function deleteModulo(Request $request )
     {
         // DELETE FROM table_name WHERE condition;
 
@@ -166,12 +171,18 @@ class UserModuleController extends Controller
         //  if ($this->deleteUserModule($request->validated()) === false)
 
         try{
-            $request = $request->validated();
+            $request->validate([
+                'module_id' => ['required','numeric','exists:modules,id'],
+                'user_id' => [ 'required','numeric','exists:users,id' ],
+                'user_type' => [ 'required', 'in:externs,students,workers']
+            ]);
+
             # Recupera el tipo de clase del usuario.
-            $type = User::USER_TYPES_CE[$request['user_type']];
+            $type = User::USER_TYPES_CE[$request->user_type];
             # Recupera al usuario.
-            $user = User::where('id', $request['user_id'])->first();
-            DB::table('module_user')->where('module_id', $request['module_id'])->where('user_id',$user->id)->delete();
+            $user = User::where('id', $request->user_id)->first();
+
+            DB::table('module_user')->where('module_id',$request->module_id)->where('user_id',$user->id)->delete();
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => 'No se puso eliminar modulo a usuario'
