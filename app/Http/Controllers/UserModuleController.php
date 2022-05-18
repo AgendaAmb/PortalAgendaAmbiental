@@ -43,6 +43,32 @@ class UserModuleController extends Controller
         return true;
     }
 
+    public function deleteUserModule(array $data)
+    {
+         # Recupera el tipo de clase del usuario.
+         $type = User::USER_TYPES[$data['user_type']];
+
+         # Recupera al usuario.
+         $user = User::where('id', $data['user_id'])->where('type', $type)->first();
+
+         # No agrega el módulo de usuario.
+         if ($user === null)
+             return false;
+
+         # Recupera el módulo de usuario
+         $has_module = $user->userModules()->where('modules.id', $data['module_id'])->count() > 0;
+
+         # No agrega el módulo de usuario.
+         if ($has_module === false)
+             return false;
+
+         # Se agrega el módulo.
+         $user->userModules()->detach($data['module_id']);
+
+         # El módulo fue agregado.
+         return true;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -70,7 +96,7 @@ class UserModuleController extends Controller
 
         return new JsonResponse(['message' => 'Usuario registrado'], JsonResponse::HTTP_OK);
     }
-    
+
     /**
      * Agrega a muchos usuarios a un módulo.
      *
@@ -87,7 +113,7 @@ class UserModuleController extends Controller
 
         foreach ($users as $user)
             $results[] = $this->newUserModule($user);
-        
+
         return new JsonResponse($results, JsonResponse::HTTP_OK);
     }
 
@@ -114,6 +140,19 @@ class UserModuleController extends Controller
 
     //Nuevas funciones
     public function RegisterExternalUser(){
-        
+
+    }
+
+    public function deleteModulo(StoreUserModuleRequest $request )
+    {
+
+         # Devuelve el resultado de agregar el módulo.
+         if ($this->deleteUserModule($request->validated()) === false)
+         return new JsonResponse([
+             'message' => 'No se puso eliminar modulo a usuario'
+         ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+
+     return new JsonResponse(['message' => 'Usuario Eliminado'], JsonResponse::HTTP_OK);
+
     }
 }

@@ -43,6 +43,7 @@ Route::middleware(['client'])->prefix('usuarios')->name('usuarios.')->group(func
     # Registro / Recuperación de módulos de usuario.
     Route::get('modulos', 'UserModuleController@index')->name('modulos.index');
     Route::post('modulos', 'UserModuleController@nuevo')->name('modulos.nuevo');
+    Route::post('deleteModulo', 'UserModuleController@deleteModulo')->name('modulos.delete');
     Route::post('modulos/storeMany', 'UserModuleController@storeMany')->name('modulos.storeMany');
 });
 
