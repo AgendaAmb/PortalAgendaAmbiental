@@ -106,7 +106,7 @@ class UserModuleController extends Controller
             $type = User::USER_TYPES_CE[$request->user_type];
             # Recupera al usuario.
             $user = User::where('id', $request->user_id)->first();
-            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $type]);
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'message' => 'User already registered'
