@@ -49,7 +49,7 @@ class UserModuleController extends Controller
          $type = User::USER_TYPES[$data['user_type']];
 
          # Recupera al usuario.
-         $user = User::where('id', $data['user_id'])->where('type', $type)->first();
+         $user = User::where('id', $data['user_id'])->first();
 
          # No agrega el módulo de usuario.
          if ($user === null)
