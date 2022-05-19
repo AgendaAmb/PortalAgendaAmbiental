@@ -58,11 +58,11 @@
           </div>
 
           {{-- Del huerto a la mesa husteca  --}}
-          <div class="col px-0">  
+          <!--<div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#HuertoMesaHuasteca" @click="AbrirModal('HuertoMesaHuasteca')">
               <img src="{{ asset('/storage/imagenes/Unihuerto/UnihuertoHuasteca.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div>
+          </div>-->
 
           {{-- Promotores ambientales  --}}
           <div class="col px-0">  
@@ -167,7 +167,7 @@
 
 @include("RegistroModales.UnirodadaRios")
 
-@include("RegistroModales.HuertoMesa")
+
 
 @include("RegistroModales.Unitrueque")
 
@@ -181,6 +181,8 @@
 @include("RegistroModales.Worshop")
 
 @include("RegistroModales.Agricultura")
+
+@include("RegistroModales.HuertoMesa")
 
 </div>
 </div>
