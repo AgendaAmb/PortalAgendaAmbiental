@@ -51,11 +51,11 @@
           {{-- ************************************************************************************************************* --}}
 
           {{-- Unirodada rios  --}}
-          <div class="col px-0">  
+          <!--<div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#UnirodadaRios" @click="AbrirModal('UnirodadaRios')">
               <img src="{{ asset('/storage/imagenes/Unibici/Unirodada_rios.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div>
+          </div>-->
 
           {{-- Del huerto a la mesa husteca  --}}
           <!--<div class="col px-0">  
