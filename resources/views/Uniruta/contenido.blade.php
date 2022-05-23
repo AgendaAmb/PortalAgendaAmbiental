@@ -85,34 +85,34 @@
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <br><br>
-                                <h4>Uniruta en Sierra de Álvarez</h4><br><br>
+                                <h3>Uniruta en Sierra de Álvarez</h3>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
-                                        <p align="center">En el marco del Día Mundial del Medio Ambiente la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo.</p>
-                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
+                                        <p align="center">En el marco del Día Mundial del Medio Ambiente la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo.</p><br><br>
+                                        <h4 style="color: #5c94d7;">Dirigido a:</h4>
                                         <p>Comunidad universitaria y público en general</p><br>
-                                        <h3 style="color: #5c94d7;">Punto de salida y llegada:</h3>
+                                        <h4 style="color: #5c94d7;">Punto de salida y llegada:</h4>
                                         <p>Unidad Deportiva Uiversitaria (Av. Colorines s/n, Prados Glorieta, C.P. 78390, San Luis Potosí, S.L.P.<br><br>* Habrá espacio seguro para dejar tu bicicleta o automóvil.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Distancia:</h3>
+                                        <h4 style="color: #5c94d7;">Distancia:</h4>
                                         <p>8 km de caminata en la Sierra de Álvarez.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Dificultad:</h3>
+                                        <h4 style="color: #5c94d7;">Dificultad:</h4>
                                         <p>Moderada.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Fecha:</h3>     
+                                        <h4 style="color: #5c94d7;">Fecha:</h4>
                                         <p>Domingo 5 de junio de 2022.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Horario:</h3>
+                                        <h4 style="color: #5c94d7;">Horario:</h4>
                                         <p>7:00 a 13:30 horas</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
+                                        <h4 style="color: #5c94d7;">Objetivo:</h4>
                                         <p>Realizar una ruta de senderismo de iniciación que permita conocer, valorar y respetar los ecosistemas que se encuentran en la Sierra de Álvarez; así como fomentar la salud y el bienestar a través del deporte y la sana convivencia.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Cuota de recuperación:</h3>
+                                        <h4 style="color: #5c94d7;">Cuota de recuperación:</h4>
                                         <p>$60.00 (Sesenta pesos mexicanos) destinados a transporte y gestión.</p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Requisitos y consideraciones:</h3>
+                                        <h4 style="color: #5c94d7;">Requisitos y consideraciones:</h4>
                                         <p><ol>
                                             <li>Llenar el formato de registro en línea</li>
                                             <li>Llevar refrigerio por persona</li>
@@ -122,7 +122,7 @@
                                             <li>Considerar alguna lesión que impida el libre desplazamiento</li>
                                         </ol></p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Equipamiento sugerido:</h3>
+                                        <h4 style="color: #5c94d7;">Equipamiento sugerido:</h4>
                                         <p><ul>
                                             <li>Mochila de ataque (pequeña, 20-30 litro de capacidad)</li>
                                             <li>Sudadera y/o rompevientos y/o impermeable</li>
@@ -133,7 +133,7 @@
                                             <li>Medicamentos básico<br>* Uniruta lleva kit básico de primeros auxilios</li>
                                         </ul></p>
                                         <br>
-                                        <h3 style="color: #5c94d7;">Registro:</h3>
+                                        <h4 style="color: #5c94d7;">Registro:</h4>
                                         <p>Pasos para registro de participantes:
                                             <ol>
                                                 <li>Realiza el registro en la plataforma de Agenda Ambiental</li>
@@ -143,7 +143,7 @@
                                             </ol>
                                         </p>
                                         <br><br>
-                                        <h3 style="color: #5c94d7;">Informes</h3>
+                                        <h4 style="color: #5c94d7;">Informes</h4>
                                         <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
                                     </div>
                                     <div class="col-md-1"></div>
