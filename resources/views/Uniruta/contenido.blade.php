@@ -5,7 +5,7 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-12 mb-5">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
-        El senderismo es un deporte que ha adquirido gran popularidad en los últimos años debido a los bajos costos que implica para llevar a cabo esta actividad, la capacidad de inclusión, además de ser la única actividad deportiva considerada como no competitiva; ya que lo que principal es el trabajo en equipo, el compañerismo y el estar en contacto con la naturaleza.<br><br>El ecoturismo sirve de canal para la conexión entre personas que comparten la sensibilidad, el amor y respeto por la naturaleza y esa curiosidad permanente de conocer nuevos lugares.<br><br>En busca de impactar en las metas de los Objetivos del Desarrollo Sostenibles ODS 3: Salud y bienestar y 15 vida de ecosistemas terrestres y de forma puntual en la meta 15.1 que propone que para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales.
+        <br>El senderismo es un deporte que ha adquirido gran popularidad en los últimos años debido a los bajos costos que implica para llevar a cabo esta actividad, la capacidad de inclusión, además de ser la única actividad deportiva considerada como no competitiva; ya que lo que principal es el trabajo en equipo, el compañerismo y el estar en contacto con la naturaleza.<br><br>El ecoturismo sirve de canal para la conexión entre personas que comparten la sensibilidad, el amor y respeto por la naturaleza y esa curiosidad permanente de conocer nuevos lugares.<br><br>En busca de impactar en las metas de los Objetivos del Desarrollo Sostenibles ODS 3: Salud y bienestar y 15 vida de ecosistemas terrestres y de forma puntual en la meta 15.1 que propone que para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales.
     </p>
 </div>
 @endsection
@@ -73,10 +73,10 @@
                         </div>
                         <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
-                            <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                <a href={{route('Bienvenida',['nombreModal'=> 'UnirodadaRios'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href={{route('Bienvenida',['nombreModal'=> 'UnirutaSierraAlvarez'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
-                            </div>-->
+                            </div>
                             <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href="{{asset('storage/imagenes/Uniruta/Cartel_Uniruta.png')}}"
                                     class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
@@ -88,23 +88,24 @@
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <br><br>
-                                <h3 align="center">Uniruta en Sierra de Álvarez</h3><br><br>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
-                                        <p align="center">En el marco del Día Mundial del Medio Ambiente la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo.</p><br><br>
+                                        <p align="center">En el marco del Día Mundial del Medio Ambiente <br>la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo:</p><br>
+                                        <h3 align="center">Uniruta en Sierra de Álvarez</h3><br><br>
+                                        <br>
                                         <h4 style="color: #5c94d7;">Dirigido a:</h4>
                                         <p>Comunidad universitaria y público en general</p><br>
                                         <h4 style="color: #5c94d7;">Punto de salida y llegada:</h4>
                                         <p>Unidad Deportiva Uiversitaria (Av. Colorines s/n, Prados Glorieta, C.P. 78390, San Luis Potosí, S.L.P.<br><br>* Habrá espacio seguro para dejar tu bicicleta o automóvil.</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Distancia:</h4>
-                                        <p>8 km de caminata en la Sierra de Álvarez.</p>
+                                        <p>8 km de caminata en la Sierra de Álvarez</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Dificultad:</h4>
-                                        <p>Moderada.</p>
+                                        <p>Moderada</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Fecha:</h4>
-                                        <p>Domingo 5 de junio de 2022.</p>
+                                        <p>Domingo 5 de junio de 2022</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Horario:</h4>
                                         <p>7:00 a 13:30 horas</p>
@@ -113,7 +114,7 @@
                                         <p>Realizar una ruta de senderismo de iniciación que permita conocer, valorar y respetar los ecosistemas que se encuentran en la Sierra de Álvarez; así como fomentar la salud y el bienestar a través del deporte y la sana convivencia.</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Cuota de recuperación:</h4>
-                                        <p>$60.00 (Sesenta pesos mexicanos) destinados a transporte y gestión.</p>
+                                        <p>$60.00 (Sesenta pesos mexicanos) destinados a transporte y gestión</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Requisitos y consideraciones:</h4>
                                         <p><ol>
