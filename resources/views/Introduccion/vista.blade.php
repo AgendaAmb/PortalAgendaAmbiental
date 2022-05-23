@@ -59,7 +59,35 @@
           </div>
         </div> --}}
 
-        <div class="carousel-item active">
+          <div class="carousel-item active">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
+              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                <img src="{{ asset('/storage/imagenes/Uniruta/B2_Uniruta.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+            <div class="slide-box">
+              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                <img src="{{ asset('/storage/imagenes/Uniruta/B2_Uniruta.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
@@ -147,7 +175,7 @@
         </div>         
 
 
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Unibici',['nombreModal'=> 'UnirodadaRios'])}}>
@@ -173,7 +201,7 @@
               </a>
             </div>
           </div>
-        </div> 
+        </div> -->
 
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
@@ -432,7 +460,16 @@
         </div>
         
       -->
+
       <div class="carousel-item active">
+          <div class="slide-box">
+            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+              <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
+                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+      <div class="carousel-item ">
         <div class="slide-box">
           <a href={{route('Cursos')}}>
             <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}" class="imgCaoursel w-100 p-0 p-0 "
@@ -457,14 +494,14 @@
             </a>
           </div>
         </div>
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unibici',['nombreModal'=> 'UnirodadaRios'])}}>
               <img src="{{ asset('storage/imagenes/Unibici/UnirodadaRios1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>
+        </div>-->
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerHuertoalaMesa'])}}>
