@@ -52,11 +52,11 @@
             </a>
           </div>
 
-          {{-- <div class="col px-0">
+          <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click="AbrirModal('UnirutaSierraAlvarez')">
-              <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Uniruta/B_Registro.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div> --}}
+          </div>
 
           {{-- Unirodada rios  --}}
           {{-- <div class="col px-0">  
@@ -437,7 +437,7 @@
                     '{{$E['name']}}'
                 )
       @endforeach
-      console.log(this.checkedNames);
+      // console.log(this.checkedNames);
     },
     check_one: function(){
         this.CondicionSalud = [];
