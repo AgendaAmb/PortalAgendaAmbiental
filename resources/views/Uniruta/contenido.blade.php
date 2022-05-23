@@ -1,11 +1,11 @@
 @extends('Parciales.index')
 @section('TextImagen')
-<div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify my-5 ">
+<div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify my-2 ">
     <img src="{{ asset('storage/imagenes/Logos/Logo_Uniruta.png') }}" class="img-fluid my-3" alt="" srcset="">
 </div>
-<div class="col-xl-8 col-lg-8 col-md-12 my-5">
+<div class="col-xl-8 col-lg-8 col-md-12 mb-5">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
-        Programa institucional de índole deportivo, pero con tonalidades culturales, históricas, ecológicas, de dispersión, de fomento al compañerismo y ligado a actividades tanto de senderismo como de ecoturismo.<br>Creado con la idea de conectar a la comunidad universitaria (alumnos, docentes, y administrativos) y al público en general con los distintos ecosistemas de la región, mediante recorridos de senderismo que involucren la sana convivencia, la tolerancia, el respeto a la naturaleza entre otros factores, complementando dichos recorridos con datos académicos de tipo históricos, geográficos y geológicos.<br>El senderismo es un deporte que ha adquirido gran popularidad en los últimos años debido a los bajos costos que implica para llevar a cabo esta actividad, la capacidad de inclusión, además de ser la única actividad deportiva considerada como no competitiva; ya que lo que principal es el trabajo en equipo, el compañerismo y el estar en contacto con la naturaleza.<br>El ecoturismo sirve de canal para la conexión entre personas que comparten la sensibilidad, el amor y respeto por la naturaleza y esa curiosidad permanente de conocer nuevos lugares.<br>En busca de impactar en las metas de los Objetivos del Desarrollo Sostenibles ODS 3: Salud y bienestar y 15 vida de ecosistemas terrestres y de forma puntual en la meta 15.1 que propone que para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales.
+        El senderismo es un deporte que ha adquirido gran popularidad en los últimos años debido a los bajos costos que implica para llevar a cabo esta actividad, la capacidad de inclusión, además de ser la única actividad deportiva considerada como no competitiva; ya que lo que principal es el trabajo en equipo, el compañerismo y el estar en contacto con la naturaleza.<br><br>El ecoturismo sirve de canal para la conexión entre personas que comparten la sensibilidad, el amor y respeto por la naturaleza y esa curiosidad permanente de conocer nuevos lugares.<br><br>En busca de impactar en las metas de los Objetivos del Desarrollo Sostenibles ODS 3: Salud y bienestar y 15 vida de ecosistemas terrestres y de forma puntual en la meta 15.1 que propone que para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales.
     </p>
 </div>
 @endsection
@@ -32,6 +32,9 @@
 
     @section('ObjetivosTexto')
     <div class="pSize text-justify m-3">
+        <h3 class="h3Title">Introducción</h3>
+        <p>Programa institucional de índole deportivo, pero con tonalidades culturales, históricas, ecológicas, de dispersión, de fomento al compañerismo y ligado a actividades tanto de senderismo como de ecoturismo.<br>Creado con la idea de conectar a la comunidad universitaria (alumnos, docentes, y administrativos) y al público en general con los distintos ecosistemas de la región, mediante recorridos de senderismo que involucren la sana convivencia, la tolerancia, el respeto a la naturaleza entre otros factores, complementando dichos recorridos con datos académicos de tipo históricos, geográficos y geológicos.</p>
+        <br>
         <h3 class="h3Title">Objetivo general</h3>
         <p class="pSize">Realizar senderismo eco turístico con perspectiva ambiental, deportiva, cultural, histórica y de convivencia.</p><br>
         <h3 class="h3Title">Objetivos específicos</h3>
@@ -43,7 +46,7 @@
             <li>Fomentar el turismo y el ecoturismo en la región.</li>
         </ul><br>
         <br>
-        <h4 class="h3Title">Más Información</h4>
+        <h3 class="h3Title">Más Información</h3>
         <p style="font-size: 14px !important;"><b>Agenda Ambiental de la UASLP</b><br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria,
             C.P.
             78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
@@ -85,7 +88,7 @@
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <br><br>
-                                <h3>Uniruta en Sierra de Álvarez</h3>
+                                <h3 align="center">Uniruta en Sierra de Álvarez</h3><br><br>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
                                         <p align="center">En el marco del Día Mundial del Medio Ambiente la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo.</p><br><br>
@@ -133,6 +136,14 @@
                                             <li>Medicamentos básico<br>* Uniruta lleva kit básico de primeros auxilios</li>
                                         </ul></p>
                                         <br>
+                                        <p>Trae a tu mascota a Uniruta, recuerda ser responsable y asegurarte:<br>
+                                            <ul>
+                                               <li>Llevar bolsita para sus heces</li>
+                                               <li>Que sea sociable</li>
+                                               <li>Traiga correo o este entrenada</li>
+                                            </ul>
+                                        </p>
+                                        <br>
                                         <h4 style="color: #5c94d7;">Registro:</h4>
                                         <p>Pasos para registro de participantes:
                                             <ol>
@@ -144,7 +155,7 @@
                                         </p>
                                         <br><br>
                                         <h4 style="color: #5c94d7;">Informes</h4>
-                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
                                     </div>
                                     <div class="col-md-1"></div>
                                 </div>
