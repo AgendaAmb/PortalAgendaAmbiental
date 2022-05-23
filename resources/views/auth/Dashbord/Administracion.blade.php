@@ -94,7 +94,7 @@
                                 @click="cargarUser({{$user}})">
                                 <i class="fas fa-edit"></i>
                                 @if (Auth::user()->hasRole('helper'))
-                                    <small>pago unihuerto-casa</small>
+                                    <small>pago uniruta-sierra-álvarez</small>
                                 @endif
                             </a>
                         </td>
@@ -384,7 +384,7 @@
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
                     @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Unihuerto en casa 2022
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Uniruta Sierra lvarez
                     </h5>
 
                     @else
@@ -758,8 +758,8 @@
 
     },
     ConfirmarPago:function(user){
-            this.cargarUser(user),
-            console.log(this.user[0].id)
+        this.cargarUser(user),
+        console.log(this.user[0].id)
         const formData = new FormData();
         formData.append('idUsuario',this.user[0].id);
         formData.append('nuevoEstadoPago',true);

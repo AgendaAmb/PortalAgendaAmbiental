@@ -9,7 +9,7 @@
         </button>
       </div>
 
-      <div class="modal-body bg-white" v-if="!InscritoUnirutaSierraAlvarez">
+      <div class="modal-body bg-white" v-if="!InscritoUniruta">
         <form @submit.prevent="uaslpUser()">
           @csrf
           <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>

@@ -46,4 +46,15 @@ class UserWorkshop extends MorphPivot
     {
         return $this->hasOne(UnirodadaUser::class, 'user_workshop_id');
     }
+
+    /**
+     * Obtiene la uniruta más reciente, registrada por el
+     * usuario.
+     *
+     * @param  array $workshops
+     */
+    public function unirutaUser()
+    {
+        return $this->hasOne(UnirutaUser::class, 'user_workshop_id');
+    }
 }

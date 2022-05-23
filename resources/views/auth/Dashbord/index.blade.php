@@ -22,14 +22,12 @@
         <div
           class=" row row-cols-xl-3 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-2  d-flex align-items-center ">
 
-          {{-- visible --}}
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
               <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
 
-          {{-- visible  --}}
           @if(Auth::user()->user_type!="externs")
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
@@ -39,7 +37,6 @@
           </div>
           @endif
 
-          {{-- visible  --}}
           @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
@@ -48,14 +45,25 @@
           </div>
           @endif
 
-          {{-- ************************************************************************************************************* --}}
+          {{-- Promotores ambientales  --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#PromotoresHuasteca" @click="AbrirModal('PromotoresHuasteca')">
+              <img src="{{ asset('/storage/imagenes/Promotores/PromotoresAmbientales.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click="AbrirModal('UnirutaSierraAlvarez')">
+              <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
 
           {{-- Unirodada rios  --}}
-          <!--<div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#UnirodadaRios" @click="AbrirModal('UnirodadaRios')">
               <img src="{{ asset('/storage/imagenes/Unibici/Unirodada_rios.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div>-->
+          </div> --}}
 
           {{-- Del huerto a la mesa husteca  --}}
           <!--<div class="col px-0">  
@@ -64,22 +72,14 @@
             </a>
           </div>-->
 
-          {{-- Promotores ambientales  --}}
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#PromotoresHuasteca" @click="AbrirModal('PromotoresHuasteca')">
-              <img src="{{ asset('/storage/imagenes/Promotores/PromotoresAmbientales.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div>
-
-          {{-- ************************************************************************************************************* --}}
-          
-
+          {{-- Del huerto a la mesa --}}
           {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
               <img src="{{ asset('/storage/imagenes/Unihuerto/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div> --}}
 
+          {{-- Rodada   --}}
           {{-- <div class="col px-0 d-none" >
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('Rodada')">
               <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
@@ -91,8 +91,11 @@
           <div class="col  d-flex align-items-center my-xl-5 my-2 px-0">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item ">
+                {{-- <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block w-100" alt="...">
+                </div> --}}
+                <div class="carousel-item ">
+                  <img src="{{asset('/storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
@@ -113,8 +116,8 @@
               </div>
             </div>
           </div>
-
         </div>
+
       </div>
 
     </div>
@@ -161,19 +164,20 @@
 
 {{-- Modales con programas vigentes  --}}
 
-@include("RegistroModales.HuertoMesaHuasteca")
-
 @include("RegistroModales.PromotoresHuasteca")
-
-@include("RegistroModales.UnirodadaRios")
-
-
 
 @include("RegistroModales.Unitrueque")
 
 @include("RegistroModales.17gemas")
 
+@include("RegistroModales.Uniruta")
+
 {{-- Modales Programas pasados --}}
+
+@include("RegistroModales.UnirodadaRios")
+
+@include("RegistroModales.HuertoMesaHuasteca")
+
 @include("RegistroModales.UnihuertoCasa")
 
 @include("RegistroModales.ComprobanteP")
@@ -252,7 +256,8 @@
     InscritoHuertoMesa:false,
     InscritoHuertoMesaHuasteca:false,
     InscritoPromotoresHuasteca:false,
-    InscritoUnirodadaRios:false
+    InscritoUnirodadaRios:false,
+    InscritoUniruta:false
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -450,6 +455,7 @@
       this.checarInscripcionHuertoMesaHuasteca();
       this.checarInscripcionPromotoresHuasteca();
       this.checarInscripcionUnirodadaRios();
+      this.checarInscripcionUniruta();
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -678,7 +684,29 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           } 
+           }
+          else if(this.modalClick=='UnirutaSierraAlvarez'){
+            // console.log(data);
+            data['TipoEvento'] = 'uniruta'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarUnirutaUsuario',data).then(response => {
+                console.log(response.status);
+                if(response.status == 200){
+                  //console.log(response.data);
+                  this.spinnerVisible=false;
+                  $('#UnirutaSierraAlvarez').modal('hide');
+                  this.Guardado=true;
+                }else{
+                  console.log("Mensaje: " + response.data.Message);
+                }
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
+           }            
            else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
@@ -720,7 +748,16 @@
           }).catch((err) => {
             console.log(err.response.data);
           })
-      }, 
+      },
+      checarInscripcionUniruta: function(){
+        axios.post(this.url + 'ChecarUnirutaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            // console.log("Uniruta: " + response.data);
+            this.InscritoUniruta = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      },       
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + 'ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {

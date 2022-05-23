@@ -72,7 +72,7 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
 
         if($user->hasRole('helper')){
-            $users = $this->getUnirodadaAndHuertoMesaUsers();# Usuarios de unihuerto
+            $users = $this->getUnirodadaAndHuertoMesaUsers();# Usuarios de unihuerto, 
         }else if($user->hasRole('coordinator')){
             $users = $this->getGestionAmbientalUsers(); # Usuarios con workshops vigentes
         }else{//en dado caso es administrador
@@ -147,7 +147,9 @@ class HomeController extends Controller
         return $res;
     }
 
-        private function getUnirodadaAndHuertoMesaUsers()
+    // Funcion actualizada sin renombrar: 
+        // retorna usuarios de huerto a la mesa, unirodada y uniruta 
+    private function getUnirodadaAndHuertoMesaUsers()
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
@@ -158,9 +160,9 @@ class HomeController extends Controller
             ->orderBy('created_at')
             ->whereHas('workshops', function($query){
                 return $query
-                ->whereIn('workshops.id',[12,13]); //where para sacar solo a los usuarios del unihuerto
+                ->whereIn('workshops.id',[15]); //where para sacar solo a los usuarios del unihuerto
             })->with(['workshops' => function($q){
-                return $q->whereIn('workshops.id',[12,13]); //esto va a hacer un eager loading para que funcione el where anterior
+                return $q->whereIn('workshops.id',[15]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 

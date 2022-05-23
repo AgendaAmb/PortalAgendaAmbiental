@@ -4,6 +4,7 @@ namespace App\Models\Auth;
 
 use App\Models\Module;
 use App\Models\UnirodadaUser;
+use App\Models\UnirutaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
 use App\Notifications\VerifyEmail;
@@ -300,6 +301,23 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Genera una consulta ORM, para obtener campos adicionales,
+     * acerca del usuario y de la unirodada especificada.
+     *
+     * @param string
+     * @return object
+     */
+    public function getUnirutaDetailsQuery($uniruta)
+    {
+        return DB::table('uniruta_users')
+            ->join('user_workshop', 'user_workshop_id', '=', 'user_workshop.id')
+            ->join('workshops', 'workshops.id', '=', 'user_workshop.workshop_id')
+            ->where('user_workshop.user_id', '=', $this->id)
+            ->where('user_type', '=', static::class)
+            ->where('workshops.name', '=', $uniruta);
+    }
+
+    /**
      * Obtiene un campo específico, acerca del usuario y su asistencia a
      * algún evento de la unirodada.
      *
@@ -327,6 +345,22 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->getUnirodadaDetailsQuery(
             'Unirodada por los ríos'
+        )->update([
+            $field => $value
+        ]);
+    }
+
+    /**
+     * Asigna un valor a campo específico, acerca del usuario y su asistencia
+     * a algún evento de la uniruta.
+     *
+     * @param string $field
+     * @return object
+     */
+    public function setUnirutaDetailsField($field, $value)
+    {
+        $this->getUnirutaDetailsQuery(
+            'Uniruta en Sierra Álvarez'
         )->update([
             $field => $value
         ]);
@@ -521,7 +555,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPaidAttribute()
     {
-        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        // $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        $user_workshop = $this->unirutasUser->last()->userWorkshop ?? null;
         return $user_workshop->paid ?? null;
     }
 
@@ -532,7 +567,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setPaidAttribute($value)
     {
-        $this->setUnirodadaDetailsField('user_workshop.paid', $value);
+        // $this->setUnirodadaDetailsField('user_workshop.paid', $value);
+        $this->setUnirutaDetailsField('user_workshop.paid', $value);
     }
 
     /**
@@ -542,7 +578,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getPaidAtAttribute()
     {
-        $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        // $user_workshop = $this->unirodadasUser->last()->userWorkshop ?? null;
+        $user_workshop = $this->unirutasUser->last()->userWorkshop ?? null;
         return $user_workshop->paid_at ?? null;
     }
 
@@ -553,7 +590,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function setPaidAtAttribute($value): void
     {
-        $this->setUnirodadaDetailsField('user_workshop.paid_at', $value);
+        // $this->setUnirodadaDetailsField('user_workshop.paid_at', $value);
+        $this->setUnirutaDetailsField('user_workshop.paid_at', $value);
     }
 
     /**
@@ -740,6 +778,20 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasManyThrough(
             UnirodadaUser::class,   # Tabla donde están los datos de la unirodada
+            UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
+            'user_id',              # Llave que asocia al modelo con la tabla intermedia.
+            'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse
+                                    # con la tabla intermedia.
+            'id',                   # Clave primaria de la tabla de usuarios.
+            'id',                   # Clave primaria de la tabla pivote.
+
+        );
+    }
+
+    public function unirutasUser(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            UnirutaUser::class,   # Tabla donde están los datos de la uniruta
             UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
             'user_id',              # Llave que asocia al modelo con la tabla intermedia.
             'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse

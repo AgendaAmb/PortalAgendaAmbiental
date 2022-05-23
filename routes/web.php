@@ -151,13 +151,17 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarPromotoresHuastecaUsuario', 'WorkshopController@RegistrarPromotoresHuastecaUsuario')->name('RegistrarPromotoresHuastecaUsuario');
     Route::post('/ChecarPromotoresHuastecaUsuario', 'WorkshopController@ChecarPromotoresHuastecaUsuario')->name('ChecarPromotoresHuastecaUsuario');
 
+    # Registro a uniruta.
+    Route::post('/RegistrarUnirutaUsuario', 'WorkshopController@RegistrarUnirutaUsuario')->name('RegistrarUnirutaUsuario');
+    Route::post('/ChecarUnirutaUsuario', 'WorkshopController@ChecarUnirutaUsuario')->name('ChecarUnirutaUsuario');
+    
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaFicha', 'UnirodadaController@sendPayForm')
+    Route::post('/EnviaFicha', 'UnirutaController@sendPayForm')
         ->middleware('role:helper')
         ->name('EnviaFicha');
 
@@ -167,7 +171,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/EnviaComprobante', 'UnirodadaController@sendReceipt')->name('EnviaComprobante');
 
     # Envía un comprobante a un usuario.
-    Route::post('/cambiaStatusPago', 'UnirodadaController@cambiaStatusPago')->name('cambiaStatusPago');
+    Route::post('/cambiaStatusPago', 'UnirutaController@cambiaStatusPago')->name('cambiaStatusPago');
 
     # Actualiza el lunch del usuario.
     Route::post('/actualizaLunchUsuario', 'UnirodadaController@actualizaLunchUsuario')->name('actualizaLunchUsuario');

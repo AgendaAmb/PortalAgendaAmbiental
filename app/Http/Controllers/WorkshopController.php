@@ -34,12 +34,20 @@ class WorkshopController extends Controller
     private $unirodada_controller;
 
     /**
+     * Controlador de unirutas.
+     *
+     * @var UnirodadaController
+     */
+    private $uniruta_controller;
+
+    /**
      * Crea el controlador y las dependencias requeridas para su
      * funcionamiento.
      */
     public function __construct()
     {
         $this->unirodada_controller = new UnirodadaController;
+        $this->uniruta_controller = new UnirutaController;
     }
 
 
@@ -305,8 +313,6 @@ class WorkshopController extends Controller
             Log::info('Al usuario: ' . $user->email);
         }
 
-
-
         //4. si todo sale bien regresamo un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
@@ -320,6 +326,89 @@ class WorkshopController extends Controller
         ->get();
 
         //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if( $insc->count() > 0 ){
+            return response()->json(true, JsonResponse::HTTP_OK);
+        }else{
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarUnirutaUsuario(Request $request)
+    {
+        
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            # Actualiza los datos del usuario.
+            $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+
+            $user = User::find($request->Clave);
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+
+            # Cursos mmus del usuario y unirodadas.
+            $workshops = $user->workshops()
+                ->WherePivotNull('paid')
+                ->wherePivotNull('assisted_to_workshop')
+                ->orWherePivot('assisted_to_workshop', false)
+                ->pluck('workshops.id');
+
+
+            # Se eliminan los cursos a los que no haya asistido y a
+            # aquellos que haya eliminado del modal.
+            $user->workshops()->detach($workshops);
+            
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('name', 'Uniruta en Sierra Álvarez');
+
+            $this->uniruta_controller->registerUser($request, $user, $workshop_model);
+
+            # Verifica si hay datos de facturación.
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                ->updateOrInsert([
+                    'user_id' => $user->id,
+                    'user_type' => $user->type
+                ], [
+                    'rfc' => $request->RFC,
+                    'name' => $request->nombresF,
+                    'email' => $request->emailF,
+                    'address' =>  $request->DomicilioF,
+                    'phone' => $request->telF
+                ]);
+            }
+
+        }catch(\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        # Obtiene los cursos registrados.
+        $workshops = $user->workshops()
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
+            ->get();
+
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+        if ($workshops->count() > 0) {
+            Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
+            Log::info('Al usuario: ' . $user->email);
+        }
+
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+    
+    public function ChecarUnirutaUsuario(Request $request)
+    { //Esta inscrito?
+        //return response()->json($request, JsonResponse::HTTP_OK);
+        $insc = DB::table('user_workshop')
+        ->where('workshop_id', 15) // 15 - Uniruta sierra de alvarez
+        ->where('user_id', $request->Clave)
+        ->get();
 
         if( $insc->count() > 0 ){
             return response()->json(true, JsonResponse::HTTP_OK);
