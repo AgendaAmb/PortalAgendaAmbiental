@@ -1,7 +1,7 @@
 @extends('Parciales.index')
 @section('TextImagen')
 <div class="col-xl-4 col-lg-4 col-md-12 justify-content-center text-justify my-5 ">
-    <img src="{{ asset('storage/imagenes/Logos/Unibici_logo.png') }}" class="img-fluid my-3" alt="" srcset="">
+    <img src="{{ asset('storage/imagenes/Logos/Logo_Uniruta.png') }}" class="img-fluid my-3" alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-12 my-5">
     <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
@@ -14,7 +14,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/Unibici/BI_Unibici.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
@@ -65,17 +65,17 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                                <img src="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}" class="img-fluid" alt="">
+                                <img src="{{asset('storage/imagenes/Uniruta/Cartel_Uniruta.png')}}" class="img-fluid" alt="">
                             </div>
                         </div>
                         <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
-                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href={{route('Bienvenida',['nombreModal'=> 'UnirodadaRios'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
-                            </div>    
+                            </div>-->
                             <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                <a href="{{asset('storage/imagenes/Unibici/Cartel_UnirodadaRios.png')}}"
+                                <a href="{{asset('storage/imagenes/Uniruta/Cartel_Uniruta.png')}}"
                                     class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                     download="Cartel_UnirodadaRios.png">CARTEL</a>
                             </div>
@@ -110,7 +110,7 @@
                                         <p>Realizar una ruta de senderismo de iniciación que permita conocer, valorar y respetar los ecosistemas que se encuentran en la Sierra de Álvarez; así como fomentar la salud y el bienestar a través del deporte y la sana convivencia.</p>
                                         <br>
                                         <h3 style="color: #5c94d7;">Cuota de recuperación:</h3>
-                                        <p>$50.00 (Cincuenta pesos mexicanos) destinados a transporte y gestión.</p>
+                                        <p>$60.00 (Sesenta pesos mexicanos) destinados a transporte y gestión.</p>
                                         <br>
                                         <h3 style="color: #5c94d7;">Requisitos y consideraciones:</h3>
                                         <p><ol>
