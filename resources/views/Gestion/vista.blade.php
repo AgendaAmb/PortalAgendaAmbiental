@@ -444,6 +444,9 @@ Tabs de Gestión Institucional.
                 <x-tab-panel-image class="col-10 col-sm-4 col-md-3 my-3 mx-auto" widthBo="w-75"
                     :imageURL="asset('img/Gestion/Logo_ManejoFauna.png')" urlhref="#" />
 
+                <x-tab-panel-image :imageURL="asset('img/Gestion/Logo_Uniruta.png')" urlhref="{{route('Uniruta')}}"
+                    widthBo="w-75" />
+
             </x-tab-panel-footer>
 
         <h1 class="text-bold mt-5">Programa Universitario de Biodiversidad (PUB)</h1>
