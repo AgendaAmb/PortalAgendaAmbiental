@@ -34,7 +34,7 @@ class SendReceipt extends Mailable
                     ->markdown('mail.workshops.send-receipt', [
                         'header_color' => '#87b854',
                         'footer_color' => 'white',
-                        'with_image' => true
+                        'with_image' => false
                     ])
                     ->attachData($this->receipt, 'Ficha de pago.pdf', [
                         'mime' => 'application/pdf',

@@ -5,8 +5,9 @@ Gracias por preinscribirse a la uniruta en Sierra Álvarez. Anexo le estamos env
 <br><br>
 Estamos a su disposición para cualquier duda o comentario.
 <br><br>
-IBP Laura Daniela Hernández Rodríguez
-GESTION AMBIENTAL
+
+<p>IBP Laura Daniela Hernández Rodríguez</p> 
+<p>GESTION AMBIENTAL</p>
 
 @if ($with_image !== false)
 <img src="{{ asset('/storage/imagenes/Logos/SGA.png') }}">
