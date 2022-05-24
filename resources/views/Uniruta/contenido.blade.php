@@ -115,6 +115,7 @@
                                         <br>
                                         <h4 style="color: #5c94d7;">Cuota de recuperación:</h4>
                                         <p>$60.00 (Sesenta pesos mexicanos) destinados a transporte y gestión</p>
+                                        <p align="center">CUPO LIMITADO</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Requisitos y consideraciones:</h4>
                                         <p><ol>
@@ -156,7 +157,7 @@
                                         </p>
                                         <br><br>
                                         <h4 style="color: #5c94d7;">Informes</h4>
-                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
                                     </div>
                                     <div class="col-md-1"></div>
                                 </div>

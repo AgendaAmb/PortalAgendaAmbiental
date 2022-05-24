@@ -76,6 +76,18 @@ return [
             'auth_mode' => null,
         ],
 
+        'smtp_uniruta' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('UNIBICI_HOST'),
+            'password' => env('UNIBICI_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
+
         'ses' => [
             'transport' => 'ses',
         ],

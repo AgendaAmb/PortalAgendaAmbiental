@@ -87,7 +87,7 @@ class UnirutaController extends Controller
         ]);
 
         # Se envía el comprobante de pago.
-        Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
+        Mail::mailer('smtp_uniruta')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
 
         return response()->json([
             'Message' => 'Comprobante enviado'
