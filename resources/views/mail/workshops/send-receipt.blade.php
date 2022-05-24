@@ -10,7 +10,7 @@ NOTA: Queda oficialmente inscrito (a) una vez hecho el pago.
 Estamos a su disposición para cualquier duda o comentario,
 
 IBP Laura Daniela Hernández Rodríguez
-UNIBICI
+GESTION AMBIENTAL
 
 @isset($with_image)
 @if ($with_image !== false)
