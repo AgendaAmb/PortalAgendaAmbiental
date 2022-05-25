@@ -53,7 +53,9 @@
           </div>
 
           <div class="col px-0">
-            <!--<a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click="AbrirModal('UnirutaSierraAlvarez')">-->
+              @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235)
+              <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click.prevent="excepcion_usuario" @click="AbrirModal('UnirutaSierraAlvarez')">
+              @endif
               <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroC.png')}}" class="img-fluid pr-xl-1 px-1">
           </div>
 
@@ -394,6 +396,7 @@
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       '{{$nombreModal}}'=='UnihuertoCasa'?this.levantaModal('UnihuertoCasa'):''
       '{{$nombreModal}}'=='HuertoMesa'?this.levantaModal('HuertoMesa'):''
+      '{{$nombreModal}}'=='UnirutaSierraAlvarez'?this.levantaModal('UnirutaSierraAlvarez'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
