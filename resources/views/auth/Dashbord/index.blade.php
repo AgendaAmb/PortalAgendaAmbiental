@@ -53,7 +53,9 @@
           </div>
 
           <div class="col px-0">
-              @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235)
+              @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235 
+                  || Auth::user()->id === 275494 || Auth::user()->id === 306148 || Auth::user()->id === 322492
+              )
               <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click.prevent="excepcion_usuario" @click="AbrirModal('UnirutaSierraAlvarez')">
               @endif
               <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroC.png')}}" class="img-fluid pr-xl-1 px-1">
