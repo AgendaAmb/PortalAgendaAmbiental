@@ -53,8 +53,9 @@
           </div>
 
           <div class="col px-0">
-            <!--<a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click="AbrirModal('UnirutaSierraAlvarez')">-->
+            <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click="AbrirModal('UnirutaSierraAlvarez')">
               <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroC.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
           </div>
 
           {{-- Unirodada rios  --}}
