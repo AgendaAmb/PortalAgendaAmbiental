@@ -73,10 +73,10 @@
                         </div>
                         <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
-                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href={{route('Bienvenida',['nombreModal'=> 'UnirutaSierraAlvarez'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
-                            </div>
+                            </div>-->
                             <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                                 <a href="{{asset('storage/imagenes/Uniruta/Cartel_Uniruta.png')}}"
                                     class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
@@ -138,13 +138,6 @@
                                             <li>Medicamentos básico<br>* Uniruta lleva kit básico de primeros auxilios</li>
                                         </ul></p>
                                         <br>
-                                        <p>Trae a tu mascota a Uniruta, recuerda ser responsable y asegurarte:<br>
-                                            <ul>
-                                               <li>Llevar bolsita para sus heces</li>
-                                               <li>Que sea sociable</li>
-                                               <li>Traiga correo o este entrenada</li>
-                                            </ul>
-                                        </p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Registro:</h4>
                                         <p>Pasos para registro de participantes:
