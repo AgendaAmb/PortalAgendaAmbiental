@@ -54,7 +54,7 @@
 
           <div class="col px-0">
               @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235 
-                  || Auth::user()->id === 275494 || Auth::user()->id === 306148 || Auth::user()->id === 322492 || Auth::user()->id === 223 || Auth::user()->id === 240
+                  || Auth::user()->id === 275494 || Auth::user()->id === 306148 || Auth::user()->id === 322492 || Auth::user()->id === 223 || Auth::user()->id === 207 || Auth::user()->id === 240
               )
               <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click.prevent="excepcion_usuario" @click="AbrirModal('UnirutaSierraAlvarez')">
               @endif
