@@ -167,15 +167,17 @@
 
 {{-- Modales con programas vigentes  --}}
 
-@include("RegistroModales.PromotoresHuasteca")
+@include("RegistroModales.CursosActualizacion")
 
 @include("RegistroModales.Unitrueque")
 
-@include("RegistroModales.17gemas")
-
-@include("RegistroModales.Uniruta")
 
 {{-- Modales Programas pasados --}}
+@include("RegistroModales.Uniruta")
+
+@include("RegistroModales.PromotoresHuasteca")
+
+@include("RegistroModales.17gemas")
 
 @include("RegistroModales.UnirodadaRios")
 
