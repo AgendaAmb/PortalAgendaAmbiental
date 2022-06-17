@@ -28,14 +28,14 @@
             </a>
           </div>
 
-          @if(Auth::user()->user_type!="externs")
+          {{-- @if(Auth::user()->user_type!="externs")
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
 
               <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-xl-1 px-1 mt-1 mt-xl-0">
             </a>
           </div>
-          @endif
+          @endif --}}
 
           @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
@@ -712,7 +712,29 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }            
+           }
+          else if(this.modalClick=='CursosActualizacion'){
+            // console.log(data);
+            data['TipoEvento'] = 'curso'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarCursosaUsuario',data).then(response => {
+                console.log(response.status);
+                if(response.status == 200){
+                  //console.log(response.data);
+                  this.spinnerVisible=false;
+                  $('#CursosActualizacion').modal('hide');
+                  this.Guardado=true;
+                }else{
+                  console.log("Mensaje: " + response.data.Message);
+                }
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
+           }
            else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
@@ -763,7 +785,16 @@
           }).catch((err) => {
             console.log(err.response.data);
           })
-      },       
+      },
+      checarCursosActualizacion: function(){
+        axios.post(this.url + 'ChecarCursoaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            // console.log("Uniruta: " + response.data);
+            this.InscritoCursosa = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      },
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + 'ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
