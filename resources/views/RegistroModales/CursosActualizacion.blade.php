@@ -9,26 +9,42 @@
           </button>
         </div>
 
-        <div class="modal-body bg-white" v-if="!InscritoCursosActualizacion">
+        <div class="modal-body bg-white" v-if="!InscritoCA_complete">
           <form @submit.prevent="uaslpUser()">
             @csrf
             <h2 class="modal-title2" id="exampleModalLabel">Formulario de registro</h2>
             <br>
 
+            <h5 class="modal-title3" id="exampleModalLabel">Curso(s) al que se desea registrar:</h5>
+            <div class="form-group col-12 was-validated">
+              <div class="form-check">
+                <input v-model="Selected_REGS" class="form-check-input" type="checkbox" value="REGS" id="flexCheckDefault"
+                  :disabled="REGS"
+                >
+                <label style="color: black" class="form-check-label" for="flexCheckDefault">
+                  Recursos ecónomicos y de gestión para la sostenibilidad
+                </label>
+              </div>
+              <div class="form-check">
+                <input v-model="Selected_RIA" class="form-check-input" type="checkbox" value="RIA" id="flexCheckChecked"
+                  :disabled="RIA"
+                >
+                <label style="color: black" class="form-check-label" for="flexCheckChecked">
+                  Reglamento e instituciones ambientales
+                </label>
+              </div>
+              <div class="form-check">
+                <input v-model="Selected_SCMU" class="form-check-input" type="checkbox" value="SCMU" id="flexCheckChecked"
+                  :disabled="SCMU"
+                >
+                <label style="color: black" class="form-check-label" for="flexCheckChecked">
+                  Sistema de ciudad y metabolismo urbano
+                </label>
+              </div>
+            </div>
+
             <h5 class="modal-title3" id="exampleModalLabel">Datos académicos</h5>
             <div class="form-row">
-              <div class="form-group col-md-6 was-validated">
-                <label for="Nombres">Curso(s) al que se desea registrar:</label>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="REGS">Recursos ecónomicos y de gestión para la sostenibilidad</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="RIA">Reglamento e instituciones ambientales</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" value="SCMU">Sistema de ciudad y metabolismo urbano</label>
-                </div>
-              </div>
               <div class="form-group col-md-6 was-validated ">
                 <label for="Nombres">Nivel académico</label>
                 <select id="NAcademico" class="form-control" v-model="NAcademico" required name="NAcademico">
@@ -71,32 +87,33 @@
             <div class="form-group row was-validated">
               <label for="emailR" class="col-sm-3 col-form-label">Correo electrónico</label>
               <div class="col-9">
-                <input type="emailR" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
+                <input type="email" class="form-control" id="emailR" required name="emailR" readonly v-model="emailR">
               </div>
             </div>
-            <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
+
+            <div v-if="TipoUsuario!=='externs'?true:false" class="form-row was-validated">
               <div class="form-group col-md-6">
                 <label for="ClaveU_RPE">Clave única/RPE</label>
                 <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
                   required>
               </div>
-              <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
+              <div class=" form-group col-md-6" v-if="TipoUsuario!=='externs'?true:false">
                 <label for="Facultad">Facultad de adscripción</label>
-                <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
-                  v-model="Facultad">
+                <input type="text" class="form-control" id="Facultad" required name="Facultad"
+                  v-model="organizacion">
               </div>
             </div>
 
-            <div class="form-row was-validated" v-if="TipoUsuario!='externs'">
+            <div v-else class="form-row was-validated">
               <div class="form-group col-md-6">
                 <label for="Profesion">Profesión</label>
-                <input type="text" name="Profesion" class="form-control" id="Profesion" readonly v-model="Profesion"
+                <input type="text" name="Profesion" class="form-control" id="Profesion" v-model="profesion"
                   required>
               </div>
-              <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'">
+              <div class=" form-group col-md-6">
                 <label for="Organizacion">Organización</label>
-                <input type="text" class="form-control" id="Organizacion" required name="Organizacion" readonly
-                  v-model="Facultad">
+                <input type="text" class="form-control" id="Organizacion" required name="Organizacion"
+                  v-model="organizacion">
               </div>
             </div>
 
@@ -104,11 +121,10 @@
               <div class="col-md-6 mb-3">
                 <label for="tel">Teléfono</label>
                 <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
-                  @if(Auth::user()->user_type!="externs")
-
-                @else
-                readonly
-                @endif
+                  @if(Auth::user()->user_type==="externs")
+                  @else
+                    readonly
+                  @endif
                 >
               </div>
               </div>
@@ -150,7 +166,7 @@
 
             <hr>
             <h5 class="modal-title3" v-if="modalClick!='Rodada'">Información estadística</h5>
-            <div class="form-group row was-validated" v-if="modalClick!='Rodada'">
+            <div class="form-group row was-validated">
               <label for="isAsistencia" class="col-sm-7 col-form-label">¿Has asistido a cursos ó talleres
                 en la Agenda Ambiental?</label>
               <div class="col-5">
@@ -161,7 +177,7 @@
                 </select>
               </div>
             </div>
-            <div class="form-group row was-validated" v-if="modalClick!='Rodada'?isAsistencia==='Si'?true:false:false">
+            <div class="form-group row was-validated" v-if="isAsistencia==='Si'?true:false">
               <div class="col-md-12">
                 <label for="CursosC">¿Cuáles?</label>
                 <input type="text" class="form-control" id="CursosC" required name="CursosC" v-model="CursosC">

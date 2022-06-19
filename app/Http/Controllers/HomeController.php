@@ -72,15 +72,20 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
 
         if($user->hasRole('helper')){
-            $users = $this->getUnirodadaAndHuertoMesaUsers();# Usuarios de unihuerto, 
+            $users = $this->getHelperUsers();
+            // return $users;
+            return view('auth.Dashbord.Administracion', [
+                'users' =>  $users,
+                'Modulos' => Auth::user()->userModules,
+            ]);
         }else if($user->hasRole('coordinator')){
             $users = $this->getGestionAmbientalUsers(); # Usuarios con workshops vigentes
         }else{//en dado caso es administrador
             $users = $this->getAllUsers(); # Todos los usuarios.
         }
 
-
-        return view('auth.Dashbord.Administracion',[
+        // return $users;
+        return view('auth.Dashbord.Administracion_nohelper',[
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
@@ -168,6 +173,71 @@ class HomeController extends Controller
 
         //dd($res);
         return $res;
+    }
+
+
+    // retorna usuarios de huerto a la mesa, unirodada y uniruta 
+    private function getHelperUsers() 
+    { 
+        
+        # Consulta bien mortal para traer todo lo que se pide 
+        $users = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+            })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [15]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [15]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+
+
+        // # Consulta bien mortal para traer todo lo que se pide
+        $users2 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+        ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [16]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [16]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])->with(['invoice_data'])
+            ->get();
+
+        // # Consulta bien mortal para traer todo lo que se pide
+        $users3 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+        ->whereNotNull('email_verified_at')
+        ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [17]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [17]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+
+        // # Consulta bien mortal para traer todo lo que se pide
+        $users4 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+            })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [18]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [18]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        
+        foreach($users2 as $user)$users->push($user);
+        foreach($users3 as $user)$users->push($user);
+        foreach($users4 as $user)$users->push($user);
+
+        return $users;
     }
 
     private function getWithPayUsers()//Aun no correcta!!

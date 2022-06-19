@@ -16,6 +16,9 @@ class SendPayFormRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(){
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,8 +27,9 @@ class SendPayFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'file' => ['required'],
             'idUser' => ['required'],
+            'file' => ['required'],
+            'ws_id' => ['numeric']
         ];
     }
 }

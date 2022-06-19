@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\InvoiceData;
 use App\Models\Module;
 use App\Models\UnirodadaUser;
 use App\Models\UnirutaUser;
@@ -99,7 +100,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'workshops:id,name,description,type,work_edge,start_date,end_date',
         'roles:id,name',
         'userModules',
-        'unirodadasUser.userWorkshop'
+        'unirodadasUser.userWorkshop',
+        'invoice_data'
     ];
 
 
@@ -468,6 +470,11 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->setUnirodadaDetailsField('invoice_data', json_encode($value));
     }
 
+    public function invoice_data()
+    {
+        return $this->hasOne(InvoiceData::class, 'user_id');
+    }
+
     /**
      * Actualiza el grupo del ciclista del usuario.
      *
@@ -568,7 +575,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setPaidAttribute($value)
     {
         // $this->setUnirodadaDetailsField('user_workshop.paid', $value);
-        $this->setUnirutaDetailsField('user_workshop.paid', $value);
+        // $this->setUnirutaDetailsField('user_workshop.paid', $value);
+        $this->setCADetailsField('user_workshop.paid', $value);
     }
 
     /**
@@ -640,14 +648,15 @@ class User extends Authenticatable implements MustVerifyEmail
             'user_id',
             'workshop_id'
         )
-        //->whereDate('end_date','>=',Carbon::now()) //anadi esta linea para ver solo los usuarios con cursos vigentes
+        //->whereDate('end_date','>=',Carbon::now()) 
         ->withPivot(
             'id',
             'user_type',
             'sent',
             'sent_at',
             'paid',
-            'paid_at'
+            'paid_at',
+            'invoice_data'
         );
     }
 

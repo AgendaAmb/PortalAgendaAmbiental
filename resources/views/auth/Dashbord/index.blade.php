@@ -28,6 +28,21 @@
             </a>
           </div>
 
+           {{-- Cursos de actualizacion  --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
+              <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+
+           @if(Auth::user()->hasRole('administrator'))
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
+              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+          @endif
+
           {{-- @if(Auth::user()->user_type!="externs")
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
@@ -37,29 +52,22 @@
           </div>
           @endif --}}
 
-          @if(Auth::user()->hasRole('administrator'))
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
-              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div>
-          @endif
-
           {{-- Promotores ambientales  --}}
-          <div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#PromotoresHuasteca" @click="AbrirModal('PromotoresHuasteca')">
               <img src="{{ asset('/storage/imagenes/Promotores/PromotoresAmbientales.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
-          </div>
+          </div> --}}
 
-          <div class="col px-0">
+          {{-- Uniruta sierra de alvarez --}}
+          {{-- <div class="col px-0">
               @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235 
                   || Auth::user()->id === 275494 || Auth::user()->id === 306148 || Auth::user()->id === 322492 || Auth::user()->id === 223 || Auth::user()->id === 207 || Auth::user()->id === 240 || Auth::user()->id === 214 || Auth::user()->id === 18536 || Auth::user()->id === 249 || Auth::user()->id === 244731 || Auth::user()->id === 49 || Auth::user()->id === 238 || Auth::user()->id === 6346 || Auth::user()->id === 24010 || Auth::user()->id === 266697 || Auth::user()->id === 250 || Auth::user()->id === 282037 || Auth::user()->id === 280507 || Auth::user()->id === 280514 || Auth::user()->id === 12835
               )
               <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click.prevent="excepcion_usuario" @click="AbrirModal('UnirutaSierraAlvarez')">
               @endif
               <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroC.png')}}" class="img-fluid pr-xl-1 px-1">
-          </div>
+          </div> --}}
 
           {{-- Unirodada rios  --}}
           {{-- <div class="col px-0">  
@@ -95,11 +103,8 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 {{-- <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block w-100" alt="...">
-                </div> --}}
-                <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="d-block w-100" alt="...">
-                </div>
+                </div> --}}
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
                 </div>
@@ -171,7 +176,6 @@
 
 @include("RegistroModales.Unitrueque")
 
-
 {{-- Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
 
@@ -214,7 +218,8 @@
     spinnerVisible:false,
     CURP:'',
     LugarResidencia:'',
-
+    profesion:'',
+    organizacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
     Genero:'',
@@ -256,13 +261,25 @@
     Cantidad:'', 
     Mobiliario:'',//si o no
     EmpresaParticipante:'',
-    InscritoUnihuertoCasa:false,
-    InscritoUnitrueque:false,
-    InscritoHuertoMesa:false,
+
+    //! Modales pasados
     InscritoHuertoMesaHuasteca:false,
     InscritoPromotoresHuasteca:false,
     InscritoUnirodadaRios:false,
-    InscritoUniruta:false
+    InscritoUniruta:false,
+    InscritoUniruta:false,
+    InscritoUnihuertoCasa:false,
+    InscritoHuertoMesa:false,
+
+    //! Modales activos
+    InscritoUnitrueque:false,
+    InscritoCA_complete: false,
+    REGS:false, // Cursos de actualizacion
+    RIA:false, // Cursos de actualizacion
+    SCMU:false, // Cursos de actualizacion
+    Selected_REGS:false, //Cursos de actualizacion
+    Selected_RIA:false, //Cursos de actualizacion
+    Selected_SCMU:false, //Cursos de actualizacion
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -454,14 +471,17 @@
     AbrirModal: function(ModalClick){
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
-      //Nuevos Cursos
-      this.checarInscripcionHuertoMesa();
-      this.checarInscripcionUnihuertoCasa();
+      //Modales vigentes
+      this.checarInscripcionCursosAct();
       this.checarInscripcionUnitrueque();
+      this.checarInscripcionHuertoMesa();
+      //Modales pasados
+      this.checarInscripcionUnihuertoCasa();
       this.checarInscripcionHuertoMesaHuasteca();
       this.checarInscripcionPromotoresHuasteca();
       this.checarInscripcionUnirodadaRios();
       this.checarInscripcionUniruta();
+     
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -477,7 +497,6 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
-
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
@@ -487,7 +506,6 @@
         this.Guardado=false,
         this.url='{{env('APP_URL')}}',
         this.Ocupacion='{{Auth::user()->ocupation}}'
-
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
           this.isRegisterRodada=true,
        this.check_one(),
@@ -495,7 +513,6 @@
         }
       },
       uaslpUser:function(){
-
             this.spinnerVisible=true;
            if(this.emailR!=''){
             let headers = {
@@ -503,7 +520,6 @@
             };
             var data = {
        	        "emailR":this.emailR,
-
                 "Genero":this.Genero,
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
@@ -528,13 +544,17 @@
                 'nombresF':this.nombresF,
                 'RFC':this.RFC,
                 'telF':this.telF,
+                'isAsistencia': this.isAsistencia,
                 //campos para unitrueque
                 'MaterialesIntercambio':this.MaterialesIntercambio,
                 'Cantidad':this.Cantidad, 
                 'Mobiliario':this.Mobiliario,
-                'EmpresaParticipante':this.EmpresaParticipante, 
-
+                'EmpresaParticipante':this.EmpresaParticipante,
+                'profesion':this.profesion,
+                'organizacion':this.organizacion,
             }
+            console.log(data);
+
             if (this.modalClick=='Agricultura') {
               axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
               console.log(response.data),
@@ -714,13 +734,17 @@
             })
            }
           else if(this.modalClick=='CursosActualizacion'){
-            // console.log(data);
-            data['TipoEvento'] = 'curso'
+            // console.log('REGS: ');
+            // console.log(this.Selected_REGS);
+            data['REGS'] = this.Selected_REGS;
+            data['RIA'] =  this.Selected_RIA;
+            data['SCMU'] = this.Selected_SCMU;
+            data['TipoEvento'] = 'curso';
+            console.log(data);
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
-            axios.post(this.url+'RegistrarCursosaUsuario',data).then(response => {
-                console.log(response.status);
+            axios.post(this.url+'RegistrarCAUsuario',data).then(response => {
                 if(response.status == 200){
-                  //console.log(response.data);
+                  console.log(response.data.Message);
                   this.spinnerVisible=false;
                   $('#CursosActualizacion').modal('hide');
                   this.Guardado=true;
@@ -750,10 +774,23 @@
 
         }
       },
+      //Verifica la inscripcion en cursos de actualizacion
+      checarInscripcionCursosAct: function(){
+        axios.post(this.url + 'ChecarCAUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            // console.log(response.data);
+            this.REGS = response.data.data.REGS;
+            this.RIA = response.data.data.RIA;
+            this.SCMU = response.data.data.SCMU;
+            this.InscritoCA_complete = response.data.flag;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
       checarInscripcionHuertoMesaHuasteca: function(){
         axios.post(this.url + 'ChecarHuertoMesaHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.InscritoHuertoMesaHuasteca = response.data;
           }).catch((err) => {
             console.log(err.response.data);

@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Models\UserWorkshop;
 
 class WorkshopController extends Controller
 {
-/*
+    /*
     |--------------------------------------------------------------------------
     | Workshop Controller
     |--------------------------------------------------------------------------
@@ -34,6 +35,13 @@ class WorkshopController extends Controller
     private $unirodada_controller;
 
     /**
+     * Controlador de cursos actualizacion.
+     *
+     * @var caController
+     */
+    private $ca_controller;
+
+    /**
      * Controlador de unirutas.
      *
      * @var UnirodadaController
@@ -48,6 +56,7 @@ class WorkshopController extends Controller
     {
         $this->unirodada_controller = new UnirodadaController;
         $this->uniruta_controller = new UnirutaController;
+        $this->ca_controller = new CursosActualizacionController;
     }
 
 
@@ -247,6 +256,96 @@ class WorkshopController extends Controller
         $workshop->save();
         Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
         return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+    }
+
+    public function RegistrarCAUsuario(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            // Actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+                $user->interested_on_further_courses = true;
+            }
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+                $user->courses = $request->CursoCursado;
+            }
+            $user->save();
+
+            # Cursos mmus del usuario y unirodadas.
+            $workshops = $user->workshops()
+                ->WherePivotNull('paid')
+                ->wherePivotNull('assisted_to_workshop')
+                ->orWherePivot('assisted_to_workshop', false)
+                ->pluck('workshops.id');
+
+
+            # Se eliminan los cursos a los que no haya asistido y a
+            # aquellos que haya eliminado del modal.
+            $user->workshops()->detach($workshops);
+
+            # Busca cursos
+            $workshop_models = array();
+            
+            if($request->REGS)array_push($workshop_models, Workshop::firstWhere('id',16));
+            if($request->RIA)array_push($workshop_models, Workshop::firstWhere('id',17));
+            if($request->SCMU)array_push($workshop_models, Workshop::firstWhere('id',18));
+    
+            $this->ca_controller->registerUser($request, $user, $workshop_models);
+
+            # la relación con esta tabla esta bien fea mens (deberia haber una clave foranea) 
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                ->updateOrInsert([
+                    'user_id' => $user->id,
+                    'user_type' => $user->type
+                ], [
+                    'rfc' => $request->RFC,
+                    'name' => $request->nombresF,
+                    'email' => $request->emailF,
+                    'address' =>  $request->DomicilioF,
+                    'phone' => $request->telF
+                ]);
+            }
+
+        }catch(\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+    
+    // Chacar usuario registrado en cursos de actualización
+    public function ChecarCAUsuario(Request $request){
+        $inscriptions = array();
+        $flag = false;
+
+        try{
+            $inscriptions['REGS'] = UserWorkshop::where('workshop_id', 16)
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+            $inscriptions['RIA'] = UserWorkshop::where('workshop_id', 17) 
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+            $inscriptions['SCMU'] = UserWorkshop::where('workshop_id', 18)
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+        }catch(Exception $e) {
+            return response()->json(['flag' => $flag,'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        if($inscriptions['REGS'] && $inscriptions['RIA'] && $inscriptions['SCMU'])$flag=true;
+
+        return response()->json(['flag' => $flag, 'data' => $inscriptions], JsonResponse::HTTP_OK);
     }
 
     public function RegistrarRodadaRioUsuario(Request $request)

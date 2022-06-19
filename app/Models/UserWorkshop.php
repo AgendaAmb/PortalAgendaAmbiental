@@ -57,4 +57,15 @@ class UserWorkshop extends MorphPivot
     {
         return $this->hasOne(UnirutaUser::class, 'user_workshop_id');
     }
+
+    /**
+     * Obtiene la cc_mu más reciente, registrada por el
+     * usuario.
+     *
+     * @param  array $workshops
+     */
+    public function caUser()
+    {
+        return $this->hasOne(caUser::class, 'user_workshop_id');
+    }
 }

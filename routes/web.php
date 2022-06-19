@@ -154,6 +154,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a uniruta.
     Route::post('/RegistrarUnirutaUsuario', 'WorkshopController@RegistrarUnirutaUsuario')->name('RegistrarUnirutaUsuario');
     Route::post('/ChecarUnirutaUsuario', 'WorkshopController@ChecarUnirutaUsuario')->name('ChecarUnirutaUsuario');
+
+    # Registro a cursos de actualizacioón.
+    Route::post('/RegistrarCAUsuario', 'WorkshopController@RegistrarCAUsuario')->name('RegistrarCAUsuario');
+    Route::post('/ChecarCAUsuario', 'WorkshopController@ChecarCAUsuario')->name('ChecarCAUsuario');
     
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
@@ -161,17 +165,21 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaFicha', 'UnirutaController@sendPayForm')
+    Route::post('/EnviaFicha', 'CursosActualizacionController@sendPayForm')
         ->middleware('role:helper')
         ->name('EnviaFicha');
 
+    # Envía un comprobante a un usuario.
+    Route::post('/EnviaFactura', 'CursosActualizacionController@sendFactura')
+        ->middleware('role:helper')
+        ->name('EnviaFactura');
 
         #cambio
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaComprobante', 'UnirodadaController@sendReceipt')->name('EnviaComprobante');
+    Route::post('/EnviaComprobante', 'CursosActualizacionController@sendReceipt')->name('EnviaComprobante');
 
     # Envía un comprobante a un usuario.
-    Route::post('/cambiaStatusPago', 'UnirutaController@cambiaStatusPago')->name('cambiaStatusPago');
+    Route::post('/cambiaStatusPago', 'CursosActualizacionController@cambiaStatusPago')->name('cambiaStatusPago');
 
     # Actualiza el lunch del usuario.
     Route::post('/actualizaLunchUsuario', 'UnirodadaController@actualizaLunchUsuario')->name('actualizaLunchUsuario');

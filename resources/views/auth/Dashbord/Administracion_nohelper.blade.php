@@ -88,12 +88,13 @@
                             @endif
                         </td>
                         @else
+
                         <td>   
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
                                 @click="cargarUser({{$user}})">
                                 <i class="fas fa-edit"></i>
                                 @if (Auth::user()->hasRole('helper'))
-                                    <small>ENVIAR FICHA DE PAGO</small>
+                                    <small>pago uniruta-sierra-álvarez</small>
                                 @endif
                             </a>
                         </td>
@@ -192,7 +193,7 @@
                             </td>
                         
 
-                        @if ($user->workshops[0]->pivot->paid!=null)
+                        @if ($user->paid!=null||$user->paid)
                         <td class="text-center">
                             <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
                         </td>
@@ -200,7 +201,7 @@
                         <td>
 
                             <input type="checkbox" name="{{$user->id.$user->middlename}}"
-                                id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}},{{$user->workshops[0]->pivot->id}})">
+                                id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})">
                             Si
                         </td>
 
@@ -208,12 +209,11 @@
 
 
                         <th class="text-center ">
-                            @if($user->workshops[0]->pivot->invoice_data)
+                            @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
 
                             <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i
                                     class="fas fa-eye text-primary " style="font-size: 25px;"
-                                    @click="cargarDatosFacturacion({{$user}})"></i>
-                            </a>
+                                    @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
 
                             @else
                             no
@@ -384,7 +384,7 @@
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
                     @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Uniruta Sierra lvarez
                     </h5>
 
                     @else
@@ -402,7 +402,8 @@
                     </button>
                 </div>
                 @if (Auth::user()->hasRole('helper'))
-                <form @submit.prevent="MandarPagoUnirodada({{$user->workshops[0]->pivot->id}})" method="post">
+
+                <form @submit.prevent="MandarPagoUnirodada" method="post">
                     <div class="modal-body bg-white">
                         <div class="col-12" v-if="asistenciaExito">
                             <div class="alert alert-success text-center" role="alert">
@@ -556,7 +557,7 @@
                 </div>
 
                 <div class="modal-body bg-white">
-                    <form @submit.prevent="MandarFacturaPago({{$user}},{{$user->workshops[0]->pivot->id}})" method="post">
+                    <form @submit.prevent="MandarPagoUnirodada" method="post">
                         <div class="modal-body bg-white">
                             <div class="col-12" v-if="asistenciaExito">
                                 <div class="alert alert-success text-center" role="alert">
@@ -573,29 +574,29 @@
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Nombre Completo o razón social</label>
                                     <input type="text" class="form-control" id="nombresF" name="nombresF"
-                                        :value="DatosFacturacion[0].invoice_data.name" readonly
+                                        :value="DatosFacturacion[0].nombresF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Domicilio fiscal</label>
                                     <input type="text" class="form-control" id="DomicilioF" name="DomicilioF"
-                                        :value="DatosFacturacion[0].invoice_data.address" readonly
+                                        :value="DatosFacturacion[0].DomicilioF" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">RFC</label>
                                     <input type="text" class="form-control" id="RFC" name="RFC"
-                                        :value="DatosFacturacion[0].invoice_data.rfc" readonly style="text-transform: capitalize;">
+                                        :value="DatosFacturacion[0].RFC" readonly style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Correo electrónico</label>
                                     <input type="email" class="form-control" id="emailF" name="emailF"
-                                        :value="DatosFacturacion[0].invoice_data.email" readonly>
+                                        :value="DatosFacturacion[0].emailF" readonly>
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Teléfono</label>
                                     <input type="tel" class="form-control" id="telF" name="telF"
-                                        :value="DatosFacturacion[0].invoice_data.phone" readonly>
+                                        :value="DatosFacturacion[0].telF" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
@@ -626,11 +627,6 @@
     </div>
 </div>
 
-<script>
-    // Va a remplazar todo
-    const users = @json($users);
-    const modulos = @json($Modulos);
-</script>
 
 <script>
     var app = new Vue({
@@ -661,25 +657,24 @@
 
   },
   mounted: function () {
-    this.$nextTick(function () {
+  this.$nextTick(function () {
     @foreach($users as $user)
-        // console.log(users['{{ $loop->index }}'].invoice_data);
-        this.users.push({
-            "id":'{{$user->id}}',
-            "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
-            "residence":'{{$user->residence}}',
-            "ocupation":'{{$user->ocupation}}',
-            "ethnicity":'{{$user->ethnicity}}',
-            "disability":'{{$user->disability}}',
-            "ethnicity":'{{$user->ethnicity}}',
-            "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
-            "emergency_contact":'{{$user->emergency_contact}}',
-            "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
-            "health_condition":'{{$user->health_condition}}',
-            "invoice_data": users['{{ $loop->index }}'].invoice_data,
-            "file_path": "{{$user->invoice_url}}",
-            "lunch":"{{$user->lunch}}"
-        });
+                this.users.push({
+                    "id":'{{$user->id}}',
+                    "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
+                    "residence":'{{$user->residence}}',
+                    "ocupation":'{{$user->ocupation}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "disability":'{{$user->disability}}',
+                    "ethnicity":'{{$user->ethnicity}}',
+                    "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
+                    "emergency_contact":'{{$user->emergency_contact}}',
+                    "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
+                    "health_condition":'{{$user->health_condition}}',
+                    "invoice_data": "{{$user->invoice_data}}",
+                    "file_path": "{{$user->invoice_url}}",
+                    "lunch":"{{$user->lunch}}"
+                });
     @endforeach
     $(document).ready(function() {
   $('#summernote').summernote();
@@ -762,83 +757,69 @@
 
 
     },
-    ConfirmarPago:function(user, ws_id){
-        this.cargarUser(user);
-        var data = {
-            "idUsuario": user.id,
-            "nuevoEstadoPago": true,
-            "user_workshop_id": ws_id
-        };
+    ConfirmarPago:function(user){
+        this.cargarUser(user),
+        console.log(this.user[0].id)
+        const formData = new FormData();
+        formData.append('idUsuario',this.user[0].id);
+        formData.append('nuevoEstadoPago',true);
         axios({
-            method: 'post',
-            url: '/cambiaStatusPago',
-            data: data
-        }).then(res => {
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err.data)
-        })
+                 method: 'post',
+
+                 url: '/cambiaStatusPago',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("Exito")
+
+
+                     }
+                 ).catch(
+                     err => {
+                        console.log("Falso")
+
+                     }
+                 )
+
     },
     cargarDatosFacturacion:function(user){
-        this.cargarUser(user);
         this.DatosFacturacion=[],
         this.DatosFacturacion.push(user);
-        console.log(this.DatosFacturacion[0].invoice_data)
     },
-    MandarPagoUnirodada:function(ws_id){
-        this.spinnerVisible=true;
-        // Los datos necesitan ser enviados con form data
-        var formData = new FormData();
-        formData.append("idUser", this.user[0].id);
-        formData.append("file",this.file);
-        formData.append("ws_id", ws_id);
-        axios({
-            method: 'post',
-            url: '/EnviaFicha',
-            data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }).then(res => {
-                console.log(res.data),
-                this.file = '',
-                this.spinnerVisible=false,
-                this.asistenciaExito=true
-        }).catch(
-            err => {
-            console.log("Error al enviar datos"),
-            this.spinnerVisible=false,
-                this.asistenciaExito=false
+    MandarPagoUnirodada:function(){
 
-            }
-        )
-    },
-    MandarFacturaPago:function(user, ws_id){
-        // Los datos necesitan ser enviados con form data
-        var formData = new FormData();
-        formData.append("idUser", this.user[0].id);
-        formData.append("file",this.file);
-        formData.append("ws_id", ws_id);
-        axios({
-            method: 'post',
-            url: '/EnviaFactura',
-            data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }).then(res => {
-                console.log(res.data),
-                this.file = '',
-                this.spinnerVisible=false,
-                this.asistenciaExito=true
-        }).catch(
-            err => {
-            console.log("Error al enviar datos"),
-            this.spinnerVisible=false,
-                this.asistenciaExito=false
+        this.spinnerVisible=true
+        const formData = new FormData();
+             formData.append('idUser',this.user[0].id);
+             formData.append('file', this.file);
+             formData.append('_method', 'post');
+             axios({
+                 method: 'post',
 
-            }
-        )
+                 url: '/EnviaFicha',
+                 data: formData,
+                 headers: {
+                     'Content-Type': 'multipart/form-data'
+                 }
+             }).then(
+                     res => {
+                         console.log("hola"),
+
+                         this.file = '',
+                         this.spinnerVisible=false,
+                         this.asistenciaExito=true
+                     }
+                 ).catch(
+                     err => {
+                        console.log("adios"),
+                        this.spinnerVisible=false,
+                         this.asistenciaExito=false
+
+                     }
+                 )
     },
     RegistrarAsistencia:function(){
         this.spinnerVisible=true
@@ -871,10 +852,11 @@
         this.user=[],
         this.CursosInscritos=[],
         this.user.push(user);
-            // console.log("soy lunch", this.user[0].lunch)
-            // console.log(this.user[0].lunch==1)
+            console.log("soy lunch", this.user[0].lunch)
+             console.log(this.user[0].lunch==1)
         if (this.user[0].lunch==1) {
             this.Lunch='Si'
+
         }else{
             this.Lunch=''
         }
@@ -886,17 +868,23 @@
        	        "id":user.id,
         }
         axios.post('/GetWorkshops',data).then(response => (
+
             response.data.forEach(element => {
                 if (!element.asistenciaUsuario) {
                     this.CursosInscritos.push({
                     'id':element.id,
                     'name':element.name
-                    })
+                })
                 }
+
             })
-        )).catch((err) => {
-            console.log(err)
-        })
+
+
+             )).catch((err) => {
+                console.log(err)
+
+          })
+
     }
     }
 })
@@ -915,6 +903,7 @@ console.log(markupStr);
 
 
 </script>
+
 @push('stylesheets')
 
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
