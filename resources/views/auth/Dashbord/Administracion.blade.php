@@ -90,7 +90,7 @@
                         @else
                         <td>   
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                                @click="cargarUser({{$user}})">
+                                @click="cargarUser({{$user}},{{ $user->workshops[0]->pivot->id }})">
                                 <i class="fas fa-edit"></i>
                                 @if (Auth::user()->hasRole('helper'))
                                     <small>ENVIAR FICHA DE PAGO</small>
@@ -402,7 +402,7 @@
                     </button>
                 </div>
                 @if (Auth::user()->hasRole('helper'))
-                <form @submit.prevent="MandarPagoUnirodada({{$user->workshops[0]->pivot->id}})" method="post">
+                <form @submit.prevent="MandarPagoUnirodada()" method="post">
                     <div class="modal-body bg-white">
                         <div class="col-12" v-if="asistenciaExito">
                             <div class="alert alert-success text-center" role="alert">
@@ -657,8 +657,8 @@
     Asunto:'',
     Contenido:'',
     cc:[],
-    Summernote:''
-
+    Summernote:'',
+    ws_id:-1,
   },
   mounted: function () {
     this.$nextTick(function () {
@@ -785,13 +785,14 @@
         this.DatosFacturacion.push(user);
         console.log(this.DatosFacturacion[0].invoice_data)
     },
-    MandarPagoUnirodada:function(ws_id){
+    MandarPagoUnirodada:function(){
+        console.log(this.ws_id);
         this.spinnerVisible=true;
         // Los datos necesitan ser enviados con form data
         var formData = new FormData();
         formData.append("idUser", this.user[0].id);
         formData.append("file",this.file);
-        formData.append("ws_id", ws_id);
+        formData.append("ws_id", this.ws_id);
         axios({
             method: 'post',
             url: '/EnviaFicha',
@@ -865,7 +866,9 @@
              this.file='';
              this.file = e.target.files[0];
          },
-    cargarUser: function (user) {
+    cargarUser: function (user, ws_id = -1) {
+        // console.log(ws_id)
+        this.ws_id = ws_id; 
         this.file='',
         this.asistenciaExito=false,
         this.user=[],
