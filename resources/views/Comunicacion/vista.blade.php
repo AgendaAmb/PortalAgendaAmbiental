@@ -113,17 +113,23 @@ $months[] = $date;
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 {{--
+                        Pestañas del 2022
+                    --}}
+
+                @include('Parciales.TabsCalendario.2022-pill-tabs')
+            </div>
+            <div class="carousel-item mx-1">
+                    {{--
                         Pestañas del 2021
                     --}}
 
                 @include('Parciales.TabsCalendario.2021-pill-tabs')
             </div>
-            <div class="carousel-item mx-1">
+                <div class="carousel-item">
                 {{--
                         Pestañas del 2020
                     --}}
                 @include('Parciales.TabsCalendario.2020-pill-tabs')
-
             </div>
             <div class="carousel-item">
                 {{--
@@ -133,6 +139,12 @@ $months[] = $date;
                 @include('Parciales.TabsCalendario.2019-pill-tabs')
 
                 </ul>
+            </div>
+            <div class="carousel-item">
+                {{--
+                        Muestra nuevamente las pestañas del 2021.
+                    --}}
+                @include('Parciales.TabsCalendario.2021-pill-tabs')
             </div>
             <div class="carousel-item">
                 {{--
@@ -149,6 +161,520 @@ $months[] = $date;
         </a>
     </div>
 </div>
+
+
+{{--
+        2022
+    --}}
+<!--<div class="row tab-content mx-2 justify-content-center" id="myTabContent">
+    <div class="tab-pane fade show " id="septiembre3" role="tabpanel" aria-labelledby="septiembre2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner1Unirodada.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021')}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2.png')}}"
+                                    class="imgCaoursel w-100 p-0 p-0" alt="First slide">
+                            </a>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('mmus2021',['nombreModal'=> 'modalUnirodada'])}}>
+                                <img src="{{ asset('/storage/imagenes/mmus2021/Banner2Unirodada.png')}}"
+                                    class="imgCaoursel w-100 p-0 p-0" alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Gemas')}}>
+                                <img src="{{ asset('storage/imagenes/17Gemas/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 "
+                                    alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="agosto3" role="tabpanel" aria-labelledby="agosto2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+                            </a>
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-2.png')}}" class="imgCaoursel "
+                                    alt="First slide">
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores2.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Banner-1.png')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0  " alt="First slide">
+                            </a>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
+                                <img src="{{ asset('storage/imagenes/introduccion/Promotores1.png')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0 " alt="First slide">
+                            </a>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="julio3" role="tabpanel" aria-labelledby="julio2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}}>
+                                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}}>
+                                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER1.jpg')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerFunicultura'])}}>
+                                <img src="{{ asset('storage/imagenes/Unihuerto/FUNGICULTURA-BANNER.jpg')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="tab-pane fade show active " id="junio3" role="tabpanel" aria-labelledby="junio2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/BannerECR_1.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/BannerECR_2.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/BannerECR_2.png')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0" alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="mayo3" role="tabpanel" aria-labelledby="mayo2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                                <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
+                                    class="imgCaoursel p-0 " alt="First slide">
+                            </a>
+                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                                <img src="{{ asset('storage/imagenes/Uniruta/B2_Uniruta.png')}}"
+                                    class="imgCaoursel  p-0 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                                <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
+                                    class="imgCaoursel w-100 p-0 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
+                                <img src="{{ asset('storage/imagenes/Uniruta/B2_Uniruta.png')}}"
+                                    class="imgCaoursel w-100 p-0 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="abril3" role="tabpanel" aria-labelledby="abril2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unibici')}}">
+                                <img src="{{ asset('storage/imagenes/Unibici/unirodada-banner1.jpg')}}"
+                                    class="imgCaoursel  " alt="First slide">
+                            </a>
+                            <a href="{{route('Unibici')}}">
+                                <img src="{{ asset('storage/imagenes/Unibici/unirodada-banner2.jpg')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unibici')}}">
+                                <img src="{{ asset('storage/imagenes/Unibici/unirodada-banner1.jpg')}}"
+                                    class="imgCaoursel  w-100" alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            </a>
+                            <a href="{{route('Unibici')}}">
+                                <img src="{{ asset('storage/imagenes/Unibici/unirodada-banner2.jpg')}}"
+                                    class="imgCaoursel w-100" alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="marzo3" role="tabpanel" aria-labelledby="marzo2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Cineminuto')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href="{{route('Cineminuto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-1.webp')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Cineminuto')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/CINEMINUTOO-B-CH.webp')}}"
+                                    class="imgCaoursel  w-100 p-0 p-0" alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show  " id="febrero3" role="tabpanel" aria-labelledby="febrero2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('FotografiaS')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
+                                    class="imgCaoursel  " alt="First slide">
+                            </a>
+                            <a href="{{route('FotografiaS')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"
+                                    class="imgCaoursel  " alt="First slide">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('FotografiaS')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia.webp')}}"
+                                    class="imgCaoursel w-100 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('FotografiaS')}}">
+
+                                <img src="{{ asset('storage/imagenes/introduccion/ConcursoFotografia2.png')}}"
+                                    class="imgCaoursel w-100  " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade " id="enero3" role="tabpanel" aria-labelledby="enero2-tab">
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-B-CH.jpg')}}"
+                                    class="imgCaoursel  p-0 " alt="First slide">
+                            </a>
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-B-1.jpg')}}"
+                                    class="imgCaoursel p-0 " alt="First slide">
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-B-CH.jpg')}}"
+                                    class="imgCaoursel w-100 p-0 " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href="{{route('Unihuerto')}}">
+                                <img src="{{ asset('storage/imagenes/introduccion/UNIHUERTO-B-1.jpg')}}"
+                                    class="imgCaoursel w-100 p-0 " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 {{--
         2021
     --}}
