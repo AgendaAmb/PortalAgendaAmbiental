@@ -34,6 +34,7 @@
         ||Str::contains(url()->full(),route('ConsumoResponsable'))
         ||Str::contains(url()->full(),route('mmus2021'))
         ||Str::contains(url()->full(),route('Cursos'))
+        ||Str::contains(url()->full(),route('Uniruta'))
         
         )
         <x-navbar-o-d-s>
