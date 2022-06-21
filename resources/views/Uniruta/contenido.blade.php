@@ -4,7 +4,7 @@
     <img src="{{ asset('storage/imagenes/Logos/Logo_Uniruta.png') }}" class="img-fluid my-3" alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-12 mb-5">
-    <p class="text-justify pSize pt-5 pt-xl-4 pt-lg-3  pt-md-0">
+    <p class="text-justify pSize">
         <br>El senderismo es un deporte que ha adquirido gran popularidad en los últimos años debido a los bajos costos que implica para llevar a cabo esta actividad, la capacidad de inclusión, además de ser la única actividad deportiva considerada como no competitiva; ya que lo que principal es el trabajo en equipo, el compañerismo y el estar en contacto con la naturaleza.<br><br>El ecoturismo sirve de canal para la conexión entre personas que comparten la sensibilidad, el amor y respeto por la naturaleza y esa curiosidad permanente de conocer nuevos lugares.<br><br>En busca de impactar en las metas de los Objetivos del Desarrollo Sostenibles ODS 3: Salud y bienestar y 15 vida de ecosistemas terrestres y de forma puntual en la meta 15.1 que propone que para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales.
     </p>
 </div>
