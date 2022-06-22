@@ -64,8 +64,8 @@ class CursosActualizacionController extends Controller
      */
     public function sendPayForm(SendPayFormRequest $request)
     {
-        $user = $request->user();
         $user_workshop = UserWorkshop::find($request->ws_id);
+        $user = User::find($user_workshop->user_id);
 
         # Envía el comprobante de pago deacuerdo al user_workshop_id
         try {
@@ -134,8 +134,9 @@ class CursosActualizacionController extends Controller
      */
     public function sendFactura(SendReceiptRequest $request)
     {
-        $user = $request->user();
+        //$user = $request->user();
         $user_workshop = UserWorkshop::find($request->ws_id);
+        $user = User::find($user_workshop->user_id);
 
         try {
             $ws_name = Workshop::find($user_workshop->workshop_id)->name;
