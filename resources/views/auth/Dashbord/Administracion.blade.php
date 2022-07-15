@@ -376,8 +376,6 @@
 
 
 
-
-
     <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="user!=''">
         <div class="modal-dialog modal-lg">
