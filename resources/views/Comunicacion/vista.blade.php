@@ -113,7 +113,6 @@ $months[] = $date;
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 {{--
-<<<<<<< HEAD
                         Pestañas del 2022
                     --}}
 
@@ -121,18 +120,12 @@ $months[] = $date;
             </div>
             <div class="carousel-item mx-1">
                 {{--
-=======
->>>>>>> 4278782d92399e0af6c1d0c7b85033c8d1c4acd3
                         Pestañas del 2021
                     --}}
 
                 @include('Parciales.TabsCalendario.2021-pill-tabs')
             </div>
-<<<<<<< HEAD
-            <div class="carousel-item">
-=======
             <div class="carousel-item mx-1">
->>>>>>> 4278782d92399e0af6c1d0c7b85033c8d1c4acd3
                 {{--
                         Pestañas del 2020
                     --}}
@@ -145,11 +138,8 @@ $months[] = $date;
                     --}}
 
                 @include('Parciales.TabsCalendario.2019-pill-tabs')
-<<<<<<< HEAD
-=======
 
                 </ul>
->>>>>>> 4278782d92399e0af6c1d0c7b85033c8d1c4acd3
             </div>
             <div class="carousel-item">
                 {{--
@@ -166,7 +156,6 @@ $months[] = $date;
         </a>
     </div>
 </div>
-<<<<<<< HEAD
 
 
 <div class="row tab-content mx-2 justify-content-center" id="myTabContent">
@@ -579,9 +568,6 @@ $months[] = $date;
 
 
     {{--
-=======
-{{--
->>>>>>> 4278782d92399e0af6c1d0c7b85033c8d1c4acd3
         2021
     --}}
     <div class="tab-pane fade show" id="septiembre2" role="tabpanel" aria-labelledby="septiembre2-tab">
