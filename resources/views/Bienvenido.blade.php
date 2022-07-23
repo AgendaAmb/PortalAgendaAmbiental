@@ -7,7 +7,15 @@
 
 <body>
     <header>
-        @include('Parciales.header')
+
+        @if (Str::contains(url()->full(),'20Aniversario'))
+            @include('templates.header')
+        @else
+            @include('Parciales.header')
+        @endif
+
+        {{-- @include('Parciales.header') --}}
+        
         @if (route('Index')==url()->full())
         <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
             <a href="https://www.un.org/sustainabledevelopment/es/"> <img
@@ -17,7 +25,7 @@
         @endif
     </header>
     <nav>
-        @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+        @if (route('panel')==url()->full()||route('Administracion')==url()->full() || Str::contains(url()->full(),'20Aniversario'))
         @else
         @include('Parciales.navbar')
         @endif

@@ -258,6 +258,25 @@ class WorkshopController extends Controller
         return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
     }
 
+    public function WorkshopUserRegister(Request $request){
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+            $user_modules = $user->userModules->where('name',$request->event['name']);
+            
+            // Comprobar si ya se encuentra registrado el usuario
+            if(!$user_modules->isEmpty()){
+                return response()->json(['data' => "Registrado padrino"], JsonResponse::HTTP_OK);
+            }
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('name', $request->event['name']);
+            // $this->unirodada_controller->registerUser($request, $user, $workshop_model);
+        }catch(\Exception $e){
+        }
+        
+        return response()->json(['data' => $workshop_model], JsonResponse::HTTP_OK);
+    }
+
     public function RegistrarCAUsuario(Request $request)
     {
         try {

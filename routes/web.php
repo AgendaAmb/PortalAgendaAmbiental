@@ -4,6 +4,7 @@ use App\Mail\EmailLayout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,9 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// ROUTE TO TEST CONECTION WITH FINANCES SERVICE
+Route::get('/soap_finances', 'TestingController@test')->name('test_soap');
 
 Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
 
@@ -113,6 +117,14 @@ Auth::routes(['verify' => true]);
 # Usuarios autenticados y con roles
 Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/Miportal', 'HomeController@panel')->name('panel');
+
+    Route::middleware(['auth'])->group(function () {
+        // Ruta de registro 20 aniversario
+        Route::get('/Miportal/20Aniversario/register', 'AnniversaryController@register')->name('20register');
+        // Ruta home de 20 aniversario
+        Route::get('/Miportal/20Aniversario/', 'AnniversaryController@home')->name('20home');
+    });
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator|helper')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
@@ -158,7 +170,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a cursos de actualizacioón.
     Route::post('/RegistrarCAUsuario', 'WorkshopController@RegistrarCAUsuario')->name('RegistrarCAUsuario');
     Route::post('/ChecarCAUsuario', 'WorkshopController@ChecarCAUsuario')->name('ChecarCAUsuario');
-    
+
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');    
+
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento

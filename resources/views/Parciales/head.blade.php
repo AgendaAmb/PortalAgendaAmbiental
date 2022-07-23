@@ -11,6 +11,7 @@
 <script  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
+
 <!--estilos-->
 <script src="{{ asset('/js/app.js') }}"></script>
 <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -20,6 +21,9 @@
     integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
 </script>
 <script async src="{{asset('js/ods.js') }}"></script>
+
+{{-- Icons  --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">

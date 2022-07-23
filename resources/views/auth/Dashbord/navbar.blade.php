@@ -16,6 +16,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
+                
                 @foreach ($Modulos as $Modulo)
                     @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
                         <li class="nav-item ">
@@ -30,23 +31,21 @@
                                 </form>
                             </div>
                         </li>
+                    @elseif($Modulo->name=='20Aniversario')
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{route('20home')}}">20 Aniversario<span class="sr-only"></span></a>
+                        </li>
                     @else
                         <li class="nav-item" >
                             <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                         </li>
                     @endif
-
-
-
                 @endforeach
 
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator') ||Auth::user()->hasRole('helper'))
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
-                </li>
-
-
-
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
+                    </li>
                 @endif
 
             </ul>
