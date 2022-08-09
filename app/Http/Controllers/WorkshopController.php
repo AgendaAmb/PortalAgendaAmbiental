@@ -422,22 +422,37 @@ class WorkshopController extends Controller
                 'paid' => false,
             ]);
 
+            // Testing
             try{
-                # Guardar los miembros del equipo
-                foreach ($request->team as $member) {
-                    GGJUser::create([
-                        'user_workshop_id' => $user_workshop->id,
-                        'name' => $member['name'],
-                        'email' => $member['email'],
-                        'phone_number' => $member['tel'],
-                        'institution' => $member['inst'],
-                        'nedu' => $member['nedu']
-                    ]);
-                }
+                GGJUser::create([
+                    'user_workshop_id' => $user_workshop->id,
+                    'name' => 'testing',
+                    'email' => 'testing@gmail.com',
+                    'phone_number' => '55555555',
+                    'institution' => 'testing_fac',
+                    'nedu' => 'Nivel Superior'
+                ]);
             }catch(\Exception $e){
                 $user_workshop->delete();
-                return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
+                return response()->json(['Message' => $e->getMessage()], JsonResponse::HTTP_OK);
             }
+
+            // try{
+            //     # Guardar los miembros del equipo
+            //     foreach ($request->team as $member) {
+            //         GGJUser::create([
+            //             'user_workshop_id' => $user_workshop->id,
+            //             'name' => $member['name'],
+            //             'email' => $member['email'],
+            //             'phone_number' => $member['tel'],
+            //             'institution' => $member['inst'],
+            //             'nedu' => $member['nedu']
+            //         ]);
+            //     }
+            // }catch(\Exception $e){
+            //     $user_workshop->delete();
+            //     return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
+            // }
 
         } catch (\Exception $e) {
             return response()->json(['Message' => 'error'], 500);

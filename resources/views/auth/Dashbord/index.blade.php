@@ -240,15 +240,15 @@
     Selected_SCMU:false, //Cursos de actualizacion
 
     //! 
-    teamlength:3,
+    teamlength:1,
     team: new Array(),
   },
   mounted:function () {
   this.$nextTick(function () {
     // Initial team
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
-    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
-    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    // this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    // this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
     // 
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
