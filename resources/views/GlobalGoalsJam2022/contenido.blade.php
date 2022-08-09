@@ -25,8 +25,8 @@
 
 <div class="mt-1 col-md-12 col-sm-12 px-5">
     <div class="nav nav-tabs justify-content-between my-2 ">
-        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab"
-            aria-controls="nav-home" aria-selected="true">&nbsp;</a>
+        <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelGG" role="tab"
+            aria-controls="nav-home" aria-selected="true">Cartel</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab" 
             aria-controls="nav-profile" aria-selected="false">Registrate</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab" 
@@ -163,9 +163,46 @@
 </div>
 
 </div>
-
-
 @endsection
+
+@section('Modales')
+<div class="modal fade" id="CartelGG" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
+                            <img src="{{asset('storage/imagenes/GlobalGoals/Cartel_GG.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
+
+                        <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
+                            <a href="{{asset('storage/imagenes/GlobalGoals/Cartel_GG.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_GG.png">DESCARGAR CARTEL</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
