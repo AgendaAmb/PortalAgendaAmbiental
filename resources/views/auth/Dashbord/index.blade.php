@@ -36,11 +36,13 @@
           </div>
 
           {{-- Global Goals Jam  --}}
+          @if (Auth::user()->id === 291395)
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#GlobalGoalsJam" @click="AbrirModal('GlobalGoalsJam')">
               <img src="{{ asset('/storage/imagenes/Cursos/B_GGJ.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
+          @endif
 
            @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
