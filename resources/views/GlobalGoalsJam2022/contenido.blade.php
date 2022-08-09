@@ -123,7 +123,7 @@
         <p>Pasos para registro de participantes: </p>
         <ol>
             <li>Una persona registrará a todo el equipo</li>
-            <li>Llenar correctamente el formulario en línea (da clic <a href="https://ambiental.uaslp.mx/Bienvenida" style="color: #5c94d7">Regístrate</a></li>
+            <li>Llenar correctamente el formulario en línea (da clic <a href="https://ambiental.uaslp.mx/Bienvenida" style="color: #5c94d7">Regístrate</a>.</li>
             <li>Al finalizar y dar clic en el botón “Regístrate”.</li>
         </ol>
         <p>Cupo limitado: 8 equipos de nivel superior y 4 de nivel medio superior</p>
