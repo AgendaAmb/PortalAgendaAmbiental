@@ -149,6 +149,9 @@
         participaciones en eventos locales y nacionales de divulgación de ciencia y tecnología. Dentro de la
         colaboración Institucional el programa se apoya y trabaja estrechamente con el programa Unisalud de
         Servicios Estudiantiles.
+        <div class="col-12 d-flex justify-content-center">
+            <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unihuertos.png')}}" alt="" class="w-50 h-auto" >
+        </div>
 
         <h4 class="h3Title">Más Información</h4>
         <p style="font-size: 14px !important;"><b>Sistema de Gestión Ambiental</b><br>Agenda Ambiental de la

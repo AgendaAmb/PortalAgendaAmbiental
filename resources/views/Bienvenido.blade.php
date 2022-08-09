@@ -47,6 +47,7 @@
         ||Str::contains(url()->full(),route('mmus2021'))
         ||Str::contains(url()->full(),route('Cursos'))
         ||Str::contains(url()->full(),route('Uniruta'))
+        ||Str::contains(url()->full(),route('GlobalGoalsJam2022'))
         
         )
         <x-navbar-o-d-s>

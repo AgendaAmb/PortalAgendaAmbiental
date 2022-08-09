@@ -29,6 +29,12 @@ Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('G
 
 //Route::view('/gestión/{nombreModal?}','Gestion.vista',['NombreM' => $NombreM])->name('Gestion');
 
+#Nuevan Ruta
+Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
+    return view('GlobalGoalsJam2022.contenido')->with('NombreM',$NombreM);
+})->name('GlobalGoalsJam2022');
+#####################################
+
 Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
     return view('Gestion.vista')->with('NombreM',$NombreM);
 })->name('Gestion');

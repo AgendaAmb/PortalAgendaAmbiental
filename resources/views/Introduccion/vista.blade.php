@@ -60,14 +60,14 @@
         </div> --}}
 
           <div class="carousel-item active">
-          <!--<div class="d-none d-lg-block d-md-block">
+          <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="imgCaoursel "
+              <a href={{route('GlobalGoalsJam2022')}}>
+                <img src="{{ asset('/storage/imagenes/GlobalGoals/B1_GG.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B2_Uniruta.png')}}" class="imgCaoursel "
+              <a href={{route('GlobalGoalsJam2022')}}>
+                <img src="{{ asset('/storage/imagenes/GlobalGoals/B2_GG.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -87,7 +87,7 @@
           </div>
         </div>
 
-        <div class="carousel-item ">-->
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
@@ -462,14 +462,14 @@
       -->
 
       <div class="carousel-item active">
-          <!--<div class="slide-box">
-            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-              <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
+          <div class="slide-box">
+            <a href={{route('GlobalGoalsJam2022')}}>
+              <img src="{{ asset('storage/imagenes/GlobalGoals/B1_GG.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
         </div>
-      <div class="carousel-item ">-->
+      <div class="carousel-item ">
         <div class="slide-box">
           <a href={{route('Cursos')}}>
             <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}" class="imgCaoursel w-100 p-0 p-0 "
