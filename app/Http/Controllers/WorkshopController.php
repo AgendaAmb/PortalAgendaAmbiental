@@ -393,7 +393,7 @@ class WorkshopController extends Controller
             $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
 
             $insc = DB::table('user_workshop')
-                ->where('workshop_id', 39)  //! GGJ Workshop
+                ->where('workshop_id', 24)  //! GGJ Workshop
                 ->where('user_id', $user->id)
                 ->get();
 
@@ -451,7 +451,7 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 39)  // GGJ Workshop
+        ->where('workshop_id', 24)  // GGJ Workshop
         ->where('user_id', $user->id)
         ->get();
 
