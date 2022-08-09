@@ -37,8 +37,8 @@
 
 @section('ObjetivosTexto')
 <div class="container">
-  <div class="text-center pSize py-3">
-        <p class="" style="color: black; font-size: 14pt">
+  <div class="pSize text-justify m-3">
+        <p class="text-center" style="color: black; font-size: 14pt">
             <b>
             La Unidad Académica Multidisciplinaria Zona Media de la 
             Universidad <br> Autónoma de San Luis Potosí, el Organismo de 
