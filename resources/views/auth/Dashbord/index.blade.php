@@ -36,13 +36,11 @@
           </div>
 
           {{-- Global Goals Jam  --}}
-          @if (Auth::user()->id === 291395)
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#GlobalGoalsJam" @click="AbrirModal('GlobalGoalsJam')">
               <img src="{{ asset('/storage/imagenes/Cursos/B_GGJ.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-          @endif
 
            @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
@@ -240,15 +238,15 @@
     Selected_SCMU:false, //Cursos de actualizacion
 
     //! 
-    teamlength:1,
+    teamlength:3,
     team: new Array(),
   },
   mounted:function () {
   this.$nextTick(function () {
     // Initial team
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
-    // this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
-    // this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
     // 
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
