@@ -2,7 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @include('Parciales.head')
+    @if (Str::contains(url()->full(),'20Aniversario'))
+        @include('templates.head')
+    @else
+        @include('Parciales.head')
+    @endif
 </head>
 
 <body>

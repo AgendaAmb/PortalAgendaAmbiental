@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Models\UserWorkshop;
+use App\Models\GGJUser;
+use Carbon\Carbon;
+use App\Models\UnirodadaUser;
+use Illuminate\Support\Str;
 
 class WorkshopController extends Controller
 {
@@ -258,23 +262,204 @@ class WorkshopController extends Controller
         return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
     }
 
+    //* ESTA FUNCION REGISTRA UN WORKSHOP (SIN DATOS ADICIONALES, SOLO TABLA WORKSHOP_USER) 
+    // TODO - Validar 
+    // TODO - Registro de datos adicionales al workshop
+    // TODO - Validar Fechas de registro
     public function WorkshopUserRegister(Request $request){
+        
+        // TODO Es una validación muy sencilla por cuestiones de tiempo
+        try{
+            $request->validate([
+                'ws_id' => 'required|exists:workshops,id'
+            ], [
+                'ws_id.required' => 'Workshop_id not recognized',
+                'ws_id.exists' => 'Workshop_id doesnt exist',
+            ]);
+        }catch(\Exception $e){
+            return response()->json(['data' => "Request error"], JsonResponse::HTTP_OK);
+        }
+
         try {
             # Usuario autenticado
-            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
-            $user_modules = $user->userModules->where('name',$request->event['name']);
+            $user = $request->user();
+            $user_modules = $user->userModules->where('id',$request->ws_id);
             
             // Comprobar si ya se encuentra registrado el usuario
             if(!$user_modules->isEmpty()){
                 return response()->json(['data' => "Registrado padrino"], JsonResponse::HTTP_OK);
             }
             # Busca el curso por su nombre.
-            $workshop_model = Workshop::firstWhere('name', $request->event['name']);
-            // $this->unirodada_controller->registerUser($request, $user, $workshop_model);
+            $workshop_model = Workshop::firstWhere('id', $request->ws_id);
+
+            # Registra al usuario al workshop
+            $user_workshop = UserWorkshop::create([
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'workshop_id' => $workshop_model->id,
+                'sent' => false,
+                'paid' => false,
+            ]);
+
         }catch(\Exception $e){
+            return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
         }
         
-        return response()->json(['data' => $workshop_model], JsonResponse::HTTP_OK);
+        return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
+    }
+
+    //* REGISTRA UN WORKSHOP DE UNRIDODADA EN GENERAL 
+    public function WorkshopUnirodadaUserRegister(Request $request){
+
+        # Usuario autenticado
+        $user = $request->user();
+        $user_modules = $user->userModules->where('id', $request->ws_id);
+        
+        // Comprobar si ya se encuentra registrado el usuario
+        if (!$user_modules->isEmpty()) {
+            return response()->json(['data' => "Usuario registrado"], JsonResponse::HTTP_OK);
+        }
+
+        return response()->json(['Message' => 'hola'], JsonResponse::HTTP_OK);
+
+        // TODO Es una validación muy sencilla por cuestiones de tiempo
+        try {
+            $request->validate([
+                'ws_id' => 'required|exists:workshops,id'
+            ], [
+                'ws_id.required' => 'Workshop_id not recognized',
+                'ws_id.exists' => 'Workshop_id doesnt exist',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['data' => "Request error"], JsonResponse::HTTP_OK);
+        }
+
+        try {
+            # Actualiza los datos del usuario.
+            $user->interested_on_further_courses = $request->interested ?? $user->interested_on_further_courses;
+
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('id', $request->ws_id);
+
+            # Registra al usuario al workshop
+            $user_workshop = UserWorkshop::create([
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'workshop_id' => $workshop_model->id,
+                'sent' => false,
+                'paid' => false,
+            ]);
+
+            # Sanitiza el grupo de ciclistas.
+            $group = Str::lower(trim($request->group));
+
+            //* Registra los datos de unirodada del usuario.
+            $user_workshop->unirodadaUser()->create([
+                'user_workshop_id' => $user_workshop->id,
+                'emergency_contact' => $request->contact_name,
+                'emergency_contact_phone' => $request->contact_tel,
+                'group' => $group,
+                'health_condition' => $request->health_condition
+            ]);
+
+            //* A los miembros del staff no se les cobra
+            if ($user_workshop->unirodadaUser->group === 'staff') {
+                $user_workshop->paid = true;
+                $user_workshop->paid_at = Carbon::now();
+            //* A la FUP se le otorgan 10 becas.
+            }else if($user_workshop->unirodadaUser->group === 'fup') {
+                # Total de ciclistas de la fup.
+                $num_becas_fup = UnirodadaUser::where('group', 'fup')
+                                    ->whereIn('user_workshop_id',UserWorkshop::where('workshop_id', $workshop_model->id)
+                                    ->pluck('id'))
+                                    ->count();
+
+                if ($num_becas_fup < 10) {
+                    $user_workshop->paid = true;
+                    $user_workshop->paid_at = Carbon::now();
+                }
+            }
+            // Guardar los cambios
+            $user_workshop->save();
+        }catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+        return response()->json(['Message' => 'ok!'], JsonResponse::HTTP_OK);
+    }
+
+    public function RegistrarGGJ(Request $request){
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            $insc = DB::table('user_workshop')
+                ->where('workshop_id', 39)  //! GGJ Workshop
+                ->where('user_id', $user->id)
+                ->get();
+
+            // Registrado?
+            if ($insc->count() > 0) {
+                return response()->json(['Message' => 'Registered'], JsonResponse::HTTP_OK);
+            }
+
+
+            # Registra interes en asistencia
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+          
+            $user->save();
+
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('name','Global Goals Jam');
+
+            # Registra al usuario al workshop
+            $user_workshop = UserWorkshop::create([
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'workshop_id' => $workshop_model->id,
+                'sent' => false,
+                'paid' => false,
+            ]);
+
+            try{
+                # Guardar los miembros del equipo
+                foreach ($request->team as $member) {
+                    GGJUser::create([
+                        'user_workshop_id' => $user_workshop->id,
+                        'name' => $member['name'],
+                        'email' => $member['email'],
+                        'phone_number' => $member['tel'],
+                        'institution' => $member['inst'],
+                        'nedu' => $member['nedu']
+                    ]);
+                }
+            }catch(\Exception $e){
+                $user_workshop->delete();
+                return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
+            }
+
+        } catch (\Exception $e) {
+            return response()->json(['Message' => 'error'], 500);
+        }
+        return response()->json(['Message' => 'ok'], JsonResponse::HTTP_OK);
+    }
+
+    public function ChecarGGJ(Request $request)
+    {
+        //Esta inscrito?
+        $user = $request->user();
+
+        $insc = DB::table('user_workshop')
+        ->where('workshop_id', 39)  // GGJ Workshop
+        ->where('user_id', $user->id)
+        ->get();
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
     }
 
     public function RegistrarCAUsuario(Request $request)
@@ -431,7 +616,7 @@ class WorkshopController extends Controller
             Log::info('Al usuario: ' . $user->email);
         }
 
-        //4. si todo sale bien regresamo un ok
+        //4. si todo sale bien regresamos un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
     

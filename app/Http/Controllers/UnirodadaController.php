@@ -59,8 +59,7 @@ class UnirodadaController extends Controller
         ]);
 
         # A los staff no se les cobra
-        if ($user_workshop->unirodadaUser->group === 'staff')
-        {
+        if ($user_workshop->unirodadaUser->group === 'staff'){
             $user->paid = true;
             $user->paid_at = Carbon::now();
         }
@@ -74,19 +73,13 @@ class UnirodadaController extends Controller
             )->count();
 
             # Solo no se les cobra a los 10 primeros usuarios.
-            if ($num_becas_fup < 10)
-            {
+            if ($num_becas_fup < 10){
                 $user->paid = true;
                 $user->paid_at = Carbon::now();
-            }
-            else
-                $user->paid = false;
-
-        }
-
+            }else $user->paid = false;
+        
         # El usuario aún no paga
-        else
-            $user_workshop->paid = false;
+        }else $user_workshop->paid = false;
 
         $user_workshop->save();
     }

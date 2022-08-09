@@ -1,0 +1,54 @@
+$card-text: #115089;
+$text-fw: 14px;
+
+#panel {
+    height: 81vh;
+}
+
+[v-cloak]{
+    display: none !important;
+}
+
+._card-button {
+    font-size: $text-fw !important;
+    background-color: $card-text !important;
+    border: none;
+}
+
+._card-body {
+    font-size: 20px !important;
+    color: black !important;
+}
+
+._card-text {
+    font-size: $text-fw !important;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+._card-text:hover {
+    color: $card-text !important;
+    font-size: 15px !important;
+    border-bottom: 1px solid $card-text;
+    cursor: pointer;
+}
+
+._card-btn {
+    background-color: white !important;
+    border: none !important;
+    color: black !important;
+    font-size: $text-fw !important;
+    padding: 0 0 !important;
+    margin: 0 0 !important;
+    transition: 0.1s;
+}
+
+._card-btn:hover {
+    color: $card-text !important;
+    font-size: 15px !important;
+}
+
+.modalbtn{
+    background-color: black !important;
+    color: #115089 !important;
+}

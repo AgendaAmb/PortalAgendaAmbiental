@@ -29,11 +29,12 @@ class AnniversaryController extends Controller
 
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
+        // dd(Auth::user()->workshops->where('type', '=', '20Aniversario')->all());
 
         // TODO Pasar a un recurso para usar vue mas facil we
         return view('auth.20Aniversario.index')
             ->with('modulos', $request->user()->userModules) //Navbar
-            ->with('user_workshops', Auth::user()->workshops) 
+            ->with('user_workshops', Auth::user()->workshops->where('type','=','20Aniversario')->values()) 
             ->with('workshops', Workshop::where('type','20Aniversario')->get())
             ->with('nombreModal', $nombreModal)
             ->with('ejes', ejes::all()); // para el proximo navbar au sin uso

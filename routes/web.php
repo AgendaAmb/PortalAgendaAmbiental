@@ -171,8 +171,19 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarCAUsuario', 'WorkshopController@RegistrarCAUsuario')->name('RegistrarCAUsuario');
     Route::post('/ChecarCAUsuario', 'WorkshopController@ChecarCAUsuario')->name('ChecarCAUsuario');
 
+    # Registro a cursos de actualizacioón.
+    Route::post('/RegistrarGGJ', 'WorkshopController@RegistrarGGJ')->name('RegistrarGGJ');
+    Route::post('/ChecarGGJ', 'WorkshopController@ChecarGGJ')->name('ChecarGGJ');
+
+    // ! working 
+
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
-    Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');    
+    Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');
+
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/WorkshopUnirodadaUserRegister', 'WorkshopController@WorkshopUnirodadaUserRegister')->name('WorkshopUnirodadaUserRegister');    
+
+    // !
 
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 

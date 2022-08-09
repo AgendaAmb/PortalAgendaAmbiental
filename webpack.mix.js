@@ -11,6 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css');
+// 20 aniversario
+mix.js('resources/js/20Aniversario/aniversario.js', 'public/js').vue();
+
 mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
