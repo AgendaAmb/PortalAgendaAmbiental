@@ -27,7 +27,7 @@
     <div class="nav nav-tabs justify-content-between my-2 ">
         <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelGG" role="tab"
             aria-controls="nav-home" aria-selected="true">Cartel</a>
-        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="https://ambiental.uaslp.mx/Bienvenida" role="tab"
+        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="Bienvenida" role="tab"
             aria-controls="nav-profile" aria-selected="false">Registrate</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab" 
             aria-controls="nav-profile" aria-selected="false"></a>
