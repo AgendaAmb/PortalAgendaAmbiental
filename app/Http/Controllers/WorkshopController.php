@@ -424,14 +424,16 @@ class WorkshopController extends Controller
 
             // Testing
             try{
-                GGJUser::create([
-                    'user_workshop_id' => $user_workshop->id,
-                    'name' => 'testing',
-                    'email' => 'testing@gmail.com',
-                    'phone_number' => '55555555',
-                    'institution' => 'testing_fac',
-                    'nedu' => 'Nivel Superior'
-                ]);
+                DB::table('ggj_users')->insert(
+                    [
+                        'user_workshop_id' => $user_workshop->id,
+                        'name' => 'testing',
+                        'email' => 'testing@gmail.com',
+                        'phone_number' => '55555555',
+                        'institution' => 'testing_fac',
+                        'nedu' => 'Nivel Superior'
+                    ]
+                );
             }catch(\Exception $e){
                 $user_workshop->delete();
                 return response()->json(['Message' => $e->getMessage()], JsonResponse::HTTP_OK);
