@@ -26,7 +26,7 @@
 <div class="mt-1 col-md-12 col-sm-12 px-5">
     <div class="nav nav-tabs justify-content-between my-2 ">
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab"
-            aria-controls="nav-home" aria-selected="true">Descargar convocatoria</a>
+            aria-controls="nav-home" aria-selected="true">&nbsp;</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab" 
             aria-controls="nav-profile" aria-selected="false">Registrate</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#" role="tab" 
@@ -126,7 +126,7 @@
             <li>Llenar correctamente el formulario en línea (dar clic en el botón registro).</li>
             <li>Al finalizar y dar clic en el botón “Regístrate”.</li>
         </ol>
-        <p>Cupo limitado: 10 equipos de nivel superior y 2 de nivel medio superior</p>
+        <p>Cupo limitado: 8 equipos de nivel superior y 4 de nivel medio superior</p>
         <br>
         <h3>Premiación</h3>
         <p>
