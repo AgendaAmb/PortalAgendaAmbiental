@@ -38,24 +38,25 @@
 @section('ObjetivosTexto')
 <div class="container">
   <div class="pSize text-justify m-3">
-        <p class="text-center" style="color: black; font-size: 14pt">
+        <p class="" style="color: black; font-size: 14pt">
             <b>
             La Unidad Académica Multidisciplinaria Zona Media de la 
             Universidad <br> Autónoma de San Luis Potosí, el Organismo de 
             Agua Potable (SASAR) de <br> Rioverde y la Fundación Aguascalientes 
             para la Cultura, la Academia y el <br> Deporte (FACULTAD, A.C.)
             </b>
-        </p>
+
         <br>
         <h2 style="color:black"><b>C O N V O C A N</b></h2>
         <h4 style="color:black"><b>al</b></h4>
         <h1 style="color:black"><b> Global Goals Jam 2022 </b></h1>
+        </p>
     </div>  
-</div>
+<!--</div>
 
 <div class="container">
 
-<div class="pSize text-justify m-3 px-0">
+<div class="pSize text-justify m-3 px-0">-->
     <div style="font-family: 'Myraid light';">
         <h3>Antecedentes</h3>
         <p>La Agenda 2030 de Naciones Unidas es una hoja de ruta adoptada por 193 países, 
