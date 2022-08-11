@@ -74,7 +74,7 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
 
         //! Especial - Pagina para ver alumnos del GGJ
-        if($user->id == '291395' || $user->id == '23642'){
+        if($user->id == '291395' | $user->id == '23642'){
 
             $team = array();
             $ws = Workshop::where('name', 'Global Goals Jam')->first();
@@ -113,7 +113,7 @@ class HomeController extends Controller
 
         // return $users;
         return view('auth.Dashbord.Administracion_nohelper',[
-            'Users' =>  $users,
+            'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
     }
