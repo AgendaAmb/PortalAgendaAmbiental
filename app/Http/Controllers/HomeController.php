@@ -81,6 +81,8 @@ class HomeController extends Controller
                 $ws = Workshop::where('name', 'Global Goals Jam')->first();
                 $users = GGJUser::all()->groupBy('user_workshop_id');
 
+                return $users;
+
                 // Format the data
                 foreach($users as $key => $value){
                     $clave = UserWorkshop::where('id',$key)->first()->user_id;
@@ -92,8 +94,6 @@ class HomeController extends Controller
                             ];
                     array_push($team,$data);
                 }
-                
-                return $team;
 
                 return view('auth.Admin.admin', [
                     'teams' => $team,
