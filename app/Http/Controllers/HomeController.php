@@ -91,7 +91,9 @@ class HomeController extends Controller
                         ];
                 array_push($team,$data);
             }
-           
+            
+            return $team;
+            
             return view('auth.Admin.admin', [
                 'teams' => $team,
                 'Modulos' => Auth::user()->userModules,
