@@ -86,7 +86,7 @@ class HomeController extends Controller
                     $clave = UserWorkshop::where('id',$key)->first()->user_id;
                     $us = User::where('id',$clave)->first();
                     $data = [
-                                'leader' => $us->name . ' ' . $user->middlename . ' ' . $user->surname, 
+                                'leader' => $us->name . ' ' . $us->middlename . ' ' . $us->surname, 
                                 'team' => $value->values(),
                                 'len' => count($value->values())
                             ];
