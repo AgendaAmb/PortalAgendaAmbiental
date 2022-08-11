@@ -18,7 +18,7 @@ use App\Models\Workshop;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Http\JsonResponse;
 class HomeController extends Controller
 {
     /**
@@ -73,31 +73,36 @@ class HomeController extends Controller
     {
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
 
-        //! Especial - Pagina para ver alumnos del GGJ
-        if($user->id == '291395' | $user->id == '23642'){
+        try{
+            //! Especial - Pagina para ver alumnos del GGJ
+            if($user->id == '291395' | $user->id == '23642'){
 
-            $team = array();
-            $ws = Workshop::where('name', 'Global Goals Jam')->first();
-            $users = GGJUser::all()->groupBy('user_workshop_id');
+                $team = array();
+                $ws = Workshop::where('name', 'Global Goals Jam')->first();
+                $users = GGJUser::all()->groupBy('user_workshop_id');
 
-            // Format the data
-            foreach($users as $key => $value){
-                $clave = UserWorkshop::where('id',$key)->first()->user_id;
-                $us = User::where('id',$clave)->first();
-                $data = [
-                            'leader' => $us->name . ' ' . $user->middlename . ' ' . $user->surname, 
-                            'team' => $value->values(),
-                            'len' => count($value->values())
-                        ];
-                array_push($team,$data);
+                // Format the data
+                foreach($users as $key => $value){
+                    $clave = UserWorkshop::where('id',$key)->first()->user_id;
+                    $us = User::where('id',$clave)->first();
+                    $data = [
+                                'leader' => $us->name . ' ' . $user->middlename . ' ' . $user->surname, 
+                                'team' => $value->values(),
+                                'len' => count($value->values())
+                            ];
+                    array_push($team,$data);
+                }
+                
+                return $team;
+
+                return view('auth.Admin.admin', [
+                    'teams' => $team,
+                    'Modulos' => Auth::user()->userModules,
+                ]);
             }
-            
-            return $team;
-            
-            return view('auth.Admin.admin', [
-                'teams' => $team,
-                'Modulos' => Auth::user()->userModules,
-            ]);
+        }catch(\Exception $e){
+            return "error";
+            // return new JsonResponse($e->getMessage(), JsonResponse::HTTP_OK);
         }
 
         if($user->hasRole('helper')){
