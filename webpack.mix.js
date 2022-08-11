@@ -15,4 +15,7 @@ mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'publ
 // 20 aniversario
 mix.js('resources/js/20Aniversario/aniversario.js', 'public/js').vue();
 
+// Administración
+mix.js('resources/js/Admin/admin.js', 'public/js').vue();
+
 mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');

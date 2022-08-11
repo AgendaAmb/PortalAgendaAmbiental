@@ -58498,9 +58498,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!***************************************************!*\
-  !*** ./resources/js/20Aniversario/aniversario.js ***!
-  \***************************************************/
+/*!*************************************!*\
+  !*** ./resources/js/Admin/admin.js ***!
+  \*************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
@@ -58511,274 +58511,73 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(bootstrap_vue__WEBPACK_IMPORTED_
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__.BootstrapVueIcons);
 new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
   el: '#app',
-  data: {
-    // UI
-    spinner: false,
-    dismissSecs: 5,
-    dismissCountDown: 0,
-    toastCount: 0,
-    // Pass
-    type: user_type,
-    //tipo del usario autentificado
-    modal: modal,
-    //abrir modal de redirección
-    url: url,
-    //url del app definida en el .env
-    modules: modulos,
-    user_workshops: user_workshops,
-    workshops: workshops,
-    ejes: ejes,
-    boxTwo: '',
-    uwss: new Array(),
-    // * Datos de modales 
-    // * Unirodadas
-    contact_name: '',
-    contact_tel: '',
-    group: '',
-    health_condition: null,
-    // ! Datos generales
-    interested: null,
-    confirm: '',
-    //
-    selected: null
-  },
-  created: function created() {
-    this.checkRegisteredWs(); // Checar los cursos a los que el usuario esta registrado y crea bandera 
-  },
-  mounted: function mounted() {
-    this.getCalendarEventDays();
-    this.getToday();
-    this.$bvToast.show('my-toast');
+  data: function data() {
+    return {
+      items: teams,
+      fields: [{
+        key: 'leader',
+        label: 'Registro',
+        sortable: true,
+        sortDirection: 'desc'
+      }, {
+        key: 'len',
+        label: 'Num. Integrantes',
+        sortable: true,
+        sortDirection: 'desc'
+      }, {
+        key: 'team',
+        label: 'Integrantes',
+        sortable: false
+      }],
+      totalRows: 1,
+      currentPage: 1,
+      perPage: 10,
+      pageOptions: [10, 15, 20, 50],
+      sortBy: '',
+      sortDesc: false,
+      sortDirection: 'asc',
+      filter: null,
+      filterOn: [],
+      infoModal: {
+        id: 'info-modal',
+        title: '',
+        content: ''
+      }
+    };
   },
   computed: {
-    emptyName: function emptyName() {
-      return this.contact_name.length > 0;
-    },
-    emptyTel: function emptyTel() {
-      return this.contact_tel.length > 0;
-    },
-    emptyHC: function emptyHC() {
-      return this.health_condition != null;
-    },
-    emptyInterested: function emptyInterested() {
-      return this.interested != null;
-    },
-    emptyConfirm: function emptyConfirm() {
-      return this.confirm == true;
-    },
-    spinning: function spinning() {
-      return this.spinner;
-    },
-    // Validaciones de formulario   
-    valSpinner: function valSpinner() {
-      return !(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm);
+    sortOptions: function sortOptions() {
+      // Create an options list from our fields
+      return this.fields.filter(function (f) {
+        return f.sortable;
+      }).map(function (f) {
+        return {
+          text: f.label,
+          value: f.key
+        };
+      });
     }
   },
+  mounted: function mounted() {
+    // Set the initial number of items
+    this.totalRows = this.items.length;
+  },
   methods: {
-    countDownChanged: function countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
+    info: function info(item, index, button) {
+      this.infoModal.title = "Row index: ".concat(index);
+      this.infoModal.content = JSON.stringify(item, null, 2);
+      this.$root.$emit('bv::show::modal', this.infoModal.id, button);
     },
-    showAlert: function showAlert() {
-      this.dismissCountDown = this.dismissSecs;
+    resetInfoModal: function resetInfoModal() {
+      this.infoModal.title = '';
+      this.infoModal.content = '';
     },
-    getToday: function getToday() {
-      var today = new Date();
-      return today.toISOString().split('T')[0];
-    },
-    // Funcion para obtener las fechas de los eventos
-    getCalendarEventDays: function getCalendarEventDays() {
-      var d = new Date();
-      var day = d.getDate();
-    },
-    // ! De momento las fechas son manuales
-    dateClass: function dateClass(ymd, date) {
-      var day = date.getDate();
-
-      if (day == 10 || day == 12 || day == 14 || day == 15 || day == 17) {
-        return 'table-success';
-      }
-
-      return '';
-    },
-    // Checar los cursos a los que el usuario no esta registrado y crea bandera 
-    checkRegisteredWs: function checkRegisteredWs() {
-      var _this = this;
-
-      if (user_workshops.length > 0) {
-        this.user_workshops.forEach(function (ws) {
-          ws['registered'] = true;
-        }); //Actualizar bandera
-
-        this.workshops.forEach(function (ws) {
-          var cont = 0;
-          user_workshops.forEach(function (uws) {
-            if (ws.id != uws.id) {
-              cont++;
-            }
-          });
-
-          if (cont == _this.user_workshops.length) {
-            ws['registered'] = false;
-
-            _this.uwss.push(ws);
-          } else {
-            ws['registered'] = true;
-          }
-        });
-      } else {
-        workshops.forEach(function (ws) {
-          ws['registered'] = false; //Actualizar bandera
-
-          _this.uwss.push(ws);
-        });
-      }
-    },
-    // Inicializador de modales de registro
-    openRegisterModal: function openRegisterModal(ws) {
-      try {
-        if (!ws.registered) {
-          this.showRegisterMsgBox(ws);
-        } else {
-          this.showRegisteredMsgBox(ws);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    // Simple modal para registro de evento 
-    showRegisterMsgBox: function showRegisterMsgBox(ws) {
-      var _this2 = this;
-
-      this.boxTwo = '';
-      this.$bvModal.msgBoxConfirm('¿Deseas registrar tu asistencia al evento: ' + ws.name + '?', {
-        title: 'Registro de evento',
-        size: 'sm',
-        buttonSize: 'sm',
-        okVariant: 'success',
-        cancelVariant: 'danger',
-        okTitle: 'Registrarme',
-        cancelTitle: 'Cancelar',
-        footerClass: 'p-2',
-        hideHeaderClose: false,
-        centered: true,
-        hideBackdrop: true
-      }).then(function (value) {
-        if (value) {
-          _this2.registerEvent(ws);
-        }
-      })["catch"](function (err) {// An error occurred
-      });
-    },
-    // Simple modal de evento ya registrado
-    showRegisteredMsgBox: function showRegisteredMsgBox(ws) {
-      var _this3 = this;
-
-      this.boxTwo = '';
-      this.$bvModal.msgBoxOk('Ya te encuentras registrado al evento', {
-        title: 'Confirmación',
-        size: 'sm',
-        buttonSize: 'sm',
-        okVariant: 'success',
-        okTitle: 'Cerrar',
-        headerClass: 'p-2 border-bottom-0',
-        footerClass: 'p-2 border-top-0',
-        centered: true,
-        hideBackdrop: true
-      }).then(function (value) {
-        _this3.boxTwo = value;
-      })["catch"](function (err) {// An error occurred
-      });
-    },
-    //* Registro de evento simple
-    registerEvent: function registerEvent(ws) {
-      var _this4 = this;
-
-      var headers = {
-        'Content-Type': 'application/json;charset=utf-8'
-      };
-      var data = {
-        "ws_id": ws.id,
-        "ws_name": ws.name
-      };
-      axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
-        return (// Actualizar datos UI
-          _this4.user_workshops.push(ws), _this4.uwss = _this4.uwss.filter(function (element) {
-            return element != ws;
-          }), _this4.workshops.forEach(function (i) {
-            if (i.id == ws.id) {
-              i['registered'] = true; //Actualizar bandera
-
-              ws['registered'] = true;
-            }
-          }), _this4.toastCount++, _this4.$bvToast.toast("This is toast number ".concat(_this4.toastCount), {
-            title: 'Curso registrado',
-            autoHideDelay: 5000,
-            appendToast: false
-          })
-        );
-      })["catch"](function (err) {// An error occurred
-      });
-    },
-    //* Registro de unirodada
-    registerEventUnirodada: function registerEventUnirodada() {
-      var _this5 = this;
-
-      // Spinning button
-      this.spinner = true;
-      var headers = {
-        'Content-Type': 'application/json;charset=utf-8'
-      };
-      var data = {
-        "ws_id": this.selected.id,
-        "ws_name": this.selected.name,
-        "contact_name": this.contact_name,
-        "contact_tel": this.contact_tel,
-        "group": this.group,
-        "health_condition": this.health_condition,
-        "interested": this.interested == 'yes' ? true : false
-      };
-      axios.post(this.url + 'WorkshopUnirodadaUserRegister', data).then(function (response) {
-        return console.log(response.data), _this5.spinner = false, // Actualizar datos UI
-        // this.showAlert(),
-        _this5.user_workshops.push(_this5.selected), _this5.uwss = _this5.uwss.filter(function (element) {
-          return element.id != this.selected.id;
-        }), _this5.workshops.forEach(function (i) {
-          if (i.id == _this5.selected.id) {
-            i['registered'] = true; //Actualizar bandera
-
-            _this5.selected['registered'] = true;
-          }
-        });
-      })["catch"](function (err) {
-        console.log(err.data);
-      });
-    },
-    showModal: function showModal(ws) {
-      // Selected workshop
-      this.selected = ws;
-      this.$root.$emit('bv::show::modal', 'modal-unirodada', '#btnShow');
-    },
-    onSubmit: function onSubmit() {
-      if (this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm) {
-        this.spinner = true;
-      } else {
-        console.log("Error");
-      }
-    },
-    makeToast: function makeToast() {
-      var append = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-      console.log("click");
-      this.toastCount++;
-      this.$bvToast.toast("This is toast number", {
-        title: 'BootstrapVue Toast',
-        autoHideDelay: 5000,
-        appendToast: append
-      });
+    onFiltered: function onFiltered(filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length;
+      this.currentPage = 1;
     }
   }
-});
-new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  el: '#main-navbar'
 });
 })();
 

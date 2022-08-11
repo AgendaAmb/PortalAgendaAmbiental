@@ -9,6 +9,8 @@ use App\ejes;
 use App\Mail\PruebaMail;
 use App\Models\Auth\Worker;
 use App\Models\UnirodadaUser;
+use App\Models\UserWorkshop;
+use App\Models\GGJUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -71,6 +73,31 @@ class HomeController extends Controller
     {
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
 
+        //! Especial - Pagina para ver alumnos del GGJ
+        if($user->id == '291395' || $user->id == '23642'){
+
+            $team = array();
+            $ws = Workshop::where('name', 'Global Goals Jam')->first();
+            $users = GGJUser::all()->groupBy('user_workshop_id');
+
+            // Format the data
+            foreach($users as $key => $value){
+                $clave = UserWorkshop::where('id',$key)->first()->user_id;
+                $us = User::where('id',$clave)->first();
+                $data = [
+                            'leader' => $us->name . ' ' . $user->middlename . ' ' . $user->surname, 
+                            'team' => $value->values(),
+                            'len' => count($value->values())
+                        ];
+                array_push($team,$data);
+            }
+           
+            return view('auth.Admin.admin', [
+                'teams' => $team,
+                'Modulos' => Auth::user()->userModules,
+            ]);
+        }
+
         if($user->hasRole('helper')){
             $users = $this->getHelperUsers();
             // return $users;
@@ -86,7 +113,7 @@ class HomeController extends Controller
 
         // return $users;
         return view('auth.Dashbord.Administracion_nohelper',[
-            'users' =>  $users,
+            'Users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
     }

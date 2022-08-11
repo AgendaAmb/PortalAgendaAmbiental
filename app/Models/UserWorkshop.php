@@ -68,4 +68,15 @@ class UserWorkshop extends MorphPivot
     {
         return $this->hasOne(caUser::class, 'user_workshop_id');
     }
+
+    /**
+     * Obtiene la uniruta más reciente, registrada por el
+     * usuario.
+     *
+     * @param  array $workshops
+     */
+    public function GGJteamMembers()
+    {
+        return $this->hasMany(GGJUser::class);
+    }
 }

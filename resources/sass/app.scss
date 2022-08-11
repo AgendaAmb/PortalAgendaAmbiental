@@ -10,6 +10,9 @@
 //Navbar
 @import 'main';
 
+.toast:not(.show) {
+    display: block;
+}
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

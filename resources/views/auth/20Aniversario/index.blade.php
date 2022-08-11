@@ -89,8 +89,8 @@
 @verbatim
                 {{ws.description}}
               </b-card-text>
-              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id != 38" @click="openRegisterModal(ws)">Registrarme</b-button>
-              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id == 38" ref="btnShow" @click="showModal(ws)">Registrarme</b-button>
+              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id != 23" @click="openRegisterModal(ws)">Registrarme</b-button>
+              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id == 23" ref="btnShow" @click="showModal(ws)">Registrarme</b-button>
             </b-card>
 @endverbatim
           </b-col>

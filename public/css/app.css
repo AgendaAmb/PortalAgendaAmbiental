@@ -4658,6 +4658,10 @@ readers do not read off random characters that represent icons */
   color: #115089 !important;
 }
 
+.toast:not(.show) {
+  display: block;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

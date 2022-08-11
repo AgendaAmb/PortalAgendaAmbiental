@@ -11,6 +11,7 @@ new Vue({
         spinner: false,
         dismissSecs: 5,
         dismissCountDown:0,
+        toastCount: 0,
         // Pass
         type: user_type,    //tipo del usario autentificado
         modal: modal,       //abrir modal de redirección
@@ -39,6 +40,7 @@ new Vue({
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
+        this.$bvToast.show('my-toast')
     },
     computed: {
       emptyName() {
@@ -193,6 +195,13 @@ new Vue({
                         i['registered'] = true; //Actualizar bandera
                         ws['registered'] = true;
                     }
+                }),
+
+                this.toastCount++,
+                this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
+                    title: 'Curso registrado',
+                    autoHideDelay: 5000,
+                    appendToast: false
                 })
                 
             )).catch((err) => {
@@ -256,6 +265,15 @@ new Vue({
             }
 
         },
+        makeToast:function(append = false) {
+            console.log("click");
+            this.toastCount++;
+            this.$bvToast.toast(`This is toast number`, {
+                title: 'BootstrapVue Toast',
+                autoHideDelay: 5000,
+                appendToast: append
+            });
+        }
     }
 });
 
