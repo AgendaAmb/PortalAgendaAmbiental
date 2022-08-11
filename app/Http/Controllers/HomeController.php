@@ -79,9 +79,9 @@ class HomeController extends Controller
 
                 $team = array();
                 $ws = Workshop::where('name', 'Global Goals Jam')->first();
-                $users = GGJUser::all()->groupBy('user_workshop_id');
-
-                return $users;
+                // $users = GGJUser::all()->groupBy('user_workshop_id');
+                
+                return DB::table('ggj_users')->get()->groupBy('user_workshop_id');
 
                 // Format the data
                 foreach($users as $key => $value){
