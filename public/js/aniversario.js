@@ -58513,11 +58513,13 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
   el: '#app',
   data: {
     // UI
+    user: user,
     spinner: false,
     dismissSecs: 5,
     dismissCountDown: 0,
     toastCount: 0,
     // Pass
+    src_img: base_img,
     type: user_type,
     //tipo del usario autentificado
     modal: modal,
@@ -58530,17 +58532,26 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
     ejes: ejes,
     boxTwo: '',
     uwss: new Array(),
-    // * Datos de modales 
-    // * Unirodadas
+    // * UNIRODADAS
     contact_name: '',
     contact_tel: '',
     group: '',
     health_condition: null,
-    // ! Datos generales
+    // * MODALES EN GENERAL
     interested: null,
     confirm: '',
     //
-    selected: null
+    selected: null,
+    // * FORMS
+    egresado_form: {
+      posgrado: '',
+      ocupacion: '',
+      sector: 'null',
+      empleador: '',
+      contact_empleador: '',
+      comentarios: ''
+    },
+    user_data: user_data
   },
   created: function created() {
     this.checkRegisteredWs(); // Checar los cursos a los que el usuario esta registrado y crea bandera 
@@ -58548,7 +58559,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mounted: function mounted() {
     this.getCalendarEventDays();
     this.getToday();
-    this.$bvToast.show('my-toast');
+    this.openModal();
   },
   computed: {
     emptyName: function emptyName() {
@@ -58590,6 +58601,11 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
       var d = new Date();
       var day = d.getDate();
     },
+    openModal: function openModal() {
+      if (user_data.status == 'Graduado' && user_data.isform == false) {
+        this.$bvModal.show("modal-register");
+      }
+    },
     // ! De momento las fechas son manuales
     dateClass: function dateClass(ymd, date) {
       var day = date.getDate();
@@ -58608,6 +58624,12 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         this.user_workshops.forEach(function (ws) {
           ws['registered'] = true;
         }); //Actualizar bandera
+        // Eventos
+        // this.workshops = this.workshops.filter(ws => ws.id == 23);
+
+        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo") {
+          this.workshops = [];
+        }
 
         this.workshops.forEach(function (ws) {
           var cont = 0;
@@ -58626,7 +58648,13 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
           }
         });
       } else {
-        workshops.forEach(function (ws) {
+        // Eventos
+        // this.workshops = this.workshops.filter(ws => ws.id == 23);
+        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo") {
+          this.workshops = [];
+        }
+
+        this.workshops.forEach(function (ws) {
           ws['registered'] = false; //Actualizar bandera
 
           _this.uwss.push(ws);
@@ -58753,6 +58781,21 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         console.log(err.data);
       });
     },
+    //* Registro de egresados
+    registerEgresados: function registerEgresados() {
+      var _this6 = this;
+
+      // Spinning button
+      this.spinner = true;
+      var headers = {
+        'Content-Type': 'application/json;charset=utf-8'
+      };
+      axios.post(this.url + 'EgresadoData', this.egresado_form).then(function (response) {
+        return console.log(response.data), _this6.spinner = false;
+      })["catch"](function (err) {
+        console.log(err.data);
+      });
+    },
     showModal: function showModal(ws) {
       // Selected workshop
       this.selected = ws;
@@ -58767,7 +58810,6 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
     },
     makeToast: function makeToast() {
       var append = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-      console.log("click");
       this.toastCount++;
       this.$bvToast.toast("This is toast number", {
         title: 'BootstrapVue Toast',

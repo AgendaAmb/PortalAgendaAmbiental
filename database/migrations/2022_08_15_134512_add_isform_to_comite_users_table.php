@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddInvoiceDataToUsersTable extends Migration
+class AddIsformToComiteUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddInvoiceDataToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('user_workshop', function (Blueprint $table) {
-            $table->boolean('invoice_data')->nullable();
+        Schema::table('comite_users', function (Blueprint $table) {
+            $table->boolean('isform');
         });
     }
 
@@ -25,8 +25,8 @@ class AddInvoiceDataToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_workshop', function (Blueprint $table) {
-            $table->dropColumn('invoice_data');
+        Schema::table('comite_users', function (Blueprint $table) {
+            $table->dropColumn('isform');
         });
     }
 }

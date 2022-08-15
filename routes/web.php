@@ -184,6 +184,9 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     // ! working 
 
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/EgresadoData', 'HomeController@EgresadoData')->name('EgresadoData');
+
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
     Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');
 
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)

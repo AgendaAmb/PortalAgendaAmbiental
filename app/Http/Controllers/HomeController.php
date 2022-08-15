@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\JsonResponse;
+use App\Models\ComiteUser;
 class HomeController extends Controller
 {
     /**
@@ -121,6 +122,44 @@ class HomeController extends Controller
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function EgresadoData(Request $request){
+        // return response()->json(['Message' => $request->all()], JsonResponse::HTTP_OK);
+
+        try{
+            $exist = DB::table('egresados_data')->where('user_id', $request->user()->id)->get();
+            if($exist->isEmpty()){
+                DB::table('egresados_data')
+                ->updateOrInsert([
+                    'user_id' => $request->user()->id,
+                    'posgrado' => $request->posgrado, 
+                    'ocupacion' => $request->ocupacion,
+                    'sector' => $request->sector,
+                    'empleador' => $request->empleador,
+                    'contact_empleador' => $request->contact_empleador,
+                    'comentarios' => $request->comentarios,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+
+                $cu = ComiteUser::where('user_id', $request->user()->id)->get()->first();
+                $cu->isform = true;
+                $cu->timestamps = false;
+                $cu->save();
+            }else{
+                return response()->json(['Message' => 'already exist'], JsonResponse::HTTP_OK);
+            }
+        }catch(\Exception $e){
+            return response()->json(['Message' => 'Error'], JsonResponse::HTTP_OK);
+        }
+        return response()->json(['Message' => 'correcto!'], JsonResponse::HTTP_OK);
+
     }
 
 

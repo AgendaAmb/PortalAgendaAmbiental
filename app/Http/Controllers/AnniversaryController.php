@@ -26,18 +26,25 @@ class AnniversaryController extends Controller
     {
         // Se usa para abrir un modal dentro de mi portal directamente
         $nombreModal = session('nombreModal') ?? null;
+        $_ids = ComiteUser::where('user_id', $request->user()->id)->get()->first();
 
-        if ($nombreModal !== null)
-            $request->session()->forget('nombreModal');
-        // dd(Auth::user()->workshops->where('type', '=', '20Aniversario')->all());
+        if($_ids != null){
+            if ($nombreModal !== null)
+                $request->session()->forget('nombreModal');
 
-        // TODO Pasar a un recurso para usar vue mas facil we
-        return view('auth.20Aniversario.index')
-            ->with('modulos', $request->user()->userModules) //Navbar
-            ->with('user_workshops', Auth::user()->workshops->where('type','=','20Aniversario')->values()) 
-            ->with('workshops', Workshop::where('type','20Aniversario')->get())
-            ->with('nombreModal', $nombreModal)
-            ->with('ejes', ejes::all()); // para el proximo navbar au sin uso
+            // TODO Pasar a un recurso para usar vue mas facil we
+            return view('auth.20Aniversario.index')
+                ->with('modulos', $request->user()->userModules) //Navbar
+                ->with('user_workshops', Auth::user()->workshops->where('type','=','20Aniversario')->values()) 
+                ->with('workshops', Workshop::where('type','20Aniversario')->get())
+                ->with('nombreModal', $nombreModal)
+                ->with('ejes', ejes::all()) // para el proximo navbar au sin uso
+                ->with('user', $request->user())
+                ->with('_data', $_ids);
+                ;
+        }else{
+            return "USER WASN'T FOUND";
+        }
     }
 
     /**
@@ -63,9 +70,9 @@ class AnniversaryController extends Controller
             $name = trim(strtoupper($user->middlename)) . "%" . trim(strtoupper($user->surname)) . "%" . trim(strtoupper($user->name));
             $curp = trim(strtoupper($user->curp));
 
-            $_names = ComiteUser::where('name', 'LIKE', $name)->get();
-            $_ids = ComiteUser::where('user_id', $user->id)->get();
-            $_curps = ComiteUser::where('curp','LIKE',$curp)->get();
+            $_names = ComiteUser::where('name', 'LIKE', $name)->get()->first();
+            $_ids = ComiteUser::where('user_id', $user->id)->get()->first();
+            $_curps = ComiteUser::where('curp','LIKE',$curp)->get()->first();
 
             $modulo = [
                 'id' => 7,
@@ -77,13 +84,22 @@ class AnniversaryController extends Controller
 
             $module = Module::where('name', '20Aniversario')->get()->first();
 
-            if(!$_names->isEmpty()){
+            if($_names != null){
+                $_names->user_id = $user->id;
+                $_names->timestamps = false;
+                $_names->save();
                 DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$module->id, $user->id, $user->type]);
                 return redirect()->route('20home');
-            }else if(!$_ids->isEmpty()) {
+            }else if($_ids != null) {
+                $_ids->user_id = $user->id;
+                $_ids->timestamps = false;
+                $_ids->save(); 
                 DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
                 return redirect()->route('20home');
-            }else if(!$_curps->isEmpty()){
+            }else if($_curps != null){
+                $_curps->user_id = $user->id;
+                $_curps->timestamps = false;
+                $_curps->save();
                 DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
                 return redirect()->route('20home');    
             }

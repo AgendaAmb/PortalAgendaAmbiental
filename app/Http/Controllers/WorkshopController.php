@@ -313,14 +313,6 @@ class WorkshopController extends Controller
 
         # Usuario autenticado
         $user = $request->user();
-        $user_modules = $user->userModules->where('id', $request->ws_id);
-        
-        // Comprobar si ya se encuentra registrado el usuario
-        if (!$user_modules->isEmpty()) {
-            return response()->json(['data' => "Usuario registrado"], JsonResponse::HTTP_OK);
-        }
-
-        return response()->json(['Message' => 'hola'], JsonResponse::HTTP_OK);
 
         // TODO Es una validación muy sencilla por cuestiones de tiempo
         try {
@@ -334,6 +326,13 @@ class WorkshopController extends Controller
             return response()->json(['data' => "Request error"], JsonResponse::HTTP_OK);
         }
 
+        $uws = $user->workshops->where('id', $request->ws_id);
+
+        // Comprobar si ya se encuentra registrado el usuario
+        if (!$uws->isEmpty()) {
+            return response()->json(['data' => "Usuario registrado"], JsonResponse::HTTP_OK);
+        }
+        
         try {
             # Actualiza los datos del usuario.
             $user->interested_on_further_courses = $request->interested ?? $user->interested_on_further_courses;

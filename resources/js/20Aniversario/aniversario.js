@@ -8,11 +8,13 @@ new Vue({
     el: '#app',
     data: {
         // UI
+        user: user,
         spinner: false,
         dismissSecs: 5,
         dismissCountDown:0,
         toastCount: 0,
         // Pass
+        src_img: base_img,
         type: user_type,    //tipo del usario autentificado
         modal: modal,       //abrir modal de redirección
         url: url,           //url del app definida en el .env
@@ -22,17 +24,19 @@ new Vue({
         ejes: ejes,
         boxTwo: '',
         uwss: new Array(),
-        // * Datos de modales 
-        // * Unirodadas
+        // * UNIRODADAS
         contact_name:'',
         contact_tel:'',
         group:'',
         health_condition:null,
-        // ! Datos generales
+        // * MODALES EN GENERAL
         interested:null,
         confirm:'',
         //
-        selected: null
+        selected: null,
+        // * FORMS
+        egresado_form: {posgrado: '', ocupacion: '', sector:'null', empleador :'', contact_empleador:'',comentarios:''},
+        user_data: user_data
     },
     created() {
         this.checkRegisteredWs();   // Checar los cursos a los que el usuario esta registrado y crea bandera 
@@ -40,7 +44,7 @@ new Vue({
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
-        this.$bvToast.show('my-toast')
+        this.openModal();
     },
     computed: {
       emptyName() {
@@ -81,7 +85,11 @@ new Vue({
         getCalendarEventDays(){
             const d = new Date();
             let day = d.getDate();
-            
+        },
+        openModal(){
+            if(user_data.status == 'Graduado' && user_data.isform == false){
+                this.$bvModal.show("modal-register");
+            }
         },
         // ! De momento las fechas son manuales
         dateClass(ymd, date) {
@@ -97,6 +105,12 @@ new Vue({
         checkRegisteredWs:function(){
             if(user_workshops.length > 0){
                 this.user_workshops.forEach(ws => { ws['registered'] = true;}); //Actualizar bandera
+                // Eventos
+                // this.workshops = this.workshops.filter(ws => ws.id == 23);
+                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo"){
+                    this.workshops = [];
+                }
+
                 this.workshops.forEach(ws => {
                     let cont = 0;
                     user_workshops.forEach(uws => {
@@ -104,6 +118,7 @@ new Vue({
                             cont++;
                         }
                     }); 
+
                     if(cont == this.user_workshops.length){
                         ws['registered'] = false;
                         this.uwss.push(ws);
@@ -112,7 +127,13 @@ new Vue({
                     }
                 });
             }else{
-                workshops.forEach(ws => { 
+                // Eventos
+                // this.workshops = this.workshops.filter(ws => ws.id == 23);
+                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo"){
+                    this.workshops = [];
+                }
+
+                this.workshops.forEach(ws => { 
                     ws['registered'] = false; //Actualizar bandera
                     this.uwss.push(ws);
                 });
@@ -252,6 +273,20 @@ new Vue({
                 console.log(err.data);
             })
         },
+        //* Registro de egresados
+        registerEgresados:function(){
+            // Spinning button
+            this.spinner = true;
+            let headers = {
+                'Content-Type': 'application/json;charset=utf-8'
+            };
+            axios.post(this.url+'EgresadoData', this.egresado_form).then(response => (
+                console.log(response.data),
+                this.spinner = false
+            )).catch((err) => {
+                console.log(err.data);
+            })
+        },
         showModal:function(ws) {
             // Selected workshop
             this.selected = ws;
@@ -266,7 +301,6 @@ new Vue({
 
         },
         makeToast:function(append = false) {
-            console.log("click");
             this.toastCount++;
             this.$bvToast.toast(`This is toast number`, {
                 title: 'BootstrapVue Toast',

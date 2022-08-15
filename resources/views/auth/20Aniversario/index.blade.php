@@ -4,10 +4,17 @@
   const workshops = @json($workshops);
   const nombreModal = @json($nombreModal);
   const ejes = @json($ejes);
+  const user = @json($user);
+  const user_data = @json($_data);
+
   // Additional data
   const url = '{{env('APP_URL')}}';
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
+
+  const base_img ='{{ asset('/storage/imagenes')}}' + "/";
+
+  console.log(user_data);
 </script>
 
 @extends('templates.base')
@@ -24,7 +31,7 @@
 
 <b-container id="panel" class="p-0" fluid>
   <b-row class="h-100" :no-gutters=true>
-    <b-col class="bg-white" align-self="stretch" cols="2">
+    <b-col class="bg-white" align-self="stretch" lg="2" md="2" sm="12" cols="12" order-lg="1" order-md="1" order-sm="3" order="3">
       <div class="h-100 mx-1">
         <div class="accordion" role="tablist">
 
@@ -70,20 +77,29 @@
       </div>
     </b-col>
 
-    <b-col class="bg-white" align-self="stretch" cols="8">
-      <div class="h-100">
-        <b-row cols="5" :no-gutters=true>
+    <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
+      <div class="h-fluid border">
+        <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true>
 @verbatim
-          <b-col v-for="ws in workshops" v-bind:key="ws.id">
-            <b-card
+          <b-col 
+            xl="2" 
+            lg="3" 
+            md="4" 
+            sm="6" 
+            cols="6" 
+            v-for="ws in workshops" 
+            v-bind:key="ws.id"
+            >
+            <b-card 
               :title=ws.name
+              :img-src=ws.imgsrc
 @endverbatim
-              img-src="{{ asset('/storage/imagenes/Unihuerto/UnihuertoHuasteca.png')}}"
-              img-alt="Image"
+              img-height="150px"
+              img-weight="150px"
+              img-alt="evento.png"
               img-top
               tag="article"
-              style="max-width: 20rem;"
-              class="m-1"
+              class="my-2 mx-1 px-3 py-2"
             >
               <b-card-text>
 @verbatim
@@ -107,10 +123,7 @@
               :interval=4000
             >
               <b-carousel-slide
-                img-src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}"
-              ></b-carousel-slide>
-              <b-carousel-slide
-                img-src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}"
+                img-src="{{asset('/storage/imagenes/20Aniversario/Banner.png')}}"
               ></b-carousel-slide>
             </b-carousel>
           </b-col>
@@ -118,7 +131,7 @@
       </div>
     </b-col>
     
-    <b-col class="bg-white" align-self="stretch" cols="2">
+    <b-col class="bg-white" align-self="stretch" lg="2" md="2" sm="12" cols="12" order-lg="3" order-md="3" order-sm="1" order="1">
       <div class="h-100 w-100">
         <b-row align-h="center" :no-gutters=true>
           <b-container class="my-2 mx-1 py-4 bg-light" >
@@ -130,11 +143,6 @@
                 <p class="my-1" style="font-size:13px">
                   {{Auth::user()->dependency}}
                 </p>
-                {{-- <b-dropdown size="sm" text="" variant="transparent">
-                  <b-dropdown-item href="#">Action</b-dropdown-item>
-                  <b-dropdown-item href="#">Another action</b-dropdown-item>
-                  <b-dropdown-item href="#">Something else here</b-dropdown-item>
-                </b-dropdown> --}}
               </b-col>
               <b-col cols="7" class="text-center">
                 <b-icon icon="person-circle" style="width: 120px; height: 120px;"></b-icon>
@@ -166,6 +174,7 @@
 </b-container>
 
 @include("auth.20Aniversario.Modales.unirodada")
+@include("auth.20Aniversario.Modales.encuesta")
 
 @endsection
 
