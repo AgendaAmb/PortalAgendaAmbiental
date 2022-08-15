@@ -8,7 +8,7 @@
   const user_data = @json($_data);
 
   // Additional data
-  const url = '{{env('APP_URL')}}';
+  const url = 'https://ambiental.uaslp.mx/';
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
 
