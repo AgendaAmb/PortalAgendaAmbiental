@@ -38,7 +38,7 @@
           id="input-1"
           placeholder="Nombre"
           disabled
-          v-model=user.name
+          v-model="user.name"
         ></b-form-input>
       </b-form-group>
 
@@ -48,7 +48,7 @@
             <b-form-input
               id="input-1"
               placeholder="Nombre"
-              v-model=user.middlename
+              v-model="user.middlename"
               disabled
             ></b-form-input>
           </b-form-group>
@@ -60,7 +60,7 @@
               id="input-1"
               placeholder="Nombre"
               disabled
-              v-model=user.surname
+              v-model="user.surname"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -68,7 +68,7 @@
           <b-form-group id="input-group-4" label="Género" label-for="input-4">
             <b-form-select 
               id="input-4" 
-              v-model=user.gender
+              v-model="user.gender"
               disabled
               :options="[{ text: 'Elige una opción', value: null },{ text: 'M', value: 'Masculino'}, { text: 'F', value: 'Femenino' }]" 
             ></b-form-select>
@@ -93,7 +93,7 @@
             <b-form-input
               id="input-1"
               placeholder="Numero de teléfono"
-              v-model=user.phone_number
+              v-model="user.phone_number"
               disabled
             ></b-form-input>
           </b-form-group>
