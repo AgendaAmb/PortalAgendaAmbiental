@@ -9,6 +9,7 @@
 
   // Additional data
   const url = 'https://ambiental.uaslp.mx/';
+  // const url = 'http://portalaa.test/';
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
 

@@ -58791,7 +58791,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         'Content-Type': 'application/json;charset=utf-8'
       };
       axios.post(this.url + 'EgresadoData', this.egresado_form).then(function (response) {
-        return console.log(response.data), _this6.spinner = false;
+        return console.log(response.data), _this6.spinner = false, _this6.$bvModal.hide('modal-register');
       })["catch"](function (err) {
         console.log(err.data);
       });

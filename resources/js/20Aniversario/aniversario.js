@@ -282,7 +282,8 @@ new Vue({
             };
             axios.post(this.url+'EgresadoData', this.egresado_form).then(response => (
                 console.log(response.data),
-                this.spinner = false
+                this.spinner = false,
+                this.$bvModal.hide('modal-register')
             )).catch((err) => {
                 console.log(err.data);
             })
