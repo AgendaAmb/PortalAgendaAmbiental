@@ -58768,8 +58768,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
       axios.post(this.url + 'WorkshopUnirodadaUserRegister', data).then(function (response) {
         return console.log(response.data), _this5.spinner = false, // Actualizar datos UI
         // this.showAlert(),
-        _this5.user_workshops.push(_this5.selected), _this5.uwss = _this5.uwss.filter(function (element) {
-          return element.id != this.selected.id;
+        _this5.$bvModal.hide('modal-unirodada'), _this5.user_workshops.push(_this5.selected), _this5.uwss = _this5.uwss.filter(function (element) {
+          return element.id != 23;
         }), _this5.workshops.forEach(function (i) {
           if (i.id == _this5.selected.id) {
             i['registered'] = true; //Actualizar bandera

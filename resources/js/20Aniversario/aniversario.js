@@ -256,10 +256,11 @@ new Vue({
 
                 // Actualizar datos UI
                 // this.showAlert(),
+                this.$bvModal.hide('modal-unirodada'),
 
                 this.user_workshops.push(this.selected), 
                 this.uwss = this.uwss.filter(function(element){
-                    return element.id != this.selected.id;
+                    return element.id != 23;
                 }),
                 
                 this.workshops.forEach(i => {
