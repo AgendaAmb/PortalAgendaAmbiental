@@ -15,6 +15,8 @@
   const base_img ='{{ asset('/storage/imagenes')}}' + "/";
 
   console.log(user_data);
+  console.log(user);
+  console.log(workshops);
 </script>
 
 @extends('templates.base')
