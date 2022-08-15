@@ -135,18 +135,18 @@ class HomeController extends Controller
         try{
             $exist = DB::table('egresados_data')->where('user_id', $request->user()->id)->get();
             if($exist->isEmpty()){
-                DB::table('egresados_data')
-                ->updateOrInsert([
-                    'user_id' => $request->user()->id,
-                    'posgrado' => $request->posgrado, 
-                    'ocupacion' => $request->ocupacion,
-                    'sector' => $request->sector,
-                    'empleador' => $request->empleador,
-                    'contact_empleador' => $request->contact_empleador,
-                    'comentarios' => $request->comentarios,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]);
+                // DB::table('egresados_data')
+                // ->updateOrInsert([
+                //     'user_id' => $request->user()->id,
+                //     'posgrado' => $request->posgrado, 
+                //     'ocupacion' => $request->ocupacion,
+                //     'sector' => $request->sector,
+                //     'empleador' => $request->empleador,
+                //     'contact_empleador' => $request->contact_empleador,
+                //     'comentarios' => $request->comentarios,
+                //     'created_at' => Carbon::now(),
+                //     'updated_at' => Carbon::now()
+                // ]);
 
                 $cu = ComiteUser::where('user_id', $request->user()->id)->get()->first();
                 $cu->isform = true;
