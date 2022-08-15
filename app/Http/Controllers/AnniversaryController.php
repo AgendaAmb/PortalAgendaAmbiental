@@ -24,6 +24,53 @@ class AnniversaryController extends Controller
      */
     public function home(Request $request)
     {
+        $user = Auth::user();
+        // ! MODULO ACTIVADO PARA USUARIO
+        $user_modules = $user->userModules->where('name', '20Aniversario')->first();
+        if($user_modules == null){
+            // * Validación con muchas inconsistencias
+            try {
+                // Limpiar los datos porque estan horribles
+                $name = trim(strtoupper($user->middlename)) . "%" . trim(strtoupper($user->surname)) . "%" . trim(strtoupper($user->name));
+                $curp = trim(strtoupper($user->curp));
+
+                $_names = ComiteUser::where('name', 'LIKE', $name)->get()->first();
+                $_ids = ComiteUser::where('user_id', $user->id)->get()->first();
+                $_curps = ComiteUser::where('curp', 'LIKE', $curp)->get()->first();
+
+                $modulo = [
+                    'id' => 7,
+                    'name' => '20Aniversario',
+                    'url' => '',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ];
+
+                $module = Module::where('name', '20Aniversario')->get()->first();
+
+                if ($_names != null) {
+                    $_names->user_id = $user->id;
+                    $_names->timestamps = false;
+                    $_names->save();
+                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$module->id, $user->id, $user->type]);
+                } else if ($_ids != null) {
+                    $_ids->user_id = $user->id;
+                    $_ids->timestamps = false;
+                    $_ids->save();
+                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+                } else if ($_curps != null) {
+                    $_curps->user_id = $user->id;
+                    $_curps->timestamps = false;
+                    $_curps->save();
+                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+                }else{
+                    return "No puedes registrarte";
+                }
+            }catch(\Exception $e) {
+                return "Error al registrar";
+            }
+        }
+
         // Se usa para abrir un modal dentro de mi portal directamente
         $nombreModal = session('nombreModal') ?? null;
         $_ids = ComiteUser::where('user_id', $request->user()->id)->get()->first();
