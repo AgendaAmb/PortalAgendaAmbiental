@@ -110,10 +110,8 @@ new Vue({
                 if(this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor"){
                     this.workshops = [];
                 }else if(this.user_data.status == "Profesor"){
-                    console.log("profesor");
                     this.workshops = this.workshops.filter(ws => ws.id == 23);
                 }
-                console.log("pass");
 
                 this.workshops.forEach(ws => {
                     let cont = 0;
@@ -136,7 +134,6 @@ new Vue({
                 if(this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor"){
                     this.workshops = [];
                 }else if(this.user_data.status == "Profesor"){
-                    console.log("profesor");
                     this.workshops = this.workshops.filter(ws => ws.id == 23);
                 }
                 console.log("pass");
@@ -234,6 +231,8 @@ new Vue({
                 })
                 
             )).catch((err) => {
+                alert(err.data),
+                console.log(err)
                 // An error occurred
             })
         },

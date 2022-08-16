@@ -292,6 +292,11 @@ class WorkshopController extends Controller
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('id', $request->ws_id);
 
+            if(($workshop_model->id == 21 && UserWorkshop::where('workshop_id',21)->count() > 30) || 
+                $workshop_model->id == 20 && UserWorkshop::where('workshop_id', 21)->count() > 25){
+                return response()->json(['data' => "Limite de usuarios alcanzado"], JsonResponse::HTTP_OK);
+            }
+
             # Registra al usuario al workshop
             $user_workshop = UserWorkshop::create([
                 'user_id' => $user->id,
@@ -339,6 +344,10 @@ class WorkshopController extends Controller
 
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('id', $request->ws_id);
+
+            if (($workshop_model->id == 23 && UserWorkshop::where('workshop_id', 23)->count() > 50)){
+                return response()->json(['data' => "Limite de usuarios alcanzado"], JsonResponse::HTTP_OK);
+            }
 
             # Registra al usuario al workshop
             $user_workshop = UserWorkshop::create([
