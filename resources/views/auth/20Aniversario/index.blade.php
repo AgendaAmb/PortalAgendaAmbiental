@@ -8,8 +8,8 @@
   const user_data = @json($_data);
 
   // Additional data
-  // const url = 'https://ambiental.uaslp.mx/';
-  const url = 'http://portalaa.test/';
+  const url = 'https://ambiental.uaslp.mx/';
+  // const url = 'http://portalaa.test/';
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
 
@@ -83,6 +83,9 @@
     <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
       <div class="h-fluid border">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true>
+          <b-col cols="12">
+            <div class="h-fluid text-left mx-1 my-1" style="background: #115089; color: white;"><h6 class="px-2 py-2">PANEL DE REGISTRO</h6></div> 
+          </b-col>
 @verbatim
           <b-col 
             xl="2" 
@@ -93,26 +96,26 @@
             v-for="ws in workshops" 
             v-bind:key="ws.id"
             >
-            <b-card 
-              :title=ws.name
+            <b-card
               :img-src=ws.imgsrc
-@endverbatim
-              img-height="150px"
-              img-weight="150px"
+              img-height="200"
+              img-width="200"
+              class="text-center position-relative mx-2 my-3 border-0"
               img-alt="evento.png"
               img-top
-              tag="article"
-              class="my-2 mx-1 px-3 py-2"
+              no-body
+              @click="openRegisterModal(ws)"
             >
-              <b-card-text>
-@verbatim
-                {{ws.description}}
-              </b-card-text>
-              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id != 23" @click="openRegisterModal(ws)">Registrarme</b-button>
-              <b-button style="background: #115089;" v-if="ws.registered == false && ws.id == 23" ref="btnShow" @click="showModal(ws)">Registrarme</b-button>
+              <template #header>
+                <div
+                class="my-1">
+                <h6 class="mb-0"><b>{{ws.start_date}}</b></h6>
+                <h6 class="mt-1">{{ws.name}}</h6>
+                </div>
+              </template>
             </b-card>
-@endverbatim
           </b-col>
+@endverbatim
           
           <b-col cols="12">
             <b-carousel

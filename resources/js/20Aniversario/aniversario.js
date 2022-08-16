@@ -146,9 +146,14 @@ new Vue({
         },
         // Inicializador de modales de registro
         openRegisterModal:function(ws){
+            // Unirodadas
             try{
                 if(!ws.registered){
-                    this.showRegisterMsgBox(ws);
+                    if(ws.id == 23){
+                        this.showModal(ws)
+                    }else{
+                        this.showRegisterMsgBox(ws);
+                    }
                 }else{
                     this.showRegisteredMsgBox(ws);
                 }

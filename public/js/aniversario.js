@@ -58672,9 +58672,14 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
     },
     // Inicializador de modales de registro
     openRegisterModal: function openRegisterModal(ws) {
+      // Unirodadas
       try {
         if (!ws.registered) {
-          this.showRegisterMsgBox(ws);
+          if (ws.id == 23) {
+            this.showModal(ws);
+          } else {
+            this.showRegisterMsgBox(ws);
+          }
         } else {
           this.showRegisteredMsgBox(ws);
         }
