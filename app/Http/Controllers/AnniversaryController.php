@@ -49,20 +49,29 @@ class AnniversaryController extends Controller
                 $module = Module::where('name', '20Aniversario')->get()->first();
 
                 if ($_names != null) {
+                    if(strcmp($_names->modality,'MAESTRÍA DOBLE TITULACIÓN') ==  0 || strcmp($_names->modality,'MAESTRÍA') ==  0){
+                        return("No puedes registrarte");
+                    }
                     $_names->user_id = $user->id;
                     $_names->timestamps = false;
                     $_names->save();
                     DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$module->id, $user->id, $user->type]);
                 } else if ($_ids != null) {
+                    if (strcmp($_ids->modality, 'MAESTRÍA DOBLE TITULACIÓN') == 0 || strcmp($_ids->modality, 'MAESTRÍA') == 0) {
+                        return ("No puedes registrarte");
+                    }
                     $_ids->user_id = $user->id;
                     $_ids->timestamps = false;
                     $_ids->save();
-                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$module->id, $user->id, $user->type]);
                 } else if ($_curps != null) {
+                    if(strcmp($_curps->modality, 'MAESTRÍA DOBLE TITULACIÓN') == 0 || strcmp($_curps->modality, 'MAESTRÍA') == 0) {
+                        return ("No puedes registrarte");
+                    }
                     $_curps->user_id = $user->id;
                     $_curps->timestamps = false;
                     $_curps->save();
-                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+                    DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$module->id, $user->id, $user->type]);
                 }else{
                     return "No puedes registrarte";
                 }
