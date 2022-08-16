@@ -107,9 +107,13 @@ new Vue({
                 this.user_workshops.forEach(ws => { ws['registered'] = true;}); //Actualizar bandera
                 // Eventos
                 // this.workshops = this.workshops.filter(ws => ws.id == 23);
-                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo"){
+                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor"){
                     this.workshops = [];
+                }else if(this.user_data.status == "Profesor"){
+                    console.log("profesor");
+                    this.workshops = this.workshops.filter(ws => ws.id == 23);
                 }
+                console.log("pass");
 
                 this.workshops.forEach(ws => {
                     let cont = 0;
@@ -129,9 +133,13 @@ new Vue({
             }else{
                 // Eventos
                 // this.workshops = this.workshops.filter(ws => ws.id == 23);
-                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo"){
+                if(this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor"){
                     this.workshops = [];
+                }else if(this.user_data.status == "Profesor"){
+                    console.log("profesor");
+                    this.workshops = this.workshops.filter(ws => ws.id == 23);
                 }
+                console.log("pass");
 
                 this.workshops.forEach(ws => { 
                     ws['registered'] = false; //Actualizar bandera

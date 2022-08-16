@@ -58627,10 +58627,16 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
         // Eventos
         // this.workshops = this.workshops.filter(ws => ws.id == 23);
 
-        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo") {
+        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor") {
           this.workshops = [];
+        } else if (this.user_data.status == "Profesor") {
+          console.log("profesor");
+          this.workshops = this.workshops.filter(function (ws) {
+            return ws.id == 23;
+          });
         }
 
+        console.log("pass");
         this.workshops.forEach(function (ws) {
           var cont = 0;
           user_workshops.forEach(function (uws) {
@@ -58650,10 +58656,16 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
       } else {
         // Eventos
         // this.workshops = this.workshops.filter(ws => ws.id == 23);
-        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo") {
+        if (this.user_data.status != "Graduado" && this.user_data.status != "Activo" && this.user_data.status != "Profesor") {
           this.workshops = [];
+        } else if (this.user_data.status == "Profesor") {
+          console.log("profesor");
+          this.workshops = this.workshops.filter(function (ws) {
+            return ws.id == 23;
+          });
         }
 
+        console.log("pass");
         this.workshops.forEach(function (ws) {
           ws['registered'] = false; //Actualizar bandera
 
