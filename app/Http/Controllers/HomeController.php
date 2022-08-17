@@ -139,10 +139,12 @@ class HomeController extends Controller
                 ->updateOrInsert([
                     'user_id' => $request->user()->id,
                     'posgrado' => $request->posgrado, 
+                    'gen' => $request->gen,
                     'ocupacion' => $request->ocupacion,
                     'sector' => $request->sector,
-                    'empleador' => $request->empleador,
-                    'contact_empleador' => $request->contact_empleador,
+                    'empleador' => $request->nombre_empleador,
+                    'contact_empleador' => $request->tel_empleador,
+                    'email_empleador' => $request->email_empleador,
                     'comentarios' => $request->comentarios,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()

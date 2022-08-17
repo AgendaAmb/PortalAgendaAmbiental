@@ -1,4 +1,4 @@
-<div style="height: 6vh" id="main-navbar">
+<div style="height: 6vh" id="main-navbar" v-cloak>
   {{-- <b-navbar class="bg-white shadow" toggleable="lg">
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -23,5 +23,6 @@
   <b-nav align="center" tabs>
     <b-nav-item href="{{route('panel')}}">Inicio</b-nav-item>
     <b-nav-item active>20 Aniversario</b-nav-item>
+    {{-- <b-nav-item href="{{route('20admin')}}"active>Admin</b-nav-item> --}}
   </b-nav>
 </div>

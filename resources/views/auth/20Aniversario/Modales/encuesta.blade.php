@@ -103,12 +103,24 @@
       <h5 class="modal-title3">Información de Egresado</h5>
 
       <b-form-row>
-        <b-col cols="12" >
+        <b-col cols="10" >
           <b-form-group id="input-group-1" label="Programa de Posgrado" label-for="input-1">
-            <b-form-input
-              id="input-1"
-              placeholder="Nombre del programa"
+            <b-form-select 
+              id="input-4" 
               v-model="egresado_form.posgrado"
+              :options="[{ text: 'Elige una opción', value: null },
+                         { text: 'Doctorado en Ciencias Ambientales', value: 'Doctorado en Ciencias Ambientales'}, 
+                         { text: 'Maestría en Ciencias Ambientales (Modalidad Nacional)', value: 'Maestría en Ciencias Ambientales (Modalidad Nacional)' },
+                         { text: 'Maestría en Ciencias Ambientales (Modalidad Internacional)', value: 'Maestría en Ciencias Ambientales (Modalidad Internacional)' }]" 
+            ></b-form-select>
+          </b-form-group>
+        </b-col>
+        <b-col cols="2">
+          <b-form-group id="input-group-40" label="Generación" label-for="input-40">
+            <b-form-input
+              id="input-40"
+              v-model="egresado_form.gen"
+              placeholder="Ej. 2022-02"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -155,21 +167,30 @@
       </b-form-row>
 
       <b-form-row>
-        <b-col>
-          <b-form-group id="input-group-12" label="Datos de empleador" label-for="input-12">
+        <b-col cols="12">
+          <b-form-group id="input-group-12" label="Nombre de empleador" label-for="input-12">
             <b-form-input
               id="input-12"
               placeholder="Nombre"
-              v-model="egresado_form.empleador"
+              v-model="egresado_form.nombre_empleador"
             ></b-form-input>
           </b-form-group>
         </b-col>
         <b-col>
-          <b-form-group id="input-group-13" label="Contacto de empleador" label-for="input-13">
+          <b-form-group id="input-group-13" label="Teléfono de empleador" label-for="input-13">
             <b-form-input
               id="input-13"
-              placeholder="Nombre"
-              v-model="egresado_form.contact_empleador"
+              placeholder="Teléfono"
+              v-model="egresado_form.tel_empleador"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group id="input-group-13" label="Correo electrónico de empleador" label-for="input-13">
+            <b-form-input
+              id="input-13"
+              placeholder="Email"
+              v-model="egresado_form.email_empleador"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -181,7 +202,7 @@
               <b-form-textarea
                 v-model="egresado_form.comentarios"
                 id="input-14"
-                placeholder="Enter something..."
+                placeholder="..."
                 rows="5"
                 max-rows="5"
               ></b-form-textarea>

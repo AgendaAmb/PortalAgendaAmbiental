@@ -109,7 +109,7 @@
               <template #header>
                 <div
                 class="my-1">
-                <h6 class="mb-0"><b>{{ws.start_date}}</b></h6>
+                <h6 class="mb-0" style="color: #115089;"><b>{{ws.start_date}}</b></h6>
                 <h6 class="mt-1">{{ws.name}}</h6>
                 </div>
               </template>

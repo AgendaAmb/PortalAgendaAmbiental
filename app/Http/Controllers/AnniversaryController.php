@@ -14,6 +14,8 @@ use Carbon\Carbon;
 use App\Http\Resources\AniversarioResource;
 use App\Models\ComiteUser;
 use App\Models\Module;
+use App\Models\UserWorkshop;
+use Tests\Feature\WorkshopTest;
 
 class AnniversaryController extends Controller
 {
@@ -164,6 +166,14 @@ class AnniversaryController extends Controller
         }
 
         return "No puedes registrarte";
+    }
 
+    public function admin(Request $request){
+
+        //Workshops 20 21 23
+        // return view('auth.20Aniversario.admin')
+        //         ->with('users', UserWorkshop::whereIn('workshop_id',[20,21,23])->get())
+        //         ->with('user', Auth::user());
+        return "admin";
     }
 }

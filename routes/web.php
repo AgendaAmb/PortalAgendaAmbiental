@@ -129,6 +129,8 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         Route::get('/Miportal/20Aniversario/register', 'AnniversaryController@register')->name('20register');
         // Ruta home de 20 aniversario
         Route::get('/Miportal/20Aniversario/', 'AnniversaryController@home')->name('20home');
+        // Ruta admin 20 aniversario
+        Route::get('/Miportal/20Aniversario/admin', 'AnniversaryController@admin')->name('20admin');
     });
 
     Route::get('/home', 'HomeController@index')->name('home');

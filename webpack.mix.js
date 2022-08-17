@@ -18,6 +18,7 @@ mix.js('resources/js/Dashboard/dashboard.js', 'public/js').vue();
 
 // 20 aniversario
 mix.js('resources/js/20Aniversario/aniversario.js', 'public/js').vue();
+mix.js('resources/js/20Aniversario/20admin.js', 'public/js').vue();
 
 // Administración
 mix.js('resources/js/Admin/admin.js', 'public/js').vue();

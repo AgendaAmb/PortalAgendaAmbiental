@@ -35,7 +35,7 @@ new Vue({
         //
         selected: null,
         // * FORMS
-        egresado_form: {posgrado: '', ocupacion: '', sector:'null', empleador :'', contact_empleador:'',comentarios:''},
+        egresado_form: {posgrado: 'null', gen:'', ocupacion: '', sector:'null', nombre_empleador:'', tel_empleador:'', email_empleador:'', comentarios:''},
         user_data: user_data
     },
     created() {
@@ -287,6 +287,10 @@ new Vue({
         },
         //* Registro de egresados
         registerEgresados:function(){
+
+            // console.log(this.egresado_form);
+            // return true;
+            
             // Spinning button
             this.spinner = true;
             let headers = {
