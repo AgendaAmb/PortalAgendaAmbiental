@@ -58608,9 +58608,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
     },
     // ! De momento las fechas son manuales
     dateClass: function dateClass(ymd, date) {
-      var day = date.getDate();
-
-      if (day == 10 || day == 12 || day == 14 || day == 15 || day == 17) {
+      if (ymd == '2022-09-09' | ymd == '2022-09-10') {
         return 'table-success';
       }
 

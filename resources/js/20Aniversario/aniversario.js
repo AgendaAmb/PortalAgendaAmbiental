@@ -93,9 +93,8 @@ new Vue({
         },
         // ! De momento las fechas son manuales
         dateClass(ymd, date) {
-            const day = date.getDate()
-            
-            if(day == 10 || day ==  12 || day == 14 || day == 15 || day ==  17){
+
+            if(ymd == '2022-09-09' | ymd == '2022-09-10'){
                 return 'table-success'
             }
 
