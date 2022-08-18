@@ -327,7 +327,3 @@ new Vue({
         }
     }
 });
-
-new Vue({
-    el: '#main-navbar',
-});

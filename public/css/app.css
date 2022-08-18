@@ -4606,6 +4606,11 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 
 @charset "UTF-8";
+.navbar-dark .navbar-nav .nav-link {
+  color: #115089 !important;
+  background-color: #115089 !important;
+}
+
 #panel {
   height: 81vh;
 }

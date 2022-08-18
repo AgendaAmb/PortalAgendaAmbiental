@@ -1,21 +1,119 @@
 <script>
-  const user = @json($user);
   const users = @json($users);
-  // console.log(user);
-  // console.log(users);
+  const modulos = @json($Modulos);
+
+  console.log(users);
 </script>
 
 @extends('templates.base')
-
-@push('stylesheets')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-@endpush
 
 @section('navbarModulos')
 @include('templates.navbar')
 @endsection
 
 @section('ContenidoPrincipal')
+
+@verbatim
+<template>
+  <b-container class="my-4" fluid>
+    <!-- User Interface controls -->
+    <b-row>
+      <b-col lg="12" class="py-4 bg-light">
+        <b-form-group
+          label="Filtrar"
+          label-for="filter-input"
+          label-cols-sm="1"
+          label-align-sm="left"
+          label-size="sm"
+          class="mb-0"
+        >
+          <b-input-group size="sm">
+            <b-form-input
+              id="filter-input"
+              v-model="filter"
+              type="search"
+              placeholder="Escribe para buscar"
+            ></b-form-input>
+
+            <b-input-group-append>
+              <b-button style="background:#115089;" :disabled="!filter" @click="filter = ''">Limpiar</b-button>
+            </b-input-group-append>
+          </b-input-group>
+        </b-form-group>
+      </b-col>
+
+      <b-col sm="12" md="12" class="my-3">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="totalRows"
+          :per-page="perPage"
+          align="fill"
+          size="sm"
+          class="my-0"
+        ></b-pagination>
+      </b-col>
+    </b-row>
+
+    <!-- Main table element -->
+    <b-table
+      responsive
+      head-variant="light"	
+      bordered
+      hover
+      :items="items"
+      :fields="fields"
+      :current-page="currentPage"
+      :per-page="perPage"
+      :filter="filter"
+      :filter-included-fields="filterOn"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
+      :sort-direction="sortDirection"
+      stacked="md"
+      show-empty
+      small
+      @filtered="onFiltered"
+    >
+      <template #cell(workshop_id)="row">
+        {{ row.value }}
+      </template>
+
+      <template #cell(user_id)="row" class="p-0 m-0">
+        {{ row.value }}
+      </template>
+
+    </b-table>
+
+    <b-row>
+        <b-col sm="12" md="12" class="my-1">
+            <b-form-group
+                label="Per page"
+                label-for="per-page-select"
+                label-cols-sm="6"
+                label-cols-md="4"
+                label-cols-lg="3"
+                label-align-sm="right"
+                label-size="sm"
+                class="mb-0"
+            >
+                <b-form-select
+                id="per-page-select"
+                v-model="perPage"
+                :options="pageOptions"
+                size="sm"
+                ></b-form-select>
+            </b-form-group>
+        </b-col>
+    </b-row>
+
+    <!-- Info modal -->
+    <b-modal :id="infoModal.id" :title="infoModal.title" ok-only @hide="resetInfoModal">
+      <pre>{{ infoModal.content }}</pre>
+    </b-modal>
+  </b-container>
+</template>
+@endverbatim
 @endsection
 
+<script src="{{ asset('js/navbar.js') }}" defer></script>
 <script src="{{ asset('js/20admin.js') }}" defer></script>

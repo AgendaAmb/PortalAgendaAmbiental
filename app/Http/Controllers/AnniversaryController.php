@@ -171,9 +171,30 @@ class AnniversaryController extends Controller
     public function admin(Request $request){
 
         //Workshops 20 21 23
-        // return view('auth.20Aniversario.admin')
-        //         ->with('users', UserWorkshop::whereIn('workshop_id',[20,21,23])->get())
-        //         ->with('user', Auth::user());
-        return "admin";
+        $user = Auth::user();
+        $idwss = Workshop::where('type', '20Aniversario')->pluck('id');
+
+        try{
+            // Calculo
+            $data = array();
+            $users = UserWorkshop::whereIn('workshop_id',$idwss)->get();
+            foreach ($users as $i) {
+                $_user = User::where('id', $i->user_id)->first();
+                $_ws = Workshop::where('id', $i->workshop_id)->first();
+                $_data = [
+                    'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                    'workshop' => $_ws->name,
+                ];
+                array_push($data,$_data);
+            }
+        }catch(\Exception $e){
+            return "error en datos";
+        }
+
+        return view('auth.20Aniversario.admin', [
+            'user' => $user,
+            'users' => $data,
+            'Modulos' => Auth::user()->userModules,
+        ]);
     }
 }

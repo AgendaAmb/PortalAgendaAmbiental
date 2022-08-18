@@ -8,16 +8,10 @@
   const user_data = @json($_data);
 
   // Additional data
-  const url = 'https://ambiental.uaslp.mx/';
-  // const url = 'http://portalaa.test/';
+  const url = '{{env('APP_URL')}}'
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
-
   const base_img ='{{ asset('/storage/imagenes')}}' + "/";
-
-  // console.log(user_data);
-  // console.log(user);
-  // console.log(workshops);
 </script>
 
 @extends('templates.base')
@@ -82,12 +76,13 @@
 
     <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
       <div class="h-fluid border">
-        <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true>
-          <b-col cols="12">
+        <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
+          <b-col cols="12" order="1">
             <div class="h-fluid text-left mx-1 my-1" style="background: #115089; color: white;"><h6 class="px-2 py-2">PANEL DE REGISTRO</h6></div> 
           </b-col>
 @verbatim
           <b-col 
+            order="2"
             xl="2" 
             lg="3" 
             md="4" 
@@ -117,7 +112,7 @@
           </b-col>
 @endverbatim
           
-          <b-col cols="12">
+          <b-col cols="12" order="3">
             <b-carousel
               id="carousel-fade"
               style="text-shadow: 0px 0px 2px #000"
@@ -140,7 +135,7 @@
     <b-col class="bg-white" align-self="stretch" lg="2" md="2" sm="12" cols="12" order-lg="3" order-md="3" order-sm="1" order="1">
       <div class="h-100 w-100">
         <b-row align-h="center" :no-gutters=true>
-          <b-container class="my-2 mx-1 py-4 bg-light" >
+          <b-container class="my-2 mx-1 py-4 px-1 bg-light" >
             <b-row>
               <b-col cols="5" class="p-0 px-1 align-items-center text-right">
                 <p class="my-1">
@@ -150,7 +145,7 @@
                   {{Auth::user()->dependency}}
                 </p>
               </b-col>
-              <b-col cols="7" class="text-center">
+              <b-col cols="7" class="text-center m-0 p-0">
                 <b-icon icon="person-circle" style="width: 120px; height: 120px;"></b-icon>
               </b-col>
             </b-row>
@@ -184,4 +179,5 @@
 
 @endsection
 
+<script src="{{ asset('js/navbar.js') }}" defer></script>
 <script src="{{ asset('js/aniversario.js') }}" defer></script>
