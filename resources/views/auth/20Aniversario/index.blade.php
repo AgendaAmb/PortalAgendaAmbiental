@@ -8,7 +8,9 @@
   const user_data = @json($_data);
 
   // Additional data
-  const url = '{{env('APP_URL')}}'
+  // const url = '{{env('APP_URL')}}'
+  const url = 'https://ambiental.uaslp.mx/'
+  // const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
   const user_type = '{{Auth::user()->type}}';
   const base_img ='{{ asset('/storage/imagenes')}}' + "/";
