@@ -108,6 +108,7 @@ class HomeController extends Controller
             $users = $this->getHelperUsers();
             // return $users;
             return view('auth.Dashbord.Administracion', [
+                
                 'users' =>  $users,
                 'Modulos' => Auth::user()->userModules,
             ]);

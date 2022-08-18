@@ -184,6 +184,11 @@ class AnniversaryController extends Controller
                 $_data = [
                     'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
                     'workshop' => $_ws->name,
+                    'curp' => $_user->curp,
+                    'tel' => $_user->phone_number,
+                    'envio' => $i->send,
+                    'pago' => $i->paid,
+                    'factura' => $i->invoice_data
                 ];
                 array_push($data,$_data);
             }

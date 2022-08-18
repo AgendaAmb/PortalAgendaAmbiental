@@ -74,20 +74,39 @@
       small
       @filtered="onFiltered"
     >
-      <template #cell(workshop_id)="row">
-        {{ row.value }}
+      <template #cell(actions)="row">
+        Niguna
+      </template>
+
+      <template #cell(workshop)="row">
+        {{ row.value.toUpperCase() }}
       </template>
 
       <template #cell(user_id)="row" class="p-0 m-0">
         {{ row.value }}
       </template>
 
+      <template #cell(actions)="row">
+        Ningúna
+      </template>
+
+      <template #cell(envio)="row">
+        <p class="h5 mb-2">No enviado <b-icon icon="exclamation-circle-fill"></b-icon></p>
+      </template>
+
+      <template #cell(pago)="row">
+        <p class="h5 mb-2">No pagado <b-icon icon="exclamation-circle-fill"></b-icon></p>
+      </template>
+
+      <template #cell(factura)="row">
+        <p class="h5 mb-2">No requerida</p>
+      </template>
     </b-table>
 
     <b-row>
         <b-col sm="12" md="12" class="my-1">
             <b-form-group
-                label="Per page"
+                label="Num. resultados"
                 label-for="per-page-select"
                 label-cols-sm="6"
                 label-cols-md="4"

@@ -10,13 +10,19 @@ new Vue({
       return {
         items: users,
         fields: [
-          { key: 'workshop', label: 'Evento', sortable: true, sortDirection: 'desc' },
-          { key: 'name', label: 'Nombre', sortable: false}
+          { key: 'actions', label: 'Acciones' },
+          { key: 'workshop', label: 'Curso/Taller/Evento', sortable: true, sortDirection: 'desc' },
+          { key: 'name', label: 'Nombre', sortable: false},
+          { key: 'curp', label: 'Curp' },
+          { key: 'tel', label: 'Teléfono' },
+          { key: 'envio', label: 'Enviado' },
+          { key: 'pago', label: 'Pago' },
+          { key: 'factura', label: 'Factura' }
         ],
         totalRows: 1,
         currentPage: 1,
-        perPage: 10,
-        pageOptions: [10, 15, 20, 50],
+        perPage: 20,
+        pageOptions: [20, 30],
         sortBy: '',
         sortDesc: false,
         sortDirection: 'asc',
