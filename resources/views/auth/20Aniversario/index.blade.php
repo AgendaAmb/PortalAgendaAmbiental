@@ -8,7 +8,7 @@
   const user = @json($user);
   const user_data = @json($_data);
 
-  // console.log(noreg_workshops);
+  console.log(noreg_workshops);
 
   // Additional data
   // const url = '{{env('APP_URL')}}'
