@@ -2,10 +2,13 @@
   const modulos = @json($modulos);
   const user_workshops = @json($user_workshops);
   const workshops = @json($workshops);
+  const noreg_workshops = @json($noreg_workshops);
   const nombreModal = @json($nombreModal);
   const ejes = @json($ejes);
   const user = @json($user);
   const user_data = @json($_data);
+
+  // console.log(noreg_workshops);
 
   // Additional data
   // const url = '{{env('APP_URL')}}'
@@ -80,11 +83,14 @@
       <div class="h-fluid border">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
-            <div class="h-fluid text-left mx-1 my-1" style="background: #115089; color: white;"><h6 class="px-2 py-2">PANEL DE REGISTRO</h6></div> 
+            <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white;"><h6 class="px-2 py-2 m-0">PANEL DE REGISTRO</h6></div> 
+          </b-col>
+          <b-col cols="12" order="2">
+            <div class="h-fluid text-left mx-0 my-0" style="background: #f7f7f7; color: #115089"><h6 class="px-2 py-2 m-0">CUPO LIMITADO</h6></div> 
           </b-col>
 @verbatim
           <b-col 
-            order="2"
+            order="3"
             xl="2" 
             lg="3" 
             md="4" 
@@ -113,8 +119,40 @@
             </b-card>
           </b-col>
 @endverbatim
-          
-          <b-col cols="12" order="3">
+          <b-col cols="12" order="4">
+            <div class="h-fluid text-left mx-0 my-0" style="background: #f7f7f7; color: #115089"><h6 class="px-2 py-2 m-0">ENTRADA LIBRE</h6></div> 
+          </b-col>
+@verbatim
+          <b-col 
+            order="5"
+            xl="2" 
+            lg="3" 
+            md="4" 
+            sm="6" 
+            cols="6" 
+            v-for="ws in noreg_workshops" 
+            v-bind:key="ws.id"
+            >
+            <b-card
+              :img-src=ws.imgsrc
+              img-height="200"
+              img-width="200"
+              class="text-center position-relative mx-2 my-3 border-0"
+              img-alt="evento.png"
+              img-top
+              no-body
+            >
+              <template #header>
+                <div
+                class="my-1">
+                <h6 class="mb-0" style="color: #115089;"><b>{{ws.start_date}}</b></h6>
+                <h6 class="mt-1">{{ws.name}}</h6>
+                </div>
+              </template>
+            </b-card>
+          </b-col>
+@endverbatim
+          <b-col cols="12" order="6">
             <b-carousel
               id="carousel-fade"
               style="text-shadow: 0px 0px 2px #000"

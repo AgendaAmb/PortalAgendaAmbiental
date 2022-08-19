@@ -94,7 +94,8 @@ class AnniversaryController extends Controller
             return view('auth.20Aniversario.index')
                 ->with('modulos', $request->user()->userModules) //Navbar
                 ->with('user_workshops', Auth::user()->workshops->where('type','=','20Aniversario')->values()) 
-                ->with('workshops', Workshop::where('type','20Aniversario')->get())
+                ->with('workshops', Workshop::where('type','20Aniversario')->whereIn('id', [20, 21, 23])->get())
+                ->with('noreg_workshops', Workshop::where('type', '20Aniversario')->whereNotIn('id',[20,21,23])->get())
                 ->with('nombreModal', $nombreModal)
                 ->with('ejes', ejes::all()) // para el proximo navbar au sin uso
                 ->with('user', $request->user())

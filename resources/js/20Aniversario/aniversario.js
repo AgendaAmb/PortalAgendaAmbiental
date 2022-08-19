@@ -21,6 +21,7 @@ new Vue({
         modules: modulos,
         user_workshops: user_workshops,
         workshops: workshops,
+        noreg_workshops: noreg_workshops,
         ejes: ejes,
         boxTwo: '',
         uwss: new Array(),
