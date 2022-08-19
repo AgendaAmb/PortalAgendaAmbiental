@@ -82,7 +82,7 @@
         {{ row.value.toUpperCase() }}
       </template>
 
-      <template #cell(user_id)="row" class="p-0 m-0">
+      <template #cell(user_id)="row">
         {{ row.value }}
       </template>
 
@@ -124,11 +124,6 @@
             </b-form-group>
         </b-col>
     </b-row>
-
-    <!-- Info modal -->
-    <b-modal :id="infoModal.id" :title="infoModal.title" ok-only @hide="resetInfoModal">
-      <pre>{{ infoModal.content }}</pre>
-    </b-modal>
   </b-container>
 </template>
 @endverbatim

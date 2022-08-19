@@ -1,9 +1,9 @@
 <div style="height: 6vh" id="main-navbar" v-cloak>
-  <b-navbar class="bg-white shadow" toggleable="lg">
+  <b-navbar class="bg-white shadow" toggleable="lg" sticky>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+    <b-collapse id="nav-collapse" is-nav align="center">
+      <b-navbar-nav small>
         <b-nav-item href="{{route('panel')}}">Inicio</b-nav-item>
         <b-nav-item href="{{route('20home')}}">20 Aniversario</b-nav-item>
         @if(Auth::user()->id == '291395' || Auth::user()->id == '11007')
