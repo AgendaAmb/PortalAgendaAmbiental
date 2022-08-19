@@ -1,5 +1,5 @@
 <div style="height: 6vh" id="main-navbar" v-cloak>
-  <b-navbar class="bg-white shadow" toggleable="lg">
+  <b-navbar class="bg-white shadow" toggleable="sm" sticky>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
