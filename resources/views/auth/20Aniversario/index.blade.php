@@ -66,9 +66,9 @@
               <b-card-body class="py-2 m-0">
                 <b-card-text class="_card-text"></b-card-text>
               </b-card-body>
-              <b-card-body v-for="ws in workshops" v-bind:key="ws.id" class="py-2 m-0">
+              {{-- <b-card-body v-for="ws in workshops" v-bind:key="ws.id" class="py-2 m-0">
                 <b-card-text @click="openRegisterModal(ws)" class="_card-text">@{{ws.name}}</b-card-text>
-              </b-card-body>
+              </b-card-body> --}}
             </b-collapse>
           </b-card>
 

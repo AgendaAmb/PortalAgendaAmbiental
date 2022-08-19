@@ -4638,7 +4638,6 @@ readers do not read off random characters that represent icons */
 
 ._card-text:hover {
   color: #115089 !important;
-  font-size: 15px !important;
   border-bottom: 1px solid #115089;
   cursor: pointer;
 }
