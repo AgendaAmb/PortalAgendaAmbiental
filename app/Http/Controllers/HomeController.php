@@ -76,7 +76,7 @@ class HomeController extends Controller
 
         try{
             //! Especial - Pagina para ver alumnos del GGJ
-            if($user->id == '291395' | $user->id == '23642'){
+            if($user->id == '23642'){
 
                 $team = array();
                 $ws = Workshop::where('name', 'Global Goals Jam')->first();

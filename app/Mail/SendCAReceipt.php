@@ -31,7 +31,7 @@ class SendCAReceipt extends Mailable
      */
     public function build()
     {
-        return $this->from('rtic.ambiental@uaslp.mx', 'Dra. Mariana Buendía Oliva')
+        return $this->from('imarec@uaslp.mx', 'Dra. Mariana Buendía Oliva')
                     ->subject('Registro al Curso: '. $this->ws_name)
                     ->markdown('mail.workshops.send-receipt', [
                         'header_color' => '#87b854',
