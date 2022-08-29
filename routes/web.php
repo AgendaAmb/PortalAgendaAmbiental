@@ -179,6 +179,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarCAUsuario', 'WorkshopController@RegistrarCAUsuario')->name('RegistrarCAUsuario');
     Route::post('/ChecarCAUsuario', 'WorkshopController@ChecarCAUsuario')->name('ChecarCAUsuario');
 
+    # Registro a cursos de mmus2022.
+    Route::post('/RegistrarMmus2022', 'WorkshopController@RegistrarMmus2022')->name('RegistrarMmus2022');
+    Route::post('/ChecarMmus2022', 'WorkshopController@ChecarMmus2022')->name('ChecarMmus2022');
+
     # Registro a cursos de actualizacioón.
     Route::post('/RegistrarGGJ', 'WorkshopController@RegistrarGGJ')->name('RegistrarGGJ');
     Route::post('/ChecarGGJ', 'WorkshopController@ChecarGGJ')->name('ChecarGGJ');

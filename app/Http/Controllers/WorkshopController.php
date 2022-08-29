@@ -18,7 +18,7 @@ use App\Models\GGJUser;
 use Carbon\Carbon;
 use App\Models\UnirodadaUser;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Auth;
 class WorkshopController extends Controller
 {
     /*
@@ -554,7 +554,113 @@ class WorkshopController extends Controller
         //4. si todo sale bien regresamo un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    
+
+    public function RegistrarMmus2022(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+                // Grado academico
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+                // Interes de asistencia nuevos cursos
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+                // Asistencia a cursos
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
+                $user->courses = $request->CursoCursado;
+            }
+            $user->save();
+
+            # Cursos mmus del usuario y unirodadas.
+            $workshops = $user->workshops()
+                ->WherePivotNull('paid')
+                ->wherePivotNull('assisted_to_workshop')
+                ->orWherePivot('assisted_to_workshop', false)
+                ->pluck('workshops.id');
+
+
+            # Se eliminan los cursos a los que no haya asistido y a
+            # aquellos que haya eliminado del modal.
+            $user->workshops()->detach($workshops);
+
+            # Busca cursos
+            $workshop_models = array();
+
+            if ($request->registros['iutt'])array_push($workshop_models, Workshop::firstWhere('id', 28));
+            if ($request->registros['cccv'])array_push($workshop_models, Workshop::firstWhere('id', 29));
+            if ($request->registros['pm'])array_push($workshop_models, Workshop::firstWhere('id', 30));
+            if ($request->registros['wwc'])array_push($workshop_models, Workshop::firstWhere('id', 31));
+            if ($request->registros['fa'])array_push($workshop_models, Workshop::firstWhere('id', 32));
+            if ($request->registros['tb'])array_push($workshop_models, Workshop::firstWhere('id', 33));
+            if ($request->registros['pikt'])array_push($workshop_models, Workshop::firstWhere('id', 34));
+
+            foreach ($workshop_models as $workshop) {
+                # Registra al usuario en user workshops.
+                $user_workshop = UserWorkshop::create([
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'workshop_id' => $workshop->id,
+                    'sent' => false,
+                    'paid' => false,
+                    'invoice_data' => false,
+                ]);
+            }
+
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], JsonResponse::HTTP_OK);
+        }
+
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    // Chacar usuario registrado en cursos de actualización
+    public function ChecarMmus2022(Request $request)
+    {
+        $user = Auth::user();
+        $inscriptions = $request->courses;
+        $flag = false;
+
+        try {
+            $inscriptions['iutt'] = UserWorkshop::where('workshop_id', 28)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['cccv'] = UserWorkshop::where('workshop_id', 29)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['pm'] = UserWorkshop::where('workshop_id', 30)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['wwc'] = UserWorkshop::where('workshop_id', 31)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['fa'] = UserWorkshop::where('workshop_id', 32)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['tb'] = UserWorkshop::where('workshop_id', 33)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+            $inscriptions['pikt'] = UserWorkshop::where('workshop_id', 34)
+                ->where('user_id', $user->id)
+                ->first() === null ? false : true;
+        } catch (Exception $e) {
+            return response()->json(['flag' => $flag, 'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        if ($inscriptions['iutt'] && $inscriptions['cccv'] && $inscriptions['pm'] 
+            && $inscriptions['wwc'] && $inscriptions['fa'] && $inscriptions['tb']
+            && $inscriptions['pikt']) $flag = true;
+
+        return response()->json(['flag' => $flag, 'data' => $inscriptions], JsonResponse::HTTP_OK);
+    }
+
     // Chacar usuario registrado en cursos de actualización
     public function ChecarCAUsuario(Request $request){
         $inscriptions = array();
