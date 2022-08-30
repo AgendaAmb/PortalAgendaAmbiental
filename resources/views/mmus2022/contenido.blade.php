@@ -6,7 +6,7 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 mb-5 mt-3">
     <p class="text-justify pSize pt-2 pt-xl-4 pt-lg-3  pt-md-0">
-        <br><br><br>
+        <br><br><br><br><br>
         Cumplimos 10 años celebrando en septiembre la Movilidad Urbana Sostenible en la UASLP a través del programa de la Agenda Ambiental "Unibici" en sinergía con colaboradores de todos los sectores se realizan actividades académicas, culturales, de educación ambiental, recreativas y de aplicación, incidiendo en los Objetivos Desarrollo Sostenible ODS11: Comunidades y ciudades sostenibles, ODS 13: Acción por el clima y ODS17: Alianzas para lograr objetivos.
         <br><br>
         Este año recordaremos que las ciudades son para las personas y nos sintonizamos con la temática mundial de este año "mejores conexiones" de la semana europea de movilidad, la UASLP se suma buscando que San Luis Potosí consiga migrar su movilidad urbana hacía una sostenible.
@@ -274,10 +274,8 @@
                                 <h2 style="font-weight: 900;">Conferencia: "Ciudades de cuidado, cuidado con los vulnerables"</h2>
                                 <br>
                                 <br>
-                                <span><b>Ponente: &nbsp;</b> Paco de Anda</span><br><br>
-                                    <p style="font-size:11px; text-align="justify-content-center">Licenciado en Diseño Industrial por la Universidad Anáhuac México Norte y Maestría en Mercadotecnia y Publicidad por la misma institución. <br><br>Fundador de la primera organización civil de seguridad vial del país, Movilidad y Desarrollo México (MDM). Ha recibido e impartido cursos de seguridad vial en diversos países de Latinoamérica y Europa. Participó como Asesor en Seguridad Vial para la Organización Panamericana de la Salud y el Consejo Nacional para la Prevención de Accidentes de la Secretaría de Salud. Fue Coordinador del Programa Global de Seguridad Vial en México para la Alianza Global de Seguridad Vial (GRSP). Es Auditor de Seguridad Vial certificado y es especialista en diseño y gestión de políticas públicas en seguridad vial con enfoque sistémico, comunicación estratégica y administración de proyectos. Ha realizado proyectos de infraestructura segura con perspectiva de usuarios vulnerables y manuales de gestión y gobernanza en seguridad vial. Recientemente fue asesor técnico de seguridad vehicular y asesor para la Ley de Movilidad y Seguridad Vial para la Incubadora Global de Promoción de la Salud y el Senado de la República. Es formador certificador de instructores de autoescuela por parte de la asociación de autoescuelas AUTOMEX. Actualmente es titular de MDM, miembro de la Alianza Global de ONGs por la Seguridad Vial, consultor en seguridad vial y miembro del Consejo de Movilidad de la ciudad de Playa del Carmen, donde reside. </p>
-                                <br>
-                                <br>
+                                <span><b>Ponente: &nbsp;</b> Paco de Anda</span><br>
+                                    <p style="font-size:11px;" class="text-justify">Licenciado en Diseño Industrial por la Universidad Anáhuac México Norte<br>Maestría en Mercadotecnia y Publicidad por la misma institución. <br><br>Fundador de la primera organización civil de seguridad vial del país, Movilidad y Desarrollo México (MDM). Ha recibido e impartido cursos de seguridad vial en diversos países de Latinoamérica y Europa. Participó como Asesor en Seguridad Vial para la Organización Panamericana de la Salud y el Consejo Nacional para la Prevención de Accidentes de la Secretaría de Salud. Fue Coordinador del Programa Global de Seguridad Vial en México para la Alianza Global de Seguridad Vial (GRSP). Es Auditor de Seguridad Vial certificado y es especialista en diseño y gestión de políticas públicas en seguridad vial con enfoque sistémico, comunicación estratégica y administración de proyectos. Ha realizado proyectos de infraestructura segura con perspectiva de usuarios vulnerables y manuales de gestión y gobernanza en seguridad vial. Recientemente fue asesor técnico de seguridad vehicular y asesor para la Ley de Movilidad y Seguridad Vial para la Incubadora Global de Promoción de la Salud y el Senado de la República. Es formador certificador de instructores de autoescuela por parte de la asociación de autoescuelas AUTOMEX. Actualmente es titular de MDM, miembro de la Alianza Global de ONGs por la Seguridad Vial, consultor en seguridad vial y miembro del Consejo de Movilidad de la ciudad de Playa del Carmen, donde reside. </p>
                                 <span><b>Lugar: &nbsp;</b> Zoom</span>
                                 <br>
                                 <span><b>Fecha:&nbsp; </b> jueves 15 de septiembre 2022</span>
@@ -344,8 +342,9 @@
                                 <br>
                                 <span><b>Horario:&nbsp;</b>&nbsp;8:00 - 14:00 horas</span>
                                 <br>
-                                <h4>Descripción:</h4>
-                                <p>El "placemaking" es un concepto y herramienta práctica que busca la mejora de espacios, en este caso espacios públicos, con un enfoque participativo y de urbanismo táctico para la planificación, diseño y gestión observando el espacio y haciendo preguntas a las personas que habitan, transitan o trabajan en un espacio determinado para descubrir sus necesidades y aspiraciones. En este evento se realizarán diferentes intervenciones físicas emergentes, actividades culturales e invitaciones de participación para la comunidad.</p>
+                                <br>
+                                <h4>Descripción</h4>
+                                <p class="text-justify">El "placemaking" es un concepto y herramienta práctica que busca la mejora de espacios, en este caso espacios públicos, con un enfoque participativo y de urbanismo táctico para la planificación, diseño y gestión observando el espacio y haciendo preguntas a las personas que habitan, transitan o trabajan en un espacio determinado para descubrir sus necesidades y aspiraciones. En este evento se realizarán diferentes intervenciones físicas emergentes, actividades culturales e invitaciones de participación para la comunidad.</p>
                                 <br>
                                 <br>
                                 <br>
@@ -381,7 +380,7 @@
                     </div>-->
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-12 col-sm-12  ">
                             <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
@@ -424,10 +423,6 @@
                                 <br>
                                 <p style="text-align: center;">Plática, hidratación y refrigerio en tanque Tenorio</p>
                                 <br>
-                                <br>
-                                <br>
-                                </ol>
-
                                 <h4>Documental: "Why we cycle", Arne Gielen, Gertjan Hulster, Países Bajos (2020)
                                 </h4>
                                 <br>
@@ -436,8 +431,6 @@
                                 <span><b>Lugar: &nbsp;</b> &nbsp;Patio de los muros CEART</span>
                                 <br>
                                 <br>
-                                <br>
-
                                 <h4>Fiesta alemana
                                 </h4>
                                 <br>
@@ -481,7 +474,7 @@
                     </div>-->
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-12 col-sm-12  ">
                             <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
@@ -499,6 +492,7 @@
                                 <span><b>Dirigido a: &nbsp;</b> &nbsp;Niños y público en general</span>
                                 <br>
                                 <span><b>Lugar: &nbsp;</b> &nbsp;Planetario de Parque Tangamanga 1</span>
+                                <br>
                                 <span>
                                     <h4>Descripción</h4>
                                 </span>
@@ -508,20 +502,18 @@
                                     <span><b>Horario:</b> 10:00 - 11:00 horas</span>
                                 </p>
                                 <br>
-                                <br>
                                 <p class="text-justify">
                                     <b>Taller Biciescuelas</b><br>
                                     Curso en donde se instruirá a los participantes de los conocimientos necesarios para poderse moverse en bicicleta de manera más segura dentro y fuera de la ciudad, así como explicar el uso correcto de equipamiento urbano para el ciclista, la forma de circular de manera más segura en zonas urbanos en donde el espacio para transitar se comparte con los demás medios de transporte, dando así las herramientas necesarias para tener mayor seguridad y difundir una cultura ciclista responsable.<br><br>
-                                    <span><b>Horario:</b>11:00 - 12:00 horas</span>
+                                    <span><b>Horario:</b> 11:00 - 12:00 horas</span>
                                     <br>
-                                    <span><b>Tallerista:</b>Luis Enrique Mejía Estrada (Unibici)</span>
+                                    <span><b>Tallerista:</b> Luis Enrique Mejía Estrada (Unibici)</span>
                                 </p>
+                                <br>
                                 <p class="text-justify">
                                     <b>Película infantil</b><br>
                                     Der Konferenz der Tiere (Animales al ataque) Dir. Reinhard Klooss, Holger Tappe / 2020 / 1h 33 min.<br><br>La película narra la historia en que Billy la suricata y su amigo el león Sócrates, emprenden una búsqueda épica para descubrir por qué su río se ha secado inesperadamente. Además, la película envía un mensaje en defensa del medio ambiente y muestra algunas escenas de los desastres que el hombre ha provocado con la naturaleza.<br><br>
-                                    <span><b>Horario:</b>12:00 horas</span>
-                                    <br>
-                                    <span>*Con Centro Cultural Alemán</span>
+                                    <span><b>Horario:</b> 12:00 horas</span>
                                 </p>
 
                                 <p>** Se limitará el número de personas dependiendo de la actividad y se mantienen las medidas sanitarias necesarias.<br><br>** Fecha límite de registro por evento 3 días al evento.</p>
