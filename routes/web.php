@@ -107,6 +107,10 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
 
+Route::get('/mmus2022/{nombreModal?}', function ($NombreM = null) {
+    return view('mmus2022.contenido')->with('NombreM', $NombreM);
+})->name('mmus2022');
+
 Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=null) {
     $request->session()->put('NombreM',$NombreM);
     return view('auth.Bienvenida')->with('NombreM',$NombreM);
