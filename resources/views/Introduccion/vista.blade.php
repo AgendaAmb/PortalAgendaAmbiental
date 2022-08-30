@@ -62,6 +62,20 @@
           <div class="carousel-item active">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
+              <a href={{route('mmus2022')}}>
+                <img src="{{ asset('/storage/imagenes/mmus2022/Banner1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('mmus2022')}}>
+                <img src="{{ asset('/storage/imagenes/mmus2022/Banner2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+
+          <div class="d-none d-sm-block d-md-none">
+          <div class="d-none d-lg-block d-md-block">
+            <div class="slide-box">
               <a href={{route('GlobalGoalsJam2022')}}>
                 <img src="{{ asset('/storage/imagenes/GlobalGoals/B1_GG.png')}}" class="imgCaoursel "
                   alt="First slide">
