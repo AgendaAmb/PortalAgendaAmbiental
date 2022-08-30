@@ -6,7 +6,7 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8 mb-5 mt-3">
     <p class="text-justify pSize pt-2 pt-xl-4 pt-lg-3  pt-md-0">
-        <br><br><br><br><br>
+        <br><br><br><br>
         Cumplimos 10 años celebrando en septiembre la Movilidad Urbana Sostenible en la UASLP a través del programa de la Agenda Ambiental "Unibici" en sinergía con colaboradores de todos los sectores se realizan actividades académicas, culturales, de educación ambiental, recreativas y de aplicación, incidiendo en los Objetivos Desarrollo Sostenible ODS11: Comunidades y ciudades sostenibles, ODS 13: Acción por el clima y ODS17: Alianzas para lograr objetivos.
         <br><br>
         Este año recordaremos que las ciudades son para las personas y nos sintonizamos con la temática mundial de este año "mejores conexiones" de la semana europea de movilidad, la UASLP se suma buscando que San Luis Potosí consiga migrar su movilidad urbana hacía una sostenible.
@@ -493,6 +493,7 @@
                                 <br>
                                 <span><b>Lugar: &nbsp;</b> &nbsp;Planetario de Parque Tangamanga 1</span>
                                 <br>
+                                <br>
                                 <span>
                                     <h4>Descripción</h4>
                                 </span>
@@ -515,7 +516,7 @@
                                     Der Konferenz der Tiere (Animales al ataque) Dir. Reinhard Klooss, Holger Tappe / 2020 / 1h 33 min.<br><br>La película narra la historia en que Billy la suricata y su amigo el león Sócrates, emprenden una búsqueda épica para descubrir por qué su río se ha secado inesperadamente. Además, la película envía un mensaje en defensa del medio ambiente y muestra algunas escenas de los desastres que el hombre ha provocado con la naturaleza.<br><br>
                                     <span><b>Horario:</b> 12:00 horas</span>
                                 </p>
-
+                                <br><br>
                                 <p>** Se limitará el número de personas dependiendo de la actividad y se mantienen las medidas sanitarias necesarias.<br><br>** Fecha límite de registro por evento 3 días al evento.</p>
                                 <br><br>
                             </div>
