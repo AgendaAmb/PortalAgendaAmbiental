@@ -74,7 +74,7 @@
           </div>
 
           <div class="d-none d-sm-block d-md-none">
-          <div class="d-none d-lg-block d-md-block">
+          <!--<div class="d-none d-lg-block d-md-block">-->
             <div class="slide-box">
               <a href={{route('GlobalGoalsJam2022')}}>
                 <img src="{{ asset('/storage/imagenes/GlobalGoals/B1_GG.png')}}" class="imgCaoursel "
