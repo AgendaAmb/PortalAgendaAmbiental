@@ -35,6 +35,18 @@
                         alt="...">
                 </div>
                 <div class="carousel-item">
+                        <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}" alt=""
+                            class="d-block w-100" alt="...">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a target="_blank"
+                        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto">
+                        <img src="{{asset('storage/imagenes/Unihuerto/Banner_Base-Voluntarios.jpg')}}" alt=""
+                            class="d-block w-100" alt="...">
+                    </a>
+                </div>
+                <!--<div class="carousel-item">
                     <img src="{{asset('storage/imagenes/Unihuerto/BINT_Unihuerto.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
@@ -43,20 +55,7 @@
                             class="d-block w-100" alt="...">
                     </a>
                 </div>
-                <div class="carousel-item">
-                        <img src="{{asset('storage/imagenes/Unihuerto/UNIHUERTO.png')}}" alt=""
-                            class="d-block w-100" alt="...">
-                    </a>
-                </div>                
-                <div class="carousel-item">
-                    <a target="_blank"
-                        href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto/Forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegPartUnihuerto">
-                        <img src="{{asset('storage/imagenes/Unihuerto/Banner_Base-Voluntarios.jpg')}}" alt=""
-                            class="d-block w-100" alt="...">
-                    </a>
-                </div>
-
-            </div>
+            </div>-->
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
@@ -88,11 +87,11 @@
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-between">
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
-            aria-controls="nav-home" aria-selected="true">Curso Taller <br> Unihuerto En Casa</a>
-        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnitrueque" role="tab"
+            aria-controls="nav-home" aria-selected="true">Curso Taller <br> &nbsp;</a>
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnitrueque2022" role="tab"
             aria-controls="nav-profile" aria-selected="false"> UniTrueque <br> UASLP</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerHuertoalaMesa" role="tab"
-            aria-controls="nav-profile" aria-selected="false"> Mini Taller <br> Del Huerto a la mesa Zona Huasteca</a>
+            aria-controls="nav-profile" aria-selected="false"> &nbsp;</a>
             <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerAgricultura" role="tab"
             aria-controls="nav-profile" aria-selected="false"> &nbsp;<br> &nbsp;</a>
 
@@ -429,6 +428,120 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalUnitrueque2022" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2022.png')}}" class="img-fluid"
+                                alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                            <!--<a href="http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/_layouts/15/FormServer.aspx?XsnLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria/forms/template.xsn&OpenIn=browser&SaveLocation=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria&Source=http://evirtual.uaslp.mx/Ambiental/Agenda/formularios/RegCursoJardineria"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " target="_blank"
+                                role="button">REGISTRATE </a>-->
+
+                        </div>
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2022.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_Unitrueque.jpg">CARTEL</a>
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'"><br>
+                            <h4 align="center">Unitrueque UASLP</h4><br><br>
+                            <h4>Introducción</h4>
+                            <p>Los mercados de intercambio o trueque datan antes que el dinero, históricamente han representado la base de la economía individual, familiar y de sistemas por muchas generaciones.<br><br>El modelo económico generalizado y principal que llevamos a cabo actualmente se basa en  el dinero y deja muchos recursos subutilizados ya que se centra en un solo objeto, según Jacque Fresco “el dinero es solo una abreviatura del trabajo y los productos” por lo que es importante poder aprovechar de manera más eficiente todos los recursos disponibles, para ello Fresco propone la implementación de una economía basada en recursos, este tipo de modelo económico encuentra similitudes en pensamientos como la permacultura que considera dentro de su dinámica la creación de bancos de tiempo y tiendas de intercambio.<br><br>El modelo conocido como “Economía circular” propone un sistema económico que está estructurado con objetivos de reducción de consumo de recursos formando un ciclo de bucle cerrado enfocado en reciclaje y reuso de recursos tendiendo a minimización de flujos y emisiones (Prieto-Sandoval et al., 2018) es un modelo apropiado para el desarrollo sostenible  en donde se aprovecha con la mayor eficiencia de los recursos pensando en el uso de “residuos” y otros materiales como recursos o “fuentes de riqueza”.<br><br>El trueque contribuye a los Objetivos del Desarrollo Sostenible 1: Fin de la pobreza, 2. Hambre cero, 8: Trabajo decente y crecimiento económico y 12: Producción y consumo responsable; a través de mitigar la contaminación producida por la obsolescencia programada al dar una nueva vida a productos que se consideraría residuos, restaurar el tejido social, ofrecer opciones que garanticen alimentación, calidad de vida y cubrir necesidades.<br><br>En el mundo se están creando cada vez más nuevas formas de economía alternativa, como antecedente la UASLP maneja los “Vales de despensa”. La economía alternativa ayuda a diversificar, dar opciones y crear autonomía.</p><br>
+                            <h4>Dirigido a:</h4>
+                            <p>Público en general.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Este proyecto busca coadyuvar a satisfacer las necesidades básicas humanas haciendo accesibles materiales o servicios como alternativa al sistema de mercado convencional, así como establecer relaciones de confianza, abrir espacios de reflexión y sensibilizar respecto a la economía y a las formas de consumo.</p><br>
+                            <h4>Objetivos específicos</h4>
+                            <ul>
+                                <li>Generar un espacio regular para el intercambio de recursos.</li>
+                                <li>Extender el alcance de programas como: “cambalache de libros”.</li>
+                                <li>Ofrecer un espacio de convivencia que ayude a establecer lazos entre la comunidad.</li>
+                            </ul><br>
+                            <h4>Lugar, fecha y horario</h4>
+                                <p>Lugar: Unihuerto en Jardín T, Facultad de Ingeniería<br>Evento presencial con medidas sanitarias.<br>
+                                    <div class="col-12">
+                                           <img src="{{asset('storage/imagenes/Unihuerto/Mapa_Unihuerto.png')}}" alt="" class="w-100 h-auto" >
+                                    </div><br>
+                                    Fechas (sábados):
+                                    <ul>
+                                        <li>03 de septiembre del 2022</li>
+                                        <li>15 de octubre del 2022</li>
+                                        <li>12 de noviembre del 2022</li>
+                                        <li>03 de diciembre del 2022</li>
+                                    </ul><br>
+                                    Horario: 9:00 a 14:00 horas
+                                </p><br>
+                                <h4>Registro</h4>
+                                <p>Pasos para registro de participantes:
+                                    <ul>
+                                        <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
+                                        <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda INSCRITO.</li>
+                                    </ul></p><br>
+                                <h4>Lineamientos Unitrueque</h4>
+                                <p>
+                                <ol>
+                                    <li>Haber llenado correctamente el registro en la página web.</li>
+                                    <li>Llevar y recoger sus elementos o mobiliario propios.</li>
+                                    <li>Utilizar recibos de trueque para garantizar intercambios exitosos ( <a href="https://ambiental.uaslp.mx/SGA/PUB/Recibo_UniTrueque.docx">Descargar</a> ).</li>
+                                    <li>Intercambiar de manera no monetaria (no dinero) bajo acuerdo entre las partes interesadas productos, materiales y servicios.</li>
+                                    <li>No intervenir ni influenciar en otros intercambios, los Unitrueques se acuerdan entre las partes bajo lo que cada persona considere adecuado.</li>
+                                    <li>Valorizar tus productos, materiales y servicios previamente al Unitrueque.</li>
+                                    <li>Asegurar que los productos o materiales estén en buenas condiciones.</li>
+                                    <li>Considerar los principios de consumo responsable como “Repensar que es lo que realmente necesito”.</li>
+                                    <li>Realizar los Unitrueques de forma pacífica.</li>
+                                    <li>Quien inculpa en los lineamientos ya no puede participar.</li>
+                                </ol>
+                                </p><br>
+                                <h4>Bibliografía</h4>
+                                <p>
+                                    <ul>
+                                        <li>Fresco, J. (2002). Lo mejor que el dinero no puede comparar, más allá de la política, la pobreza y la guerra. Estados Unidos de América. Venus Fla.</li>
+                                        <li>Prieto-Sandoval, V. Jaca C., Ormazabal, M. (2018). Towards a consensus on the circular economy. Journal of Cleaner Production.</li>
+                                    </ul>
+                                </p><br>
+                                <h4>Más información</h4>
+                                <p>Unihuerto de la UASLP<br>Sistema de Gestión Ambiental<br>Agenda Ambiental de la
+                                    UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                    piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
+                                    Ext. 7210<br>
+                                     <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                </p>
+                            </b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modalTallerHuertoalaMesa" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
