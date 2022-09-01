@@ -8,6 +8,7 @@ use App\Models\Auth\User;
 use App\Models\Workshop;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -395,6 +396,95 @@ class WorkshopController extends Controller
         return response()->json(['Message' => 'ok!'], JsonResponse::HTTP_OK);
     }
 
+    public function RegistrarKids(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user();
+
+            $insc = DB::table('user_workshop')
+            ->where('workshop_id', 35)  //!  MInirodada
+                ->where('user_id', $user->id)
+                ->get();
+
+            // Registrado?
+            if ($insc->count() > 0) {
+                return response()->json(['Message' => 'Registered'], JsonResponse::HTTP_OK);
+            }
+
+
+            # Registra interes en asistencia
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+
+            $user->save();
+
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('name', 'Minirodada MMUS2022');
+
+            # Registra al usuario al workshop
+            $user_workshop = UserWorkshop::create([
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'workshop_id' => $workshop_model->id,
+                'sent' => false,
+                'paid' => false,
+            ]);
+
+            try {
+                # Guardar los miembros del equipo
+                foreach ($request->kids as $member) {
+                    DB::table('minirodada_users')->insert(
+                        [
+                            'user_workshop_id' => $user_workshop->id,
+                            'name' => $member['name'],
+                            'age' => $member['age']
+                        ]
+                    );
+                }
+            } catch (\Exception $e) {
+                $user_workshop->delete();
+                return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['Message' => 'error'], 500);
+        }
+        return response()->json(['Message' => 'ok'],
+            JsonResponse::HTTP_OK
+        );
+    }
+
+    public function ChecarKids(Request $request)
+    {
+        //Esta inscrito?
+        $user = $request->user();
+
+        $insc = DB::table('user_workshop')
+        ->where('workshop_id', 35)  // GGJ Workshop
+        ->where('user_id', $user->id)
+        ->get();
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function FormatoMinirodada()
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $file = "./download/FormatoMinirodada.pdf";
+
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
+
+        return response()->download($file, 'FormatoMiniRodadaMMUS2022.pdf', $headers);
+    }
+
+
     public function RegistrarGGJ(Request $request){
         try {
             # Usuario autenticado
@@ -430,23 +520,6 @@ class WorkshopController extends Controller
                 'paid' => false,
             ]);
 
-            // Testing
-            // try{
-            //     DB::table('ggj_users')->insert(
-            //         [
-            //             'user_workshop_id' => $user_workshop->id,
-            //             'name' => 'testing',
-            //             'email' => 'testing@gmail.com',
-            //             'phone_number' => '55555555',
-            //             'institution' => 'testing_fac',
-            //             'nedu' => 'Nivel Superior'
-            //         ]
-            //     );
-            // }catch(\Exception $e){
-            //     $user_workshop->delete();
-            //     return response()->json(['Message' => $e->getMessage()], JsonResponse::HTTP_OK);
-            // }
-
             try{
                 # Guardar los miembros del equipo
                 foreach ($request->team as $member) {
@@ -465,6 +538,15 @@ class WorkshopController extends Controller
                 $user_workshop->delete();
                 return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
             }
+
+            //PDF file is stored under project/public/download/info.pdf
+            $file = "./download/FormatoMinirodada.pdf";
+
+            $headers = [
+                'Content-Type' => 'application/pdf',
+            ];
+
+            response()->download($file, 'FormatoMiniRodadaMMUS2022.pdf', $headers);
 
         } catch (\Exception $e) {
             return response()->json(['Message' => 'error'], 500);

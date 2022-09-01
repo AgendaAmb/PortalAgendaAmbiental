@@ -187,10 +187,15 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarMmus2022', 'WorkshopController@RegistrarMmus2022')->name('RegistrarMmus2022');
     Route::post('/ChecarMmus2022', 'WorkshopController@ChecarMmus2022')->name('ChecarMmus2022');
 
-    # Registro a cursos de actualizacioón.
+    # Registro ggj.
     Route::post('/RegistrarGGJ', 'WorkshopController@RegistrarGGJ')->name('RegistrarGGJ');
     Route::post('/ChecarGGJ', 'WorkshopController@ChecarGGJ')->name('ChecarGGJ');
 
+    # Registro kids.
+    Route::post('/RegistrarKids', 'WorkshopController@RegistrarKids')->name('RegistrarKids');
+    Route::post('/ChecarKids', 'WorkshopController@ChecarKids')->name('ChecarKids');
+    Route::get('/FormatoMinirodada', 'WorkshopController@FormatoMinirodada')->name('FormatoMinirodada');
+    
     // ! working 
 
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)

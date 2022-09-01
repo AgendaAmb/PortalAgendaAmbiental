@@ -24,30 +24,45 @@
 
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
-              <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unitrueque/Registro2022.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
 
           {{-- mmus2022  --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#mmus2022" @click="AbrirModal('mmus2022')">
-              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_MMUS2022.jpg')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_MMUS2022.jpg')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
+
+          {{-- mmus2022   --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#minirodada" @click="AbrirModal('minirodada')">
+              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_minirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
+
+          {{-- mmus2022  --}}
+          {{-- <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#mmus2022" @click="AbrirModal('mmus2022')">
+              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_unirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div> --}}
+
 
           {{-- Cursos de actualizacion  --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
-              <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
 
           {{-- Global Goals Jam  --}}
-          <div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#GlobalGoalsJam" @click="AbrirModal('GlobalGoalsJam')">
-              <img src="{{ asset('/storage/imagenes/Cursos/B_GGJ.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Cursos/B_GGJ.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div> --}}
 
            @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
@@ -139,6 +154,8 @@
 @include("RegistroModales.Unitrueque")
 
 @include("RegistroModales.GlobalGoalsJam")
+
+@include("RegistroModales.Minirodada")
 
 {{-- Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
@@ -235,7 +252,7 @@
     InscritoUnihuertoCasa:false,
     InscritoHuertoMesa:false,
     InscritoGGJ:false,
-
+    InscritoKids:false,
     //! Modales activos
     InscritoUnitrueque:false,
     InscritoCA_complete: false,
@@ -249,6 +266,8 @@
     mmus2020_regs: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
     mmus2020_select: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
     mmus2020_complete: false,
+    kids: new Array(),
+    kidslength: 1,
     //! 
     teamlength:3,
     team: new Array(),
@@ -260,7 +279,9 @@
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
-    // 
+    // Kids
+    this.kids.push({name: '', age: 0});
+    //
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
     this.ChecarUrl(),
@@ -281,6 +302,13 @@
         this.team.push(user_Data);
         // console.log(this.team);
         this.teamlength+=1;
+      }
+    },
+    addKid:function(){
+      if(this.kidslength < 3){
+        let user_Data =  {name: '', age: 0};
+        this.kids.push(user_Data);
+        this.kidslength+=1;
       }
     },
     deleteTeamMember:function(index){
@@ -477,6 +505,7 @@
       this.checarInscripcionUnitrueque();
       this.checarInscripcionHuertoMesa();
       this.checarInscripcionGGJ();
+      this.checarInscripcionMinirodada();
       //Modales pasados
       // this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
@@ -535,6 +564,28 @@
           this.Guardado=false
         })
 
+      },
+      registerKids:function(){
+        let headers = {
+          'Content-Type': 'application/json;charset=utf-8'
+        };
+        var data = {
+          "kids":this.kids,
+          "number":this.kidslength,
+          "InteresAsistencia":this.InteresAsistencia
+        }
+        axios.post(this.url+'RegistrarKids',data).then(response => (
+          this.spinnerVisible=false,
+          this.InscritoKids=true,
+          this.Guardado=true
+        )).catch((err) => {
+          console.log(err),
+          this.Guardado=false
+        })
+
+      },
+      downloadMinirodada:function(){
+        window.open(this.url+'FormatoMinirodada');
       },
       uaslpUser:function(){
             this.spinnerVisible=true;
@@ -808,7 +859,15 @@
 
         }
       },
-      // 
+      //Verifica la inscripcion en cursos de actualizacion
+      checarInscripcionMinirodada: function(){
+        axios.post(this.url + 'ChecarKids',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.InscritoKids = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
       //Verifica la inscripcion en cursos de mmus2022
       checarInscripcionMmus2022: function(){
         // mmus2020_select
