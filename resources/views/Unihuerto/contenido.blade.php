@@ -639,6 +639,102 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalPermacultura" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpeg')}}" class="img-fluid"
+                                alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <!--<div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'HuertoMesaHuasteca'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>-->
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpeg')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_UnihuertoHuasteca.png">CARTEL</a>
+
+                        </div>
+                    </div>
+                    {{--<div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';'"><br>
+                            <h4>Mini Taller: Del Huerto a la mesa<br>Zona Huasteca</h4><br><br>
+                            <h4>Justificación</h4>
+                            <p>La agricultura orgánica es una herramienta indispensable para lograr diferentes aspectos que promueven el cuidado del medio y un mejor estilo de vida.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Promover la sana alimentación y su fácil acceso a través de la agricultura orgánica de pequeña escala.</p><br>
+                            <h4>Objetivos específicos</h4>
+                            <p><ul>
+                                <li>Sensibilizar respecto a la problemática ambiental y la importancia de la agricultura sostenible.</li>
+                                <li>Informar respecto a las características básicas para la implementación y el desarrollo de un huerto urbano.</li>
+                                <li>Relacionar la agricultura con la alimentación y su importancia para la salud humana y la salud pública.</li>
+                                <li>Orientar respecto a la nutrición y su acceso.</li>
+                                </ul>
+                            </p><br>
+                            <h4>Dirigido a</h4>
+                            <p>Todos la comunidad UASLP, alumnos, trabajadores, docentes, investigadores, administrativos y público en general.</p><br>
+                            <h4>Descripción</h4>
+                            <p>Curso-taller teórico práctico donde se revisará:<br>
+                                <ul>
+                                    <li>La problemática ambiental en la producción de alimentos y agricultura urbana como alternativa de producción de alimentos para autoconsumo.</li>
+                                    <li>La introducción a la planificación del huerto, fenología básica de las plantas y las labores generales de cultivo.</li>
+                                    <li>Importancia y conceptos de la nutrición, beneficios de los alimentos e impacto en la salud.</li>
+                                    <li>La universidad como ambiente obesogénico y recomendaciones de platillos saludables y fáciles.</li>
+                                </ul>
+                            </p><br>
+                            <h4>Horario</h4>
+                            <p>10:00 a 14:00 horas</p><br>
+                            <h4>Lugar</h4>
+                            <p><ul>
+                                    <li>Teoría: Sala de usos múltiples</li>
+                                    <li>Práctica: Unihuerto de Unidad Académica Multidisciplinaria Zona Huasteca (atrás de edificio de gimnasio)</li>
+                                </ul>
+                            </p><br>
+                            <p align="center">SIN COSTO</p><br>
+
+                            <h4>Registro</h4>
+                                <p>Pasos para registro de participantes:
+                                </p>
+                                <ol>
+                                    <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
+                                    <li>Al finalizar y dar clic en el botón enviar, queda PRE-INSCRITO.</li>
+                                    <li>Se envía un correo en un lapso de 48 horas confirmando su asistencia.</li>
+                                </ol>
+                                <br>
+                                <p>CUPO LIMITADO</p><br>
+                                <h4>Informes</h4>
+                                <p><b>Agenda Ambiental de la UASLP</b><br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo
+                                    piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300
+                                    Ext. 7210<br>
+                                    <a href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a>
+                                </p>
+                                <p><b>Unisalud</b><br>Servicios Estudiantiles<br>Universidad Autónoma de San Luis Potosí<br>Tel. 826-2300 Ext. 5556<br><a href="mailto:unisalud@uaslp.mx">unisalud@uaslp.mx</a></p>
+                                <p><b>Unidad Ambiental Zona Huasteca</b><br><a href="mailto:oscar.malibran@uaslp.mx">oscar.malibran@uaslp.mx</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>--}}
+
+        </div>
+    </div>
+</div>
 <!--<div class="modal fade" id="modalTallerAgricultura" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">

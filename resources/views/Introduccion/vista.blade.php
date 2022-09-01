@@ -73,33 +73,19 @@
             </div>
           </div>
 
-          <!--<div class="d-none d-sm-block d-md-none">
-          <div class="d-none d-lg-block d-md-block">
-            <div class="slide-box">
-              <a href={{route('GlobalGoalsJam2022')}}>
-                <img src="{{ asset('/storage/imagenes/GlobalGoals/B1_GG.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('GlobalGoalsJam2022')}}>
-                <img src="{{ asset('/storage/imagenes/GlobalGoals/B2_GG.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>-->
-
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B1_Uniruta.png')}}" class="imgCaoursel "
+              <a href={{route('mmus2022')}}>
+                <img src="{{ asset('/storage/imagenes/mmus2022/Banner1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B2_Uniruta.png')}}" class="imgCaoursel "
+              <a href={{route('mmus2022')}}>
+                <img src="{{ asset('/storage/imagenes/mmus2022/Banner2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
           </div>
-        </div>
+      </div>
 
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
@@ -131,15 +117,15 @@
           </div>
         </div>
 
-        <!--<div class="carousel-item ">
+        <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
-              <a href={{route('Unibici',['nombreModal'=> 'Foro'])}}>
-                <img src="{{asset('/storage/imagenes/Unibici/B1_ForoSMU.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/B_permacultura1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unibici',['nombreModal'=> 'Foro'])}}>
-                <img src="{{asset('/storage/imagenes/Unibici/B2_ForoSMU.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/B_permacultura2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -147,12 +133,12 @@
 
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
-              <a href={{route('Unibici',['nombreModal'=> 'Foro'])}}>
-                <img src="{{ asset('/storage/imagenes/Unibici/B1_ForoSMU.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
+                <img src="{{ asset('/storage/imagenes/Unihuerto/B_permacultura1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unibici',['nombreModal'=> 'Foro'])}}>
-                <img src="{{asset('/storage/imagenes/Unibici/B2_ForoSMU.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
+                <img src="{{asset('/storage/imagenes/Unihuerto/B_permacultura2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -160,7 +146,7 @@
         </div> 
 
 
-        <div class="carousel-item ">
+        {{--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}>
@@ -186,10 +172,10 @@
               </a>
             </div>
           </div>
-        </div>  -->
+        </div>  --}}
 
 
-        <!--<div class="carousel-item ">
+        {{--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Unibici',['nombreModal'=> 'UnirodadaRios'])}}>
@@ -215,9 +201,9 @@
               </a>
             </div>
           </div>
-        </div> -->
+        </div> --}}
 
-        <!--<div class="carousel-item ">
+        {{-- <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerHuertoalaMesa'])}}>
@@ -243,18 +229,18 @@
               </a>
             </div>
           </div>
-        </div> -->
+        </div> --}}
 
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
              
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
-                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2022_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
-                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2022_2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -263,12 +249,12 @@
           <div class="d-none d-sm-block d-md-none">
             <div class="slide-box">
               
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
-                <img src="{{ asset('/storage/imagenes/Unitrueque/B_UniTrueque1.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+                <img src="{{ asset('/storage/imagenes/Unitrueque/B_UniTrueque2022_1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
-                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2.png')}}" class="imgCaoursel "
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+                <img src="{{asset('/storage/imagenes/Unitrueque/B_UniTrueque2022_2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -276,7 +262,7 @@
 
         </div>
       
-        <!--<div class="carousel-item ">
+        {{--<div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
               <a  href={{route('Gemas')}}>
@@ -329,7 +315,7 @@
               </a>
             </div>
           </div>
-        </div>-->
+        </div>--}}
 
         <div class="carousel-item ">
           <div class="d-none d-lg-block d-md-block">
@@ -390,7 +376,7 @@
             </div>
           </div>          
         </div>
-        <!--
+        {{--
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -412,7 +398,7 @@
           </div>
 
         </div>
-      -->
+      --}}
         <div class="carousel-item">
           <div class="d-none d-lg-block d-md-block">
             <div class="slide-box">
@@ -483,14 +469,14 @@
             </a>
           </div>
         </div>
-        <div class="carousel-item ">
+        {{--<div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('GlobalGoalsJam2022')}}>
               <img src="{{ asset('storage/imagenes/GlobalGoals/B1_GG.png')}}" class="imgCaoursel w-100 p-0 p-0 "
                 alt="First slide">
             </a>
           </div>
-        </div>
+        </div> --}}
       <div class="carousel-item ">
         <div class="slide-box">
           <a href={{route('Cursos')}}>
@@ -526,20 +512,20 @@
         </div>-->
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque'])}}>
-              <img src="{{ asset('storage/imagenes/Unitrueque/B_UniTrueque1.png')}}"
+            <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+              <img src="{{ asset('storage/imagenes/Unitrueque/B_UniTrueque2022_1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
         </div>
-        <!--<div class="carousel-item ">
+        <div class="carousel-item ">
           <div class="slide-box">
-            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto'])}}>
-              <img src="{{ asset('storage/imagenes/Unihuerto/B_Unihuerto1.png')}}"
+            <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
+              <img src="{{ asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpeg')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>-->
+        </div>
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
