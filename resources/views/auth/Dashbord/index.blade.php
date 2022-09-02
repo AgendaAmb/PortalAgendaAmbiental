@@ -659,6 +659,7 @@
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarRodadaMmus',data).then(response => {
                 console.log(response.data);
+                $('#unirodada_mmus2022').modal('hide');
                 this.spinnerVisible=false;
                 this.Guardado=true;
               }).catch((err) => {
@@ -849,7 +850,7 @@
                 if(response.status == 200){
                   console.log(response.data.Message);
                   this.spinnerVisible=false;
-                  $('#CursosActualizacion').modal('hide');
+                  $('#mmus2022').modal('hide');
                   this.Guardado=true;
                 }else{
                   console.log("Mensaje: " + response.data.Message);
