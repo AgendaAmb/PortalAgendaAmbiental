@@ -43,6 +43,7 @@ class UnirodadaController extends Controller
             'user_type' => $user->type,
             'workshop_id' => $workshop->id,
             'sent' => false,
+            'invoice_data' => $request->isFacturaReq == "Si" ? true : false,
         ]);
 
         # Sanitiza el grupo de ciclistas.

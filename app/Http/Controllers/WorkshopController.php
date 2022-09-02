@@ -611,7 +611,7 @@ class WorkshopController extends Controller
     
             $this->ca_controller->registerUser($request, $user, $workshop_models);
 
-            # la relación con esta tabla esta bien fea mens (deberia haber una clave foranea) 
+            # la relación con esta tabla esta bien fea mens 
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
                 ->updateOrInsert([
@@ -769,7 +769,7 @@ class WorkshopController extends Controller
 
     public function RegistrarRodadaRioUsuario(Request $request)
     {
-        
+
         try {
             # Usuario autenticado
             $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
@@ -784,7 +784,7 @@ class WorkshopController extends Controller
 
             # Cursos mmus del usuario y unirodadas.
             $workshops = $user->workshops()
-                ->WherePivotNull('paid')
+            ->WherePivotNull('paid')
                 ->wherePivotNull('assisted_to_workshop')
                 ->orWherePivot('assisted_to_workshop', false)
                 ->pluck('workshops.id');
@@ -793,7 +793,7 @@ class WorkshopController extends Controller
             # Se eliminan los cursos a los que no haya asistido y a
             # aquellos que haya eliminado del modal.
             $user->workshops()->detach($workshops);
-            
+
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('name', 'Unirodada por los rios');
 
@@ -813,22 +813,81 @@ class WorkshopController extends Controller
                     'phone' => $request->telF
                 ]);
             }
-
-        }catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
         }
 
         # Obtiene los cursos registrados.
         $workshops = $user->workshops()
-            ->wherePivotNull('assisted_to_workshop')
-            ->orWherePivot('assisted_to_workshop', false)
+        ->wherePivotNull('assisted_to_workshop')
+        ->orWherePivot('assisted_to_workshop', false)
             ->get();
 
         # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
-        if ($workshops->count() > 0) {
+        if ($workshops->count() > 0
+        ) {
             Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
             Log::info('Al usuario: ' . $user->email);
+        }
+
+        //4. si todo sale bien regresamos un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    public function ChecarRodadaMmus(Request $request)
+    { //Esta inscrito?
+        //return response()->json($request, JsonResponse::HTTP_OK);
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', 36) // 36 RODADA MMUS 2022
+            ->where('user_id', $request->Clave)
+            ->get();
+
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if (
+            $insc->count() > 0
+        ) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarRodadaMmus(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user();
+
+            # Actualiza los datos del usuario.
+            $user->interested_on_further_courses = $request->InteresAsistencia ?? $user->interested_on_further_courses;
+
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('name', 'Unirodada MMUS2022');
+
+            $this->unirodada_controller->registerUser($request, $user, $workshop_model);
+
+            # la relación con esta tabla esta bien fea mens 
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                ->updateOrInsert([
+                    'user_id' => $user->id,
+                    'user_type' => $user->type
+                ], [
+                    'rfc' => $request->RFC,
+                    'name' => $request->nombresF,
+                    'email' => $request->emailF,
+                    'address' =>  $request->DomicilioF,
+                    'phone' => $request->telF
+                ]);
+            }
+        }catch(\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
 
         //4. si todo sale bien regresamos un ok

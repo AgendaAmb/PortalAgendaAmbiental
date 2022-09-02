@@ -43,11 +43,11 @@
           </div>
 
           {{-- mmus2022  --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#mmus2022" @click="AbrirModal('mmus2022')">
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#unirodada_mmus2022" @click="AbrirModal('unirodada_mmus2022')">
               <img src="{{ asset('/storage/imagenes/mmus2022/Registro_unirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div> --}}
+          </div>
 
 
           {{-- Cursos de actualizacion  --}}
@@ -157,6 +157,8 @@
 
 @include("RegistroModales.Minirodada")
 
+@include("RegistroModales.unirodada_mmus2022")
+
 {{-- Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
 
@@ -253,6 +255,7 @@
     InscritoHuertoMesa:false,
     InscritoGGJ:false,
     InscritoKids:false,
+    InscritoUnirodadaMmus2022:false,
     //! Modales activos
     InscritoUnitrueque:false,
     InscritoCA_complete: false,
@@ -506,6 +509,7 @@
       this.checarInscripcionHuertoMesa();
       this.checarInscripcionGGJ();
       this.checarInscripcionMinirodada();
+      this.checarRodadaMmus();
       //Modales pasados
       // this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
@@ -650,6 +654,20 @@
                   this.Errores[0].Visible
             })
 
+           }else if(this.modalClick=='unirodada_mmus2022'){
+            data['TipoEvento'] = 'unirodada'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarRodadaMmus',data).then(response => {
+                console.log(response.data);
+                this.spinnerVisible=false;
+                this.Guardado=true;
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
@@ -864,6 +882,15 @@
         axios.post(this.url + 'ChecarKids',{ "Clave":'{{Auth::user()->id}}'})
           .then(response => {
             this.InscritoKids = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
+      //Verifica la inscripcion en cursos de actualizacion
+      checarRodadaMmus: function(){
+        axios.post(this.url + 'ChecarRodadaMmus',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.InscritoUnirodadaMmus2022 = response.data;
           }).catch((err) => {
             console.log(err.response);
           })

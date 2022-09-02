@@ -195,6 +195,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarKids', 'WorkshopController@RegistrarKids')->name('RegistrarKids');
     Route::post('/ChecarKids', 'WorkshopController@ChecarKids')->name('ChecarKids');
     Route::get('/FormatoMinirodada', 'WorkshopController@FormatoMinirodada')->name('FormatoMinirodada');
+
+    # Registro a unirodada mmus 2022
+    Route::post('/RegistrarRodadaMmus', 'WorkshopController@RegistrarRodadaMmus')->name('RegistrarRodadaMmus');
+    Route::post('/ChecarRodadaMmus', 'WorkshopController@ChecarRodadaMmus')->name('ChecarRodadaMmus');
+
     
     // ! working 
 

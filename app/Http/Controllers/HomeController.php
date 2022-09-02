@@ -306,10 +306,24 @@ class HomeController extends Controller
                 return $q->whereIn('workshops.id', [18]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
+        // # Consulta bien mortal para traer todo lo que se pide
+        $users5 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+            })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [36]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [36]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+
         foreach($users2 as $user)$users->push($user);
         foreach($users3 as $user)$users->push($user);
         foreach($users4 as $user)$users->push($user);
+        foreach($users5 as $user)$users->push($user);
 
         return $users;
     }
