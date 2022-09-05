@@ -665,9 +665,9 @@
                                 role="button">REGISTRAR</a>
                         </div>-->
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpeg')}}"
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpg')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_UnihuertoHuasteca.png">CARTEL</a>
+                                download="Cartel_Int_permacultura.jpg">CARTEL</a>
 
                         </div>
                     </div>
