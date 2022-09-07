@@ -53,6 +53,5 @@ Otros aspectos importantes de la experiencia educativa son:
     </ul>
 </div>
 
-<img src="{{asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" alt="CompetenciasProf.png">
-<img src="{{asset('/storage/imagenes/Logos/rtic.png')}}" alt="LOGO_RTIC.png">
+<img src="{{asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" alt="CompetenciasProf.png" width="500" height="600">
 @endcomponent
