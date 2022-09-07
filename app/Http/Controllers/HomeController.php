@@ -65,6 +65,7 @@ class HomeController extends Controller
             ;
     }
 
+    //! NEW INTERFACE 
     public function panel2(Request $request)
     {
         // Se usa para abrir un modal dentro de mi portal directamente
