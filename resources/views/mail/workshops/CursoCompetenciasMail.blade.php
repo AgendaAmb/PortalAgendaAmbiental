@@ -52,6 +52,8 @@ Otros aspectos importantes de la experiencia educativa son:
         <li>A partir de que comiences oficialmente el curso, <strong>tendrás 12 semanas para completar los ciclos de desarrollo de las competencias y sus ejercicios correspondientes. Cumplir con este requisito te asegurará la obtención de los 2 créditos  del curso</strong></li>
     </ul>
 </div>
+<br>
+<br>
 
-<img src="{{asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" alt="CompetenciasProf.png" width="500" height="600">
+<img src="{{asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" alt="CompetenciasProf.png" width="900" height="1100">
 @endcomponent
