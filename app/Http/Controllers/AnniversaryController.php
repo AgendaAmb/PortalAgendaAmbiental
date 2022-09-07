@@ -100,7 +100,6 @@ class AnniversaryController extends Controller
                 ->with('ejes', ejes::all()) // para el proximo navbar au sin uso
                 ->with('user', $request->user())
                 ->with('_data', $_ids);
-                ;
         }else{
             return "USER WASN'T FOUND";
         }

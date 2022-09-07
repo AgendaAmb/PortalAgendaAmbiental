@@ -128,6 +128,8 @@ Auth::routes(['verify' => true]);
 Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/Miportal', 'HomeController@panel')->name('panel');
 
+    Route::get('/Miportal2', 'HomeController@panel2')->name('panel2');
+
     Route::middleware(['auth'])->group(function () {
         // Ruta de registro 20 aniversario
         Route::get('/Miportal/20Aniversario/register', 'AnniversaryController@register')->name('20register');
@@ -200,6 +202,9 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarRodadaMmus', 'WorkshopController@RegistrarRodadaMmus')->name('RegistrarRodadaMmus');
     Route::post('/ChecarRodadaMmus', 'WorkshopController@ChecarRodadaMmus')->name('ChecarRodadaMmus');
 
+    # Comptetencias Profesionales 
+    Route::post('/RegistrarCompetencias', 'WorkshopController@RegistrarCompetencias')->name('RegistrarCompetencias');
+    Route::post('/ChecarCompetencias', 'WorkshopController@ChecarCompetencias')->name('ChecarCompetencias');
     
     // ! working 
 

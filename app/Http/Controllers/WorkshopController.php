@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
+use App\Mail\SendCompetencias;
+use App\Mail\SendCursoCompetenciasMail;
 use App\Models\Auth\User;
 use App\Models\Workshop;
 use Exception;
@@ -990,6 +992,75 @@ class WorkshopController extends Controller
         if( $insc->count() > 0 ){
             return response()->json(true, JsonResponse::HTTP_OK);
         }else{
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarCompetencias(Request $request)
+    {
+        $user = $request->user();
+        
+        try {
+            # Se envía el comprobante de pago.
+            Mail::mailer('smtp')->to($user->email)->send(new SendCursoCompetenciasMail());
+        } catch (\Exception $e) {
+            return response()->json(['Message' => "Error de correo"], 500);
+        }
+
+        try {
+            //0. validar datos
+            $request->validate([
+                'Clave' => 'Required' //solo la clave porque es lo que realmente nos importa
+            ]);
+            //1. actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+                $user->comments = $request->ComentariosSugerencias;
+            }
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
+                $user->courses = $request->CursosC;
+            }
+
+            $user->save();
+        
+            //3. crear registro
+            DB::table('user_workshop')
+            ->updateOrInsert([
+                'workshop_id' => 37,
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'assisted_to_workshop' => null,
+                'sent' => null,
+                'sent_at' =>  null,
+                'paid' => null,
+                'paid_at' => null
+            ]);
+            // Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    public function ChecarCompetencias(Request $request)
+    { //Esta inscrito?
+        //return response()->json($request, JsonResponse::HTTP_OK);
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', 37)
+            ->where('user_id', $request->Clave)
+            ->get();
+
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
             return response()->json(false, JsonResponse::HTTP_OK);
         }
     }

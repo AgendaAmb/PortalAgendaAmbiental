@@ -65,6 +65,27 @@ class HomeController extends Controller
             ;
     }
 
+    public function panel2(Request $request)
+    {
+        // Se usa para abrir un modal dentro de mi portal directamente
+        $nombreModal = session('nombreModal') ?? null;
+        $_ids = ComiteUser::where('user_id', $request->user()->id)->get()->first();
+
+        if ($nombreModal !== null)
+            $request->session()->forget('nombreModal');
+
+        // TODO Pasar a un recurso para usar vue mas facil we
+        return view('auth.20Aniversario.index')
+        ->with('modulos', $request->user()->userModules) //Navbar
+            ->with('user_workshops', Auth::user()->workshops->where('type', '<>', '20Aniversario')->values())
+            ->with('workshops', Workshop::where('type','<>','20Aniversario')->get())
+            ->with('noreg_workshops', Workshop::where('type','<>', '20Aniversario')->get())
+            ->with('nombreModal', $nombreModal)
+            ->with('ejes', ejes::all()) // para el proximo navbar au sin uso
+            ->with('user', $request->user())
+            ->with('_data', $_ids);
+    }
+
     /**
      * Obtiene el listado de usuarios.
      *
