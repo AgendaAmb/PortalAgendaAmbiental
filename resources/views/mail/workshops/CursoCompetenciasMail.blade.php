@@ -36,7 +36,8 @@ Ejemplo del correo que debes enviar:
 <br>
 <div style="margin-left: 20px; padding: 5px; border: 1px solid black; width: 95%;">
     <strong>Destinatario</strong>: mariana.garcia@uaslp.mx <br>
-    <strong>Asunto</strong>: INSCRITO (Tu matricula de estudiante).<br>  
+    <strong>Asunto</strong>: INSCRITO (Tu matricula de estudiante).<br> 
+    <br> 
     <strong>Contenido</strong>: a) Mariana Garcia de la Torre, b) 0174403, c) Campus Central, d) A017403@alumnos.uaslp.mx.  
 </div>
 <br>
