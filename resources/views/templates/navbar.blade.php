@@ -6,7 +6,7 @@
       <b-navbar-nav>
         <b-nav-item href="{{route('panel')}}">Inicio</b-nav-item>
         <b-nav-item href="{{route('20home')}}">20 Aniversario</b-nav-item>
-        @if(Auth::user()->id == '291395' || Auth::user()->id == '11007')
+        @if(Auth::user()->id == '291395' || Auth::user()->id == '11007' || Auth::user()->id == '7515')
         <b-nav-item href="{{route('20admin')}}">Administración</b-nav-item>
         @endif
       </b-navbar-nav>
