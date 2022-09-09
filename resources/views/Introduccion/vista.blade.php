@@ -169,7 +169,7 @@
         <div class="carousel-item active">
           <div class="slide-box">
               <a data-toggle="modal" data-target="#CompetenciasProfesionales">
-                <img src="{{ asset('/storage/imagenes/CompetenciasProf/B1_CP.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/CompetenciasProf/B1_CP.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
               </a>
           </div>
