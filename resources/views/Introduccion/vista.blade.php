@@ -168,6 +168,15 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
+            <a href={{route('CompetenciasProfesionales')}}>
+              <img src="{{ asset('storage/imagenes/CompetenciasProf/B1_CP.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <div class="slide-box">
             <a href={{route('mmus2022')}}>
               <img src="{{ asset('storage/imagenes/mmus2022/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
@@ -195,7 +204,7 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
-              <img src="{{ asset('storage/imagenes/Unihuerto/Cartel_Int_permacultura.jpeg')}}"
+              <img src="{{ asset('storage/imagenes/Unihuerto/B_permacultura1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
@@ -268,7 +277,7 @@
                       <a class="btn btn-secondary bg-light text-muted downloadBtn mx-1" 
                           href={{route('Bienvenida',['nombreModal'=> 'contexto'])}} role="button"
                           >
-                          REGISTRARME
+                          REGISTRAR
                       </a>
                   </div>
                 </div>
