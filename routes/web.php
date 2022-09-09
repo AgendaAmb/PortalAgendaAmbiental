@@ -19,21 +19,15 @@ use Illuminate\Http\Request;
 // ROUTE TO TEST CONECTION WITH FINANCES SERVICE
 Route::get('/soap_finances', 'TestingController@test')->name('test_soap');
 
-Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
+Route::get('/{nombreModal?}', function ($NombreM=null) {
+    return view('Introduccion.vista')->with('NombreM',$NombreM);
+})->name('Index');
 
 Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('Gemas');
 
-//Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
-  //  return view('Introduccion.vista')->with('NombreM',$NombreM);
-//})->name('Modal17Gemas');
-
-//Route::view('/gestión/{nombreModal?}','Gestion.vista',['NombreM' => $NombreM])->name('Gestion');
-
-#Nuevan Ruta
 Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
     return view('GlobalGoalsJam2022.contenido')->with('NombreM',$NombreM);
 })->name('GlobalGoalsJam2022');
-#####################################
 
 Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
     return view('Gestion.vista')->with('NombreM',$NombreM);

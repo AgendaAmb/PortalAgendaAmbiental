@@ -35,11 +35,11 @@
         <div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a data-toggle="modal" data-target="#ModalCompetenciasP">
+              <a data-toggle="modal" data-target="#CompetenciasProfesionales">
                 <img src="{{ asset('/storage/imagenes/CompetenciasProf/B1_CP.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a data-toggle="modal" data-target="#ModalCompetenciasP">
+              <a data-toggle="modal" data-target="#CompetenciasProfesionales">
                 <img src="{{ asset('/storage/imagenes/CompetenciasProf/B2_CP.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
@@ -241,7 +241,7 @@
 </div>
 </div>
 
-<div class="modal fade" id="ModalCompetenciasP" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="CompetenciasProfesionales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body py-2">
@@ -450,7 +450,7 @@
 
 <script>
   if ('{{$NombreM}}'!='') {
-    $('#{{$NombreM}}').modal('show')
+    $('#{{$NombreM}}').modal('show');
   } 
   
 </script>
