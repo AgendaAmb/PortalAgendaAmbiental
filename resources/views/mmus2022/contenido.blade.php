@@ -372,23 +372,23 @@
                     </button>
                 </div>
                 <div class="container">
-                    <!--<div class="row justify-content-center">
+                    <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/mmus2022/Cartel_Unirodadacinema.jpg')}}" class="img-fluid"
                                 alt="">
                         </div>
-                    </div>-->
+                    </div>
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-12 col-sm-12  ">
                             <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
-                        <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/mmus2022/Carteles_Rodada.pdf')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-Cebraton.png">CARTEL </a>
-                        </div>-->
+                                download="Carteles_Rodada.pdf">CARTELES</a>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
@@ -466,23 +466,23 @@
                     </button>
                 </div>
                 <div class="container">
-                    <!--<div class="row justify-content-center">
+                    <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/mmus2022/Cartel_Minirodada.jpg')}}" class="img-fluid"
                                 alt="">
                         </div>
-                    </div>-->
+                    </div>
                     <div
                         class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-12 col-sm-12  ">
                             <a href={{route('Bienvenida',['nombreModal'=> 'mmus'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
-                        <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/mmus2021/Banners-Cebraton.png')}}"
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/mmus2022/Carteles_MiniRodada.pdf')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Banners-Cebraton.png">CARTEL </a>
-                        </div>-->
+                                download="Carteles_MiniRodada.pdf">CARTELES</a>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
