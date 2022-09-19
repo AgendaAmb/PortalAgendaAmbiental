@@ -68,23 +68,44 @@ class HomeController extends Controller
     //! NEW INTERFACE 
     public function panel2(Request $request)
     {
-        // Se usa para abrir un modal dentro de mi portal directamente
+        //* Se usa para abrir un modal dentro de mi portal directamente
         $nombreModal = session('nombreModal') ?? null;
-        $_ids = ComiteUser::where('user_id', $request->user()->id)->get()->first();
 
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
 
-        // TODO Pasar a un recurso para usar vue mas facil we
-        return view('auth.20Aniversario.index')
-        ->with('modulos', $request->user()->userModules) //Navbar
-            ->with('user_workshops', Auth::user()->workshops->where('type', '<>', '20Aniversario')->values())
-            ->with('workshops', Workshop::where('type','<>','20Aniversario')->get())
-            ->with('noreg_workshops', Workshop::where('type','<>', '20Aniversario')->get())
+        // * Discard 20 aniversary events and get only the active events
+        $user_registered_whorkshops_ids = [];
+        $user_unregistered_whorkshops_ids = [];
+
+        $user_registered_workshops = Auth::user()->getAssociatedWorkshops->values()->toArray();
+        // dd($user_registered_workshops);
+        
+        foreach($user_registered_workshops as &$workshop){
+            $workshop["registered"] = True;
+            array_push($user_registered_whorkshops_ids,$workshop['id']);
+        }
+
+        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('end_date', '>=', Carbon::now())->whereNotIn('id',$user_registered_whorkshops_ids)->get()->values()->toArray();
+        // dd($user_unregistered_workshops);
+        foreach ($user_unregistered_workshops as &$workshop) {
+            $workshop["registered"] = False;
+            array_push($user_unregistered_whorkshops_ids, $workshop['id']);
+        }
+
+        $active_workshops = array_merge($user_registered_workshops, $user_unregistered_workshops);
+        // dd($active_workshops);
+
+        // *
+
+        return view('auth.Dashbord.main')
+            ->with('modulos', $request->user()->userModules) //Navbar
+            ->with('active_workshops', $active_workshops)
+            ->with('user_registered_workshops', $user_registered_workshops)
+            ->with('user_unregistered_workshops', $user_unregistered_workshops)
             ->with('nombreModal', $nombreModal)
-            ->with('ejes', ejes::all()) // para el proximo navbar au sin uso
-            ->with('user', $request->user())
-            ->with('_data', $_ids);
+            ->with('ejes', ejes::all()) // para el proximo navbar aun sin uso
+            ->with('user', $request->user());
     }
 
     /**
@@ -370,6 +391,7 @@ class HomeController extends Controller
         return $res;
     }
 
+    // 28 -36
     private function getGestionAmbientalUsers()
     {
         # Consulta bien mortal para traer todo lo que se pide.

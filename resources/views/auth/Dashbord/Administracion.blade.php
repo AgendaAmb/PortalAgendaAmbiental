@@ -90,7 +90,7 @@
                         @else
                         <td>   
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                                @click="cargarUser({{$user}},{{ $user->workshops[0]->pivot->id }})">
+                                @click="cargarUser({{$user}},{{$user->workshops[0]->pivot->id}})">
                                 <i class="fas fa-edit"></i>
                                 @if (Auth::user()->hasRole('helper'))
                                     <small>ENVIAR FICHA DE PAGO</small>
@@ -784,13 +784,14 @@
         console.log(this.DatosFacturacion[0].invoice_data)
     },
     MandarPagoUnirodada:function(){
-        console.log(this.ws_id);
+        // console.log("hola");
         this.spinnerVisible=true;
         // Los datos necesitan ser enviados con form data
         var formData = new FormData();
         formData.append("idUser", this.user[0].id);
         formData.append("file",this.file);
         formData.append("ws_id", this.ws_id);
+        console.log(this.ws_id);
         axios({
             method: 'post',
             url: '/EnviaFicha',
@@ -805,7 +806,7 @@
                 this.asistenciaExito=true
         }).catch(
             err => {
-            console.log("Error al enviar datos"),
+            console.log(err),
             this.spinnerVisible=false,
                 this.asistenciaExito=false
 

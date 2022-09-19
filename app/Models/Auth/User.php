@@ -9,6 +9,7 @@ use App\Models\UnirutaUser;
 use App\Models\UserWorkshop;
 use App\Models\Workshop;
 use App\Notifications\VerifyEmail;
+use App\ReutronicUser;
 use App\Traits\ModuleTrait;
 use App\Traits\WorkshopTrait;
 use Carbon\Carbon;
@@ -617,12 +618,10 @@ class User extends Authenticatable implements MustVerifyEmail
         )->withPivot('model_type');
     }
 
-    /**
-     * Obtiene los módulos a los que está registrado este usuario.
-     *
-     * @return object
-     */
-    /*
+
+    // ! Estimado programador, estas dos relaciones son la misma como puedes observar sin embargo 
+    // ! no devuelven los mismas columnas para cada modelo que regresan en la coleccion, yo creo que porque 
+    // ! es asi por el tiempo en el cual se definio la relacion, antes y depues de modificar el modelo de workshops 
     public function workshops(): BelongsToMany
     {
         return $this->belongsToMany(Workshop::class,
@@ -639,9 +638,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'paid_at'
         );
     }
-    */
 
-    public function workshops(): BelongsToMany
+    public function getAssociatedWorkshops(): BelongsToMany
     {
         return $this->belongsToMany(Workshop::class,
             'user_workshop',
@@ -659,6 +657,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'invoice_data'
         );
     }
+    // ! ---------------------------------------------------------------------------------------------------------------
 
     public function workshopsUnihuerto(): BelongsToMany
     {
@@ -791,6 +790,20 @@ class User extends Authenticatable implements MustVerifyEmail
             'user_id',              # Llave que asocia al modelo con la tabla intermedia.
             'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse
                                     # con la tabla intermedia.
+            'id',                   # Clave primaria de la tabla de usuarios.
+            'id',                   # Clave primaria de la tabla pivote.
+
+        );
+    }
+
+    public function reutroniUsers(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            ReutronicUser::class,   # Tabla donde están los datos de la unirodada
+            UserWorkshop::class,    # Tabla por la cual se accede a la tabla destino
+            'user_id',              # Llave que asocia al modelo con la tabla intermedia.
+            'user_workshop_id',     # Llave que utiliza la tabla intermedia, para asociarse
+            # con la tabla intermedia.
             'id',                   # Clave primaria de la tabla de usuarios.
             'id',                   # Clave primaria de la tabla pivote.
 

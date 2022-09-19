@@ -67,23 +67,30 @@ class CursosActualizacionController extends Controller
         $user_workshop = UserWorkshop::find($request->ws_id);
         $user = User::find($user_workshop->user_id);
 
+        try{
+            $ws = Workshop::find($user_workshop->workshop_id);
+            $ws_name = $ws->name;
+            # Se envía el comprobante de pago.
+            // ! UNIRODADA MMUS 2022 
+            if($ws->id == 36){
+                Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
+            }else{
+                // ! CURSOS DE ACTUALIZACIÓN
+                Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
+            }
+            // Mail::mailer('smtp')->to('A291395@alumnos.uaslp.mx')->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
+        }catch (\Exception $e) {
+            return response()->json(['Message' => 'Error al mandar correo de confirmación'], JsonResponse::HTTP_OK);
+        }
+
         # Envía el comprobante de pago deacuerdo al user_workshop_id
         try {
             $user_workshop->sent = 1;
             $user_workshop->sent_at = Carbon::now();
             $user_workshop->save();
         } catch (\Exception $e) {
-            if($user_workshop!=null)$user_workshop->send = 0;
-            return response()->json(['Message' => 'Error al mandar reecibo de pago'], JsonResponse::HTTP_OK);
-        }
-
-        try{
-            $ws_name = Workshop::find($user_workshop->workshop_id)->name;
-            # Se envía el comprobante de pago.
-            Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
-            // Mail::mailer('smtp')->to('A291395@alumnos.uaslp.mx')->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
-        }catch (\Exception $e) {
-            return response()->json(['Message' => 'Error al mandar correo de confirmación'], JsonResponse::HTTP_OK);
+            if ($user_workshop != null) $user_workshop->send = 0;
+            return response()->json(['Message' => 'Error al mandar recibo de pago'], JsonResponse::HTTP_OK);
         }
 
         return response()->json([

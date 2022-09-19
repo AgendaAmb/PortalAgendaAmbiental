@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ReutronicUser;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 
 class UserWorkshop extends MorphPivot
@@ -45,6 +46,16 @@ class UserWorkshop extends MorphPivot
     public function unirodadaUser()
     {
         return $this->hasOne(UnirodadaUser::class, 'user_workshop_id');
+    }
+
+    /**
+     * Obtiene el modelo de reutronic, registrado por el usuario
+     *
+     * @param  array $workshops
+     */
+    public function reutronicUser()
+    {
+        return $this->hasOne(ReutronicUser::class, 'user_workshop_id');
     }
 
     /**

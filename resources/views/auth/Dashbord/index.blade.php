@@ -27,7 +27,7 @@
               <img src="{{ asset('/storage/imagenes/Unitrueque/Registro2022.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-
+          
            {{-- Contexto de la sostenibilidad --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#contexto" @click="AbrirModal('contexto')">
@@ -60,6 +60,13 @@
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#unirodada_mmus2022" @click="AbrirModal('unirodada_mmus2022')">
               <img src="{{ asset('/storage/imagenes/mmus2022/Registro_unirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
+
+          {{-- Reutronic --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#reutronic" @click="AbrirModal('reutronic')">
+              <img src="{{ asset('/storage/imagenes/Reutronic/Registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
 
@@ -144,7 +151,7 @@
 
   </div>
 
-{{-- Modales con programas vigentes  --}}
+{{-- ! Modales con programas vigentes  --}}
 
 @include("RegistroModales.CursosActualizacion")
 
@@ -160,7 +167,9 @@
 
 @include("RegistroModales.ContextoSos")
 
-{{-- Modales Programas pasados --}}
+@include("RegistroModales.Reutronic")
+
+{{-- ! Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
 
 @include("RegistroModales.PromotoresHuasteca")
@@ -276,6 +285,12 @@
     //! 
     teamlength:3,
     team: new Array(),
+    // Reutronic
+    inscritoReutronic: false,
+    prev_solicitud:"",
+    materialReutronic:"",
+    observacionesReutronic:"",
+    razonReutronic:""
   },
   mounted:function () {
   this.$nextTick(function () {
@@ -438,6 +453,7 @@
         this.Errores[2].Visible=false
       }
     },
+    // ! Esta funcion levanta un modal si existe nombreModal
     ChecarUrl:function(){
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
@@ -445,6 +461,7 @@
       '{{$nombreModal}}'=='HuertoMesa'?this.levantaModal('HuertoMesa'):''
       '{{$nombreModal}}'=='UnirutaSierraAlvarez'?this.levantaModal('UnirutaSierraAlvarez'):''
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
+      '{{$nombreModal}}'=='mmus'?this.levantaModal('reutronic'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -457,10 +474,14 @@
         this.DatosUsuario(data),
         
         // Checar usuario registrado
+        this.checarInscripcionMmus2022();
         this.checarInscripcionCursosAct();
         this.checarInscripcionUnitrueque();
         this.checarInscripcionHuertoMesa();
         this.checarInscripcionGGJ();
+        this.checarInscripcionMinirodada();
+        this.checarRodadaMmus();
+        this.checarCompetencias();
 
         $('#' + data).modal('show')
 
@@ -502,7 +523,7 @@
         this.checkedFecha = [];
     },
     AbrirModal: function(ModalClick){
-      console.log(ModalClick);
+      // console.log(ModalClick);
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
       //Modales vigentes
@@ -514,6 +535,7 @@
       this.checarInscripcionMinirodada();
       this.checarRodadaMmus();
       this.checarCompetencias();
+      this.checarReutronic();
       //Modales pasados
       // this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
@@ -688,6 +710,25 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
+           }else if(this.modalClick=='reutronic'){
+              data['prev_solicitud'] = this.prev_solicitud;
+              data['materialReutronic'] = this.materialReutronic;
+              data['observacionesReutronic'] = this.observacionesReutronic;
+              data['razonReutronic'] = this.razonReutronic;
+              console.log("reu");
+              // Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos
+              axios.post(this.url+'RegistrarReutronic',data).then(response => {
+                  console.log(response.data);
+                  $('#reutronic').modal('hide');
+                  this.spinnerVisible=false;
+                  this.Guardado=true;
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
@@ -896,7 +937,14 @@
 
         }
       },
-      //Verifica la inscripcion en cursos de actualizacion
+      checarReutronic: function(){
+        axios.post(this.url + 'ChecarReutronic',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.inscritoReutronic = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
       checarInscripcionMinirodada: function(){
         axios.post(this.url + 'ChecarKids',{ "Clave":'{{Auth::user()->id}}'})
           .then(response => {
@@ -905,7 +953,6 @@
             console.log(err.response);
           })
       },
-      //Verifica la inscripcion en cursos de actualizacion
       checarRodadaMmus: function(){
         axios.post(this.url + 'ChecarRodadaMmus',{ "Clave":'{{Auth::user()->id}}'})
           .then(response => {

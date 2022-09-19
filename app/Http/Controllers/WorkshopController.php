@@ -20,6 +20,7 @@ use App\Models\UserWorkshop;
 use App\Models\GGJUser;
 use Carbon\Carbon;
 use App\Models\UnirodadaUser;
+use App\Models\ReutronicUser;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 class WorkshopController extends Controller
@@ -406,7 +407,7 @@ class WorkshopController extends Controller
 
             $insc = DB::table('user_workshop')
             ->where('workshop_id', 35)  //!  MInirodada
-                ->where('user_id', $user->id)
+            ->where('user_id', $user->id)
                 ->get();
 
             // Registrado?
@@ -448,6 +449,80 @@ class WorkshopController extends Controller
             } catch (\Exception $e) {
                 $user_workshop->delete();
                 return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['Message' => 'error'], 500);
+        }
+        return response()->json(
+                ['Message' => 'ok'],
+                JsonResponse::HTTP_OK
+            );
+    }
+
+    public function ChecarReutronic(Request $request)
+    {
+        $user = $request->user();
+
+        $workshop_model = Workshop::where('name', 'Reutronic')->first();
+        
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', $workshop_model->id)
+            ->where('user_id', $user->id)
+            ->get();
+        if ($insc->count() > 0){
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarReutronic(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user();
+
+            $workshop_model = Workshop::where('name', 'Reutronic')->first();
+            
+            $insc = DB::table('user_workshop')
+            ->where('workshop_id', $workshop_model->id)  //!  MInirodada
+                ->where('user_id', $user->id)
+                ->get();
+
+            // Registrado?
+            if ($insc->count() > 0) {
+                return response()->json(['Message' => 'Registered'], JsonResponse::HTTP_OK);
+            }
+
+
+            # Registra interes en asistencia
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+
+            $user->save();
+
+            # Registra al usuario al workshop
+            $user_workshop = UserWorkshop::create([
+                'user_id' => $user->id,
+                'user_type' => $user->type,
+                'workshop_id' => $workshop_model->id,
+                'sent' => false,
+                'paid' => false,
+            ]);
+
+            try {
+                # Registra los datos de reutronic
+                ReutronicUser::create([
+                    'user_workshop_id' => $user_workshop->id,
+                    'prev_solicitud' => $request->prev_solicitud == 'true'? true : false,
+                    'material' => $request->materialReutronic,
+                    'detalles' => $request->observacionesReutronic,
+                    'razondeuso' => $request->razonReutronic,
+                ]);
+            } catch (\Exception $e) {
+                $user_workshop->delete();
+                return response()->json(['Message' => 'Error registro'], JsonResponse::HTTP_OK);
             }
         } catch (\Exception $e) {
             return response()->json(['Message' => 'error'], 500);

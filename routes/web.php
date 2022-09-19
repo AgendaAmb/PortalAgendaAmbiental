@@ -23,17 +23,13 @@ Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
 
 Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('Gemas');
 
-Route::get('/CompetenciasProfesionales', function () {
-    return view('Introduccion.vista')->with('NombreM', 'CompetenciasProfesionales');;
-});
-
-Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
-    return view('GlobalGoalsJam2022.contenido')->with('NombreM',$NombreM);
-})->name('GlobalGoalsJam2022');
-
 Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
     return view('Gestion.vista')->with('NombreM',$NombreM);
 })->name('Gestion');
+
+Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
+    return view('GlobalGoalsJam2022.contenido')->with('NombreM', $NombreM);
+})->name('GlobalGoalsJam2022');
 
 Route::get('/educación/{nombreModal?}',function ($NombreM=null){
     return view('Educacion.vista')->with('NombreM',$NombreM);
@@ -42,6 +38,10 @@ Route::get('/educación/{nombreModal?}',function ($NombreM=null){
 Route::get('/vinculación', function () {
     return view('Vinculacion.vista');
 })->name('Vinculacion');
+
+Route::get('/CompetenciasProfesionales', function () {
+    return view('Introduccion.vista')->with('NombreM', 'CompetenciasProfesionales');
+})->name('CompetenciasProfesionales');
 
 Route::get('/comunicación', function () {
     return view('Comunicacion.vista');
@@ -201,6 +201,11 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Comptetencias Profesionales 
     Route::post('/RegistrarCompetencias', 'WorkshopController@RegistrarCompetencias')->name('RegistrarCompetencias');
     Route::post('/ChecarCompetencias', 'WorkshopController@ChecarCompetencias')->name('ChecarCompetencias');
+
+    # Reutronic
+    Route::post('/RegistrarReutronic', 'WorkshopController@RegistrarReutronic')->name('RegistrarReutronic');
+    Route::post('/ChecarReutronic', 'WorkshopController@ChecarReutronic')->name('ChecarReutronic');
+    
     
     // ! working 
 
@@ -231,6 +236,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         ->name('EnviaFactura');
 
         #cambio
+        
     # Envía un comprobante a un usuario.
     Route::post('/EnviaComprobante', 'CursosActualizacionController@sendReceipt')->name('EnviaComprobante');
 

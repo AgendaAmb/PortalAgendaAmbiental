@@ -14,7 +14,7 @@ class AddMaxNumRegToWorkshopsTable extends Migration
     public function up()
     {
         Schema::table('workshops', function (Blueprint $table) {
-            //
+            $table->unsignedInteger('RegLimit')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddMaxNumRegToWorkshopsTable extends Migration
     public function down()
     {
         Schema::table('workshops', function (Blueprint $table) {
-            //
+            $table->dropColumn('RegLimit')->nullable();
         });
     }
 }
