@@ -197,29 +197,29 @@ class HomeController extends Controller
                         }
                     }
                     try {
-                    $_user = User::where('id', $i->user_id)->first();
-                    $_ws = Workshop::where('id', $i->workshop_id)->first();
-                    $_data = [
-                        'id' => $_user->id,
-                        'email' => $_user->email,
-                        'gender' => $_user->gender,
-                        'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
-                        'workshop' => $_ws->name,
-                        'curp' => $_user->curp,
-                        'tel' => $_user->phone_number,
-                        'created_at' => $_user->created_at->format('Y-m-d h:i'),
-                        'workshopRegDataUser' => $workshopRegDataUser
-                        // 'envio' => $i->send,
-                        // 'pago' => $i->paid,
-                        // 'factura' => $i->invoice_data
-                    ];
+                        $_user = User::where('id', $i->user_id)->first();
+                        $_ws = Workshop::where('id', $i->workshop_id)->first();
+                        $_data = [
+                            'id' => $_user->id,
+                            'email' => $_user->email,
+                            'gender' => $_user->gender,
+                            'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                            'workshop' => $_ws->name,
+                            'curp' => $_user->curp,
+                            'tel' => $_user->phone_number,
+                            'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                            'workshopRegDataUser' => $workshopRegDataUser
+                            // 'envio' => $i->send,
+                            // 'pago' => $i->paid,
+                            // 'factura' => $i->invoice_data
+                        ];
                     array_push($data, $_data);
                     } catch (\Error $e) {
                         return "Cargando datos";
                     }
                 }
             } catch (\Exception $e) {
-                return "error en datos";
+                return $e;
             }
 
             return view('auth.Dashbord.admin_coordinador', [
