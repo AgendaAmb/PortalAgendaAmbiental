@@ -177,7 +177,7 @@ class HomeController extends Controller
                                 'Razon de uso del material solicitado' => $reutronicUser->razondeuso
                             ];
                         }catch(\Error $e){
-                            $workshopRegDataUser = [];
+                            return "error en reutronic";
                         }
                     }elseif($i->workshop_id == 36){
                         try {
@@ -189,10 +189,10 @@ class HomeController extends Controller
                                 'Grupo ciclista' => $unirodadaUser->group
                             ];
                         } catch (\Error $e) {
-                            $workshopRegDataUser = [];
+                            return "error unirodada";
                         }
                     }
-                    
+                    try {
                     $_user = User::where('id', $i->user_id)->first();
                     $_ws = Workshop::where('id', $i->workshop_id)->first();
                     $_data = [
@@ -210,6 +210,9 @@ class HomeController extends Controller
                         // 'factura' => $i->invoice_data
                     ];
                     array_push($data, $_data);
+                    } catch (\Error $e) {
+                        return "Cargando datos";
+                    }
                 }
             } catch (\Exception $e) {
                 return "error en datos";
