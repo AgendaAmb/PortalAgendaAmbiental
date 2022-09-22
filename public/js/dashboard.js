@@ -58586,6 +58586,12 @@ new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
     makeToast: function makeToast() {
       var append = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       console.log("hola");
+      this.toastCount++;
+      this.$bvToast.toast("This is toast number ".concat(this.toastCount), {
+        title: 'BootstrapVue Toast',
+        autoHideDelay: 5000,
+        appendToast: append
+      });
     },
     countDownChanged: function countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;

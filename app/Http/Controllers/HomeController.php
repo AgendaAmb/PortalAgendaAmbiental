@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\JsonResponse;
 use App\Models\ComiteUser;
+use App\Models\ReutronicUser;
+
 class HomeController extends Controller
 {
     /**
@@ -156,7 +158,69 @@ class HomeController extends Controller
                 'Modulos' => Auth::user()->userModules,
             ]);
         }else if($user->hasRole('coordinator')){
-            $users = $this->getGestionAmbientalUsers(); # Usuarios con workshops vigentes
+
+            $user = Auth::user();
+            // ! De momento selecciono los wss con el eje 2 porque no esta construido lo demas
+            $idwss = Workshop::where('work_edge',2)->pluck('id');
+
+            try {
+                $data = array();
+                $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
+                foreach ($users as $i) {
+                    $workshopRegDataUser = [];
+                    if ($i->workshop_id == 38){
+                        $reutronicUser =  ReutronicUser::where('user_workshop_id',$i->id)->first();
+                        $workshopRegDataUser = [
+                            'Material Solicidato' => $reutronicUser->material, 
+                            'Detalles del material solicitado' => $reutronicUser->detalles, 
+                            'Razon de uso del material solicitado' => $reutronicUser->razondeuso
+                        ];
+                    }elseif($i->workshop_id == 36){
+                        $unirodadaUser = $i->unirodadaUser;
+                        $workshopRegDataUser = [
+                            'Contacto de enmergencia' => $unirodadaUser->emergency_contact,
+                            'Tel. contacto de enmergencia' => $unirodadaUser->emergency_contact_phone,
+                            'Condición de salud' => $unirodadaUser->health_condition,
+                            'Grupo ciclista' => $unirodadaUser->group
+                        ];
+                    }
+                    
+                    $_user = User::where('id', $i->user_id)->first();
+                    $_ws = Workshop::where('id', $i->workshop_id)->first();
+                    $_data = [
+                        'id' => $_user->id,
+                        'email' => $_user->email,
+                        'gender' => $_user->gender,
+                        'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                        'workshop' => $_ws->name,
+                        'curp' => $_user->curp,
+                        'tel' => $_user->phone_number,
+                        'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                        'workshopRegDataUser' => $workshopRegDataUser
+                        // 'envio' => $i->send,
+                        // 'pago' => $i->paid,
+                        // 'factura' => $i->invoice_data
+                    ];
+                    array_push($data, $_data);
+                }
+            } catch (\Exception $e) {
+                return "error en datos";
+            }
+
+            return view('auth.Dashbord.admin_coordinador', [
+                'user' => $user,
+                'users' => $data,
+                'Modulos' => Auth::user()->userModules,
+            ]);
+
+            // ! VISTA ANTIGUA  
+            // $users = $this->getGestionAmbientalUsers();
+            // // return $users;
+            // return view('auth.Dashbord.Administracion_nohelper', [
+            //     'users' =>  $users,
+            //     'Modulos' => Auth::user()->userModules,
+            // ]);
+
         }else{//en dado caso es administrador
             $users = $this->getAllUsers(); # Todos los usuarios.
         }
@@ -396,9 +460,9 @@ class HomeController extends Controller
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
-            ->whereDoesntHave('roles', function($query){
-                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
-            })
+            // ->whereDoesntHave('roles', function($query){
+            //     return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            // })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function($query){

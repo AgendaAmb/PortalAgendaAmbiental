@@ -20,28 +20,26 @@
 @extends('templates.base')
 
 @push('stylesheets')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+{{-- <script src="http://unpkg.com/portal-vue"></script> --}}
 @endpush
 
 @section('navbarModulos')
 @include('templates.navbar')
 @endsection
-
 @section('ContenidoPrincipal')
-
 <b-container id="panel" class="p-0" fluid>
   <b-row class="h-100" :no-gutters=true>
-    <b-col class="bg-white" align-self="stretch" lg="2" md="2" sm="12" cols="12" order-lg="1" order-md="1" order-sm="3" order="3">
-      <div class="h-100 mx-1">
+    <b-col class="bg-white" lg="2" md="2" sm="12" cols="12" order-lg="1" order-md="1" order-sm="3" order="3">
+      <div class="h-100 m-1">
         <div class="accordion" role="tablist">
-          <b-button @click="makeToast(true)">Show Toast (appended)</b-button>
-          
-          <b-card no-body class="mb-1">
-            <b-card-header header-tag="header" class="p-1" role="tab">
+
+          <b-card no-body class="_card rounded-0">
+            <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-1>MIS EVENTOS REGISTRADOS</b-button>
             </b-card-header>
-            <b-collapse id="accordion-1" visible role="tabpanel">
-              <b-card-body v-for="ws in user_workshops" v-bind:key="ws.id" class="py-2 m-0">
+            <b-collapse class="_card-collapse" id="accordion-1" visible role="tabpanel">
+              <b-card-body v-for="ws in user_workshops" v-bind:key="ws.id" class="_card-body">
                 <b-card-text @click="openRegisterModal(ws)" class="_card-text">
                   @{{ws.name}}
                 </b-card-text>
@@ -49,33 +47,30 @@
             </b-collapse>
           </b-card>
 
-          <b-card no-body class="mb-1">
-            <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-card no-body class="_card">
+            <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-2>REGISTRO A PRÓXIMOS EVENTOS</b-button>
             </b-card-header>
-            <b-collapse id="accordion-2" visible role="tabpanel">
-              <b-card-body v-for="ws in noreg_workshops" v-bind:key="ws.id" class="py-2 m-0">
+            <b-collapse class="_card-collapse" id="accordion-2" visible role="tabpanel">
+              <b-card-body v-for="ws in noreg_workshops" v-bind:key="ws.id" class="py-2 m-0 rounded-0">
                 <b-card-text @click="openRegisterModal(ws)" class="_card-text">@{{ws.name}}</b-card-text>
               </b-card-body>
             </b-collapse>
           </b-card>
 
-          <b-card no-body class="mb-1">
-            <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-card no-body class="_card">
+            <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-3>MAPA DEL SITIO</b-button>
             </b-card-header>
             <b-collapse id="accordion-3" visible role="tabpanel">
               <b-card-body class="py-2 m-0">
                 <b-card-text class="_card-text"></b-card-text>
               </b-card-body>
-              {{-- <b-card-body v-for="ws in workshops" v-bind:key="ws.id" class="py-2 m-0">
-                <b-card-text @click="openRegisterModal(ws)" class="_card-text">@{{ws.name}}</b-card-text>
-              </b-card-body> --}}
             </b-collapse>
           </b-card>
 
         </div>
-      </div>
+      </div>   
     </b-col>
 
     <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">

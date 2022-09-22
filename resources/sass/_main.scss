@@ -9,15 +9,25 @@ $text-fw: 14px;
     display: none !important;
 }
 
+._card{
+    border-radius: 0% !important;
+}
+
 ._card-button {
     font-size: $text-fw !important;
     background-color: $card-text !important;
     border: none;
+    border-radius: 0% !important;
+    text-align: start;
+}
+
+._card-collapse{
+    border: none !important;
+    border-radius: 0% !important;
 }
 
 ._card-body {
-    font-size: 20px !important;
-    color: black !important;
+    padding: 10px 20px !important;
 }
 
 ._card-text {

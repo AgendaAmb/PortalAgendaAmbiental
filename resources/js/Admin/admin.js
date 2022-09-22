@@ -8,16 +8,21 @@ new Vue({
     el: '#app',
     data() {
       return {
-        items: teams,
+        items: users,
         fields: [
-          { key: 'leader', label: 'Registro', sortable: true, sortDirection: 'desc' },
-          { key: 'len', label: 'Num. Integrantes', sortable: true, sortDirection: 'desc' },
-          { key: 'team', label: 'Integrantes', sortable: false}
+          { key: 'actions', label: 'Acciones' },
+          { key: 'workshop', label: 'Curso/Taller/Evento', sortable: true, sortDirection: 'desc' },
+          { key: 'name', label: 'Nombre', sortable: true},
+          { key: 'curp', label: 'Curp' },
+          { key: 'gender', label: 'Genero' },
+          { key: 'email', label: 'Correo' },
+          { key: 'tel', label: 'Teléfono' },
+          { key: 'created_at', label: 'Fecha de registro al portal'}
         ],
         totalRows: 1,
         currentPage: 1,
-        perPage: 10,
-        pageOptions: [10, 15, 20, 50],
+        perPage: 20,
+        pageOptions: [20, 30],
         sortBy: '',
         sortDesc: false,
         sortDirection: 'asc',

@@ -68,6 +68,12 @@ new Vue({
     methods: {
         makeToast(append = false) {
             console.log("hola");
+            this.toastCount++;
+            this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
+            title: 'BootstrapVue Toast',
+            autoHideDelay: 5000,
+            appendToast: append
+            })
         },
         countDownChanged(dismissCountDown) {
             this.dismissCountDown = dismissCountDown

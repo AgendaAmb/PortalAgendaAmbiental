@@ -4619,15 +4619,25 @@ readers do not read off random characters that represent icons */
   display: none !important;
 }
 
+._card {
+  border-radius: 0% !important;
+}
+
 ._card-button {
   font-size: 14px !important;
   background-color: #115089 !important;
   border: none;
+  border-radius: 0% !important;
+  text-align: start;
+}
+
+._card-collapse {
+  border: none !important;
+  border-radius: 0% !important;
 }
 
 ._card-body {
-  font-size: 20px !important;
-  color: black !important;
+  padding: 10px 20px !important;
 }
 
 ._card-text {
@@ -4659,10 +4669,6 @@ readers do not read off random characters that represent icons */
 .modalbtn {
   background-color: black !important;
   color: #115089 !important;
-}
-
-.toast:not(.show) {
-  display: block;
 }
 
 /*!
