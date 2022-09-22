@@ -165,7 +165,11 @@ class HomeController extends Controller
 
             try {
                 $data = array();
-                $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
+                try {
+                    $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
+                } catch (\Error $e) {
+                    return "Error loading user workshops";
+                }
                 foreach ($users as $i) {
                     $workshopRegDataUser = [];
                     if ($i->workshop_id == 38){
