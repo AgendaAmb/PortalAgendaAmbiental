@@ -175,23 +175,31 @@ class HomeController extends Controller
                     if ($i->workshop_id == 38){
                         try{
                             $reutronicUser =  ReutronicUser::where('user_workshop_id',$i->id)->first();
-                            $workshopRegDataUser = [
-                                'Material Solicidato' => $reutronicUser->material, 
-                                'Detalles del material solicitado' => $reutronicUser->detalles, 
-                                'Razon de uso del material solicitado' => $reutronicUser->razondeuso
-                            ];
+                            if ($reutronicUser !== null) {
+                                $workshopRegDataUser = [
+                                    'Material Solicidato' => $reutronicUser->material,
+                                    'Detalles del material solicitado' => $reutronicUser->detalles,
+                                    'Razon de uso del material solicitado' => $reutronicUser->razondeuso
+                                ];
+                            }else{
+                                $workshopRegDataUser = [];
+                            }
                         }catch(\Error $e){
                             return "error en reutronic";
                         }
                     }elseif($i->workshop_id == 36){
                         try {
                             $unirodadaUser = $i->unirodadaUser;
-                            $workshopRegDataUser = [
-                                'Contacto de enmergencia' => $unirodadaUser->emergency_contact,
-                                'Tel. contacto de enmergencia' => $unirodadaUser->emergency_contact_phone,
-                                'Condición de salud' => $unirodadaUser->health_condition,
-                                'Grupo ciclista' => $unirodadaUser->group
-                            ];
+                            if ($unirodadaUser !== null) {
+                                $workshopRegDataUser = [
+                                    'Contacto de enmergencia' => $unirodadaUser->emergency_contact,
+                                    'Tel. contacto de enmergencia' => $unirodadaUser->emergency_contact_phone,
+                                    'Condición de salud' => $unirodadaUser->health_condition,
+                                    'Grupo ciclista' => $unirodadaUser->group
+                                ];
+                            }else{
+                                $workshopRegDataUser = [];
+                            }
                         } catch (\Error $e) {
                             return "error unirodada";
                         }
