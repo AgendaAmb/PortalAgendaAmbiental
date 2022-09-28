@@ -28,7 +28,8 @@
         "@popperjs/core": "^2.11.6",
         "bootstrap-vue": "^2.22.0",
         "portal-vue": "^2.1.7",
-        "vue": "^2.7.8"
+        "vue": "^2.7.8",
+        "vue-json-excel": "^0.3.0"
     },
     "overrides": {
         "autoprefixer": "10.4.5"

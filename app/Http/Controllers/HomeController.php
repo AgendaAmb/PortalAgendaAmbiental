@@ -244,6 +244,76 @@ class HomeController extends Controller
             //     'Modulos' => Auth::user()->userModules,
             // ]);
 
+        }else if($user->hasRole('administrator')){
+            $user = Auth::user();
+            $idwss = Workshop::all()->pluck('id');
+
+            try {
+                $data = array();
+                $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
+                foreach ($users as $i) {
+                    $workshopRegDataUser = [];
+                    if ($i->workshop_id == 38) {
+                        try {
+                            $reutronicUser =  ReutronicUser::where('user_workshop_id', $i->id)->first();
+                            if ($reutronicUser !== null) {
+                                $workshopRegDataUser = [
+                                    'Material Solicidato' => $reutronicUser->material,
+                                    'Detalles del material solicitado' => $reutronicUser->detalles,
+                                    'Razon de uso del material solicitado' => $reutronicUser->razondeuso
+                                ];
+                            } else {
+                                $workshopRegDataUser = [];
+                            }
+                        } catch (\Error $e) {
+                            return "error en reutronic";
+                        }
+                    } elseif ($i->workshop_id == 36) {
+                        try {
+                            $unirodadaUser = $i->unirodadaUser;
+                            if ($unirodadaUser !== null) {
+                                $workshopRegDataUser = [
+                                    'Contacto de enmergencia' => $unirodadaUser->emergency_contact,
+                                    'Tel. contacto de enmergencia' => $unirodadaUser->emergency_contact_phone,
+                                    'Condición de salud' => $unirodadaUser->health_condition,
+                                    'Grupo ciclista' => $unirodadaUser->group
+                                ];
+                            } else {
+                                $workshopRegDataUser = [];
+                            }
+                        } catch (\Error $e) {
+                            return "error unirodada";
+                        }
+                    }
+                    try {
+                        $_user = User::where('id', $i->user_id)->first();
+                        $_ws = Workshop::where('id', $i->workshop_id)->first();
+                        $_data = [
+                            'id' => $_user->id,
+                            'email' => $_user->email,
+                            'gender' => $_user->gender,
+                            'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                            'workshop' => $_ws->name,
+                            'curp' => $_user->curp,
+                            'tel' => $_user->phone_number,
+                            'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                            'workshopRegDataUser' => $workshopRegDataUser
+                        ];
+                        array_push($data, $_data);
+                    } catch (\Error $e) {
+                        return "Cargando datos";
+                    }
+                }
+            } catch (\Exception $e) {
+                return $e;
+            }
+
+            return view('auth.Dashbord.Admin', [
+                'user' => $user,
+                'users' => $data,
+                'Modulos' => Auth::user()->userModules,
+            ]);
+
         }else{//en dado caso es administrador
             $users = $this->getAllUsers(); # Todos los usuarios.
         }

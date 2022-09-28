@@ -16,6 +16,18 @@
 @verbatim
 <template>
   <b-container class="my-4" fluid>
+
+    <b-col lg="12" class="py-1 bg-light">
+      <download-excel 
+        :fetch="fetchData" 
+        :fields="excel_export_fields"
+        name="UsuariosAgendaAmbiental.xls"
+        >
+        <b-button style="background: #1D6F42" size="md" class="mb-2">
+          <b-icon icon="download" aria-hidden="true"></b-icon> Exportar a excel
+        </b-button>
+      </download-excel>
+    </b-col>
     <!-- User Interface controls -->
     <b-row>
       <b-col lg="12" class="py-4 bg-light">
