@@ -8,7 +8,7 @@
 @extends('templates.base')
 
 @section('navbarModulos')
-@include('templates.navbar')
+@include('templates.20navbar')
 @endsection
 
 @section('ContenidoPrincipal')

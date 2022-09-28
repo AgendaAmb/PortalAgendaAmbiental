@@ -1,8 +1,6 @@
 <script>
   const users = @json($users);
   const modulos = @json($Modulos);
-
-  console.log(users);
 </script>
 
 @extends('templates.base')
