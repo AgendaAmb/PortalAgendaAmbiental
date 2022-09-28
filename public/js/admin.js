@@ -59270,7 +59270,8 @@ new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   },
   mounted: function mounted() {
-    // Set the initial number of items
+    console.log("hola"); // Set the initial number of items
+
     this.totalRows = this.items.length;
     this.cargarModulos();
   },

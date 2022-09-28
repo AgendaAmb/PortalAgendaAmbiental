@@ -28,12 +28,12 @@
             </a>
           </div>
           
-           {{-- Contexto de la sostenibilidad --}}
-          <div class="col px-0">  
+          {{-- Contexto de la sostenibilidad --}}
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#contexto" @click="AbrirModal('contexto')">
               <img src="{{ asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div> --}}
 
           {{-- Cursos de actualizacion  --}}
           <div class="col px-0">  
@@ -43,25 +43,25 @@
           </div>
 
           {{-- mmus2022  --}}
-          <div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#mmus2022" @click="AbrirModal('mmus2022')">
               <img src="{{ asset('/storage/imagenes/mmus2022/Registro_MMUS2022.jpg')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div> --}}
 
           {{-- mmus2022   --}}
-          <div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#minirodada" @click="AbrirModal('minirodada')">
               <img src="{{ asset('/storage/imagenes/mmus2022/Registro_minirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div> --}}
 
           {{-- mmus2022  --}}
-          <div class="col px-0">  
+          {{-- <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#unirodada_mmus2022" @click="AbrirModal('unirodada_mmus2022')">
               <img src="{{ asset('/storage/imagenes/mmus2022/Registro_unirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div> --}}
 
           {{-- Reutronic --}}
           <div class="col px-0">  
