@@ -64,7 +64,6 @@ new Vue({
       }
     },
     mounted() {
-      console.log("hola")
       // Set the initial number of items
       this.totalRows = this.items.length;
       this.cargarModulos();

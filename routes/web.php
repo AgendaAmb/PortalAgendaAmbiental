@@ -206,9 +206,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarReutronic', 'WorkshopController@RegistrarReutronic')->name('RegistrarReutronic');
     Route::post('/ChecarReutronic', 'WorkshopController@ChecarReutronic')->name('ChecarReutronic');
     
-    
     // ! working 
-
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
     Route::post('/EgresadoData', 'HomeController@EgresadoData')->name('EgresadoData');
 
@@ -218,7 +216,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
     Route::post('/WorkshopUnirodadaUserRegister', 'WorkshopController@WorkshopUnirodadaUserRegister')->name('WorkshopUnirodadaUserRegister');    
 
-    // !
+    // ! Workshop
 
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 

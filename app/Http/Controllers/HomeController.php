@@ -80,7 +80,7 @@ class HomeController extends Controller
         $user_registered_whorkshops_ids = [];
         $user_unregistered_whorkshops_ids = [];
 
-        $user_registered_workshops = Auth::user()->getAssociatedWorkshops->values()->toArray();
+        $user_registered_workshops = Auth::user()->getAssociatedWorkshops->where('end_date','>=',Carbon::now())->values()->toArray();
         // dd($user_registered_workshops);
         
         foreach($user_registered_workshops as &$workshop){
@@ -571,8 +571,8 @@ class HomeController extends Controller
 
     private function getUsersCurrentWorkshop()
     {
-       # Consulta bien mortal para traer todo lo que se pide.
-       $res = User::select(User::COLUMNS)
+        # Consulta bien mortal para traer todo lo que se pide.
+        $res = User::select(User::COLUMNS)
             /*
             ->whereDoesntHave('roles', function($query){
                 return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores

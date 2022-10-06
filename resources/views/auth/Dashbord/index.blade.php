@@ -27,41 +27,13 @@
               <img src="{{ asset('/storage/imagenes/Unitrueque/Registro2022.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-          
-          {{-- Contexto de la sostenibilidad --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#contexto" @click="AbrirModal('contexto')">
-              <img src="{{ asset('/storage/imagenes/CompetenciasProf/Registro_CP.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
-            </a>
-          </div> --}}
 
-          {{-- Cursos de actualizacion  --}}
+          {{-- Cursos de actualizacion --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
               <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-
-          {{-- mmus2022  --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#mmus2022" @click="AbrirModal('mmus2022')">
-              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_MMUS2022.jpg')}}" class="img-fluid pr-xl-1 px-1 pb-1">
-            </a>
-          </div> --}}
-
-          {{-- mmus2022   --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#minirodada" @click="AbrirModal('minirodada')">
-              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_minirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
-            </a>
-          </div> --}}
-
-          {{-- mmus2022  --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#unirodada_mmus2022" @click="AbrirModal('unirodada_mmus2022')">
-              <img src="{{ asset('/storage/imagenes/mmus2022/Registro_unirodada.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
-            </a>
-          </div> --}}
 
           {{-- Reutronic --}}
           <div class="col px-0">  
@@ -70,7 +42,7 @@
             </a>
           </div>
 
-           @if(Auth::user()->hasRole('administrator'))
+          @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
@@ -78,14 +50,20 @@
           </div>
           @endif
 
+          @if(Auth::user()->id == '291395')
+          {{-- UnirutaCP --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#unirutacp" @click="AbrirModal('unirutacp')">
+              <img src="{{ asset('/storage/imagenes/Uniruta/B_Registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
+          @endif
+          
         </div>
         <div class="row  ">
           <div class="col  d-flex align-items-center my-xl-5 my-2 px-0">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                {{-- <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="d-block w-100" alt="...">
-                </div> --}}
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
                 </div>
@@ -168,6 +146,8 @@
 @include("RegistroModales.ContextoSos")
 
 @include("RegistroModales.Reutronic")
+
+@include("RegistroModales.UnirutaCP")
 
 {{-- ! Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
@@ -255,6 +235,7 @@
     Mobiliario:'',//si o no
     EmpresaParticipante:'',
 
+    InscritoUnirutaCp:false,
     //! Modales pasados
     InscritoHuertoMesaHuasteca:false,
     InscritoPromotoresHuasteca:false,
@@ -377,7 +358,7 @@
     },
 
     ChecarBecas:function(fupUser){
-      console.log(fupUser);
+      // console.log(fupUser);
       this.Errores[4].Visible=false;
       this.Errores[5].Visible=false;
 
@@ -391,7 +372,7 @@
 
     }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
       this.Errores[4].Visible=true;
-      console.log("SOY DE STAFF");
+      // console.log("SOY DE STAFF");
     }
 
 
@@ -422,7 +403,7 @@
                  }
              }).then(
                      res => {
-                        console.log(response.data),
+                        // console.log(response.data),
                          this.file = '',
                          this.spinnerVisible=false,
                          this.asistenciaExito=true
@@ -494,7 +475,7 @@
       let diferencia=Math.abs(hora - fechaRegistro)
 
       let diasDiferencia = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-      console.log(diasDiferencia)
+      // console.log(diasDiferencia)
       if (diasDiferencia>1) {
 
       } else {
@@ -541,7 +522,7 @@
       // this.checarInscripcionHuertoMesaHuasteca();
       // this.checarInscripcionPromotoresHuasteca();
       // this.checarInscripcionUnirodadaRios();
-      // this.checarInscripcionUniruta();
+      this.checarInscripcionUniruta();
      
       $('#' + ModalClick).modal('show');
     },
@@ -585,7 +566,7 @@
         }
 
         axios.post(this.url+'RegistrarGGJ',data).then(response => (
-          console.log(response.data),
+          // console.log(response.data),
           this.spinnerVisible=false,
           $('#GlobalGoalsJam').modal('hide'),
           this.Guardado=true
@@ -835,7 +816,7 @@
                   this.Errores[0].Visible;
                   this.Guardado=false;
               })
-           }else if(this.modalClick=='UnirodadaRios'){
+          }else if(this.modalClick=='UnirodadaRios'){
             data['TipoEvento'] = 'unirodada'
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarRodadaRioUsuario',data).then(response => {
@@ -855,7 +836,7 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }else if(this.modalClick=='UnirutaSierraAlvarez'){
+          }else if(this.modalClick=='UnirutaSierraAlvarez'){
             // console.log(data);
             data['TipoEvento'] = 'uniruta'
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
@@ -876,7 +857,30 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }else if(this.modalClick=='CursosActualizacion'){
+          }else if(this.modalClick=='unirutacp'){
+            // console.log('Unirutacp');
+            // console.log(data);
+            data['TipoEvento'] = 'uniruta'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarUnirutaUsuario',data).then(response => {
+              console.log(response.status);
+              if(response.status == 200){
+                //console.log(response.data);
+                this.spinnerVisible=false;
+                $('#unirutacp').modal('hide');
+                this.Guardado=true;
+              }else{
+                console.log("Mensaje: " + response.data.Message);
+              }
+            }).catch((err) => {
+              console.log(err);
+              if(err.response.data.Message)
+                console.log("Mensaje: " + err.response.data.Message);
+              this.Errores[0].Visible;
+              this.Guardado=false;
+            })
+          }
+          else if(this.modalClick=='CursosActualizacion'){
             // console.log('REGS: ');
             // console.log(this.Selected_REGS);
             data['REGS'] = this.Selected_REGS;
@@ -901,7 +905,7 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }else if(this.modalClick=='mmus2022'){
+          }else if(this.modalClick=='mmus2022'){
             console.log("datos");
             data['registros'] = this.mmus2020_regs; // Datos de registros 
             // *Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*
@@ -921,19 +925,17 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }
-           else{
+          }else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
-
               console.log(response.data),
-             this.spinnerVisible=false,
-             $('#Registro17gemas').modal('hide'),
-             this.Guardado=true
-               )).catch((err) => {
-                  this.Errores[0].Visible;
+              this.spinnerVisible=false,
+              $('#Registro17gemas').modal('hide'),
+              this.Guardado=true
+            )).catch((err) => {
+                this.Errores[0].Visible;
             })
-           }
+          }
 
         }
       },
@@ -965,7 +967,7 @@
       checarInscripcionMmus2022: function(){
         // mmus2020_select
         axios.post(this.url + 'ChecarMmus2022',{"courses": this.mmus2020_select}).then(response => {
-          console.log(response.data.data),
+          // console.log(response.data.data),
           this.mmus2020_select = response.data.data,
           this.mmus2020_complete = response.data.flag
         }).catch((err) => {
@@ -1025,7 +1027,7 @@
         axios.post(this.url + 'ChecarUnirutaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             // console.log("Uniruta: " + response.data);
-            this.InscritoUniruta = response.data;
+            this.InscritoUnirutaCp = response.data;
           }).catch((err) => {
             console.log(err.response.data);
           })

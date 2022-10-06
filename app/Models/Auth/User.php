@@ -635,7 +635,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'sent',
             'sent_at',
             'paid',
-            'paid_at'
+            'paid_at',
+            'invoice_data'
         );
     }
 

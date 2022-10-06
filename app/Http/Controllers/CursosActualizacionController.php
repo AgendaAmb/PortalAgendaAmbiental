@@ -7,6 +7,7 @@ use App\Http\Requests\SendReceiptRequest;
 use App\Http\Requests\UpdateLunchRequest;
 use App\Http\Requests\UpdatePaidStatusRequest;
 use App\Mail\SendReceipt;
+use App\Mail\SendReceiptCP;
 use App\Mail\SendFactura;
 use App\Mail\SendCAReceipt;
 use App\Models\Auth\Extern;
@@ -74,6 +75,8 @@ class CursosActualizacionController extends Controller
             // ! UNIRODADA MMUS 2022 
             if($ws->id == 36){
                 Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
+            }if ($ws->id == 39) { 
+                Mail::mailer('smtp_uniruta')->to($user->email)->send(new SendReceiptCP($request->file('file')->get()));
             }else{
                 // ! CURSOS DE ACTUALIZACIÓN
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));

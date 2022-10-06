@@ -31,9 +31,8 @@
 <b-container id="panel" class="p-0" fluid>
   <b-row class="h-100" :no-gutters=true>
     <b-col class="bg-white" lg="2" md="2" sm="12" cols="12" order-lg="1" order-md="1" order-sm="3" order="3">
-      <div class="h-100 m-1">
+      <div class="h-100 m-2">
         <div class="accordion" role="tablist">
-
           <b-card no-body class="_card rounded-0">
             <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-1>MIS EVENTOS REGISTRADOS</b-button>
@@ -74,7 +73,7 @@
     </b-col>
 
     <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
-      <div class="h-fluid border">
+      <div class="h-fluid my-2 border">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
             <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white;"><h6 class="px-2 py-2 m-0">PANEL DE REGISTRO</h6></div> 
@@ -95,57 +94,24 @@
             >
             <b-card
               :img-src=ws.imgsrc
-              img-height="200"
-              img-width="200"
-              class="text-center position-relative mx-2 my-3 border-0"
+              style="max-width: 200px;"
+              class="text-center position-relative mx-1 my-2 p-1 border-0 _card"
               img-alt="evento.png"
               img-top
               no-body
+              header-bg-variant="white"
+              header-border-variant="white"
               @click="openRegisterModal(ws)"
             >
-              <template #header>
-                <div
-                class="my-1">
-                <h6 class="mb-0" style="color: #115089;"><b>{{ws.start_date}}</b></h6>
-                <h6 class="mt-1">{{ws.name}}</h6>
+              <template class="_card-header" #header>
+                <div>
+                  <h6 class="mb-0">{{ws.start_date}}</h6>
+                  <h6 class="mt-1">{{ws.name}}</h6>
                 </div>
               </template>
             </b-card>
           </b-col>
 @endverbatim
-          {{-- <b-col cols="12" order="4">
-            <div class="h-fluid text-left mx-0 my-0" style="background: #f7f7f7; color: #115089"><h6 class="px-2 py-2 m-0">ENTRADA LIBRE</h6></div> 
-          </b-col>
-@verbatim
-          <b-col 
-            order="5"
-            xl="2" 
-            lg="3" 
-            md="4" 
-            sm="6" 
-            cols="6" 
-            v-for="ws in noreg_workshops" 
-            v-bind:key="ws.id"
-            >
-            <b-card
-              :img-src=ws.imgsrc
-              img-height="200"
-              img-width="200"
-              class="text-center position-relative mx-2 my-3 border-0"
-              img-alt="evento.png"
-              img-top
-              no-body
-            >
-              <template #header>
-                <div
-                class="my-1">
-                <h6 class="mb-0" style="color: #115089;"><b>{{ws.start_date}}</b></h6>
-                <h6 class="mt-1">{{ws.name}}</h6>
-                </div>
-              </template>
-            </b-card>
-          </b-col>
-@endverbatim --}}
           <b-col cols="12" order="6">
             <b-carousel
               id="carousel-fade"
@@ -208,8 +174,13 @@
   </b-row>
 </b-container>
 
-@include("auth.20Aniversario.Modales.unirodada")
-@include("auth.20Aniversario.Modales.encuesta")
+{{-- Modales interfaces vieja --}}
+{{-- @include("RegistroModales.Unitrueque")
+@include("RegistroModales.CursosActualizacion")
+@include("RegistroModales.Reutronic")
+@include("RegistroModales.UnirutaCP") --}}
+
+@include("auth.Dashbord.modales.modal_unitrueque")
 
 @endsection
 

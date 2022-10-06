@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import {BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
+Vue.use(VueToast);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
@@ -34,46 +37,47 @@ new Vue({
         interested:null,
         confirm:'',
         selected: null,
+        academicData: {name: null},
         // * FORMS
-        egresado_form: {posgrado: 'null', gen:'', ocupacion: '', sector:'null', nombre_empleador:'', tel_empleador:'', email_empleador:'', comentarios:''}
+        unitrueque_data:{material:'', unidad:1, isMobiliario:null, empresa:''},
+        estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''}
     },
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
+        console.log(this.user);
     },
     computed: {
-      emptyName() {
-        return this.contact_name.length > 0;
-      },
-      emptyTel() {
-        return this.contact_tel.length > 0;
-      },
-      emptyHC() {
-        return this.health_condition != null;
-      },
-      emptyInterested() {
-        return this.interested != null;
-      },
-      emptyConfirm() {
-        return this.confirm == true;
-      },
-      spinning() {
-        return this.spinner;
-      },
-    // Validaciones de formulario   
-      valSpinner(){
-        return !(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm)
-      }
+        emptyName() {
+            return this.contact_name.length > 0;
+        },
+        emptyTel() {
+            return this.contact_tel.length > 0;
+        },
+        emptyHC() {
+            return this.health_condition != null;
+        },
+        emptyInterested() {
+            return this.interested != null;
+        },
+        emptyConfirm() {
+            return this.confirm == true;
+        },
+        spinning() {
+            return this.spinner;
+        },
+        // Validaciones de formulario   
+        valSpinner(){
+            return !(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm)
+        }
     },
     methods: {
-        makeToast(append = false) {
-            console.log("hola");
-            this.toastCount++;
-            this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
-            title: 'BootstrapVue Toast',
-            autoHideDelay: 5000,
-            appendToast: append
-            })
+        showToast(message, type){
+            Vue.$toast.open({
+                message: message,
+                type: type,
+                position: 'top-right'
+            });
         },
         countDownChanged(dismissCountDown) {
             this.dismissCountDown = dismissCountDown
@@ -102,10 +106,16 @@ new Vue({
         // Inicializador de modales de registro
         openRegisterModal:function(ws){
             let SPECIAL_UNIRODADA_EVENT = 23;
+            let UNITRUEQUE = 10;
+            let CURSOS_DE_ACTUALIZACION = [16,17,18];
+            let UNIRUTA_CP = 39;
+
             try{
                 if(!ws.registered){
                     if(ws.id == SPECIAL_UNIRODADA_EVENT){
-                        this.showModal(ws)
+                        this.showModal(ws,modal-unitrueque)
+                    }if(ws.id == UNITRUEQUE){
+                        this.showModal(ws,'modal-unitrueque')
                     }else{
                         this.showRegisterMsgBox(ws);
                     }
@@ -165,8 +175,8 @@ new Vue({
             let headers = {
                 'Content-Type': 'application/json;charset=utf-8'
             };
-            var data = {
-       	        "ws_id": ws.id,
+            let data = {
+                "ws_id": ws.id,
                 "ws_name": ws.name
             };
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
@@ -241,29 +251,10 @@ new Vue({
                 console.log(err.data);
             })
         },
-        //* Registro de egresados
-        registerEgresados:function(){
-
-            // console.log(this.egresado_form);
-            // return true;
-            
-            // Spinning button
-            this.spinner = true;
-            let headers = {
-                'Content-Type': 'application/json;charset=utf-8'
-            };
-            axios.post(this.url+'EgresadoData', this.egresado_form).then(response => (
-                console.log(response.data),
-                this.spinner = false,
-                this.$bvModal.hide('modal-register')
-            )).catch((err) => {
-                console.log(err.data);
-            })
-        },
-        showModal:function(ws) {
+        showModal:function(ws, modal_name ) {
             // Selected workshop
             this.selected = ws;
-            this.$root.$emit('bv::show::modal', 'modal-unirodada', '#btnShow')
+            this.$root.$emit('bv::show::modal', modal_name, '#btnShow')
         },
         onSubmit:function() {
             if(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm){

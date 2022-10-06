@@ -1016,7 +1016,7 @@ class WorkshopController extends Controller
             $user->workshops()->detach($workshops);
             
             # Busca el curso por su nombre.
-            $workshop_model = Workshop::firstWhere('name', 'Uniruta en Sierra Álvarez');
+            $workshop_model = Workshop::firstWhere('name', 'Uniruta Cerro de San Pedro');
 
             $this->uniruta_controller->registerUser($request, $user, $workshop_model);
 
@@ -1045,12 +1045,8 @@ class WorkshopController extends Controller
             ->orWherePivot('assisted_to_workshop', false)
             ->get();
 
-        # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
-        if ($workshops->count() > 0) {
-            Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
-            Log::info('Al usuario: ' . $user->email);
-        }
+        Mail::to($user)->send(new RegisteredWorkshops($workshop_model, public_path('attachments/carta_responsiva_uniruta.pdf')));
 
         //4. si todo sale bien regresamo un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
@@ -1060,7 +1056,7 @@ class WorkshopController extends Controller
     { //Esta inscrito?
         //return response()->json($request, JsonResponse::HTTP_OK);
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 15) // 15 - Uniruta sierra de alvarez
+        ->where('workshop_id', 39) // 39 - Uniruta cerro de san pedro
         ->where('user_id', $request->Clave)
         ->get();
 

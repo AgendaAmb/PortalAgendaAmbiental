@@ -35,9 +35,27 @@
 
     </template>
     
-   <div>
+  <div>
     <b-form @submit.stop.prevent>
-      <h5 class="modal-title3">Contacto de emergencia</h5>
+      <h5 class="modal-title3">Datos de academicos</h5>
+
+      <b-form-group :state="emptyName" id="input-group-1" label="Nivel académico:" label-for="input-0">
+        <b-form-select v-model="user.academic_degree" class="mb-3">
+          <b-form-select-option :value="null">Please select an option</b-form-select-option>
+          <b-form-select-option value="Bachillerato">Bachillerato</b-form-select-option>
+          <b-form-select-option value="Licenciatura">Licenciatura</b-form-select-option>
+          <b-form-select-option value="Bachillerato">Maestria</b-form-select-option>
+          <b-form-select-option value="Licenciatura">Doctorado</b-form-select-option>
+          <b-form-select-option value="Bachillerato">Especialidad</b-form-select-option>
+          <b-form-select-option value="Licenciatura">Doctorado</b-form-select-option>
+          <b-form-select-option value="Licenciatura">Postdoctorado</b-form-select-option>
+        </b-form-select>
+        <b-form-invalid-feedback :state="emptyName">
+          El nombre contacto no puede estar vacío.
+        </b-form-invalid-feedback>
+      </b-form-group>
+
+      <h5 class="modal-title3">Datos de academicos</h5>
 
       <b-form-group :state="emptyName" id="input-group-1" label="Nombre del contacto:" label-for="input-1">
         <b-form-input

@@ -10,7 +10,12 @@ $text-fw: 14px;
 }
 
 ._card{
+    border: #115089 1px solid;
     border-radius: 0% !important;
+}
+
+._card:hover{
+    cursor: pointer;
 }
 
 ._card-button {

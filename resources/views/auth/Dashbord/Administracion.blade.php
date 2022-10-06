@@ -208,13 +208,11 @@
 
 
                         <th class="text-center ">
-                            @if($user->workshops[0]->pivot->invoice_data)
-
+                            @if($user->workshops[0]->pivot->invoice_data == 1)
                             <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i
                                     class="fas fa-eye text-primary " style="font-size: 25px;"
                                     @click="cargarDatosFacturacion({{$user}})"></i>
                             </a>
-
                             @else
                             no
                             @endif
@@ -499,7 +497,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
-                                    <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
+                                    <label for="CursosInscritos">Comprobante de pago</label> <br>
                                     <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
                                             class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
                                 </div>
@@ -661,7 +659,6 @@
   mounted: function () {
     this.$nextTick(function () {
     @foreach($users as $user)
-        // console.log(users['{{ $loop->index }}'].invoice_data);
         this.users.push({
             "id":'{{$user->id}}',
             "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
@@ -679,6 +676,7 @@
             "lunch":"{{$user->lunch}}"
         });
     @endforeach
+    console.log(this.users);
     $(document).ready(function() {
   $('#summernote').summernote();
 });
@@ -738,25 +736,19 @@
 
 
         axios({
-                 method: 'post',
-                 url: '/actualizaLunchUsuario',
-                 data: formData,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
-             }).then(
-                     res => {
-                         console.log("Exito")
-                         this.lunchRegister=true
-                         this.lunch='';
-
-                     }
-                 ).catch(
-                     err => {
-                        console.log("Falso")
-
-                     }
-                 )
+            method: 'post',
+            url: '/actualizaLunchUsuario',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(res => {
+            console.log("Exito")
+            this.lunchRegister=true
+            this.lunch='';
+        }).catch(err => {
+            console.log("Falso")
+        })
 
 
     },
@@ -784,7 +776,7 @@
         console.log(this.DatosFacturacion[0].invoice_data)
     },
     MandarPagoUnirodada:function(){
-        // console.log("hola");
+        console.log("hola");
         this.spinnerVisible=true;
         // Los datos necesitan ser enviados con form data
         var formData = new FormData();
@@ -814,6 +806,7 @@
         )
     },
     MandarFacturaPago:function(user, ws_id){
+        console.log("enviar datos");
         // Los datos necesitan ser enviados con form data
         var formData = new FormData();
         formData.append("idUser", this.user[0].id);
@@ -833,7 +826,7 @@
                 this.asistenciaExito=true
         }).catch(
             err => {
-            console.log("Error al enviar datos"),
+            console.log(err),
             this.spinnerVisible=false,
                 this.asistenciaExito=false
 

@@ -4620,7 +4620,12 @@ readers do not read off random characters that represent icons */
 }
 
 ._card {
+  border: #115089 1px solid;
   border-radius: 0% !important;
+}
+
+._card:hover {
+  cursor: pointer;
 }
 
 ._card-button {
