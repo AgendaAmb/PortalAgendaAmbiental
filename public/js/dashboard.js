@@ -61016,13 +61016,23 @@ var app = new Vue({
     },
     // Inicializador de modales de registro
     openRegisterModal: function openRegisterModal(ws) {
-      // * Curso seleccionado, para cargar la configuración del modal
+      var SPECIAL_UNIRODADA_EVENT = 23;
+      var UNITRUEQUE = 10;
+      var CURSOS_DE_ACTUALIZACION = [16, 17, 18];
+      var UNIRUTA_CP = 39; // * Curso seleccionado, para cargar la configuración del modal
+
       this.selected = ws;
 
       try {
         if (!ws.registered) {
-          if (ws.type == 'uniruta') {
+          if (ws.id == SPECIAL_UNIRODADA_EVENT) {
             this.showModal(ws, modal - unitrueque);
+          }
+
+          if (ws.id == UNITRUEQUE) {
+            this.showModal(ws, 'modal-template');
+          } else {
+            this.showRegisterMsgBox(ws);
           }
         } else {
           this.showRegisteredMsgBox(ws);
