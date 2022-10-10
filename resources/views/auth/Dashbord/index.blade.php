@@ -50,14 +50,12 @@
           </div>
           @endif
 
-          @if(Auth::user()->id == '291395')
           {{-- UnirutaCP --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#unirutacp" @click="AbrirModal('unirutacp')">
-              <img src="{{ asset('/storage/imagenes/Uniruta/B_Registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+              <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroCerroSP.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-          @endif
           
         </div>
         <div class="row  ">
@@ -275,6 +273,8 @@
   },
   mounted:function () {
   this.$nextTick(function () {
+    console.log("<");
+    console.log('{{$nombreModal}}');
     // console.log(this.mmus2020_regs);
     // Initial team
     this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
@@ -443,6 +443,7 @@
       '{{$nombreModal}}'=='UnirutaSierraAlvarez'?this.levantaModal('UnirutaSierraAlvarez'):''
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='mmus'?this.levantaModal('reutronic'):''
+      '{{$nombreModal}}'=='unirutacp'?this.levantaModal('unirutacp'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -463,6 +464,7 @@
         this.checarInscripcionMinirodada();
         this.checarRodadaMmus();
         this.checarCompetencias();
+        this.checarInscripcionUniruta();
 
         $('#' + data).modal('show')
 

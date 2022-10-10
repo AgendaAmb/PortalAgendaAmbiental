@@ -1,14 +1,27 @@
-import Vue from 'vue';
 import {BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import ModalTemplate from './components/ModalTemplate.vue';
+import UnitruequeSection from './components/UnitruequeSection.vue';
+import ReutronicSection from './components/ReutronicSection.vue';
+import CursosActualizacionSection from './components/CursosActualizacionSection.vue';
+import UnirutaSection from './components/UnirutaSection.vue';
+
+window.Vue = require('vue').default
 
 Vue.use(VueToast);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
-new Vue({
+const app = new Vue({
     el: '#app',
+    components: {
+        ModalTemplate: ModalTemplate,
+        UnitruequeSection: UnitruequeSection,
+        ReutronicSection: ReutronicSection,
+        CursosActualizacionSection: CursosActualizacionSection,
+        UnirutaSection: UnirutaSection
+    },
     data: {
         // UI
         user: user,
@@ -39,13 +52,17 @@ new Vue({
         selected: null,
         academicData: {name: null},
         // * FORMS
+        invoice_data:{required:null, name:'', addr:'', rfc:'', email:'', tel:''},
         unitrueque_data:{material:'', unidad:1, isMobiliario:null, empresa:''},
-        estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''}
+        reutronic_data:{prev: null,material:'', specs:'', reason:''},
+        estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
+        cursos_actualizacion_data: null,
+        uniruta_data:{health_condition: null, contact_name: '', contact_tel:''}
     },
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
-        console.log(this.user);
+        // console.log(this.user);
     },
     computed: {
         emptyName() {
@@ -110,12 +127,15 @@ new Vue({
             let CURSOS_DE_ACTUALIZACION = [16,17,18];
             let UNIRUTA_CP = 39;
 
+            // * Curso seleccionado, para cargar la configuración del modal
+            this.selected = ws;
+
             try{
                 if(!ws.registered){
                     if(ws.id == SPECIAL_UNIRODADA_EVENT){
                         this.showModal(ws,modal-unitrueque)
                     }if(ws.id == UNITRUEQUE){
-                        this.showModal(ws,'modal-unitrueque')
+                        this.showModal(ws,'modal-template')
                     }else{
                         this.showRegisterMsgBox(ws);
                     }
@@ -253,7 +273,6 @@ new Vue({
         },
         showModal:function(ws, modal_name ) {
             // Selected workshop
-            this.selected = ws;
             this.$root.$emit('bv::show::modal', modal_name, '#btnShow')
         },
         onSubmit:function() {

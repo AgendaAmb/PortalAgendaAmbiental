@@ -7,6 +7,7 @@
   const ejes = @json($ejes);
   const user = @json($user);
 
+  console.log(workshops);
 
   // Additional data
   // const url = '{{env('APP_URL')}}'
@@ -174,13 +175,24 @@
   </b-row>
 </b-container>
 
-{{-- Modales interfaces vieja --}}
-{{-- @include("RegistroModales.Unitrueque")
-@include("RegistroModales.CursosActualizacion")
-@include("RegistroModales.Reutronic")
-@include("RegistroModales.UnirutaCP") --}}
-
-@include("auth.Dashbord.modales.modal_unitrueque")
+@verbatim
+<modal-template 
+  v-bind:ws="selected" 
+  v-bind:estadistic_data="estadistic_data" 
+  v-bind:user="user" 
+  v-bind:invoice_data="invoice_data"
+  >
+  <template #event-form-data>
+    <unitrueque-section v-bind:unitrueque_data="unitrueque_data"></unitrueque-section>
+    <hr>
+    <reutronic-section v-bind:reutronic_data="reutronic_data"></reutronic-section>
+    <hr>
+    <cursos-actualizacion-section v-bind:cursos_actualizacion_data="cursos_actualizacion_data" ></cursos-actualizacion-section>
+    <hr>
+    <uniruta-section v-bind:uniruta_data="uniruta_data"></uniruta-section>
+  </template>
+</modal-template>
+@endverbatim
 
 @endsection
 
