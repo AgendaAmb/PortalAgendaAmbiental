@@ -35,11 +35,11 @@
         <div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a data-toggle="modal" data-target="#UnirutaCerroSanPedro">
+              <a href={{route('Uniruta')}}>
                 <img src="{{ asset('/storage/imagenes/Uniruta/B1_UnirutaCerroSP.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a data-toggle="modal" data-target="#UnirutaCerroSanPedro">
+              <a href={{route('mmus2022')}}>
                 <img src="{{ asset('/storage/imagenes/Uniruta/B2_UnirutaCerroSP.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
@@ -168,7 +168,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
-              <a data-toggle="modal" data-target="#UnirutaCerroSanPedro">
+              <a href={{route('mmus2022')}}>
                 <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroCerroSP.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
               </a>
