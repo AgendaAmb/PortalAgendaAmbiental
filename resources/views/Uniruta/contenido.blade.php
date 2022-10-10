@@ -108,7 +108,7 @@
                                         <p>Domingo 5 de junio de 2022</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Horario:</h4>
-                                        <p>7:00 a 13:30 horas</p>
+                                        <p>7:45 a 13:30 horas</p>
                                         <br>
                                         <h4 style="color: #5c94d7;">Objetivo:</h4>
                                         <p>Realizar una ruta de senderismo de iniciación que permita conocer, valorar y respetar los ecosistemas que se encuentran en la Sierra de Álvarez; así como fomentar la salud y el bienestar a través del deporte y la sana convivencia.</p>

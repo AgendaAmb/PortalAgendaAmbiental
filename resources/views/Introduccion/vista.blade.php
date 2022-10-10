@@ -168,7 +168,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
-              <a href={{route('mmus2022')}}>
+              <a href={{route('Uniruta')}}>
                 <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroCerroSP.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
               </a>
