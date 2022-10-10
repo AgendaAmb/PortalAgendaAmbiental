@@ -168,10 +168,24 @@ $months[] = $date;
     <div class="tab-pane fade show" id="noviembre3" role="tabpanel" aria-labelledby="noviembre3-tab">
     </div>
     <div class="tab-pane fade show" id="octubre3" role="tabpanel" aria-labelledby="octubre3-tab">
-        <div id="carouselJulio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+        <div id="carouselOctubre3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{ route('ConsumoResponsable') }}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/BannerECR_1.png')}}"
+                                    class="imgCaoursel  p-0 " alt="First slide">
+                            </a>
+                            <a href={{ route('ConsumoResponsable') }}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/Banner_oct-2022.png')}}"
+                                    class="imgCaoursel p-0 " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
                             <a href={{route('Uniruta',['nombreModal'=> 'UnirutaCerroSanPedro'])}}>
@@ -186,13 +200,31 @@ $months[] = $date;
                     </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" type="button" data-target="#carouselOctubre3" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 50px; height:50px;"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+              <a class="carousel-control-next" type="button" data-target="#carouselOctubre3" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 50px; height:50px;"></span>
+                <span class="sr-only">Next</span>
+              </a>
         </div>
-        <div id="carouselJulio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
+        <div id="carouselOctubre3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
-                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaCerroSanPedro'])}}>
+                            <a href={{ route('ConsumoResponsable') }}>
+                                <img src="{{ asset('storage/imagenes/ConsumoResponsable/BannerECR_1.png')}}"
+                                    class="imgCaoursel  w-100 p-0" alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Cursos')}}>
                                 <img src="{{ asset('storage/imagenes/Uniruta/B1_UnirutaCerroSP.png')}}"
                                     class="imgCaoursel w-100 p-0" alt="First slide">
                             </a>
@@ -200,80 +232,57 @@ $months[] = $date;
                     </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" type="button" data-target="#carouselOctubre3R" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 25px; height:25px;"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+              <a class="carousel-control-next" type="button" data-target="#carouselOctubre3R" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 25px; height:25px;"></span>
+                <span class="sr-only">Next</span>
+              </a>
         </div>
     </div>
     <div class="tab-pane fade show" id="septiembre3" role="tabpanel" aria-labelledby="septiembre3-tab">
-                <div id="carouselJulio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
-            data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="carouselJulio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel w-100 p-0" alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="tab-pane fade show  " id="agosto3" role="tabpanel" aria-labelledby="agosto3-tab">
-        <div id="carouselJulio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
-            data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="carouselJulio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel w-100 p-0" alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="tab-pane fade show  " id="julio3" role="tabpanel" aria-labelledby="julio3-tab">
         <div id="carouselJulio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
+            data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Cursos')}}>
+                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                            <a href={{route('Cursos')}}>
+                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
+                                    class="imgCaoursel " alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="carouselJulio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class=" d-lg-block d-md-block">
+                        <div class="slide-box">
+                            <a href={{route('Cursos')}}>
+                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
+                                    class="imgCaoursel w-100 p-0" alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show active " id="junio3" role="tabpanel" aria-labelledby="junio3-tab">
+        <div id="carouselJunio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
             data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -304,21 +313,6 @@ $months[] = $date;
                         </div>
                     </div>
                 </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <a class="carousel-control-prev" type="button" data-target="#carouselJunio3" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 50px; height:50px;"></span>
@@ -329,7 +323,7 @@ $months[] = $date;
                 <span class="sr-only">Next</span>
               </a>
         </div>
-        <div id="carouselJulio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
+        <div id="carouselJunio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class=" d-lg-block d-md-block">
@@ -341,76 +335,7 @@ $months[] = $date;
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel w-100 p-0" alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade show active " id="junio3" role="tabpanel" aria-labelledby="junio3-tab">
-        <div id="carouselJunio3" class="carousel slide d-none d-xl-block d-lg-block d-md-none d-sm-block"
-            data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                                <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                                <img src="{{ asset('storage/imagenes/Uniruta/B2_Uniruta.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                            <a href={{route('Cursos')}}>
-                                <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}"
-                                    class="imgCaoursel " alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <a class="carousel-control-prev" type="button" data-target="#carouselJunio3" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 50px; height:50px;"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-              <a class="carousel-control-next" type="button" data-target="#carouselMayo3" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 50px; height:50px;"></span>
-                <span class="sr-only">Next</span>
-              </a>
-        </div>
-        <div id="carouselJunio3R" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active ">
-                    <div class=" d-lg-block d-md-block">
-                        <div class="slide-box">
-                            <a href={{route('Uniruta',['nombreModal'=> 'UnirutaSierraAlvarez'])}}>
-                                <img src="{{ asset('storage/imagenes/Uniruta/B1_Uniruta.png')}}"
-                                    class="imgCaoursel w-100 p-0" alt="First slide">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                    <div class="carousel-item ">
+                <div class="carousel-item ">
                     <div class=" d-lg-block d-md-block">
                         <div class="slide-box">
                             <a href={{route('Cursos')}}>
