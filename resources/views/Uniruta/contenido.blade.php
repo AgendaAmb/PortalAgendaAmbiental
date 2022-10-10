@@ -14,7 +14,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/Uniruta/BI_UnirutaCerroSP.png')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
@@ -22,8 +22,8 @@
 
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-around">
-            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#UnirutaSierraAlvarez" role="tab"
-                aria-controls="nav-home" aria-selected="true"> Uniruta en Sierra de Álvarez</a>    
+            <a class="nav-link w-100 p-1 m-0" data-toggle="modal" data-target="#UnirutaCerroSanPedro" role="tab"
+                aria-controls="nav-home" aria-selected="true"> Uniruta Cerro de San Pedro</a>
         </div>
     </div>
 
@@ -166,7 +166,7 @@
         </div>
     </div>
 
-<!--<div class="modal fade" id="Foro" tabindex="-1" role="dialog"
+    <div class="modal fade" id="UnirutaCerroSanPedro" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -180,19 +180,19 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                                <img src="{{asset('storage/imagenes/Unibici/Cartel_Foro Movilidad.png')}}" class="img-fluid" alt="">
+                                <img src="{{asset('storage/imagenes/Uniruta/Cartel_UnirutaCerroSP.png')}}" class="img-fluid" alt="">
                             </div>
                         </div>
                         <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
-                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                <a href={{route('Bienvenida',['nombreModal'=> 'Foro'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href={{route('Bienvenida',['nombreModal'=> 'UnirutaSierraAlvarez'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
-                            </div>   
+                            </div>-->
                             <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                <a href="{{asset('storage/imagenes/Unibici/Cartel_Foro Movilidad.png')}}"
+                                <a href="{{asset('storage/imagenes/Uniruta/Cartel_UnirutaCerroSP.png')}}"
                                     class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                    download="Cartel_Foro Movilidad.png">CARTEL</a>
+                                    download="Cartel_UnirodadaRios.png">CARTEL</a>
                             </div>
 
                         </div>
@@ -200,49 +200,68 @@
                             <div class="col-10"
                                 style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
                                 <br><br>
-                                <h4>Foro Sistema de Movilidad Urbana</h4><br><br>
                                 <div class="elementor-text-editor elementor-clearfix">
                                     <div style="font-size: 14px; font-family: 'Myraid light';">
-                                        <p align="center">Con actores clave y expertos para integrar los ejes estratégicos del sistema de movilidad urbana<br><br></p>
-                                        <p>Iniciativa de Ley:<br> Hacia una movilidad inteligente, segura y conectada.<br>Estrategia interdisciplinaria, tansversal y holística</p>
-                                        <p>Trabajo de Investigación a cargo de Miguel Ángel Hernández Torres, alumno de la primera generación de IMaREC.</p>
-                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
-                                        <p>Actores clave y expertos en movilidad urbana.<br>* Interesados sin invitación favor de enviar correo con justificación de participación.</p><br>
-                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
-                                        <p>Integrar el Título IV: Ejes Estratégicos de la iniciativa de Ley.<br>"Sistema de Movilidad urbana Sostenible para el Estado de San Luis Potosí"<br>Trabajo de Investigación a cargo de Miguel Ángel Hernández Torres alumno de la primera generación de IMaREC.</p>
-                                        <p>Ejes Estratégicos:
-                                            <ul>
-                                                <li>Educación Ambiental e Intervención Social</li>
-                                                <li>Seguridad e Infraestructura Vial</li>
-                                                <li>Protección de Personas con Discapacidad, Adultos Mayores, Mujeres y Niños</li>
-                                                <li>Protección y cuidado de los animales</li>
-                                                <li>Conectividad y Calidad del Transporte Público</li>
-                                                <li>Ordenamiento Territorial y Movilidad Sostenible</li>
-                                                <li>Calidad del Aire y Eficiencia Energética</li>
-                                                <li>Movilidad Inteligente y aplicaciones Tecnológicas</li>
-                                            </ul>
+                                        <p align="center">En el marco del Día Internacional para la Protección de la Naturaleza, <br>la Agenda Ambiental, la División de Desarrollo Humano y Unisalud de Servicios Estudiantiles a través del Programa Uniruta invita a su evento de senderismo:</p><br>
+                                        <h3 align="center">Uniruta en Cerro de San Pedro</h3><br><br>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Dirigido a:</h4>
+                                        <p>Comunidad universitaria y público en general</p><br>
+                                        <h4 style="color: #5c94d7;">Punto de salida y llegada:</h4>
+                                        <p>Estacionamiento de Cerro de San Pedro (C. Juárez s/n, C.P. 78440. Cerro de San Pedro, S.L.P.)<br><br>* El estacionamiento de Cerro de San Pedro cuenta con una cuota de acceso para vehículo automotor.</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Distancia:</h4>
+                                        <p>5 km de caminata en Cerro de San Pedro</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Dificultad:</h4>
+                                        <p>Moderada</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Fecha:</h4>
+                                        <p>Sábado 22 de octubre de 2022</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Horario:</h4>
+                                        <p>7:00 a 14:00 horas</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Objetivo:</h4>
+                                        <p>Realizar una ruta de senderismo de iniciación que permita conocer, valorar y respetar los ecosistemas que se encuentran en el Cerro de San Pedro; así como fomentar la salud y el bienestar a través del deporte y la sana convivencia.</p>
+                                        <br>
+                                        <p align="center">CUPO LIMITADO</p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Requisitos y consideraciones:</h4>
+                                        <p><ol>
+                                            <li>Llenar el formato de registro en línea</li>
+                                            <li>Cooperación sugerida para lonche: $90.00 (comida de la región)</li>
+                                            <li>Contar con excelente actitud</li>
+                                            <li>Contar con buen estado de salud, alergias, asma, etc. para llevar a cabo la actividad</li>
+                                            <li>Considerar el tiempo prolongado de exposición al sol</li>
+                                            <li>Considerar alguna lesión que impida el libre desplazamiento</li>
+                                        </ol></p>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Equipamiento sugerido:</h4>
+                                        <p><ul>
+                                            <li>Mochila de ataque (pequeña, 20-30 litro de capacidad)</li>
+                                            <li>Sudadera y/o rompevientos y/o impermeable</li>
+                                            <li>Calzado deportivo cómodo o botas de campismo</li>
+                                            <li>Gorra o sombrero</li>
+                                            <li>Bloqueador y lentes de sol</li>
+                                            <li>Bastón de senderismo</li>
+                                            <li>Medicamentos básico<br>* Uniruta lleva kit básico de primeros auxilios</li>
+                                        </ul></p>
+                                        <br>
+                                        <br>
+                                        <h4 style="color: #5c94d7;">Registro:</h4>
+                                        <p>Pasos para registro de participantes:
+                                            <ol>
+                                                <li>Realiza tu registro personal en la plataforma de Agenda Ambiental</li>
+                                                <li><a href="https://ambiental.uaslp.mx/login?Nuevo=0">Inicia sesión con la cuenta</a> que registraste</li>
+                                                <li>Llena correctamente el formulario de registro en línea que se encuentra como botón en esta página emergente</li>
+                                                <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO</li>
+                                                <li>Se te enviará un correo en un lapso de 48 horas con las indicaciones para dar continuidad al registro</li>
+                                            </ol>
                                         </p>
-                                        <br>
-                                        <h3 style="color: #5c94d7;">Objetivos específicos</h3>
-                                        <p>
-                                            <ul>
-                                                <li>Fomentar la movilidad urbana sostenible a través de una iniciativa de Ley que promueva la integración del Sistema de Movilidad Urbana Sostenible en el Estado de SLP.</li>
-                                                <li>Aportar el conocimiento y experiencia de actores clave y expertos en movilidad urbana en los ejes estratégicos de su competencia.</li>
-                                                <li>Actualizar la normatividad en materia de movilidad urbana a través de la iniciativa de Ley del Sistema de Movilidad Urbana Sostenible para el  Estado de SLP.</li>
-                                                <li>Contribuir a la gestión ambiental en materia de movilidad urbana sostenible.</li>
-                                                <li>Mantener un espacio de intercambio académico con diferentes actores que aporten percepciones y puntos de vista informados que nutran y generen conocimiento.</li>
-                                            </ul>
-                                        </p>
-                                        <br>
-                                        <h3 style="color: #5c94d7;">Lugar</h3>
-                                        <p>Instalaciones de la Agenda Ambiental y plataforma Teams.</p>
-                                        <br>
-                                        <h3 style="color: #5c94d7;">Fechas</h3>
-                                        <p>31 de mayo, 1, 2 y 3 de junio de 2022.</p>
-                                        <br>
-                                        <br>
-                                        <h3 style="color: #5c94d7;">Informes</h3>
-                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                        <br><br>
+                                        <h4 style="color: #5c94d7;">Informes</h4>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7957 y 7210<br><a href="mailto:juan.aportela@uaslp.mx">juan.aportela@uaslp.mx</a><br><a href="mailto:gestion.ambiental@uaslp.mx">gestion.ambiental@uaslp.mx</a></p>
                                     </div>
                                     <div class="col-md-1"></div>
                                 </div>
@@ -256,7 +275,7 @@
 
             </div>
         </div>
-    </div>-->    
+    </div>
     <script>
     console.log({{ $NombreM }});
     $('#{{$NombreM}}').modal('show')
