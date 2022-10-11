@@ -280,7 +280,7 @@
     $('#{{$NombreM}}').modal('show')
     // $('#UnirodadaRios').modal('show')
     </script>
-    @endsection-->
+    @endsection
     @push('stylesheets')
     <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">
     @endpush
