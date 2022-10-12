@@ -14,8 +14,8 @@
   // const url = 'https://ambiental.uaslp.mx/'
   const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
-  const user_type = '{{Auth::user()->type}}';
-  const base_img ='{{ asset('/storage/imagenes')}}' + "/";
+  
+  console.log(modal);
 </script>
 
 @extends('templates.base')
@@ -176,20 +176,18 @@
 </b-container>
 
 @verbatim
-<modal-template 
+<modal-template
+  v-if="selected != null"
   v-bind:ws="selected" 
   v-bind:estadistic_data="estadistic_data" 
   v-bind:user="user" 
   v-bind:invoice_data="invoice_data"
   >
   <template #event-form-data>
-    <unitrueque-section v-bind:unitrueque_data="unitrueque_data"></unitrueque-section>
-    <hr>
-    <reutronic-section v-bind:reutronic_data="reutronic_data"></reutronic-section>
-    <hr>
-    <cursos-actualizacion-section v-bind:cursos_actualizacion_data="cursos_actualizacion_data" ></cursos-actualizacion-section>
-    <hr>
-    <uniruta-section v-bind:uniruta_data="uniruta_data"></uniruta-section>
+    <unitrueque-section v-if="selected.type == 'unitrueque'" v-bind:unitrueque_data="unitrueque_data"></unitrueque-section>
+    <reutronic-section v-if="selected.type == 'reutronic'" v-bind:reutronic_data="reutronic_data"></reutronic-section>
+    <cursos-actualizacion-section v-if="selected.type == 'cursos_actualizacion'" v-bind:cursos_actualizacion_data="cursos_actualizacion_data" ></cursos-actualizacion-section>
+    <uniruta-section v-if="selected.type == 'uniruta'" v-bind:uniruta_data="uniruta_data"></uniruta-section>
   </template>
 </modal-template>
 @endverbatim

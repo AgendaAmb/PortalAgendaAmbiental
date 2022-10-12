@@ -23,6 +23,7 @@ use App\Models\UnirodadaUser;
 use App\Models\ReutronicUser;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 class WorkshopController extends Controller
 {
     /*
@@ -272,34 +273,35 @@ class WorkshopController extends Controller
     // TODO - Validar Fechas de registro
     public function WorkshopUserRegister(Request $request){
         
-        // TODO Es una validación muy sencilla por cuestiones de tiempo
+        // * Verificar workshop existente
         try{
             $request->validate([
-                'ws_id' => 'required|exists:workshops,id'
-            ], [
-                'ws_id.required' => 'Workshop_id not recognized',
-                'ws_id.exists' => 'Workshop_id doesnt exist',
+                'workshop_id' => ['required|exists:workshops,id', Rule::exists('staff')->where(function ($query) {
+                    $query->where('account_id', 1);
+                })]
             ]);
         }catch(\Exception $e){
-            return response()->json(['data' => "Request error"], JsonResponse::HTTP_OK);
+            return response()->json(['data' => "Request fields error"], JsonResponse::HTTP_OK);
+        }
+
+        // TODO Verificar limite de usuarios por registro
+
+        // * Verificar usuario registrado
+        try{
+            $already_registered = UserWorkshop::where('user_id', $request->user()->id)->where('workshop_id',$request->workshop_id)->first();
+            if($already_registered != null){
+                return response()->json(['data' => 'registered'], JsonResponse::HTTP_OK);
+            }
+        }catch(\Exception $e){
+            return response()->json(['data' => "Error validando datos"], JsonResponse::HTTP_OK);
         }
 
         try {
             # Usuario autenticado
             $user = $request->user();
-            $user_modules = $user->userModules->where('id',$request->ws_id);
-            
-            // Comprobar si ya se encuentra registrado el usuario
-            if(!$user_modules->isEmpty()){
-                return response()->json(['data' => "Registrado padrino"], JsonResponse::HTTP_OK);
-            }
-            # Busca el curso por su nombre.
-            $workshop_model = Workshop::firstWhere('id', $request->ws_id);
 
-            if(($workshop_model->id == 21 && UserWorkshop::where('workshop_id',21)->count() > 30) || 
-                $workshop_model->id == 20 && UserWorkshop::where('workshop_id', 21)->count() > 25){
-                return response()->json(['data' => "Limite de usuarios alcanzado"], JsonResponse::HTTP_OK);
-            }
+            # Busca el curso por su nombre.
+            $workshop_model = Workshop::firstWhere('id', $request->workshop_id);
 
             # Registra al usuario al workshop
             $user_workshop = UserWorkshop::create([

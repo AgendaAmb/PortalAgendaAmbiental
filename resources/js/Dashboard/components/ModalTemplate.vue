@@ -45,8 +45,8 @@
                 <hr>
                 <slot name="event-form-data"></slot>
                 <hr>
-                <invoicedata-section v-bind:invoice_data="invoice_data"></invoicedata-section>
-                <hr>
+                <invoicedata-section v-if="ws.payment_required == 1" v-bind:invoice_data="invoice_data"></invoicedata-section>
+                <hr v-if="ws.payment_required == 1">
                 <statistics-section v-bind:estadistic_data="estadistic_data"></statistics-section>
             </b-form>
         </div>
@@ -79,11 +79,10 @@ export default {
     methods: {
         onSubmit(){
             this.isRegistering = true;
-            this.$parent.showToast('Error al registrarte!', 'Error');
-            this.$parent.showToast('Te has registrado correctamente!', 'success');
-            this.isRegistering = false; 
-            this.$bvModal.hide('modal-template'); // Hide modal
-        }
+            this.$parent.registerEvent(this.$props.ws);
+            this.isRegistering = false;
+            this.$bvModal.hide('modal-template');
+        },
     }
 }
 </script>

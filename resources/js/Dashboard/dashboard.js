@@ -26,12 +26,7 @@ const app = new Vue({
         // UI
         user: user,
         spinner: false,
-        dismissSecs: 5,
-        dismissCountDown:0,
-        toastCount: 0,
         // Pass
-        src_img: base_img,
-        type: user_type,    //tipo del usario autentificado
         modal: modal,       //abrir modal de redirección
         url: url,           //url del app definida en el .env
         modules: modulos,
@@ -64,30 +59,6 @@ const app = new Vue({
         this.getToday();
         // console.log(this.user);
     },
-    computed: {
-        emptyName() {
-            return this.contact_name.length > 0;
-        },
-        emptyTel() {
-            return this.contact_tel.length > 0;
-        },
-        emptyHC() {
-            return this.health_condition != null;
-        },
-        emptyInterested() {
-            return this.interested != null;
-        },
-        emptyConfirm() {
-            return this.confirm == true;
-        },
-        spinning() {
-            return this.spinner;
-        },
-        // Validaciones de formulario   
-        valSpinner(){
-            return !(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm)
-        }
-    },
     methods: {
         showToast(message, type){
             Vue.$toast.open({
@@ -95,12 +66,6 @@ const app = new Vue({
                 type: type,
                 position: 'top-right'
             });
-        },
-        countDownChanged(dismissCountDown) {
-            this.dismissCountDown = dismissCountDown
-        },
-        showAlert() {
-            this.dismissCountDown = this.dismissSecs
         },
         getToday(){
             let today = new Date();
@@ -122,31 +87,20 @@ const app = new Vue({
         },
         // Inicializador de modales de registro
         openRegisterModal:function(ws){
-            let SPECIAL_UNIRODADA_EVENT = 23;
-            let UNITRUEQUE = 10;
-            let CURSOS_DE_ACTUALIZACION = [16,17,18];
-            let UNIRUTA_CP = 39;
-
             // * Curso seleccionado, para cargar la configuración del modal
             this.selected = ws;
-
             try{
                 if(!ws.registered){
-                    if(ws.id == SPECIAL_UNIRODADA_EVENT){
-                        this.showModal(ws,modal-unitrueque)
-                    }if(ws.id == UNITRUEQUE){
-                        this.showModal(ws,'modal-template')
-                    }else{
-                        this.showRegisterMsgBox(ws);
-                    }
+                    this.$root.$emit('bv::show::modal','modal-template','#btnShow');
                 }else{
                     this.showRegisteredMsgBox(ws);
                 }
             }catch (error){
+                this.showToast('Error al mostrar modal','Error');
                 console.error(error);
             }
         },
-        // Simple modal para registro de evento 
+        // * Simple modal (si/no) para registro de evento simple 
         showRegisterMsgBox:function(ws) {
             this.boxTwo = ''
             this.$bvModal.msgBoxConfirm('¿Deseas registrar tu asistencia al evento: ' + ws.name + '?', {
@@ -190,98 +144,50 @@ const app = new Vue({
                 // An error occurred
             })
         },
-        //* Registro de evento simple
+        //* Registro de evento
         registerEvent:function(ws){
+            console.log(ws);
             let headers = {
                 'Content-Type': 'application/json;charset=utf-8'
             };
+
             let data = {
-                "ws_id": ws.id,
-                "ws_name": ws.name
-            };
-            axios.post(this.url+'WorkshopUserRegister',data).then(response => (
-                // Actualizar datos UI
-                this.user_workshops.push(ws), 
-                this.uwss = this.uwss.filter(function(element){
-                    return element != ws;
-                }),
-                
-                this.workshops.forEach(i => {
-                    if(i.id == ws.id){
-                        i['registered'] = true; //Actualizar bandera
-                        ws['registered'] = true;
-                    }
-                }),
-
-                this.toastCount++,
-                this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
-                    title: 'Curso registrado',
-                    autoHideDelay: 5000,
-                    appendToast: false
-                })
-                
-            )).catch((err) => {
-                alert(err.data),
-                console.log(err)
-                // An error occurred
-            })
-        },
-        //* Registro de unirodada
-        registerEventUnirodada:function(){
-            // Spinning button
-            this.spinner = true;
-
-            let headers = {
-                'Content-Type': 'application/json;charset=utf-8'
+                "workshop_id": ws.id,
+                "workshop_type": ws.type,
+                "estadistic_data": this.estadistic_data
             };
             
-            var data = {
-                "ws_id": this.selected.id,
-                "ws_name": this.selected.name,
-                "contact_name": this.contact_name,
-                "contact_tel": this.contact_tel,
-                "group": this.group,
-                "health_condition": this.health_condition,
-                "interested": this.interested=='yes'?true:false,
-            };
-
-            axios.post(this.url+'WorkshopUnirodadaUserRegister',data).then(response => (
-                
-                console.log(response.data),
-
-                this.spinner = false,
-
-                // Actualizar datos UI
-                // this.showAlert(),
-                this.$bvModal.hide('modal-unirodada'),
-
-                this.user_workshops.push(this.selected), 
-                this.uwss = this.uwss.filter(function(element){
-                    return element.id != 23;
-                }),
-                
-                this.workshops.forEach(i => {
-                    if(i.id == this.selected.id){
-                        i['registered'] = true; //Actualizar bandera
-                        this.selected['registered'] = true;
-                    }
-                })	
-                
-            )).catch((err) => {
-                console.log(err.data);
-            })
-        },
-        showModal:function(ws, modal_name ) {
-            // Selected workshop
-            this.$root.$emit('bv::show::modal', modal_name, '#btnShow')
-        },
-        onSubmit:function() {
-            if(this.emptyName && this.emptyTel && this.emptyHC && this.emptyInterested && this.emptyConfirm){
-                this.spinner = true;
-            }else{
-                console.log("Error");
+            // ! Additional data 
+            switch (ws.type) {
+                case 'unitrueque':
+                    data['additional_data'] = this.unitrueque_data;
+                    break;
+                case 'uniruta':
+                    data['additional_data'] = this.uniruta_data;
+                    break;
+                case 'reutronic':
+                    data['additional_data'] = this.reutronic_data;
+                    break;
+                default:
+                    break;
             }
+            axios.post(this.url+'WorkshopUserRegister',data).then(response => (
+                console.log(response.data)
+                // Actualizar datos UI
 
+                // this.user_workshops.push(ws), 
+                // this.uwss = this.uwss.filter(function(element){
+                //     return element != ws;
+                // }),
+                // this.workshops.forEach(i => {
+                //     if(i.id == ws.id){
+                //         i['registered'] = true; //Actualizar bandera
+                //         ws['registered'] = true;
+                //     }
+                // })
+            )).catch((err) => {
+                console.log(err)
+            })
         }
     }
 });

@@ -51,10 +51,11 @@
           @endif
 
           {{-- UnirutaCP --}}
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#unirutacp" @click="AbrirModal('unirutacp')">
+          <div class="col px-0" style="position: relative;display: inline-block;text-align: center;">  
+            <a href="#">
               <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroCerroSP.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
+            <div style="position: absolute;top: 10px;left: 10px;color:white"><b>REGISTRO CERRADO</b></div>
           </div>
           
         </div>
