@@ -35,12 +35,12 @@
         <div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href={{route('Uniruta')}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B1_UnirutaCerroSP.png')}}" class="imgCaoursel "
+              <a href="https://greenmetric.ui.ac.id/rankings/overall-rankings-2021">
+                <img src="{{ asset('/storage/imagenes/GreenMetric/GM1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('mmus2022')}}>
-                <img src="{{ asset('/storage/imagenes/Uniruta/B2_UnirutaCerroSP.png')}}" class="imgCaoursel "
+              <a href="https://greenmetric.ui.ac.id/rankings/overall-rankings-2021">
+                <img src="{{ asset('/storage/imagenes/GreenMetric/GM2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -169,7 +169,7 @@
         <div class="carousel-item active">
           <div class="slide-box">
               <a href="https://greenmetric.ui.ac.id/rankings/overall-rankings-2021">
-                <img src="{{ asset('/storage/imagenes/GM1.png')}}" class="imgCaoursel w-100 p-0 p-0"
+                <img src="{{ asset('/storage/imagenes/GreenMetric/GM1.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
                </a>
           </div>
