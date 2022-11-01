@@ -679,7 +679,7 @@ los botones del nav-tab
     this.PUR.push({
         "id":7,
         "Nombre":'Procedimiento para Manejo de Tóner. ',
-        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/PROCD_Tóner.pdf&embedded=true',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/PROCD_Toner.pdf&embedded=true',
     });
     this.PUR.push({
         "id":8,
