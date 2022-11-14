@@ -99,6 +99,7 @@ class LoginController extends Controller
             $tmpuser = User::find($request->email);
             $useremail = $tmpuser->email;
         }else{
+            $tmpuser = User::firstWhere('email', $request->email);
             $useremail = $request->email;
         }
 
