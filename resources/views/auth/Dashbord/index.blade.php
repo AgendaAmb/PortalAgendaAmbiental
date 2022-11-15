@@ -52,7 +52,7 @@
 
           {{-- 17 Gemas--}}
           <div class="col px-0" style="position: relative;display: inline-block;text-align: center;">  
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17gemas')">>
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
               <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
@@ -273,7 +273,6 @@
   },
   mounted:function () {
   this.$nextTick(function () {
-    console.log("<");
     console.log('{{$nombreModal}}');
     // console.log(this.mmus2020_regs);
     // Initial team
@@ -506,7 +505,6 @@
         this.checkedFecha = [];
     },
     AbrirModal: function(ModalClick){
-      // console.log(ModalClick);
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
       //Modales vigentes
@@ -525,7 +523,6 @@
       // this.checarInscripcionPromotoresHuasteca();
       // this.checarInscripcionUnirodadaRios();
       this.checarInscripcionUniruta();
-     
       $('#' + ModalClick).modal('show');
     },
     DatosUsuario:function(ModalClick){
@@ -642,7 +639,7 @@
                 'organizacion':this.organizacion,
             }
 
-            if (this.modalClick=='Agricultura') {
+          if (this.modalClick=='Agricultura') {
               axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
               // console.log(response.data),
               this.spinnerVisible=false,
@@ -654,16 +651,14 @@
                   this.Guardado=false
               })
 
-           }else if (this.modalClick=='17Gemas') {
-            axios.post(this.url+'17Gemas/api/register',data).then(response => (
-
-              this.spinnerVisible=false,
-               window.location.href = this.url+'17Gemas/'
-               )).catch((err) => {
+          }else if (this.modalClick == '17Gemas') {
+              axios.post(this.url+'17Gemas/api/register',data).then(response => (
+                this.spinnerVisible=false,
+                window.location.href = this.url+'17Gemas/'
+              )).catch((err) => {
                   this.Errores[0].Visible
-            })
-
-           }else if(this.modalClick=='contexto'){
+              })
+          }else if(this.modalClick=='contexto'){
             // console.log("hola");
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarCompetencias',data).then(response => {
