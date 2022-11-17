@@ -15,6 +15,7 @@ new Vue({
         fields: [
           { key: 'actions', label: 'Acciones' },
           { key: 'workshop', label: 'Curso/Taller/Evento', sortable: true, sortDirection: 'desc' },
+          { key: 'id', label: 'ID', sortable: true},
           { key: 'name', label: 'Nombre', sortable: true},
           { key: 'curp', label: 'Curp' },
           { key: 'gender', label: 'Genero' },
@@ -83,7 +84,6 @@ new Vue({
       },
       onFiltered(filteredItems) {
         this.filteredItems = filteredItems
-        console.log(this.filteredItems)
         this.totalRows = filteredItems.length
         this.currentPage = 1
       },
@@ -134,7 +134,7 @@ new Vue({
               this.receiverList.push({value: element['name'], text: element['name'] })
             });
             
-            console.log(this.Correos);
+            // console.log(this.Correos);
         })
       },
     }

@@ -253,6 +253,7 @@ class HomeController extends Controller
                 $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
                 foreach ($users as $i) {
                     $workshopRegDataUser = [];
+                    // * Append extra data
                     if ($i->workshop_id == 38) {
                         try {
                             $reutronicUser =  ReutronicUser::where('user_workshop_id', $i->id)->first();

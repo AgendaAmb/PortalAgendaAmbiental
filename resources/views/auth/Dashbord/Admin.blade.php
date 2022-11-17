@@ -1,6 +1,8 @@
 <script>
   const users = @json($users);
   const modulos = @json($Modulos);
+
+  // console.log(users);
 </script>
 
 @extends('templates.base')
@@ -98,6 +100,10 @@
             </template>
 
             <template #cell(name)="row">
+              {{ row.value }}
+            </template>
+
+            <template #cell(id)="row">
               {{ row.value }}
             </template>
 
