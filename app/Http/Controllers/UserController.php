@@ -52,9 +52,6 @@ class UserController extends Controller
      */
     private function newUser($data)
     {
-        //Elimina datos que no son necesarios para guardar nuevo usuario en portal
-        // return new JsonResponse('Si llego hasta aqui', JsonResponse::HTTP_OK);
-        //Cropped data from control escolar
         $cropped_data = collect($data)->except(['pertenece_uaslp'])->toArray();
 
         try{
@@ -126,11 +123,11 @@ class UserController extends Controller
 
 
     /**
-     * Retrieves a list of users.
+     * Retrieves an array of users with basic information
+     *  @var string
      */
     public function index(Request $request)
     {
-        # Atributos que no se devuelven.
         $hidden = [
             'invoice_data','invoice_url','lunch','paid','paid_at',
             'courses','comments','interested_on_further_courses', 'domain'
@@ -152,6 +149,54 @@ class UserController extends Controller
 
         return new JsonResponse($users, JsonResponse::HTTP_OK);
     }
+
+    /**
+     * Set a new module relation to a user
+     *
+     * @var string
+     */
+
+    public function updateModuleUser(Request $request)
+    {
+        try{
+            $request->validate([
+                'id' => ['required', 'numeric'],
+                'module_id' => ['required', 'numeric'],
+            ]);
+        }catch(\Exception $e){
+            return new JsonResponse(['message'=>"Request invalido"], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try{
+            $user = User::where('id',$request->id)->first();
+            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
+        }catch(\Exception $e){
+            return new JsonResponse(['message'=>"El usuario ya ha sido creado",'user_id'=>$user->id], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        return new JsonResponse(['message'=>"Modulo actualizado"], JsonResponse::HTTP_CREATED);
+
+    }
+
+
+    /**
+     * Retrieves
+     * @var string
+     */
+    public function updateUserData(Request $request)
+    {
+        $user = User::retrieveById($request->id, $request->user_type);
+        $user->residence = $request->residence ?? $user->residence;
+        $user->ocupation = $request->ocupation ?? $user->ocupation;
+        $user->disability = $request->disability ?? $user->disability;
+        $user->interested_on_further_courses = $request->interested_on_further_courses ?? $user->interested_on_further_courses;
+        $user->save();
+
+        Mail::to($user)->send(new RegisteredTo17Gemas);
+        return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
+    }
+
+
 
     /**
      * Retrieves an user.
@@ -193,45 +238,7 @@ class UserController extends Controller
     }
 
 
-    /**
-     * Retrieves the current authenticated user.
-     *
-     * @var string
-     */
-    public function updateUserData(Request $request)
-    {
-        $user = User::retrieveById($request->id, $request->user_type);
-        $user->residence = $request->residence ?? $user->residence;
-        $user->ocupation = $request->ocupation ?? $user->ocupation;
-        $user->disability = $request->disability ?? $user->disability;
-        $user->interested_on_further_courses = $request->interested_on_further_courses ?? $user->interested_on_further_courses;
-        $user->save();
 
-        Mail::to($user)->send(new RegisteredTo17Gemas);
-        return response()->json([ 'message' => 'cool' ], JsonResponse::HTTP_OK);
-    }
-
-    public function updateModuleUser(Request $request)
-    {
-        try{
-            $request->validate([
-                'id' => ['required', 'numeric'],
-                'module_id' => ['required', 'numeric'],
-            ]);
-        }catch(\Exception $e){
-            return new JsonResponse(['message'=>"Request invalido"], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-        }
-
-        try{
-            $user = User::where('id',$request->id)->first();
-            DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
-        }catch(\Exception $e){
-            return new JsonResponse(['message'=>"El usuario ya ha sido creado",'user_id'=>$user->id], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
-        }
-
-        return new JsonResponse(['message'=>"Modulo actualizado"], JsonResponse::HTTP_CREATED);
-
-    }
 
     //StoreUserRequest es simplemente una clase que extiende de la clase request
     public function RegisterExternalUser(Request $request)
@@ -239,106 +246,80 @@ class UserController extends Controller
         //Usuario a retornar
         $user = null;
 
-        //Existe o no en portal
-        if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
-            // Validacion de datos recibidos desde portal
-            try{
-                $val = Validator::make($request->all(),[
-                    'module_id' => ['required', 'exists:modules,id'],
-                    'pertenece_uaslp' => ['required', 'boolean'],
-                    'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
-                    'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
-                    'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
-                    'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
-                    'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
-                    'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
-                    'no_curp' => ['required', 'boolean'],
-                    'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
-                    'name' => ['required', 'string', 'max:255' ],
-                    'middlename' => ['required','string','max:255'],
-                    'surname' => ['nullable'],
-                    'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
-                    'ocupation' => ['required', 'string', 'max:255'],
-                    'gender' => [ 'required', 'string'],
-                    'other_gender' => ['nullable','required_if:gender,Otro'],
-                    'nationality' => ['required','string','max:255'],
-                    'residence' => ['required','string','max:255'],
-                    'birth_country' => ['required', 'string', 'max:255'],
-                    'residence_country' => ['required', 'string', 'max:255'],
-                    'zip_code' => ['required', 'numeric'],
-                    'phone_number' => ['required','numeric'],
-                    'is_disabled' => ['required', 'boolean'],
-                    'ethnicity' => ['nullable','string','max:255'],
-                    'disability' => ['nullable','required_if:is_disabled,true']
-                ]);
+        // Data validation from portal
+        try{
+            $val = Validator::make($request->all(),[
+                'module_id' => ['required', 'exists:modules,id'],
+                'tipo_usuario' => ['required', 'string', 'max:255'],
+                'pertenece_uaslp' => ['required', 'boolean'],
+                'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
+                'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
+                'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
+                'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
+                'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
+                'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
+                'no_curp' => ['required', 'boolean'],
+                'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
+                'name' => ['required', 'string', 'max:255' ],
+                'middlename' => ['required','string','max:255'],
+                'surname' => ['nullable'],
+                'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+                'ocupation' => ['required', 'string', 'max:255'],
+                'gender' => [ 'required', 'string'],
+                'other_gender' => ['nullable','required_if:gender,Otro'],
+                'nationality' => ['required','string','max:255'],
+                'civic_state' => ['required', 'string'],
+                'other_civic_state' => ['nullable', 'required_if:civic_state,Otro'],
+                'birth_country' => ['required', 'string', 'max:255'],
+                'birth_state' => ['required', 'string', 'max:255'],
+                'residence_country' => ['required', 'string', 'max:255'],
+                'residence_state' => ['required', 'string', 'max:255'],
+                'zip_code' => ['required', 'numeric'],
+                'phone_number' => ['required','numeric'],
+                'is_disabled' => ['required', 'boolean'],
+                'ethnicity' => ['nullable','string','max:255'],
+                'disability' => ['nullable','required_if:is_disabled,true']
+            ]);
 
-                /*
-                Se extraera del modelo la siguiente info
-
-                curp
-
-                name
-                middlename
-                surname
-
-                email
-                altern email
-                gender
-
-                birth_country => as nationality
-                residence => as residence_country
-
-                phone_number
-                zip_code
-                ocupation
-                ethnicity
-                disability
-                password
-
-                */
-
-                /*
-                    Faltarian siguientes datos
-
-                    Age
-                    Type (se agregara al momento de crear el usuario)
-
-                */
-
-                /*
-                    Se agregara al modelo de usuario
-
-                    Fecha de nacimiento (actulizara)
-
-                */
-                if ($val->fails()) {
-                    return new JsonResponse(['message'=>'Datos no validos', 'errors'=>$val->errors()], JsonResponse::HTTP_CREATED);
-                }
-            }catch(\Exception $e){
-                return new JsonResponse(["Error al mandar los datos, verifique",'user_id'=>null], JsonResponse::HTTP_CREATED);
+            // Return data validation
+            if ($val->fails()) {
+                return new JsonResponse(['message'=>'Datos no validos', 'errors'=>$val->errors()], JsonResponse::HTTP_BAD_REQUEST);
             }
 
-            //split the data from request
+        }catch(\Exception $e){
+            return new JsonResponse(['message'=>"Error al mandar los datos, verifique",'error'=>$e->getMessage()], JsonResponse::HTTP_BAD_REQUEST);
+        }
 
+        //Existe o no en portal
+        if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
+            $residence = $request->residence_country;
             if ($request->pertenece_uaslp === true){ //Comunidad AA o Comunidad UASLP
                 $data = $request->except([
-                    'module_id', 'clave_uaslp',
+                    'module_id',
                     'no_curp',
+                    'civic_state',
+                    'other_civic_state',
+                    'birth_state',
                     'birth_country','residence_country',
-                    'tipo_usuario','directorio_activo',
-                    'other_gender','is_disabled'
+                    'tipo_usuario',
                 ]);
+
+
             }else{
                 $data = $request->except([
                     'module_id', 'no_curp',
+                    'civic_state',
+                    'other_civic_state',
+                    'birth_state',
                     'birth_country','residence_country',
-                    'tipo_usuario','rpassword',
-                    'other_gender','is_disabled'
+                    'tipo_usuario',
                 ]);
             }
 
-            $user = $this->newUser($data);   //Crea al usuario y retorna el modelo completo
-            //Agrega el modelo del usuario a la base de datos
+
+
+            $data['residence'] = $residence;
+            $user = $this->newUser($data);
         }else{
 
             //Get user form portal
@@ -357,13 +338,8 @@ class UserController extends Controller
             }
 
         }
-
         //El modelo de usuario no se creo
-        if($user === null){
-            //respuesta mala return null
-            return new JsonResponse(['message'=>"Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",'user_id'=>$user], JsonResponse::HTTP_CREATED);
-        }
-
+        if($user === null){return new JsonResponse(['message'=>"Hubo un problema al crear usuario en portal, verifique nuevamente los datos e insercional",'user_id'=>$user], JsonResponse::HTTP_CREATED);}
         try{
             DB::insert('insert into module_user (module_id,user_id, user_type) values (?, ?, ?)', [$request->module_id, $user->id, $user->type]);
         }catch(\Exception $e){
