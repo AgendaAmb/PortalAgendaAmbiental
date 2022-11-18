@@ -77,10 +77,8 @@
     fortalecida.
     <br>
     <br>
-    Marcos Algara Siller
     <br>
-    Director Agenda Ambiental.
-</p>
+ </p>
 <div style="font-size: 15px; color: #115089">
     <b>Bibliografía:</b><br>
     Nieto Caraveo, L.M., 1998, Hacia la construcción de una Agenda Ambiental de la Universidad Autónoma de San Luis

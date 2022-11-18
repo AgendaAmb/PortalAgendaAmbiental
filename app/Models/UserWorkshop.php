@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ReutronicUser;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 
 class UserWorkshop extends MorphPivot
@@ -48,6 +49,16 @@ class UserWorkshop extends MorphPivot
     }
 
     /**
+     * Obtiene el modelo de reutronic, registrado por el usuario
+     *
+     * @param  array $workshops
+     */
+    public function reutronicUser()
+    {
+        return $this->hasOne(ReutronicUser::class, 'user_workshop_id');
+    }
+
+    /**
      * Obtiene la uniruta más reciente, registrada por el
      * usuario.
      *
@@ -56,5 +67,27 @@ class UserWorkshop extends MorphPivot
     public function unirutaUser()
     {
         return $this->hasOne(UnirutaUser::class, 'user_workshop_id');
+    }
+
+    /**
+     * Obtiene la cc_mu más reciente, registrada por el
+     * usuario.
+     *
+     * @param  array $workshops
+     */
+    public function caUser()
+    {
+        return $this->hasOne(caUser::class, 'user_workshop_id');
+    }
+
+    /**
+     * Obtiene la uniruta más reciente, registrada por el
+     * usuario.
+     *
+     * @param  array $workshops
+     */
+    public function GGJteamMembers()
+    {
+        return $this->hasMany(GGJUser::class);
     }
 }

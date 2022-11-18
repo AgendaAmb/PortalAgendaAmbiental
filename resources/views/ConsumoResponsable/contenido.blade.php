@@ -40,8 +40,8 @@
             aria-controls="nav-home" aria-selected="true">Cartel, Espacio de Consumo Responsable</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
             aria-selected="false">Cambalache de libros</a>
-        <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-            aria-selected="false">Reutrónic</a>
+        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#modalReutronic" role="tab" 
+        aria-controls="nav-profile" aria-selected="false">Reutrónic</a>
     </div>
 </div>
 @endsection
@@ -185,7 +185,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_Mayo22.png')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/B_ECR_Nov2022.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -201,6 +201,110 @@
 
                     </div>
 
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalReutronic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/ECR_Mesa_de_trabajo_1.png')}}" class="img-fluid"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'"><br><br>
+                            <h1>Programa REUTRÓNIC
+                            </h1><br><br>
+                            <div class="elementor-text-editor elementor-clearfix">
+                                <div style="font-size: 14px; font-family: 'Myraid light';">
+                                    <h3 style="color: #5c94d7;">Objetivo General</h3>
+                                    <p>Crear sinergia con profesores y estudiantes para propagar en la comunidad UASLP una cultura 
+                                        de consumo responsable con la práctica de y priorizando la Reparación, Reuso y Regreso de 
+                                        los materiales mecano-eléctricos.</p><br>
+                                        <h3 style="color: #5c94d7;">Objetivos específicos</h3>
+                                        <ul>
+                                            <li>Colaborar con los <b>profesores</b> de la UASLP en la formación de los estudiantes de 
+                                                las carreras mecano eléctricas con la práctica de clasificación, mantenimiento 
+                                                y reparación de equipos mecano- eléctricas.</li>
+                                            <li><b>Ofrecer</b>, dentro de las posibilidades, a la comunidad universitaria equipos y 
+                                                materiales que necesitan para sus actividades académicas y administrativas, 
+                                                en especial los materiales usados en los laboratorios y talleres de las carreras 
+                                                mecano- eléctricas</li>
+                                            <li><b>Educar</b> acerca de las estrategias: Repiensa, Rechaza, Reduce, Reutiliza, Repara, 
+                                                Regresa y permitir que los materiales tengan la oportunidad de llegar al Reciclaje. 
+                                                En particular Reutilizar los materiales que aún tienen tiempo de vida útil, 
+                                                así como Reparar y Regresar en buenas condiciones de uso los bienes y materiales.</li>
+                                            <li><b>Mitigar</b> la obsolencia programada, los impactos a la salud y al medio ambiente que 
+                                                existen por el mal manejo de los residuos electrónicos</li>
+                                            <li>Motivar a la comunidad a iniciar una nueva <b>cultura de consumo</b>, uso y disposición de bienes, 
+                                                que fomentan cambios en la sociedad a partir de talleres de reparación y reuso.</li>
+                                        </ul><br>
+                                        <h3 style="color: #5c94d7;">Dirigido a</h3>
+                                        <p>La comunidad UASLP y público en general, en especial a los laboratorios, talleres y oficinas 
+                                            de la UASLP que utilizan elementos electro-mecánicos.</p><br>
+                                        <h3 style="color: #5c94d7;">Descripción</h3>
+                                        <p>El programa de “Reutrónic” forma parte del Programa Universitario de Residuos y busca ofrecer 
+                                            mecanismos para obtener circularidad en nuestros procesos, para participar en Reutrónic se 
+                                            deben seguir los siguientes pasos:</p><br>
+                                        <ol>
+                                            <li>Realizar un trabajo previo de revisión de materiales necesitados.</li>
+                                            <li>Llenar el formato de solicitud en esta página web.</li>
+                                            <li>Los días calendarizados donde se lleve a cabo el programa Reutrónic se recibirán los 
+                                                materiales electrónicos provenientes de la comunidad universitaria y potosina establecidos 
+                                                su difusión y éstos se manejarán adecuadamente para recuperación, reuso y reparación de los 
+                                                materiales que se solicitaron previamente.</li>
+                                            <li>Se avisa que se encontró su solicitud y se dan opciones de horarios de entrega</li>
+                                            <li>Los materiales electrónicos sobrantes se entregan el día del evento a la empresa recicladora 
+                                                del material; ésta entregará un documento legal donde asegura su correcta disposición final.</li>
+                                        </ol><br>
+                                        <h3 style="color: #5c94d7;">Material que se pueden solicitar:</h3>
+                                        <b>Residuos electrónicos y mecánicos</b><br><br>
+                                        <ul>
+                                            <li><b>Computación: </b>cpu, impresoras, teclados, mouse, monitores, discos duros, floppys, 
+                                                tarjetas, memorias, procesadores, reguladores, servidores, laptops.
+                                            </li>
+                                            <li><b>Telefonia: </b>celulares, cargadores, palms, radiolocalizadores, teléfonos inalámbricos, 
+                                                equipos de comunicación.
+                                            </li>
+                                            <li><b>Electrónica: </b>cd, tarjetas electrónicas, decodificadores, consolas de videojuegos, 
+                                                reproductores de audio portátiles, adaptadores.
+                                            </li>
+                                            <li><b>Eléctrica: </b>cables, interruptores, capacitores, conductores, transformadores.
+                                            </li>
+                                        </ul><br>
+                                        <p>*Esta lista no está limitada, se pueden solicitar más materiales afines al programa.</p><br>
+                                        <p>*Este es un programa de gestión institucional de la UASLP que no considera ningún intercambio económico.</p><br><br><br>
+                                        
+                                        <h4 style="color: #5c94d7;">Más Información</h4>
+                                        <p style="font-size: 14px !important;">
+                                        Sistema de Gestión Ambiental
+                                        <br>Agenda Ambiental de la UASLP
+                                        <br>Universidad Autónoma de San Luis Potosí
+                                        <br>Manuel Nava No. 201, segundo
+                                        piso
+                                        <br>Zona Universitaria, C.P. 78210
+                                        <br>San Luis Potosí, S.L.P.
+                                        <br>Tel.826-2300 Ext. 7215
+                                        <br><a href="mailto:gestion.ambiental@uaslp.mx" style="color: #5c94d7">gestion.ambiental@uaslp.mx</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

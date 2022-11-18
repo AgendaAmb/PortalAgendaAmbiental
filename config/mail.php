@@ -86,8 +86,16 @@ return [
             'timeout' => null,
             'auth_mode' => null,
         ],
-
-
+        'smtp_imarec' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp-mail.outlook.com'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('IMAREC_HOST'),
+            'password' => env('IMAREC_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
         'ses' => [
             'transport' => 'ses',
         ],

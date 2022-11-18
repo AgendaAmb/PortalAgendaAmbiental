@@ -39,12 +39,12 @@
           <th scope="row">
             <center>7201</center>
           </th>
-          <td style="text-align: left;">Dr. Marcos Algara Siller</td>
+          <td style="text-align: left;">Dra. María Isabel Lázaro Báez</td>
           <td style="text-align: left;">Dirección </td>
           <td>
             <center>(444) 826-2433</center>
           </td>
-          <td>marcos.algara@uaslp.mx</td>
+          <td>ilazaro@uaslp.mx</td>
         </tr>
         <tr>
           <th scope="row">

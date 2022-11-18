@@ -24,18 +24,23 @@
 
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnitrueque" @click="AbrirModal('Unitrueque')">
-              <img src="{{ asset('/storage/imagenes/Unitrueque/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/Unitrueque/Registro2022.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
 
-          @if(Auth::user()->user_type!="externs")
-          <div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
-
-              <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pl-xl-1 px-1 mt-1 mt-xl-0">
+          {{-- Cursos de actualizacion --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
+              <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-          @endif
+
+          {{-- Reutronic --}}
+          <div class="col px-0">  
+            <a href="#" data-toggle="modal" data-target="#reutronic" @click="AbrirModal('reutronic')">
+              <img src="{{ asset('/storage/imagenes/Reutronic/Registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
 
           @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
@@ -45,61 +50,18 @@
           </div>
           @endif
 
-          {{-- Promotores ambientales  --}}
-          <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#PromotoresHuasteca" @click="AbrirModal('PromotoresHuasteca')">
-              <img src="{{ asset('/storage/imagenes/Promotores/PromotoresAmbientales.png')}}" class="img-fluid pr-xl-1 px-1">
+          {{-- 17 Gemas--}}
+          <div class="col px-0" style="position: relative;display: inline-block;text-align: center;">  
+            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('17Gemas')">
+              <img src="{{ asset('/storage/imagenes/17Gemas/1.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-
-          <div class="col px-0">
-              @if (Auth::user()->id === 321158 || Auth::user()->id === 228 || Auth::user()->id === 235 
-                  || Auth::user()->id === 275494 || Auth::user()->id === 306148 || Auth::user()->id === 322492 || Auth::user()->id === 223 || Auth::user()->id === 207 || Auth::user()->id === 240 || Auth::user()->id === 214 || Auth::user()->id === 18536 || Auth::user()->id === 249 || Auth::user()->id === 244731 || Auth::user()->id === 49 || Auth::user()->id === 238 || Auth::user()->id === 6346 || Auth::user()->id === 24010 || Auth::user()->id === 266697 || Auth::user()->id === 250 || Auth::user()->id === 282037 || Auth::user()->id === 280507 || Auth::user()->id === 280514 || Auth::user()->id === 12835
-              )
-              <a href="#" data-toggle="modal" data-target="#UnirutaSierraAlvarez" @click.prevent="excepcion_usuario" @click="AbrirModal('UnirutaSierraAlvarez')">
-              @endif
-              <img src="{{ asset('/storage/imagenes/Uniruta/B_RegistroC.png')}}" class="img-fluid pr-xl-1 px-1">
-          </div>
-
-          {{-- Unirodada rios  --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#UnirodadaRios" @click="AbrirModal('UnirodadaRios')">
-              <img src="{{ asset('/storage/imagenes/Unibici/Unirodada_rios.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div> --}}
-
-          {{-- Del huerto a la mesa husteca  --}}
-          <!--<div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#HuertoMesaHuasteca" @click="AbrirModal('HuertoMesaHuasteca')">
-              <img src="{{ asset('/storage/imagenes/Unihuerto/UnihuertoHuasteca.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div>-->
-
-          {{-- Del huerto a la mesa --}}
-          {{-- <div class="col px-0">  
-            <a href="#" data-toggle="modal" data-target="#RegistroHuertoMesa" @click="AbrirModal('HuertoMesa')">
-              <img src="{{ asset('/storage/imagenes/Unihuerto/REG_HuertoMesa.png')}}" class="img-fluid pr-xl-1 px-1">
-            </a>
-          </div> --}}
-
-          {{-- Rodada   --}}
-          {{-- <div class="col px-0 d-none" >
-            <a href="#" data-toggle="modal" data-target="#Registro17gemas" @click="AbrirModal('Rodada')">
-              <img src="{{ asset('/storage/imagenes/mmus2021/3.png')}}" class="img-fluid px-xl-1 px-1">
-            </a>
-          </div> --}}
-
+          
         </div>
         <div class="row  ">
           <div class="col  d-flex align-items-center my-xl-5 my-2 px-0">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                {{-- <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/Unihuerto/BINT_HuertoalaMesa.png')}}" class="d-block w-100" alt="...">
-                </div> --}}
-                <div class="carousel-item ">
-                  <img src="{{asset('/storage/imagenes/Uniruta/BI_Uniruta.png')}}" class="d-block w-100" alt="...">
-                </div>
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
                 </div>
@@ -165,17 +127,32 @@
 
   </div>
 
-{{-- Modales con programas vigentes  --}}
+{{-- ! Modales con programas vigentes  --}}
 
-@include("RegistroModales.PromotoresHuasteca")
+@include("RegistroModales.CursosActualizacion")
+
+@include("RegistroModales.mmus2022")
 
 @include("RegistroModales.Unitrueque")
 
-@include("RegistroModales.17gemas")
+@include("RegistroModales.GlobalGoalsJam")
 
+@include("RegistroModales.Minirodada")
+
+@include("RegistroModales.unirodada_mmus2022")
+
+@include("RegistroModales.ContextoSos")
+
+@include("RegistroModales.Reutronic")
+
+@include("RegistroModales.UnirutaCP")
+
+{{-- ! Modales Programas pasados --}}
 @include("RegistroModales.Uniruta")
 
-{{-- Modales Programas pasados --}}
+@include("RegistroModales.PromotoresHuasteca")
+
+@include("RegistroModales.17gemas")
 
 @include("RegistroModales.UnirodadaRios")
 
@@ -212,7 +189,8 @@
     spinnerVisible:false,
     CURP:'',
     LugarResidencia:'',
-
+    profesion:'',
+    organizacion:'',
     isDiscapacidad:'',
     Discapacidad:'',
     Genero:'',
@@ -254,16 +232,56 @@
     Cantidad:'', 
     Mobiliario:'',//si o no
     EmpresaParticipante:'',
-    InscritoUnihuertoCasa:false,
-    InscritoUnitrueque:false,
-    InscritoHuertoMesa:false,
+
+    InscritoUnirutaCp:false,
+    //! Modales pasados
     InscritoHuertoMesaHuasteca:false,
     InscritoPromotoresHuasteca:false,
     InscritoUnirodadaRios:false,
-    InscritoUniruta:false
+    InscritoUniruta:false,
+    InscritoUniruta:false,
+    InscritoUnihuertoCasa:false,
+    InscritoHuertoMesa:false,
+    InscritoGGJ:false,
+    InscritoKids:false,
+    InscritoUnirodadaMmus2022:false,
+    InscritoCompetencias:false,
+    //! Modales activos
+    InscritoUnitrueque:false,
+    InscritoCA_complete: false,
+    REGS:false, // Cursos de actualizacion
+    RIA:false, // Cursos de actualizacion
+    SCMU:false, // Cursos de actualizacion
+    Selected_REGS:false, //Cursos de actualizacion
+    Selected_RIA:false, //Cursos de actualizacion
+    Selected_SCMU:false, //Cursos de actualizacion
+
+    mmus2020_regs: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
+    mmus2020_select: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
+    mmus2020_complete: false,
+    kids: new Array(),
+    kidslength: 1,
+    //! 
+    teamlength:3,
+    team: new Array(),
+    // Reutronic
+    inscritoReutronic: false,
+    prev_solicitud:"",
+    materialReutronic:"",
+    observacionesReutronic:"",
+    razonReutronic:""
   },
   mounted:function () {
   this.$nextTick(function () {
+    console.log('{{$nombreModal}}');
+    // console.log(this.mmus2020_regs);
+    // Initial team
+    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    this.team.push({name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'});
+    // Kids
+    this.kids.push({name: '', age: 0});
+    //
     this.cargarCursos(),
     this.checarAsistenciaCursos(),
     this.ChecarUrl(),
@@ -278,6 +296,28 @@
 },
 
   methods:{
+    addTeamMember:function(){
+      if(this.teamlength < 5){
+        let user_Data =  {name: '', email: '', tel: '', inst:'', nedu:'Nivel superior'};
+        this.team.push(user_Data);
+        // console.log(this.team);
+        this.teamlength+=1;
+      }
+    },
+    addKid:function(){
+      if(this.kidslength < 3){
+        let user_Data =  {name: '', age: 0};
+        this.kids.push(user_Data);
+        this.kidslength+=1;
+      }
+    },
+    deleteTeamMember:function(index){
+      if(this.teamlength > 1){
+        this.team.splice(index, 1);
+      }
+      this.teamlength=-1;
+      // console.log(this.team);
+    },
     registrarWorshop:function(){
       this.spinnerVisible=true
         const formData = new FormData();
@@ -317,7 +357,7 @@
     },
 
     ChecarBecas:function(fupUser){
-      console.log(fupUser);
+      // console.log(fupUser);
       this.Errores[4].Visible=false;
       this.Errores[5].Visible=false;
 
@@ -331,7 +371,7 @@
 
     }else if(this.GrupoC.toUpperCase().replace(/ /g, "")=='STAFF'){
       this.Errores[4].Visible=true;
-      console.log("SOY DE STAFF");
+      // console.log("SOY DE STAFF");
     }
 
 
@@ -362,7 +402,7 @@
                  }
              }).then(
                      res => {
-                        console.log(response.data),
+                        // console.log(response.data),
                          this.file = '',
                          this.spinnerVisible=false,
                          this.asistenciaExito=true
@@ -393,12 +433,16 @@
         this.Errores[2].Visible=false
       }
     },
+    // ! Esta funcion levanta un modal si existe nombreModal
     ChecarUrl:function(){
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       '{{$nombreModal}}'=='UnihuertoCasa'?this.levantaModal('UnihuertoCasa'):''
       '{{$nombreModal}}'=='HuertoMesa'?this.levantaModal('HuertoMesa'):''
       '{{$nombreModal}}'=='UnirutaSierraAlvarez'?this.levantaModal('UnirutaSierraAlvarez'):''
+      '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
+      '{{$nombreModal}}'=='mmus'?this.levantaModal('reutronic'):''
+      '{{$nombreModal}}'=='unirutacp'?this.levantaModal('unirutacp'):''
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -409,8 +453,19 @@
     },
     levantaModal:function(data){
         this.DatosUsuario(data),
-        console.log("data:" + data);
-        $('#Registro17gemas').modal('show')
+        
+        // Checar usuario registrado
+        this.checarInscripcionMmus2022();
+        this.checarInscripcionCursosAct();
+        this.checarInscripcionUnitrueque();
+        this.checarInscripcionHuertoMesa();
+        this.checarInscripcionGGJ();
+        this.checarInscripcionMinirodada();
+        this.checarRodadaMmus();
+        this.checarCompetencias();
+        this.checarInscripcionUniruta();
+
+        $('#' + data).modal('show')
 
     },
     activaModal:function(){
@@ -421,7 +476,7 @@
       let diferencia=Math.abs(hora - fechaRegistro)
 
       let diasDiferencia = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-      console.log(diasDiferencia)
+      // console.log(diasDiferencia)
       if (diasDiferencia>1) {
 
       } else {
@@ -452,13 +507,21 @@
     AbrirModal: function(ModalClick){
       //esta funcion setea los datos del usuario segun el modal que se dio click
       this.DatosUsuario(ModalClick);
-      //Nuevos Cursos
-      this.checarInscripcionHuertoMesa();
-      this.checarInscripcionUnihuertoCasa();
+      //Modales vigentes
+      this.checarInscripcionMmus2022();
+      this.checarInscripcionCursosAct();
       this.checarInscripcionUnitrueque();
-      this.checarInscripcionHuertoMesaHuasteca();
-      this.checarInscripcionPromotoresHuasteca();
-      this.checarInscripcionUnirodadaRios();
+      this.checarInscripcionHuertoMesa();
+      this.checarInscripcionGGJ();
+      this.checarInscripcionMinirodada();
+      this.checarRodadaMmus();
+      this.checarCompetencias();
+      this.checarReutronic();
+      //Modales pasados
+      // this.checarInscripcionUnihuertoCasa();
+      // this.checarInscripcionHuertoMesaHuasteca();
+      // this.checarInscripcionPromotoresHuasteca();
+      // this.checarInscripcionUnirodadaRios();
       this.checarInscripcionUniruta();
       $('#' + ModalClick).modal('show');
     },
@@ -475,7 +538,6 @@
         this.modalClick=ModalClick,
         this.Genero='{{Auth::user()->gender}}',
         this.LugarResidencia='{{Auth::user()->residence}}',
-
         this.hasModule17Gemas='{{Auth::user()->hasModule("17 gemas")}}',
         this.InteresAsistencia='{{Auth::user()->interested_on_further_courses}}',
         this.CondicionSalud='{{Auth::user()->health_condition}}',
@@ -485,15 +547,57 @@
         this.Guardado=false,
         this.url='{{env('APP_URL')}}',
         this.Ocupacion='{{Auth::user()->ocupation}}'
-
         if (this.checkedNames.includes("Unirodada cicloturística a la Cañada del Lobo")) {
           this.isRegisterRodada=true,
-       this.check_one(),
-       this.CondicionSalud='{{Auth::user()->health_condition}}'
+          this.check_one(),
+          this.CondicionSalud='{{Auth::user()->health_condition}}'
         }
+        // console.log(this.modalClick);
+      },
+      registerGgj:function(){
+        let headers = {
+          'Content-Type': 'application/json;charset=utf-8'
+        };
+        var data = {
+          "team":this.team,
+          "teamlength":this.teamlength,
+          "InteresAsistencia":this.InteresAsistencia
+        }
+
+        axios.post(this.url+'RegistrarGGJ',data).then(response => (
+          // console.log(response.data),
+          this.spinnerVisible=false,
+          $('#GlobalGoalsJam').modal('hide'),
+          this.Guardado=true
+        )).catch((err) => {
+          console.log(err),
+          this.Guardado=false
+        })
+
+      },
+      registerKids:function(){
+        let headers = {
+          'Content-Type': 'application/json;charset=utf-8'
+        };
+        var data = {
+          "kids":this.kids,
+          "number":this.kidslength,
+          "InteresAsistencia":this.InteresAsistencia
+        }
+        axios.post(this.url+'RegistrarKids',data).then(response => (
+          this.spinnerVisible=false,
+          this.InscritoKids=true,
+          this.Guardado=true
+        )).catch((err) => {
+          console.log(err),
+          this.Guardado=false
+        })
+
+      },
+      downloadMinirodada:function(){
+        window.open(this.url+'FormatoMinirodada');
       },
       uaslpUser:function(){
-
             this.spinnerVisible=true;
            if(this.emailR!=''){
             let headers = {
@@ -501,7 +605,6 @@
             };
             var data = {
        	        "emailR":this.emailR,
-
                 "Genero":this.Genero,
                 "Clave":this.ClaveU_RPE,
                 "FacultadAdscripcion":this.Facultad,
@@ -526,16 +629,19 @@
                 'nombresF':this.nombresF,
                 'RFC':this.RFC,
                 'telF':this.telF,
+                'isAsistencia': this.isAsistencia,
                 //campos para unitrueque
                 'MaterialesIntercambio':this.MaterialesIntercambio,
                 'Cantidad':this.Cantidad, 
                 'Mobiliario':this.Mobiliario,
-                'EmpresaParticipante':this.EmpresaParticipante, 
-
+                'EmpresaParticipante':this.EmpresaParticipante,
+                'profesion':this.profesion,
+                'organizacion':this.organizacion,
             }
-            if (this.modalClick=='Agricultura') {
+
+          if (this.modalClick=='Agricultura') {
               axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
-              console.log(response.data),
+              // console.log(response.data),
               this.spinnerVisible=false,
               $('#RegistroAgricultura').modal('hide'),
               $('#Registro17gemas').modal('hide'),
@@ -545,21 +651,66 @@
                   this.Guardado=false
               })
 
-           }else
-           if (this.modalClick=='17Gemas') {
-            axios.post(this.url+'17Gemas/api/register',data).then(response => (
-
-              this.spinnerVisible=false,
-               window.location.href = this.url+'17Gemas/'
-               )).catch((err) => {
+          }else if (this.modalClick == '17Gemas') {
+              axios.post(this.url+'17Gemas/api/register',data).then(response => (
+                this.spinnerVisible=false,
+                window.location.href = this.url+'17Gemas/'
+              )).catch((err) => {
                   this.Errores[0].Visible
+              })
+          }else if(this.modalClick=='contexto'){
+            // console.log("hola");
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarCompetencias',data).then(response => {
+                // console.log(response.data);
+                $('#contexto').modal('hide');
+                this.spinnerVisible=false;
+                this.Guardado=true;
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
             })
-
+           }else if(this.modalClick=='unirodada_mmus2022'){
+            data['TipoEvento'] = 'unirodada'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarRodadaMmus',data).then(response => {
+                // console.log(response.data);
+                $('#unirodada_mmus2022').modal('hide');
+                this.spinnerVisible=false;
+                this.Guardado=true;
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
+           }else if(this.modalClick=='reutronic'){
+              data['prev_solicitud'] = this.prev_solicitud;
+              data['materialReutronic'] = this.materialReutronic;
+              data['observacionesReutronic'] = this.observacionesReutronic;
+              data['razonReutronic'] = this.razonReutronic;
+              console.log("reu");
+              // Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos
+              axios.post(this.url+'RegistrarReutronic',data).then(response => {
+                  console.log(response.data);
+                  $('#reutronic').modal('hide');
+                  this.spinnerVisible=false;
+                  this.Guardado=true;
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })
            }else if(this.modalClick=='mmus'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarTallerUsuario',data).then(response => (
-
-              console.log(response.data),
+              // console.log(response.data),
               this.spinnerVisible=false,
               $('#Registro17gemas').modal('hide'),
               this.Guardado=true
@@ -567,8 +718,7 @@
                   this.Errores[0].Visible,
                   this.Guardado=false
             })
-           }
-           else if(this.modalClick=='UnihuertoCasa'){
+           }else if(this.modalClick=='UnihuertoCasa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarUnihuertoCasaUsuario',data).then(response => {
                   console.log(response.status);
@@ -587,11 +737,10 @@
                   this.Errores[0].Visible;
                   this.Guardado=false;
               })
-           }
-           else if(this.modalClick=='HuertoMesa'){
+           }else if(this.modalClick=='HuertoMesa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarHuertoMesaUsuario',data).then(response => {
-                  console.log(response.status);
+                  // console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
                     this.spinnerVisible=false;
@@ -607,11 +756,10 @@
                   this.Errores[0].Visible;
                   this.Guardado=false;
               })
-           }           
-           else if(this.modalClick=='Unitrueque'){
+           }else if(this.modalClick=='Unitrueque'){
                //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
                axios.post(this.url+'RegistrarUnitruequeUsuario',data).then(response => {
-                   console.log(response.status);
+                  //  console.log(response.status);
                    if(response.status == 200){
                        console.log(response.data);
                        this.spinnerVisible=false;
@@ -627,11 +775,10 @@
                    this.Errores[0].Visible;
                    this.Guardado=false;
                })
-           }
-           else if(this.modalClick=='HuertoMesaHuasteca'){
+           }else if(this.modalClick=='HuertoMesaHuasteca'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarHuertoMesaHuastecaUsuario',data).then(response => {
-                  console.log(response.status);
+                  // console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
                     this.spinnerVisible=false;
@@ -647,11 +794,10 @@
                   this.Errores[0].Visible;
                   this.Guardado=false;
               })
-           }
-           else if(this.modalClick=='PromotoresHuasteca'){
+           }else if(this.modalClick=='PromotoresHuasteca'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarPromotoresHuastecaUsuario',data).then(response => {
-                  console.log(response.status);
+                  // console.log(response.status);
                   if(response.status == 200){
                     //console.log(response.data);
                     this.spinnerVisible=false;
@@ -667,12 +813,11 @@
                   this.Errores[0].Visible;
                   this.Guardado=false;
               })
-           }  
-           else if(this.modalClick=='UnirodadaRios'){
+          }else if(this.modalClick=='UnirodadaRios'){
             data['TipoEvento'] = 'unirodada'
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarRodadaRioUsuario',data).then(response => {
-                console.log(response.status);
+                // console.log(response.status);
                 if(response.status == 200){
                   //console.log(response.data);
                   this.spinnerVisible=false;
@@ -688,8 +833,7 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }
-          else if(this.modalClick=='UnirutaSierraAlvarez'){
+          }else if(this.modalClick=='UnirutaSierraAlvarez'){
             // console.log(data);
             data['TipoEvento'] = 'uniruta'
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
@@ -710,33 +854,156 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
-           }            
-           else{
+          }else if(this.modalClick=='unirutacp'){
+            // console.log('Unirutacp');
+            // console.log(data);
+            data['TipoEvento'] = 'uniruta'
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarUnirutaUsuario',data).then(response => {
+              console.log(response.status);
+              if(response.status == 200){
+                //console.log(response.data);
+                this.spinnerVisible=false;
+                $('#unirutacp').modal('hide');
+                this.Guardado=true;
+              }else{
+                console.log("Mensaje: " + response.data.Message);
+              }
+            }).catch((err) => {
+              console.log(err);
+              if(err.response.data.Message)
+                console.log("Mensaje: " + err.response.data.Message);
+              this.Errores[0].Visible;
+              this.Guardado=false;
+            })
+          }
+          else if(this.modalClick=='CursosActualizacion'){
+            // console.log('REGS: ');
+            // console.log(this.Selected_REGS);
+            data['REGS'] = this.Selected_REGS;
+            data['RIA'] =  this.Selected_RIA;
+            data['SCMU'] = this.Selected_SCMU;
+            data['TipoEvento'] = 'curso';
+            console.log(data);
+            //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarCAUsuario',data).then(response => {
+                if(response.status == 200){
+                  console.log(response.data.Message);
+                  this.spinnerVisible=false;
+                  $('#CursosActualizacion').modal('hide');
+                  this.Guardado=true;
+                }else{
+                  console.log("Mensaje: " + response.data.Message);
+                }
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
+          }else if(this.modalClick=='mmus2022'){
+            console.log("datos");
+            data['registros'] = this.mmus2020_regs; // Datos de registros 
+            // *Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*
+            axios.post(this.url+'RegistrarMmus2022',data).then(response => {
+                if(response.status == 200){
+                  console.log(response.data.Message);
+                  this.spinnerVisible=false;
+                  $('#mmus2022').modal('hide');
+                  this.Guardado=true;
+                }else{
+                  console.log("Mensaje: " + response.data.Message);
+                }
+              }).catch((err) => {
+                console.log(err);
+                if(err.response.data.Message)
+                  console.log("Mensaje: " + err.response.data.Message);
+                this.Errores[0].Visible;
+                this.Guardado=false;
+            })
+          }else{
             data['TipoEvento'] = 'unirodada'
             axios.post(this.url+'RegistrarTallerUsuario',data). then(response => (
-
               console.log(response.data),
-             this.spinnerVisible=false,
-             $('#Registro17gemas').modal('hide'),
-             this.Guardado=true
-               )).catch((err) => {
-                  this.Errores[0].Visible;
+              this.spinnerVisible=false,
+              $('#Registro17gemas').modal('hide'),
+              this.Guardado=true
+            )).catch((err) => {
+                this.Errores[0].Visible;
             })
-           }
+          }
 
         }
+      },
+      checarReutronic: function(){
+        axios.post(this.url + 'ChecarReutronic',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.inscritoReutronic = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
+      checarInscripcionMinirodada: function(){
+        axios.post(this.url + 'ChecarKids',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.InscritoKids = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
+      checarRodadaMmus: function(){
+        axios.post(this.url + 'ChecarRodadaMmus',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.InscritoUnirodadaMmus2022 = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
+      //Verifica la inscripcion en cursos de mmus2022
+      checarInscripcionMmus2022: function(){
+        // mmus2020_select
+        axios.post(this.url + 'ChecarMmus2022',{"courses": this.mmus2020_select}).then(response => {
+          // console.log(response.data.data),
+          this.mmus2020_select = response.data.data,
+          this.mmus2020_complete = response.data.flag
+        }).catch((err) => {
+          console.log(err.response);
+        })
+      },
+      //Verifica la inscripcion en cursos de actualizacion
+      checarInscripcionGGJ: function(){
+        axios.post(this.url + 'ChecarGGJ',{ "Clave":'{{Auth::user()->id}}'})
+          .then(response => {
+            this.InscritoGGJ = response.data;
+          }).catch((err) => {
+            console.log(err.response);
+          })
+      },
+      //Verifica la inscripcion en cursos de actualizacion
+      checarInscripcionCursosAct: function(){
+        axios.post(this.url + 'ChecarCAUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            // console.log(response.data);
+            this.REGS = response.data.data.REGS;
+            this.RIA = response.data.data.RIA;
+            this.SCMU = response.data.data.SCMU;
+            this.InscritoCA_complete = response.data.flag;
+          }).catch((err) => {
+            console.log(err.response);
+          })
       },
       checarInscripcionHuertoMesaHuasteca: function(){
         axios.post(this.url + 'ChecarHuertoMesaHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.InscritoHuertoMesaHuasteca = response.data;
           }).catch((err) => {
             console.log(err.response.data);
           })
       },
       checarInscripcionPromotoresHuasteca: function(){
-        axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
+        axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":thZis.ClaveU_RPE })
           .then(response => {
             // console.log(response.data);
             this.InscritoPromotoresHuasteca = response.data;
@@ -757,11 +1024,20 @@
         axios.post(this.url + 'ChecarUnirutaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             // console.log("Uniruta: " + response.data);
-            this.InscritoUniruta = response.data;
+            this.InscritoUnirutaCp = response.data;
           }).catch((err) => {
             console.log(err.response.data);
           })
-      },       
+      },
+      checarCursosActualizacion: function(){
+        axios.post(this.url + 'ChecarCursoaUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            // console.log("Uniruta: " + response.data);
+            this.InscritoCursosa = response.data;
+          }).catch((err) => {
+            console.log(err.response.data);
+          })
+      },
       checarInscripcionHuertoMesa: function(){
         axios.post(this.url + 'ChecarHuertoMesaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
@@ -783,6 +1059,14 @@
           axios.post(this.url + 'ChecarUnitruequeUsuario',{ "Clave":this.ClaveU_RPE })
               .then(response => {
                   this.InscritoUnitrueque = response.data;
+              }).catch((err) => {
+              console.log(err);
+          })
+      },
+      checarCompetencias: function(){
+          axios.post(this.url + 'ChecarCompetencias',{ "Clave":this.ClaveU_RPE })
+              .then(response => {
+                  this.InscritoCompetencias = response.data;
               }).catch((err) => {
               console.log(err);
           })

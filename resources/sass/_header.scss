@@ -1,0 +1,30 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color:#115089;
+    height: 12vh;
+}
+
+.imagenUASLP{
+    height: 50px;
+}
+
+.imagenAgenda{
+    height: 44px;
+}
+
+.header a{
+    padding-right: 20px;
+}
+
+#header-title{
+    font-size: 25px;
+    color:white;
+}
+
+#header-title:hover{
+    text-decoration: none;
+    font-size: 25px;
+    color:white;
+}

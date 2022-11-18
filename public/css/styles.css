@@ -1,6 +1,6 @@
 
 body{
-    max-width: 1600px;
+    /* max-width: 1600px; */
    
    margin: auto;
    min-width: 320px;
@@ -33,11 +33,11 @@ body{
     padding: 0%;
 }
 
-.navbar .nav-item:hover{
+/* .navbar .nav-item:hover{
 background-color: #96A834;
 
 
-}
+} */
 
 #modalGemas .close{
     padding: 0%;
@@ -88,10 +88,12 @@ background-color: #96A834;
     color: white;
     padding-left: 0.5rem;
 }
-.navbar-brand:hover{
+
+/* .navbar-brand:hover{
     background-color: #96A834;
     color: white;
-}
+} */
+
 .con-btn{
     margin-right: 20px;
     font-size: 1.0rem;

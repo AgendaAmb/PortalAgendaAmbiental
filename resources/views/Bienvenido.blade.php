@@ -2,12 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    @include('Parciales.head')
+    @if (Str::contains(url()->full(),'20Aniversario'))
+        @include('templates.head')
+    @else
+        @include('Parciales.head')
+    @endif
 </head>
 
 <body>
     <header>
-        @include('Parciales.header')
+
+        @if (Str::contains(url()->full(),'20Aniversario'))
+            @include('templates.header')
+        @else
+            @include('Parciales.header')
+        @endif
+
+        {{-- @include('Parciales.header') --}}
+        
         @if (route('Index')==url()->full())
         <div class="col-12 my-2 p-0 d-flex d-xl-none d-lg-none d-md-none">
             <a href="https://www.un.org/sustainabledevelopment/es/"> <img
@@ -17,7 +29,7 @@
         @endif
     </header>
     <nav>
-        @if (route('panel')==url()->full()||route('Administracion')==url()->full())
+        @if (route('panel')==url()->full()||route('Administracion')==url()->full() || Str::contains(url()->full(),'20Aniversario'))
         @else
         @include('Parciales.navbar')
         @endif
@@ -33,6 +45,10 @@
         ||Str::contains(url()->full(),route('Proserem'))
         ||Str::contains(url()->full(),route('ConsumoResponsable'))
         ||Str::contains(url()->full(),route('mmus2021'))
+        ||Str::contains(url()->full(),route('Cursos'))
+        ||Str::contains(url()->full(),route('Uniruta'))
+        ||Str::contains(url()->full(),route('GlobalGoalsJam2022'))
+        ||Str::contains(url()->full(),route('mmus2022'))
         
         )
         <x-navbar-o-d-s>

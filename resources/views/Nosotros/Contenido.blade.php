@@ -3,7 +3,7 @@
 @section('Contenido-Nosotros')
 
 <div class="col-xl-12 p-0">
-  <img src="{{asset('storage/imagenes/Nosotros/nosotros-banner.png')}}" class="img-fluid mx-auto d-block my-2" alt="" srcset="">
+  <img src="{{asset('storage/imagenes/Nosotros/B_Nosotros2022.png')}}" class="img-fluid mx-auto d-block my-2" alt="" srcset="">
 </div>
 <x-btns-ejes>
 

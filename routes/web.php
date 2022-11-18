@@ -4,6 +4,7 @@ use App\Mail\EmailLayout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,19 +16,20 @@ use Illuminate\Http\Request;
 |
 */
 
+// ROUTE TO TEST CONECTION WITH FINANCES SERVICE
+Route::get('/soap_finances', 'TestingController@test')->name('test_soap');
+
 Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
 
 Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('Gemas');
 
-//Route::get('/Concurso17gemas', function ($NombreM="Concurso17gemas") {
-  //  return view('Introduccion.vista')->with('NombreM',$NombreM);
-//})->name('Modal17Gemas');
-
-//Route::view('/gestión/{nombreModal?}','Gestion.vista',['NombreM' => $NombreM])->name('Gestion');
-
 Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
     return view('Gestion.vista')->with('NombreM',$NombreM);
 })->name('Gestion');
+
+Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
+    return view('GlobalGoalsJam2022.contenido')->with('NombreM', $NombreM);
+})->name('GlobalGoalsJam2022');
 
 Route::get('/educación/{nombreModal?}',function ($NombreM=null){
     return view('Educacion.vista')->with('NombreM',$NombreM);
@@ -36,6 +38,10 @@ Route::get('/educación/{nombreModal?}',function ($NombreM=null){
 Route::get('/vinculación', function () {
     return view('Vinculacion.vista');
 })->name('Vinculacion');
+
+Route::get('/CompetenciasProfesionales', function () {
+    return view('Introduccion.vista')->with('NombreM', 'CompetenciasProfesionales');
+})->name('CompetenciasProfesionales');
 
 Route::get('/comunicación', function () {
     return view('Comunicacion.vista');
@@ -97,6 +103,10 @@ Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
     return view('Unihuerto.contenido')->with('NombreM',$NombreM);
 })->name('Unihuerto');
 
+Route::get('/mmus2022/{nombreModal?}', function ($NombreM = null) {
+    return view('mmus2022.contenido')->with('NombreM', $NombreM);
+})->name('mmus2022');
+
 Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=null) {
     $request->session()->put('NombreM',$NombreM);
     return view('auth.Bienvenida')->with('NombreM',$NombreM);
@@ -113,6 +123,18 @@ Auth::routes(['verify' => true]);
 # Usuarios autenticados y con roles
 Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
     Route::get('/Miportal', 'HomeController@panel')->name('panel');
+
+    Route::get('/Miportal2', 'HomeController@panel2')->name('panel2');
+
+    Route::middleware(['auth'])->group(function () {
+        // Ruta de registro 20 aniversario
+        Route::get('/Miportal/20Aniversario/register', 'AnniversaryController@register')->name('20register');
+        // Ruta home de 20 aniversario
+        Route::get('/Miportal/20Aniversario/', 'AnniversaryController@home')->name('20home');
+        // Ruta admin 20 aniversario
+        Route::get('/Miportal/20Aniversario/admin', 'AnniversaryController@admin')->name('20admin');
+    });
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/Administracion', 'HomeController@Administracion')->middleware('role:administrator|coordinator|helper')->name('Administracion');
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
@@ -154,24 +176,70 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Registro a uniruta.
     Route::post('/RegistrarUnirutaUsuario', 'WorkshopController@RegistrarUnirutaUsuario')->name('RegistrarUnirutaUsuario');
     Route::post('/ChecarUnirutaUsuario', 'WorkshopController@ChecarUnirutaUsuario')->name('ChecarUnirutaUsuario');
+
+    # Registro a cursos de actualizacioón.
+    Route::post('/RegistrarCAUsuario', 'WorkshopController@RegistrarCAUsuario')->name('RegistrarCAUsuario');
+    Route::post('/ChecarCAUsuario', 'WorkshopController@ChecarCAUsuario')->name('ChecarCAUsuario');
+
+    # Registro a cursos de mmus2022.
+    Route::post('/RegistrarMmus2022', 'WorkshopController@RegistrarMmus2022')->name('RegistrarMmus2022');
+    Route::post('/ChecarMmus2022', 'WorkshopController@ChecarMmus2022')->name('ChecarMmus2022');
+
+    # Registro ggj.
+    Route::post('/RegistrarGGJ', 'WorkshopController@RegistrarGGJ')->name('RegistrarGGJ');
+    Route::post('/ChecarGGJ', 'WorkshopController@ChecarGGJ')->name('ChecarGGJ');
+
+    # Registro kids.
+    Route::post('/RegistrarKids', 'WorkshopController@RegistrarKids')->name('RegistrarKids');
+    Route::post('/ChecarKids', 'WorkshopController@ChecarKids')->name('ChecarKids');
+    Route::get('/FormatoMinirodada', 'WorkshopController@FormatoMinirodada')->name('FormatoMinirodada');
+
+    # Registro a unirodada mmus 2022
+    Route::post('/RegistrarRodadaMmus', 'WorkshopController@RegistrarRodadaMmus')->name('RegistrarRodadaMmus');
+    Route::post('/ChecarRodadaMmus', 'WorkshopController@ChecarRodadaMmus')->name('ChecarRodadaMmus');
+
+    # Comptetencias Profesionales 
+    Route::post('/RegistrarCompetencias', 'WorkshopController@RegistrarCompetencias')->name('RegistrarCompetencias');
+    Route::post('/ChecarCompetencias', 'WorkshopController@ChecarCompetencias')->name('ChecarCompetencias');
+
+    # Reutronic
+    Route::post('/RegistrarReutronic', 'WorkshopController@RegistrarReutronic')->name('RegistrarReutronic');
+    Route::post('/ChecarReutronic', 'WorkshopController@ChecarReutronic')->name('ChecarReutronic');
     
+    // ! working 
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/EgresadoData', 'HomeController@EgresadoData')->name('EgresadoData');
+
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');
+
+    # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
+    Route::post('/WorkshopUnirodadaUserRegister', 'WorkshopController@WorkshopUnirodadaUserRegister')->name('WorkshopUnirodadaUserRegister');    
+
+    // ! Workshop
+
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Marcar asistencia a evento
     Route::post('/RegistraAsistencia', 'WorkshopController@markAsistence')->name('RegistraAsistencia');
 
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaFicha', 'UnirutaController@sendPayForm')
+    Route::post('/EnviaFicha', 'CursosActualizacionController@sendPayForm')
         ->middleware('role:helper')
         ->name('EnviaFicha');
 
+    # Envía un comprobante a un usuario.
+    Route::post('/EnviaFactura', 'CursosActualizacionController@sendFactura')
+        ->middleware('role:helper')
+        ->name('EnviaFactura');
 
         #cambio
+        
     # Envía un comprobante a un usuario.
-    Route::post('/EnviaComprobante', 'UnirodadaController@sendReceipt')->name('EnviaComprobante');
+    Route::post('/EnviaComprobante', 'CursosActualizacionController@sendReceipt')->name('EnviaComprobante');
 
     # Envía un comprobante a un usuario.
-    Route::post('/cambiaStatusPago', 'UnirutaController@cambiaStatusPago')->name('cambiaStatusPago');
+    Route::post('/cambiaStatusPago', 'CursosActualizacionController@cambiaStatusPago')->name('cambiaStatusPago');
 
     # Actualiza el lunch del usuario.
     Route::post('/actualizaLunchUsuario', 'UnirodadaController@actualizaLunchUsuario')->name('actualizaLunchUsuario');

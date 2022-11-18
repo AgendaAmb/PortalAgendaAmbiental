@@ -26,8 +26,6 @@ class UpdatePaidStatusRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
-        # Valida el correo de la uaslp.
-
         $this->merge([ 'nuevoEstadoPago' => boolval($this->nuevoEstadoPago) ]);
     }
 
@@ -40,7 +38,8 @@ class UpdatePaidStatusRequest extends FormRequest
     {
         return [
             'nuevoEstadoPago' => ['required', 'boolean'],
-            'idUsuario' => ['required']
+            'idUsuario' => ['required'],
+            'user_workshop_id' => ['required']
         ];
     }
 }

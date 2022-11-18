@@ -88,13 +88,12 @@
                             @endif
                         </td>
                         @else
-
                         <td>   
                             <a class="edit" data-toggle="modal" id={{$user->id}} data-target="#InfoUser"
-                                @click="cargarUser({{$user}})">
+                                @click="cargarUser({{$user}},{{$user->workshops[0]->pivot->id}})">
                                 <i class="fas fa-edit"></i>
                                 @if (Auth::user()->hasRole('helper'))
-                                    <small>pago uniruta-sierra-álvarez</small>
+                                    <small>ENVIAR FICHA DE PAGO</small>
                                 @endif
                             </a>
                         </td>
@@ -193,7 +192,7 @@
                             </td>
                         
 
-                        @if ($user->paid!=null||$user->paid)
+                        @if ($user->workshops[0]->pivot->paid!=null)
                         <td class="text-center">
                             <i style="color: green; font-size:25px; " class="fas fa-check-circle text-center"></i>
                         </td>
@@ -201,7 +200,7 @@
                         <td>
 
                             <input type="checkbox" name="{{$user->id.$user->middlename}}"
-                                id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}})">
+                                id="{{$user->id.$user->middlename}}" @change="ConfirmarPago({{$user}},{{$user->workshops[0]->pivot->id}})">
                             Si
                         </td>
 
@@ -209,12 +208,11 @@
 
 
                         <th class="text-center ">
-                            @if(json_decode($user->invoice_data)!=null&&json_decode($user->invoice_data)->isFacturaReq=='Si')
-
+                            @if($user->workshops[0]->pivot->invoice_data == 1)
                             <a href="#" data-toggle="modal" data-target="#EnviarFactura"><i
                                     class="fas fa-eye text-primary " style="font-size: 25px;"
-                                    @click="cargarDatosFacturacion({{$user->invoice_data}})"></i></a>
-
+                                    @click="cargarDatosFacturacion({{$user}})"></i>
+                            </a>
                             @else
                             no
                             @endif
@@ -376,15 +374,13 @@
 
 
 
-
-
     <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="user!=''">
         <div class="modal-dialog modal-lg">
             <div class="modal-content ">
                 <div class="modal-header bg-primary ">
                     @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago Uniruta Sierra lvarez
+                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago
                     </h5>
 
                     @else
@@ -402,8 +398,7 @@
                     </button>
                 </div>
                 @if (Auth::user()->hasRole('helper'))
-
-                <form @submit.prevent="MandarPagoUnirodada" method="post">
+                <form @submit.prevent="MandarPagoUnirodada()" method="post">
                     <div class="modal-body bg-white">
                         <div class="col-12" v-if="asistenciaExito">
                             <div class="alert alert-success text-center" role="alert">
@@ -502,7 +497,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
-                                    <label for="CursosInscritos">Comprobante de pago Unirodada</label> <br>
+                                    <label for="CursosInscritos">Comprobante de pago</label> <br>
                                     <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i
                                             class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
                                 </div>
@@ -557,7 +552,7 @@
                 </div>
 
                 <div class="modal-body bg-white">
-                    <form @submit.prevent="MandarPagoUnirodada" method="post">
+                    <form @submit.prevent="MandarFacturaPago({{$user}},{{$user->workshops[0]->pivot->id}})" method="post">
                         <div class="modal-body bg-white">
                             <div class="col-12" v-if="asistenciaExito">
                                 <div class="alert alert-success text-center" role="alert">
@@ -574,29 +569,29 @@
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Nombre Completo o razón social</label>
                                     <input type="text" class="form-control" id="nombresF" name="nombresF"
-                                        :value="DatosFacturacion[0].nombresF" readonly
+                                        :value="DatosFacturacion[0].invoice_data.name" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Domicilio fiscal</label>
                                     <input type="text" class="form-control" id="DomicilioF" name="DomicilioF"
-                                        :value="DatosFacturacion[0].DomicilioF" readonly
+                                        :value="DatosFacturacion[0].invoice_data.address" readonly
                                         style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">RFC</label>
                                     <input type="text" class="form-control" id="RFC" name="RFC"
-                                        :value="DatosFacturacion[0].RFC" readonly style="text-transform: capitalize;">
+                                        :value="DatosFacturacion[0].invoice_data.rfc" readonly style="text-transform: capitalize;">
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Correo electrónico</label>
                                     <input type="email" class="form-control" id="emailF" name="emailF"
-                                        :value="DatosFacturacion[0].emailF" readonly>
+                                        :value="DatosFacturacion[0].invoice_data.email" readonly>
                                 </div>
                                 <div class="form-group  was-validated col-6">
                                     <label for="Nombres">Teléfono</label>
                                     <input type="tel" class="form-control" id="telF" name="telF"
-                                        :value="DatosFacturacion[0].telF" readonly>
+                                        :value="DatosFacturacion[0].invoice_data.phone" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="Factura">Factura</label>
@@ -627,6 +622,11 @@
     </div>
 </div>
 
+<script>
+    // Va a remplazar todo
+    const users = @json($users);
+    const modulos = @json($Modulos);
+</script>
 
 <script>
     var app = new Vue({
@@ -653,29 +653,30 @@
     Asunto:'',
     Contenido:'',
     cc:[],
-    Summernote:''
-
+    Summernote:'',
+    ws_id:-1,
   },
   mounted: function () {
-  this.$nextTick(function () {
+    this.$nextTick(function () {
     @foreach($users as $user)
-                this.users.push({
-                    "id":'{{$user->id}}',
-                    "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
-                    "residence":'{{$user->residence}}',
-                    "ocupation":'{{$user->ocupation}}',
-                    "ethnicity":'{{$user->ethnicity}}',
-                    "disability":'{{$user->disability}}',
-                    "ethnicity":'{{$user->ethnicity}}',
-                    "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
-                    "emergency_contact":'{{$user->emergency_contact}}',
-                    "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
-                    "health_condition":'{{$user->health_condition}}',
-                    "invoice_data": "{{$user->invoice_data}}",
-                    "file_path": "{{$user->invoice_url}}",
-                    "lunch":"{{$user->lunch}}"
-                });
+        this.users.push({
+            "id":'{{$user->id}}',
+            "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
+            "residence":'{{$user->residence}}',
+            "ocupation":'{{$user->ocupation}}',
+            "ethnicity":'{{$user->ethnicity}}',
+            "disability":'{{$user->disability}}',
+            "ethnicity":'{{$user->ethnicity}}',
+            "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
+            "emergency_contact":'{{$user->emergency_contact}}',
+            "emergency_contact_phone":'{{$user->emergency_contact_phone}}',
+            "health_condition":'{{$user->health_condition}}',
+            "invoice_data": users['{{ $loop->index }}'].invoice_data,
+            "file_path": "{{$user->invoice_url}}",
+            "lunch":"{{$user->lunch}}"
+        });
     @endforeach
+    console.log(this.users);
     $(document).ready(function() {
   $('#summernote').summernote();
 });
@@ -735,91 +736,102 @@
 
 
         axios({
-                 method: 'post',
-                 url: '/actualizaLunchUsuario',
-                 data: formData,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
-             }).then(
-                     res => {
-                         console.log("Exito")
-                         this.lunchRegister=true
-                         this.lunch='';
-
-                     }
-                 ).catch(
-                     err => {
-                        console.log("Falso")
-
-                     }
-                 )
+            method: 'post',
+            url: '/actualizaLunchUsuario',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(res => {
+            console.log("Exito")
+            this.lunchRegister=true
+            this.lunch='';
+        }).catch(err => {
+            console.log("Falso")
+        })
 
 
     },
-    ConfirmarPago:function(user){
-        this.cargarUser(user),
-        console.log(this.user[0].id)
-        const formData = new FormData();
-        formData.append('idUsuario',this.user[0].id);
-        formData.append('nuevoEstadoPago',true);
+    ConfirmarPago:function(user, ws_id){
+        this.cargarUser(user);
+        var data = {
+            "idUsuario": user.id,
+            "nuevoEstadoPago": true,
+            "user_workshop_id": ws_id
+        };
         axios({
-                 method: 'post',
-
-                 url: '/cambiaStatusPago',
-                 data: formData,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
-             }).then(
-                     res => {
-                         console.log("Exito")
-
-
-                     }
-                 ).catch(
-                     err => {
-                        console.log("Falso")
-
-                     }
-                 )
-
+            method: 'post',
+            url: '/cambiaStatusPago',
+            data: data
+        }).then(res => {
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err.data)
+        })
     },
     cargarDatosFacturacion:function(user){
+        this.cargarUser(user);
         this.DatosFacturacion=[],
         this.DatosFacturacion.push(user);
+        console.log(this.DatosFacturacion[0].invoice_data)
     },
     MandarPagoUnirodada:function(){
+        console.log("hola");
+        this.spinnerVisible=true;
+        // Los datos necesitan ser enviados con form data
+        var formData = new FormData();
+        formData.append("idUser", this.user[0].id);
+        formData.append("file",this.file);
+        formData.append("ws_id", this.ws_id);
+        console.log(this.ws_id);
+        axios({
+            method: 'post',
+            url: '/EnviaFicha',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(res => {
+                console.log(res.data),
+                this.file = '',
+                this.spinnerVisible=false,
+                this.asistenciaExito=true
+        }).catch(
+            err => {
+            console.log(err),
+            this.spinnerVisible=false,
+                this.asistenciaExito=false
 
-        this.spinnerVisible=true
-        const formData = new FormData();
-             formData.append('idUser',this.user[0].id);
-             formData.append('file', this.file);
-             formData.append('_method', 'post');
-             axios({
-                 method: 'post',
+            }
+        )
+    },
+    MandarFacturaPago:function(user, ws_id){
+        console.log("enviar datos");
+        // Los datos necesitan ser enviados con form data
+        var formData = new FormData();
+        formData.append("idUser", this.user[0].id);
+        formData.append("file",this.file);
+        formData.append("ws_id", ws_id);
+        axios({
+            method: 'post',
+            url: '/EnviaFactura',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(res => {
+                console.log(res.data),
+                this.file = '',
+                this.spinnerVisible=false,
+                this.asistenciaExito=true
+        }).catch(
+            err => {
+            console.log(err),
+            this.spinnerVisible=false,
+                this.asistenciaExito=false
 
-                 url: '/EnviaFicha',
-                 data: formData,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
-             }).then(
-                     res => {
-                         console.log("hola"),
-
-                         this.file = '',
-                         this.spinnerVisible=false,
-                         this.asistenciaExito=true
-                     }
-                 ).catch(
-                     err => {
-                        console.log("adios"),
-                        this.spinnerVisible=false,
-                         this.asistenciaExito=false
-
-                     }
-                 )
+            }
+        )
     },
     RegistrarAsistencia:function(){
         this.spinnerVisible=true
@@ -846,17 +858,18 @@
              this.file='';
              this.file = e.target.files[0];
          },
-    cargarUser: function (user) {
+    cargarUser: function (user, ws_id = -1) {
+        // console.log(ws_id)
+        this.ws_id = ws_id; 
         this.file='',
         this.asistenciaExito=false,
         this.user=[],
         this.CursosInscritos=[],
         this.user.push(user);
-            console.log("soy lunch", this.user[0].lunch)
-             console.log(this.user[0].lunch==1)
+            // console.log("soy lunch", this.user[0].lunch)
+            // console.log(this.user[0].lunch==1)
         if (this.user[0].lunch==1) {
             this.Lunch='Si'
-
         }else{
             this.Lunch=''
         }
@@ -868,23 +881,17 @@
        	        "id":user.id,
         }
         axios.post('/GetWorkshops',data).then(response => (
-
             response.data.forEach(element => {
                 if (!element.asistenciaUsuario) {
                     this.CursosInscritos.push({
                     'id':element.id,
                     'name':element.name
-                })
+                    })
                 }
-
             })
-
-
-             )).catch((err) => {
-                console.log(err)
-
-          })
-
+        )).catch((err) => {
+            console.log(err)
+        })
     }
     }
 })
@@ -903,7 +910,6 @@ console.log(markupStr);
 
 
 </script>
-
 @push('stylesheets')
 
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
