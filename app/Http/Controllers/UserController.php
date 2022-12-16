@@ -247,48 +247,48 @@ class UserController extends Controller
         $user = null;
 
         // Data validation from portal
-        try{
-            $val = Validator::make($request->all(),[
-                'module_id' => ['required', 'exists:modules,id'],
-                'tipo_usuario' => ['required', 'string', 'max:255'],
-                'pertenece_uaslp' => ['required', 'boolean'],
-                'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
-                'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
-                'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
-                'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
-                'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
-                'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
-                'no_curp' => ['required', 'boolean'],
-                'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
-                'name' => ['required', 'string', 'max:255' ],
-                'middlename' => ['required','string','max:255'],
-                'surname' => ['nullable'],
-                'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
-                'ocupation' => ['required', 'string', 'max:255'],
-                'gender' => [ 'required', 'string'],
-                'other_gender' => ['nullable','required_if:gender,Otro'],
-                'nationality' => ['required','string','max:255'],
-                'civic_state' => ['required', 'string'],
-                'other_civic_state' => ['nullable', 'required_if:civic_state,Otro'],
-                'birth_country' => ['required', 'string', 'max:255'],
-                'birth_state' => ['required', 'string', 'max:255'],
-                'residence_country' => ['required', 'string', 'max:255'],
-                'residence_state' => ['required', 'string', 'max:255'],
-                'zip_code' => ['required', 'numeric'],
-                'phone_number' => ['required','numeric'],
-                'is_disabled' => ['required', 'boolean'],
-                'ethnicity' => ['nullable','string','max:255'],
-                'disability' => ['nullable','required_if:is_disabled,true']
-            ]);
+        // try{
+        //     $val = Validator::make($request->all(),[
+        //         'module_id' => ['required', 'exists:modules,id'],
+        //         'tipo_usuario' => ['required', 'string', 'max:255'],
+        //         'pertenece_uaslp' => ['required', 'boolean'],
+        //         'clave_uaslp' => ['nullable', 'required_if:pertenece_uaslp,true', 'numeric'],
+        //         'directorio_activo' => ['nullable', 'required_if:pertenece_uaslp,true', 'in:ALUMNOS,UASLP', 'string'],
+        //         'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users,email' ],
+        //         'altern_email' => [ 'required', 'different:email', 'string', 'email', 'max:255' ],
+        //         'password' => ['nullable', 'required_if:pertenece_uaslp,false', 'string', 'max:255'],
+        //         'rpassword' => ['nullable', 'required_if:pertenece_uaslp,false', 'same:password','string', 'max:255'],
+        //         'no_curp' => ['required', 'boolean'],
+        //         'curp' => ['nullable', 'required_if:no_curp,false',  'size:18', $this->curp_pattern,],
+        //         'name' => ['required', 'string', 'max:255' ],
+        //         'middlename' => ['required','string','max:255'],
+        //         'surname' => ['nullable'],
+        //         'birth_date' => ['required','date', 'before:'.Carbon::now()->toString(), ],
+        //         'ocupation' => ['required', 'string', 'max:255'],
+        //         'gender' => [ 'required', 'string'],
+        //         'other_gender' => ['nullable','required_if:gender,Otro'],
+        //         'nationality' => ['required','string','max:255'],
+        //         'civic_state' => ['required', 'string'],
+        //         'other_civic_state' => ['nullable', 'required_if:civic_state,Otro'],
+        //         'birth_country' => ['required', 'string', 'max:255'],
+        //         'birth_state' => ['required', 'string', 'max:255'],
+        //         'residence_country' => ['required', 'string', 'max:255'],
+        //         'residence_state' => ['required', 'string', 'max:255'],
+        //         'zip_code' => ['required', 'numeric'],
+        //         'phone_number' => ['required','numeric'],
+        //         'is_disabled' => ['required', 'boolean'],
+        //         'ethnicity' => ['nullable','string','max:255'],
+        //         'disability' => ['nullable','required_if:is_disabled,true']
+        //     ]);
 
-            // Return data validation
-            if ($val->fails()) {
-                return new JsonResponse(['message'=>'Datos no validos', 'errors'=>$val->errors()], JsonResponse::HTTP_BAD_REQUEST);
-            }
+        //     // Return data validation
+        //     if ($val->fails()) {
+        //         return new JsonResponse(['message'=>'Datos no validos', 'errors'=>$val->errors()], JsonResponse::HTTP_BAD_REQUEST);
+        //     }
 
-        }catch(\Exception $e){
-            return new JsonResponse(['message'=>"Error al mandar los datos, verifique",'error'=>$e->getMessage()], JsonResponse::HTTP_BAD_REQUEST);
-        }
+        // }catch(\Exception $e){
+        //     return new JsonResponse(['message'=>"Error al mandar los datos, verifique",'error'=>$e->getMessage()], JsonResponse::HTTP_BAD_REQUEST);
+        // }
 
         //Existe o no en portal
         if($request->tipo_usuario == "Comunidad UASLP" || $request->tipo_usuario == "Ninguno"){
@@ -315,8 +315,6 @@ class UserController extends Controller
                     'tipo_usuario',
                 ]);
             }
-
-
 
             $data['residence'] = $residence;
             $user = $this->newUser($data);
