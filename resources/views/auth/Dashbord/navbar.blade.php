@@ -16,7 +16,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
                 </li>
-                
+
                 @foreach ($Modulos as $Modulo)
                     @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
                         <li class="nav-item ">
@@ -46,6 +46,12 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                     </li>
+                @endif
+
+                @if(!$is_ce)
+                <li class="nav-item ">
+                    <a class="nav-link" href="https://ambiental.uaslp.mx/controlescolar/">Control Escolar<span class="sr-only"></span></a>
+                </li>
                 @endif
 
             </ul>

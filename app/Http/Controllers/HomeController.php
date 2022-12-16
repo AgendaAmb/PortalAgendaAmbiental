@@ -58,13 +58,15 @@ class HomeController extends Controller
         if ($nombreModal !== null)
             $request->session()->forget('nombreModal');
 
+        $ce_active = $request->user()->userModules->where("name", 'Control Escolar')->count() > 0 ?  true : false;
+
         return view('auth.Dashbord.index')
+            ->with('is_ce', $ce_active)
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
             ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users)
             ->with('Ejes',ejes::all())
-            ->with('workshops',Workshop::all())
-            ;
+            ->with('workshops',Workshop::all());
     }
 
     //! NEW INTERFACE 
