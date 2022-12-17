@@ -47,10 +47,11 @@
                         <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                     </li>
                 @endif
+                    
 
                 @if(!$is_ce)
                 <li class="nav-item ">
-                    <a class="nav-link" href="https://ambiental.uaslp.mx/controlescolar/">Control Escolar<span class="sr-only"></span></a>
+                    <a class="nav-link text-nowrap" href="https://ambiental.uaslp.mx/controlescolar/">Portal de postulaciones<span class="sr-only"></span></a>
                 </li>
                 @endif
 
