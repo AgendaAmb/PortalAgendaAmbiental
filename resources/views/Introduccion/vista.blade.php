@@ -168,6 +168,16 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="slide-box">
+              <a href="http://wp.uaslp.mx/centenario/">
+                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel w-100 p-0 p-0"
+                  alt="First slide">
+               </a>
+          </div>
+        </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <div class="slide-box">
               <a href="https://greenmetric.ui.ac.id/rankings/overall-rankings-2021">
                 <img src="{{ asset('/storage/imagenes/GreenMetric/GM1.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
@@ -175,17 +185,8 @@
           </div>
         </div>
 
-      <!--<div class="carousel-inner">
-        <div class="carousel-item">
-          <div class="slide-box">
-            <a href={{route('mmus2022')}}>
-              <img src="{{ asset('storage/imagenes/mmus2022/Banner1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
-            </a>
-          </div>
-        </div>
-
           
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Cursos')}}>
               <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
