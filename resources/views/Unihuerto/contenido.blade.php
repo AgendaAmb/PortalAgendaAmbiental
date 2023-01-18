@@ -330,7 +330,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_Unitrueque.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_Unitrueque2023.png')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -348,7 +348,7 @@
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Unitrueque.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_Unitrueque.jpg">CARTEL</a>
+                                download="Cartel_Unitrueque2023.png">CARTEL</a>
 
                         </div>
 
@@ -443,7 +443,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2022.png')}}" class="img-fluid"
+                            <img src="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2023.png')}}" class="img-fluid"
                                 alt="">
                         </div>
                     </div>
@@ -459,9 +459,9 @@
 
                         </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2022.png')}}"
+                            <a href="{{asset('storage/imagenes/Unitrueque/Cartel_Unitrueque2023.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_Unitrueque.jpg">CARTEL</a>
+                                download="Cartel_Unitrueque2023.png">CARTEL</a>
 
                         </div>
 
