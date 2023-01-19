@@ -1,7 +1,7 @@
 @extends('Parciales.index')
 @section('TextImagen')
 <div class="col-xl-4 col-lg-4 col-md-12 align-content-center text-justify mt-5">
-    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR.png') }}" class="img-fluid  w-75 pl-5" alt="" srcset="">
+    <img src="{{ asset('storage/imagenes/Logos/BannerSup_ECR2023.png') }}" class="img-fluid  w-75 pl-5" alt="" srcset="">
 </div>
 <div class="col-xl-8 col-lg-8 col-md-12 mb-5 mt-5">
     <p class="text-justify pSize">
@@ -185,18 +185,18 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/B_ECR_Nov2022.png')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Ene2023.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
                     <div
                         class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
 
-                        <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
+                        <!--<div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
                             <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
-                        </div>
+                        </div>-->
                    
 
                     </div>
