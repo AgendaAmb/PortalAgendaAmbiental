@@ -61,7 +61,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img  src="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}"
+                            <img  src="{{asset('storage/imagenes/DateUnRespiro/B_DUR_ 2023.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                 font-weight: 900;
                                 width: 145px;
                                 "
-                                download="Banner_DaterEspiro.png">CARTEL</a>
+                                download="B_DUR_ 2023.png">CARTEL</a>
                         </div>
 
                     </div>

@@ -31,7 +31,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/B_Unihuerto23_2.png')}}" class="d-block img-fluid"
+                    <img src="{{asset('storage/imagenes/Unihuerto/B_Unihuerto23.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
                 <div class="carousel-item">
@@ -331,7 +331,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_Unihuerto23.png')}}"
+                            <img src="{{asset('storage/imagenes/UnihuertoCasa/Cartel_Unihuerto23.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -381,19 +381,19 @@
                             <br>
                             <h4>Lugar, fecha y horario</h4>
                             <ul>
-                                <li><span><b>Horas totales:</b></span> 32 horas.</li>
-                                <li><span><b>Horas teóricas:</b></span> 12 horas.</li>
+                                <li><span>Horas totales:</span> 32 horas.</li>
+                                <li><span>Horas teóricas:</span> 12 horas.</li>
                                 <li>Sesiones en Plataforma Teams, presenciales en casa, colonia o Unihuerto UASLP.</li>
-                                <li><span><b>Tarea individual:</b></span> 8 horas.</li>
-                                <li><span><b>Horas de práctica:</b></span> 12 horas.</li>
+                                <li><span>Tarea individual:</span> 8 horas.</li>
+                                <li><span>Horas de práctica:</span> 12 horas.</li>
                             </ul>
                             <br>
                             <h4>Módulos</h4>
                             <ul>
-                                <li><b>Módulo I.</b> Desarrollo de huertos, 25 de febrero y 4 de marzo del 2022.</li>
-                                <li><b>Módulo II.</b> Composta en traspatio, 25 de marzo y 1 de abril del 2022.</li>
-                                <li><b>Módulo III.</b> Control biológico, 29 de abril y 6 de mayo del 2022.</li>
-                                <li><b>Módulo IV.</b> Post cosecha, 27 de mayo y 3 de junio del 2022.</li>
+                                <li>Módulo I. Desarrollo de huertos, 25 de febrero y 4 de marzo del 2022.</li>
+                                <li>Módulo II. Composta en traspatio, 25 de marzo y 1 de abril del 2022.</li>
+                                <li>Módulo III. Control biológico, 29 de abril y 6 de mayo del 2022.</li>
+                                <li>Módulo IV. Post cosecha, 27 de mayo y 3 de junio del 2022.</li>
                             </ul>
                             <br>
                             <!--<h4>Prerrequisitos</h4>
@@ -410,7 +410,7 @@
                             <br>-->
                             <h4>Fecha límite de registro</h4>
                             <p>10 de febrero del 2022.</p>
-                            <p align="center">Cupo limitado</p>
+                            <p>Cupo limitado</p>
                             <br>
                             <h4>Inversión</h4>
                             <p>Pago de curso completo (los 4 módulos, 32 horas CON constancia de Secretaría Académica o
@@ -439,12 +439,12 @@
                                 <li>Recibirá correo de confirmación de inscripción con más detalles del curso.</li>
                             </ol>
                             <p></p>
-                            <p>Nota importante: Comunidad Universitaria que serán apoyados por sus Dependencias con el
+                            <p><i>Nota importante:</i> Comunidad Universitaria que serán apoyados por sus Dependencias con el
                                 pago de inscripción, tienen que hacer el trámite a través de su Administrador con una
                                 Orden de Servicio interna. No se emite factura para reembolso.</p>
                             <br>
                             <h4>Formas de pago</h4>
-                            <p>Las fichas de pago se pueden pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos">https://www.finanzas.uaslp.mx/Multipagos</a><br><br>
+                            <p>Las fichas de pago se pueden pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos"> https://www.finanzas.uaslp.mx/Multipagos</a><br><br>
                             * En caso de requerir factura favor de indicarlo y mandar datos fiscales.</p>
                             <br>
                             <h4>Más información</h4>
