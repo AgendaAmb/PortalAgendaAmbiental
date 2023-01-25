@@ -45,7 +45,7 @@
           @if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
-              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/Registro_img.png')}}" class="img-fluid pr-xl-1 px-1">
+              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/R_Unihuerto23.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
           @endif

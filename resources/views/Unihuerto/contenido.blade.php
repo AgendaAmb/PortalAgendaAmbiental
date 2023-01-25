@@ -31,7 +31,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/B_Unihuerto23.png')}}" class="d-block img-fluid"
+                    <img src="{{asset('storage/imagenes/UnihuertoCasa/B_Unihuerto23.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
                 <div class="carousel-item">
@@ -344,7 +344,7 @@
                                 role="button">REGISTRAR</a>
                         </div>-->
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Unihuerto23.png')}}"
+                            <a href="{{asset('storage/imagenes/UnihuertoCasa/Cartel_Unihuerto23.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="Cartel_Unihuerto23.png">CARTEL</a>
 
