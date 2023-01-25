@@ -47,6 +47,21 @@
           </div>
         </div>
 
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto23'])}}>
+                <img src="{{ asset('/storage/imagenes/UnihuertoCasa/B_Unihuerto23_1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto23'])}}>
+                <img src="{{ asset('/storage/imagenes/UnihuertoCasa/B_Unihuerto23_2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
 
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -177,6 +192,33 @@
           </div>
         </div>
 
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto23'])}}>
+              <img src="{{ asset('storage/imagenes/UnihuertoCasa/B_Unihuerto23_1.png')}}"
+                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
+              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Ene2023.png')}}"
+                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
+              <img src="{{ asset('storage/imagenes/Unitrueque/B_UniTrueque2023_1.png')}}"
+                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
       <div class="carousel-inner">
         <div class="carousel-item">
           <div class="slide-box">
@@ -196,14 +238,6 @@
           </div>
         </div>-->
       
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
-              <img src="{{ asset('storage/imagenes/Unitrueque/B_UniTrueque2023_1.png')}}"
-                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
-            </a>
-          </div>
-        </div>
 
         <!--<div class="carousel-item ">
           <div class="slide-box">
@@ -214,14 +248,6 @@
           </div>
         </div>-->
 
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Ene2023.png')}}"
-                class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
-            </a>
-          </div>
-        </div>
                                         
         <div class="carousel-item ">
           <div class="slide-box">
