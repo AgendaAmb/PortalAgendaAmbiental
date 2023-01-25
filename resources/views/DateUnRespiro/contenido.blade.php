@@ -69,7 +69,7 @@
                         class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
 
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/DateUnRespiro/Banner_DaterEspiro.png')}}"
+                            <a href="{{asset('storage/imagenes/DateUnRespiro/B_DUR_ 2023.png')}}"
                                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
                                 height: 35px;
                                 font-weight: 900;

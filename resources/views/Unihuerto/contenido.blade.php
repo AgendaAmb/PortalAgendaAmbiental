@@ -31,7 +31,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('storage/imagenes/Unihuerto/BINT_HuertoalaMesaHuasteca.png')}}" class="d-block img-fluid"
+                    <img src="{{asset('storage/imagenes/Unihuerto/B_Unihuerto23_2.png')}}" class="d-block img-fluid"
                         alt="...">
                 </div>
                 <div class="carousel-item">
@@ -86,7 +86,7 @@
 -->
 <div class="mt-1 col-md-12 col-sm-12 p-0">
     <div class="nav nav-tabs justify-content-between">
-        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto" role="tab"
+        <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalTallerUnihuerto23" role="tab"
             aria-controls="nav-home" aria-selected="true">Curso Taller <br> &nbsp;</a>
         <a class="nav-link w-25 p-1 m-0" data-toggle="modal" data-target="#modalUnitrueque2022" role="tab"
             aria-controls="nav-profile" aria-selected="false"> UniTrueque <br> UASLP</a>
@@ -316,6 +316,154 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalTallerUnihuerto23" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Unihuerto/Cartel_Unihuerto23.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>-->
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unihuerto/Cartel_Unihuerto23.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_Unihuerto23.png">CARTEL</a>
+
+                        </div>
+
+                    <!--<div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                    <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+
+                        </div>
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Unihuerto/CartelUnihuerto_2022.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="CartelUnihuerto_2022.png">CARTEL</a>
+                        </div>-->
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4>Curso-taller: Unihuerto en casa</h4>
+                            <br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Comunidad universitaria y público interesado.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Ofrecer las herramientas teórico-prácticas necesarias para que puedas construir tu propio
+                                huerto.</p>
+                            <p align="center">Este curso-taller puede acreditarse como actividad de aprendizaje en
+                                    varias Facultades de la UASLP y ofrece constancia de Secretaría Académica.</p>
+                            <br>
+                            <h4>Lugar, fecha y horario</h4>
+                            <ul>
+                                <li><span><b>Horas totales:</b></span> 32 horas.</li>
+                                <li><span><b>Horas teóricas:</b></span> 12 horas.</li>
+                                <li>Sesiones en Plataforma Teams, presenciales en casa, colonia o Unihuerto UASLP.</li>
+                                <li><span><b>Tarea individual:</b></span> 8 horas.</li>
+                                <li><span><b>Horas de práctica:</b></span> 12 horas.</li>
+                            </ul>
+                            <br>
+                            <h4>Módulos</h4>
+                            <ul>
+                                <li><b>Módulo I.</b> Desarrollo de huertos, 25 de febrero y 4 de marzo del 2022.</li>
+                                <li><b>Módulo II.</b> Composta en traspatio, 25 de marzo y 1 de abril del 2022.</li>
+                                <li><b>Módulo III.</b> Control biológico, 29 de abril y 6 de mayo del 2022.</li>
+                                <li><b>Módulo IV.</b> Post cosecha, 27 de mayo y 3 de junio del 2022.</li>
+                            </ul>
+                            <br>
+                            <!--<h4>Prerrequisitos</h4>
+                            <ul>
+                                <li>Contar con disponibilidad de horarios para asistir a las sesiones programadas y
+                                    realizar actividades previstas en el programa del curso.</li>
+                                <li>Personas con cualquier tipo de perfil, que tengan o no experiencia con producción
+                                    agrícola pero que tenga el interés de conocer y adoptar modelos agroecológicos.</li>
+                                <li>Tener excelente disposición hacia la comunicación, aprendizaje y colaboración en el
+                                    desarrollo del curso, así como de los objetivos planteados.</li>
+                                <li>Disposición para asistir y realizar las sesiones prácticas tanto en Unihuerto como
+                                    en su hogar o colonia según sea el caso.</li>
+                            </ul>
+                            <br>-->
+                            <h4>Fecha límite de registro</h4>
+                            <p>10 de febrero del 2022.</p>
+                            <p align="center">Cupo limitado</p>
+                            <br>
+                            <h4>Inversión</h4>
+                            <p>Pago de curso completo (los 4 módulos, 32 horas CON constancia de Secretaría Académica o
+                                actividad de aprendizaje):<br>
+                            </p>
+                            <ul>
+                                <li>Participantes que pertenecen a la comunidad universitaria: Estudiantes y
+                                    trabajadores de la UASLP, tiene un costo de $500.00 MXN (Quinientos pesos).</li>
+                                <li>Participantes externos: Instituciones públicas o privadas, dependencias de gobiernos
+                                    y público en general, tiene un costo de $800.00 MXN (Ochocientos pesos).</li>
+                            </ul>
+                            <!--Pago de un solo módulo (SIN constancia de Secretaría Académica o actividad de aprendizaje):
+                            $200 MXN (Doscientos pesos).
+                            <p></p>-->
+                            <br>
+                            <h4>Registro</h4>
+                            <p>Pasos para registro de participantes:
+                            </p>
+                            <ol>
+                                <li>Llenar correctamente el formulario en línea de registro de esta página web.</li>
+                                <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda
+                                    PRE-INSCRITO.</li>
+                                <li>A más tardar en 2 días recibirá un correo electrónico informándole su pre-registro y
+                                    adjuntado la ficha de pago, así como las indicaciones del proceso de pago o el
+                                    descuento por nómina.</li>
+                                <li>Recibirá correo de confirmación de inscripción con más detalles del curso.</li>
+                            </ol>
+                            <p></p>
+                            <p>Nota importante: Comunidad Universitaria que serán apoyados por sus Dependencias con el
+                                pago de inscripción, tienen que hacer el trámite a través de su Administrador con una
+                                Orden de Servicio interna. No se emite factura para reembolso.</p>
+                            <br>
+                            <h4>Formas de pago</h4>
+                            <p>Las fichas de pago se pueden pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos">https://www.finanzas.uaslp.mx/Multipagos</a><br><br>
+                            * En caso de requerir factura favor de indicarlo y mandar datos fiscales.</p>
+                            <br>
+                            <h4>Más información</h4>
+                            <p><b>Programa Unihuerto</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San
+                                Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P.
+                                78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7210<br><a
+                                    href="mailto:unihuerto@uaslp.mx">unihuerto@uaslp.mx</a></p><a
+                                href="mailto:unihuerto@uaslp.mx">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modalUnitrueque" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
