@@ -418,9 +418,9 @@
                             </p>
                             <ul>
                                 <li>Participantes que pertenecen a la comunidad universitaria: Estudiantes y
-                                    trabajadores de la UASLP, tiene un costo de $550.00 MXN (Quinientos pesos).</li>
+                                    trabajadores de la UASLP, tiene un costo de $550.00 MXN (Quinientos cincuenta pesos).</li>
                                 <li>Participantes externos: Instituciones públicas o privadas, dependencias de gobiernos
-                                    y público en general, tiene un costo de $870.00 MXN (Ochocientos pesos).</li>
+                                    y público en general, tiene un costo de $870.00 MXN (Ochocientos setenta pesos).</li>
                             </ul>
                             <!--Pago de un solo módulo (SIN constancia de Secretaría Académica o actividad de aprendizaje):
                             $200 MXN (Doscientos pesos).
