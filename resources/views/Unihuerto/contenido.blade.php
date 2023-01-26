@@ -409,8 +409,8 @@
                             </ul>
                             <br>-->
                             <h4>Fecha límite de registro</h4>
-                            <p>10 de febrero del 2022.</p>
-                            <p>Cupo limitado</p>
+                            <p>17 de febrero del 2022.</p>
+                            <p>Cupo limitado.</p>
                             <br>
                             <h4>Inversión</h4>
                             <p>Pago de curso completo (los 4 módulos, 32 horas CON constancia de Secretaría Académica o
@@ -418,9 +418,9 @@
                             </p>
                             <ul>
                                 <li>Participantes que pertenecen a la comunidad universitaria: Estudiantes y
-                                    trabajadores de la UASLP, tiene un costo de $500.00 MXN (Quinientos pesos).</li>
+                                    trabajadores de la UASLP, tiene un costo de $550.00 MXN (Quinientos pesos).</li>
                                 <li>Participantes externos: Instituciones públicas o privadas, dependencias de gobiernos
-                                    y público en general, tiene un costo de $800.00 MXN (Ochocientos pesos).</li>
+                                    y público en general, tiene un costo de $870.00 MXN (Ochocientos pesos).</li>
                             </ul>
                             <!--Pago de un solo módulo (SIN constancia de Secretaría Académica o actividad de aprendizaje):
                             $200 MXN (Doscientos pesos).
