@@ -50,7 +50,7 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="https://leka.uaslp.mx/index.php/Jandiekua/announcement">
+              <a href="https://leka.uaslp.mx/index.php/jandiekua/announcement">
                 <img src="{{ asset('/storage/imagenes/Jandiekua/B_Jandiekua1.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>

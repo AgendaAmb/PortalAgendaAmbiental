@@ -42,13 +42,19 @@
             </a>
           </div>
 
-          @if(Auth::user()->hasRole('administrator'))
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
+              <img src="{{ asset('/storage/imagenes/UnihuertoCasa/R_Unihuerto23.png')}}" class="img-fluid pr-xl-1 px-1">
+            </a>
+          </div>
+
+          <!--@if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/R_Unihuerto23.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-          @endif
+          @endif-->
 
           {{-- 17 Gemas--}}
           <div class="col px-0" style="position: relative;display: inline-block;text-align: center;">  
@@ -64,6 +70,9 @@
               <div class="carousel-inner">
                 <div class="carousel-item ">
                   <img src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item ">
+                  <img src="{{asset('/storage/imagenes/UnihuertoCasa/B_Unihuerto23.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item active">
                   <img src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}" class="d-block w-100"
