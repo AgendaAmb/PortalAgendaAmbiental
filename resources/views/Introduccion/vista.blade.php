@@ -50,6 +50,21 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
+              <a href="https://leka.uaslp.mx/index.php/Jandiekua/announcement">
+                <img src="{{ asset('/storage/imagenes/Jandiekua/B_Jandiekua1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href="https://leka.uaslp.mx/index.php/Jandiekua/announcement">
+                <img src="{{ asset('/storage/imagenes/Jandiekua/B_Jandiekua2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
               <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto23'])}}>
                 <img src="{{ asset('/storage/imagenes/UnihuertoCasa/B_Unihuerto23_1.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -67,7 +82,7 @@
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Ene2023.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Feb2023.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
