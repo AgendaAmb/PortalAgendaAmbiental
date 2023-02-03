@@ -383,17 +383,17 @@
                             <ul>
                                 <li><span>Horas totales:</span> 32 horas.</li>
                                 <li><span>Horas teóricas:</span> 12 horas.</li>
-                                <li>Sesiones en Plataforma Teams, presenciales en casa, colonia o Unihuerto UASLP.</li>
+                                <li>Sesiones en Plataforma Teams los sábados de 9:00 a 12:00 horas: 25 de febrero, 25 de marzo, 29 de abril, 27 de mayo del 2023.</li>
                                 <li><span>Tarea individual:</span> 8 horas.</li>
-                                <li><span>Horas de práctica:</span> 12 horas.</li>
+                                <li><span>Horas de práctica:</span> 12 horas.<br> Sesiones de práctica presenciales en casa, colonia o en Unihuerto de la UASLP (obligatorio para quien inscriba el curso como actividad de aprendizaje). Sábados de 9:00 a 12:00 horas: 4 de marzo, 1 de abril, 6 de mayo, 3 de junio del 2023.</li>
                             </ul>
                             <br>
                             <h4>Módulos</h4>
                             <ul>
-                                <li>Módulo I. Desarrollo de huertos, 25 de febrero y 4 de marzo del 2022.</li>
-                                <li>Módulo II. Composta en traspatio, 25 de marzo y 1 de abril del 2022.</li>
-                                <li>Módulo III. Control biológico, 29 de abril y 6 de mayo del 2022.</li>
-                                <li>Módulo IV. Post cosecha, 27 de mayo y 3 de junio del 2022.</li>
+                                <li>Módulo I. Desarrollo de huertos, 25 de febrero y 4 de marzo del 2023.</li>
+                                <li>Módulo II. Composta en traspatio, 25 de marzo y 1 de abril del 2023.</li>
+                                <li>Módulo III. Control biológico, 29 de abril y 6 de mayo del 2023.</li>
+                                <li>Módulo IV. Post cosecha, 27 de mayo y 3 de junio del 2023.</li>
                             </ul>
                             <br>
                             <!--<h4>Prerrequisitos</h4>
