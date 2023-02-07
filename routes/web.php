@@ -59,6 +59,10 @@ Route::get('/Cursos', function () {
     return view('Cursos.contenido');
 })->name('Cursos');
 
+Route::get('/Cursos2023', function () {
+    return view('Cursos2023.contenido');
+})->name('Cursos2023');
+
 Route::get('/Uniruta/{nombreModal?}', function ($NombreM=null) {
     return view('Uniruta.contenido')->with('NombreM',$NombreM);
 })->name('Uniruta');
