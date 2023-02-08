@@ -50,11 +50,11 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href={{route('/storage/doc/Cursos/Foro_PIH.pdf')}}>
+              <a href="#">
                 <img src="{{asset('/storage/imagenes/Eventos/B1_PIH.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href={{route('/storage/doc/Cursos/Foro_PIH.pdf')}}>
+              <a href="#">
                 <img src="{{asset('/storage/imagenes/Eventos/B2_PIH.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
@@ -224,7 +224,7 @@
 
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href={{route('/storage/doc/Cursos/Foro_PIH.pdf')}}>
+            <a href="#">
               <img src="{{ asset('/storage/imagenes/Eventos/B1_PIH.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
