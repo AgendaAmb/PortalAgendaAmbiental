@@ -47,6 +47,22 @@
           </div>
         </div>
 
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href={{route('Cursos2023')}}>
+                <img src="{{asset('/storage/imagenes/Cursos/B1_CA2023.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('Cursos2023')}}>
+                <img src="{{asset('/storage/imagenes/Cursos/B2_CA2023.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
@@ -126,21 +142,6 @@
         <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href={{route('Cursos')}}>
-                <img src="{{asset('/storage/imagenes/Cursos/B1_CA.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('Cursos')}}>
-                <img src="{{asset('/storage/imagenes/Cursos/B2_CA.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item" data-interval="4000">
-          <div class="d-block">
-            <div class="slide-box">
               <a href={{route('Unihuerto',['nombreModal'=> 'modalPermacultura'])}}>
                 <img src="{{asset('/storage/imagenes/Unihuerto/B_permacultura1.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -209,6 +210,22 @@
 
         <div class="carousel-item ">
           <div class="slide-box">
+            <a href={{route('Cursos2023')}}>
+              <img src="{{ asset('storage/imagenes/Cursos/B1_CA2023.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href="https://leka.uaslp.mx/index.php/jandiekua/announcement">
+              <img src="{{asset('/storage/imagenes/Jandiekua/B_Jandiekua1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalTallerUnihuerto23'])}}>
               <img src="{{ asset('storage/imagenes/UnihuertoCasa/B_Unihuerto23_1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
@@ -245,14 +262,7 @@
         </div>
 
           
-        <!--<div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('Cursos')}}>
-              <img src="{{ asset('storage/imagenes/Cursos/B1_CA.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
-            </a>
-          </div>
-        </div>-->
-      
+
 
         <!--<div class="carousel-item ">
           <div class="slide-box">
