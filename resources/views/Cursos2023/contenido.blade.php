@@ -11,6 +11,9 @@
 
         Esta modalidad ofrece oportunidades flexibles, diversificadas y de gran calidad a personas adultas que desean o requieren profundizar o extender su conocimiento hacia áreas complementarias para su desarrollo profesional, o que quieren conocer las últimas tendencias relacionadas con la sostenibilidad.
         <br><br>
+        Para registrarte en alguno de estos cursos da clic en <a href={{route('Bienvenida')}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+
 
 </div>
 @endsection
