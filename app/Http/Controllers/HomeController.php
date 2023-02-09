@@ -120,6 +120,7 @@ class HomeController extends Controller
     public function Administracion(Request $request)
     {
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
+        $ce_active = $request->user()->userModules->where("name", 'Control Escolar')->count() > 0 ?  true : false;
 
         try{
             //! Especial - Pagina para ver alumnos del GGJ
@@ -142,6 +143,7 @@ class HomeController extends Controller
                 }
 
                 return view('auth.Admin.admin', [
+                    'is_ce' => $ce_active,
                     'teams' => $team,
                     'Modulos' => Auth::user()->userModules,
                 ]);
@@ -155,7 +157,7 @@ class HomeController extends Controller
             $users = $this->getHelperUsers();
             // return $users;
             return view('auth.Dashbord.Administracion', [
-                
+                'is_ce' => $ce_active,
                 'users' =>  $users,
                 'Modulos' => Auth::user()->userModules,
             ]);
@@ -233,6 +235,7 @@ class HomeController extends Controller
             }
 
             return view('auth.Dashbord.admin_coordinador', [
+                'is_ce' => $ce_active,
                 'user' => $user,
                 'users' => $data,
                 'Modulos' => Auth::user()->userModules,
@@ -312,6 +315,7 @@ class HomeController extends Controller
             }
 
             return view('auth.Dashbord.Admin', [
+                'is_ce' => $ce_active,
                 'user' => $user,
                 'users' => $data,
                 'Modulos' => Auth::user()->userModules,
@@ -323,6 +327,7 @@ class HomeController extends Controller
 
         // return $users;
         return view('auth.Dashbord.Administracion_nohelper',[
+            'is_ce' => $ce_active,
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
