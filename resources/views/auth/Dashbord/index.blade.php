@@ -29,11 +29,11 @@
           </div>
 
           {{-- Cursos de actualizacion --}}
-          <div class="col px-0">  
+          <!--<div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
               <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>
+          </div>-->
 
           {{-- Reutronic --}}
           <div class="col px-0">  
