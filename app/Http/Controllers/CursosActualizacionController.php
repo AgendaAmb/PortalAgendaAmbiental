@@ -73,13 +73,26 @@ class CursosActualizacionController extends Controller
             $ws_name = $ws->name;
             # Se envía el comprobante de pago.
             // ! UNIRODADA MMUS 2022 
-            if($ws->id == 36){
+           /* if($ws->id == 36){
                 Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
             }if ($ws->id == 39) { 
                 Mail::mailer('smtp_uniruta')->to($user->email)->send(new SendReceiptCP($request->file('file')->get()));
             }
+            */
              // ! CURSOS DE ACTUALIZACIÓN 2023
-            else
+            if($ws->id == 40)
+            {
+                Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
+            }
+            if($ws->id == 41)
+            {
+                Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
+            }
+            if($ws->id == 42)
+            {
+                Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
+            }
+            if($ws->id == 43)
             {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }

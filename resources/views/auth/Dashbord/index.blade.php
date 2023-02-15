@@ -535,7 +535,7 @@
       this.checarCompetencias();
       this.checarReutronic();
       //Modales pasados
-      // this.checarInscripcionUnihuertoCasa();
+       this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
       // this.checarInscripcionPromotoresHuasteca();
       // this.checarInscripcionUnirodadaRios();

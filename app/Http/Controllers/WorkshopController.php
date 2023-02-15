@@ -1197,7 +1197,7 @@ class WorkshopController extends Controller
             //3. crear registro
             DB::table('user_workshop')
                 ->updateOrInsert([
-                    'workshop_id' => 9, // 9 = unihuerto en casa
+                    'workshop_id' => 44, // 9 = unihuerto en casa
                     'user_id' => $user->id,
                     'user_type' => $user->type,
                     'assisted_to_workshop' => null,
@@ -1218,7 +1218,7 @@ class WorkshopController extends Controller
     public function ChecarUnihuertoCasaUsuario(Request $request){//Esta inscrito?
         //return response()->json($request, JsonResponse::HTTP_OK);
         $insc = DB::table('user_workshop')
-            ->where('workshop_id',9)
+            ->where('workshop_id',44)
             ->where('user_id',$request->Clave)
             ->get();
 

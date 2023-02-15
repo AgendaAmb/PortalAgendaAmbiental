@@ -547,9 +547,9 @@ class HomeController extends Controller
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
-                return $query->whereIn('workshops.id', [9]); //where para sacar solo a los usuarios del 
+                return $query->whereIn('workshops.id', [44]); //where para sacar solo a los usuarios del 
             })->with(['workshops' => function ($q) {
-                return $q->whereIn('workshops.id', [9]); //esto va a hacer un eager loading para que funcione el where anterior
+                return $q->whereIn('workshops.id', [44]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
         #Cursos de actualización 2023
@@ -621,9 +621,9 @@ class HomeController extends Controller
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
-                return $query->where('workshops.id', 9); //where para sacar solo a los usuarios del unihuerto
+                return $query->where('workshops.id', 44); //where para sacar solo a los usuarios del unihuerto
             })->with(['workshops' => function ($q) {
-                return $q->where('workshops.id', 9); //esto va a hacer un eager loading para que funcione el where anterior
+                return $q->where('workshops.id', 44); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 

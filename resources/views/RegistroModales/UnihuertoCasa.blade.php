@@ -9,7 +9,7 @@
           </button>
         </div>
 
-        {{-- este div muestra un registro completo si ya se hizo el registro --}}
+        <!--{{-- este div muestra un registro completo si ya se hizo el registro --}}
         <div class="container-fluid bg-white"
           v-if="TipoUsuario!='externs'?hasModule17Gemas?modalClick=='17Gemas'?true:false:false:false ">
           <div class="row">
@@ -19,6 +19,7 @@
             </div>
           </div>
         </div>
+        -->
 
         <div class="modal-body bg-white" v-if="!InscritoUnihuertoCasa">
           <form @submit.prevent="uaslpUser()">

@@ -35,6 +35,7 @@
                         @endif
                         <th>Acciones</th>
                         <th>Clave única/RPE</th>
+                        <th>Clave de facturación</th>
                         <th>Nombre</th>
 
                         <th>Curp</th>
@@ -49,6 +50,7 @@
                         <th>Pago unirodada</th>
                         @endif
                         <th>Cursos/Talleres</th>
+                        <th>Eje</th>
                         @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                         <th>Condición de salud</th>
                         <th>Nombre de contacto de emergencia</th>
@@ -57,9 +59,12 @@
                         <th>Grupo ciclista</th>
 
                         @endif
-                        @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+
+                        <!--Se oculta la fecha de alta al portal (no necesaria)-->
+                        <!--@if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                         <th>Fecha de registro al portal</th>
-                        @endif
+                        @endif-->
+
                         @if (Auth::user()->hasRole('coordinator'))
                         <th>Comprobante de pago</th>
                         @endif
@@ -99,6 +104,7 @@
                         @endif
 
                         <td>{{$user->id}} </td>
+                        <td></td>
                         <td>{{$user->name." ".$user->middlename." ".$user->surname}}</td>
                         <th>{{$user->curp==null?"Sin Registro":$user->curp}}</th>
                         <td>{{$user->email}}</td>
@@ -118,6 +124,7 @@
                             <li>{{$Modulo->name}}</li>
                             @endforeach
                         </td>
+                        
                         <td>{{$user->paid?'Si':'No'}}</td>
 
                         @endif
@@ -128,6 +135,7 @@
                                 <li>{{$workshops->description}}</li> {{-- CURSOS VIGENTES --}}
                             @endforeach
                         </td>
+                        <td> </td>
                         @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                         <th>{{$user->health_condition}}</th>
                         <th>{{$user->emergency_contact}}</th>
@@ -144,12 +152,15 @@
                         <th>{{$user->grupoCiclista}}</th>
 
                         @endif
+                        <!--Fecha de registro en el portal
                         @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
 
                         <td>{{ Carbon\Carbon::parse($user->created_at)->locale('es')->isoFormat('dddd DD MMMM YYYY,
                             h:mm:ss a')}}</td>
 
-                        @endif
+                        @endif-->
+
+
                         @if (Auth::user()->hasRole('coordinator'))
                         @if ($user->invoice_data!=null)
                         <td><a href="{{$user->invoice_data}}" target="_blank" rel="noopener noreferrer"> <i
@@ -229,11 +240,12 @@
                     @endif
                     <th>Acciones</th>
                     <th>Clave única/RPE</th>
+                    <th>Clave de facturación</th>
                     <th>Nombre</th>
                     <th>Curp</th>
 
                     <th>Correo</th>
-                    @if (!Auth::user()->hasRole('administrator'))
+                    @if (Auth::user()->hasRole('administrator'))
                     <th>Genero</th>
                     @endif
                     <th>Teléfono</th>
@@ -244,6 +256,7 @@
                     <th>Pago unirodada</th>
                     @endif
                     <th>Cursos/Talleres</th>
+                    <th>Eje</th>
                     @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator'))
                     <th>Condición de salud</th>
                     <th>Nombre de contacto de emergencia</th>
@@ -251,9 +264,11 @@
 
                     <th>Grupo ciclista</th>
                     @endif
-                    @if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
+
+                    <!--@if(Auth::user()->hasRole('administrator')||Auth::user()->hasRole('helper')||Auth::user()->hasRole('coordinator'))
                         <th>Fecha de registro: </th> {{-- fecha para el registro(CHECAR --}}
-                    @endif
+                    @endif-->
+
                     @if (Auth::user()->hasRole('coordinator'))
                     <th>Comporbante de pago</th>
                     @endif
