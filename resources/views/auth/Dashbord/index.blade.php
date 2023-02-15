@@ -29,11 +29,12 @@
           </div>
 
           {{-- Cursos de actualizacion --}}
-          <!--<div class="col px-0">
-            <a href="#" data-toggle="modal" data-target="#CursosActualizacion" @click="AbrirModal('CursosActualizacion')">
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#CursosActualizacion23" @click="AbrirModal('CursosActualizacion23')">
               <img src="{{ asset('/storage/imagenes/Cursos/B_Cursos.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
-          </div>-->
+          </div>
+            
 
           {{-- Reutronic --}}
           <div class="col px-0">  
@@ -138,7 +139,7 @@
 
 {{-- ! Modales con programas vigentes  --}}
 
-@include("RegistroModales.CursosActualizacion")
+@include("RegistroModales.CursosActualizacion23")
 
 @include("RegistroModales.mmus2022")
 
@@ -258,13 +259,20 @@
     //! Modales activos
     InscritoUnitrueque:false,
     InscritoCA_complete: false,
-    REGS:false, // Cursos de actualizacion
-    RIA:false, // Cursos de actualizacion
-    SCMU:false, // Cursos de actualizacion
-    Selected_REGS:false, //Cursos de actualizacion
-    Selected_RIA:false, //Cursos de actualizacion
-    Selected_SCMU:false, //Cursos de actualizacion
-
+    //REGS:false, // Cursos de actualizacion
+    //RIA:false, // Cursos de actualizacion
+    //SCMU:false, // Cursos de actualizacion
+    //Selected_REGS:false, //Cursos de actualizacion
+    //Selected_RIA:false, //Cursos de actualizacion
+    //Selected_SCMU:false, //Cursos de actualizacion
+    DRE:false,
+    EUP:false,
+    GOPA:false,
+    TSCA:false,
+    Selected_DRE:false, //Cursos de actualizacion 2023
+    Selected_EUP:false, //Cursos de actualizacion 2023
+    Selected_GOPA:false, //Cursos de actualizacion 2023
+    Selected_TSCA:false, //Cursos de actualizacion 2023
     mmus2020_regs: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
     mmus2020_select: {iutt: false, cccv:false, pm:false, wwc:false, fa:false, tb:false, pikt:false},  // Registros del mmus2022
     mmus2020_complete: false,
@@ -886,12 +894,18 @@
               this.Guardado=false;
             })
           }
-          else if(this.modalClick=='CursosActualizacion'){
+          else if(this.modalClick=='CursosActualizacion23'){
             // console.log('REGS: ');
             // console.log(this.Selected_REGS);
-            data['REGS'] = this.Selected_REGS;
-            data['RIA'] =  this.Selected_RIA;
-            data['SCMU'] = this.Selected_SCMU;
+            //data['REGS'] = this.Selected_REGS;
+            //data['RIA'] =  this.Selected_RIA;
+            //data['SCMU'] = this.Selected_SCMU;
+
+            //Comienza registro para cursos 2023
+            data['DRE'] = this.Selected_DRE;
+            data['EUP'] = this.Selected_EUP;
+            data['GOPA'] = this.Selected_GOPA;
+            data['TSCA'] = this.Selected_TSCA;
             data['TipoEvento'] = 'curso';
             console.log(data);
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
@@ -899,10 +913,10 @@
                 if(response.status == 200){
                   console.log(response.data.Message);
                   this.spinnerVisible=false;
-                  $('#CursosActualizacion').modal('hide');
+                  $('#CursosActualizacion23').modal('hide');
                   this.Guardado=true;
                 }else{
-                  console.log("Mensaje: " + response.data.Message);
+                  console.log("Mensaje Error: " + response.data.Message);
                 }
               }).catch((err) => {
                 console.log(err);
@@ -911,6 +925,7 @@
                 this.Errores[0].Visible;
                 this.Guardado=false;
             })
+
           }else if(this.modalClick=='mmus2022'){
             console.log("datos");
             data['registros'] = this.mmus2020_regs; // Datos de registros 
@@ -991,12 +1006,20 @@
       },
       //Verifica la inscripcion en cursos de actualizacion
       checarInscripcionCursosAct: function(){
-        axios.post(this.url + 'ChecarCAUsuario',{ "Clave":this.ClaveU_RPE })
-          .then(response => {
+        axios.post(this.url + 'ChecarCAUsuario',{ "Clave":this.ClaveU_RPE})
+        .then(response => {
             // console.log(response.data);
+            /*
             this.REGS = response.data.data.REGS;
             this.RIA = response.data.data.RIA;
             this.SCMU = response.data.data.SCMU;
+            */
+           //Cursos de actualizacion 2023
+            this.DRE = response.data.data.DRE;
+            this.EUP = response.data.data.EUP;
+            this.GOPA = response.data.data.GOPA;
+            this.TSCA = response.data.data.TSCA;
+
             this.InscritoCA_complete = response.data.flag;
           }).catch((err) => {
             console.log(err.response);
@@ -1012,7 +1035,7 @@
           })
       },
       checarInscripcionPromotoresHuasteca: function(){
-        axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":thZis.ClaveU_RPE })
+        axios.post(this.url + 'ChecarPromotoresHuastecaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             // console.log(response.data);
             this.InscritoPromotoresHuasteca = response.data;

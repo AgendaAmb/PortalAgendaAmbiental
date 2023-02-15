@@ -31,7 +31,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -45,12 +45,13 @@ class HomeController extends Controller
         $fup_users = DB::table('unirodada_users')->where('unirodada_users.group', 'fup')->count();
 
         return view('home')
-        ->with('fup_users', $fup_users);
+            ->with('fup_users', $fup_users);
     }
     /*no quites esta ruta:v es para el panel y hacer pruebas, cuando esten los roles empezamos a poner rutas chidas
 
     */
-    public function panel(Request $request){
+    public function panel(Request $request)
+    {
 
         $nombreModal = session('nombreModal') ?? null;
         $fup_users = DB::table('unirodada_users')->where('unirodada_users.group', 'fup')->count();
@@ -65,8 +66,8 @@ class HomeController extends Controller
             ->with('Modulos', $request->user()->userModules)
             ->with('user_workshops', Auth::user()->workshops)
             ->with('nombreModal', $nombreModal)->with('fup_users', $fup_users)
-            ->with('Ejes',ejes::all())
-            ->with('workshops',Workshop::all());
+            ->with('Ejes', ejes::all())
+            ->with('workshops', Workshop::all());
     }
 
     //! NEW INTERFACE 
@@ -82,15 +83,15 @@ class HomeController extends Controller
         $user_registered_whorkshops_ids = [];
         $user_unregistered_whorkshops_ids = [];
 
-        $user_registered_workshops = Auth::user()->getAssociatedWorkshops->where('end_date','>=',Carbon::now())->values()->toArray();
+        $user_registered_workshops = Auth::user()->getAssociatedWorkshops->where('end_date', '>=', Carbon::now())->values()->toArray();
         // dd($user_registered_workshops);
-        
-        foreach($user_registered_workshops as &$workshop){
+
+        foreach ($user_registered_workshops as &$workshop) {
             $workshop["registered"] = True;
-            array_push($user_registered_whorkshops_ids,$workshop['id']);
+            array_push($user_registered_whorkshops_ids, $workshop['id']);
         }
 
-        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('end_date', '>=', Carbon::now())->whereNotIn('id',$user_registered_whorkshops_ids)->get()->values()->toArray();
+        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('end_date', '>=', Carbon::now())->whereNotIn('id', $user_registered_whorkshops_ids)->get()->values()->toArray();
         // dd($user_unregistered_workshops);
         foreach ($user_unregistered_workshops as &$workshop) {
             $workshop["registered"] = False;
@@ -122,24 +123,24 @@ class HomeController extends Controller
         $user = $request->user('workers') ?? $request->user('students') ?? $request->user();
         $ce_active = $request->user()->userModules->where("name", 'Control Escolar')->count() > 0 ?  true : false;
 
-        try{
+        try {
             //! Especial - Pagina para ver alumnos del GGJ
-            if($user->id == '23642'){
+            if ($user->id == '23642') {
 
                 $team = array();
                 $ws = Workshop::where('name', 'Global Goals Jam')->first();
                 $users = DB::table('ggj_users')->get()->groupBy('user_workshop_id');
 
                 // Format the data
-                foreach($users as $key => $value){
-                    $clave = UserWorkshop::where('id',$key)->first()->user_id;
-                    $us = User::where('id',$clave)->first();
+                foreach ($users as $key => $value) {
+                    $clave = UserWorkshop::where('id', $key)->first()->user_id;
+                    $us = User::where('id', $clave)->first();
                     $data = [
-                                'leader' => $us->name . ' ' . $us->middlename . ' ' . $us->surname, 
-                                'team' => $value->values(),
-                                'len' => count($value->values())
-                            ];
-                    array_push($team,$data);
+                        'leader' => $us->name . ' ' . $us->middlename . ' ' . $us->surname,
+                        'team' => $value->values(),
+                        'len' => count($value->values())
+                    ];
+                    array_push($team, $data);
                 }
 
                 return view('auth.Admin.admin', [
@@ -148,12 +149,12 @@ class HomeController extends Controller
                     'Modulos' => Auth::user()->userModules,
                 ]);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return "error";
             // return new JsonResponse($e->getMessage(), JsonResponse::HTTP_OK);
         }
 
-        if($user->hasRole('helper')){
+        if ($user->hasRole('helper')) {
             $users = $this->getHelperUsers();
             // return $users;
             return view('auth.Dashbord.Administracion', [
@@ -161,11 +162,11 @@ class HomeController extends Controller
                 'users' =>  $users,
                 'Modulos' => Auth::user()->userModules,
             ]);
-        }else if($user->hasRole('coordinator')){
+        } else if ($user->hasRole('coordinator')) {
 
             $user = Auth::user();
             // ! De momento selecciono los wss con el eje 2 porque no esta construido lo demas
-            $idwss = Workshop::where('work_edge',2)->pluck('id');
+            $idwss = Workshop::where('work_edge', 2)->pluck('id');
 
             try {
                 $data = array();
@@ -176,22 +177,22 @@ class HomeController extends Controller
                 }
                 foreach ($users as $i) {
                     $workshopRegDataUser = [];
-                    if ($i->workshop_id == 38){
-                        try{
-                            $reutronicUser =  ReutronicUser::where('user_workshop_id',$i->id)->first();
+                    if ($i->workshop_id == 38) {
+                        try {
+                            $reutronicUser =  ReutronicUser::where('user_workshop_id', $i->id)->first();
                             if ($reutronicUser !== null) {
                                 $workshopRegDataUser = [
                                     'Material Solicidato' => $reutronicUser->material,
                                     'Detalles del material solicitado' => $reutronicUser->detalles,
                                     'Razon de uso del material solicitado' => $reutronicUser->razondeuso
                                 ];
-                            }else{
+                            } else {
                                 $workshopRegDataUser = [];
                             }
-                        }catch(\Error $e){
+                        } catch (\Error $e) {
                             return "error en reutronic";
                         }
-                    }elseif($i->workshop_id == 36){
+                    } elseif ($i->workshop_id == 36) {
                         try {
                             $unirodadaUser = $i->unirodadaUser;
                             if ($unirodadaUser !== null) {
@@ -201,7 +202,7 @@ class HomeController extends Controller
                                     'Condición de salud' => $unirodadaUser->health_condition,
                                     'Grupo ciclista' => $unirodadaUser->group
                                 ];
-                            }else{
+                            } else {
                                 $workshopRegDataUser = [];
                             }
                         } catch (\Error $e) {
@@ -225,7 +226,7 @@ class HomeController extends Controller
                             // 'pago' => $i->paid,
                             // 'factura' => $i->invoice_data
                         ];
-                    array_push($data, $_data);
+                        array_push($data, $_data);
                     } catch (\Error $e) {
                         return "Cargando datos";
                     }
@@ -249,7 +250,7 @@ class HomeController extends Controller
             //     'Modulos' => Auth::user()->userModules,
             // ]);
 
-        }else if($user->hasRole('administrator')){
+        } else if ($user->hasRole('administrator')) {
             $user = Auth::user();
             $idwss = Workshop::all()->pluck('id');
 
@@ -320,13 +321,12 @@ class HomeController extends Controller
                 'users' => $data,
                 'Modulos' => Auth::user()->userModules,
             ]);
-
-        }else{//en dado caso es administrador
+        } else { //en dado caso es administrador
             $users = $this->getAllUsers(); # Todos los usuarios.
         }
 
         // return $users;
-        return view('auth.Dashbord.Administracion_nohelper',[
+        return view('auth.Dashbord.Administracion_nohelper', [
             'is_ce' => $ce_active,
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
@@ -338,39 +338,39 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function EgresadoData(Request $request){
+    public function EgresadoData(Request $request)
+    {
         // return response()->json(['Message' => $request->all()], JsonResponse::HTTP_OK);
 
-        try{
+        try {
             $exist = DB::table('egresados_data')->where('user_id', $request->user()->id)->get();
-            if($exist->isEmpty()){
+            if ($exist->isEmpty()) {
                 DB::table('egresados_data')
-                ->updateOrInsert([
-                    'user_id' => $request->user()->id,
-                    'posgrado' => $request->posgrado, 
-                    'gen' => $request->gen,
-                    'ocupacion' => $request->ocupacion,
-                    'sector' => $request->sector,
-                    'empleador' => $request->nombre_empleador,
-                    'contact_empleador' => $request->tel_empleador,
-                    'email_empleador' => $request->email_empleador,
-                    'comentarios' => $request->comentarios,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]);
+                    ->updateOrInsert([
+                        'user_id' => $request->user()->id,
+                        'posgrado' => $request->posgrado,
+                        'gen' => $request->gen,
+                        'ocupacion' => $request->ocupacion,
+                        'sector' => $request->sector,
+                        'empleador' => $request->nombre_empleador,
+                        'contact_empleador' => $request->tel_empleador,
+                        'email_empleador' => $request->email_empleador,
+                        'comentarios' => $request->comentarios,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ]);
 
                 $cu = ComiteUser::where('user_id', $request->user()->id)->get()->first();
                 $cu->isform = true;
                 $cu->timestamps = false;
                 $cu->save();
-            }else{
+            } else {
                 return response()->json(['Message' => 'already exist'], JsonResponse::HTTP_OK);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['Message' => 'Error'], JsonResponse::HTTP_OK);
         }
         return response()->json(['Message' => 'correcto!'], JsonResponse::HTTP_OK);
-
     }
 
 
@@ -385,9 +385,9 @@ class HomeController extends Controller
         # Combina todos los tipos de usuario.
         return User::select(
             User::COLUMNS
-        )->whereDoesntHave('roles', function($query){
-            $query->whereIn('roles.name', ['administrator','coordinator']);
-        })->whereHas('workshops', function($query){
+        )->whereDoesntHave('roles', function ($query) {
+            $query->whereIn('roles.name', ['administrator', 'coordinator']);
+        })->whereHas('workshops', function ($query) {
             $query->where('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
         })->whereNotNull('email_verified_at')->orderBy('created_at')->get();
     }
@@ -397,15 +397,15 @@ class HomeController extends Controller
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
-            ->whereDoesntHave('roles', function($query){
-                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
             })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
-            ->whereHas('workshops', function($query){
-                return $query->where('workshops.id',9); //where para sacar solo a los usuarios del unihuerto
-            })->with(['workshops' => function($q){
-                return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
+            ->whereHas('workshops', function ($query) {
+                return $query->where('workshops.id', 9); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function ($q) {
+                return $q->where('workshops.id', 9); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 
@@ -417,16 +417,16 @@ class HomeController extends Controller
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
-            ->whereDoesntHave('roles', function($query){
-                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
             })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
-            ->whereHas('workshops', function($query){
+            ->whereHas('workshops', function ($query) {
                 return $query
-                ->whereIn('workshops.id',[9,11]); //where para sacar solo a los usuarios del unihuerto
-            })->with(['workshops' => function($q){
-                return $q->whereIn('workshops.id',[9,11]); //esto va a hacer un eager loading para que funcione el where anterior
+                    ->whereIn('workshops.id', [9, 11]); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [9, 11]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 
@@ -435,21 +435,21 @@ class HomeController extends Controller
     }
 
     // Funcion actualizada sin renombrar: 
-        // retorna usuarios de huerto a la mesa, unirodada y uniruta 
+    // retorna usuarios de huerto a la mesa, unirodada y uniruta 
     private function getUnirodadaAndHuertoMesaUsers()
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
-            ->whereDoesntHave('roles', function($query){
-                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
             })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
-            ->whereHas('workshops', function($query){
+            ->whereHas('workshops', function ($query) {
                 return $query
-                ->whereIn('workshops.id',[15]); //where para sacar solo a los usuarios del unihuerto
-            })->with(['workshops' => function($q){
-                return $q->whereIn('workshops.id',[15]); //esto va a hacer un eager loading para que funcione el where anterior
+                    ->whereIn('workshops.id', [15]); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [15]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 
@@ -459,13 +459,25 @@ class HomeController extends Controller
 
 
     // retorna usuarios de huerto a la mesa, unirodada y uniruta 
-    private function getHelperUsers() 
-    { 
-        
+    private function getHelperUsers()
+    {
+        /*
+                $users = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [15]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [15]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+
         # Consulta bien mortal para traer todo lo que se pide 
         $users = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
-                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
-            })
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
@@ -480,7 +492,7 @@ class HomeController extends Controller
         $users2 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
             return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
         })
-        ->whereNotNull('email_verified_at')
+            ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
                 return $query->whereIn('workshops.id', [16]); //where para sacar solo a los usuarios del 
@@ -493,8 +505,8 @@ class HomeController extends Controller
         $users3 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
             return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
         })
-        ->whereNotNull('email_verified_at')
-        ->orderBy('created_at')
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
                 return $query->whereIn('workshops.id', [17]); //where para sacar solo a los usuarios del 
             })->with(['workshops' => function ($q) {
@@ -504,8 +516,8 @@ class HomeController extends Controller
 
         // # Consulta bien mortal para traer todo lo que se pide
         $users4 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
-                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
-            })
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
@@ -517,8 +529,8 @@ class HomeController extends Controller
 
         // # Consulta bien mortal para traer todo lo que se pide
         $users5 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
-                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
-            })
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
             ->whereHas('workshops', function ($query) {
@@ -527,28 +539,91 @@ class HomeController extends Controller
                 return $q->whereIn('workshops.id', [36]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
+            */
+        #Unihuerto En casa
+        $users = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [9]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [9]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        #Cursos de actualización 2023
+        # Consulta bien mortal para traer todo lo que se pide 
+        $users6 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [40]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [40]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        # Consulta bien mortal para traer todo lo que se pide 
+        $users7 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [41]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [41]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        # Consulta bien mortal para traer todo lo que se pide 
+        $users8 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [42]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [42]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
 
-        foreach($users2 as $user)$users->push($user);
-        foreach($users3 as $user)$users->push($user);
-        foreach($users4 as $user)$users->push($user);
-        foreach($users5 as $user)$users->push($user);
+        # Consulta bien mortal para traer todo lo que se pide 
+        $users9 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [43]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [43]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])
+            ->get();
+        
+        foreach ($users6 as $user) $users->push($user);
+        foreach ($users7 as $user) $users->push($user);
+        foreach ($users8 as $user) $users->push($user);
+        foreach ($users9 as $user) $users->push($user);
 
         return $users;
     }
 
-    private function getWithPayUsers()//Aun no correcta!!
+    private function getWithPayUsers() //Aun no correcta!!
     {
         # Consulta bien mortal para traer todo lo que se pide.
         $res = User::select(User::COLUMNS)
-            ->whereDoesntHave('roles', function($query){
-                return $query->whereIn('roles.name', ['administrator','coordinator']);//esto filtra y quita todos los usuarios que son admins y coordinadores
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
             })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
-            ->whereHas('workshops', function($query){
-                return $query->where('workshops.id',9); //where para sacar solo a los usuarios del unihuerto
-            })->with(['workshops' => function($q){
-                return $q->where('workshops.id',9); //esto va a hacer un eager loading para que funcione el where anterior
+            ->whereHas('workshops', function ($query) {
+                return $query->where('workshops.id', 9); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function ($q) {
+                return $q->where('workshops.id', 9); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 
@@ -566,10 +641,10 @@ class HomeController extends Controller
             // })
             ->whereNotNull('email_verified_at')
             ->orderBy('created_at')
-            ->whereHas('workshops', function($query){
-                return $query->where('workshops.work_edge',2); //where para sacar solo a los usuarios del unihuerto
-            })->with(['workshops' => function($q){
-                return $q->where('workshops.work_edge',2); //esto va a hacer un eager loading para que funcione el where anterior
+            ->whereHas('workshops', function ($query) {
+                return $query->where('workshops.work_edge', 2); //where para sacar solo a los usuarios del unihuerto
+            })->with(['workshops' => function ($q) {
+                return $q->where('workshops.work_edge', 2); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
 
@@ -606,8 +681,8 @@ class HomeController extends Controller
         return User::select(
             User::COLUMNS
         )->whereNotNull('email_verified_at')
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 
     public function pruebacorreo()
@@ -619,12 +694,13 @@ class HomeController extends Controller
     }
 
     //Funciones Extras
-    public function PreloginControlEscolar(Request $r){
+    public function PreloginControlEscolar(Request $r)
+    {
         //return env("CONTROL_ESCOLAR_ACCESS_KEY");
         //return "s";
-        $ak = env("CONTROL_ESCOLAR_ACCESS_KEY")!="" ? env("CONTROL_ESCOLAR_ACCESS_KEY") : "" ;
-        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/".$r->user_id . "?ak=" . $ak);
-            // ->with("user_id",$r->user_id)
-            // ->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
+        $ak = env("CONTROL_ESCOLAR_ACCESS_KEY") != "" ? env("CONTROL_ESCOLAR_ACCESS_KEY") : "";
+        return redirect("https://ambiental.uaslp.mx/controlescolar/auth/" . $r->user_id . "?ak=" . $ak);
+        // ->with("user_id",$r->user_id)
+        // ->with("ak",env("CONTROL_ESCOLAR_ACCESS_KEY"));
     }
 }

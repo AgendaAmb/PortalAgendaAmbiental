@@ -12,7 +12,46 @@ class CursosActualizacion extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+        $wss = [
+            [
+                'id' => 40,
+                'name' => 'Desarrollos regionales y de economía',
+                'description' => 'Desarrollos regionales y de economía',
+                'type' => 'curso',
+                'start_date' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id' => 41,
+                'name' => 'Ecología urbana y paisaje',
+                'description' => 'Ecología urbana y paisaje',
+                'type' => 'curso',
+                'start_date' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id' => 42,
+                'name' => 'Gobernanza y participación',
+                'description' => 'Gobernanza y participación',
+                'type' => 'curso',
+                'start_date' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id' => 43,
+                'name' => 'Temas selectos contaminación del aire',
+                'description' => 'Temas selectos contaminación del aire',
+                'type' => 'curso',
+                'start_date' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+        ];
+        /*
         $wss = [
             [
                 'id' => 16,
@@ -41,7 +80,8 @@ class CursosActualizacion extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-        ];
+            
+        ];*/
 
         foreach ($wss as $ws)
             Workshop::create($ws);

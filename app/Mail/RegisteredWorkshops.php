@@ -12,6 +12,7 @@ class RegisteredWorkshops extends Mailable
     use Queueable, SerializesModels;
 
     public $workshops;
+    public $receipt;
 
     /**
      * Create a new message instance.

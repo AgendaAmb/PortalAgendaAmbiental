@@ -684,9 +684,15 @@ class WorkshopController extends Controller
             # Busca cursos
             $workshop_models = array();
             
-            if($request->REGS)array_push($workshop_models, Workshop::firstWhere('id',16));
-            if($request->RIA)array_push($workshop_models, Workshop::firstWhere('id',17));
-            if($request->SCMU)array_push($workshop_models, Workshop::firstWhere('id',18));
+            //if($request->REGS)array_push($workshop_models, Workshop::firstWhere('id',16));
+            //if($request->RIA)array_push($workshop_models, Workshop::firstWhere('id',17));
+            //if($request->SCMU)array_push($workshop_models, Workshop::firstWhere('id',18));
+            //Registros 2023
+            if($request->DRE)array_push($workshop_models, Workshop::firstWhere('id',40));
+            if($request->EUP)array_push($workshop_models, Workshop::firstWhere('id',41));
+            if($request->GOPA)array_push($workshop_models, Workshop::firstWhere('id',42));
+            if($request->TSCA)array_push($workshop_models, Workshop::firstWhere('id',43));
+    
     
             $this->ca_controller->registerUser($request, $user, $workshop_models);
 
@@ -828,6 +834,7 @@ class WorkshopController extends Controller
         $flag = false;
 
         try{
+            /*
             $inscriptions['REGS'] = UserWorkshop::where('workshop_id', 16)
             ->where('user_id', $request->Clave)
             ->first()===null?false:true;
@@ -837,11 +844,25 @@ class WorkshopController extends Controller
             $inscriptions['SCMU'] = UserWorkshop::where('workshop_id', 18)
             ->where('user_id', $request->Clave)
             ->first()===null?false:true;
+            */
+            //Cursos de actualizacion 2023
+            $inscriptions['DRE'] = UserWorkshop::where('workshop_id', 40)
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+            $inscriptions['EUP'] = UserWorkshop::where('workshop_id', 41) 
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+            $inscriptions['GOPA'] = UserWorkshop::where('workshop_id', 42)
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
+            $inscriptions['TSCA'] = UserWorkshop::where('workshop_id',43)
+            ->where('user_id', $request->Clave)
+            ->first()===null?false:true;
         }catch(Exception $e) {
             return response()->json(['flag' => $flag,'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        if($inscriptions['REGS'] && $inscriptions['RIA'] && $inscriptions['SCMU'])$flag=true;
+        if($inscriptions['DRE'] && $inscriptions['EUP'] && $inscriptions['GOPA'] && $inscriptions['TSCA'])$flag=true;
 
         return response()->json(['flag' => $flag, 'data' => $inscriptions], JsonResponse::HTTP_OK);
     }

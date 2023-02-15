@@ -73,7 +73,6 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-
                     <tr>
                         @if (Auth::user()->hasRole('administrator'))
                             <th class="d-block d-xl-none d-lg-none d-md-none">Información</th>
@@ -691,7 +690,6 @@
         formData.append('Destinatario',this.Destinatario);
         formData.append('Asunto',this.Asunto);
         formData.append('Contenido',this.Contenido);
-
         axios({
                  method: 'post',
                  url: '/sendEmail',
@@ -702,16 +700,12 @@
              }).then(
                      res => {
                          console.log("Exito")
-
-
                      }
                  ).catch(
                      err => {
                         console.log("Falso")
-
                      }
                  )
-
     },
     cargarModulos:function(){
         axios.get('/api/getAllModules').then(res => {
@@ -721,20 +715,15 @@
             console.log( this.Correos);
         })
     },
-
     RegistrarLunch:function(idUser){
         const formData = new FormData();
         formData.append('idUsuario',idUser);
         //console.log("soy lunch",this.Lunch);
         if (this.Lunch=='Si') {
-
             formData.append('lunch',true);
         }else{
-
             formData.append('lunch',false);
         }
-
-
         axios({
             method: 'post',
             url: '/actualizaLunchUsuario',
@@ -749,8 +738,6 @@
         }).catch(err => {
             console.log("Falso")
         })
-
-
     },
     ConfirmarPago:function(user, ws_id){
         this.cargarUser(user);
@@ -801,7 +788,6 @@
             console.log(err),
             this.spinnerVisible=false,
                 this.asistenciaExito=false
-
             }
         )
     },
@@ -829,7 +815,6 @@
             console.log(err),
             this.spinnerVisible=false,
                 this.asistenciaExito=false
-
             }
         )
     },
@@ -843,7 +828,6 @@
                 "idWorkshop":this.cursoAsistencia,
             }
             axios.post('/RegistraAsistencia',data).then(response => (
-
                 console.log("completo"),
             this.spinnerVisible=false,
             this.asistenciaExito=true,
@@ -873,7 +857,6 @@
         }else{
             this.Lunch=''
         }
-
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
             };
@@ -899,16 +882,12 @@
 <script>
     $(document).ready(function() {
     $('.js-example-basic-multiple').select2({
-
 });
-
 });
 var markupStr = $('#summernote').summernote('code');
    
 console.log(markupStr);
     
-
-
 </script>
 @push('stylesheets')
 
@@ -934,7 +913,6 @@ console.log(markupStr);
     $(document).ready(function() {
  $('#example').DataTable( {
         "language":{
-
     "aria": {
         "sortAscending": "Activar para ordenar la columna de manera ascendente",
         "sortDescending": "Activar para ordenar la columna de manera descendente"
@@ -1108,7 +1086,6 @@ console.log(markupStr);
             "restore": "Deshacer Cambios",
             "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
         }
-
 }
         },
         "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -1120,11 +1097,8 @@ console.log(markupStr);
              'csv', 'excel', 'pdf', 'print'
         ],
         "searching": true,
-
     }
-
     );
-
 } );
 </script>
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="CursosActualizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="CursosActualizacion23" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-primary" id="modalGemas">
@@ -34,16 +34,16 @@
                 </label>
               </div>
               <div class="form-check">
-                <input v-model="Selected_GP" class="form-check-input" type="checkbox" value="GP" id="flexCheckChecked"
-                  :disabled="GP"
+                <input v-model="Selected_GOPA" class="form-check-input" type="checkbox" value="GOPA" id="flexCheckChecked"
+                  :disabled="GOPA"
                 >
                 <label style="color: black" class="form-check-label" for="flexCheckChecked">
                   Gobernanza y participación
                 </label>
               </div>
               <div class="form-check">
-                <input v-model="Selected_CA" class="form-check-input" type="checkbox" value="CA" id="flexCheckChecked"
-                  :disabled="CA"
+                <input v-model="Selected_TSCA" class="form-check-input" type="checkbox" value="TSCA" id="flexCheckChecked"
+                  :disabled="TSCA"
                 >
                 <label style="color: black" class="form-check-label" for="flexCheckChecked">
                   Temas selectos Contaminación del aire

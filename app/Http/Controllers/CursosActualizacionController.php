@@ -77,10 +77,14 @@ class CursosActualizacionController extends Controller
                 Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
             }if ($ws->id == 39) { 
                 Mail::mailer('smtp_uniruta')->to($user->email)->send(new SendReceiptCP($request->file('file')->get()));
-            }else{
-                // ! CURSOS DE ACTUALIZACIÓN
+            }
+             // ! CURSOS DE ACTUALIZACIÓN 2023
+            else
+            {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
+            
+            //Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             // Mail::mailer('smtp')->to('A291395@alumnos.uaslp.mx')->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
         }catch (\Exception $e) {
             return response()->json(['Message' => 'Error al mandar correo de confirmación'], JsonResponse::HTTP_OK);
