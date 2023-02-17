@@ -31,7 +31,7 @@ class sendUnihuertoReceipt extends Mailable
      */
     public function build()
     {
-        return $this->from('unihuerto@uaslp.mx', 'Dra. Mariana Buendía Oliva')
+        return $this->from('unihuerto@uaslp.mx', 'UniHuerto')
                     ->subject('Registro al Curso: '. $this->ws_name)
                     ->markdown('mail.workshops.send-receipt-unihuertoencasa', [
                         'header_color' => '#87b854',

@@ -6,11 +6,10 @@ Gracias por preinscribirse al curso: {{$ws_name}}. Anexo le estamos enviando su 
 Estamos a su disposición para cualquier duda o comentario.
 <br><br>
 
-<p>Dra. Mariana Buendía Oliva</p>
-<p>EDUCACIÓN E INVESTIGACIÓN</p>
+<p>UniHuerto</p>
 
 @if ($with_image !== false)
-<img src="{{ asset('/storage/imagenes/Logos/Educacion.png') }}">
+<img src="{{ asset('/storage/imagenes/unihuerto.png') }}">
 @endif
 
 @endcomponent
