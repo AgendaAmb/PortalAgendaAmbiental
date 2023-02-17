@@ -10,6 +10,7 @@ use App\Mail\SendReceipt;
 use App\Mail\SendReceiptCP;
 use App\Mail\SendFactura;
 use App\Mail\SendCAReceipt;
+use App\Mail\sendUniHuertoReceipt;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
@@ -80,6 +81,11 @@ class CursosActualizacionController extends Controller
             }
             */
              // ! CURSOS DE ACTUALIZACIÓN 2023
+             if($ws->id == 44)
+             {
+                 Mail::mailer('smtp_unihuerto')->to($user->email)->send(new sendUniHuertoReceipt($request->file('file')->get(), $ws_name));
+             }
+            else{
             if($ws->id == 40)
             {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
@@ -96,7 +102,8 @@ class CursosActualizacionController extends Controller
             {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
-            
+        }
+        
             //Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             // Mail::mailer('smtp')->to('A291395@alumnos.uaslp.mx')->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
         }catch (\Exception $e) {
