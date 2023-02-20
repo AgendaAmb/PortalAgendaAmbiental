@@ -28,13 +28,13 @@
             </a>
           </div>
 
-          {{-- Cursos de actualizacion --}}
+         <!-- {{-- Cursos de actualizacion --}}
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#CursosActualizacion23" @click="AbrirModal('CursosActualizacion23')">
               <img src="{{ asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-            
+          -->
 
           {{-- Reutronic --}}
           <div class="col px-0">  
@@ -43,11 +43,12 @@
             </a>
           </div>
 
-          <div class="col px-0">
+          <!--<div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#RegistroUnihuertoCasa" @click="AbrirModal('UnihuertoCasa')">
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/R_Unihuerto23.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
+            -->
 
           <!--@if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  

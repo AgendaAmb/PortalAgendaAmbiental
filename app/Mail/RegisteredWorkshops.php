@@ -12,17 +12,17 @@ class RegisteredWorkshops extends Mailable
     use Queueable, SerializesModels;
 
     public $workshops;
-    public $receipt;
+    //public $receipt;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($workshops, $receipt)
+    public function __construct($workshops)
     {
         $this->workshops = $workshops;
-        $this->receipt = $receipt;
+        //$this->receipt = $receipt;
     }
 
     /**
@@ -34,9 +34,9 @@ class RegisteredWorkshops extends Mailable
     {
         return $this->from('rtic.ambiental@uaslp.mx', 'Portal de Agenda Ambiental')
                     ->subject('Confirmación de pre-registro a cursos/talleres')
-                    ->markdown('mail.workshops.send-receipt-uniruta', [
+                    ->markdown('mail.workshops.registered-workshops', [
                         'workshops' => $this->workshops,
-                    ])
-                    ->attach(public_path('attachments/carta_responsiva_uniruta.pdf'));
+                    ]);
+                    //->attach(public_path('attachments/carta_responsiva_uniruta.pdf'));
     }
 }

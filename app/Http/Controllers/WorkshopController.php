@@ -695,7 +695,6 @@ class WorkshopController extends Controller
     
     
             $this->ca_controller->registerUser($request, $user, $workshop_models);
-
             # la relación con esta tabla esta bien fea mens 
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
@@ -717,7 +716,7 @@ class WorkshopController extends Controller
 
         # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
-
+       Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
         //4. si todo sale bien regresamo un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
@@ -1197,7 +1196,7 @@ class WorkshopController extends Controller
             //3. crear registro
             DB::table('user_workshop')
                 ->updateOrInsert([
-                    'workshop_id' => 44, // 9 = unihuerto en casa
+                    'workshop_id' => 44, // 44 = unihuerto en casa 2023
                     'user_id' => $user->id,
                     'user_type' => $user->type,
                     'assisted_to_workshop' => null,
@@ -1207,10 +1206,15 @@ class WorkshopController extends Controller
                     'paid_at' => null
                 ]);
             Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+
+            $workshop_models = Workshop::firstWhere('id',44);
+            //array_push($workshop_models, Workshop::firstWhere('id',44));
         }catch(\Exception $e){
             return response()->json([ 'Message' => $e->getMessage() ],500);
         }
 
+        //Enviamos un correo de pre Registro
+        Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
         //4. si todo sale bien regresamo un ok
         return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
     }

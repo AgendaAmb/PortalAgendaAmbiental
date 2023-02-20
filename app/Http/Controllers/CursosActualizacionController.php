@@ -10,6 +10,7 @@ use App\Mail\SendReceipt;
 use App\Mail\SendReceiptCP;
 use App\Mail\SendFactura;
 use App\Mail\SendCAReceipt;
+use App\Mail\RegisteredWorkshops;
 use App\Mail\sendUniHuertoReceipt;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
