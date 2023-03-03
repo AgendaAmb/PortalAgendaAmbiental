@@ -3,7 +3,7 @@
         <h5 class="modal-title3"><b>Datos personales</b></h5>
 
         <b-form-group id="input-group-1" label="Nivel académico:" label-for="input-0">
-            <b-form-select v-model="user.academic_degree" class="mb-1" disabled>
+            <b-form-select v-model="user.academic_degree" class="mb-1" enabled>
                 <b-form-select-option :value="null">Por favor selecciona una opción</b-form-select-option>
                 <b-form-select-option value="Bachillerato">Bachillerato</b-form-select-option>
                 <b-form-select-option value="Licenciatura">Licenciatura</b-form-select-option>

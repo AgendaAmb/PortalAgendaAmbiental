@@ -11,7 +11,9 @@ use App\Mail\SendReceiptCP;
 use App\Mail\SendFactura;
 use App\Mail\SendCAReceipt;
 use App\Mail\RegisteredWorkshops;
+use App\Mail\sendslowFashion;
 use App\Mail\sendUniHuertoReceipt;
+//use App\Mail\sendslowFashionReceipt;
 use App\Models\Auth\Extern;
 use App\Models\Auth\Student;
 use App\Models\Auth\User;
@@ -44,7 +46,7 @@ class CursosActualizacionController extends Controller
                 'workshop_id' => $workshop->id,
                 'sent' => false,
                 'paid' => false,
-                'invoice_data' => $request->isFacturaReq == "Si" ?true:false,
+                'invoice_data' => $request->isFacturaReq == "Si" ? true : false,
             ]);
         }
 
@@ -70,44 +72,46 @@ class CursosActualizacionController extends Controller
         $user_workshop = UserWorkshop::find($request->ws_id);
         $user = User::find($user_workshop->user_id);
 
-        try{
+        try {
             $ws = Workshop::find($user_workshop->workshop_id);
             $ws_name = $ws->name;
             # Se envía el comprobante de pago.
             // ! UNIRODADA MMUS 2022 
-           /* if($ws->id == 36){
+            /* if($ws->id == 36){
                 Mail::mailer('smtp_unibici')->to($user->email)->send(new SendReceipt($request->file('file')->get()));
             }if ($ws->id == 39) { 
                 Mail::mailer('smtp_uniruta')->to($user->email)->send(new SendReceiptCP($request->file('file')->get()));
             }
             */
-             // ! CURSOS DE ACTUALIZACIÓN 2023
-             if($ws->id == 44)
-             {
-                 Mail::mailer('smtp_unihuerto')->to($user->email)->send(new sendUniHuertoReceipt($request->file('file')->get(), $ws_name));
-             }
+            // ! CURSOS DE ACTUALIZACIÓN 2023
+
+            if ($ws->id == 45) {
+                Mail::mailer('smtp_uniruta')->to($user->email)->send(new sendslowFashion($request->file('file')->get(), $ws_name));
+            }
             else{
-            if($ws->id == 40)
-            {
+            
+            if ($ws->id == 44) {
+                Mail::mailer('smtp_unihuerto')->to($user->email)->send(new sendUniHuertoReceipt($request->file('file')->get(), $ws_name));
+            }
+
+            if ($ws->id == 40) {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
-            if($ws->id == 41)
-            {
+            if ($ws->id == 41) {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
-            if($ws->id == 42)
-            {
+            if ($ws->id == 42) {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
-            if($ws->id == 43)
-            {
+            if ($ws->id == 43) {
                 Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             }
         }
-        
+
+
             //Mail::mailer('smtp_imarec')->to($user->email)->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
             // Mail::mailer('smtp')->to('A291395@alumnos.uaslp.mx')->send(new SendCAReceipt($request->file('file')->get(), $ws_name));
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['Message' => 'Error al mandar correo de confirmación'], JsonResponse::HTTP_OK);
         }
 
@@ -139,12 +143,12 @@ class CursosActualizacionController extends Controller
         $user = $request->user();
 
         # Extensión del archivo.
-        $mime_type = '.'.$request->file('file')->extension();
+        $mime_type = '.' . $request->file('file')->extension();
 
         # Almacena en storage.
         $path = $request->file('file')->storePubliclyAs(
-            'workshops/'.$user->user_type.'/'.$user->id,
-            'Comprobante-de-pago-uniruta'.$mime_type
+            'workshops/' . $user->user_type . '/' . $user->id,
+            'Comprobante-de-pago-uniruta' . $mime_type
         );
 
         # Obtiene el arreglo de datos, que se guardará como json
@@ -196,18 +200,18 @@ class CursosActualizacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function cambiaStatusPago(UpdatePaidStatusRequest $request)
-    {   
+    {
         # Obtiene al usuario y actualiza el estado de pago.
         // $user = User::userById($request->idUsuario);
         // $user->paid = $request->nuevoEstadoPago;
         // $user->paid_at = $request->nuevoEstadoPago === true ? Carbon::now() : null;
         // $user->save();
-        try{
+        try {
             $user_workshop = UserWorkshop::find($request->user_workshop_id);
             $user_workshop->paid = $request->nuevoEstadoPago;
             $user_workshop->paid_at = Carbon::now();
             $user_workshop->save();
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json([
                 'Message' => 'Error al actualizar estado de pago'
             ], JsonResponse::HTTP_OK);

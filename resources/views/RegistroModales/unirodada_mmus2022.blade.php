@@ -17,19 +17,16 @@
           <h5 class="modal-title3" id="exampleModalLabel">Datos personales</h5>
           <div class="form-group  was-validated">
             <label for="Nombres">Nombre(s)</label>
-            <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" readonly
-              style="text-transform: capitalize;">
+            <input type="text" class="form-control" id="Nombres" v-model="nombres" required name="Nombres" readonly style="text-transform: capitalize;">
           </div>
           <div class="form-row">
             <div class="form-group col-md-6 was-validated">
               <label for="ApellidoP">Apellido paterno</label>
-              <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required readonly
-                name="ApellidoP" style="text-transform: capitalize;">
+              <input type="text" class="form-control" id="ApellidoP" v-model="ApellidoP" required readonly name="ApellidoP" style="text-transform: capitalize;">
             </div>
             <div class="form-group col-md-6  was-validated">
               <label for="ApellidoM">Apellido materno</label>
-              <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly
-                name="ApellidoM" style="text-transform: capitalize;">
+              <input type="text" class="form-control" id="ApellidoM" v-model="ApellidoM" required readonly name="ApellidoM" style="text-transform: capitalize;">
             </div>
           </div>
 
@@ -43,24 +40,21 @@
           <div class="form-row was-validated" v-if="TipoUsuario!='externs'?true:false">
             <div class="form-group col-md-6">
               <label for="ClaveU_RPE">clave única/RPE</label>
-              <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE"
-                required>
+              <input type="text" name="ClaveU_RPE" class="form-control" id="ClaveU_RPE" readonly v-model="ClaveU_RPE" required>
             </div>
             <div class=" form-group col-md-6" v-if="TipoUsuario!='externs'?true:false">
               <label for="Facultad">Facultad de adscripción</label>
-              <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly
-                v-model="Facultad">
+              <input type="text" class="form-control" id="Facultad" required name="Facultad" readonly v-model="Facultad">
             </div>
           </div>
 
           <div class="form-row row was-validated">
             <div class="col-md-6 mb-3">
               <label for="tel">Teléfono</label>
-              <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel"
-                @if(Auth::user()->user_type!="externs")
-                @else
-                readonly
-                @endif
+              <input type="tel" class="form-control" id="Tel" required name="Tel" v-model="tel" @if(Auth::user()->user_type!="externs")
+              @else
+              readonly
+              @endif
               >
             </div>
           </div>
@@ -71,8 +65,7 @@
           <div class="form-group row was-validated">
             <label for="emailR" class="col-sm-3 col-form-label">Nombre del contacto: </label>
             <div class="col-9">
-              <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto"
-                v-model="NombreContacto" @change="VerificaNombreContacto">
+              <input type="text" class="form-control" id="NombreContacto" required name="NombreContacto" v-model="NombreContacto" @change="VerificaNombreContacto">
             </div>
             <span class="text-danger" role="alert" v-if="Errores[2].Visible">
               @{{Errores[2].Mensaje}}
@@ -81,8 +74,7 @@
           <div class="form-group row was-validated">
             <label for="emailR" class="col-sm-3 col-form-label">Teléfono de contacto </label>
             <div class="col-9">
-              <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto"
-                v-model="CelularContacto" @change="VerificaNumeroContacto">
+              <input type="tel" class="form-control" id="CelularContacto" required name="CelularContacto" v-model="CelularContacto" @change="VerificaNumeroContacto">
             </div>
             <span class="text-danger" role="alert" v-if="Errores[3].Visible">
               @{{Errores[3].Mensaje}}
@@ -92,8 +84,7 @@
 
             <label for="GrupoC" class="col-sm-3 col-form-label">Grupo ciclista</label>
             <div class="col-9">
-              <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC"
-                @change="ChecarBecas({{$fup_users}})">
+              <input type="text" class="form-control" id="GrupoC" name="GrupoC" v-model="GrupoC" @change="ChecarBecas({{$fup_users}})">
             </div>
             <span class="text-danger" role="alert" v-if="Errores[5].Visible">
               @{{Errores[5].Mensaje}}
@@ -108,18 +99,15 @@
                 <label class="form-check-label">Condicion de salud</label>
               </div>
               <div class="form-check form-check-inline ml-4">
-                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala"
-                  value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
+                <input class="form-check-input" type="checkbox" name="CondicionMala" id="CondicionMala" value="CondicionMala" v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionMala">Mala</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena"
-                  value="CondicionBuena" v-model="CondicionSalud" @click="check_one()">
+                <input class="form-check-input" type="checkbox" name="CondicionBuena" id="CondicionBuena" value="CondicionBuena" v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionBuena">Buena</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente"
-                  v-model="CondicionSalud" @click="check_one()">
+                <input class="form-check-input" type="checkbox" name="Excelente" id="Excelente" value="Excelente" v-model="CondicionSalud" @click="check_one()">
                 <label class="form-check-label" for="CondicionExcelente">Excelente</label>
               </div>
             </div>
@@ -138,18 +126,15 @@
             <h5 class="modal-title3" id="exampleModalLabel">Datos de facturación</h5>
             <div class="form-group  was-validated col-12">
               <label for="Nombres">Nombre Completo o razón social</label>
-              <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF"
-                style="text-transform: capitalize;">
+              <input type="text" class="form-control" id="nombresF" v-model="nombresF" required name="nombresF" style="text-transform: capitalize;">
             </div>
             <div class="form-group  was-validated col-12">
               <label for="Nombres">Domicilio fiscal</label>
-              <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required
-                name="DomicilioF" style="text-transform: capitalize;">
+              <input type="text" class="form-control" id="DomicilioF" v-model="DomicilioF" required name="DomicilioF" style="text-transform: capitalize;">
             </div>
             <div class="form-group  was-validated col-6">
               <label for="Nombres">RFC</label>
-              <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC"
-                style="text-transform: capitalize;">
+              <input type="text" class="form-control" id="RFC" v-model="RFC" required name="RFC" style="text-transform: capitalize;">
             </div>
             <div class="form-group  was-validated col-6">
               <label for="Nombres">Correo electrónico</label>
@@ -202,8 +187,7 @@
           </div>
 
           <div class="modal-footer justify-content-start">
-            <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE"
-              v-if="!spinnerVisible">Aceptar</button>
+            <button id="submit" type="submit" class="btn btn-primary" style="background-color: #0160AE" v-if="!spinnerVisible">Aceptar</button>
             <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               Registrando...

@@ -57,6 +57,7 @@ const app = new Vue({
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
+        this.openRegisterModalcursosAct()
         // console.log(this.user);
     },
     methods: {
@@ -79,16 +80,36 @@ const app = new Vue({
         // ! De momento las fechas son manuales
         dateClass(ymd, date) {
 
-            if(ymd == '2022-09-09' | ymd == '2022-09-10'){
+            if(ymd == '2023-09-09' | ymd == '2023-09-10'){
                 return 'table-success'
             }
 
             return ''
         },
+        openRegisterModalcursosAct:function(ws)
+        {
+            
+            foreach(act in ws)
+            {
+                this.selected = act;
+            }
+            console.log(this.selected.name);
+            try{
+                if(!ws.registered){
+                    this.$root.$emit('bv::show::modal','modal-template','#btnShow');
+                }else{
+                    this.showRegisteredMsgBox(ws);
+                }
+            }catch (error){
+                this.showToast('Error al mostrar modal','Error');
+                console.error(error);
+            }
+        },
         // Inicializador de modales de registro
         openRegisterModal:function(ws){
             // * Curso seleccionado, para cargar la configuración del modal
             this.selected = ws;
+            console.log(this.selected.type);
             try{
                 if(!ws.registered){
                     this.$root.$emit('bv::show::modal','modal-template','#btnShow');
@@ -158,6 +179,17 @@ const app = new Vue({
             };
             
             // ! Additional data 
+            if(ws.type == 'reutronic')
+            {
+                data['additional_data'] = this.reutronic_data;
+                
+            }
+            else if(ws.type == 'unitrueque')
+            {
+                data['additional_data'] = this.unitrueque_data;
+                
+            }
+            /*
             switch (ws.type) {
                 case 'unitrueque':
                     data['additional_data'] = this.unitrueque_data;
@@ -165,12 +197,13 @@ const app = new Vue({
                 case 'uniruta':
                     data['additional_data'] = this.uniruta_data;
                     break;
-                case 'reutronic':
+                case 'Reutronic':
                     data['additional_data'] = this.reutronic_data;
                     break;
                 default:
                     break;
             }
+            */
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
                 console.log(response.data)
                 // Actualizar datos UI

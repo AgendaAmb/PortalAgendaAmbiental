@@ -24,6 +24,7 @@ use App\Models\ReutronicUser;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+
 class WorkshopController extends Controller
 {
     /*
@@ -69,12 +70,13 @@ class WorkshopController extends Controller
     }
 
 
-    public function GetWorkshops(Request $request){
-        $user=User::userById($request->id);
-        $Workshops=[];
+    public function GetWorkshops(Request $request)
+    {
+        $user = User::userById($request->id);
+        $Workshops = [];
 
 
-        return($user->getRegisteredWorkshops());
+        return ($user->getRegisteredWorkshops());
     }
 
     /**
@@ -85,8 +87,7 @@ class WorkshopController extends Controller
      */
     public function store(StoreWorkshopRequest $request)
     {
-        try
-        {
+        try {
             # Cursos registrados por el usuario
             $courses = collect($request->cursosInscritosMMUS ?? []);
 
@@ -119,7 +120,7 @@ class WorkshopController extends Controller
                     ->updateOrInsert([
                         'user_id' => $user->id,
                         'user_type' => $user->type
-                    ],[
+                    ], [
                         'rfc' => $request->RFC,
                         'name' => $request->nombresF,
                         'email' => $request->emailF,
@@ -129,10 +130,8 @@ class WorkshopController extends Controller
             }
 
             return new JsonResponse(['message' => 'Curso registrado'], JsonResponse::HTTP_OK);
-        }
-        catch (Exception $e)
-        {
-            Log::error('Ocurrió un error: '.$e->getMessage());
+        } catch (Exception $e) {
+            Log::error('Ocurrió un error: ' . $e->getMessage());
             throw $e;
         }
     }
@@ -164,11 +163,10 @@ class WorkshopController extends Controller
 
         # Guarda en el log los cursos eliminados.
         Log::info('Se han desasociado los siguientes cursos: ', $workshops->toArray());
-        Log::info('Para el usuario: '.$user->email);
-        Log::info('Cursos que se va a inscribir: '.$courses);
+        Log::info('Para el usuario: ' . $user->email);
+        Log::info('Cursos que se va a inscribir: ' . $courses);
         # Agrega cada uno de los cursos
-        foreach ($courses as $workshop)
-        {
+        foreach ($courses as $workshop) {
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('name', $workshop);
 
@@ -188,7 +186,6 @@ class WorkshopController extends Controller
                 $this->unirodada_controller->registerUser($request, $user, $workshop_model);
             else
                 $user->assignWorkshop($workshop_model->id);
-
         }
 
         # Obtiene los cursos registrados.
@@ -199,13 +196,12 @@ class WorkshopController extends Controller
 
         # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
-        if ($workshops->count() > 0)
-        {
+        if ($workshops->count() > 0) {
             Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
-            Log::info('Al usuario: '.$user->email);
+            Log::info('Al usuario: ' . $user->email);
         }
 
-        if($request->checkedFecha!=[]){
+        if ($request->checkedFecha != []) {
             $workshop_model = Workshop::firstWhere('name', 'Agricultura urbana ¿Qué? ¿Cuándo? ¿Cómo? ¿Por qué?(27 Noviembre)');
             $user->assignWorkshop($workshop_model->id);
             Mail::to($user)->send(new RegisteredWorkshops($workshop_model));
@@ -231,7 +227,7 @@ class WorkshopController extends Controller
             'assisted_to_workshop' => true,
         ]);
 
-        return response()->json([ 'Message' => 'Asistencia de usuario registrada' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Asistencia de usuario registrada'], JsonResponse::HTTP_OK);
     }
 
     /**
@@ -244,55 +240,58 @@ class WorkshopController extends Controller
     {
         return Workshop::all();
     }
-    public function getAllWorkshops(){
+    public function getAllWorkshops()
+    {
 
         return response()->json(Workshop::all());
     }
-     /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function registerWorkShop(Request $request){
+    public function registerWorkShop(Request $request)
+    {
         $workshop = new Workshop();
-        $workshop->name=$request->nombreT;
-        $workshop->description=$request->DescripcionT;
-        $workshop->type=$request->TEvento;
-        $workshop->work_edge=$request->Eje;
-        $workshop->start_date=$request->FechaInicio;
-        $workshop->end_date=$request->FechaFin;
+        $workshop->name = $request->nombreT;
+        $workshop->description = $request->DescripcionT;
+        $workshop->type = $request->TEvento;
+        $workshop->work_edge = $request->Eje;
+        $workshop->start_date = $request->FechaInicio;
+        $workshop->end_date = $request->FechaFin;
         $workshop->save();
-        Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
 
     //* ESTA FUNCION REGISTRA UN WORKSHOP (SIN DATOS ADICIONALES, SOLO TABLA WORKSHOP_USER) 
     // TODO - Validar 
     // TODO - Registro de datos adicionales al workshop
     // TODO - Validar Fechas de registro
-    public function WorkshopUserRegister(Request $request){
-        
+    public function WorkshopUserRegister(Request $request)
+    {
+
         // * Verificar workshop existente
-        try{
+        try {
             $request->validate([
                 'workshop_id' => ['required|exists:workshops,id', Rule::exists('staff')->where(function ($query) {
                     $query->where('account_id', 1);
                 })]
             ]);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['data' => "Request fields error"], JsonResponse::HTTP_OK);
         }
 
         // TODO Verificar limite de usuarios por registro
 
         // * Verificar usuario registrado
-        try{
-            $already_registered = UserWorkshop::where('user_id', $request->user()->id)->where('workshop_id',$request->workshop_id)->first();
-            if($already_registered != null){
+        try {
+            $already_registered = UserWorkshop::where('user_id', $request->user()->id)->where('workshop_id', $request->workshop_id)->first();
+            if ($already_registered != null) {
                 return response()->json(['data' => 'registered'], JsonResponse::HTTP_OK);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['data' => "Error validando datos"], JsonResponse::HTTP_OK);
         }
 
@@ -311,16 +310,16 @@ class WorkshopController extends Controller
                 'sent' => false,
                 'paid' => false,
             ]);
-
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
         }
-        
+
         return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
     }
 
     //* REGISTRA UN WORKSHOP DE UNRIDODADA EN GENERAL 
-    public function WorkshopUnirodadaUserRegister(Request $request){
+    public function WorkshopUnirodadaUserRegister(Request $request)
+    {
 
         # Usuario autenticado
         $user = $request->user();
@@ -343,7 +342,7 @@ class WorkshopController extends Controller
         if (!$uws->isEmpty()) {
             return response()->json(['data' => "Usuario registrado"], JsonResponse::HTTP_OK);
         }
-        
+
         try {
             # Actualiza los datos del usuario.
             $user->interested_on_further_courses = $request->interested ?? $user->interested_on_further_courses;
@@ -351,7 +350,7 @@ class WorkshopController extends Controller
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('id', $request->ws_id);
 
-            if (($workshop_model->id == 23 && UserWorkshop::where('workshop_id', 23)->count() > 50)){
+            if (($workshop_model->id == 23 && UserWorkshop::where('workshop_id', 23)->count() > 50)) {
                 return response()->json(['data' => "Limite de usuarios alcanzado"], JsonResponse::HTTP_OK);
             }
 
@@ -380,13 +379,13 @@ class WorkshopController extends Controller
             if ($user_workshop->unirodadaUser->group === 'staff') {
                 $user_workshop->paid = true;
                 $user_workshop->paid_at = Carbon::now();
-            //* A la FUP se le otorgan 10 becas.
-            }else if($user_workshop->unirodadaUser->group === 'fup') {
+                //* A la FUP se le otorgan 10 becas.
+            } else if ($user_workshop->unirodadaUser->group === 'fup') {
                 # Total de ciclistas de la fup.
                 $num_becas_fup = UnirodadaUser::where('group', 'fup')
-                                    ->whereIn('user_workshop_id',UserWorkshop::where('workshop_id', $workshop_model->id)
-                                    ->pluck('id'))
-                                    ->count();
+                    ->whereIn('user_workshop_id', UserWorkshop::where('workshop_id', $workshop_model->id)
+                        ->pluck('id'))
+                    ->count();
 
                 if ($num_becas_fup < 10) {
                     $user_workshop->paid = true;
@@ -395,7 +394,7 @@ class WorkshopController extends Controller
             }
             // Guardar los cambios
             $user_workshop->save();
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
         }
         return response()->json(['Message' => 'ok!'], JsonResponse::HTTP_OK);
@@ -408,8 +407,8 @@ class WorkshopController extends Controller
             $user = $request->user();
 
             $insc = DB::table('user_workshop')
-            ->where('workshop_id', 35)  //!  MInirodada
-            ->where('user_id', $user->id)
+                ->where('workshop_id', 35)  //!  MInirodada
+                ->where('user_id', $user->id)
                 ->get();
 
             // Registrado?
@@ -456,9 +455,9 @@ class WorkshopController extends Controller
             return response()->json(['Message' => 'error'], 500);
         }
         return response()->json(
-                ['Message' => 'ok'],
-                JsonResponse::HTTP_OK
-            );
+            ['Message' => 'ok'],
+            JsonResponse::HTTP_OK
+        );
     }
 
     public function ChecarReutronic(Request $request)
@@ -466,12 +465,12 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         $workshop_model = Workshop::where('name', 'Reutronic')->first();
-        
+
         $insc = DB::table('user_workshop')
             ->where('workshop_id', $workshop_model->id)
             ->where('user_id', $user->id)
             ->get();
-        if ($insc->count() > 0){
+        if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
         } else {
             return response()->json(false, JsonResponse::HTTP_OK);
@@ -485,9 +484,9 @@ class WorkshopController extends Controller
             $user = $request->user();
 
             $workshop_model = Workshop::where('name', 'Reutronic')->first();
-            
+
             $insc = DB::table('user_workshop')
-            ->where('workshop_id', $workshop_model->id)  //!  MInirodada
+                ->where('workshop_id', $workshop_model->id)  //!  MInirodada
                 ->where('user_id', $user->id)
                 ->get();
 
@@ -517,7 +516,7 @@ class WorkshopController extends Controller
                 # Registra los datos de reutronic
                 ReutronicUser::create([
                     'user_workshop_id' => $user_workshop->id,
-                    'prev_solicitud' => $request->prev_solicitud == 'true'? true : false,
+                    'prev_solicitud' => $request->prev_solicitud == 'true' ? true : false,
                     'material' => $request->materialReutronic,
                     'detalles' => $request->observacionesReutronic,
                     'razondeuso' => $request->razonReutronic,
@@ -529,7 +528,8 @@ class WorkshopController extends Controller
         } catch (\Exception $e) {
             return response()->json(['Message' => 'error'], 500);
         }
-        return response()->json(['Message' => 'ok'],
+        return response()->json(
+            ['Message' => 'ok'],
             JsonResponse::HTTP_OK
         );
     }
@@ -540,9 +540,9 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 35)  // GGJ Workshop
-        ->where('user_id', $user->id)
-        ->get();
+            ->where('workshop_id', 35)  // GGJ Workshop
+            ->where('user_id', $user->id)
+            ->get();
 
         if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
@@ -564,7 +564,8 @@ class WorkshopController extends Controller
     }
 
 
-    public function RegistrarGGJ(Request $request){
+    public function RegistrarGGJ(Request $request)
+    {
         try {
             # Usuario autenticado
             $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
@@ -584,11 +585,11 @@ class WorkshopController extends Controller
             if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
             }
-          
+
             $user->save();
 
             # Busca el curso por su nombre.
-            $workshop_model = Workshop::firstWhere('name','Global Goals Jam');
+            $workshop_model = Workshop::firstWhere('name', 'Global Goals Jam');
 
             # Registra al usuario al workshop
             $user_workshop = UserWorkshop::create([
@@ -599,7 +600,7 @@ class WorkshopController extends Controller
                 'paid' => false,
             ]);
 
-            try{
+            try {
                 # Guardar los miembros del equipo
                 foreach ($request->team as $member) {
                     DB::table('ggj_users')->insert(
@@ -613,7 +614,7 @@ class WorkshopController extends Controller
                         ]
                     );
                 }
-            }catch(\Exception $e){
+            } catch (\Exception $e) {
                 $user_workshop->delete();
                 return response()->json(['Message' => 'Team data error'], JsonResponse::HTTP_OK);
             }
@@ -626,7 +627,6 @@ class WorkshopController extends Controller
             ];
 
             response()->download($file, 'FormatoMiniRodadaMMUS2022.pdf', $headers);
-
         } catch (\Exception $e) {
             return response()->json(['Message' => 'error'], 500);
         }
@@ -639,9 +639,9 @@ class WorkshopController extends Controller
         $user = $request->user();
 
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 24)  // GGJ Workshop
-        ->where('user_id', $user->id)
-        ->get();
+            ->where('workshop_id', 24)  // GGJ Workshop
+            ->where('user_id', $user->id)
+            ->get();
 
         if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
@@ -661,81 +661,9 @@ class WorkshopController extends Controller
             if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
-                $user->interested_on_further_courses = true;
-            }
-            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
-                $user->courses = $request->CursoCursado;
-            }
-            $user->save();
-
-            # Cursos mmus del usuario y unirodadas.
-            $workshops = $user->workshops()
-                ->WherePivotNull('paid')
-                ->wherePivotNull('assisted_to_workshop')
-                ->orWherePivot('assisted_to_workshop', false)
-                ->pluck('workshops.id');
-
-
-            # Se eliminan los cursos a los que no haya asistido y a
-            # aquellos que haya eliminado del modal.
-            $user->workshops()->detach($workshops);
-
-            # Busca cursos
-            $workshop_models = array();
-            
-            //if($request->REGS)array_push($workshop_models, Workshop::firstWhere('id',16));
-            //if($request->RIA)array_push($workshop_models, Workshop::firstWhere('id',17));
-            //if($request->SCMU)array_push($workshop_models, Workshop::firstWhere('id',18));
-            //Registros 2023
-            if($request->DRE)array_push($workshop_models, Workshop::firstWhere('id',40));
-            if($request->EUP)array_push($workshop_models, Workshop::firstWhere('id',41));
-            if($request->GOPA)array_push($workshop_models, Workshop::firstWhere('id',42));
-            if($request->TSCA)array_push($workshop_models, Workshop::firstWhere('id',43));
-    
-    
-            $this->ca_controller->registerUser($request, $user, $workshop_models);
-            # la relación con esta tabla esta bien fea mens 
-            if ($request->isFacturaReq === 'Si') {
-                DB::table('invoice_data')
-                ->updateOrInsert([
-                    'user_id' => $user->id,
-                    'user_type' => $user->type
-                ], [
-                    'rfc' => $request->RFC,
-                    'name' => $request->nombresF,
-                    'email' => $request->emailF,
-                    'address' =>  $request->DomicilioF,
-                    'phone' => $request->telF
-                ]);
-            }
-
-        }catch(\Exception $e) {
-            return response()->json(['Message' => $e->getMessage()], 500);
-        }
-
-        # Si el usuario registró más de un curso, se
-        # le envía un correo electrónico de confirmación.
-       Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
-        //4. si todo sale bien regresamo un ok
-        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
-    }
-
-    public function RegistrarMmus2022(Request $request)
-    {
-        try {
-            # Usuario autenticado
-            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
-
-                // Grado academico
-            if ($request->NAcademico != "") {
-                $user->academic_degree = $request->NAcademico;
-            }
-                // Interes de asistencia nuevos cursos
             if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
             }
-                // Asistencia a cursos
             if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursoCursado;
             }
@@ -756,13 +684,84 @@ class WorkshopController extends Controller
             # Busca cursos
             $workshop_models = array();
 
-            if ($request->registros['iutt'])array_push($workshop_models, Workshop::firstWhere('id', 28));
-            if ($request->registros['cccv'])array_push($workshop_models, Workshop::firstWhere('id', 29));
-            if ($request->registros['pm'])array_push($workshop_models, Workshop::firstWhere('id', 30));
-            if ($request->registros['wwc'])array_push($workshop_models, Workshop::firstWhere('id', 31));
-            if ($request->registros['fa'])array_push($workshop_models, Workshop::firstWhere('id', 32));
-            if ($request->registros['tb'])array_push($workshop_models, Workshop::firstWhere('id', 33));
-            if ($request->registros['pikt'])array_push($workshop_models, Workshop::firstWhere('id', 34));
+            //if($request->REGS)array_push($workshop_models, Workshop::firstWhere('id',16));
+            //if($request->RIA)array_push($workshop_models, Workshop::firstWhere('id',17));
+            //if($request->SCMU)array_push($workshop_models, Workshop::firstWhere('id',18));
+            //Registros 2023
+            if ($request->DRE) array_push($workshop_models, Workshop::firstWhere('id', 40));
+            if ($request->EUP) array_push($workshop_models, Workshop::firstWhere('id', 41));
+            if ($request->GOPA) array_push($workshop_models, Workshop::firstWhere('id', 42));
+            if ($request->TSCA) array_push($workshop_models, Workshop::firstWhere('id', 43));
+
+
+            $this->ca_controller->registerUser($request, $user, $workshop_models);
+            # la relación con esta tabla esta bien fea mens 
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        # Si el usuario registró más de un curso, se
+        # le envía un correo electrónico de confirmación.
+        Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    public function RegistrarMmus2022(Request $request)
+    {
+        try {
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            // Grado academico
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+            // Interes de asistencia nuevos cursos
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+            // Asistencia a cursos
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
+                $user->courses = $request->CursoCursado;
+            }
+            $user->save();
+
+            # Cursos mmus del usuario y unirodadas.
+            $workshops = $user->workshops()
+                ->WherePivotNull('paid')
+                ->wherePivotNull('assisted_to_workshop')
+                ->orWherePivot('assisted_to_workshop', false)
+                ->pluck('workshops.id');
+
+
+            # Se eliminan los cursos a los que no haya asistido y a
+            # aquellos que haya eliminado del modal.
+            $user->workshops()->detach($workshops);
+
+            # Busca cursos
+            $workshop_models = array();
+
+            if ($request->registros['iutt']) array_push($workshop_models, Workshop::firstWhere('id', 28));
+            if ($request->registros['cccv']) array_push($workshop_models, Workshop::firstWhere('id', 29));
+            if ($request->registros['pm']) array_push($workshop_models, Workshop::firstWhere('id', 30));
+            if ($request->registros['wwc']) array_push($workshop_models, Workshop::firstWhere('id', 31));
+            if ($request->registros['fa']) array_push($workshop_models, Workshop::firstWhere('id', 32));
+            if ($request->registros['tb']) array_push($workshop_models, Workshop::firstWhere('id', 33));
+            if ($request->registros['pikt']) array_push($workshop_models, Workshop::firstWhere('id', 34));
 
             foreach ($workshop_models as $workshop) {
                 # Registra al usuario en user workshops.
@@ -775,7 +774,6 @@ class WorkshopController extends Controller
                     'invoice_data' => false,
                 ]);
             }
-
         } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], JsonResponse::HTTP_OK);
         }
@@ -820,19 +818,22 @@ class WorkshopController extends Controller
             return response()->json(['flag' => $flag, 'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        if ($inscriptions['iutt'] && $inscriptions['cccv'] && $inscriptions['pm'] 
+        if (
+            $inscriptions['iutt'] && $inscriptions['cccv'] && $inscriptions['pm']
             && $inscriptions['wwc'] && $inscriptions['fa'] && $inscriptions['tb']
-            && $inscriptions['pikt']) $flag = true;
+            && $inscriptions['pikt']
+        ) $flag = true;
 
         return response()->json(['flag' => $flag, 'data' => $inscriptions], JsonResponse::HTTP_OK);
     }
 
     // Chacar usuario registrado en cursos de actualización
-    public function ChecarCAUsuario(Request $request){
+    public function ChecarCAUsuario(Request $request)
+    {
         $inscriptions = array();
         $flag = false;
 
-        try{
+        try {
             /*
             $inscriptions['REGS'] = UserWorkshop::where('workshop_id', 16)
             ->where('user_id', $request->Clave)
@@ -846,22 +847,22 @@ class WorkshopController extends Controller
             */
             //Cursos de actualizacion 2023
             $inscriptions['DRE'] = UserWorkshop::where('workshop_id', 40)
-            ->where('user_id', $request->Clave)
-            ->first()===null?false:true;
-            $inscriptions['EUP'] = UserWorkshop::where('workshop_id', 41) 
-            ->where('user_id', $request->Clave)
-            ->first()===null?false:true;
+                ->where('user_id', $request->Clave)
+                ->first() === null ? false : true;
+            $inscriptions['EUP'] = UserWorkshop::where('workshop_id', 41)
+                ->where('user_id', $request->Clave)
+                ->first() === null ? false : true;
             $inscriptions['GOPA'] = UserWorkshop::where('workshop_id', 42)
-            ->where('user_id', $request->Clave)
-            ->first()===null?false:true;
-            $inscriptions['TSCA'] = UserWorkshop::where('workshop_id',43)
-            ->where('user_id', $request->Clave)
-            ->first()===null?false:true;
-        }catch(Exception $e) {
-            return response()->json(['flag' => $flag,'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+                ->where('user_id', $request->Clave)
+                ->first() === null ? false : true;
+            $inscriptions['TSCA'] = UserWorkshop::where('workshop_id', 43)
+                ->where('user_id', $request->Clave)
+                ->first() === null ? false : true;
+        } catch (Exception $e) {
+            return response()->json(['flag' => $flag, 'data' => 'error'], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        if($inscriptions['DRE'] && $inscriptions['EUP'] && $inscriptions['GOPA'] && $inscriptions['TSCA'])$flag=true;
+        if ($inscriptions['DRE'] && $inscriptions['EUP'] && $inscriptions['GOPA'] && $inscriptions['TSCA']) $flag = true;
 
         return response()->json(['flag' => $flag, 'data' => $inscriptions], JsonResponse::HTTP_OK);
     }
@@ -883,7 +884,7 @@ class WorkshopController extends Controller
 
             # Cursos mmus del usuario y unirodadas.
             $workshops = $user->workshops()
-            ->WherePivotNull('paid')
+                ->WherePivotNull('paid')
                 ->wherePivotNull('assisted_to_workshop')
                 ->orWherePivot('assisted_to_workshop', false)
                 ->pluck('workshops.id');
@@ -901,16 +902,16 @@ class WorkshopController extends Controller
             # Verifica si hay datos de facturación.
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
-                ->updateOrInsert([
-                    'user_id' => $user->id,
-                    'user_type' => $user->type
-                ], [
-                    'rfc' => $request->RFC,
-                    'name' => $request->nombresF,
-                    'email' => $request->emailF,
-                    'address' =>  $request->DomicilioF,
-                    'phone' => $request->telF
-                ]);
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
             }
         } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
@@ -918,13 +919,14 @@ class WorkshopController extends Controller
 
         # Obtiene los cursos registrados.
         $workshops = $user->workshops()
-        ->wherePivotNull('assisted_to_workshop')
-        ->orWherePivot('assisted_to_workshop', false)
+            ->wherePivotNull('assisted_to_workshop')
+            ->orWherePivot('assisted_to_workshop', false)
             ->get();
 
         # Si el usuario registró más de un curso, se
         # le envía un correo electrónico de confirmación.
-        if ($workshops->count() > 0
+        if (
+            $workshops->count() > 0
         ) {
             Log::info('Se ha registrado a los siguientes cursos: ', $workshops->toArray());
             Log::info('Al usuario: ' . $user->email);
@@ -974,45 +976,45 @@ class WorkshopController extends Controller
             # la relación con esta tabla esta bien fea mens 
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
-                ->updateOrInsert([
-                    'user_id' => $user->id,
-                    'user_type' => $user->type
-                ], [
-                    'rfc' => $request->RFC,
-                    'name' => $request->nombresF,
-                    'email' => $request->emailF,
-                    'address' =>  $request->DomicilioF,
-                    'phone' => $request->telF
-                ]);
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
             }
-        }catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
         }
 
         //4. si todo sale bien regresamos un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    
+
     public function ChecarRodadaRioUsuario(Request $request)
     { //Esta inscrito?
         //return response()->json($request, JsonResponse::HTTP_OK);
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 12) // 12 - Unirodada por los rios
-        ->where('user_id', $request->Clave)
-        ->get();
+            ->where('workshop_id', 12) // 12 - Unirodada por los rios
+            ->where('user_id', $request->Clave)
+            ->get();
 
         //return response()->json($insc, JsonResponse::HTTP_OK);
 
-        if( $insc->count() > 0 ){
+        if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
-        }else{
+        } else {
             return response()->json(false, JsonResponse::HTTP_OK);
         }
     }
 
     public function RegistrarUnirutaUsuario(Request $request)
     {
-        
+
         try {
             # Usuario autenticado
             $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
@@ -1036,7 +1038,7 @@ class WorkshopController extends Controller
             # Se eliminan los cursos a los que no haya asistido y a
             # aquellos que haya eliminado del modal.
             $user->workshops()->detach($workshops);
-            
+
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('name', 'Uniruta Cerro de San Pedro');
 
@@ -1045,19 +1047,18 @@ class WorkshopController extends Controller
             # Verifica si hay datos de facturación.
             if ($request->isFacturaReq === 'Si') {
                 DB::table('invoice_data')
-                ->updateOrInsert([
-                    'user_id' => $user->id,
-                    'user_type' => $user->type
-                ], [
-                    'rfc' => $request->RFC,
-                    'name' => $request->nombresF,
-                    'email' => $request->emailF,
-                    'address' =>  $request->DomicilioF,
-                    'phone' => $request->telF
-                ]);
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
             }
-
-        }catch(\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
         }
 
@@ -1073,18 +1074,18 @@ class WorkshopController extends Controller
         //4. si todo sale bien regresamo un ok
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    
+
     public function ChecarUnirutaUsuario(Request $request)
     { //Esta inscrito?
         //return response()->json($request, JsonResponse::HTTP_OK);
         $insc = DB::table('user_workshop')
-        ->where('workshop_id', 39) // 39 - Uniruta cerro de san pedro
-        ->where('user_id', $request->Clave)
-        ->get();
+            ->where('workshop_id', 39) // 39 - Uniruta cerro de san pedro
+            ->where('user_id', $request->Clave)
+            ->get();
 
-        if( $insc->count() > 0 ){
+        if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
-        }else{
+        } else {
             return response()->json(false, JsonResponse::HTTP_OK);
         }
     }
@@ -1092,7 +1093,7 @@ class WorkshopController extends Controller
     public function RegistrarCompetencias(Request $request)
     {
         $user = $request->user();
-        
+
         try {
             # Se envía el comprobante de pago.
             Mail::mailer('smtp')->to($user->email)->send(new SendCursoCompetenciasMail());
@@ -1119,19 +1120,19 @@ class WorkshopController extends Controller
             }
 
             $user->save();
-        
+
             //3. crear registro
             DB::table('user_workshop')
-            ->updateOrInsert([
-                'workshop_id' => 37,
-                'user_id' => $user->id,
-                'user_type' => $user->type,
-                'assisted_to_workshop' => null,
-                'sent' => null,
-                'sent_at' =>  null,
-                'paid' => null,
-                'paid_at' => null
-            ]);
+                ->updateOrInsert([
+                    'workshop_id' => 37,
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'assisted_to_workshop' => null,
+                    'sent' => null,
+                    'sent_at' =>  null,
+                    'paid' => null,
+                    'paid_at' => null
+                ]);
             // Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
         } catch (\Exception $e) {
             return response()->json(['Message' => $e->getMessage()], 500);
@@ -1158,8 +1159,86 @@ class WorkshopController extends Controller
         }
     }
 
-    public function RegistrarUnihuertoCasaUsuario(Request $request){
-        try{
+    public function RegistrarslowFashionUsuario(Request $request)
+    {
+        try {
+            //throw new \Exception("mi excepcion");//para prueba
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            // Actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
+                $user->courses = $request->CursoCursado;
+            }
+            $user->save();
+            //2. checamos si requiere factura
+            if ($request->isFacturaReq === 'Si') {
+                DB::table('invoice_data')
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
+            }
+            //3. crear registro
+            DB::table('user_workshop')
+                ->updateOrInsert([
+                    'workshop_id' => 45, // 45 = slowfashion 2023
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'assisted_to_workshop' => null,
+                    'sent' => null,
+                    'sent_at' =>  null,
+                    'paid' => null,
+                    'paid_at' => null,
+                    'invoice_data' => $request->isFacturaReq == "Si" ?true:false,
+                ]);
+            Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
+
+            $workshop_models = Workshop::firstWhere('id', 45);
+            //array_push($workshop_models, Workshop::firstWhere('id',44));
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        //Enviamos un correo de pre Registro
+        Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
+    }
+
+    public function ChecarslowFashionUsuario(Request $request)
+    { //Esta inscrito?
+        //return response()->json($request, JsonResponse::HTTP_OK);
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', 45)
+            ->where('user_id', $request->Clave)
+            ->get();
+
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarUnihuertoCasaUsuario(Request $request)
+    {
+        try {
             //throw new \Exception("mi excepcion");//para prueba
 
             //0. validar datos
@@ -1168,30 +1247,30 @@ class WorkshopController extends Controller
             ]);
             //1. actualizar datos del usuario
             $user = User::find($request->Clave);
-            if($request->NAcademico != ""){
+            if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
                 $user->comments = $request->ComentariosSugerencias;
             }
-            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursosC;
             }
             $user->save();
             //2. checamos si requiere factura
-            if($request->isFacturaReq == "Si" || $request->isFacturaReq == "si"){
+            if ($request->isFacturaReq == "Si" || $request->isFacturaReq == "si") {
                 DB::table('invoice_data')
-                        ->updateOrInsert([
-                            'user_id' => $user->id,
-                            'user_type' => $user->type
-                        ],[
-                            'rfc' => $request->RFC,
-                            'name' => $request->nombresF,
-                            'email' => $request->emailF,
-                            'address' =>  $request->DomicilioF,
-                            'phone' => $request->telF
-                        ]);
+                    ->updateOrInsert([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type
+                    ], [
+                        'rfc' => $request->RFC,
+                        'name' => $request->nombresF,
+                        'email' => $request->emailF,
+                        'address' =>  $request->DomicilioF,
+                        'phone' => $request->telF
+                    ]);
             }
             //3. crear registro
             DB::table('user_workshop')
@@ -1205,39 +1284,41 @@ class WorkshopController extends Controller
                     'paid' => null,
                     'paid_at' => null
                 ]);
-            Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
+            Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
 
-            $workshop_models = Workshop::firstWhere('id',44);
+            $workshop_models = Workshop::firstWhere('id', 44);
             //array_push($workshop_models, Workshop::firstWhere('id',44));
-        }catch(\Exception $e){
-            return response()->json([ 'Message' => $e->getMessage() ],500);
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
 
         //Enviamos un correo de pre Registro
         Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
         //4. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    
-    public function ChecarUnihuertoCasaUsuario(Request $request){//Esta inscrito?
+
+    public function ChecarUnihuertoCasaUsuario(Request $request)
+    { //Esta inscrito?
         //return response()->json($request, JsonResponse::HTTP_OK);
         $insc = DB::table('user_workshop')
-            ->where('workshop_id',44)
-            ->where('user_id',$request->Clave)
+            ->where('workshop_id', 44)
+            ->where('user_id', $request->Clave)
             ->get();
 
         //return response()->json($insc, JsonResponse::HTTP_OK);
 
-        if( $insc->count() > 0 ){
+        if ($insc->count() > 0) {
             return response()->json(true, JsonResponse::HTTP_OK);
-        }else{
+        } else {
             return response()->json(false, JsonResponse::HTTP_OK);
         }
     }
 
-    public function RegistrarUnitruequeUsuario(Request $request){
+    public function RegistrarUnitruequeUsuario(Request $request)
+    {
         //return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
-        try{
+        try {
             //throw new \Exception("mi excepcion");//para prueba
 
             //0. validar datos
@@ -1246,14 +1327,14 @@ class WorkshopController extends Controller
             ]);
             //1. actualizar datos del usuario
             $user = User::find($request->Clave);
-            if($request->NAcademico != ""){
+            if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
                 $user->comments = $request->ComentariosSugerencias;
             }
-            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursosC;
             }
             $user->save();
@@ -1271,9 +1352,9 @@ class WorkshopController extends Controller
                 ]);
             //3. creaamos registro para la uniformacion en tabla unitrueque_user
             $ws = DB::table('user_workshop')
-            ->where('workshop_id',10)
-            ->where('user_id',$user->id)
-            ->get();
+                ->where('workshop_id', 10)
+                ->where('user_id', $user->id)
+                ->get();
 
             DB::table('unitrueque_users')
                 ->updateOrInsert([
@@ -1283,33 +1364,34 @@ class WorkshopController extends Controller
                     'Cantidad' => $request->Cantidad,
                     'EmpresaParticipante' => $request->EmpresaParticipante,
                 ]);
-            Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
-        }catch(\Exception $e){
-            return response()->json([ 'Message' => $e->getMessage() ],500);
+            Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
 
         //3. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    
-    public function ChecarUnitruequeUsuario(Request $request){//Esta inscrito?
-            $insc = DB::table('user_workshop')
-            ->where('workshop_id',10)
-            ->where('user_id',$request->Clave)
+
+    public function ChecarUnitruequeUsuario(Request $request)
+    { //Esta inscrito?
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', 10)
+            ->where('user_id', $request->Clave)
             ->get();
 
-            //return response()->json($insc, JsonResponse::HTTP_OK);
-            
-            if( $insc->count() > 0 ){
-                return response()->json(true, JsonResponse::HTTP_OK);
-            }else{
-                return response()->json(false, JsonResponse::HTTP_OK);
-            }
-        
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
     }
-    public function RegistrarHuertoMesaHuastecaUsuario(Request $request){
+    public function RegistrarHuertoMesaHuastecaUsuario(Request $request)
+    {
         // return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
-        try{
+        try {
             //throw new \Exception("mi excepcion");//para prueba
             //0. validar datos
             $request->validate([
@@ -1318,14 +1400,14 @@ class WorkshopController extends Controller
 
             //1. actualizar datos del usuario
             $user = User::find($request->Clave);
-            if($request->NAcademico != ""){
+            if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
                 $user->comments = $request->ComentariosSugerencias;
             }
-            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursosC;
             }
             $user->save();
@@ -1343,10 +1425,10 @@ class WorkshopController extends Controller
                 ]);
 
             $ws = DB::table('user_workshop')
-                ->where('workshop_id',13)
-                ->where('user_id',$user->id)
+                ->where('workshop_id', 13)
+                ->where('user_id', $user->id)
                 ->get();
-                /*
+            /*
             //3. creaamos registro para la uniformacion en tabla unitrueque_user (solo crear nueva tabla cuando se necesite)
 
             DB::table('unitrueque_users')
@@ -1359,35 +1441,37 @@ class WorkshopController extends Controller
                 ]);
             Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
             */
-        }catch(\Exception $e){
-            return response()->json([ 'Message' => $e->getMessage() ],500);
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
-        
+
 
         //3. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    public function ChecarHuertoMesaHuastecaUsuario(Request $request){//Esta inscrito?
-        try{
+    public function ChecarHuertoMesaHuastecaUsuario(Request $request)
+    { //Esta inscrito?
+        try {
             $insc = DB::table('user_workshop')
-            ->where('workshop_id',13) 
-            ->where('user_id',$request->Clave)
-            ->get();
+                ->where('workshop_id', 13)
+                ->where('user_id', $request->Clave)
+                ->get();
 
             //return response()->json($insc, JsonResponse::HTTP_OK);
-            
-            if( $insc->count() > 0 ){
+
+            if ($insc->count() > 0) {
                 return response()->json(true, JsonResponse::HTTP_OK);
-            }else{
+            } else {
                 return response()->json(false, JsonResponse::HTTP_OK);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e->getMessage(), JsonResponse::HTTP_OK);
         }
     }
-    public function RegistrarPromotoresHuastecaUsuario(Request $request){
+    public function RegistrarPromotoresHuastecaUsuario(Request $request)
+    {
         // return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
-        try{
+        try {
             //throw new \Exception("mi excepcion");//para prueba
             //0. validar datos
             $request->validate([
@@ -1396,14 +1480,14 @@ class WorkshopController extends Controller
 
             //1. actualizar datos del usuario
             $user = User::find($request->Clave);
-            if($request->NAcademico != ""){
+            if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
                 $user->comments = $request->ComentariosSugerencias;
             }
-            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursosC;
             }
             $user->save();
@@ -1421,10 +1505,10 @@ class WorkshopController extends Controller
                 ]);
 
             $ws = DB::table('user_workshop')
-                ->where('workshop_id',14)
-                ->where('user_id',$user->id)
+                ->where('workshop_id', 14)
+                ->where('user_id', $user->id)
                 ->get();
-                /*
+            /*
             //3. creaamos registro para la uniformacion en tabla unitrueque_user (solo crear nueva tabla cuando se necesite)
 
             DB::table('unitrueque_users')
@@ -1437,36 +1521,38 @@ class WorkshopController extends Controller
                 ]);
             Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
             */
-        }catch(\Exception $e){
-            return response()->json([ 'Message' => $e->getMessage() ],500);
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
-        
+
 
         //3. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
-    public function ChecarPromotoresHuastecaUsuario(Request $request){//Esta inscrito?
-        try{
+    public function ChecarPromotoresHuastecaUsuario(Request $request)
+    { //Esta inscrito?
+        try {
             $insc = DB::table('user_workshop')
-            ->where('workshop_id',14) 
-            ->where('user_id',$request->Clave)
-            ->get();
+                ->where('workshop_id', 14)
+                ->where('user_id', $request->Clave)
+                ->get();
 
             //return response()->json($insc, JsonResponse::HTTP_OK);
-            
-            if( $insc->count() > 0 ){
+
+            if ($insc->count() > 0) {
                 return response()->json(true, JsonResponse::HTTP_OK);
-            }else{
+            } else {
                 return response()->json(false, JsonResponse::HTTP_OK);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e->getMessage(), JsonResponse::HTTP_OK);
         }
     }
 
-    public function RegistrarHuertoMesaUsuario(Request $request){
+    public function RegistrarHuertoMesaUsuario(Request $request)
+    {
         // return response()->json([ 'Hola' ], JsonResponse::HTTP_OK);
-        try{
+        try {
             //throw new \Exception("mi excepcion");//para prueba
             //0. validar datos
             $request->validate([
@@ -1475,14 +1561,14 @@ class WorkshopController extends Controller
 
             //1. actualizar datos del usuario
             $user = User::find($request->Clave);
-            if($request->NAcademico != ""){
+            if ($request->NAcademico != "") {
                 $user->academic_degree = $request->NAcademico;
             }
-            if($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si"){
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
                 $user->interested_on_further_courses = true;
                 $user->comments = $request->ComentariosSugerencias;
             }
-            if($request->isAsistencia == "Si" || $request->isAsistencia == "si"){
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
                 $user->courses = $request->CursosC;
             }
             $user->save();
@@ -1500,10 +1586,10 @@ class WorkshopController extends Controller
                 ]);
 
             $ws = DB::table('user_workshop')
-                ->where('workshop_id',11)
-                ->where('user_id',$user->id)
+                ->where('workshop_id', 11)
+                ->where('user_id', $user->id)
                 ->get();
-                /*
+            /*
             //3. creaamos registro para la uniformacion en tabla unitrueque_user (solo crear nueva tabla cuando se necesite)
 
             DB::table('unitrueque_users')
@@ -1516,30 +1602,31 @@ class WorkshopController extends Controller
                 ]);
             Log::info('El usuario con id '.$request->idUser. "registro un nuevo workshop ");
             */
-        }catch(\Exception $e){
-            return response()->json([ 'Message' => $e->getMessage() ],500);
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
         }
-        
+
 
         //3. si todo sale bien regresamo un ok
-        return response()->json([ 'Message' => 'Curso registrado' ], JsonResponse::HTTP_OK);
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
     //*/
-    public function ChecarHuertoMesaUsuario(Request $request){//Esta inscrito?
-        try{
+    public function ChecarHuertoMesaUsuario(Request $request)
+    { //Esta inscrito?
+        try {
             $insc = DB::table('user_workshop')
-            ->where('workshop_id',11)
-            ->where('user_id',$request->Clave)
-            ->get();
+                ->where('workshop_id', 11)
+                ->where('user_id', $request->Clave)
+                ->get();
 
             //return response()->json($insc, JsonResponse::HTTP_OK);
-            
-            if( $insc->count() > 0 ){
+
+            if ($insc->count() > 0) {
                 return response()->json(true, JsonResponse::HTTP_OK);
-            }else{
+            } else {
                 return response()->json(false, JsonResponse::HTTP_OK);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e->getMessage(), JsonResponse::HTTP_OK);
         }
     }

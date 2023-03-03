@@ -985,7 +985,7 @@ var render = function render() {
   }, [_c("b-form-select", {
     staticClass: "mb-1",
     attrs: {
-      disabled: ""
+      enabled: ""
     },
     model: {
       value: _vm.user.academic_degree,
@@ -61625,6 +61625,7 @@ var app = new Vue({
   mounted: function mounted() {
     this.getCalendarEventDays();
     this.getToday();
+    this.openRegisterModalcursosAct();
     // console.log(this.user);
   },
 
@@ -61647,15 +61648,33 @@ var app = new Vue({
     },
     // ! De momento las fechas son manuales
     dateClass: function dateClass(ymd, date) {
-      if (ymd == '2022-09-09' | ymd == '2022-09-10') {
+      if (ymd == '2023-09-09' | ymd == '2023-09-10') {
         return 'table-success';
       }
       return '';
+    },
+    openRegisterModalcursosAct: function openRegisterModalcursosAct(ws) {
+      foreach(act in ws);
+      {
+        this.selected = act;
+      }
+      console.log(this.selected.name);
+      try {
+        if (!ws.registered) {
+          this.$root.$emit('bv::show::modal', 'modal-template', '#btnShow');
+        } else {
+          this.showRegisteredMsgBox(ws);
+        }
+      } catch (error) {
+        this.showToast('Error al mostrar modal', 'Error');
+        console.error(error);
+      }
     },
     // Inicializador de modales de registro
     openRegisterModal: function openRegisterModal(ws) {
       // * Curso seleccionado, para cargar la configuración del modal
       this.selected = ws;
+      console.log(this.selected.type);
       try {
         if (!ws.registered) {
           this.$root.$emit('bv::show::modal', 'modal-template', '#btnShow');
@@ -61724,19 +61743,26 @@ var app = new Vue({
       };
 
       // ! Additional data 
-      switch (ws.type) {
-        case 'unitrueque':
-          data['additional_data'] = this.unitrueque_data;
-          break;
-        case 'uniruta':
-          data['additional_data'] = this.uniruta_data;
-          break;
-        case 'reutronic':
-          data['additional_data'] = this.reutronic_data;
-          break;
-        default:
-          break;
+      if (ws.type == 'reutronic') {
+        data['additional_data'] = this.reutronic_data;
+      } else if (ws.type == 'unitrueque') {
+        data['additional_data'] = this.unitrueque_data;
       }
+      /*
+      switch (ws.type) {
+          case 'unitrueque':
+              data['additional_data'] = this.unitrueque_data;
+              break;
+          case 'uniruta':
+              data['additional_data'] = this.uniruta_data;
+              break;
+          case 'Reutronic':
+              data['additional_data'] = this.reutronic_data;
+              break;
+          default:
+              break;
+      }
+      */
       axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
         return console.log(response.data)
         // Actualizar datos UI

@@ -28,13 +28,23 @@
             </a>
           </div>
 
-         <!-- {{-- Cursos de actualizacion --}}
+          
+          {{-- Slow Fashion --}}
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#slowFashion" @click="AbrirModal('slowFashion')">
+              <img src="{{ asset('/storage/imagenes/SlowFashion/BReg_SlowFashion.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
+
+
+         <!--{{-- Cursos de actualizacion --}}
           <div class="col px-0">
             <a href="#" data-toggle="modal" data-target="#CursosActualizacion23" @click="AbrirModal('CursosActualizacion23')">
               <img src="{{ asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
-          -->
+-->
+
 
           {{-- Reutronic --}}
           <div class="col px-0">  
@@ -48,7 +58,7 @@
               <img src="{{ asset('/storage/imagenes/UnihuertoCasa/R_Unihuerto23.png')}}" class="img-fluid pr-xl-1 px-1">
             </a>
           </div>
-            -->
+-->
 
           <!--@if(Auth::user()->hasRole('administrator'))
           <div class="col px-0">  
@@ -171,6 +181,8 @@
 
 @include("RegistroModales.UnihuertoCasa")
 
+@include("RegistroModales.slowFashion")
+
 @include("RegistroModales.ComprobanteP")
 
 @include("RegistroModales.Worshop")
@@ -252,6 +264,7 @@
     InscritoUniruta:false,
     InscritoUniruta:false,
     InscritoUnihuertoCasa:false,
+    InscritoslowFashion:false,
     InscritoHuertoMesa:false,
     InscritoGGJ:false,
     InscritoKids:false,
@@ -456,6 +469,7 @@
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='17Gemas'?this.levantaModal('17Gemas'):''
       '{{$nombreModal}}'=='UnihuertoCasa'?this.levantaModal('UnihuertoCasa'):''
+      '{{$nombreModal}}'=='slowFashion'?this.levantaModal('slowFashion'):''
       '{{$nombreModal}}'=='HuertoMesa'?this.levantaModal('HuertoMesa'):''
       '{{$nombreModal}}'=='UnirutaSierraAlvarez'?this.levantaModal('UnirutaSierraAlvarez'):''
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
@@ -476,6 +490,7 @@
         this.checarInscripcionMmus2022();
         this.checarInscripcionCursosAct();
         this.checarInscripcionUnitrueque();
+        this.checarInscripcionslowFashion();
         this.checarInscripcionHuertoMesa();
         this.checarInscripcionGGJ();
         this.checarInscripcionMinirodada();
@@ -535,6 +550,7 @@
       this.checarRodadaMmus();
       this.checarCompetencias();
       this.checarReutronic();
+      this.checarInscripcionslowFashion();
       //Modales pasados
        this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
@@ -754,8 +770,28 @@
                     console.log("Mensaje: " + err.response.data.Message);
                   this.Errores[0].Visible;
                   this.Guardado=false;
-              })
-           }else if(this.modalClick=='HuertoMesa'){
+              })   
+           }
+           else if(this.modalClick=='slowFashion'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+              axios.post(this.url+'RegistrarslowFashionUsuario',data).then(response => {
+                console.log(response.data);
+                  if(response.status == 200){
+                    this.spinnerVisible=false;
+                    $('#slowFashion').modal('hide');
+                    this.Guardado=true;
+                  }else{
+                    console.log("Mensaje: " + response.data.Message);
+                  }
+                }).catch((err) => {
+                  console.log(err);
+                  if(err.response.data.Message)
+                    console.log("Mensaje: " + err.response.data.Message);
+                  this.Errores[0].Visible;
+                  this.Guardado=false;
+              })   
+           }
+           else if(this.modalClick=='HuertoMesa'){
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarHuertoMesaUsuario',data).then(response => {
                   // console.log(response.status);
@@ -908,7 +944,7 @@
             data['GOPA'] = this.Selected_GOPA;
             data['TSCA'] = this.Selected_TSCA;
             data['TipoEvento'] = 'curso';
-            console.log(data);
+            
             //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
             axios.post(this.url+'RegistrarCAUsuario',data).then(response => {
                 if(response.status == 200){
@@ -1084,6 +1120,14 @@
         axios.post(this.url + 'ChecarUnihuertoCasaUsuario',{ "Clave":this.ClaveU_RPE })
           .then(response => {
             this.InscritoUnihuertoCasa = response.data;
+          }).catch((err) => {
+            console.log(err);
+          })
+      },
+      checarInscripcionslowFashion: function(){
+        axios.post(this.url + 'ChecarslowFashionUsuario',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            this.InscritoslowFashion = response.data;
           }).catch((err) => {
             console.log(err);
           })

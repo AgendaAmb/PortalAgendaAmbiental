@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workshop;
+use App\Models\Module;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
@@ -82,7 +83,7 @@ class HomeController extends Controller
         // * Discard 20 aniversary events and get only the active events
         $user_registered_whorkshops_ids = [];
         $user_unregistered_whorkshops_ids = [];
-
+        $cursos_actualizacion_ids = [];
         $user_registered_workshops = Auth::user()->getAssociatedWorkshops->where('end_date', '>=', Carbon::now())->values()->toArray();
         // dd($user_registered_workshops);
 
@@ -91,25 +92,33 @@ class HomeController extends Controller
             array_push($user_registered_whorkshops_ids, $workshop['id']);
         }
 
-        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('end_date', '>=', Carbon::now())->whereNotIn('id', $user_registered_whorkshops_ids)->get()->values()->toArray();
+        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('type', '<>', 'cursos_actualizacion')->where('end_date', '>=', Carbon::now())->whereNotIn('id', $user_registered_whorkshops_ids)->get()->values()->toArray();
         // dd($user_unregistered_workshops);
         foreach ($user_unregistered_workshops as &$workshop) {
             $workshop["registered"] = False;
             array_push($user_unregistered_whorkshops_ids, $workshop['id']);
         }
+        
+        $cursos_actualizacion = Workshop::where('type', '=', 'cursos_actualizacion')->where('end_date', '>=', Carbon::now())->get()->values()->toArray();
+         foreach ($cursos_actualizacion as &$workshop) {
+            $workshop["registered"] = false;
+            array_push($cursos_actualizacion_ids, $workshop['id']);
+        }
 
         $active_workshops = array_merge($user_registered_workshops, $user_unregistered_workshops);
         // dd($active_workshops);
-
-        // *
+        // 
+        $active_modules = Module::where('updated_at', '<=', Carbon::now())->get()->values()->toArray();
 
         return view('auth.Dashbord.main')
             ->with('modulos', $request->user()->userModules) //Navbar
+            ->with('modules', $active_modules)
             ->with('active_workshops', $active_workshops)
             ->with('user_registered_workshops', $user_registered_workshops)
             ->with('user_unregistered_workshops', $user_unregistered_workshops)
             ->with('nombreModal', $nombreModal)
             ->with('ejes', ejes::all()) // para el proximo navbar aun sin uso
+            ->with('cursos_actualizacion', $cursos_actualizacion)
             ->with('user', $request->user());
     }
 
@@ -162,7 +171,7 @@ class HomeController extends Controller
                 'users' =>  $users,
                 'Modulos' => Auth::user()->userModules,
             ]);
-        } else if ($user->hasRole('coordinator')) {
+        } else if ($user->hasRole('coordinator') && $user->id != '18129') {
 
             $user = Auth::user();
             // ! De momento selecciono los wss con el eje 2 porque no esta construido lo demas
@@ -250,10 +259,58 @@ class HomeController extends Controller
             //     'Modulos' => Auth::user()->userModules,
             // ]);
 
+            //Vista para nuevo curso Slow Fashion 2023
+            }else if ($user->hasRole('coordinator') && $user->id == '18129') {
+
+                $user = Auth::user();
+                // ! De momento selecciono los wss con el eje 2 porque no esta construido lo demas
+                $idwss = Workshop::where('work_edge', 2)->pluck('id');
+    
+                try {
+                    $data = array();
+                    try {
+                        $users = UserWorkshop::where('workshop_id', '=' , '45')->get();
+                    } catch (\Error $e) {
+                        return "Error loading user workshops";
+                    }
+                    foreach ($users as $i) {
+                        $workshopRegDataUser = [];
+                        try {
+                            $_user = User::where('id', $i->user_id)->first();
+                            $_ws = Workshop::where('id', $i->workshop_id)->first();
+                            $_data = [
+                                'id' => $_user->id,
+                                'email' => $_user->email,
+                                'gender' => $_user->gender,
+                                'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                                'workshop' => $_ws->name,
+                                'curp' => $_user->curp,
+                                'tel' => $_user->phone_number,
+                                'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                                'workshopRegDataUser' => $workshopRegDataUser
+                                // 'envio' => $i->send,
+                                // 'pago' => $i->paid,
+                                // 'factura' => $i->invoice_data
+                            ];
+                            array_push($data, $_data);
+                        } catch (\Error $e) {
+                            return "Cargando datos";
+                        }
+                    }
+                } catch (\Exception $e) {
+                    return $e;
+                }
+    
+                return view('auth.Dashbord.admin_coordinador', [
+                    'is_ce' => $ce_active,
+                    'user' => $user,
+                    'users' => $data,
+                    'Modulos' => Auth::user()->userModules,
+                ]);
+
         } else if ($user->hasRole('administrator')) {
             $user = Auth::user();
             $idwss = Workshop::all()->pluck('id');
-
             try {
                 $data = array();
                 $users = UserWorkshop::whereIn('workshop_id', $idwss)->get();
@@ -314,7 +371,6 @@ class HomeController extends Controller
             } catch (\Exception $e) {
                 return $e;
             }
-
             return view('auth.Dashbord.Admin', [
                 'is_ce' => $ce_active,
                 'user' => $user,
@@ -602,11 +658,24 @@ class HomeController extends Controller
                 return $q->whereIn('workshops.id', [43]); //esto va a hacer un eager loading para que funcione el where anterior
             }])
             ->get();
-        
+
+        $users10 = User::select(User::COLUMNS)->whereDoesntHave('roles', function ($query) {
+            return $query->whereIn('roles.name', ['administrator', 'coordinator']); //esto filtra y quita todos los usuarios que son admins y coordinadores
+        })
+            ->whereNotNull('email_verified_at')
+            ->orderBy('created_at')
+            ->whereHas('workshops', function ($query) {
+                return $query->whereIn('workshops.id', [45]); //where para sacar solo a los usuarios del 
+            })->with(['workshops' => function ($q) {
+                return $q->whereIn('workshops.id', [45]); //esto va a hacer un eager loading para que funcione el where anterior
+            }])->with(['invoice_data'])
+            ->get();
+
         foreach ($users6 as $user) $users->push($user);
         foreach ($users7 as $user) $users->push($user);
         foreach ($users8 as $user) $users->push($user);
         foreach ($users9 as $user) $users->push($user);
+        foreach ($users10 as $user) $users->push($user);
 
         return $users;
     }

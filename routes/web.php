@@ -157,6 +157,10 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/RegistrarUnihuertoCasaUsuario','WorkshopController@RegistrarUnihuertoCasaUsuario')->name('RegistrarUnihuertoCasaUsuario');
     Route::post('/ChecarUnihuertoCasaUsuario','WorkshopController@ChecarUnihuertoCasaUsuario')->name('ChecarUnihuertoCasaUsuario');
 
+    # Registro a slow Fashion 2023.
+    Route::post('/RegistrarslowFashionUsuario','WorkshopController@RegistrarslowFashionUsuario')->name('RegistrarslowFashionUsuario');
+    Route::post('/ChecarslowFashionUsuario','WorkshopController@ChecarslowFashionUsuario')->name('ChecarslowFashionUsuario');
+
     # Registro a unitrueque.
     Route::post('/RegistrarUnitruequeUsuario','WorkshopController@RegistrarUnitruequeUsuario')->name('RegistrarUnitruequeUsuario');
     Route::post('/ChecarUnitruequeUsuario','WorkshopController@ChecarUnitruequeUsuario')->name('ChecarUnitruequeUsuario');
