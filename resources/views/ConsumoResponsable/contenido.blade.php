@@ -277,7 +277,8 @@
                             </ul>
                             <br>
                             <h4>Fecha límite de registro</h4>
-                            <p>18 de febrero del 2023.</p>
+                            <p>19 de abril del 2023.</p>
+                            <p align="center">CUPO LÍMITE: 15 personas.</p>
                             <br>
                             <h4>Costo</h4>
                             <p>Pago de curso completo (los 4 módulos):
