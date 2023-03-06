@@ -243,7 +243,7 @@
 
                     <div class="row justify-content-center">
                         <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'"><br>
                             <h4>Slow Fashion. Moda sostenible</h4>
                             <br><br>
                             <h4>Dirigido a</h4>
@@ -277,7 +277,7 @@
                             </ul>
                             <br>
                             <h4>Fecha límite de registro</h4>
-                            <p>18 de febrero del 2022.</p>
+                            <p>18 de febrero del 2023.</p>
                             <br>
                             <h4>Costo</h4>
                             <p>Pago de curso completo (los 4 módulos):
@@ -296,7 +296,7 @@
                             <h4>Más información</h4>
                             <p><b>Dra. Mariana Buendía Oliva</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San
                                 Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P.
-                                78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7209<br><a
+                                78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7209<br><a
                                     href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx<br></a>
                         </div>
 
