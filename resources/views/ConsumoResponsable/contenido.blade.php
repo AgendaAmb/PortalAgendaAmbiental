@@ -35,11 +35,11 @@
 </div>
 
 <div class="mt-1 col-md-12 col-sm-12 p-0">
-    <div class="nav nav-tabs justify-content-between my-2 ">
+    <div class="nav nav-tabs justify-content-between my-2">
         <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelEspacioConsumo" role="tab"
             aria-controls="nav-home" aria-selected="true">Cartel, Espacio de Consumo Responsable</a>
-        <a class="nav-link w-25 py-2 m-0" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-            aria-selected="false">Cambalache de libros</a>
+        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" href="#SlowFashion" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Slow Fashion. Moda sostenible</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#modalReutronic" role="tab" 
         aria-controls="nav-profile" aria-selected="false">Reutrónic</a>
     </div>
@@ -185,6 +185,106 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
+                            <img src="{{asset('storage/imagenes/SlowFashion/Cartel_SlowFashion.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/SlowFashion/Cartel_SlowFashion.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_SlowFashion.png">CARTEL</a>
+                        </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4>Slow Fashion. Moda sostenible</h4>
+                            <br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Alumnos, docentes y personal administrativo de la UASLP, público en general.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Ofrecer las herramientas teórico-prácticas necesarias para que puedas construir tus propias prendas.</p>
+                            <br>
+                            <h4>Programa del curso</h4>
+                            <p>El curso tendrá una duración total de 32 horas divididas en 4 módulos.<br>Sesiones de practica presenciales en aulas de la UASLP (obligatorio para quien inscriba el curso como actividad de aprendizaje) </p>
+                            <br>
+                            <h4>Módulos</h4>
+                            <ul>
+                                <li><b>Módulo I y II.</b> Upcicling y Fast Fashion: 22 de abril.</li>
+                                <li><b>Módulo III.</b> Alternativas sustentables y Patronaje: 29 de abril.</li>
+                                <li><b>Módulo IV.</b> Confección de pieza: 6 de mayo.</li>
+                                <li><b>Módulo V.</b> Acabados: 13 de mayo.</li>
+                            </ul>
+                            <br>
+                            <h4>Prerrequisitos</h4>
+                            <ul>
+                                <li>Contar con disponibilidad de horarios para asistir a las sesiones programadas.</li>
+                                <li>Personas con cualquier tipo de perfil, que tengan o no experiencia con el tema o manejo de maquinaria pero que tenga el interés de conocer y adaptarse.</li>
+                                <li>Tener excelente disposición hacia la comunicación, aprendizaje y colaboración en el
+                                    desarrollo del curso, así como de los objetivos planteados.</li>
+                            </ul>
+                            <br>
+                            <h4>Lugar, fecha y horario</h4>
+                            <ul>
+                                <li>Horas teóricas: 14 horas.</li>
+                                <li>Horas de práctica: 18 horas.</li>
+                            </ul>
+                            <br>
+                            <h4>Fecha límite de registro</h4>
+                            <p>18 de febrero del 2022.</p>
+                            <br>
+                            <h4>Costo</h4>
+                            <p>Pago de curso completo (los 4 módulos):
+                                <ul>
+                                    <li>Participantes que pertenecen a la comunidad universitaria: Estudiantes y trabajadores de la UASLP, tiene un costo de $ 650</li>
+                                    <li>Participantes externos: Instituciones públicas o privadas, dependencias de gobiernos y público en general, tiene un costo de $ 1200</li>
+                                </ul>
+                            <br>
+                            <h4>Registro</h4>
+                            <p>El taller tiene varias modalidades:<br>* Se puede llevar como actividad de aprendizaje para alumnos de licenciatura.<br><br>Para inscribirte debes registrarte en el botón "REGISTRAR" y después de eso recibirás una ficha de pago que se puede pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos">https://www.finanzas.uaslp.mx/Multipagos.<br><br>Para que la puedas llevar como actividad de aprendizaje debes seguir los lineamientos de tu facultad.
+                            </p>
+                            <br>
+                            <h4>Inscripciones</h4>
+                            <p>Los interesados en participar deberán enviar debidamente llenado el formulario de registro, esperar 2 días a que les sea notificada su pre-inscripción y recibir la ficha de pago para que realicen el depósito del costo del curso.<br><br>El proceso de inscripción se completará al acreditar el pago de la cuota correspondiente, enviando su recibo de pago.</p>
+                            <br>
+                            <h4>Más información</h4>
+                            <p><b>Dra. Mariana Buendía Oliva</b><br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San
+                                Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P.
+                                78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7209<br><a
+                                    href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx<br></a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="SlowFashion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
                             <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Mar2023.png')}}"
                                 class="img-fluid" alt="">
                         </div>
@@ -197,7 +297,7 @@
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
                         </div>
-                   
+
 
                     </div>
 
@@ -208,6 +308,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="modalReutronic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
      <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
