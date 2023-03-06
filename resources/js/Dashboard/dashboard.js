@@ -179,17 +179,7 @@ const app = new Vue({
             };
             
             // ! Additional data 
-            if(ws.type == 'reutronic')
-            {
-                data['additional_data'] = this.reutronic_data;
-                
-            }
-            else if(ws.type == 'unitrueque')
-            {
-                data['additional_data'] = this.unitrueque_data;
-                
-            }
-            /*
+        
             switch (ws.type) {
                 case 'unitrueque':
                     data['additional_data'] = this.unitrueque_data;
@@ -203,7 +193,7 @@ const app = new Vue({
                 default:
                     break;
             }
-            */
+        
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
                 console.log(response.data)
                 // Actualizar datos UI
