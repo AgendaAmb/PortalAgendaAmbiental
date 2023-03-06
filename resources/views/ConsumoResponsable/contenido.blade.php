@@ -38,7 +38,7 @@
     <div class="nav nav-tabs justify-content-between my-2">
         <a class="nav-link w-25  py-2 m-0" data-toggle="modal" data-target="#CartelEspacioConsumo" role="tab"
             aria-controls="nav-home" aria-selected="true">Cartel, Espacio de Consumo Responsable</a>
-        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" href="#SlowFashion" role="tab" aria-controls="nav-profile"
+        <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#SlowFashion" role="tab" aria-controls="nav-profile"
             aria-selected="false">Slow Fashion. Moda sostenible</a>
         <a class="nav-link w-25 py-2 m-0" data-toggle="modal" data-target="#modalReutronic" role="tab" 
         aria-controls="nav-profile" aria-selected="false">Reutrónic</a>
@@ -248,7 +248,7 @@
                                 </ul>
                             <br>
                             <h4>Registro</h4>
-                            <p>El taller tiene varias modalidades:<br>* Se puede llevar como actividad de aprendizaje para alumnos de licenciatura.<br><br>Para inscribirte debes registrarte en el botón "REGISTRAR" y después de eso recibirás una ficha de pago que se puede pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos">https://www.finanzas.uaslp.mx/Multipagos.<br><br>Para que la puedas llevar como actividad de aprendizaje debes seguir los lineamientos de tu facultad.
+                            <p>El taller tiene varias modalidades:<br>* Se puede llevar como actividad de aprendizaje para alumnos de licenciatura.<br><br>Para inscribirte debes registrarte en el botón "REGISTRAR" y después de eso recibirás una ficha de pago que se puede pagar directamente en el banco o se pueden hacer transferencias desde el portal de multipagos de la UASLP: <a href="https://www.finanzas.uaslp.mx/Multipagos">https://www.finanzas.uaslp.mx/Multipagos</a>.<br><br>Para que la puedas llevar como actividad de aprendizaje debes seguir los lineamientos de tu facultad.
                             </p>
                             <br>
                             <h4>Inscripciones</h4>
