@@ -50,6 +50,21 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'SlowFashion'])}}>
+                <img src="{{asset('/storage/imagenes/SlowFashion/B1_SlowFashion.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href={{route('ConsumoResponsable',['nombreModal'=> 'SlowFashion'])}}>
+                <img src="{{asset('/storage/imagenes/SlowFashion/B2_SlowFashion.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
               <a href="{{asset('/storage/doc/Foro_PIH.pdf')}}">
                 <img src="{{asset('/storage/imagenes/Eventos/B1_PIH.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -219,6 +234,14 @@
                 <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
                </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href={{route('ConsumoResponsable',['nombreModal'=> 'SlowFashion'])}}>
+              <img src="{{ asset('/storage/imagenes/SlowFashion/B1_SlowFashion.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
           </div>
         </div>
 

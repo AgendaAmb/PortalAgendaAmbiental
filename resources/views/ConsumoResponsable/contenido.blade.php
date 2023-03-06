@@ -171,6 +171,45 @@
 @endsection
 
 @section('Modales')
+
+<div class="modal fade" id="CartelEspacioConsumo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Mar2023.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
+                        <br><br>
+                        <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="SlowFashion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
@@ -193,7 +232,7 @@
                         class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <a href={{route('Bienvenida',['nombreModal'=> 'slowFashion'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
@@ -260,44 +299,6 @@
                                 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 Ext. 7209<br><a
                                     href="mailto:mariana.buendia@uaslp.mx">mariana.buendia@uaslp.mx<br></a>
                         </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="CartelEspacioConsumo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <div class="modal-body py-0">
-                <div class="col-12 mb-4 ml-3 p-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Mar2023.png')}}"
-                                class="img-fluid" alt="">
-                        </div>
-                    </div>
-                    <div
-                        class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
-                        <br><br>
-                        <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023.png')}}"
-                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
-                        </div>
-
 
                     </div>
 
