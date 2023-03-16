@@ -717,19 +717,24 @@ los botones del nav-tab
         "Nombre":'Infografía organicos reciclables',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Organicos-reciclables.pdf&embedded=true',
     });
-   
     this.PUR.push({
         "id":15,
+        "Nombre":'Láminas Proserem',
+        "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/LaminasPROSEREM.pdf&embedded=true',
+    });
+
+    this.PUR.push({
+        "id":16,
         "Nombre":'Infografía Manejo de Aceite',
         "Url":'https://ambiental.uaslp.mx/SGA/PUR/Cartel-Aceite.png',
     });
     this.PUR.push({
-        "id":16,
+        "id":17,
         "Nombre":'Infografía de Consumo Responsable',
         "Url":'https://ambiental.uaslp.mx/SGA/PUR/ConsumoResponsable.jpg',
     });
     this.PUR.push({
-        "id":17,
+        "id":18,
         "Nombre":'Directorio Público ',
         "Url":'https://docs.google.com/viewer?url=https://ambiental.uaslp.mx/SGA/PUR/Directorio_Público_Residuos.pdf&embedded=true',
     });

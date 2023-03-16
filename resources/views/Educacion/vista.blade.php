@@ -107,7 +107,7 @@ gestión y vinculación con la sociedad.';
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb.png')}}"
+                            <img src="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb2023.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -115,17 +115,17 @@ gestión y vinculación con la sociedad.';
                         class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
 
                         <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'PromotoresHuasteca'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                            <a href={{route('Bienvenida',['nombreModal'=> 'promotores'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
                                 role="button">REGISTRAR</a>
                         </div>
                         <div class="col-6  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb.png')}}"
+                            <a href="{{asset('storage/imagenes/Promotores/Cartel_PromotoresAmb2023.png')}}"
                                 class="btn btn-secondary bg-light  text-muted  " href="#" role="button" style="border-radius: 20px;
                                 height: 35px;
                                 font-weight: 900;
                                 width: 145px;
                                 "
-                                download="Cartel_PromotoresAmb.png">CARTEL</a>
+                                download="Cartel_PromotoresAmb2023.png">CARTEL</a>
                         </div>
 
                     </div>
