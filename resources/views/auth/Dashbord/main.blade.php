@@ -7,16 +7,13 @@
   const ejes = @json($ejes);
   const user = @json($user);
   const modules = @json($modules);
-  const cursosAct = @json($cursos_actualizacion);
+  const cursos_act = @json($object_ca);
 
   // Additional data
-  // const url = '{{env('APP_URL')}}'
+   const url = '{{env('APP_URL')}}'
   // const url = 'https://ambiental.uaslp.mx/'
-  const url = 'http://portalaa.test/'
+  //const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
-
-  console.log(cursosAct);
-  console.log(workshops);
 </script>
 
 @extends('templates.base')
@@ -58,7 +55,7 @@
               </b-card-body>
             </b-collapse>
           </b-card>
-
+          
           <b-card no-body class="_card">
             <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-3>MAPA DEL SITIO</b-button>
@@ -73,8 +70,9 @@
         </div>
       </div>
     </b-col>
+    
     <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
-      <div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;">
+      <!--<div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" v-for="i in 3" :key="i">
             <b-card img-src="https://img.freepik.com/vector-premium/senal-carretera-azul-circulo-blanco-simbolo-direccion-aislado-sobre-fondo-blanco_543062-91.jpg" style="max-width: 300px; " class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
@@ -86,7 +84,7 @@
           </b-col>
         </b-row>
       </div>
-
+                -->
       <div class="h-fluid my-2 border" style="border-radius: 15px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
@@ -94,9 +92,8 @@
               <h6 class="px-2 py-2 m-0">PANEL DE REGISTRO</h6>
             </div>
           </b-col>
-          
-          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6">
-            <b-card img-src="{{ asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
+          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-if="Object.keys(cursos_act).length !== 0">
+            <b-card img-src="{{asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(cursos_act[0])">
               <template class="_card-header" #header>
                 <div>
                   <h6 class="mt-1">Cursos de Actualización</h6>
@@ -104,9 +101,8 @@
               </template>
             </b-card>
           </b-col>
-          
-          @verbatim
-          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" v-for="ws in workshops" v-bind:key="ws.id">
+          @verbatim            
+          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6"  style="margin-top:20px;" v-for="ws in workshops" v-bind:key="ws.id" >
             <b-card :img-src=ws.imgsrc style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(ws)">
               <template class="_card-header" #header>
                 <div>
@@ -160,7 +156,7 @@
             </b-row>
           </b-container>
           <b-col cols="12">
-            <b-calendar style="width:100%;" class="mx-2 my-2" block lang="es-ES" :date-info-fn="dateClass" label-calendar="Mi calendario" label-help="" label-next-decade="Siguiente decada" label-next-year="Siguiente año" label-next-month="Siguiente mes" label-prev-decade="Decada previa" label-prev-year="Año previo" label-prev-month="Mes previo" :value="getToday()">
+            <b-calendar class="mx-2 my-2" block lang="es-ES" :date-info-fn="dateClass" label-calendar="Mi calendario" label-help="" label-next-decade="Siguiente decada" label-next-year="Siguiente año" label-next-month="Siguiente mes" label-prev-decade="Decada previa" label-prev-year="Año previo" label-prev-month="Mes previo" :value="getToday()">
             </b-calendar>
           </b-col>
         </b-row>

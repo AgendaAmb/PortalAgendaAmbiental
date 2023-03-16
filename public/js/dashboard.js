@@ -15,7 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'cursos-actualizacion-section',
   props: {
-    cursos_actualizacion_data: Object
+    cursos_actualizacion_data: Object,
+    cursos_act: Object
   }
 });
 
@@ -205,19 +206,22 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_vm._m(0), _vm._v(" "), _c("b-form-group", {
     attrs: {
-      label: "Seleccione los curso(s) que se desea registrar"
+      label: "Seleccione el curso que se desea registrar"
     }
   }, [_c("b-form-checkbox-group", {
     attrs: {
       options: [{
-        text: "Recursos ecónomicos y de gestión para la sostenibilidad",
-        value: "recursos_eco"
+        text: "Desarrollos regionales y economía",
+        value: "dre"
       }, {
-        text: "Reglamento e instituciones ambientales",
-        value: "reglamento_ins"
+        text: "Ecología urbana y paisaje",
+        value: "eup"
       }, {
-        text: "Sistema de ciudad y metabolismo urbano",
-        value: "sistema_ciu"
+        text: "Gobernanza y participación",
+        value: "gopa"
+      }, {
+        text: "Temas selectos contaminación del aire",
+        value: "tsca"
       }],
       name: "flavour-2a",
       stacked: ""
@@ -428,7 +432,7 @@ var render = function render() {
           staticStyle: {
             color: "115089"
           }
-        }, [_c("b", [_vm._v("Registro " + _vm._s(_vm.ws.name))])]), _vm._v(" "), _c("b-button", {
+        }, [_vm.ws.type == "cursos_actualizacion" ? _c("b", [_vm._v("Registro Cursos de Actualización")]) : _c("b", [_vm._v("Registro " + _vm._s(_vm.ws.name) + " ")])]), _vm._v(" "), _c("b-button", {
           attrs: {
             size: "sm",
             variant: "outline-danger rounded"
@@ -61573,6 +61577,7 @@ var app = new Vue({
     user_workshops: user_workshops,
     workshops: workshops,
     noreg_workshops: noreg_workshops,
+    cursos_act: cursos_act,
     ejes: ejes,
     boxTwo: '',
     uwss: new Array(),
@@ -61615,7 +61620,12 @@ var app = new Vue({
       insterested_on_events: null,
       comments: ''
     },
-    cursos_actualizacion_data: null,
+    cursos_actualizacion_data: {
+      dre: null,
+      eup: null,
+      gopa: null,
+      tcsa: null
+    },
     uniruta_data: {
       health_condition: null,
       contact_name: '',
@@ -61625,7 +61635,6 @@ var app = new Vue({
   mounted: function mounted() {
     this.getCalendarEventDays();
     this.getToday();
-    this.openRegisterModalcursosAct();
     // console.log(this.user);
   },
 
@@ -61653,28 +61662,11 @@ var app = new Vue({
       }
       return '';
     },
-    openRegisterModalcursosAct: function openRegisterModalcursosAct(ws) {
-      foreach(act in ws);
-      {
-        this.selected = act;
-      }
-      console.log(this.selected.name);
-      try {
-        if (!ws.registered) {
-          this.$root.$emit('bv::show::modal', 'modal-template', '#btnShow');
-        } else {
-          this.showRegisteredMsgBox(ws);
-        }
-      } catch (error) {
-        this.showToast('Error al mostrar modal', 'Error');
-        console.error(error);
-      }
-    },
     // Inicializador de modales de registro
     openRegisterModal: function openRegisterModal(ws) {
       // * Curso seleccionado, para cargar la configuración del modal
       this.selected = ws;
-      console.log(this.selected.type);
+      //console.log(this.selected.type);
       try {
         if (!ws.registered) {
           this.$root.$emit('bv::show::modal', 'modal-template', '#btnShow');
@@ -61732,7 +61724,7 @@ var app = new Vue({
     },
     //* Registro de evento
     registerEvent: function registerEvent(ws) {
-      console.log(ws);
+      //console.log(ws);
       var headers = {
         'Content-Type': 'application/json;charset=utf-8'
       };
@@ -61741,30 +61733,24 @@ var app = new Vue({
         "workshop_type": ws.type,
         "estadistic_data": this.estadistic_data
       };
-
       // ! Additional data 
-      if (ws.type == 'reutronic') {
-        data['additional_data'] = this.reutronic_data;
-      } else if (ws.type == 'unitrueque') {
-        data['additional_data'] = this.unitrueque_data;
-      }
-      /*
+
       switch (ws.type) {
-          case 'unitrueque':
-              data['additional_data'] = this.unitrueque_data;
-              break;
-          case 'uniruta':
-              data['additional_data'] = this.uniruta_data;
-              break;
-          case 'Reutronic':
-              data['additional_data'] = this.reutronic_data;
-              break;
-          default:
-              break;
+        case 'unitrueque':
+          data['additional_data'] = this.unitrueque_data;
+          break;
+        case 'uniruta':
+          data['additional_data'] = this.uniruta_data;
+          break;
+        case 'reutronic':
+          data['additional_data'] = this.reutronic_data;
+          break;
+        default:
+          break;
       }
-      */
+      console.log(data['additional_data']);
       axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
-        return console.log(response.data)
+        return console.log("subiendo: ", response.data)
         // Actualizar datos UI
 
         // this.user_workshops.push(ws), 

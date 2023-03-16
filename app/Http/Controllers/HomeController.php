@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\JsonResponse;
 use App\Models\ComiteUser;
 use App\Models\ReutronicUser;
+use stdClass;
 
 class HomeController extends Controller
 {
@@ -104,10 +105,13 @@ class HomeController extends Controller
             $workshop["registered"] = false;
             array_push($cursos_actualizacion_ids, $workshop['id']);
         }
-
-        $active_workshops = array_merge($user_registered_workshops, $user_unregistered_workshops);
+        $object_ca = (object)$cursos_actualizacion; 
+    
+        $active_workshops =$user_unregistered_workshops;
+        
         // dd($active_workshops);
         // 
+
         $active_modules = Module::where('updated_at', '<=', Carbon::now())->get()->values()->toArray();
 
         return view('auth.Dashbord.main')
@@ -118,7 +122,7 @@ class HomeController extends Controller
             ->with('user_unregistered_workshops', $user_unregistered_workshops)
             ->with('nombreModal', $nombreModal)
             ->with('ejes', ejes::all()) // para el proximo navbar aun sin uso
-            ->with('cursos_actualizacion', $cursos_actualizacion)
+            ->with('object_ca', $object_ca)
             ->with('user', $request->user());
     }
 

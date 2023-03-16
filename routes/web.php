@@ -19,20 +19,20 @@ use Illuminate\Http\Request;
 // ROUTE TO TEST CONECTION WITH FINANCES SERVICE
 Route::get('/soap_finances', 'TestingController@test')->name('test_soap');
 
-Route::view('/','Introduccion.vista',['NombreM' => null])->name('Index');
+Route::view('/', 'Introduccion.vista', ['NombreM' => null])->name('Index');
 
-Route::view('/Concurso17gemas','17Gemas.contenido',['NombreM' => null])->name('Gemas');
+Route::view('/Concurso17gemas', '17Gemas.contenido', ['NombreM' => null])->name('Gemas');
 
-Route::get('/gestión/{nombreModal?}', function ($NombreM=null) {
-    return view('Gestion.vista')->with('NombreM',$NombreM);
+Route::get('/gestión/{nombreModal?}', function ($NombreM = null) {
+    return view('Gestion.vista')->with('NombreM', $NombreM);
 })->name('Gestion');
 
-Route::get('/GGJ2022/{nombreModal?}', function ($NombreM=null) {
+Route::get('/GGJ2022/{nombreModal?}', function ($NombreM = null) {
     return view('GlobalGoalsJam2022.contenido')->with('NombreM', $NombreM);
 })->name('GlobalGoalsJam2022');
 
-Route::get('/educación/{nombreModal?}',function ($NombreM=null){
-    return view('Educacion.vista')->with('NombreM',$NombreM);
+Route::get('/educación/{nombreModal?}', function ($NombreM = null) {
+    return view('Educacion.vista')->with('NombreM', $NombreM);
 })->name('Educacion');
 
 Route::get('/vinculación', function () {
@@ -47,12 +47,12 @@ Route::get('/comunicación', function () {
     return view('Comunicacion.vista');
 })->name('Comunicacion');
 
-Route::get('/Nosotros/{id?}', function ($id=null) {
-    return view('Nosotros.Contenido')->with('id',$id);
+Route::get('/Nosotros/{id?}', function ($id = null) {
+    return view('Nosotros.Contenido')->with('id', $id);
 })->name('Nosotros');
 
-Route::get('/Unibici/{nombreModal?}',function ($NombreM=null){
-    return view('Unibici.contenido')->with('NombreM',$NombreM);
+Route::get('/Unibici/{nombreModal?}', function ($NombreM = null) {
+    return view('Unibici.contenido')->with('NombreM', $NombreM);
 })->name('Unibici');
 
 Route::get('/Cursos', function () {
@@ -63,12 +63,12 @@ Route::get('/Cursos2023', function () {
     return view('Cursos2023.contenido');
 })->name('Cursos2023');
 
-Route::get('/Uniruta/{nombreModal?}', function ($NombreM=null) {
-    return view('Uniruta.contenido')->with('NombreM',$NombreM);
+Route::get('/Uniruta/{nombreModal?}', function ($NombreM = null) {
+    return view('Uniruta.contenido')->with('NombreM', $NombreM);
 })->name('Uniruta');
 
-Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
-    return view('Unihuerto.contenido')->with('NombreM',$NombreM);
+Route::get('/Unihuerto/{nombreModal?}', function ($NombreM = null) {
+    return view('Unihuerto.contenido')->with('NombreM', $NombreM);
 })->name('Unihuerto');
 
 Route::get('/FotografiaPorLaSostenibilidad', function () {
@@ -79,8 +79,8 @@ Route::get('/Cineminuto', function () {
     return view('Cineminuto.contenido');
 })->name('Cineminuto');
 
-Route::get('/Proserem/{nombreModal?}', function ($NombreM=null) {
-    return view('Proserem.contenido')->with('NombreM',$NombreM);
+Route::get('/Proserem/{nombreModal?}', function ($NombreM = null) {
+    return view('Proserem.contenido')->with('NombreM', $NombreM);
 })->name('Proserem');
 
 Route::get('/DateUnRespiro', function () {
@@ -91,41 +91,40 @@ Route::get('/CicloConferencias', function () {
     return view('Conferencias.contenido');
 })->name('CicloConf');
 
-Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM=null) {
-    return view('ConsumoResponsable.contenido')->with('NombreM',$NombreM);
+Route::get('/ConsumoResponsable/{nombreModal?}', function ($NombreM = null) {
+    return view('ConsumoResponsable.contenido')->with('NombreM', $NombreM);
 })->name('ConsumoResponsable');
 
 Route::get('/MovilidadUrbanaSostenible', function () {
     return view('mmus.contenido');
 })->name('mmus');
 
-Route::get('/MovilidadUrbanaSostenible2021/{nombreModal?}',function ($NombreM=null) {
-    return view('mmus2021.contenido')->with('NombreM',$NombreM);
+Route::get('/MovilidadUrbanaSostenible2021/{nombreModal?}', function ($NombreM = null) {
+    return view('mmus2021.contenido')->with('NombreM', $NombreM);
 })->name('mmus2021');
 
-Route::get('/Unihuerto/{nombreModal?}', function ($NombreM=null) {
-    return view('Unihuerto.contenido')->with('NombreM',$NombreM);
+Route::get('/Unihuerto/{nombreModal?}', function ($NombreM = null) {
+    return view('Unihuerto.contenido')->with('NombreM', $NombreM);
 })->name('Unihuerto');
 
 Route::get('/mmus2022/{nombreModal?}', function ($NombreM = null) {
     return view('mmus2022.contenido')->with('NombreM', $NombreM);
 })->name('mmus2022');
 
-Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM=null) {
-    $request->session()->put('NombreM',$NombreM);
-    return view('auth.Bienvenida')->with('NombreM',$NombreM);
+Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM = null) {
+    $request->session()->put('NombreM', $NombreM);
+    return view('auth.Bienvenida')->with('NombreM', $NombreM);
+})->middleware(['guest:web', 'guest:students', 'guest:workers'])
+    ->name('Bienvenida');
 
-})->middleware([ 'guest:web','guest:students','guest:workers' ])
-->name('Bienvenida');
 
-
-Route::get('/pruebacorreo','HomeController@pruebacorreo');
+Route::get('/pruebacorreo', 'HomeController@pruebacorreo');
 
 # Rutas de autenticación.
 Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles
-Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group(function(){
+Route::middleware(['auth:web,workers,students', 'verified', 'role_any'])->group(function () {
     Route::get('/Miportal', 'HomeController@panel')->name('panel');
 
     Route::get('/Miportal2', 'HomeController@panel2')->name('panel2');
@@ -144,7 +143,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/Prueba', 'HomeController@Prueba')->name('Prueba');
     Route::post('/GetWorkshops', 'WorkshopController@GetWorkshops');
 
-    Route::post('PreloginControlEscolar','HomeController@PreloginControlEscolar')->name('PreloginControlEscolar');
+    Route::post('PreloginControlEscolar', 'HomeController@PreloginControlEscolar')->name('PreloginControlEscolar');
 
     # Módulos de usuario
     Route::resource('modules', ModuleController::class);
@@ -154,24 +153,29 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::get('/Talleres', 'WorkshopController@index')->name('Talleres');
 
     # Registro a unihuertocasa feb - marzo 2022.
-    Route::post('/RegistrarUnihuertoCasaUsuario','WorkshopController@RegistrarUnihuertoCasaUsuario')->name('RegistrarUnihuertoCasaUsuario');
-    Route::post('/ChecarUnihuertoCasaUsuario','WorkshopController@ChecarUnihuertoCasaUsuario')->name('ChecarUnihuertoCasaUsuario');
+    Route::post('/RegistrarUnihuertoCasaUsuario', 'WorkshopController@RegistrarUnihuertoCasaUsuario')->name('RegistrarUnihuertoCasaUsuario');
+    Route::post('/ChecarUnihuertoCasaUsuario', 'WorkshopController@ChecarUnihuertoCasaUsuario')->name('ChecarUnihuertoCasaUsuario');
 
     # Registro a slow Fashion 2023.
-    Route::post('/RegistrarslowFashionUsuario','WorkshopController@RegistrarslowFashionUsuario')->name('RegistrarslowFashionUsuario');
-    Route::post('/ChecarslowFashionUsuario','WorkshopController@ChecarslowFashionUsuario')->name('ChecarslowFashionUsuario');
+    Route::post('/RegistrarslowFashionUsuario', 'WorkshopController@RegistrarslowFashionUsuario')->name('RegistrarslowFashionUsuario');
+    Route::post('/ChecarslowFashionUsuario', 'WorkshopController@ChecarslowFashionUsuario')->name('ChecarslowFashionUsuario');
+
+    # Registro a Promotores Ambientales 2023.
+    Route::post('/RegistrarPromotores', 'WorkshopController@RegistrarPromotores')->name('RegistrarPromotores');
+    Route::post('/ChecarPromotores', 'WorkshopController@ChecarPromotores')->name('ChecarslowFashionUsuario');
+
 
     # Registro a unitrueque.
-    Route::post('/RegistrarUnitruequeUsuario','WorkshopController@RegistrarUnitruequeUsuario')->name('RegistrarUnitruequeUsuario');
-    Route::post('/ChecarUnitruequeUsuario','WorkshopController@ChecarUnitruequeUsuario')->name('ChecarUnitruequeUsuario');
+    Route::post('/RegistrarUnitruequeUsuario', 'WorkshopController@RegistrarUnitruequeUsuario')->name('RegistrarUnitruequeUsuario');
+    Route::post('/ChecarUnitruequeUsuario', 'WorkshopController@ChecarUnitruequeUsuario')->name('ChecarUnitruequeUsuario');
 
     # Registro a huerto a la mesa.
-    Route::post('/RegistrarHuertoMesaUsuario','WorkshopController@RegistrarHuertoMesaUsuario')->name('RegistrarHuertoMesaUsuario');
-    Route::post('/ChecarHuertoMesaUsuario','WorkshopController@ChecarHuertoMesaUsuario')->name('ChecarHuertoMesaUsuario');
+    Route::post('/RegistrarHuertoMesaUsuario', 'WorkshopController@RegistrarHuertoMesaUsuario')->name('RegistrarHuertoMesaUsuario');
+    Route::post('/ChecarHuertoMesaUsuario', 'WorkshopController@ChecarHuertoMesaUsuario')->name('ChecarHuertoMesaUsuario');
 
     # Registro a huerto a la mesa huasteca.
-    Route::post('/RegistrarHuertoMesaHuastecaUsuario','WorkshopController@RegistrarHuertoMesaHuastecaUsuario')->name('RegistrarHuertoMesaHuastecaUsuario');
-    Route::post('/ChecarHuertoMesaHuastecaUsuario','WorkshopController@ChecarHuertoMesaHuastecaUsuario')->name('ChecarHuertoMesaHuastecaUsuario');
+    Route::post('/RegistrarHuertoMesaHuastecaUsuario', 'WorkshopController@RegistrarHuertoMesaHuastecaUsuario')->name('RegistrarHuertoMesaHuastecaUsuario');
+    Route::post('/ChecarHuertoMesaHuastecaUsuario', 'WorkshopController@ChecarHuertoMesaHuastecaUsuario')->name('ChecarHuertoMesaHuastecaUsuario');
 
     # Registro a Rodada por los Rios
     Route::post('/RegistrarRodadaRioUsuario', 'WorkshopController@RegistrarRodadaRioUsuario')->name('RegistrarRodadaRioUsuario');
@@ -213,7 +217,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     # Reutronic
     Route::post('/RegistrarReutronic', 'WorkshopController@RegistrarReutronic')->name('RegistrarReutronic');
     Route::post('/ChecarReutronic', 'WorkshopController@ChecarReutronic')->name('ChecarReutronic');
-    
+
     // ! working 
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
     Route::post('/EgresadoData', 'HomeController@EgresadoData')->name('EgresadoData');
@@ -222,7 +226,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
     Route::post('/WorkshopUserRegister', 'WorkshopController@WorkshopUserRegister')->name('WorkshopUserRegister');
 
     # Registro del usuario a eventos (se van a migrar registro de eventos a esta ruta)
-    Route::post('/WorkshopUnirodadaUserRegister', 'WorkshopController@WorkshopUnirodadaUserRegister')->name('WorkshopUnirodadaUserRegister');    
+    Route::post('/WorkshopUnirodadaUserRegister', 'WorkshopController@WorkshopUnirodadaUserRegister')->name('WorkshopUnirodadaUserRegister');
 
     // ! Workshop
 
@@ -241,8 +245,8 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
         ->middleware('role:helper')
         ->name('EnviaFactura');
 
-        #cambio
-        
+    #cambio
+
     # Envía un comprobante a un usuario.
     Route::post('/EnviaComprobante', 'CursosActualizacionController@sendReceipt')->name('EnviaComprobante');
 
@@ -263,7 +267,7 @@ Route::middleware([ 'auth:web,workers,students', 'verified', 'role_any'])->group
 
 # Expedición de tokens y autorización por parte del
 # sistema central.
-Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students')->group(function(){
+Route::prefix('oauth')->name('passport.')->middleware('auth:web,workers,students')->group(function () {
 
     # Autorizar acceso a aplicación cliente.
     Route::get('/authorize', '\Laravel\Passport\Http\Controllers\AuthorizationController@authorize')->name('authorizations.authorize');

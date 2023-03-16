@@ -3,14 +3,15 @@
         <h5 class="modal-title3"><b>Cursos de Actualización</b></h5>
         
         <b-form-group 
-            label="Seleccione los curso(s) que se desea registrar" 
+            label="Seleccione el curso que se desea registrar" 
             >
             <b-form-checkbox-group 
                 v-model="cursos_actualizacion_data" 
                 :options="[
-                  { text: 'Recursos ecónomicos y de gestión para la sostenibilidad', value: 'recursos_eco' },
-                  { text: 'Reglamento e instituciones ambientales', value: 'reglamento_ins' },
-                  { text: 'Sistema de ciudad y metabolismo urbano', value: 'sistema_ciu' }
+                  { text: 'Desarrollos regionales y economía', value: 'dre' },
+                  { text: 'Ecología urbana y paisaje', value: 'eup' },
+                  { text: 'Gobernanza y participación', value: 'gopa' },
+                  { text: 'Temas selectos contaminación del aire', value: 'tsca' }
                 ]" 
                 name="flavour-2a"
                 stacked
@@ -24,7 +25,8 @@
 export default {
     name:'cursos-actualizacion-section',
     props:{
-        cursos_actualizacion_data: Object
+        cursos_actualizacion_data: Object,
+        cursos_act:Object
     }
 }
 </script>

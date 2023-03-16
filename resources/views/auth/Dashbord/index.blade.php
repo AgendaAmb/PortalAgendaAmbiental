@@ -36,6 +36,13 @@
             </a>
           </div>
 
+          
+          {{--Promotores ambientales--}}
+          <div class="col px-0">
+            <a href="#" data-toggle="modal" data-target="#promotores" @click="AbrirModal('promotores')">
+              <img src="{{ asset('/storage/imagenes/promotoresAmbientales/Banner registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+            </a>
+          </div>
 
          <!--{{-- Cursos de actualizacion --}}
           <div class="col px-0">
@@ -151,6 +158,8 @@
 {{-- ! Modales con programas vigentes  --}}
 
 @include("RegistroModales.CursosActualizacion23")
+
+@include("RegistroModales.promotores")
 
 @include("RegistroModales.mmus2022")
 
@@ -270,6 +279,7 @@
     InscritoKids:false,
     InscritoUnirodadaMmus2022:false,
     InscritoCompetencias:false,
+    InscritoPromotores:false,
     //! Modales activos
     InscritoUnitrueque:false,
     InscritoCA_complete: false,
@@ -475,6 +485,8 @@
       '{{$nombreModal}}'=='mmus'?this.levantaModal('mmus'):''
       '{{$nombreModal}}'=='mmus'?this.levantaModal('reutronic'):''
       '{{$nombreModal}}'=='unirutacp'?this.levantaModal('unirutacp'):''
+      '{{$nombreModal}}'=='promotores'?this.levantaModal('promotores'):''
+
       /*
         this.urlAnterior='{{url()->previous()}}'
         this.urlAnterior=='https://ambiental.uaslp.mx/MovilidadUrbanaSostenible2021'?this.levantaModal('mmus'):''
@@ -489,6 +501,7 @@
         // Checar usuario registrado
         this.checarInscripcionMmus2022();
         this.checarInscripcionCursosAct();
+        this.checarInscripcionPromotores();
         this.checarInscripcionUnitrueque();
         this.checarInscripcionslowFashion();
         this.checarInscripcionHuertoMesa();
@@ -551,6 +564,7 @@
       this.checarCompetencias();
       this.checarReutronic();
       this.checarInscripcionslowFashion();
+       this.checarInscripcionPromotores();
       //Modales pasados
        this.checarInscripcionUnihuertoCasa();
       // this.checarInscripcionHuertoMesaHuasteca();
@@ -747,6 +761,17 @@
               // console.log(response.data),
               this.spinnerVisible=false,
               $('#Registro17gemas').modal('hide'),
+              this.Guardado=true
+               )).catch((err) => {
+                  this.Errores[0].Visible,
+                  this.Guardado=false
+            })
+          }else if(this.modalClick=='promotores'){
+              //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
+            axios.post(this.url+'RegistrarPromotores',data).then(response => (
+              // console.log(response.data),
+              this.spinnerVisible=false,
+              $('#promotores').modal('hide'),
               this.Guardado=true
                )).catch((err) => {
                   this.Errores[0].Visible,
@@ -1069,6 +1094,14 @@
             this.InscritoHuertoMesaHuasteca = response.data;
           }).catch((err) => {
             console.log(err.response.data);
+          })
+      },
+      checarInscripcionPromotores: function(){
+        axios.post(this.url + 'ChecarPromotores',{ "Clave":this.ClaveU_RPE })
+          .then(response => {
+            this.InscritoPromotores = response.data;
+          }).catch((err) => {
+            console.log(err.response);
           })
       },
       checarInscripcionPromotoresHuasteca: function(){

@@ -271,18 +271,18 @@ class WorkshopController extends Controller
     // TODO - Validar Fechas de registro
     public function WorkshopUserRegister(Request $request)
     {
-
-        // * Verificar workshop existente
-        try {
-            $request->validate([
-                'workshop_id' => ['required|exists:workshops,id', Rule::exists('staff')->where(function ($query) {
-                    $query->where('account_id', 1);
-                })]
-            ]);
-        } catch (\Exception $e) {
-            return response()->json(['data' => "Request fields error"], JsonResponse::HTTP_OK);
-        }
-
+        $band = false;
+        /* Verificar workshop existente
+     try {
+        $request->validate([
+            'workshop_id' => ['required|exists:workshops,id', Rule::exists('staff')->where(function ($query) {
+                $query->where('account_id', 1);
+            })]
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['data' => "Request fields error"], JsonResponse::HTTP_OK);
+    }
+        */
         // TODO Verificar limite de usuarios por registro
 
         // * Verificar usuario registrado
@@ -310,10 +310,31 @@ class WorkshopController extends Controller
                 'sent' => false,
                 'paid' => false,
             ]);
+
+            $ws = DB::table('user_workshop')
+            ->where('workshop_id', $workshop_model->id)
+            ->where('user_id', $user->id)
+            ->get();
+                echo $ws[0]->workshop_id;
+
+            if ($workshop_model->id == 10) {
+                try {
+                    echo "Unitrueque";
+                    DB::table('unitrueque_users')
+                        ->updateOrInsert([
+                            'user_workshop_id' => $ws[0]->id, // 10 = unitrueque
+                            'MaterialesIntercambio' => $request->additional_data->material,
+                            'Mobiliario' => $request->additional_data->isMobiliario,
+                            'Cantidad' => $request->additional_data->unidad,
+                            'EmpresaParticipante' => $request->additional_data->empresa,
+                        ]);
+                } catch (\Exception $e) {
+                    echo "error";
+                }
+            }
         } catch (\Exception $e) {
             return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
         }
-
         return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
     }
 
@@ -1203,7 +1224,7 @@ class WorkshopController extends Controller
                     'sent_at' =>  null,
                     'paid' => null,
                     'paid_at' => null,
-                    'invoice_data' => $request->isFacturaReq == "Si" ?true:false,
+                    'invoice_data' => $request->isFacturaReq == "Si" ? true : false,
                 ]);
             Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
 
@@ -1467,6 +1488,68 @@ class WorkshopController extends Controller
         } catch (\Exception $e) {
             return response()->json($e->getMessage(), JsonResponse::HTTP_OK);
         }
+    }
+    public function ChecarPromotores(Request $request)
+    { //Esta inscrito?
+        $insc = DB::table('user_workshop')
+            ->where('workshop_id', 46)
+            ->where('user_id', $request->Clave)
+            ->get();
+
+        //return response()->json($insc, JsonResponse::HTTP_OK);
+
+        if ($insc->count() > 0) {
+            return response()->json(true, JsonResponse::HTTP_OK);
+        } else {
+            return response()->json(false, JsonResponse::HTTP_OK);
+        }
+    }
+
+    public function RegistrarPromotores(Request $request)
+    {
+        try {
+            //throw new \Exception("mi excepcion");//para prueba
+            # Usuario autenticado
+            $user = $request->user('workers') ?? $request->user('students') ?? $request->user('web');
+
+            // Actualizar datos del usuario
+            $user = User::find($request->Clave);
+            if ($request->NAcademico != "") {
+                $user->academic_degree = $request->NAcademico;
+            }
+            if ($request->InteresAsistencia == "Si" || $request->InteresAsistencia == "si") {
+                $user->interested_on_further_courses = true;
+            }
+            if ($request->isAsistencia == "Si" || $request->isAsistencia == "si") {
+                $user->courses = $request->CursoCursado;
+            }
+            $user->save();
+
+            //3. crear registro
+            DB::table('user_workshop')
+                ->updateOrInsert([
+                    'workshop_id' => 46, // 46 = Promotores Ambientales 2023
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'assisted_to_workshop' => null,
+                    'sent' => null,
+                    'sent_at' =>  null,
+                    'paid' => null,
+                    'paid_at' => null,
+
+                ]);
+            Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
+
+            $workshop_models = Workshop::firstWhere('id', 46);
+            //array_push($workshop_models, Workshop::firstWhere('id',44));
+        } catch (\Exception $e) {
+            return response()->json(['Message' => $e->getMessage()], 500);
+        }
+
+        //Enviamos un correo de pre Registro
+        Mail::to($user)->send(new RegisteredWorkshops($workshop_models));
+        //4. si todo sale bien regresamo un ok
+        return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
     public function RegistrarPromotoresHuastecaUsuario(Request $request)
     {

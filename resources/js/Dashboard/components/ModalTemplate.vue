@@ -13,7 +13,8 @@
         content-class="shadow"
         >
             <template #modal-header="{ close }">
-                <h4 class="modal-title" style="color:115089"><b>Registro {{ ws.name }}</b></h4>
+                <h4 class="modal-title" style="color:115089"><b v-if="ws.type == 'cursos_actualizacion'">Registro Cursos de Actualización</b>
+                <b v-else>Registro {{ws.name}} </b> </h4>
                 <b-button size="sm" variant="outline-danger rounded" @click="close()">
                     <b-icon icon="x-circle" scale="2"></b-icon>
                 </b-button>

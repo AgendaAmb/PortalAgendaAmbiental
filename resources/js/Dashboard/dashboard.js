@@ -33,6 +33,7 @@ const app = new Vue({
         user_workshops: user_workshops,
         workshops: workshops,
         noreg_workshops: noreg_workshops,
+        cursos_act:cursos_act,
         ejes: ejes,
         boxTwo: '',
         uwss: new Array(),
@@ -51,13 +52,12 @@ const app = new Vue({
         unitrueque_data:{material:'', unidad:1, isMobiliario:null, empresa:''},
         reutronic_data:{prev: null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
-        cursos_actualizacion_data: null,
+        cursos_actualizacion_data:{dre:null,eup:null,gopa:null,tcsa:null},
         uniruta_data:{health_condition: null, contact_name: '', contact_tel:''}
     },
     mounted() {
         this.getCalendarEventDays();
         this.getToday();
-        this.openRegisterModalcursosAct()
         // console.log(this.user);
     },
     methods: {
@@ -86,30 +86,11 @@ const app = new Vue({
 
             return ''
         },
-        openRegisterModalcursosAct:function(ws)
-        {
-            
-            foreach(act in ws)
-            {
-                this.selected = act;
-            }
-            console.log(this.selected.name);
-            try{
-                if(!ws.registered){
-                    this.$root.$emit('bv::show::modal','modal-template','#btnShow');
-                }else{
-                    this.showRegisteredMsgBox(ws);
-                }
-            }catch (error){
-                this.showToast('Error al mostrar modal','Error');
-                console.error(error);
-            }
-        },
         // Inicializador de modales de registro
         openRegisterModal:function(ws){
             // * Curso seleccionado, para cargar la configuración del modal
             this.selected = ws;
-            console.log(this.selected.type);
+           //console.log(this.selected.type);
             try{
                 if(!ws.registered){
                     this.$root.$emit('bv::show::modal','modal-template','#btnShow');
@@ -167,7 +148,7 @@ const app = new Vue({
         },
         //* Registro de evento
         registerEvent:function(ws){
-            console.log(ws);
+            //console.log(ws);
             let headers = {
                 'Content-Type': 'application/json;charset=utf-8'
             };
@@ -177,7 +158,6 @@ const app = new Vue({
                 "workshop_type": ws.type,
                 "estadistic_data": this.estadistic_data
             };
-            
             // ! Additional data 
         
             switch (ws.type) {
@@ -187,15 +167,15 @@ const app = new Vue({
                 case 'uniruta':
                     data['additional_data'] = this.uniruta_data;
                     break;
-                case 'Reutronic':
+                case 'reutronic':
                     data['additional_data'] = this.reutronic_data;
                     break;
                 default:
                     break;
             }
-        
+            console.log(data['additional_data']);
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
-                console.log(response.data)
+                console.log("subiendo: ",response.data)
                 // Actualizar datos UI
 
                 // this.user_workshops.push(ws), 
