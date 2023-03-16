@@ -267,13 +267,12 @@ class HomeController extends Controller
             }else if ($user->hasRole('coordinator') && $user->id == '18129') {
 
                 $user = Auth::user();
-                // ! De momento selecciono los wss con el eje 2 porque no esta construido lo demas
-                $idwss = Workshop::where('work_edge', 2)->pluck('id');
-    
                 try {
                     $data = array();
                     try {
                         $users = UserWorkshop::where('workshop_id', '=' , '45')->get();
+                        $users2 = UserWorkshop::where('workshop_id', '=' , '46')->get();
+                        
                     } catch (\Error $e) {
                         return "Error loading user workshops";
                     }
@@ -297,6 +296,31 @@ class HomeController extends Controller
                                 // 'factura' => $i->invoice_data
                             ];
                             array_push($data, $_data);
+                        } catch (\Error $e) {
+                            return "Cargando datos";
+                        }
+                        
+                    }
+                    foreach ($users2 as $i) {
+                        $workshopRegDataUser = [];
+                        try {
+                            $_user = User::where('id', $i->user_id)->first();
+                            $_ws = Workshop::where('id', $i->workshop_id)->first();
+                            $_data2 = [
+                                'id' => $_user->id,
+                                'email' => $_user->email,
+                                'gender' => $_user->gender,
+                                'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                                'workshop' => $_ws->name,
+                                'curp' => $_user->curp,
+                                'tel' => $_user->phone_number,
+                                'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                                'workshopRegDataUser' => $workshopRegDataUser
+                                // 'envio' => $i->send,
+                                // 'pago' => $i->paid,
+                                // 'factura' => $i->invoice_data
+                            ];
+                            array_push($data, $_data2);
                         } catch (\Error $e) {
                             return "Cargando datos";
                         }

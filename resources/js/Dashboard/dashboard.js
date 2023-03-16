@@ -49,7 +49,7 @@ const app = new Vue({
         academicData: {name: null},
         // * FORMS
         invoice_data:{required:null, name:'', addr:'', rfc:'', email:'', tel:''},
-        unitrueque_data:{material:'', unidad:1, isMobiliario:null, empresa:''},
+        unitrueque_data:{material:'', unidad:'', isMobiliario:'', empresa:''},
         reutronic_data:{prev: null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
         cursos_actualizacion_data:{dre:null,eup:null,gopa:null,tcsa:null},

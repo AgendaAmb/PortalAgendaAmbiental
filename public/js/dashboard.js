@@ -61604,8 +61604,8 @@ var app = new Vue({
     },
     unitrueque_data: {
       material: '',
-      unidad: 1,
-      isMobiliario: null,
+      unidad: '',
+      isMobiliario: '',
       empresa: ''
     },
     reutronic_data: {
