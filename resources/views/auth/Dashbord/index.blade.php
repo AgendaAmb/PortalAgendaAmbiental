@@ -245,6 +245,7 @@
     asistenciaExito:'',
     file:'',
     isFacturaReq:'',
+    Met_Pago:'',
     nombresF:'',
     RFC:'',
     DomicilioF:'',
@@ -672,6 +673,7 @@
                 "NAcademico":this.NAcademico,
                 "checkedFecha":this.checkedFecha,
                 "isFacturaReq":this.isFacturaReq,
+                "Met_Pago":this.Met_Pago,
                 'DomicilioF':this.DomicilioF,
                 'emailF':this.emailF,
                 'nombresF':this.nombresF,
@@ -798,9 +800,11 @@
               })   
            }
            else if(this.modalClick=='slowFashion'){
+            console.log(data.Met_Pago);
               //*Ruta para guardar informacion de un usuario y sus cursos o concursos inscritos*//
               axios.post(this.url+'RegistrarslowFashionUsuario',data).then(response => {
                 console.log(response.data);
+                
                   if(response.status == 200){
                     this.spinnerVisible=false;
                     $('#slowFashion').modal('hide');

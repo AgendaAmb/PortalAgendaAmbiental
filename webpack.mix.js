@@ -14,8 +14,8 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css');
 
 // Dashboard
-mix.js('resources/js/Dashboard/dashboard.js', 'public/js').vue();
-mix.js('resources/js/Dashboard/navbar.js', 'public/js').vue();
+mix.js('resources/js/Dashboard/dashboard.js', 'public/js').vue().version();
+mix.js('resources/js/Dashboard/navbar.js', 'public/js').vue().version();
 
 // 20 aniversario
 mix.js('resources/js/20Aniversario/aniversario.js', 'public/js').vue();

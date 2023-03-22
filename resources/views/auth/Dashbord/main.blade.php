@@ -8,9 +8,11 @@
   const user = @json($user);
   const modules = @json($modules);
   const cursos_act = @json($object_ca);
+  cursos_act.type = 'cursos_actualizacion';
+  cursos_act.payment_required = 1;
 
   // Additional data
-   const url = '{{env('APP_URL')}}'
+   const url = '{{env('APP_URL')}}';
   // const url = 'https://ambiental.uaslp.mx/'
   //const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
@@ -93,7 +95,7 @@
             </div>
           </b-col>
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-if="Object.keys(cursos_act).length !== 0">
-            <b-card img-src="{{asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(cursos_act[0])">
+            <b-card img-src="{{asset('/storage/imagenes/Cursos/BRegistro2023.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(cursos_act)">
               <template class="_card-header" #header>
                 <div>
                   <h6 class="mt-1">Cursos de Actualización</h6>
@@ -175,5 +177,5 @@
 </modal-template>
 @endverbatim
 @endsection
-<script src="{{ asset('js/navbar.js') }}" defer></script>
-<script src="{{ asset('js/dashboard.js') }}" defer></script>
+<script src="{{ mix('js/navbar.js') }}" defer></script>
+<script src="{{ mix('js/dashboard.js') }}" defer></script>

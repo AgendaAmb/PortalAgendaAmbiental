@@ -13,10 +13,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'cursos-actualizacion-section',
-  props: {
-    cursos_actualizacion_data: Object,
-    cursos_act: Object
+  data: function data() {
+    return {
+      cursos_actualizacion_data: [],
+      cursos: [{
+        text: 'Desarrollos regionales y economía',
+        value: 'dre'
+      }, {
+        text: 'Ecología urbana y paisaje',
+        value: 'eup'
+      }, {
+        text: 'Gobernanza y participación',
+        value: 'gopa'
+      }, {
+        text: 'Temas selectos contaminación del aire',
+        value: 'tsca'
+      }]
+    };
+  },
+  methods: {
+    getValues: function getValues() {
+      console.log(this.cursos_actualizacion_data);
+      return this.cursos_actualizacion_data;
+    }
   }
 });
 
@@ -206,23 +225,11 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_vm._m(0), _vm._v(" "), _c("b-form-group", {
     attrs: {
-      label: "Seleccione el curso que se desea registrar"
+      label: "Seleccione los cursos que desea registrar"
     }
   }, [_c("b-form-checkbox-group", {
     attrs: {
-      options: [{
-        text: "Desarrollos regionales y economía",
-        value: "dre"
-      }, {
-        text: "Ecología urbana y paisaje",
-        value: "eup"
-      }, {
-        text: "Gobernanza y participación",
-        value: "gopa"
-      }, {
-        text: "Temas selectos contaminación del aire",
-        value: "tsca"
-      }],
+      options: _vm.cursos,
       name: "flavour-2a",
       stacked: ""
     },
@@ -233,7 +240,7 @@ var render = function render() {
       },
       expression: "cursos_actualizacion_data"
     }
-  })], 1)], 1);
+  }), _vm._v(" "), _c("p", [_vm._v("Seleccionado: " + _vm._s(_vm.cursos_actualizacion_data))])], 1)], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -534,11 +541,11 @@ var render = function render() {
     }
   }, [_vm._v("Por favor selecciona una opción")]), _vm._v(" "), _c("b-form-select-option", {
     attrs: {
-      value: "Si"
+      value: "1"
     }
   }, [_vm._v("Si")]), _vm._v(" "), _c("b-form-select-option", {
     attrs: {
-      value: "No"
+      value: "0"
     }
   }, [_vm._v("No")])], 1)], 1), _vm._v(" "), _c("b-form-group", {
     attrs: {
@@ -61620,17 +61627,12 @@ var app = new Vue({
       insterested_on_events: null,
       comments: ''
     },
-    cursos_actualizacion_data: {
-      dre: null,
-      eup: null,
-      gopa: null,
-      tcsa: null
-    },
     uniruta_data: {
       health_condition: null,
       contact_name: '',
       contact_tel: ''
-    }
+    },
+    cursos_actualizacion_data: []
   },
   mounted: function mounted() {
     this.getCalendarEventDays();
@@ -61639,6 +61641,10 @@ var app = new Vue({
   },
 
   methods: {
+    actualizarDatos: function actualizarDatos() {
+      // Actualizar datos aquí
+      this.$forceUpdate(); // Forzar la actualización de la vista
+    },
     showToast: function showToast(message, type) {
       Vue.$toast.open({
         message: message,
@@ -61666,7 +61672,7 @@ var app = new Vue({
     openRegisterModal: function openRegisterModal(ws) {
       // * Curso seleccionado, para cargar la configuración del modal
       this.selected = ws;
-      //console.log(this.selected.type);
+      console.log("tipo: ", this.selected.type);
       try {
         if (!ws.registered) {
           this.$root.$emit('bv::show::modal', 'modal-template', '#btnShow');
@@ -61731,24 +61737,26 @@ var app = new Vue({
       var data = {
         "workshop_id": ws.id,
         "workshop_type": ws.type,
-        "estadistic_data": this.estadistic_data
+        "estadistic_data": this.estadistic_data,
+        "invoice_data": this.invoice_data
       };
       // ! Additional data 
 
       switch (ws.type) {
         case 'unitrueque':
-          data['additional_data'] = this.unitrueque_data;
+          data["additional_data"] = this.unitrueque_data;
           break;
         case 'uniruta':
-          data['additional_data'] = this.uniruta_data;
+          data["additional_data"] = this.uniruta_data;
           break;
         case 'reutronic':
-          data['additional_data'] = this.reutronic_data;
+          data["additional_data"] = this.reutronic_data;
           break;
         default:
           break;
       }
-      console.log(data['additional_data']);
+      console.log(_components_CursosActualizacionSection_vue__WEBPACK_IMPORTED_MODULE_5__["default"].methods.getValues());
+      //console.log(data["additional_data"]);
       axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
         return console.log("subiendo: ", response.data)
         // Actualizar datos UI

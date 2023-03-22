@@ -295,47 +295,81 @@ class WorkshopController extends Controller
             return response()->json(['data' => "Error validando datos"], JsonResponse::HTTP_OK);
         }
 
-        try {
+        if ($request->workshop_type == 'cursos_actualizacion') {
             # Usuario autenticado
             $user = $request->user();
-
-            # Busca el curso por su nombre.
-            $workshop_model = Workshop::firstWhere('id', $request->workshop_id);
-
-            # Registra al usuario al workshop
-            $user_workshop = UserWorkshop::create([
-                'user_id' => $user->id,
-                'user_type' => $user->type,
-                'workshop_id' => $workshop_model->id,
-                'sent' => false,
-                'paid' => false,
-            ]);
-
-            $ws = DB::table('user_workshop')
-            ->where('workshop_id', $workshop_model->id)
-            ->where('user_id', $user->id)
-            ->get();
-                echo $ws[0]->workshop_id;
-
-            if ($workshop_model->id == 10) {
+            if ($request['additional_data'] == 'dre') {
+                echo "Curso dre";
                 try {
-                    echo "Unitrueque";
-                    DB::table('unitrueque_users')
-                        ->updateOrInsert([
-                            'user_workshop_id' => $ws[0]->id, // 10 = unitrueque
-                            'MaterialesIntercambio' => $request->additional_data->material,
-                            'Mobiliario' => $request->additional_data->isMobiliario,
-                            'Cantidad' => $request->additional_data->unidad,
-                            'EmpresaParticipante' => $request->additional_data->empresa,
-                        ]);
+                    # Registra al usuario al workshop
+                    $user_workshop = UserWorkshop::create([
+                        'user_id' => $user->id,
+                        'user_type' => $user->type,
+                        'workshop_id' => 40,
+                        'sent' => false,
+                        'paid' => false,
+                    ]);
                 } catch (\Exception $e) {
-                    echo "error";
+                    return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
                 }
+                return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
             }
-        } catch (\Exception $e) {
-            return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
+        } else {
+            try {
+                # Usuario autenticado
+                $user = $request->user();
+
+                # Busca el curso por su nombre.
+                $workshop_model = Workshop::firstWhere('id', $request->workshop_id);
+                # Registra al usuario al workshop
+                $user_workshop = UserWorkshop::create([
+                    'user_id' => $user->id,
+                    'user_type' => $user->type,
+                    'workshop_id' => $workshop_model->id,
+                    'sent' => false,
+                    'paid' => false,
+                ]);
+
+                //Obtenemos la llave primaria de la tabla user_workshop
+                $ws = DB::table('user_workshop')
+                    ->where('workshop_id', $workshop_model->id)
+                    ->where('user_id', $user->id)
+                    ->get();
+                //Si es unitrueque, cargamos la información adicional a la BD unitrueque_users
+                if ($workshop_model->id == 10) {
+                    try {
+                        DB::table('unitrueque_users')
+                            ->updateOrInsert([
+                                'user_workshop_id' => $ws[0]->id,
+                                'MaterialesIntercambio' => $request['additional_data']['material'],
+                                'Mobiliario' => $request['additional_data']['isMobiliario'],
+                                'Cantidad' => $request['additional_data']['unidad'],
+                                'EmpresaParticipante' => $request['additional_data']['empresa'],
+                            ]);
+                    } catch (\Exception $e) {
+                        echo "error";
+                    }
+                }
+                //Si es reutronic, cargamos la información adicional a la tabla reutronic_users
+                else if ($workshop_model->id == 38) {
+                    try {
+                        DB::table('reutronic_users')
+                            ->updateOrInsert([
+                                'user_workshop_id' => $ws[0]->id,
+                                'prev_solicitud' => intval($request['additional_data']['prev']),
+                                'material' => $request['additional_data']['material'],
+                                'detalles' => $request['additional_data']['specs'],
+                                'razondeuso' => $request['additional_data']['reason'],
+                            ]);
+                    } catch (\Exception $e) {
+                        echo "error";
+                    }
+                }
+            } catch (\Exception $e) {
+                return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
+            }
+            return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
         }
-        return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
     }
 
     //* REGISTRA UN WORKSHOP DE UNRIDODADA EN GENERAL 
@@ -1225,7 +1259,9 @@ class WorkshopController extends Controller
                     'paid' => null,
                     'paid_at' => null,
                     'invoice_data' => $request->isFacturaReq == "Si" ? true : false,
+                    'payment_type' => $request->Met_Pago
                 ]);
+            echo $request->Met_Pago;
             Log::info('El usuario con id ' . $request->idUser . "registro un nuevo workshop ");
 
             $workshop_models = Workshop::firstWhere('id', 45);

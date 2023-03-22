@@ -5,8 +5,8 @@
         <b-form-group id="input-group-1" label="¿Ha solicitado material Reutronic previamente?" label-for="input-0">
             <b-form-select v-model="reutronic_data.prev" class="mb-3">
                 <b-form-select-option :value="null">Por favor selecciona una opción</b-form-select-option>
-                <b-form-select-option value="Si">Si</b-form-select-option>
-                <b-form-select-option value="No">No</b-form-select-option>
+                <b-form-select-option value="1">Si</b-form-select-option>
+                <b-form-select-option value="0">No</b-form-select-option>
             </b-form-select>
         </b-form-group>
         

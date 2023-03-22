@@ -31,6 +31,14 @@
                 </select>
               </div>
               <div class="form-group col-md-6">
+                <label for="Met_Pago">Selecciona el método de pago</label>
+                <select id="Met_Pago" class="form-control" v-model="Met_Pago" required name="Met_Pago">
+                  <option disabled value="">Opción</option>
+                  <option value="Ficha_Pago" id="FP">Ficha de pago</option>
+                  <option value="Descuento_Nomina" id="DN">Descuento por nómina (exclusivo para personal de la UASLP)</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
                 <label for="isFacturaReq">¿Requieres factura?</label>
                 <select id="isFacturaReq" class="form-control" v-model="isFacturaReq" required name="isFacturaReq">
                   <option disabled value="">Opción</option>

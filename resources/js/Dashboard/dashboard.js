@@ -50,10 +50,10 @@ const app = new Vue({
         // * FORMS
         invoice_data:{required:null, name:'', addr:'', rfc:'', email:'', tel:''},
         unitrueque_data:{material:'', unidad:'', isMobiliario:'', empresa:''},
-        reutronic_data:{prev: null,material:'', specs:'', reason:''},
+        reutronic_data:{prev:null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
-        cursos_actualizacion_data:{dre:null,eup:null,gopa:null,tcsa:null},
-        uniruta_data:{health_condition: null, contact_name: '', contact_tel:''}
+        uniruta_data:{health_condition: null, contact_name: '', contact_tel:''},
+        cursos_actualizacion_data:[],
     },
     mounted() {
         this.getCalendarEventDays();
@@ -61,6 +61,11 @@ const app = new Vue({
         // console.log(this.user);
     },
     methods: {
+        actualizarDatos() {
+            // Actualizar datos aquí
+            this.$forceUpdate(); // Forzar la actualización de la vista
+          },
+
         showToast(message, type){
             Vue.$toast.open({
                 message: message,
@@ -90,7 +95,7 @@ const app = new Vue({
         openRegisterModal:function(ws){
             // * Curso seleccionado, para cargar la configuración del modal
             this.selected = ws;
-           //console.log(this.selected.type);
+           console.log("tipo: ",this.selected.type);
             try{
                 if(!ws.registered){
                     this.$root.$emit('bv::show::modal','modal-template','#btnShow');
@@ -156,24 +161,26 @@ const app = new Vue({
             let data = {
                 "workshop_id": ws.id,
                 "workshop_type": ws.type,
-                "estadistic_data": this.estadistic_data
+                "estadistic_data": this.estadistic_data,
+                "invoice_data":this.invoice_data,
             };
             // ! Additional data 
         
             switch (ws.type) {
                 case 'unitrueque':
-                    data['additional_data'] = this.unitrueque_data;
+                    data["additional_data"] = this.unitrueque_data;
                     break;
                 case 'uniruta':
-                    data['additional_data'] = this.uniruta_data;
+                    data["additional_data"] = this.uniruta_data;
                     break;
                 case 'reutronic':
-                    data['additional_data'] = this.reutronic_data;
+                    data["additional_data"] = this.reutronic_data;
                     break;
-                default:
+                 default:
                     break;
             }
-            console.log(data['additional_data']);
+            console.log(CursosActualizacionSection.methods.getValues());
+            //console.log(data["additional_data"]);
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
                 console.log("subiendo: ",response.data)
                 // Actualizar datos UI

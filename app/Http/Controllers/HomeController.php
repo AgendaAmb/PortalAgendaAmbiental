@@ -169,10 +169,12 @@ class HomeController extends Controller
 
         if ($user->hasRole('helper')) {
             $users = $this->getHelperUsers();
+            $users2 = DB::table('user_workshop')->where('workshop_id', '=', '45')->get();
             // return $users;
             return view('auth.Dashbord.Administracion', [
                 'is_ce' => $ce_active,
                 'users' =>  $users,
+                'users2' => $users2,
                 'Modulos' => Auth::user()->userModules,
             ]);
         } else if ($user->hasRole('coordinator') && $user->id != '18129') {
@@ -698,7 +700,7 @@ class HomeController extends Controller
                 return $q->whereIn('workshops.id', [45]); //esto va a hacer un eager loading para que funcione el where anterior
             }])->with(['invoice_data'])
             ->get();
-
+        
         foreach ($users6 as $user) $users->push($user);
         foreach ($users7 as $user) $users->push($user);
         foreach ($users8 as $user) $users->push($user);
