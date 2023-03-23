@@ -637,7 +637,6 @@ class User extends Authenticatable implements MustVerifyEmail
             'paid',
             'paid_at',
             'invoice_data',
-            'payment_type'
         );
     }
 
@@ -657,7 +656,6 @@ class User extends Authenticatable implements MustVerifyEmail
             'paid',
             'paid_at',
             'invoice_data',
-            'payment_type'
         );
     }
     // ! ---------------------------------------------------------------------------------------------------------------

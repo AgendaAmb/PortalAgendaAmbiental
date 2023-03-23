@@ -168,13 +168,13 @@ class HomeController extends Controller
         }
 
         if ($user->hasRole('helper')) {
-            $users = $this->getHelperUsers();
-            $users2 = DB::table('user_workshop')->where('workshop_id', '=', '45')->get();
+            $users = $this->getHelperUsersNew();
+            //$users2 = DB::table('user_workshop')->where('workshop_id', '=', '45')->get();
             // return $users;
             return view('auth.Dashbord.Administracion', [
                 'is_ce' => $ce_active,
                 'users' =>  $users,
-                'users2' => $users2,
+               // 'users2' => $users2,
                 'Modulos' => Auth::user()->userModules,
             ]);
         } else if ($user->hasRole('coordinator') && $user->id != '18129') {
@@ -417,6 +417,13 @@ class HomeController extends Controller
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
         ]);
+    }
+
+    private function getHelperUsersNew(){
+        $users = DB::select('CALL getWorkshopsUsers()', array());
+        $workshop_ids = [40,41,42,43,44,45];
+        $users = collect($users)->whereIn('workshop_id', $workshop_ids);
+        return $users;
     }
 
     /**

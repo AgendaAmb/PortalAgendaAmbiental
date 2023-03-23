@@ -10,6 +10,7 @@ Gracias por preinscribirse al curso: {{$ws_name}}. Anexo le estamos enviando su 
 Estamos a su disposición para cualquier duda o comentario.
 <br><br>
 
+<p>IBP María José Rodríguez del Río</p>
 <p>Sistema de gestión ambiental</p>
 
 @if ($with_image !== false)
