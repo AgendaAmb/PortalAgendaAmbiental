@@ -50,21 +50,6 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href={{route('/storage/imagenes/Conv_ SeImpulsanIdeas2023.pdf')}}>
-                <img src="{{asset('/storage/imagenes/B_Bepensa1.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href={{route('/storage/imagenes/Conv_ SeImpulsanIdeas2023.pdf')}}>
-                <img src="{{asset('/storage/imagenes/B_Bepensa2.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item" data-interval="4000">
-          <div class="d-block">
-            <div class="slide-box">
               <a href="{{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}">
                 <img src="{{asset('/storage/imagenes/Promotores/B1_PromAmb23.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -235,14 +220,6 @@
                 <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
                </a>
-          </div>
-        </div>
-
-        <div class="carousel-item ">
-          <div class="slide-box">
-            <a href={{route('/storage/imagenes/Conv_ SeImpulsanIdeas2023.pdf')}}>
-              <img src="{{ asset('storage/imagenes/B_Bepensa1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
-            </a>
           </div>
         </div>
 
