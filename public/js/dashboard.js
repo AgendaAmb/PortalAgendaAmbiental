@@ -13,29 +13,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'cursos-actualizacion-section',
+  props: {
+    cursos_actualizacion_data: []
+  },
   data: function data() {
     return {
-      cursos_actualizacion_data: [],
       cursos: [{
-        text: 'Desarrollos regionales y economía',
-        value: 'dre'
+        text: "Desarrollos regionales y economía",
+        value: "dre"
       }, {
-        text: 'Ecología urbana y paisaje',
-        value: 'eup'
+        text: "Ecología urbana y paisaje",
+        value: "eup"
       }, {
-        text: 'Gobernanza y participación',
-        value: 'gopa'
+        text: "Gobernanza y participación",
+        value: "gopa"
       }, {
-        text: 'Temas selectos contaminación del aire',
-        value: 'tsca'
+        text: "Temas selectos contaminación del aire",
+        value: "tsca"
       }]
     };
-  },
-  methods: {
-    getValues: function getValues() {
-      console.log(this.cursos_actualizacion_data);
-      return this.cursos_actualizacion_data;
-    }
   }
 });
 
@@ -223,11 +220,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("b-form-group", {
-    attrs: {
-      label: "Seleccione los cursos que desea registrar"
-    }
-  }, [_c("b-form-checkbox-group", {
+  return _c("div", [_c("b-form-checkbox-group", {
     attrs: {
       options: _vm.cursos,
       name: "flavour-2a",
@@ -240,15 +233,9 @@ var render = function render() {
       },
       expression: "cursos_actualizacion_data"
     }
-  }), _vm._v(" "), _c("p", [_vm._v("Seleccionado: " + _vm._s(_vm.cursos_actualizacion_data))])], 1)], 1);
+  }), _vm._v(" "), _c("p", [_vm._v("Seleccionado: " + _vm._s(_vm.cursos_actualizacion_data))])], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("h5", {
-    staticClass: "modal-title3"
-  }, [_c("b", [_vm._v("Cursos de Actualización")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -61632,7 +61619,7 @@ var app = new Vue({
       contact_name: '',
       contact_tel: ''
     },
-    cursos_actualizacion_data: []
+    cursos_actualizacion_data: null
   },
   mounted: function mounted() {
     this.getCalendarEventDays();
@@ -61734,6 +61721,7 @@ var app = new Vue({
       var headers = {
         'Content-Type': 'application/json;charset=utf-8'
       };
+      console.log("Cursos: ", this.cursos_actualizacion_data);
       var data = {
         "workshop_id": ws.id,
         "workshop_type": ws.type,
@@ -61755,7 +61743,6 @@ var app = new Vue({
         default:
           break;
       }
-      console.log(_components_CursosActualizacionSection_vue__WEBPACK_IMPORTED_MODULE_5__["default"].methods.getValues());
       //console.log(data["additional_data"]);
       axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
         return console.log("subiendo: ", response.data)

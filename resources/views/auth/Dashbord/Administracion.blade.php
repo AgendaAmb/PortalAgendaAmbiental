@@ -17,7 +17,8 @@
 
         @if (Auth::user()->hasRole('administrator'))
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Correo</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                @click="cargarModulos()" aria-selected="false">Correos</a>
         </li>
         @endif
     </ul>
@@ -77,19 +78,30 @@
                         <tr>
                             <!--Pendiente-->
                             @if (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
+                                @if ($user->workshop_id == 6 ||
+                                    $user->workshop_id == 10 || 
+                                    $user->workshop_id == 12 ||
+                                    $user->workshop_id == 15 ||
+                                    $user->workshop_id == 23 ||
+                                    $user->workshop_id == 35 ||
+                                    $user->workshop_id == 36 ||
+                                    $user->workshop_id == 38 ||
+                                    $user->workshop_id == 39)
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDetails" @click="cargarDetalles('{{json_encode($user)}}')">
+                                            Detalles
+                                            <i class="fas fa-eye ml-2"></i>
+                                        </button>
+                                    </td>
+                                @else
+                                    <td>Sin detalles</td>
+                                @endif
+
+                            @elseif (Auth::user()->hasRole('helper'))
                                 <td>
-                                    <button type="button" class="emergencyInfo btn btn-primary" id="{{$user->user_workshop_id}}">
-                                        Ver detalles
-                                    </button>
-                                </td>
-                            @else
-                                <td>
-                                    <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser"
-                                        @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
-                                        <i class="fas fa-edit"></i>
-                                        @if (Auth::user()->hasRole('helper'))
-                                            <small>ENVIAR FICHA DE PAGO</small>
-                                        @endif
+                                    <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">   
+                                            <i class="fas fa-edit"></i>
+                                            <small>Enviar ficha de pago</small>
                                     </a>           
                                 </td>
                             @endif
@@ -154,6 +166,7 @@
                                     @else
                                         <div class="text-center" style="color: red; font-size: 25px;">
                                             <i class="fas fa-times-circle"></i>
+                                            
                                         </div>
                                     @endif
                                 </td>
@@ -169,7 +182,7 @@
                                         <input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago('{{json_encode($user)}}',{{$user->user_workshop_id}})"> Marcar como pagado
                                     @endif
                                 </td>
-                               
+                            
                                     @if($user->payment_type == 'Ficha_Pago')
                                         <td>Ficha de pago</td>
                                     @elseif($user->payment_type == 'Descuento_Nomina')
@@ -177,7 +190,7 @@
                                     @else
                                         <td></td>
                                     @endif
-                                 
+                            
                                 <!--Informacion para facturacion-->
                                 <th class="text-center">
                                     @if ($user->workshop_invoicedata == 1)
@@ -213,29 +226,113 @@
             </table>
         </div>
 
-        <div class="modal fade" id="modal-emergency-contact" tabindex="-1" role="dialog" aria-labelledby="modal-emergency-contact-title">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
+        
 
-                    <div class="modal-header bg-primary">
-                        <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">
-                            Informacion de emergencia
-                        </h5>
+        <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h1 class="text-center mt-3">Correos</h1>
+            <div class="row">
+            
+                <div class="col-6">
+                    <form @submit.prevent="enviarCorreo" method="post" class="text-left">
 
-                        
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Correo remitente</label>
+                            <div class="col-9">
+                                <select class="custom-select" id="CorreoRemitente" required v-model="CorreoRemitente">
+                                    <option selected disabled value="">Remitente</option>
+                                    <option :value="correo" v-for="correo in Correos">@{{correo.email}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Destinatario</label>
+                            <div class="col-9">
+                                <select class="custom-select" id="validationDefault05" required v-model="Destinatario">
+                                    <option selected disabled value="">Destinatario</option>
+                                    <option :value="work.name" v-for="work in workshop">@{{work.name}}</option>
+                                    <option :value="modulo.name" v-for="modulo in modulos">@{{modulo.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start d-none">
+                            <label for="emailR" class="col-sm-2 col-form-label">CC</label>
+                            <div class="col-9">
+                                <select class="js-example-basic-multiple" v-model="cc" name="CC[]" multiple="multiple" style="width: 100%" >
+                                    <option :value="user.id" v-for="user in users">@{{user.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Asunto</label>
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="validationDefault03" required v-model="Asunto">
+                            </div>
+                        </div>
+        
+                        <div class="form-group row was-validated justify-content-start">
+                            <label for="emailR" class="col-sm-2 col-form-label">Contenido</label>
+                            <div class="col-9">
+                                <textarea name="" id="" class="form-control"required rows="10" v-model="Contenido"></textarea>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row justify-content-end">
+                            <div class="col-md-6 col-6 p-0">
+        
+                                <button class="btn btn-success" type="submit" value="Submit"
+                                    v-if="!spinnerVisible">Enviar correo</button>
+                                <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    Enviando
+                                </button>
+        
+                            </div>
+        
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
+                            <div class="row justify-content-center">
+                                <img src="{{asset('/storage/imagenes/Logos/LogoAgendaUaslp.png')}}" height="125" width="150" alt="">
+                            </div>
+                        </div>
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#086588':CorreoRemitente.eje_id==2?'background-color:#009100':CorreoRemitente.eje_id==3?'background-color:#C39c00':CorreoRemitente.eje_id==4?'background-color:#001d56':CorreoRemitente.eje_id==5?'background-color:#9e0000':'background-color:#FFFFFF'">
+                            <div class="row justify-content-start" style="height: 20px;width: 100px">
+                            </div>
+                        </div>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <pre>  @{{Contenido}}</pre>
+                                <div id="summernote">Hello Summernote</div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <img src="{{asset('/storage/imagenes/Logos/rtic.png')}}" height="125" width="auto" alt="">
+                            </div>
+                        </div>
 
-                    <div class="modal-body">
-                        <!--Aqui se va a mostrar el cuerpo del modal, este contenido se carga de manera automatica en el script-->
+
+                        <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
+                            <div class="row justify-content-start" style="height: 125px;width: auto;">
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
             </div>
+
+
         </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+
+    
+
 
         <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="user!=''">
@@ -399,6 +496,114 @@
     </div>
 
     
+
+    <div class="modal fade" id="userDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="Detalles!=''">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" id="modalDetalles">
+                    <h5 class="modal-title mx-auto text-white">Detalles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body bg-white">
+                    <form>             
+                        <div class="form-row">
+                            <!--Informacion de las unirutas y unirodadas-->
+                            <div class="form-group  was-validated col-12" 
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                                <label for="Nombres">Contacto de emergancia</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].emergency_contact" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" 
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                                <label for="Nombres">Telefono de contacto de emergancia</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].emergency_phone" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" 
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                                <label for="Nombres">Condicion de salud</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].health_condition" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" 
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36">
+                                <label for="Nombres">Grupo ciclista</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].cycling_group" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de unitrueque-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 10">
+                                <label for="Nombres">Materiales para intercambiar</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].unitrueque_materials" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 10">
+                                <label for="Nombres">Cantidad</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].unitrueque_quantity" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 10">
+                                <label for="Nombres">Mobiliario</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].unitrueque_furniture" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 10">
+                                <label for="Nombres">Empresa participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].unitrueque_company" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de reutronic-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 38">
+                                <label for="Nombres">Material</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].reutronic_materials" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 38">
+                                <label for="Nombres">Detalles</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].reutronic_details" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 38">
+                                <label for="Nombres">Razón de uso</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].reutronic_use" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         v-if="DatosFacturacion!=''">
         <div class="modal-dialog modal-lg">
@@ -422,8 +627,7 @@
 
 
                             </div>
-                            <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de
-                                facturación</h5>
+                            <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de facturación</h5>
                             <div class="form-row ">
                                 <div class="form-group  was-validated col-12">
                                     <label for="Nombres">Nombre Completo o razón social</label>
@@ -492,91 +696,64 @@
 
 <script>
     var app = new Vue({
-  el: '#apps',
-  data: {
-    users:[],
-    user:[],
-    CursosInscritos:[],
-    cursoAsistencia:'',
-    spinnerVisible:false,
-    asistenciaExito:false,
-    file:'',
-    Guardando :false,
-    exito:true,
-    DatosFacturacion:[],
-    checkPago:[],
-    Lunch:'',
-    lunchRegister:false,
-    modulos:[],
-    workshop:[],
-    CorreoRemitente:'',
-    Correos:[],
-    Destinatario:'',
-    Asunto:'',
-    Contenido:'',
-    cc:[],
-    Summernote:'',
-    ws_id:-1,
-    Facturacion:[],
-  },
-  mounted: function () {
-    this.$nextTick(function () {
-    @foreach($users as $user)
-        this.users.push({
-            "id":'{{$user->id}}',
-            "workshop_id": '{{$user->workshop_id}}',
-            "workshop_name": '{{$user->workshop_name}}',
-            "name":'{{$user->name." ".$user->middlename." ".$user->surname}}',
-            "residence":'{{$user->residence}}',
-            "ocupation":'{{$user->ocupation}}',
-            "ethnicity":'{{$user->ethnicity}}',
-            "disability":'{{$user->disability}}',
-            "ethnicity":'{{$user->ethnicity}}',
-            "interested_on_further_courses":'{{$user->interested_on_further_courses}}',
-            "emergency_contact":'{{$user->emergency_contact}}',
-            "emergency_contact_phone":'{{$user->emergency_phone}}',
-            "health_condition":'{{$user->health_condition}}',
-            "invoice_data_name": '{{$user->invoice_name}}',
-            "invoice_data_rfc": '{{$user->invoice_rfc}}',
-            "invoice_data_email": '{{$user->invoice_email}}',
-            "invoice_data_phone": '{{$user->invoice_phone}}',
-            "invoice_data_address": '{{$user->invoice_address}}',
-           "assisted_to_workshop": '{{$user->assisted_to_workshop}}',
-            "lunch":"{{$user->lunch}}",
-            "payment_type":"{{$user->payment_type}}"
-        });
-    @endforeach
-    console.log(this.users);
-    $(document).ready(function() {
-  $('#summernote').summernote();
-});
-  })
-},
-  methods: {
+    el: '#apps',
+    data: {
+        users:[],
+        user:[],
+        CursosInscritos:[],
+        cursoAsistencia:'',
+        spinnerVisible:false,
+        asistenciaExito:false,
+        file:'',
+        Guardando :false,
+        exito:true,
+        DatosFacturacion:[],
+        checkPago:[],
+        Lunch:'',
+        lunchRegister:false,
+        modulos:[],
+        workshop:[],
+        CorreoRemitente:'',
+        Correos:[],
+        Destinatario:'',
+        Asunto:'',
+        Contenido:'',
+        cc:[],
+        Summernote:'',
+        ws_id:-1,
+        Facturacion:[],
+        Detalles:[],
+    },
+methods: {
     enviarCorreo:function(){
-       
+    
         const formData = new FormData();
         formData.append('idUsuarioEnvio','{{Auth::user()->id}}');
+        console.log(this.idUsuarioEnvio);
         formData.append('CorreoRemitente',this.CorreoRemitente.email);
+        console.log(this.CorreoRemitente);
         formData.append('Destinatario',this.Destinatario);
+        console.log(this.Destinatario);
         formData.append('Asunto',this.Asunto);
+        console.log(this.Asunto);
         formData.append('Contenido',this.Contenido);
+        console.log(this.Contenido);
         axios({
-                 method: 'post',
-                 url: '/sendEmail',
-                 data: formData,
-                 headers: {
-                     'Content-Type': 'multipart/form-data'
-                 }
-             }).then(
-                     res => {
-                         console.log("Exito")
-                     }
-                 ).catch(
-                     err => {
+                method: 'post',
+                url: '/sendEmail',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(
+                    res => {
+                        console.log("Exito")
+                    }
+                ).catch(
+                    err => {
                         console.log("Falso")
-                     }
-                 )
+                    }
+                )
     },
     cargarModulos:function(){
         axios.get('/api/getAllModules').then(res => {
@@ -666,7 +843,6 @@
         )
     },
     MandarFacturaPago:function(user){
-      
         console.log("enviar datos");
         // Los datos necesitan ser enviados con form data
         
@@ -695,13 +871,21 @@
             }
         )
     },
+    cargarDetalles:function(user){
+        let obj = eval('(' + user + ')');
+        this.cargarUser(obj),
+        this.Detalles=[],
+        this.Detalles.push(obj),
+        console.log("Hola",
+            this.Detalles[0]);
+    },
     RegistrarAsistencia:function(){
         this.spinnerVisible=true
         let headers = {
                     'Content-Type': 'application/json;charset=utf-8'
             };
             var data = {
-       	        "idUser": this.user[0].id,
+                "idUser": this.user[0].id,
                 "idWorkshop":this.cursoAsistencia,
             }
             axios.post('/RegistraAsistencia',data).then(response => (
@@ -709,16 +893,16 @@
             this.spinnerVisible=false,
             this.asistenciaExito=true,
             this.cargarUser(this.user[0])
-             )).catch((err) => {
+            )).catch((err) => {
                 this.asistenciaExito=false,
                 this.spinnerVisible=false,
                 console.log("error")
-          })
+            })
     },
     cargarPdf: function (e, index) {
-             this.file='';
-             this.file = e.target.files[0];
-         },
+            this.file='';
+            this.file = e.target.files[0];
+        },
     cargarUser: function (user, ws_id=-1) {
         console.log(ws_id),
         this.ws_id = ws_id,
@@ -738,7 +922,7 @@
                     'Content-Type': 'application/json;charset=utf-8'
             };
             var data = {
-       	        "id":user.id,
+                "id":user.id,
         }
         
         
@@ -753,7 +937,6 @@
         });
     });
     var markupStr = $('#summernote').summernote('code');
-   
     console.log(markupStr);
     
 </script>

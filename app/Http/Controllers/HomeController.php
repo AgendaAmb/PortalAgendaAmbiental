@@ -338,7 +338,18 @@ class HomeController extends Controller
                     'Modulos' => Auth::user()->userModules,
                 ]);
 
-        } else if ($user->hasRole('administrator')) {
+        } else if($user->hasRole('administrator')) {
+            $users = $this->getAdministratorUsers();
+            //$users2 = DB::table('user_workshop')->where('workshop_id', '=', '45')->get();
+            // return $users;
+            return view('auth.Dashbord.Administracion', [
+                'is_ce' => $ce_active,
+                'users' =>  $users,
+               // 'users2' => $users2,
+                'Modulos' => Auth::user()->userModules,
+            ]);
+        }
+        /*else if ($user->hasRole('administrator')) {
             $user = Auth::user();
             $idwss = Workshop::all()->pluck('id');
             try {
@@ -416,13 +427,19 @@ class HomeController extends Controller
             'is_ce' => $ce_active,
             'users' =>  $users,
             'Modulos' => Auth::user()->userModules,
-        ]);
+        ]);*/
     }
 
     private function getHelperUsersNew(){
         $users = DB::select('CALL getWorkshopsUsers()', array());
         $workshop_ids = [40,41,42,43,44,45];
         $users = collect($users)->whereIn('workshop_id', $workshop_ids);
+        return $users;
+    }
+
+    private function getAdministratorUsers(){
+        $users = DB::select('CALL getAdministratorUsers()', array());
+        
         return $users;
     }
 

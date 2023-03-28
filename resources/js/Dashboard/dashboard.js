@@ -53,7 +53,7 @@ const app = new Vue({
         reutronic_data:{prev:null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
         uniruta_data:{health_condition: null, contact_name: '', contact_tel:''},
-        cursos_actualizacion_data:[],
+        cursos_actualizacion_data:null,
     },
     mounted() {
         this.getCalendarEventDays();
@@ -157,6 +157,7 @@ const app = new Vue({
             let headers = {
                 'Content-Type': 'application/json;charset=utf-8'
             };
+            console.log("Cursos: ", this.cursos_actualizacion_data);
 
             let data = {
                 "workshop_id": ws.id,
@@ -179,7 +180,6 @@ const app = new Vue({
                  default:
                     break;
             }
-            console.log(CursosActualizacionSection.methods.getValues());
             //console.log(data["additional_data"]);
             axios.post(this.url+'WorkshopUserRegister',data).then(response => (
                 console.log("subiendo: ",response.data)
