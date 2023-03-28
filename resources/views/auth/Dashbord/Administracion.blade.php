@@ -217,7 +217,11 @@
                                 </td>
 
                                 <td>
-                                    {{ Carbon\Carbon::parse($user->email_verified_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, hh:mm a')}}
+                                    @if ($user->email_verified_at != NULL)
+                                        {{ Carbon\Carbon::parse($user->email_verified_at)->locale('es')->isoFormat('dddd DD MMMM YYYY, hh:mm a')}}
+                                    @else
+                                        Correo electronico sin verificar
+                                    @endif
                                 </td>
                             @endif
                         </tr>
