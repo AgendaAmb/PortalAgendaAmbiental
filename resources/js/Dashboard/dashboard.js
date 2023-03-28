@@ -53,7 +53,7 @@ const app = new Vue({
         reutronic_data:{prev:null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
         uniruta_data:{health_condition: null, contact_name: '', contact_tel:''},
-        cursos_actualizacion_data:null,
+        cursos_actualizacion_data:[],
     },
     mounted() {
         this.getCalendarEventDays();
@@ -64,7 +64,7 @@ const app = new Vue({
         actualizarDatos() {
             // Actualizar datos aquí
             this.$forceUpdate(); // Forzar la actualización de la vista
-          },
+        },
 
         showToast(message, type){
             Vue.$toast.open({
@@ -95,7 +95,7 @@ const app = new Vue({
         openRegisterModal:function(ws){
             // * Curso seleccionado, para cargar la configuración del modal
             this.selected = ws;
-           console.log("tipo: ",this.selected.type);
+            console.log("tipo: ",this.selected.type);
             try{
                 if(!ws.registered){
                     this.$root.$emit('bv::show::modal','modal-template','#btnShow');
