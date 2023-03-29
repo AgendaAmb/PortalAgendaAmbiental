@@ -93,7 +93,7 @@ class HomeController extends Controller
             array_push($user_registered_whorkshops_ids, $workshop['id']);
         }
 
-        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('type', '<>', 'cursos_actualizacion')->where('end_date', '>=', Carbon::now())->whereNotIn('id', $user_registered_whorkshops_ids)->get()->values()->toArray();
+        $user_unregistered_workshops = Workshop::where('type', '<>', '20Aniversario')->where('type', '<>', 'cursos_actualizacion')->where('type', '<>', 'reutronic')->where('end_date', '>=', Carbon::now())->whereNotIn('id', $user_registered_whorkshops_ids)->get()->values()->toArray();
         // dd($user_unregistered_workshops);
         foreach ($user_unregistered_workshops as &$workshop) {
             $workshop["registered"] = False;
@@ -106,8 +106,9 @@ class HomeController extends Controller
             array_push($cursos_actualizacion_ids, $workshop['id']);
         }
         $object_ca = (object)$cursos_actualizacion; 
-    
-        $active_workshops =$user_unregistered_workshops;
+        $reutronic = Workshop::where('type', '=', 'reutronic')->where('end_date', '>=', Carbon::now())->get()->values()->toArray();
+
+        $active_workshops = array_merge($user_unregistered_workshops,$reutronic);
         
         // dd($active_workshops);
         // 
@@ -115,7 +116,7 @@ class HomeController extends Controller
         $active_modules = Module::where('updated_at', '<=', Carbon::now())->get()->values()->toArray();
 
         return view('auth.Dashbord.main')
-            ->with('modulos', $request->user()->userModules) //Navbar
+            ->with('Modulos', $request->user()->userModules) //Navbar
             ->with('modules', $active_modules)
             ->with('active_workshops', $active_workshops)
             ->with('user_registered_workshops', $user_registered_workshops)
@@ -274,6 +275,7 @@ class HomeController extends Controller
                     try {
                         $users = UserWorkshop::where('workshop_id', '=' , '45')->get();
                         $users2 = UserWorkshop::where('workshop_id', '=' , '46')->get();
+                        $users3 = UserWorkshop::where('workshop_id', '=' , '47')->get();
                         
                     } catch (\Error $e) {
                         return "Error loading user workshops";
@@ -323,6 +325,30 @@ class HomeController extends Controller
                                 // 'factura' => $i->invoice_data
                             ];
                             array_push($data, $_data2);
+                        } catch (\Error $e) {
+                            return "Cargando datos";
+                        }
+                    }
+                    foreach ($users3 as $i) {
+                        $workshopRegDataUser = [];
+                        try {
+                            $_user = User::where('id', $i->user_id)->first();
+                            $_ws = Workshop::where('id', $i->workshop_id)->first();
+                            $_data3 = [
+                                'id' => $_user->id,
+                                'email' => $_user->email,
+                                'gender' => $_user->gender,
+                                'name' => $_user->name . ' ' . $_user->middlename . ' ' . $_user->surname,
+                                'workshop' => $_ws->name,
+                                'curp' => $_user->curp,
+                                'tel' => $_user->phone_number,
+                                'created_at' => $_user->created_at->format('Y-m-d h:i'),
+                                'workshopRegDataUser' => $workshopRegDataUser
+                                // 'envio' => $i->send,
+                                // 'pago' => $i->paid,
+                                // 'factura' => $i->invoice_data
+                            ];
+                            array_push($data, $_data3);
                         } catch (\Error $e) {
                             return "Cargando datos";
                         }

@@ -125,9 +125,9 @@ Auth::routes(['verify' => true]);
 
 # Usuarios autenticados y con roles
 Route::middleware(['auth:web,workers,students', 'verified', 'role_any'])->group(function () {
-    Route::get('/Miportal', 'HomeController@panel')->name('panel');
+    Route::get('/Miportal2', 'HomeController@panel')->name('panel2');
 
-    Route::get('/Miportal2', 'HomeController@panel2')->name('panel2');
+    Route::get('/Miportal', 'HomeController@panel2')->name('panel');
 
     Route::middleware(['auth'])->group(function () {
         // Ruta de registro 20 aniversario

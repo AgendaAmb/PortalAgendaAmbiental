@@ -516,7 +516,7 @@
                         <div class="form-row">
                             <!--Informacion de las unirutas y unirodadas-->
                             <div class="form-group  was-validated col-12" 
-                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
                                 <label for="Nombres">Contacto de emergancia</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD"
                                     :value="Detalles[0].emergency_contact" readonly
@@ -524,7 +524,7 @@
                             </div>
 
                             <div class="form-group  was-validated col-12" 
-                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
                                 <label for="Nombres">Telefono de contacto de emergancia</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD"
                                     :value="Detalles[0].emergency_phone" readonly
@@ -532,7 +532,7 @@
                             </div>
 
                             <div class="form-group  was-validated col-12" 
-                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
                                 <label for="Nombres">Condicion de salud</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD"
                                     :value="Detalles[0].health_condition" readonly
@@ -540,7 +540,7 @@
                             </div>
 
                             <div class="form-group  was-validated col-12" 
-                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 35 || Detalles[0].workshop_id === 36">
+                            v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36">
                                 <label for="Nombres">Grupo ciclista</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD"
                                     :value="Detalles[0].cycling_group" readonly
@@ -597,6 +597,22 @@
                                 <label for="Nombres">Razón de uso</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD"
                                     :value="Detalles[0].reutronic_use" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de minirodada-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 35">
+                                <label for="Nombres">Nombre del participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].minirodada_name" readonly
+                                    style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 35">
+                                <label for="Nombres">Edad del participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD"
+                                    :value="Detalles[0].minirodada_age" readonly
                                     style="text-transform: capitalize;">
                             </div>
 

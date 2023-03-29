@@ -259,6 +259,33 @@ var render = function render() {
   return _c("div", [_vm._m(0), _vm._v(" "), _c("b-form-group", {
     attrs: {
       id: "input-group-1",
+      label: "Selecciona el método de pago:",
+      "label-for": "input-0"
+    }
+  }, [_c("b-form-select", {
+    staticClass: "mb-1",
+    model: {
+      value: _vm.invoice_data.payment_type,
+      callback: function callback($$v) {
+        _vm.$set(_vm.invoice_data, "payment_type", $$v);
+      },
+      expression: "invoice_data.payment_type"
+    }
+  }, [_c("b-form-select-option", {
+    attrs: {
+      value: null
+    }
+  }, [_vm._v("Por favor selecciona una opción")]), _vm._v(" "), _c("b-form-select-option", {
+    attrs: {
+      value: "Ficha_Pago"
+    }
+  }, [_vm._v("Ficha de pago")]), _vm._v(" "), _c("b-form-select-option", {
+    attrs: {
+      value: "Descuento_Nomina"
+    }
+  }, [_vm._v("Descuento de nómina")])], 1)], 1), _vm._v(" "), _c("b-form-group", {
+    attrs: {
+      id: "input-group-1",
       label: "¿Requieres factura?:",
       "label-for": "input-0"
     }
@@ -61567,7 +61594,7 @@ var app = new Vue({
     //abrir modal de redirección
     url: url,
     //url del app definida en el .env
-    modules: modulos,
+    modules: Modulos,
     user_workshops: user_workshops,
     workshops: workshops,
     noreg_workshops: noreg_workshops,
@@ -61594,7 +61621,8 @@ var app = new Vue({
       addr: '',
       rfc: '',
       email: '',
-      tel: ''
+      tel: '',
+      payment_type: null
     },
     unitrueque_data: {
       material: '',
@@ -61619,7 +61647,7 @@ var app = new Vue({
       contact_name: '',
       contact_tel: ''
     },
-    cursos_actualizacion_data: null
+    cursos_actualizacion_data: []
   },
   mounted: function mounted() {
     this.getCalendarEventDays();
@@ -61762,6 +61790,7 @@ var app = new Vue({
       })["catch"](function (err) {
         console.log(err);
       });
+      window.location.reload();
     }
   }
 });

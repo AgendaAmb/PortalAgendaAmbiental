@@ -29,7 +29,7 @@ const app = new Vue({
         // Pass
         modal: modal,       //abrir modal de redirección
         url: url,           //url del app definida en el .env
-        modules: modulos,
+        modules: Modulos,
         user_workshops: user_workshops,
         workshops: workshops,
         noreg_workshops: noreg_workshops,
@@ -48,7 +48,7 @@ const app = new Vue({
         selected: null,
         academicData: {name: null},
         // * FORMS
-        invoice_data:{required:null, name:'', addr:'', rfc:'', email:'', tel:''},
+        invoice_data:{required:null, name:'', addr:'', rfc:'', email:'', tel:'',payment_type:null},
         unitrueque_data:{material:'', unidad:'', isMobiliario:'', empresa:''},
         reutronic_data:{prev:null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
@@ -198,6 +198,7 @@ const app = new Vue({
             )).catch((err) => {
                 console.log(err)
             })
+            window.location.reload();
         }
     }
 });

@@ -1,5 +1,5 @@
 <script>
-  const modulos = @json($modulos);
+  const Modulos = @json($Modulos);
   const workshops = @json($active_workshops);
   const user_workshops = @json($user_registered_workshops);
   const noreg_workshops = @json($user_unregistered_workshops);
@@ -8,8 +8,6 @@
   const user = @json($user);
   const modules = @json($modules);
   const cursos_act = @json($object_ca);
-  cursos_act.type = 'cursos_actualizacion';
-  cursos_act.payment_required = 1;
 
   // Additional data
    const url = '{{env('APP_URL')}}';
@@ -73,7 +71,7 @@
       </div>
     </b-col>
     
-    <b-col class="bg-white" align-self="stretch" lg="8" md="8" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
+    <b-col class="bg-white" align-self="stretch" lg="7" md="7" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
       <!--<div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" v-for="i in 3" :key="i">
@@ -127,10 +125,9 @@
       </div>
       <b-col cols="12" order="6">
         <b-carousel id="carousel-fade" style="text-shadow: 0px 0px 2px #000" fade indicators img-width="1024" img-height="480" class="my-3 mx-2" :interval=4000>
-          <b-carousel-slide img-src="{{asset('/storage/imagenes/20Aniversario/Banner.png')}}"></b-carousel-slide>
           <b-carousel-slide img-src="{{asset('/storage/imagenes/Unitrueque/Banner.png')}}"></b-carousel-slide>
-          <b-carousel-slide img-src="{{asset('/storage/imagenes/UnihuertoCasa/B_Unihuerto23.png')}}"></b-carousel-slide>
           <b-carousel-slide img-src="{{asset('/storage/imagenes/introduccion/B_Portal_ProxEve.png')}}"></b-carousel-slide>
+          <b-carousel-slide img-src="{{asset('/storage/imagenes/ConsumoResponsable/Banner_CR.png')}}"></b-carousel-slide>
         </b-carousel>
       </b-col>
 
@@ -139,7 +136,7 @@
     </b-col>
 
 
-    <b-col class="bg-white" align-self="stretch" lg="2" md="2" sm="12" cols="12" order-lg="3" order-md="3" order-sm="1" order="1">
+    <b-col class="bg-white" align-self="stretch" lg="3" md="3" sm="12" cols="12" order-lg="3" order-md="3" order-sm="1" order="1">
       <div class="h-100 w-100">
         <b-row align-h="center" :no-gutters=true>
           <b-container class="my-2 mx-1 py-4 px-1 bg-light">

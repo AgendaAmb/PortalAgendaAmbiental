@@ -1,6 +1,19 @@
 <template>
     <div>        
         <h5 class="modal-title3"><b>Datos de facturación</b></h5>
+        <b-form-group 
+            id="input-group-1" 
+            label="Selecciona el método de pago:" 
+            label-for="input-0"
+            >
+            <b-form-select
+                v-model="invoice_data.payment_type"
+                class="mb-1">
+                <b-form-select-option :value="null">Por favor selecciona una opción</b-form-select-option>
+                <b-form-select-option value="Ficha_Pago">Ficha de pago</b-form-select-option>
+                <b-form-select-option value="Descuento_Nomina">Descuento de nómina</b-form-select-option>
+            </b-form-select>
+        </b-form-group>
 
         <b-form-group 
             id="input-group-1" 
