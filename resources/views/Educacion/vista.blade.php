@@ -137,6 +137,81 @@ gestión y vinculación con la sociedad.';
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="ConcursoFotografia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Eventos/Cartel_ConFotografia.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'Unihuerto'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                        </div>
+                        <div class=" col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Eventos/Cartel_ConFotografia.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Cartel_ConFotografia.png">CARTEL</a>
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4>Segundo Concurso de Fotografía por la Sostenibilidad: Responsabilidad Universitaria en el Desarrollo Sostenible</h4>
+                            <br><br>
+                            <h4>Dirigido a</h4>
+                            <p>Comunidad universitaria, alumnos, profesores, administrativos, trabajadores y egresados de la UASLP.</p><br>
+                            <h4>Objetivo general</h4>
+                            <p>Construir un retrato colectivo que refleje los retos y la contribución que la Universidad Autónoma de San Luis Potosí tiene hacia el cumplimiento de las metas estipuladas en los Objetivos de Desarrollo Sostenible, como parte de la Agenda 2030.</p><br>
+                            <h4>Taller de acompañamiento</h4>
+                            <ul>
+                                <li><span>Temas:</span> Sostenibilidad y lenguaje visual.</li>
+                                <li><span>Duración:</span> 2 horas.</li>
+                                <li><span>Fecha:</span> 3 de mayo de 2023.</li>
+                                <li><span>Horario:</span> De 19:00 a 21:00 horas.</li>
+                                <li><span>Modalidad:</span> En línea por Microsoft Teams</li>
+                            </ul>
+                            <p align="center"><b>LA ASISTENCIA AL TALLER ES OBLIGATORIA PARA CONTINUAR CON EL CONCURSO</b></p>
+                            <br>
+                            <h4>Premiación</h4>
+                            <p>Se premiarán las mejores tres fotografías en una ceremonia que se llevará a cabo en Caja Real UASLP, el 19 de mayo de 2023, a las 19:00 horas.<br>Todos los participantes recibirán una constancia por haber formado parte del concurso.</p>
+                            <br>
+                            <h4>Registro</h4>
+                            <p>Para inscribirte debes registrarte en el botón “Registrar”. Después de haber llenado los campos, recibirás un correo de confirmación con indicaciones sobre el concurso.</p>
+                            <br>
+                            <h4>Más información</h4>
+                            <p>LCC. Ivanna de los Angeles Huerta Sauceda<br>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San
+                                Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P.
+                                78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7213<br><a
+                                    href="mailto:difusion.agenda@uaslp.mx">difusion.agenda@uaslp.mx</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <script>
     //console.log({{$NombreM}});
      $('#{{$NombreM}}').modal('show')
