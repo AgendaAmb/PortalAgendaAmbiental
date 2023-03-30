@@ -112,6 +112,7 @@ class HomeController extends Controller
         
         // dd($active_workshops);
         // 
+        $ce_active = $request->user()->userModules->where("name", 'Control Escolar')->count() > 0 ?  true : false;
 
         $active_modules = Module::where('updated_at', '<=', Carbon::now())->get()->values()->toArray();
 
@@ -124,6 +125,7 @@ class HomeController extends Controller
             ->with('nombreModal', $nombreModal)
             ->with('ejes', ejes::all()) // para el proximo navbar aun sin uso
             ->with('object_ca', $object_ca)
+            ->with('is_ce', $ce_active)
             ->with('user', $request->user());
     }
 

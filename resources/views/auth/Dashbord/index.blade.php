@@ -56,7 +56,7 @@
           {{-- Reutronic --}}
           <div class="col px-0">  
             <a href="#" data-toggle="modal" data-target="#reutronic" @click="AbrirModal('reutronic')">
-              <img src="{{ asset('/storage/imagenes/Reutronic/Registro.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
+              <img src="{{ asset('/storage/imagenes/Concurso_Fotografía2023/B_CFotografia.png')}}" class="img-fluid pr-xl-1 px-1 pb-1">
             </a>
           </div>
 

@@ -33,9 +33,11 @@
           <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
         </li>
         @endif
-        <li class="nav-item ">
+        @if(!$is_ce)
+                <li class="nav-item ">
                     <a class="nav-link text-nowrap" href="https://ambiental.uaslp.mx/controlescolar/">Portal de postulaciones<span class="sr-only"></span></a>
                 </li>
+        @endif
       </b-navbar-nav>
     </b-collapse>
     <div class="container justify-content-end">

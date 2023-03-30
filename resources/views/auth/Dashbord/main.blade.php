@@ -8,6 +8,7 @@
   const user = @json($user);
   const modules = @json($modules);
   const cursos_act = @json($object_ca);
+  const is_ce = @json($is_ce);
 
   // Additional data
    const url = '{{env('APP_URL')}}';
@@ -72,19 +73,22 @@
     </b-col>
     
     <b-col class="bg-white" align-self="stretch" lg="7" md="7" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
-      <!--<div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;">
-        <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
-          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" v-for="i in 3" :key="i">
-            <b-card img-src="https://img.freepik.com/vector-premium/senal-carretera-azul-circulo-blanco-simbolo-direccion-aislado-sobre-fondo-blanco_543062-91.jpg" style="max-width: 300px; " class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
+      <div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;" v-if="is_ce">
+        <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center" style="margin-top: 27px;">
+          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6">
+            <a href="https://ambiental.uaslp.mx/controlescolar/" style="color:#000;">
+          <b-card img-src="{{asset('/storage/imagenes/iconosInicio/Control_Escolar.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
               <template class="_card-header" #header>
                 <div>
+                  <h4 class="mt-1">Control Escolar</h4>
                 </div>
               </template>
             </b-card>
+            </a>
           </b-col>
         </b-row>
       </div>
-                -->
+              
       <div class="h-fluid my-2 border" style="border-radius: 15px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
@@ -114,7 +118,7 @@
           @endverbatim
         </b-row>
       </div>
-      <div class="h-fluid my-2 border" style="border-radius: 15px; height:200px;">
+      <div class="h-fluid my-2 border" style="border-radius: 15px; height:200px; ">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
             <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px;">
