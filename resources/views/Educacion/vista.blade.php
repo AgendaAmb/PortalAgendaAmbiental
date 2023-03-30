@@ -174,7 +174,7 @@ gestión y vinculación con la sociedad.';
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-10"
-                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'"><br><br>
                             <h4>Segundo Concurso de Fotografía por la Sostenibilidad: Responsabilidad Universitaria en el Desarrollo Sostenible</h4>
                             <br><br>
                             <h4>Dirigido a</h4>
