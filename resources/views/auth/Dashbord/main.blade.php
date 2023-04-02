@@ -171,6 +171,7 @@
 @verbatim
 <modal-template v-if="selected != null" v-bind:ws="selected" v-bind:estadistic_data="estadistic_data" v-bind:user="user" v-bind:invoice_data="invoice_data">
   <template #event-form-data>
+    <minirodada-section v-if="selected.type == 'minirodada'" v-bind:minirodada_data="minirodada_data"></minirodada-section>
     <reutronic-section v-if="selected.type == 'reutronic'" v-bind:reutronic_data="reutronic_data"></reutronic-section>
     <unitrueque-section v-if="selected.type == 'unitrueque'" v-bind:unitrueque_data="unitrueque_data"></unitrueque-section>
     <cursos-actualizacion-section v-if="selected.type == 'cursos_actualizacion'" v-bind:cursos_actualizacion_data="cursos_actualizacion_data"></cursos-actualizacion-section>

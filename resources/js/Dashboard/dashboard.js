@@ -6,6 +6,7 @@ import UnitruequeSection from './components/UnitruequeSection.vue';
 import ReutronicSection from './components/ReutronicSection.vue';
 import CursosActualizacionSection from './components/CursosActualizacionSection.vue';
 import UnirutaSection from './components/UnirutaSection.vue';
+import MiniRodadaSection from './components/MiniRodadaSection.vue';
 
 window.Vue = require('vue').default
 
@@ -16,15 +17,17 @@ Vue.use(BootstrapVueIcons);
 const app = new Vue({
     el: '#app',
     components: {
+        MiniRodadaSection: MiniRodadaSection,
         ModalTemplate: ModalTemplate,
         UnitruequeSection: UnitruequeSection,
         ReutronicSection: ReutronicSection,
         CursosActualizacionSection: CursosActualizacionSection,
-        UnirutaSection: UnirutaSection
+        UnirutaSection: UnirutaSection,
     },
     data: {
         // UI
         user: user,
+        is_ce,
         spinner: false,
         // Pass
         modal: modal,       //abrir modal de redirección
@@ -53,6 +56,7 @@ const app = new Vue({
         reutronic_data:{prev:null,material:'', specs:'', reason:''},
         estadistic_data:{isAsistencia:null, assisted_to:'', insterested_on_events:null, comments:''},
         uniruta_data:{health_condition: null, contact_name: '', contact_tel:''},
+        minirodada_data:{kids: new Array(),kidslength: 1,},
         cursos_actualizacion_data:[],
     },
     mounted() {

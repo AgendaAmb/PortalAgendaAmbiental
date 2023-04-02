@@ -1,52 +1,42 @@
 <template>
-    <b-modal
-        id="modal-template" 
-        size="lg" 
-        title="Registro" 
-        scrollable
-        centered
-        hide-backdrop
-        no-close-on-backdrop
-        header-bg-variant="light" 
-        footer-bg-variant="light" 
-        button-size="sm"
-        content-class="shadow"
-        >
-            <template #modal-header="{ close }">
-                <h4 class="modal-title" style="color:115089"><b v-if="ws.type == 'cursos_actualizacion'">Registro Cursos de Actualización</b>
-                <b v-else>Registro {{ws.name}} </b> </h4>
-                <b-button size="sm" variant="outline-danger rounded" @click="close()">
-                    <b-icon icon="x-circle" scale="2"></b-icon>
-                </b-button>
-            </template>
+    <b-modal id="modal-template" size="lg" title="Registro" scrollable centered hide-backdrop no-close-on-backdrop
+        header-bg-variant="light" footer-bg-variant="light" button-size="sm" content-class="shadow">
+        <template #modal-header="{ close }">
+            <h4 class="modal-title" style="color:115089"><b v-if="ws.type == 'cursos_actualizacion'">Registro Cursos de
+                    Actualización</b>
+                <b v-else>Registro {{ ws.name }} </b>
+            </h4>
+            <b-button size="sm" variant="outline-danger rounded" @click="close()">
+                <b-icon icon="x-circle" scale="2"></b-icon>
+            </b-button>
+        </template>
 
-            <template #modal-footer="{}">
-                <b-button
-                    v-if="!isRegistering"
-                    type="submit" 
-                    size="sm" 
-                    variant="success"
-                    @click="onSubmit()"
-                    >
-                    Registrarme
-                </b-button>
-                <b-button v-if="isRegistering"
-                    size="sm" 
-                    variant="success" 
-                    disabled
-                    >
-                    <b-spinner small type="grow"></b-spinner>
-                    Registrando...
-                </b-button>
-            </template>
-
+        <template #modal-footer="{}">
+            <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input ml-20 checkbox-input" type="checkbox" id="gridCheck" v-model="checked" required>
+      <label class="form-check-label ml-2 checkbox-label" for="gridCheck">
+        Al enviar la información confirmo que he leído y acepto el
+        <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
+      </label>
+    </div>
+  </div>
+  <b-button v-if="!isRegistering" type="submit" size="sm" variant="success" @click="onSubmit()" :disabled="!checked">
+    Registrarme
+  </b-button>
+  <b-button v-if="isRegistering" size="sm" variant="success" disabled>
+    <b-spinner small type="grow"></b-spinner>
+    Registrando...
+  </b-button>
+        </template>
         <div>
             <b-form>
                 <user-info-section v-bind:user="user"></user-info-section>
                 <hr>
                 <slot name="event-form-data"></slot>
                 <hr>
-                <invoicedata-section v-if="ws.payment_required == 1" v-bind:invoice_data="invoice_data"></invoicedata-section>
+                <invoicedata-section v-if="ws.payment_required == 1"
+                    v-bind:invoice_data="invoice_data"></invoicedata-section>
                 <hr v-if="ws.payment_required == 1">
                 <statistics-section v-bind:estadistic_data="estadistic_data"></statistics-section>
             </b-form>
@@ -60,7 +50,7 @@ import UserInfoSection from './UserInfoSection.vue'
 import InvoicedataSection from './InvoicedataSection.vue'
 
 export default {
-    name:'modal-template',
+    name: 'modal-template',
     components: {
         StatisticsSection: StatisticsSection,
         UserInfoSection: UserInfoSection,
@@ -68,22 +58,40 @@ export default {
     },
     data() {
         return {
-            isRegistering: false
+            isRegistering: false,
+            checked: false
         }
     },
-    props:{
+    props: {
         ws: Object,
         estadistic_data: Object,
         user: Object,
         invoice_data: Object
     },
     methods: {
-        onSubmit(){
+        onSubmit() {
             this.isRegistering = true;
             this.$parent.registerEvent(this.$props.ws);
             this.isRegistering = false;
             this.$bvModal.hide('modal-template');
         },
+        validarFormulario() {
+            if (!document.getElementById('gridCheck').checked) {
+                alert('Debe aceptar el aviso de privacidad para enviar el formulario.');
+                return false;
+            }
+            return true;
+        }
     }
 }
 </script>
+<style>
+  .checkbox-label {
+    position: relative;
+    left: -100px;
+  }
+  .checkbox-input{
+    position: relative;
+    left: -100px;
+  }
+</style>
