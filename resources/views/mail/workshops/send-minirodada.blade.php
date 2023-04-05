@@ -1,4 +1,5 @@
-@component('mail::message', [ 'header_color' => $header_color, 'font_color' => $footer_color])
+@component('mail::message', [ 'header_color' => '#115089', 'header_bottom_color' => '#115089', 'eje_trabajo' => 'UNIBICI' ])
+
 Estimado(a) usuario(a):<br><br>
 
 <p>Gracias por inscribirse a la Minirodada 2023.</p>

@@ -71,18 +71,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'minirodada-section',
-  props: {
-    minirodada_data: Object
-  },
+  props: ['minirodada_data'],
   methods: {
     addKid: function addKid() {
-      if (minirodada_data.kidslength < 3) {
+      if (this.minirodada_data.kidslength < 3) {
         var user_Data = {
           name: '',
           age: 0
         };
-        minirodada_data.kids.push(user_Data);
-        minirodada_data.kidslength += 1;
+        this.minirodada_data.kids.push(user_Data);
+        this.minirodada_data.kidslength += 1;
       }
     }
   }
@@ -182,6 +180,26 @@ __webpack_require__.r(__webpack_exports__);
     estadistic_data: Object
   },
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'unirodada-section',
+  props: {
+    unirodada_data: Object
+  }
 });
 
 /***/ }),
@@ -470,27 +488,24 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h5", {
-    staticClass: "modal-title3",
-    attrs: {
-      id: "exampleModalLabel"
-    }
-  }, [_vm._v("Datos de los participantes")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", [_vm._l(_vm.minirodada_data.kidslength, function (index) {
-    return _c("div", {
+  return _c("div", [_vm._m(0), _vm._v(" "), _vm._l(_vm.minirodada_data.kidslength, function (index) {
+    return _c("b-form-group", {
       key: index,
-      staticClass: "mx-2 px-2 py-2 bg-light"
+      attrs: {
+        id: "input-group-2"
+      }
     }, [_c("h5", {
       staticClass: "modal-title3",
       attrs: {
         id: "exampleModalLabel"
       }
-    }, [_vm._v("Participante @" + _vm._s(index))]), _vm._v(" "), _c("div", {
+    }, [_vm._v("Participante " + _vm._s(index))]), _vm._v(" "), _c("div", {
       staticClass: "form-row"
     }, [_c("div", {
       staticClass: "form-group col-10 was-validated"
     }, [_c("label", {
       attrs: {
-        "for": "email"
+        "for": "name"
       }
     }, [_vm._v("Nombre completo")]), _vm._v(" "), _c("input", {
       directives: [{
@@ -502,9 +517,9 @@ var render = function render() {
       staticClass: "form-control",
       attrs: {
         type: "text",
-        id: "email",
+        id: "name",
         required: "",
-        name: "email"
+        name: "name"
       },
       domProps: {
         value: _vm.minirodada_data.kids[index - 1].name
@@ -519,7 +534,7 @@ var render = function render() {
       staticClass: "form-group col-2 was-validated"
     }, [_c("label", {
       attrs: {
-        "for": "tel"
+        "for": "age"
       }
     }, [_vm._v("Edad")]), _vm._v(" "), _c("input", {
       directives: [{
@@ -531,9 +546,9 @@ var render = function render() {
       staticClass: "form-control",
       attrs: {
         type: "text",
-        id: "tel",
+        id: "age",
         required: "",
-        name: "tel"
+        name: "age"
       },
       domProps: {
         value: _vm.minirodada_data.kids[index - 1].age
@@ -546,23 +561,30 @@ var render = function render() {
       }
     })])])]);
   }), _vm._v(" "), _c("div", {
-    staticClass: "form-group col-12"
-  }, [_vm.minirodada_data.kidslength < 3 ? _c("button", {
-    staticClass: "btn btn-success btn-sm",
-    staticStyle: {
-      background: "#0160AE"
-    },
+    staticClass: "form-group col-12 d-flex"
+  }, [_vm.minirodada_data.kidslength < 3 ? _c("b-button", {
+    staticClass: "ml-auto",
     attrs: {
-      type: "button"
+      type: "submit",
+      size: "sm",
+      variant: "success"
     },
     on: {
-      click: function click($event) {
-        return _vm.addKid();
-      }
+      click: _vm.addKid
     }
-  }, [_vm._v("\n                Agregar asistente\n            ")]) : _vm._e()])], 2), _vm._v(" "), _c("hr")]);
+  }, [_vm._v("\n            Agregar asistente\n        ")]) : _vm._e()], 1), _vm._v(" "), _c("h6", {
+    staticStyle: {
+      color: "red"
+    }
+  }, [_vm._v("\n        Se te hará llegar por correo electrónico un archivo adjunto, por favor, descarga, completa y entrega el día del\n        evento, el formato adjunto, esto es para cada participante que registres. Gracias\n    ")])], 2);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "modal-title3"
+  }, [_c("b", [_vm._v("Datos de los participantes")])]);
+}];
 render._withStripped = true;
 
 
@@ -607,7 +629,7 @@ var render = function render() {
           staticStyle: {
             color: "115089"
           }
-        }, [_vm.ws.type == "cursos_actualizacion" ? _c("b", [_vm._v("Registro Cursos de\n                  Actualización")]) : _c("b", [_vm._v("Registro " + _vm._s(_vm.ws.name) + " ")])]), _vm._v(" "), _c("b-button", {
+        }, [_vm.ws.type == "cursos_actualizacion" ? _c("b", [_vm._v("Registro Cursos de\n                Actualización")]) : _c("b", [_vm._v("Registro " + _vm._s(_vm.ws.name) + " ")])]), _vm._v(" "), _c("b-button", {
           attrs: {
             size: "sm",
             variant: "outline-danger rounded"
@@ -671,7 +693,7 @@ var render = function render() {
           attrs: {
             "for": "gridCheck"
           }
-        }, [_vm._v("\n      Al enviar la información confirmo que he leído y acepto el\n      "), _c("a", {
+        }, [_vm._v("\n                    Al enviar la información confirmo que he leído y acepto el\n                    "), _c("a", {
           attrs: {
             href: "http://transparencia.uaslp.mx/avisodeprivacidad"
           }
@@ -687,7 +709,7 @@ var render = function render() {
               return _vm.onSubmit();
             }
           }
-        }, [_vm._v("\n  Registrarme\n")]) : _vm._e(), _vm._v(" "), _vm.isRegistering ? _c("b-button", {
+        }, [_vm._v("\n            Registrarme\n        ")]) : _vm._e(), _vm._v(" "), _vm.isRegistering ? _c("b-button", {
           attrs: {
             size: "sm",
             variant: "success",
@@ -698,7 +720,7 @@ var render = function render() {
             small: "",
             type: "grow"
           }
-        }), _vm._v("\n  Registrando...\n")], 1) : _vm._e()];
+        }), _vm._v("\n            Registrando...\n        ")], 1) : _vm._e()];
       }
     }])
   }, [_vm._v(" "), _vm._v(" "), _c("div", [_c("b-form", [_c("user-info-section", {
@@ -952,6 +974,142 @@ var staticRenderFns = [function () {
   return _c("h5", {
     staticClass: "modal-title3"
   }, [_c("b", [_vm._v("Información estadística")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("h5", {
+    staticClass: "modal-title3",
+    staticStyle: {
+      color: "115089"
+    }
+  }, [_vm._v("- Contacto de emergencia")]), _vm._v(" "), _c("b-form-group", {
+    attrs: {
+      id: "input-group-2",
+      label: "Nombre del contacto",
+      "label-for": "input-2"
+    }
+  }, [_c("b-form-input", {
+    attrs: {
+      id: "input-2",
+      placeholder: "Nombre",
+      required: ""
+    },
+    model: {
+      value: _vm.unirodada_data.contact_name,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "contact_name", $$v);
+      },
+      expression: "unirodada_data.contact_name"
+    }
+  })], 1), _vm._v(" "), _c("b-form-group", {
+    attrs: {
+      id: "input-group-2",
+      label: "Teléfono de contacto",
+      "label-for": "input-2"
+    }
+  }, [_c("b-form-input", {
+    attrs: {
+      id: "input-2",
+      placeholder: "Numero de teléfono",
+      required: ""
+    },
+    model: {
+      value: _vm.unirodada_data.contact_tel,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "contact_tel", $$v);
+      },
+      expression: "unirodada_data.contact_tel"
+    }
+  })], 1), _vm._v(" "), _c("b-form-group", {
+    attrs: {
+      id: "input-group-2",
+      label: "Grupo Ciclista",
+      "label-for": "input-2"
+    }
+  }, [_c("b-form-input", {
+    attrs: {
+      id: "input-2",
+      placeholder: "Grupo ciclista",
+      required: ""
+    },
+    model: {
+      value: _vm.unirodada_data.group,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "group", $$v);
+      },
+      expression: "unirodada_data.group"
+    }
+  })], 1), _vm._v(" "), _c("h5", {
+    staticClass: "modal-title3",
+    staticStyle: {
+      color: "115089"
+    }
+  }, [_vm._v("- Información de salud")]), _vm._v(" "), _c("b-form-group", {
+    attrs: {
+      label: "Condición de salud"
+    }
+  }, [_c("b-form-group", [_c("b-form-radio", {
+    attrs: {
+      name: "some-radios",
+      value: "Excelente"
+    },
+    model: {
+      value: _vm.unirodada_data.health_condition,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "health_condition", $$v);
+      },
+      expression: "unirodada_data.health_condition"
+    }
+  }, [_vm._v("Excelente\n            ")]), _vm._v(" "), _c("b-form-radio", {
+    attrs: {
+      name: "some-radios",
+      value: "Buena"
+    },
+    model: {
+      value: _vm.unirodada_data.health_condition,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "health_condition", $$v);
+      },
+      expression: "unirodada_data.health_condition"
+    }
+  }, [_vm._v("Buena\n            ")]), _vm._v(" "), _c("b-form-radio", {
+    attrs: {
+      name: "some-radios",
+      value: "Mala"
+    },
+    model: {
+      value: _vm.unirodada_data.health_condition,
+      callback: function callback($$v) {
+        _vm.$set(_vm.unirodada_data, "health_condition", $$v);
+      },
+      expression: "unirodada_data.health_condition"
+    }
+  }, [_vm._v("Mala\n            ")])], 1)], 1)], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h5", {
+    staticClass: "modal-title3"
+  }, [_c("b", [_vm._v("Datos de uniruta")])]);
 }];
 render._withStripped = true;
 
@@ -45189,7 +45347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.checkbox-label {\n  position: relative;\n  left: -100px;\n}\n.checkbox-input{\n  position: relative;\n  left: -100px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.checkbox-label {\r\n    position: relative;\r\n    left: -100px;\n}\n.checkbox-input {\r\n    position: relative;\r\n    left: -100px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49316,6 +49474,45 @@ component.options.__file = "resources/js/Dashboard/components/StatisticsSection.
 
 /***/ }),
 
+/***/ "./resources/js/Dashboard/components/UnirodadaSection.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/Dashboard/components/UnirodadaSection.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UnirodadaSection.vue?vue&type=template&id=5aa7edce& */ "./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce&");
+/* harmony import */ var _UnirodadaSection_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UnirodadaSection.vue?vue&type=script&lang=js& */ "./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UnirodadaSection_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__.render,
+  _UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Dashboard/components/UnirodadaSection.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Dashboard/components/UnirutaSection.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/Dashboard/components/UnirutaSection.vue ***!
@@ -49529,6 +49726,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UnirodadaSection_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UnirodadaSection.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UnirodadaSection_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/Dashboard/components/UnirutaSection.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/Dashboard/components/UnirutaSection.vue?vue&type=script&lang=js& ***!
@@ -49675,6 +49888,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsSection_vue_vue_type_template_id_7c7d7522___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsSection_vue_vue_type_template_id_7c7d7522___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StatisticsSection.vue?vue&type=template&id=7c7d7522& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/StatisticsSection.vue?vue&type=template&id=7c7d7522&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UnirodadaSection_vue_vue_type_template_id_5aa7edce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UnirodadaSection.vue?vue&type=template&id=5aa7edce& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Dashboard/components/UnirodadaSection.vue?vue&type=template&id=5aa7edce&");
 
 
 /***/ }),
@@ -61897,8 +62127,8 @@ var __webpack_exports__ = {};
   !*** ./resources/js/Dashboard/dashboard.js ***!
   \*********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
-/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/icons/plugin.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
+/* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/icons/plugin.js");
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-toast-notification */ "./node_modules/vue-toast-notification/dist/index.min.js");
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_toast_notification_dist_theme_sugar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-toast-notification/dist/theme-sugar.css */ "./node_modules/vue-toast-notification/dist/theme-sugar.css");
@@ -61908,6 +62138,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CursosActualizacionSection_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/CursosActualizacionSection.vue */ "./resources/js/Dashboard/components/CursosActualizacionSection.vue");
 /* harmony import */ var _components_UnirutaSection_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/UnirutaSection.vue */ "./resources/js/Dashboard/components/UnirutaSection.vue");
 /* harmony import */ var _components_MiniRodadaSection_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/MiniRodadaSection.vue */ "./resources/js/Dashboard/components/MiniRodadaSection.vue");
+/* harmony import */ var _components_UnirodadaSection_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/UnirodadaSection.vue */ "./resources/js/Dashboard/components/UnirodadaSection.vue");
+
 
 
 
@@ -61919,17 +62151,20 @@ __webpack_require__.r(__webpack_exports__);
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 Vue.use((vue_toast_notification__WEBPACK_IMPORTED_MODULE_0___default()));
-Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_8__.BootstrapVue);
-Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_9__.BootstrapVueIcons);
+Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_9__.BootstrapVue);
+Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_10__.BootstrapVueIcons);
+Vue.component('minirodada-section', _components_MiniRodadaSection_vue__WEBPACK_IMPORTED_MODULE_7__["default"]);
+Vue.component('unirodada-section', _components_UnirodadaSection_vue__WEBPACK_IMPORTED_MODULE_8__["default"]);
 var app = new Vue({
   el: '#app',
   components: {
-    MiniRodadaSection: _components_MiniRodadaSection_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     ModalTemplate: _components_ModalTemplate_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     UnitruequeSection: _components_UnitruequeSection_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     ReutronicSection: _components_ReutronicSection_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     CursosActualizacionSection: _components_CursosActualizacionSection_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    UnirutaSection: _components_UnirutaSection_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    UnirutaSection: _components_UnirutaSection_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    MiniRodadaSection: _components_MiniRodadaSection_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    UnirodadaSection: _components_UnirodadaSection_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: {
     // UI
@@ -61995,8 +62230,17 @@ var app = new Vue({
       contact_tel: ''
     },
     minirodada_data: {
-      kids: new Array(),
+      kids: [{
+        name: '',
+        age: ''
+      }],
       kidslength: 1
+    },
+    unirodada_data: {
+      health_condition: null,
+      contact_name: '',
+      contact_tel: '',
+      group: ''
     },
     cursos_actualizacion_data: []
   },
@@ -62077,22 +62321,44 @@ var app = new Vue({
     // Simple modal de evento ya registrado
     showRegisteredMsgBox: function showRegisteredMsgBox(ws) {
       var _this2 = this;
-      this.boxTwo = '';
-      this.$bvModal.msgBoxOk('Ya te encuentras registrado al evento', {
-        title: 'Confirmación',
-        size: 'sm',
-        buttonSize: 'sm',
-        okVariant: 'success',
-        okTitle: 'Cerrar',
-        headerClass: 'p-2 border-bottom-0',
-        footerClass: 'p-2 border-top-0',
-        centered: true,
-        hideBackdrop: true
-      }).then(function (value) {
-        _this2.boxTwo = value;
-      })["catch"](function (err) {
-        // An error occurred
-      });
+      if (ws.type == 'minirodada') {
+        this.boxTwo = '';
+        this.$bvModal.msgBoxOk('Por favor, descarga, completa y entrega el día del evento, el formato adjunto, esto es para cada participante que registres.       Gracias', {
+          title: 'REGISTRO COMPLETO',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'success',
+          okTitle: 'Descargar',
+          headerClass: 'p-2 border-bottom-0',
+          footerClass: 'p-2 border-top-0',
+          centered: true,
+          hideBackdrop: true
+        }).then(function (value) {
+          _this2.download();
+        })["catch"](function (err) {
+          // An error occurred
+        });
+      } else {
+        this.boxTwo = '';
+        this.$bvModal.msgBoxOk('Ya te encuentras registrado al evento', {
+          title: 'Confirmación',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'success',
+          okTitle: 'Cerrar',
+          headerClass: 'p-2 border-bottom-0',
+          footerClass: 'p-2 border-top-0',
+          centered: true,
+          hideBackdrop: true
+        }).then(function (value) {
+          _this2.boxTwo = value;
+        })["catch"](function (err) {
+          // An error occurred
+        });
+      }
+    },
+    download: function download() {
+      window.open(this.url + 'FormatoMinirodada');
     },
     //* Registro de evento
     registerEvent: function registerEvent(ws) {
@@ -62119,29 +62385,31 @@ var app = new Vue({
         case 'reutronic':
           data["additional_data"] = this.reutronic_data;
           break;
+        case 'minirodada':
+          data["additional_data"] = this.minirodada_data;
+          break;
+        case 'unirodada':
+          data["additional_data"] = this.unirodada_data;
+          break;
         default:
           break;
       }
       //console.log(data["additional_data"]);
       axios.post(this.url + 'WorkshopUserRegister', data).then(function (response) {
-        return console.log("subiendo: ", response.data)
-        // Actualizar datos UI
-
-        // this.user_workshops.push(ws), 
-        // this.uwss = this.uwss.filter(function(element){
-        //     return element != ws;
-        // }),
-        // this.workshops.forEach(i => {
-        //     if(i.id == ws.id){
-        //         i['registered'] = true; //Actualizar bandera
-        //         ws['registered'] = true;
-        //     }
-        // })
-        ;
+        return console.log("subiendo: ", response.data);
       })["catch"](function (err) {
         console.log(err);
       });
-      window.location.reload();
+      // Actualizar datos UI
+      this.user_workshops.push(ws), this.uwss = this.uwss.filter(function (element) {
+        return element != ws;
+      }), this.workshops.forEach(function (i) {
+        if (i.id == ws.id) {
+          i['registered'] = true; //Actualizar bandera
+          ws['registered'] = true;
+        }
+      });
+      //window.location.reload();
     }
   }
 });

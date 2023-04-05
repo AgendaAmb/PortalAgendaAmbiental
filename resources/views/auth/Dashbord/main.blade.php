@@ -11,7 +11,7 @@
   const is_ce = @json($is_ce);
 
   // Additional data
-   const url = '{{env('APP_URL')}}';
+  const url = '{{env('APP_URL ')}}';
   // const url = 'https://ambiental.uaslp.mx/'
   //const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
@@ -56,7 +56,7 @@
               </b-card-body>
             </b-collapse>
           </b-card>
-          
+
           <b-card no-body class="_card">
             <b-card-header header-tag="header" class="p-0" role="tab">
               <b-button class="_card-button" block v-b-toggle.accordion-3>MAPA DEL SITIO</b-button>
@@ -71,24 +71,24 @@
         </div>
       </div>
     </b-col>
-    
+
     <b-col class="bg-white" align-self="stretch" lg="7" md="7" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
       <div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;" v-if="is_ce">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center" style="margin-top: 27px;">
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6">
             <a href="https://ambiental.uaslp.mx/controlescolar/" style="color:#000;">
-          <b-card img-src="{{asset('/storage/imagenes/iconosInicio/Control_Escolar.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
-              <template class="_card-header" #header>
-                <div>
-                  <h4 class="mt-1">Control Escolar</h4>
-                </div>
-              </template>
-            </b-card>
+              <b-card img-src="{{asset('/storage/imagenes/iconosInicio/Control_Escolar.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
+                <template class="_card-header" #header>
+                  <div>
+                    <h4 class="mt-1">Control Escolar</h4>
+                  </div>
+                </template>
+              </b-card>
             </a>
           </b-col>
         </b-row>
       </div>
-              
+
       <div class="h-fluid my-2 border" style="border-radius: 15px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
@@ -105,8 +105,8 @@
               </template>
             </b-card>
           </b-col>
-          @verbatim            
-          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6"  style="margin-top:20px;" v-for="ws in workshops" v-bind:key="ws.id" >
+          @verbatim
+          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-for="ws in workshops" v-bind:key="ws.id">
             <b-card :img-src=ws.imgsrc style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(ws)">
               <template class="_card-header" #header>
                 <div>
@@ -171,13 +171,20 @@
 @verbatim
 <modal-template v-if="selected != null" v-bind:ws="selected" v-bind:estadistic_data="estadistic_data" v-bind:user="user" v-bind:invoice_data="invoice_data">
   <template #event-form-data>
-    <minirodada-section v-if="selected.type == 'minirodada'" v-bind:minirodada_data="minirodada_data"></minirodada-section>
     <reutronic-section v-if="selected.type == 'reutronic'" v-bind:reutronic_data="reutronic_data"></reutronic-section>
     <unitrueque-section v-if="selected.type == 'unitrueque'" v-bind:unitrueque_data="unitrueque_data"></unitrueque-section>
+    <minirodada-section v-if="selected.type == 'minirodada'" v-bind:minirodada_data="minirodada_data"></minirodada-section>
     <cursos-actualizacion-section v-if="selected.type == 'cursos_actualizacion'" v-bind:cursos_actualizacion_data="cursos_actualizacion_data"></cursos-actualizacion-section>
+    <uniruta-section v-if="selected.type == 'uniruta'" v-bind:uniruta_data="uniruta_data"></uniruta-section>
+    <unirodada-section v-if="selected.type == 'unirodada'" v-bind:unirodada_data="unirodada_data"></unirodada-section>
   </template>
 </modal-template>
 @endverbatim
 @endsection
+
+<!--Agregar mix para subir a producción
 <script src="{{ mix('js/navbar.js') }}" defer></script>
 <script src="{{ mix('js/dashboard.js') }}" defer></script>
+-->
+<script src="{{ ('js/navbar.js') }}" defer></script>
+<script src="{{ ('js/dashboard.js') }}" defer></script>

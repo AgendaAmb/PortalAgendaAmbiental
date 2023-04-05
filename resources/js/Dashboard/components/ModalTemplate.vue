@@ -13,21 +13,23 @@
 
         <template #modal-footer="{}">
             <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input ml-20 checkbox-input" type="checkbox" id="gridCheck" v-model="checked" required>
-      <label class="form-check-label ml-2 checkbox-label" for="gridCheck">
-        Al enviar la información confirmo que he leído y acepto el
-        <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
-      </label>
-    </div>
-  </div>
-  <b-button v-if="!isRegistering" type="submit" size="sm" variant="success" @click="onSubmit()" :disabled="!checked">
-    Registrarme
-  </b-button>
-  <b-button v-if="isRegistering" size="sm" variant="success" disabled>
-    <b-spinner small type="grow"></b-spinner>
-    Registrando...
-  </b-button>
+                <div class="form-check">
+                    <input class="form-check-input ml-20 checkbox-input" type="checkbox" id="gridCheck" v-model="checked"
+                        required>
+                    <label class="form-check-label ml-2 checkbox-label" for="gridCheck">
+                        Al enviar la información confirmo que he leído y acepto el
+                        <a href="http://transparencia.uaslp.mx/avisodeprivacidad"> aviso de privacidad.</a>
+                    </label>
+                </div>
+            </div>
+            <b-button v-if="!isRegistering" type="submit" size="sm" variant="success" @click="onSubmit()"
+                :disabled="!checked">
+                Registrarme
+            </b-button>
+            <b-button v-if="isRegistering" size="sm" variant="success" disabled>
+                <b-spinner small type="grow"></b-spinner>
+                Registrando...
+            </b-button>
         </template>
         <div>
             <b-form>
@@ -86,12 +88,12 @@ export default {
 }
 </script>
 <style>
-  .checkbox-label {
+.checkbox-label {
     position: relative;
     left: -100px;
-  }
-  .checkbox-input{
+}
+
+.checkbox-input {
     position: relative;
     left: -100px;
-  }
-</style>
+}</style>

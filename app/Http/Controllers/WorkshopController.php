@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreWorkshopRequest;
 use App\Mail\RegisteredWorkshops;
 use App\Mail\RegisteredPhotoContest;
+use App\Mail\RegisteredMiniRodada;
+use App\Mail\RegisretedUnirodada;
+use App\Mail\RegisteredUnirodada;
 use App\Mail\SendCompetencias;
 use App\Mail\SendCursoCompetenciasMail;
 use App\Models\Auth\User;
@@ -25,6 +28,7 @@ use App\Models\ReutronicUser;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+
 
 class WorkshopController extends Controller
 {
@@ -266,9 +270,6 @@ class WorkshopController extends Controller
         return response()->json(['Message' => 'Curso registrado'], JsonResponse::HTTP_OK);
     }
 
-    //* ESTA FUNCION REGISTRA UN WORKSHOP (SIN DATOS ADICIONALES, SOLO TABLA WORKSHOP_USER) 
-    // TODO - Validar 
-    // TODO - Registro de datos adicionales al workshop
     // TODO - Validar Fechas de registro
     public function WorkshopUserRegister(Request $request)
     {
@@ -354,7 +355,7 @@ class WorkshopController extends Controller
                             'Cantidad' => $request['additional_data']['unidad'],
                             'EmpresaParticipante' => $request['additional_data']['empresa'],
                         ]);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     echo "error";
                 }
             }
@@ -369,19 +370,61 @@ class WorkshopController extends Controller
                             'detalles' => $request['additional_data']['specs'],
                             'razondeuso' => $request['additional_data']['reason'],
                         ]);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     echo "error";
                 }
             }
-        } catch (\Exception $e) {
+            //Checamos si es minirodada 2023 y lo agregamos, realmente funciona con cualquier minirodada, sólo se tiene que cambiar el id del curso
+            else if ($workshop_model->id == 48) {
+                try {
+                    //echo $request['additional_data']['kids'][0]['name'];
+                    foreach ($request['additional_data']['kids'] as $member) {
+                        DB::table('minirodada_users')->insert(
+                            [
+                                'user_workshop_id' => $ws[0]->id,
+                                'name' => $member['name'],
+                                'age' => (int) $member['age'],
+                            ]
+                        );
+                    }
+                } catch (Exception $e) {
+                    echo "error";
+                }
+            }
+            //Checamos si es rodada centenario 2023, el cual es de tipo unirodada por lo tanto los datos adicionales van a la tabla unirodada_users
+            else if ($workshop_model->id == 49) {
+                try {
+                    $user_workshop->unirodadaUser()->create([
+                        'user_workshop_id' => $ws[0]->id,
+                        'emergency_contact' => $request['additional_data']['contact_name'],
+                        'emergency_contact_phone' => $request['additional_data']['contact_tel'],
+                        'group' => $request['additional_data']['group'],
+                        'health_condition' => $request['additional_data']['health_condition'],
+                    ]);
+                } catch (Exception $e) {
+                    echo "error";
+                }
+            }
+        } catch (Exception $e) {
             return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
         }
-        if ($workshop_model->id == 47) {
-            echo "Fotografía";
-            Mail::to($user)->send(new RegisteredPhotoContest($workshop_model));
-        }
-         else {
-            Mail::to($user)->send(new RegisteredWorkshops($workshop_model));
+        //Switch-case para enviar los correos ya que dependiendo del curso registrado, se envía diferente información
+        switch ($workshop_model->id) {
+            case 47:
+                //echo "Fotografía";
+                Mail::to($user)->send(new RegisteredPhotoContest($workshop_model));
+                break;
+            case 48:
+                //echo "Minirodada";
+                Mail::to($user)->send(new RegisteredMiniRodada($workshop_model));
+                break;
+            case 49:
+                //echo "Rodada Centenario";
+                Mail::to($user)->send(new RegisteredUnirodada($workshop_model));
+                break;
+            default:
+                Mail::to($user)->send(new RegisteredWorkshops($workshop_model));
+                break;
         }
         return response()->json(['data' => 'ok'], JsonResponse::HTTP_OK);
     }
@@ -623,13 +666,12 @@ class WorkshopController extends Controller
     public function FormatoMinirodada()
     {
         //PDF file is stored under project/public/download/info.pdf
-        $file = "./download/FormatoMinirodada.pdf";
-
+        $file = "./download/Carta_responsiva_Minirodada.pdf";
         $headers = [
             'Content-Type' => 'application/pdf',
         ];
 
-        return response()->download($file, 'FormatoMiniRodadaMMUS2022.pdf', $headers);
+        return response()->download($file, 'FormatoMiniRodada2023.pdf', $headers);
     }
 
 

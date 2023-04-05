@@ -2,16 +2,13 @@
 Estimado(a) usuario(a):
 <br>
 <br>
-Gracias por llevar a cabo su pre-registro para la Uniruta Cerro de San Pedro.
+Gracias por llevar a cabo su pre-registro para la Rodada Centenario 2023
 <br>
 <br>
-Por medio del presente se les anexa un formato de carta responsiva, la cual deberá ser llenada en su totalidad y entregada en las instalaciones de la Agenda Ambiental para seguir con el proceso de registro para la Uniruta Cerro de San Pedro.
+Por medio del presente se les anexa un formato de carta responsiva, la cual deberá ser llenada en su totalidad y entregada en las instalaciones de la Agenda Ambiental para seguir con el proceso de registro para la Rodada Centenario 2023
 <br>
 <br>
 Se les recuerda que, para el recorrido, es recomendable contar con gorra o sombrero, tenis o botas cómodas, además de una mochila en donde guardar lo esencial para viajar (agua, snack de ruta, bloqueador, chamarra, repelente, desinfectante de uso personal, papel higiénico, silbato, powerbank, entre otros).
-<br>
-<br>
-Al terminar la ruta se llevará a cabo una convivencia, en la cual se ofrecerá barbacoa preparada de forma artesanal al estilo de la región, y se considera una cooperación sugerida de $90.00 (noventa pesos mexicanos).
 <br>
 <br>
 <b>Una vez entregada la carta responsiva llena, su proceso de inscripción habrá concluido exitosamente.</b>
