@@ -253,7 +253,7 @@
           </div>
         </div>
 
-        <!--<div class="carousel-item ">
+        <div class="carousel-item ">
           <div class="slide-box">
             <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
               <img src="{{ asset('/storage/imagenes/Unibici/B_RCentenario1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
@@ -263,11 +263,11 @@
 
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href="{{route('Unibici',['nombreModal'=> 'MiniRodada'])}}">
+            <a href="{{route('Unibici',['nombreModal'=> 'Minirodada'])}}">
               <img src="{{ asset('/storage/imagenes/Unibici/B_Minirodada1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>-->
+        </div>
 
         <div class="carousel-item ">
           <div class="slide-box">
