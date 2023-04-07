@@ -36,8 +36,8 @@
         <div class="nav nav-tabs justify-content-around">
             <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#Minirodada" role="tab"
                 aria-controls="nav-home" aria-selected="true"> Unirodada del día del niño 2023</a>
-            <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#Foro" role="tab"
-                aria-controls="nav-home" aria-selected="true"> Foro Sistema de Movilidad Urbana</a>    
+            <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#RCentenario" role="tab"
+                aria-controls="nav-home" aria-selected="true"> Rodada del Día de la Tierra</a>
         </div>
     </div>
 
