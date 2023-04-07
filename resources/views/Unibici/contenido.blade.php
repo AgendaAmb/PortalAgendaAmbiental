@@ -34,8 +34,8 @@
 
     <div class="mt-1 col-md-12 col-sm-12 p-0">
         <div class="nav nav-tabs justify-content-around">
-            <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#UnirodadaRios" role="tab"
-                aria-controls="nav-home" aria-selected="true"> Unirodada por los ríos 2022</a> 
+            <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#Minirodada" role="tab"
+                aria-controls="nav-home" aria-selected="true"> Unirodada del día del niño 2023</a>
             <a class="nav-link w-50 p-1 m-0" data-toggle="modal" data-target="#Foro" role="tab"
                 aria-controls="nav-home" aria-selected="true"> Foro Sistema de Movilidad Urbana</a>    
         </div>
@@ -181,6 +181,174 @@
                                                 como botón en esta página.</li>
                                             <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
                                             <li>Se te enviará un correo en un lapso de 48 horas con la ficha de pago.</li>
+                                        </ol>
+                                        <br><br>
+                                        <h3 style="color: #5c94d7;">Informes</h3>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Minirodada" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body py-0">
+                    <div class="col-12 mb-4 ml-3 p-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                                <img src="{{asset('storage/imagenes/Unibici/Cartel_Minirodada.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href={{route('Bienvenida',['nombreModal'=> 'Minirodada'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                            </div>
+                            <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href="{{asset('storage/imagenes/Unibici/Cartel_MInirodada.png')}}"
+                                    class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                    download="Cartel_MInirodada.png">CARTEL</a>
+                            </div>
+
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <br><br>
+                                <h4>Unirodada del día del niño</h4><br><br>
+                                <div class="elementor-text-editor elementor-clearfix">
+                                    <div style="font-size: 14px; font-family: 'Myraid light';">
+                                        <p align="center">Organiza Unibici de Agenda Ambiental<br>Sábado 29 de abril del 2023<br>9:00 - 12:00 horas<br><br></p>
+                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
+                                        <p>Niños de todas las edades, comunidad universitaria y público en general.</p><br>
+                                        <h3 style="color: #5c94d7;">Punto de encuentro con niños:</h3>
+                                        <p>Frente al planetario del Parque Tangamanga I.</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
+                                        <p>Promover la movilidad urbana sostenible, la implementación de ciudades incluyentes, sanas y seguras, la divulgación y promoción del correcto uso de la bicicleta como medio de transporte.</p>
+                                        <br>
+                                        <br>
+                                        <h5 align="center">EVENTO SIN COSTO</h5>
+                                        <br>
+                                        <br>
+                                        <p align="center">No olvides llevar agua, casco y bicicleta en buen estado.</p>
+                                        <br>
+                                        <p align="center">Contaremos con apoyo de Protección Civil Universitaria,
+                                            paramédicos, camioneta de arrastre, bloquedores y protocolo de niños ciclistas.</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Registro:</h3>
+                                        <p>Pasos para registro de participantes:</p>
+                                        <ol>
+                                            <li>Llena correctamente el formulario de registro en línea que se encuentra
+                                                como botón en esta página.</li>
+                                            <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
+                                            <li>Se te enviará un correo en un lapso de 48 horas con detalles de la Unirodada.</li>
+                                        </ol>
+                                        <br><br>
+                                        <h3 style="color: #5c94d7;">Informes</h3>
+                                        <p>Agenda Ambiental de la UASLP<br>Universidad Autónoma de San Luis Potosí<br>Manuel Nava No. 201, segundo piso<br>Zona Universitaria, C.P. 78210<br>San Luis Potosí, S.L.P.<br>Tel. 826-2300 ext. 7210<br><a href="mailto:unibici@uaslp.mx">unibici@uaslp.mx</a></p>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="RCentenario" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body py-0">
+                    <div class="col-12 mb-4 ml-3 p-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                                <img src="{{asset('storage/imagenes/Unibici/Cartel_RCentenario.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
+
+                            <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href={{route('Bienvenida',['nombreModal'=> 'Centenario'])}} class="btn btn-secondary bg-light  text-muted downloadBtn "
+                                role="button">REGISTRAR</a>
+                            </div>
+                            <div class="col-5  col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                                <a href="{{asset('storage/imagenes/Unibici/Cartel_RCentenario.png')}}"
+                                    class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                    download="Cartel_RCentenario.png">CARTEL</a>
+                            </div>
+
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10"
+                                style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                                <br><br>
+                                <h4>Rodada del Día de la Tierra</h4><br><br>
+                                <div class="elementor-text-editor elementor-clearfix">
+                                    <div style="font-size: 14px; font-family: 'Myraid light';">
+                                        <p align="center">Organiza Unibici de Agenda Ambiental<br>Sábado 22 de abril del 2023<br>7:00 - 12:00 horas<br><br></p>
+                                        <h3 style="color: #5c94d7;">Dirigido a:</h3>
+                                        <p>Comunidad universitaria ciclista y público en general.</p><br>
+                                        <h3 style="color: #5c94d7;">Punto de salida y regreso:</h3>
+                                        <p>Zona Universitaria Poniente (Frente al edificio de Finanzas).</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Punto de encuentro:</h3>
+                                        <p>Zona Universitaria Centro (Facultad de Derecho y Facultad de Contaduría y Administración).</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Punto de llegada:</h3>
+                                        <p>Facultad de Agronomía y Veterinaria.</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Objetivo:</h3>
+                                        <p>Promover el evento del Día de la Tierra, la movilidad urbana sostenible, la implementación de ciudades incluyentes, sanas y seguras, la divulgación y promoción del correcto uso de la bicicleta como medio de transporte.</p>
+                                        <br>
+                                        <br>
+                                        <h5 align="center">EVENTO SIN COSTO</h5>
+                                        <br>
+                                        <br>
+                                        <p align="center">No olvides llevar agua, casco y bicicleta en buen estado.</p>
+                                        <br>
+                                        <p align="center">Contaremos con apoyo de Protección Civil Universitaria,
+                                            paramédicos, camioneta de arrastre y bloquedores.</p>
+                                        <br>
+                                        <h3 style="color: #5c94d7;">Registro:</h3>
+                                        <p>Pasos para registro de participantes:</p>
+                                        <ol>
+                                            <li>Llena correctamente el formulario de registro en línea que se encuentra
+                                                como botón en esta página.</li>
+                                            <li>Al finalizar y dar clic en el botón enviar, con esta primera etapa del proceso queda PRE-INSCRITO.</li>
+                                            <li>Se te enviará un correo en un lapso de 48 horas con detalles de la Unirodada.</li>
                                         </ol>
                                         <br><br>
                                         <h3 style="color: #5c94d7;">Informes</h3>
