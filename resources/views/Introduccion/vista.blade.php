@@ -50,32 +50,17 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="{{route('Unibici')}}">
-                <img src="{{asset('/storage/imagenes/Unibici/B_RCentenario1.png')}}" class="imgCaoursel "
+              <a href={{route('Unibici',['nombreModal'=> 'RCentenario'])}}>
+                <img src="{{asset('/storage/imagenes/Unibici/B_RCentenario1.png)}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href="{{route('Unibici')}}">
+              <a href={{route('Unibici',['nombreModal'=> 'RCentenario'])}}>
                 <img src="{{asset('/storage/imagenes/Unibici/B_RCentenario2.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
           </div>
         </div>
-
-        <!--<div class="carousel-item" data-interval="4000">
-          <div class="d-block">
-            <div class="slide-box">
-              <a href="{{route('Unibici',['nombreModal'=> 'Minirodada'])}}">
-                <img src="{{asset('/storage/imagenes/Unibici/B_Minirodada1.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-              <a href="{{route('Unibici',['nombreModal'=> 'Minirodada])}}">
-                <img src="{{asset('/storage/imagenes/Unibici/B_Minirodada2.png')}}" class="imgCaoursel "
-                  alt="First slide">
-              </a>
-            </div>
-          </div>
-        </div>-->
 
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
