@@ -50,6 +50,36 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
+              <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
+                <img src="{{asset('/storage/imagenes/Unibici/B_RCentenario1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
+                <img src="{{asset('/storage/imagenes/Unibici/B_RCentenario2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href="{{route('Unibici',['nombreModal'=> 'Minirodada'])}}">
+                <img src="{{asset('/storage/imagenes/Unibici/B_Minirodada1.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href="{{route('Unibici',['nombreModal'=> 'Minirodada])}}">
+                <img src="{{asset('/storage/imagenes/Unibici/B_Minirodada2.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
               <a href="{{route('Educacion',['nombreModal'=> 'ConcursoFotografia'])}}">
                 <img src="{{asset('/storage/imagenes/ConcursoFotografia/B_ConFoto1.png')}}" class="imgCaoursel "
                   alt="First slide">
@@ -250,6 +280,22 @@
                 <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel w-100 p-0 p-0"
                   alt="First slide">
                </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
+              <img src="{{ asset('/storage/imagenes/Unibici/B_RCentenario1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
+          </div>
+        </div>
+
+        <div class="carousel-item ">
+          <div class="slide-box">
+            <a href="{{route('Unibici',['nombreModal'=> 'MiniRodada'])}}">
+              <img src="{{ asset('/storage/imagenes/Unibici/B_Minirodada1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            </a>
           </div>
         </div>
 
