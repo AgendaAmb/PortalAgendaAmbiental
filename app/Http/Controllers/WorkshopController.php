@@ -412,15 +412,15 @@ class WorkshopController extends Controller
         switch ($workshop_model->id) {
             case 47:
                 //echo "Fotografía";
-                Mail::to($user)->send(new RegisteredPhotoContest($workshop_model));
+                Mail::mailer('smtp_imarec')->to($user)->send(new RegisteredPhotoContest($workshop_model));
                 break;
             case 48:
                 //echo "Minirodada";
-                Mail::to($user)->send(new RegisteredMiniRodada($workshop_model));
+                Mail::mailer('smtp_unibici')->to($user)->send(new RegisteredMiniRodada($workshop_model));
                 break;
             case 49:
                 //echo "Rodada Centenario";
-                Mail::to($user)->send(new RegisteredUnirodada($workshop_model));
+                Mail::mailer('smtp_unibici')->to($user)->send(new  RegisteredUnirodada($workshop_model));
                 break;
             default:
                 Mail::to($user)->send(new RegisteredWorkshops($workshop_model));

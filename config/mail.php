@@ -75,7 +75,6 @@ return [
             'timeout' => null,
             'auth_mode' => null,
         ],
-
         'smtp_uniruta' => [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),

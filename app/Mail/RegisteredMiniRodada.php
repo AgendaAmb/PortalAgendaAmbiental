@@ -32,7 +32,7 @@ class RegisteredMiniRodada extends Mailable
      */
     public function build()
     {
-        return $this->from('rtic.ambiental@uaslp.mx', 'UNIBICI')
+        return $this->from('unibici@uaslp.mx', 'UNIBICI')
                     ->subject('Confirmación de registro a MiniRodada 2023')
                     ->markdown('mail.workshops.send-minirodada', [
                         'workshops' => $this->workshops,
