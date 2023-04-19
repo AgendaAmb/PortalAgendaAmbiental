@@ -30,6 +30,8 @@
                 <!--Cabecera de la tabla-->
                 <thead>
                     <tr>
+                        <th class="d-none"></th>
+                        
                         <th>Acciones</th>
                         <th>Clave única/RPE</th>
 
@@ -75,34 +77,26 @@
                 <tbody>
                     @foreach ($users as $user)
                     <tr>
+                        <td class="d-none"></td>
                         <!--Pendiente-->
                         @if (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                        @if ($user->workshop_id == 6 ||
-                        $user->workshop_id == 10 ||
-                        $user->workshop_id == 12 ||
-                        $user->workshop_id == 15 ||
-                        $user->workshop_id == 23 ||
-                        $user->workshop_id == 35 ||
-                        $user->workshop_id == 36 ||
-                        $user->workshop_id == 38 ||
-                        $user->workshop_id == 39)
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDetails" @click="cargarDetalles('{{json_encode($user)}}')">
-                                Detalles
-                                <i class="fas fa-eye ml-2"></i>
-                            </button>
-                        </td>
-                        @else
-                        <td>Sin detalles</td>
-                        @endif
-
+                            <td>
+                                @if ($user->button == 0)
+                                    Sin detalles.
+                                @else
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDetails" @click="cargarDetalles('{{json_encode($user)}}')">
+                                        Detalles
+                                        <i class="fas fa-eye ml-2"></i>
+                                    </button>
+                                @endif
+                            </td>
                         @elseif (Auth::user()->hasRole('helper'))
-                        <td>
-                            <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
-                                <i class="fas fa-edit"></i>
-                                <small>Enviar ficha de pago</small>
-                            </a>
-                        </td>
+                            <td>
+                                <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
+                                    <i class="fas fa-edit"></i>
+                                    <small>Enviar ficha de pago</small>
+                                </a>
+                            </td>
                         @endif
 
                         <!--Clave unica/RPE-->
@@ -131,12 +125,12 @@
 
                         <!--Fecha de nacimiento o CURP-->
                         @if (Auth::user()->hasRole('helper'))
-                        <td>
-                            {{$user->curp}}
-                        </td>
+                            <td>
+                                {{$user->curp}}
+                            </td>
                         @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                        <td>{{$user->curp}}</td>
-                        <td>{{$user->gender}}</td>
+                            <td>{{$user->curp}}</td>
+                            <td>{{$user->gender}}</td>
                         @endif
 
                         <!--Correo electronico-->
@@ -146,60 +140,59 @@
                         <td>{{$user->phone_number}}</td>
 
                         @if (Auth::user()->hasRole('helper'))
-                        <!--Nombre del curso/taller-->
-                        <td>{{$user->workshop_name}}</td>
+                            <!--Nombre del curso/taller-->
+                            <td>{{$user->workshop_name}}</td>
                         @elseif (Auth::user()->hasRole('administrator'))
-                        <td>{{$user->registered_in}}</td>
+                            <td>{{$user->registered_in}}</td>
                         @endif
 
                         <!--Se envio la ficha de pago?-->
                         @if (Auth::user()->hasRole('helper'))
-                        <td>
-                            @if ($user->workshop_sent_payment == true)
-                            <div class="text-center" style="color: green; font-size: 25px;">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <small>
-                                {{$user->workshop_name}}
-                            </small>
-                            @else
-                            <div class="text-center" style="color: red; font-size: 25px;">
-                                <i class="fas fa-times-circle"></i>
-
-                            </div>
-                            @endif
-                        </td>
+                            <td>
+                                @if ($user->workshop_sent_payment == true)
+                                <div class="text-center" style="color: green; font-size: 25px;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <small>
+                                    {{$user->workshop_name}}
+                                </small>
+                                @else
+                                <div class="text-center" style="color: red; font-size: 25px;">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                @endif
+                            </td>
                         @endif
 
                         @if (Auth::user()->hasRole('helper'))
-                        <!--Pago el curso o taller?-->
-                        <td>
-                            @if ($user->workshop_paid != null)
-                            <i class="fas fa-check-circle text-center" style="color: green; font-size: 25px;"></i>
-                            @else
-                            <!--<input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago({{$user->id}}, {{$user->user_workshop_id}})"> Marcar como pagado-->
-                            <input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago('{{json_encode($user)}}',{{$user->user_workshop_id}})"> Marcar como pagado
-                            @endif
-                        </td>
+                            <!--Pago el curso o taller?-->
+                            <td>
+                                @if ($user->workshop_paid != null)
+                                <i class="fas fa-check-circle text-center" style="color: green; font-size: 25px;"></i>
+                                @else
+                                <!--<input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago({{$user->id}}, {{$user->user_workshop_id}})"> Marcar como pagado-->
+                                <input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago('{{json_encode($user)}}',{{$user->user_workshop_id}})"> Marcar como pagado
+                                @endif
+                            </td>
 
-                        @if($user->payment_type == 'Ficha_Pago')
-                        <td>Ficha de pago</td>
-                        @elseif($user->payment_type == 'Descuento_Nomina')
-                        <td>Descuento de nómina</td>
-                        @else
-                        <td></td>
-                        @endif
+                            @if($user->payment_type == 'Ficha_Pago')
+                                <td>Ficha de pago</td>
+                            @elseif($user->payment_type == 'Descuento_Nomina')
+                                <td>Descuento de nómina</td>
+                            @else
+                                <td></td>
+                            @endif
 
                         <!--Informacion para facturacion-->
-                        <th class="text-center">
-                            @if ($user->workshop_invoicedata == 1)
-                            <a href="#" data-toggle="modal" data-target="#EnviarFactura">
-                                <i class="fas fa-eye text-primary " style="font-size: 25px;" @click="cargarDatosFacturacion('{{json_encode($user)}}')"></i>
-                            </a>
-                            @else
-                            No
-                            @endif
-                        </th>
+                            <th class="text-center">
+                                @if ($user->workshop_invoicedata == 1)
+                                <a href="#" data-toggle="modal" data-target="#EnviarFactura">
+                                    <i class="fas fa-eye text-primary " style="font-size: 25px;" @click="cargarDatosFacturacion('{{json_encode($user)}}')"></i>
+                                </a>
+                                @else
+                                No.
+                                @endif
+                            </th>
 
                         @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
                         <!--El usuario ya pago el curso o taller?-->
@@ -216,12 +209,9 @@
                         </td>
 
                         <td>
-                            @if ($user->email_verified_at == NULL)
-                            Sin verificar.
-                            @else
                             {{$user->email_verified_at}}
-                            @endif
                         </td>
+
                         @endif
                     </tr>
                     @endforeach
@@ -498,22 +488,22 @@
                     <form>
                         <div class="form-row">
                             <!--Informacion de las unirutas y unirodadas-->
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'uniruta' || Detalles[0].ws_type == 'unirodada'">
                                 <label for="Nombres">Contacto de emergancia</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].emergency_contact" readonly style="text-transform: capitalize;">
                             </div>
 
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'uniruta' || Detalles[0].ws_type == 'unirodada'">
                                 <label for="Nombres">Telefono de contacto de emergancia</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].emergency_phone" readonly style="text-transform: capitalize;">
                             </div>
 
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 15 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36 || Detalles[0].workshop_id === 39">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'uniruta' || Detalles[0].ws_type == 'unirodada'">
                                 <label for="Nombres">Condicion de salud</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].health_condition" readonly style="text-transform: capitalize;">
                             </div>
 
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 6 || Detalles[0].workshop_id === 12 || Detalles[0].workshop_id === 23 || Detalles[0].workshop_id === 36">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'unirodada'">
                                 <label for="Nombres">Grupo ciclista</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].cycling_group" readonly style="text-transform: capitalize;">
                             </div>
@@ -559,12 +549,12 @@
 
 
                             <!--Informacion de minirodada-->
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 35">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'minirodada'">
                                 <label for="Nombres">Nombre del participante</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].minirodada_name" readonly style="text-transform: capitalize;">
                             </div>
 
-                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id == 35">
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type == 'minirodada'">
                                 <label for="Nombres">Edad del participante</label>
                                 <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].minirodada_age" readonly style="text-transform: capitalize;">
                             </div>
