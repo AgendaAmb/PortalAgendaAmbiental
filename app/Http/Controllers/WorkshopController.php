@@ -412,7 +412,8 @@ class WorkshopController extends Controller
         switch ($workshop_model->id) {
             case 47:
                 //echo "Fotografía";
-                Mail::mailer('smtp_imarec')->to($user)->send(new RegisteredPhotoContest($workshop_model));
+                Mail::mailer('smtp_difusion')->to($user)->send(new RegisteredPhotoContest($workshop_model));
+                
                 break;
             case 48:
                 //echo "Minirodada";

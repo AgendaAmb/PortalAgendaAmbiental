@@ -32,7 +32,7 @@ class RegisteredPhotoContest extends Mailable
      */
     public function build()
     {
-        return $this->from('imarec@uaslp.mx', 'Portal de Agenda Ambiental')
+        return $this->from('difusion.agenda@uaslp.mx', 'Portal de Agenda Ambiental')
             ->subject('Confirmación de registro a curso/taller')
             ->markdown('mail.workshops.registered-photo-contest', [
                 'workshops' => $this->workshops,

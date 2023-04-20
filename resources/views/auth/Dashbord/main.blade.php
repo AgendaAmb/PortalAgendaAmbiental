@@ -11,7 +11,8 @@
   const is_ce = @json($is_ce);
 
   // Additional data
-  const url = '{{env('APP_URL ')}}';
+  const url = '{{env('
+  APP_URL ')}}';
   // const url = 'https://ambiental.uaslp.mx/'
   //const url = 'http://portalaa.test/'
   const modal = '{{$nombreModal}}';
@@ -35,7 +36,7 @@
         <div class="accordion" role="tablist">
           <b-card no-body class="_card rounded-0">
             <b-card-header header-tag="header" class="p-0" role="tab">
-              <b-button class="_card-button" block v-b-toggle.accordion-1>MIS EVENTOS REGISTRADOS</b-button>
+              <b-button class="_card-button" block v-b-toggle.accordion-1 style="font-weight:bold">MIS EVENTOS REGISTRADOS</b-button>
             </b-card-header>
             <b-collapse class="_card-collapse" id="accordion-1" visible role="tabpanel">
               <b-card-body v-for="ws in user_workshops" v-bind:key="ws.id" class="_card-body">
@@ -48,7 +49,7 @@
 
           <b-card no-body class="_card">
             <b-card-header header-tag="header" class="p-0" role="tab">
-              <b-button class="_card-button" block v-b-toggle.accordion-2>REGISTRO A PRÓXIMOS EVENTOS</b-button>
+              <b-button class="_card-button" block v-b-toggle.accordion-2 style="font-weight:bold">REGISTRO A PRÓXIMOS EVENTOS</b-button>
             </b-card-header>
             <b-collapse class="_card-collapse" id="accordion-2" visible role="tabpanel">
               <b-card-body v-for="ws in noreg_workshops" v-bind:key="ws.id" class="py-2 m-0 rounded-0">
@@ -59,7 +60,7 @@
 
           <b-card no-body class="_card">
             <b-card-header header-tag="header" class="p-0" role="tab">
-              <b-button class="_card-button" block v-b-toggle.accordion-3>MAPA DEL SITIO</b-button>
+              <b-button class="_card-button" block v-b-toggle.accordion-3 style="font-weight:bold">MAPA DEL SITIO</b-button>
             </b-card-header>
             <b-collapse id="accordion-3" visible role="tabpanel">
               <b-card-body class="py-2 m-0">
@@ -73,18 +74,19 @@
     </b-col>
 
     <b-col class="bg-white" align-self="stretch" lg="7" md="7" sm="12" cols="12" order-lg="2" order-md="2" order-sm="2" order="2">
-      <div class="h-fluid my-2 border" style="border-radius: 15px; height:300px;" v-if="is_ce">
+      <div class="h-fluid my-2 border" style="border-radius: 15px; height:250px;" v-if="is_ce">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center" style="margin-top: 27px;">
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6">
-            <a href="https://ambiental.uaslp.mx/controlescolar/" style="color:#000;">
-              <b-card img-src="{{asset('/storage/imagenes/iconosInicio/Control_Escolar.png')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white">
-                <template class="_card-header" #header>
-                  <div>
-                    <h4 class="mt-1">Control Escolar</h4>
-                  </div>
-                </template>
-              </b-card>
-            </a>
+            <form action="{{route("PreloginControlEscolar")}}" method="post">
+              @csrf
+              <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+              <button type="submit" style="border:none; background-size: cover; background-position: center;background-color:#FFF;">
+                <img src="{{asset('/storage/imagenes/iconosInicio/Control_Escolar.png')}}" alt="Control Escolar" style="max-width: 175px;">
+                <div style="text-align:center; background-color:#FFF; margin-top:10px;">
+                  <h6 class="mt-1">Control Escolar</h6>
+                </div>
+              </button>
+            </form>
           </b-col>
         </b-row>
       </div>
@@ -92,8 +94,8 @@
       <div class="h-fluid my-2 border" style="border-radius: 15px;">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
-            <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px;">
-              <h6 class="px-2 py-2 m-0">PANEL DE REGISTRO</h6>
+            <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+              <h6 class="px-2 py-2 m-0" style="font-weight:bold">PANEL DE REGISTRO</h6>
             </div>
           </b-col>
           <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-if="Object.keys(cursos_act).length !== 0">
@@ -121,8 +123,8 @@
       <div class="h-fluid my-2 border" style="border-radius: 15px; height:200px; ">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
-            <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px;">
-              <h6 class="px-2 py-2 m-0">RECURSOS Y HERRAMIENTAS</h6>
+          <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+              <h6 class="px-2 py-2 m-0" style="font-weight:bold">RECURSOS Y HERRAMIENTAS</h6>
             </div>
           </b-col>
         </b-row>

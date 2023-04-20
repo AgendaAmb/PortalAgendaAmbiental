@@ -18,20 +18,7 @@
                 </li>
 
                 @foreach ($Modulos as $Modulo)
-                    @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
-                        <li class="nav-item ">
-                            <div class="nav-link">
-                                <form action="{{route("PreloginControlEscolar")}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                    <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" type="submit">
-                                        Control Escolar
-                                        <span class="sr-only"></span>
-                                    </button>
-                                </form>
-                            </div>
-                        </li>
-                    @elseif($Modulo->name=='20Aniversario')
+                    @if($Modulo->name=='20Aniversario')
                         <li class="nav-item ">
                             <a class="nav-link" href="{{route('20home')}}">20 Aniversario<span class="sr-only"></span></a>
                         </li>
