@@ -30,7 +30,7 @@
                 <!--Cabecera de la tabla-->
                 <thead>
                     <tr>
-                        <th class="d-none"></th>
+                        
                         
                         <th>Acciones</th>
                         <th>Clave única/RPE</th>
@@ -77,7 +77,7 @@
                 <tbody>
                     @foreach ($users as $user)
                     <tr>
-                        <td class="d-none"></td>
+                        
                         <!--Pendiente-->
                         @if (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
                             <td>
@@ -883,18 +883,17 @@
 
 
             }
+        },
+        created() {
+            console.log('created 2');
+        },
+        mounted() {
+            console.log('created con el mounted');
         }
     })
 </script>
 
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2({});
-    });
-    var markupStr = $('#summernote').summernote('code');
-    console.log(markupStr);
-</script>
-
+<!--En caso de error, cedo toda la responsabilidad a Oscar Martinez, Edwin Saucedo y al Rodrigo nomas por estar aqui y al becario anterior por no poner ni un comentario-->
 
 @push('stylesheets')
 
