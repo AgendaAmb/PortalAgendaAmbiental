@@ -642,8 +642,12 @@
 </div>
 
 
+
+
+
 <script>
     const users = @json($users);
+    console.log(users);
 </script>
 
 <script>
