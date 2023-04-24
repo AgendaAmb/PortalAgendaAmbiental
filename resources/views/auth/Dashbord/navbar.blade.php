@@ -18,6 +18,7 @@
                 </li>
 
                 @foreach ($Modulos as $Modulo)
+                @if($Modulo->name!='Control Escolar')
                     @if($Modulo->name=='20Aniversario')
                         <li class="nav-item ">
                             <a class="nav-link" href="{{route('20home')}}">20 Aniversario<span class="sr-only"></span></a>
@@ -27,6 +28,7 @@
                             <a class="nav-link" href="{{$Modulo->url}}">{{$Modulo->name}}<span class="sr-only"></span></a>
                         </li>
                     @endif
+                @endif
                 @endforeach
 
                 @if (Auth::user()->hasRole('administrator')||Auth::user()->hasRole('coordinator') || Auth::user()->hasRole('helper'))
@@ -34,7 +36,7 @@
                         <a class="nav-link" href="{{route('Administracion')}}">Administración<span class="sr-only"></span></a>
                     </li>
                 @endif
-                    
+                
 
                 @if(!$is_ce)
                 <li class="nav-item ">
