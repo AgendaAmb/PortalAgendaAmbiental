@@ -80,16 +80,21 @@
                         <td class="d-none"></td>
                         <!--Pendiente-->
                         @if (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                            <td>
-                                @if ($user->button == 0)
-                                    Sin detalles.
-                                @else
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDetails">
+                            @if ($user->ws_type == 'unirodada' ||
+                                $user->ws_type == 'uniruta' ||
+                                $user->ws_type == 'minirodada' ||
+                                $user->ws_type == 'reutronic' ||
+                                $user->ws_type == 'unitrueque')
+
+                                <td>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userDetails" @click="cargarDetalles('{{json_encode($user)}}')">
                                         Detalles
                                         <i class="fas fa-eye ml-2"></i>
                                     </button>
-                                @endif
-                            </td>
+                                </td>
+                            @else
+                                <td>Sin detalles</td>
+                            @endif
                         @elseif (Auth::user()->hasRole('helper'))
                             <td>
                                 <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
@@ -473,7 +478,97 @@
     </div>
 
 
+    <div class="modal fade" id="userDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="Detalles!=''">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" id="modalDetalles">
+                    <h5 class="modal-title mx-auto text-white">Detalles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
+                <div class="modal-body bg-white">
+                    <form>
+                        <div class="form-row">
+                            <!--Informacion de las unirutas y unirodadas-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'uniruta' || Detalles[0].ws_type === 'unirodada'">
+                                <label for="Nombres">Contacto de emergancia</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].emergency_contact" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'uniruta' || Detalles[0].ws_type === 'unirodada'">
+                                <label for="Nombres">Telefono de contacto de emergancia</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].emergency_phone" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'uniruta' || Detalles[0].ws_type === 'unirodada'">
+                                <label for="Nombres">Condicion de salud</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].health_condition" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'unirodada'">
+                                <label for="Nombres">Grupo ciclista</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].cycling_group" readonly style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de unitrueque-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 10">
+                                <label for="Nombres">Materiales para intercambiar</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].unitrueque_materials" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 10">
+                                <label for="Nombres">Cantidad</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].unitrueque_quantity" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 10">
+                                <label for="Nombres">Mobiliario</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].unitrueque_furniture" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 10">
+                                <label for="Nombres">Empresa participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].unitrueque_company" readonly style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de reutronic-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 38">
+                                <label for="Nombres">Material</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].reutronic_materials" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 38">
+                                <label for="Nombres">Detalles</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].reutronic_details" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].workshop_id === 38">
+                                <label for="Nombres">Razón de uso</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].reutronic_use" readonly style="text-transform: capitalize;">
+                            </div>
+
+
+                            <!--Informacion de minirodada-->
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'minirodada'">
+                                <label for="Nombres">Nombre del participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].minirodada_name" readonly style="text-transform: capitalize;">
+                            </div>
+
+                            <div class="form-group  was-validated col-12" v-if="Detalles[0].ws_type === 'minirodada'">
+                                <label for="Nombres">Edad del participante</label>
+                                <input type="text" class="form-control" id="nombreD" name="nombreD" :value="Detalles[0].minirodada_age" readonly style="text-transform: capitalize;">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
 
