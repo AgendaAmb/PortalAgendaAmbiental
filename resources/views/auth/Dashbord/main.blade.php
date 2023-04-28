@@ -123,7 +123,7 @@
       <div class="h-fluid my-2 border" style="border-radius: 15px; height:200px; ">
         <b-row xl="6" lg="4" md="3" sm="2" cols="2" :no-gutters=true align-h="center">
           <b-col cols="12" order="1">
-          <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+            <div class="h-fluid text-left mx-0 my-0" style="background: #115089; color: white; border-radius: 15px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
               <h6 class="px-2 py-2 m-0" style="font-weight:bold">RECURSOS Y HERRAMIENTAS</h6>
             </div>
           </b-col>

@@ -13,9 +13,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'cursos-actualizacion-section',
+  name: "cursos-actualizacion-section",
   props: {
-    cursos_actualizacion_data: []
+    cursos_actualizacion_data: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    }
   },
   data: function data() {
     return {
@@ -33,6 +38,15 @@ __webpack_require__.r(__webpack_exports__);
         value: "tsca"
       }]
     };
+  },
+  computed: {
+    selectedCursos: function selectedCursos() {
+      var result = {};
+      this.cursos_actualizacion_data.forEach(function (item) {
+        result[item] = true;
+      });
+      return result;
+    }
   }
 });
 
@@ -286,13 +300,13 @@ var render = function render() {
       stacked: ""
     },
     model: {
-      value: _vm.cursos_actualizacion_data,
+      value: _vm.selectedCursos,
       callback: function callback($$v) {
-        _vm.cursos_actualizacion_data = $$v;
+        _vm.selectedCursos = $$v;
       },
-      expression: "cursos_actualizacion_data"
+      expression: "selectedCursos"
     }
-  }), _vm._v(" "), _c("p", [_vm._v("Seleccionado: " + _vm._s(_vm.cursos_actualizacion_data))])], 1);
+  }), _vm._v(" "), _c("p", [_vm._v("Seleccionado: " + _vm._s(_vm.selectedCursos))])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -651,7 +665,11 @@ var render = function render() {
       fn: function fn(_ref2) {
         _objectDestructuringEmpty(_ref2);
         return [_c("div", {
-          staticClass: "form-group"
+          staticClass: "container"
+        }, [_c("div", {
+          staticClass: "row"
+        }, [_c("div", {
+          staticClass: "col-md-10 col-sm-6"
         }, [_c("div", {
           staticClass: "form-check"
         }, [_c("input", {
@@ -661,7 +679,7 @@ var render = function render() {
             value: _vm.checked,
             expression: "checked"
           }],
-          staticClass: "form-check-input ml-20 checkbox-input",
+          staticClass: "form-check-input",
           attrs: {
             type: "checkbox",
             id: "gridCheck",
@@ -689,15 +707,15 @@ var render = function render() {
             }
           }
         }), _vm._v(" "), _c("label", {
-          staticClass: "form-check-label ml-2 checkbox-label",
+          staticClass: "form-check-label",
           attrs: {
             "for": "gridCheck"
           }
-        }, [_vm._v("\n                    Al enviar la información confirmo que he leído y acepto el\n                    "), _c("a", {
+        }, [_vm._v("\n                            Al enviar la información confirmo que he leído y acepto el "), _c("a", {
           attrs: {
-            href: "http://transparencia.uaslp.mx/avisodeprivacidad"
+            href: "https://transparencia.uaslp.mx/Paginas/AVISO-DE-PRIVACIDAD/3150#gsc.tab=0"
           }
-        }, [_vm._v(" aviso de privacidad.")])])])]), _vm._v(" "), !_vm.isRegistering ? _c("b-button", {
+        }, [_vm._v("aviso de privacidad.")])])])])])]), _vm._v(" "), !_vm.isRegistering ? _c("b-button", {
           attrs: {
             type: "submit",
             size: "sm",
@@ -723,7 +741,7 @@ var render = function render() {
         }), _vm._v("\n            Registrando...\n        ")], 1) : _vm._e()];
       }
     }])
-  }, [_vm._v(" "), _vm._v(" "), _c("div", [_c("b-form", [_c("user-info-section", {
+  }, [_vm._v(" "), _vm._v(" "), _c("b-form", [_c("user-info-section", {
     attrs: {
       user: _vm.user
     }
@@ -735,7 +753,7 @@ var render = function render() {
     attrs: {
       estadistic_data: _vm.estadistic_data
     }
-  })], 2)], 1)]);
+  })], 2)], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -45347,7 +45365,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.checkbox-label {\r\n    position: relative;\r\n    left: -100px;\n}\n.checkbox-input {\r\n    position: relative;\r\n    left: -100px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.checkbox-label {\r\n    position: relative;\r\n    left: -100px;\n}\n.checkbox-input {\r\n    position: relative;\r\n    left: -100px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -62242,7 +62260,7 @@ var app = new Vue({
       contact_tel: '',
       group: ''
     },
-    cursos_actualizacion_data: []
+    cursos_actualizacion_data: {}
   },
   mounted: function mounted() {
     this.getCalendarEventDays();

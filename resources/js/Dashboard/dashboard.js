@@ -65,7 +65,7 @@ const app = new Vue({
             kidslength: 1,
         },
         unirodada_data: { health_condition: null, contact_name: '', contact_tel: '', group: '' },
-        cursos_actualizacion_data: [],
+        cursos_actualizacion_data: {},
     },
     mounted() {
         this.getCalendarEventDays();
