@@ -32,11 +32,14 @@
                     <tr>
                         <th class="d-none"></th>
                         
-                        <th>Acciones</th>
+                        @if (Auth::user()->hasRole('helper'))
+                            <th>Acciones</th>
+                        @endif
+
                         <th>Clave única/RPE</th>
 
                         @if (Auth::user()->hasRole('helper'))
-                        <th>Clave de facturación</th>
+                            <th>Clave de facturación</th>
                         @endif
 
                         <th>Nombre(s)</th>
@@ -63,12 +66,13 @@
                         @endif
 
                         @if (Auth::user()->hasRole('helper'))
-                        <th>Pago</th>
-                        <th>Tipo de pago</th>
-                        <th>Factura</th>
+                            <th>Pago</th>
+                            <th>Tipo de pago</th>
+                            <th>Factura</th>
                         @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                        <th>Pagado</th>
-                        <th>Fecha de registro al portal</th>
+                            <th>Pagado</th>
+                            <th>Fecha de registro al portal</th>
+                            <th>Detalles</th>
                         @endif
                     </tr>
                 </thead>
@@ -78,22 +82,8 @@
                     @foreach ($users as $user)
                     <tr>
                         <td class="d-none"></td>
-                        <!--Pendiente-->
-                        @if (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                            @if ($user->ws_type == 'unirodada' ||
-                            $user->ws_type == 'uniruta' ||
-                            $user->ws_type == 'minirodada' ||
-                            $user->ws_type == 'reutronic' ||
-                            $user->ws_type == 'unitrueque')
-                                <td>
-                                    <button type="button" class="btn btn-primary" @click="mostrarDetalles('{{ json_encode($user) }}')">
-                                        Detalles <i class="fas fa-eye ml-2"></i>
-                                    </button>
-                                </td>
-                            @else
-                                <td>Sin detalles</td>
-                            @endif
-                        @elseif (Auth::user()->hasRole('helper'))
+                        
+                        @if (Auth::user()->hasRole('helper'))
                             <td>
                                 <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
                                     <i class="fas fa-edit"></i>
@@ -205,21 +195,64 @@
 
                         @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
                         <!--El usuario ya pago el curso o taller?-->
-                        <td>
-                            @if ($user->workshop_paid == true)
-                            <div class="text-center" style="color: green; font-size: 25px;">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            @else
-                            <div class="text-center" style="color: red; font-size: 25px;">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            @endif
-                        </td>
+                            <td>
+                                @if ($user->pay_req == 1)
+                                    @if ($user->workshop_paid == true)
+                                    <div class="text-center" style="color: green; font-size: 25px;">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    @else
+                                    <div class="text-center" style="color: red; font-size: 25px;">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    @endif
+                                @else
+                                    No aplica
+                                @endif
+                            </td>
 
-                        <td>
-                            {{$user->email_verified_at}}
-                        </td>
+                            <td>
+                                {{$user->email_verified_at}}
+                            </td>
+
+                            <td>
+                                <!--Detalles para uniruta y unirodada-->
+                                @if($user->ws_type == "unirodada" || $user->ws_type == "uniruta")
+                                    <li><small>Contacto de emergencia: {{$user->emergency_contact}}</small></li>
+                                    <li><small>Numero de emergencia: {{$user->emergency_phone}}</small></li>
+                                    <li><small>Condicion de salud: {{$user->health_condition}}</small></li>
+                                    @if($user->ws_type == "unirodada" && $user->cycling_group != null)
+                                        <li><small>Grupo ciclista: {{$user->cycling_group}}</small></li>
+                                    @endif
+
+                                <!--Detalles para unitrueque-->
+                                @elseif($user->ws_type == "unitrueque")
+                                    <li><small>Materiales para intercambio: {{$user->unitrueque_materials}}</small></li>
+                                    <li><small>Cantidad: {{$user->unitrueque_quantity}}</small></li>
+                                    @if($user->unitrueque_company != null)
+                                        <li><small>Empresa participante: {{$user->unitrueque_company}}</small></li>
+                                    @endif
+                                    <li><small>Mobiliario: {{$user->unitrueque_furniture}}</small></li>
+
+                                <!--Detalles para reutronic-->
+                                @elseif($user->ws_type == "reutronic")
+                                    <li><small>Material solicitado: {{$user->reutronic_materials}}</small></li>
+                                    <li><small>Detalles: {{$user->reutronic_details}}</small></li>
+                                    <li><small>Razon de uso: {{$user->reutronic_use}}</small></li>
+
+                                <!--Detalles para minirodada-->
+                                @elseif($user->ws_type == "minirodada")
+                                    <li><small>Participante: {{$user->minirodada_name1}}<br>Edad: {{$user->minirodada_age1}}</small></li>
+                                    @if($user->minirodada_name2 != null)
+                                        <li><small>Participante: {{$user->minirodada_name2}}<br>Edad: {{$user->minirodada_age2}}</small></li>
+                                    @endif
+                                    @if($user->minirodada_name3 != null)
+                                        <li><small>Participante: {{$user->minirodada_name3}}<br>Edad: {{$user->minirodada_age3}}</small></li>
+                                    @endif
+                                @else
+                                    <li><small>Sin detalles</small></li>
+                                @endif
+                            </td>
 
                         @endif
                     </tr>
@@ -329,7 +362,7 @@
 
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-    </div>
+        </div>
 
 
 
@@ -600,67 +633,6 @@
 
         },
         methods: {
-            mostrarDetalles: function(user) {
-  // Parsear el objeto JSON de la variable user
-  const userDetails = JSON.parse(user);
-
-  // Crear un arreglo para guardar los campos del registro
-  const userFields = [];
- 
-
-  // Agregar los campos de interés al arreglo userFields
-  userFields.push(userDetails.user_name); //0
-  userFields.push(userDetails.ws_type); //1
-  userFields.push(userDetails.emergency_contact); //2
-  userFields.push(userDetails.emergency_phone); //3
-  userFields.push(userDetails.health_condition); //4
-  userFields.push(userDetails.cycling_group); //5
-  userFields.push(userDetails.unitrueque_materials); //6
-  userFields.push(userDetails.unitrueque_quantity); //7
-  userFields.push(userDetails.unitrueque_company); //8
-  userFields.push(userDetails.unitrueque_furniture); //9
-  userFields.push(userDetails.reutronic_materials); //10
-  userFields.push(userDetails.reutronic_details); //11
-  userFields.push(userDetails.reutronic_use); //12
-  userFields.push(userDetails.minirodada_name1); //13
-  userFields.push(userDetails.minirodada_age1); //14
-  userFields.push(userDetails.minirodada_name2); //15
-  userFields.push(userDetails.minirodada_age2); //16
-  userFields.push(userDetails.minirodada_name3); //17
-  userFields.push(userDetails.minirodada_age3); //18
-  userFields.push(userDetails.registered_in); //19
-
-  // Crear una ventana emergente con los detalles del usuario
-  const detallesWindow = window.open("", "Detalles del usuario", "width=500,height=300");
-  detallesWindow.document.write(`
-    <div style="background-color: #115089; width: 100%">
-        <h4 class="px-2 py-2 m-0" style="font-weight:bold; color: white;">${userFields[0]}</h4>
-        <h4 style="color: white">Detalles para ${userFields[19]}</h4>
-    </div>
-    <ul>  
-        ${userFields[1] === "uniruta" || userFields[1] === "unirodada" ? `<li>Contacto de emergencia: ${userFields[2]}</li>` : ''}
-        ${userFields[1] === "uniruta" || userFields[1] === "unirodada" ? `<li>Número de emergencia: ${userFields[3]}</li>` : ''}
-        ${userFields[1] === "uniruta" || userFields[1] === "unirodada" ? `<li>Condición de salud: ${userFields[4]}</li>` : ''}
-        ${userFields[1] === "unirodada" ? `<li>Grupo ciclista: ${userFields[5]}</li>` : ''}
-
-        ${userFields[1] === "unitrueque" ? `<li>Materiales para intercambio: ${userFields[6]}</li>` : ''}
-        ${userFields[1] === "unitrueque" ? `<li>Cantidad: ${userFields[7]}</li>` : ''}
-        ${userFields[1] === "unitrueque" && userFields[8] != null ? `<li>Empresa participante: ${userFields[8]}</li>` : ''}
-        ${userFields[1] === "unitrueque" ? `<li>Mobiliario: ${userFields[9]}</li>` : ''}
-
-        ${userFields[1] === "reutronic" ? `<li>Material solicitado: ${userFields[10]}</li>` : ''}
-        ${userFields[1] === "reutronic" ? `<li>Detalles: ${userFields[11]}</li>` : ''}
-        ${userFields[1] === "reutronic" ? `<li>Razón de uso: ${userFields[12]}</li>` : ''}
-
-        ${userFields[1] === "minirodada" ? `<li>Participante inscrito: ${userFields[13]}</li>` : ''}
-        ${userFields[1] === "minirodada" ? `<li>Edad del participante: ${userFields[14]}</li>` : ''}
-        ${userFields[1] === "minirodada" && userFields[15] != null ? `<li>Participante inscrito: ${userFields[15]}</li>` : ''}
-        ${userFields[1] === "minirodada" && userFields[15] != null ? `<li>Edad del participante: ${userFields[16]}</li>` : ''}
-        ${userFields[1] === "minirodada" && userFields[17] != null ? `<li>Participante inscrito: ${userFields[17]}</li>` : ''}
-        ${userFields[1] === "minirodada" && userFields[17] != null ? `<li>Edad del participante: ${userFields[18]}</li>` : ''}
-    </ul>
-  `);
-},
             enviarCorreo: function() {
 
                 const formData = new FormData();
