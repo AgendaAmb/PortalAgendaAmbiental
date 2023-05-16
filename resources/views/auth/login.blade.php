@@ -791,7 +791,7 @@
                     <div class="form-group row was-validated" v-if="!blockCampos">
                         <div class="col-6">
                             <label for="GEtnico">Grupo étnico</label>
-                            <input type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
+                            <input id="GEtnico" type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
                                 placeholder="Grupo étnico (Zapoteco, Pame, etc)">
                         </div>
 
@@ -805,7 +805,14 @@
                                 <option value="No" id="No">No</option>
                             </select>
                         </div>
-                        <div class="col-md-4" v-if="isDiscapacidad=='Si'">
+
+                        <div class="col-md-6" v-if="GEtnico != ''">
+                            <label for="GEtnico">Lengua indigena</label>
+                            <input type="text" class="form-control" id="LengIndigena" required name="LengIndigena"
+                                required v-model="LengIndigena">
+                        </div>
+
+                        <div class="col-md-6" v-if="isDiscapacidad=='Si'">
                             <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
                             <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
                                 required v-model="Discapacidad">
@@ -858,6 +865,7 @@
     Genero:'',
     OtroGenero:'',
     GEtnico:'',
+    LengIndigena:'',
     CP:'',
     isDiscapacidad:'',
     Discapacidad:'',
@@ -888,7 +896,7 @@
    registraUsuario:function(){
     this.spinnerVisible=true;
            if(this.emailR!=''){
-            var data = {
+            let data = {
        	        "email":this.emailR,
                 "CorreoAlterno":this.CorreoAlterno,
                 "Pais":this.Pais,
@@ -902,6 +910,7 @@
                 "Celular":this.Celular,
                 "CP":this.CP,
                 "Ocupacion":this.Ocupacion,
+                "LengIndigena":this.LengIndigena,
                 "GEtnico":this.GEtnico,
                 "Discapacidad":this.Discapacidad,
                 "Clave":this.Clave
@@ -911,6 +920,7 @@
 
                  url: '/register',
                  data: data,
+                 
 
              }).then(
                      res => {
@@ -936,7 +946,7 @@
     }
    },
     levantaModal:function(){
-        var urlactual='{{url()->full()}}'
+        let urlactual='{{url()->full()}}'
 
         urlactual=='https://ambiental.uaslp.mx/login?nombreModal=Rodada'?this.registroVa='Rodada':this.registroVa='mmus',
         console.log(urlactual);

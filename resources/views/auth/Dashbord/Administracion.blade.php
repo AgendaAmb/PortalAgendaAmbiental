@@ -1,70 +1,94 @@
 @extends('Bienvenido')
 
 @section('navbarModulos')
-<!--SECCION DONDE SE DESPLEGARAN CADA UNO DE LOS MODULOS EN EL QUE EL USUARIO ESTE REGISTRADO PARA PODER REEDIRIGIRLO A SU SITIO CORRESPONDIENTE-->
 @include('auth.Dashbord.navbar')
 @endsection
 
 @section('ContenidoPrincipal')
 
+<!--Contenedor padre de la vista-->
 <div class="container-fluid my-3" id="apps">
 
+    <!--Pestañas-->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <!--Pestaña Usuarios-->
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuarios
             </a>
         </li>
 
+        <!--Pestaña Correos-->
         @if (Auth::user()->hasRole('administrator'))
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" @click="cargarModulos()" aria-selected="false">Correos</a>
-        </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" @click="cargarModulos()" aria-selected="false">Correos</a>
+            </li>
         @endif
     </ul>
 
 
+    <!--Contenido de la pestaña, aqui se carga el contenido de ambas pestañas-->
     <div class="tab-content" id="myTabContent">
+
+        <!--Cuerpo de la pestaña Usuarios, aqui se carga la tabla-->
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
 
                 <!--Cabecera de la tabla-->
                 <thead>
                     <tr>
+                        <!--Encabezado oculto-->
                         <th class="d-none"></th>
                         
+                        <!--Acciones-->
                         @if (Auth::user()->hasRole('helper'))
                             <th>Acciones</th>
                         @endif
 
+                        <!--Clave unica/RPE-->
                         <th>Clave única/RPE</th>
 
+                        <!--Clave de facturacion-->
                         @if (Auth::user()->hasRole('helper'))
                             <th>Clave de facturación</th>
                         @endif
 
+                        <!--Nombre(s)-->
                         <th>Nombre(s)</th>
+
+                        <!--Appellido paterno-->
                         <th>Apellido paterno</th>
+
+                        <!--Apellido materno-->
                         <th>Apellido materno</th>
 
+                        <!--Fecha de nacimiento, Curp y Genero-->
                         @if (Auth::user()->hasRole('helper'))
-                        <th>Fecha de nacimiento</th>
+                            <th>Fecha de nacimiento</th>
                         @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                        <th>Curp</th>
-                        <th>Genero</th>
+                            <th>Curp</th>
+                            <th>Genero</th>
                         @endif
 
+                        <!--Correo electronico-->
                         <th>Correo</th>
+
+                        <!--Numero de telefono-->
                         <th>Teléfono</th>
+
+                        <!--Registro de workshops/modulos/portal/etc-->
                         @if (Auth::user()->hasRole('helper'))
-                        <th>Curso/Taller</th>
+                            <th>Curso/Taller</th>
                         @elseif (Auth::user()->hasRole('administrator'))
-                        <th>Registrado en</th>
+                            <th>Registrado en</th>
                         @endif
 
+                        <!--Enviado (si se envio el comprobante de pago)-->
                         @if (Auth::user()->hasRole('helper'))
-                        <th>Enviado</th>
+                            <th>Enviado</th>
                         @endif
 
+                        <!--Pago (si el usuario ya pago), Tipo de pago (ficha de pago o descuento de nomina), Datos de facturacion, Fecha de registro al portal, Detalles para algunos workshops-->
                         @if (Auth::user()->hasRole('helper'))
                             <th>Pago</th>
                             <th>Tipo de pago</th>
@@ -74,199 +98,211 @@
                             <th>Fecha de registro al portal</th>
                             <th>Detalles</th>
                         @endif
-                    </tr>
-                </thead>
 
+                    </tr>
+                </thead><!--Fin del encabezado de la tabla-->
+                
                 <!--Cuerpo de la tabla-->
                 <tbody>
+                    <!--Para obtener los datos de los usuarios se utilizo un procedimiento almacenado que es llamado desde HomeController, esto se encuentra en las funciones getAdministratorUsers y getHelperUsersNew-->
                     @foreach ($users as $user)
-                    <tr>
-                        <td class="d-none"></td>
-                        
-                        @if (Auth::user()->hasRole('helper'))
-                            <td>
-                                <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
-                                    <i class="fas fa-edit"></i>
-                                    <small>Enviar ficha de pago</small>
-                                </a>
-                            </td>
-                        @endif
-
-                        <!--Clave unica/RPE-->
-                        <td>{{$user->id}}</td>
-
-                        <!--Clave de facturacion-->
-                        <!--La clave de facturacion para internos o estudiantes de la UASLP es igual a la clave unica o RPE, en caso de ser externos la clave sera proporcionada por finanzas-->
-                        @if (Auth::user()->hasRole('helper'))
-                        <td>
-                            @if ($user->type == 'App\Models\Auth\Extern')
-                            Clave de facturación pendiente
-                            @else
-                            {{$user->id}}
-                            @endif
-                        </td>
-                        @endif
-
-                        <!--Nombre(s)-->
-                        @if (Auth::user()->hasRole('helper'))
-                            <td>
-                                {{$user->name}}
-                            </td>
-                        @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                            <td>{{$user->user_name}}</td>
-                        @endif
-
-                        <!--Apellido paterno-->
-                        <td>{{$user->middlename}}</td>
-
-                        <!--Apellido materno-->
-                        <td>{{$user->surname}}</td>
-
-                        <!--Fecha de nacimiento o CURP-->
-                        @if (Auth::user()->hasRole('helper'))
-                            <td>
-                                {{$user->curp}}
-                            </td>
-                        @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                            <td>{{$user->curp}}</td>
-                            <td>{{$user->gender}}</td>
-                        @endif
-
-                        <!--Correo electronico-->
-                        <td>{{$user->email}}</td>
-
-                        <!--Numero telefonico-->
-                        <td>{{$user->phone_number}}</td>
-
-                        @if (Auth::user()->hasRole('helper'))
-                            <!--Nombre del curso/taller-->
-                            <td>{{$user->workshop_name}}</td>
-                        @elseif (Auth::user()->hasRole('administrator'))
-                            <td>{{$user->registered_in}}</td>
-                        @endif
-
-                        <!--Se envio la ficha de pago?-->
-                        @if (Auth::user()->hasRole('helper'))
-                            <td>
-                                @if ($user->workshop_sent_payment == true)
-                                <div class="text-center" style="color: green; font-size: 25px;">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <small>
-                                    {{$user->workshop_name}}
-                                </small>
-                                @else
-                                <div class="text-center" style="color: red; font-size: 25px;">
-                                    <i class="fas fa-times-circle"></i>
-                                </div>
-                                @endif
-                            </td>
-                        @endif
-
-                        @if (Auth::user()->hasRole('helper'))
-                            <!--Pago el curso o taller?-->
-                            <td>
-                                @if ($user->workshop_paid != null)
-                                <i class="fas fa-check-circle text-center" style="color: green; font-size: 25px;"></i>
-                                @else
-                                <!--<input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago({{$user->id}}, {{$user->user_workshop_id}})"> Marcar como pagado-->
-                                <input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago('{{json_encode($user)}}',{{$user->user_workshop_id}})"> Marcar como pagado
-                                @endif
-                            </td>
-
-                            @if($user->payment_type == 'Ficha_Pago')
-                                <td>Ficha de pago</td>
-                            @elseif($user->payment_type == 'Descuento_Nomina')
-                                <td>Descuento de nómina</td>
-                            @else
-                                <td></td>
+                        <!--La etiqueta tr sirve para crear una fila dentro de la tabla, para cada usuario se crea una fila con sus datos correspondientes-->
+                        <tr>
+                            <!--Columna oculta-->
+                            <td class="d-none"></td>
+                            
+                            <!--Boton que abre el modal para enviar la ficha de pago-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>
+                                    <a class="edit" data-toggle="modal" id="{{$user->id}}" data-target="#InfoUser" @click="cargarUser('{{json_encode($user)}}',{{$user->user_workshop_id}})">
+                                        <i class="fas fa-edit"></i>
+                                        <small>Enviar ficha de pago</small>
+                                    </a>
+                                </td>
                             @endif
 
-                        <!--Informacion para facturacion-->
-                            <th class="text-center">
-                                @if ($user->workshop_invoicedata == 1)
-                                <a href="#" data-toggle="modal" data-target="#EnviarFactura">
-                                    <i class="fas fa-eye text-primary " style="font-size: 25px;" @click="cargarDatosFacturacion('{{json_encode($user)}}')"></i>
-                                </a>
-                                @else
-                                No.
-                                @endif
-                            </th>
+                            <!--Clave unica/RPE-->
+                            <td>{{$user->id}}</td>
 
-                        @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
-                        <!--El usuario ya pago el curso o taller?-->
-                            <td>
-                                @if ($user->pay_req == 1)
-                                    @if ($user->workshop_paid == true)
-                                    <div class="text-center" style="color: green; font-size: 25px;">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
+                            <!--Clave de facturacion-->
+                            <!--La clave de facturacion para internos o estudiantes de la UASLP es igual a la clave unica o RPE, en caso de ser externos la clave sera proporcionada por finanzas-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>
+                                    @if ($user->type == 'App\Models\Auth\Extern')
+                                        Clave de facturación pendiente
                                     @else
-                                    <div class="text-center" style="color: red; font-size: 25px;">
-                                        <i class="fas fa-times-circle"></i>
-                                    </div>
+                                        {{$user->id}}
                                     @endif
-                                @else
-                                    No aplica
-                                @endif
-                            </td>
+                                </td>
+                            @endif
 
-                            <td>
-                                {{$user->email_verified_at}}
-                            </td>
+                            <!--Nombre(s)-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>{{$user->name}}</td>
+                            @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
+                                <td>{{$user->user_name}}</td>
+                            @endif
 
-                            <td>
-                                <!--Detalles para uniruta y unirodada-->
-                                @if($user->ws_type == "unirodada" || $user->ws_type == "uniruta")
-                                    <li><small>Contacto de emergencia: {{$user->emergency_contact}}</small></li>
-                                    <li><small>Numero de emergencia: {{$user->emergency_phone}}</small></li>
-                                    <li><small>Condicion de salud: {{$user->health_condition}}</small></li>
-                                    @if($user->ws_type == "unirodada" && $user->cycling_group != null)
-                                        <li><small>Grupo ciclista: {{$user->cycling_group}}</small></li>
+                            <!--Apellido paterno-->
+                            <td>{{$user->middlename}}</td>
+
+                            <!--Apellido materno-->
+                            <td>{{$user->surname}}</td>
+
+                            <!--Fecha de nacimiento o CURP y genero-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>{{$user->curp}}</td>
+                            @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
+                                <td>{{$user->curp}}</td>
+                                <td>{{$user->gender}}</td>
+                            @endif
+
+                            <!--Correo electronico-->
+                            <td>{{$user->email}}</td>
+
+                            <!--Numero telefonico-->
+                            <td>{{$user->phone_number}}</td>
+
+                            <!--Registro del usuario (workshops, modulos, portal)-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>{{$user->workshop_name}}</td>
+                            @elseif (Auth::user()->hasRole('administrator'))
+                                <td>{{$user->registered_in}}</td>
+                            @endif
+
+                            <!--Se envio la ficha de pago?-->
+                            @if (Auth::user()->hasRole('helper'))
+                                <td>
+                                    @if ($user->workshop_sent_payment == true)
+                                        <div class="text-center" style="color: green; font-size: 25px;">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <small>
+                                            {{$user->workshop_name}}
+                                        </small>
+                                    @else
+                                        <div class="text-center" style="color: red; font-size: 25px;">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>
+                                    @endif
+                                </td>
+                            @endif
+
+                            <!--Confirmacion de pago, Tipo de pago y Boton para ver los Datos de Facturacion-->
+                            @if (Auth::user()->hasRole('helper'))
+                                
+                                <!--Si el usuario tiene registrado el pago aparece el icono de la flechita verde, sino, aparece una checkbox que el helper utilizara para marcar el workshop como pagado-->
+                                <td>
+                                    @if ($user->workshop_paid != null)
+                                        <i class="fas fa-check-circle text-center" style="color: green; font-size: 25px;"></i>
+                                    @else
+                                        <input type="checkbox" id="{{$user->user_workshop_id}}" @change="ConfirmarPago('{{json_encode($user)}}',{{$user->user_workshop_id}})"> Marcar como pagado
+                                    @endif
+                                </td>
+
+                                <!--Tipo de Pago-->
+                                <td>
+                                    @if($user->payment_type == 'Ficha_Pago')
+                                        Ficha de pago
+                                    @elseif($user->payment_type == 'Descuento_Nomina')
+                                        Descuento de nómina
+                                    @else
+                                        
+                                    @endif
+                                </td>
+
+                                <!--Informacion para facturacion, al presional el icono del ojo se abre un modal que muestra la informacion para generar la factura, tambien dentro del mismo modal se puede cargar la factura para enviarla-->
+                                <th class="text-center">
+                                    @if ($user->workshop_invoicedata == 1)
+                                        <a href="#" data-toggle="modal" data-target="#EnviarFactura">
+                                            <i class="fas fa-eye text-primary " style="font-size: 25px;" @click="cargarDatosFacturacion('{{json_encode($user)}}')"></i>
+                                        </a>
+                                    @else
+                                        No
+                                    @endif
+                                </th>
+
+                            <!--Si el usuario pago el Curso, Fecha de Verificacion de Correo Electronico e Informacion Adicional para cada usuario de algunos Workshops-->
+                            @elseif (Auth::user()->hasRole('administrator') || Auth::user()->hasRole('coordinator'))
+
+                                <!--El usuario ya pago el curso o taller?, Si el usuario esta registrado en un workshop que no requiera pago aparecera que No Aplica-->
+                                <td>
+                                    @if ($user->pay_req == 1)
+                                        @if ($user->workshop_paid == true)
+                                        <div class="text-center" style="color: green; font-size: 25px;">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        @else
+                                        <div class="text-center" style="color: red; font-size: 25px;">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>
+                                        @endif
+                                    @else
+                                        No aplica
+                                    @endif
+                                </td>
+
+                                <!--Fecha de verificacion de correo electronico-->
+                                <td>
+                                    {{$user->email_verified_at}}
+                                </td>
+
+                                <!--Informacion adicional-->
+                                <td>
+                                    <!--Detalles para uniruta y unirodada-->
+                                    @if($user->ws_type == "unirodada" || $user->ws_type == "uniruta")
+                                        <li><small>Contacto de emergencia: {{$user->emergency_contact}}</small></li>
+                                        <li><small>Numero de emergencia: {{$user->emergency_phone}}</small></li>
+                                        <li><small>Condicion de salud: {{$user->health_condition}}</small></li>
+                                        @if($user->ws_type == "unirodada" && $user->cycling_group != null)
+                                            <li><small>Grupo ciclista: {{$user->cycling_group}}</small></li>
+                                        @endif
+
+                                    <!--Detalles para unitrueque-->
+                                    @elseif($user->ws_type == "unitrueque")
+                                        <li><small>Materiales para intercambio: {{$user->unitrueque_materials}}</small></li>
+                                        <li><small>Cantidad: {{$user->unitrueque_quantity}}</small></li>
+                                        @if($user->unitrueque_company != null)
+                                            <li><small>Empresa participante: {{$user->unitrueque_company}}</small></li>
+                                        @endif
+                                        <li><small>Mobiliario: {{$user->unitrueque_furniture}}</small></li>
+
+                                    <!--Detalles para reutronic-->
+                                    @elseif($user->ws_type == "reutronic")
+                                        <li><small>Material solicitado: {{$user->reutronic_materials}}</small></li>
+                                        <li><small>Detalles: {{$user->reutronic_details}}</small></li>
+                                        <li><small>Razon de uso: {{$user->reutronic_use}}</small></li>
+
+                                    <!--Detalles para minirodada-->
+                                    @elseif($user->ws_type == "minirodada")
+                                        <li><small>Participante: {{$user->minirodada_name1}}<br>Edad: {{$user->minirodada_age1}}</small></li>
+                                        @if($user->minirodada_name2 != null)
+                                            <li><small>Participante: {{$user->minirodada_name2}}<br>Edad: {{$user->minirodada_age2}}</small></li>
+                                        @endif
+                                        @if($user->minirodada_name3 != null)
+                                            <li><small>Participante: {{$user->minirodada_name3}}<br>Edad: {{$user->minirodada_age3}}</small></li>
+                                        @endif
+                                    @else
+                                        <li><small>Sin detalles</small></li>
                                     @endif
 
-                                <!--Detalles para unitrueque-->
-                                @elseif($user->ws_type == "unitrueque")
-                                    <li><small>Materiales para intercambio: {{$user->unitrueque_materials}}</small></li>
-                                    <li><small>Cantidad: {{$user->unitrueque_quantity}}</small></li>
-                                    @if($user->unitrueque_company != null)
-                                        <li><small>Empresa participante: {{$user->unitrueque_company}}</small></li>
-                                    @endif
-                                    <li><small>Mobiliario: {{$user->unitrueque_furniture}}</small></li>
-
-                                <!--Detalles para reutronic-->
-                                @elseif($user->ws_type == "reutronic")
-                                    <li><small>Material solicitado: {{$user->reutronic_materials}}</small></li>
-                                    <li><small>Detalles: {{$user->reutronic_details}}</small></li>
-                                    <li><small>Razon de uso: {{$user->reutronic_use}}</small></li>
-
-                                <!--Detalles para minirodada-->
-                                @elseif($user->ws_type == "minirodada")
-                                    <li><small>Participante: {{$user->minirodada_name1}}<br>Edad: {{$user->minirodada_age1}}</small></li>
-                                    @if($user->minirodada_name2 != null)
-                                        <li><small>Participante: {{$user->minirodada_name2}}<br>Edad: {{$user->minirodada_age2}}</small></li>
-                                    @endif
-                                    @if($user->minirodada_name3 != null)
-                                        <li><small>Participante: {{$user->minirodada_name3}}<br>Edad: {{$user->minirodada_age3}}</small></li>
-                                    @endif
-                                @else
-                                    <li><small>Sin detalles</small></li>
-                                @endif
-                            </td>
-
-                        @endif
-                    </tr>
+                                </td><!--Fin de los detalles de usuario-->
+                            @endif
+                        </tr><!--Fin de la fila para cada usuario-->
                     @endforeach
-                </tbody>
+                </tbody><!--Fin del cuerpo de la tabla-->
             </table>
-        </div>
+        </div><!--Cierre cuerpo de la pestaña que carga la tabla-->
 
 
 
+        <!--Cuerpo de la pestaña para el apartado de correos (aun no funciona, esta en proceso-->
         <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <h1 class="text-center mt-3">Correos</h1>
+
             <div class="row">
 
+                <!--Contenedor para el formulario-->
                 <div class="col-6">
                     <form @submit.prevent="enviarCorreo" method="post" class="text-left">
 
@@ -279,6 +315,7 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-group row was-validated justify-content-start">
                             <label for="emailR" class="col-sm-2 col-form-label">Destinatario</label>
                             <div class="col-9">
@@ -315,262 +352,94 @@
 
                         <div class="form-group row justify-content-end">
                             <div class="col-md-6 col-6 p-0">
-
                                 <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar correo</button>
                                 <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                     Enviando
                                 </button>
-
                             </div>
-
                         </div>
+
                     </form>
-                </div>
+                </div><!--Cierre de contenedor de formulario-->
+
+
+                <!--Contenedor para la previsualizavcion del correo-->
                 <div class="col-6">
                     <div class="row">
+
                         <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
                             <div class="row justify-content-center">
                                 <img src="{{asset('/storage/imagenes/Logos/LogoAgendaUaslp.png')}}" height="125" width="150" alt="">
                             </div>
                         </div>
+
                         <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#086588':CorreoRemitente.eje_id==2?'background-color:#009100':CorreoRemitente.eje_id==3?'background-color:#C39c00':CorreoRemitente.eje_id==4?'background-color:#001d56':CorreoRemitente.eje_id==5?'background-color:#9e0000':'background-color:#FFFFFF'">
-                            <div class="row justify-content-start" style="height: 20px;width: 100px">
-                            </div>
+                            <div class="row justify-content-start" style="height: 20px;width: 100px"></div>
                         </div>
 
                         <div class="col-12">
                             <div class="row">
-                                <pre>  @{{Contenido}}</pre>
-                                <div id="summernote">Hello Summernote</div>
+                                <pre>@{{Contenido}}</pre>
+                                <div id="summernote">
+                                    Hello Summernote
+                                </div>
                             </div>
+
                             <div class="row justify-content-start">
                                 <img src="{{asset('/storage/imagenes/Logos/rtic.png')}}" height="125" width="auto" alt="">
                             </div>
                         </div>
 
-
                         <div class="col-12" :style="CorreoRemitente.eje_id==1?'background-color:#3A97BA':CorreoRemitente.eje_id==2?'background-color:#52AA00':CorreoRemitente.eje_id==3?'background-color:#DAB631':CorreoRemitente.eje_id==4?'background-color:#003590':CorreoRemitente.eje_id==5?'background-color:#DE3043':'background-color:#FFFFFF'">
                             <div class="row justify-content-start" style="height: 125px;width: auto;">
                             </div>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-        </div>
-
-
-
-
-    <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="user!=''">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content ">
-                <div class="modal-header bg-primary ">
-                    @if (Auth::user()->hasRole('helper'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Enviar ficha de pago
-                    </h5>
-
-                    @else
-                    @if (Auth::user()->hasRole('coordinator'))
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Consultar información</h5>
-
-                    @else
-                    <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">Registrar asistencia</h5>
-
-                    @endif
-
-                    @endif
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @if (Auth::user()->hasRole('helper'))
-                <form @submit.prevent="MandarPagoUnirodada()" method="post">
-                    <div class="modal-body bg-white">
-                        <div class="col-12" v-if="asistenciaExito">
-                            <div class="alert alert-success text-center" role="alert">
-                                ¡¡Enviado con exito!!
-                            </div>
-                        </div>
-                        <div class="form-row justify-content-center">
-                            <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf" @change="cargarPdf($event,'pdfUniPago')">
-                        </div>
-                        <div class="row justify-content-end">
-                            <div class="col-3 p-0">
-
-                                <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar comprobante</button>
-                                <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                    Enviando
-                                </button>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </form>
-                @else
-                <form @submit.prevent="RegistrarAsistencia" method="post">
-                    <div class="modal-body bg-white">
-                        <div class="container-fluid">
-                            <h5 class="modal-title3" id="exampleModalLabel"></h5>
-                            <div class="form-group  ">
-                                <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control" :value="user[0].name+' '+user[0].middlename+' '+user[0].surname" readonly>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-2 was-validated">
-                                    <label for="Nombre">Clave</label>
-
-                                    <input type="text" class="form-control" :value="user[0].id" readonly>
-
-                                </div>
-                                @if (Auth::user()->hasRole('administrator'))
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Curso a registrar asistencia</label>
-                                    <select name="CursosInscritos" id="CursosInscritos" class="custom-select" required v-model="cursoAsistencia">
-
-                                        <option v-for="Curso in CursosInscritos" :value="Curso.id">@{{Curso.name}}
-                                        </option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-md-4 " v-if="user[0].invoice_data!=null">
-                                    <label for="Lunch">Registrar lunch</label>
-
-                                    <select name="Lunch" id="Lunch" class="custom-select" required v-model="Lunch" @change="RegistrarLunch(user[0].id)">
-                                        <option value="Si">Si</option>
-                                        <option value="No">No</option>
-                                    </select>
-
-                                </div>
-
-                                @endif
-
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Edad</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].age" disabled>
-                                </div>
-                                <div class="form-group col-md-5  ">
-                                    <label for="CursosInscritos">Correo </label>
-
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].email" disabled>
-                                </div>
-                                <div class="form-group col-md-5  ">
-                                    <label for="CursosInscritos">Dependencia</label>
-
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].dependency" disabled>
-                                </div>
-                                <div class="form-group col-md-6  ">
-
-                                    <label for="CursosInscritos">Correo Alterno</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].altern_email" disabled>
-                                </div>
-
-                                <div class="form-group col-md-6  ">
-                                    <label for="CursosInscritos">Genero</label>
-                                    <input type="text" class="form-control" name="" id="" :value="user[0].gender" disabled>
-                                </div>
-
-                                <div class="form-group col-md-6  " v-if="user[0].invoice_data!=null">
-                                    <label for="CursosInscritos">Comprobante de pago</label> <br>
-                                    <a :href="user[0].invoice_url" target="_blank" rel="noopener noreferrer"> <i class="far fa-file-pdf" style="color: red;font-size: 25px;"></i></a>
-                                </div>
-
-                            </div>
-                            @if (Auth::user()->hasRole('administrator'))
-                            <div class="row justify-content-end">
-                                <div class="col-3 p-0">
-
-                                    <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Registrar
-                                        asistencia</button>
-                                    <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
-                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                        Registrando asistencia
-                                    </button>
-
-                                </div>
-                                <div class="col-5" v-if="asistenciaExito">
-                                    <div class="alert alert-success" role="alert">
-                                        ¡¡Asistencia registrada!!
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-
-                        </div>
 
                     </div>
-                </form>
-                @endif
+                </div><!--Cierre para la previsualizacion del correo-->
 
-            </div>
-        </div>
-    </div>
+            </div><!--Cierre row-->
+        </div><!--Cierre cuerpo de la pestaña de la seccion de correos-->
 
 
 
-    
+        <!--Modal para la vista de helper para enviar la ficha de pago-->
+        <div class="modal fade" id="InfoUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="user!=''">
+            <div class="modal-dialog modal-lg">
 
+                <!--Contenido del modal-->
+                <div class="modal-content ">
 
-    <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="DatosFacturacion!=''">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary" id="modalComprobante">
-                    <h5 class="modal-title mx-auto text-white">Enviar Factura</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    <!--Encabezado del modal-->
+                    <div class="modal-header bg-primary ">
+                        <h5 class="modal-title mx-auto  text-white" id="exampleModalLabel">
+                            Enviar ficha de pago
+                        </h5>
 
-                <div class="modal-body bg-white">
-                    <form @submit.prevent="MandarFacturaPago('{{json_encode($user)}}')" method="post">
+                        <!--Boton para cerrar el modal-->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <form @submit.prevent="MandarPagoUnirodada()" method="post">
+                        <!--Cuerpo del modal-->
                         <div class="modal-body bg-white">
+
                             <div class="col-12" v-if="asistenciaExito">
                                 <div class="alert alert-success text-center" role="alert">
                                     ¡¡Enviado con exito!!
                                 </div>
                             </div>
-                            <div class="form-row ">
 
+                            <div class="form-row justify-content-center">
+                                <input type="file" name="pdfUniPago" id="pdfUniPago" accept="application/pdf" @change="cargarPdf($event,'pdfUniPago')">
+                            </div>
 
-                            </div>
-                            <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de facturación</h5>
-                            <div class="form-row ">
-                                <div class="form-group  was-validated col-12">
-                                    <label for="Nombres">Nombre Completo o razón social</label>
-                                    <input type="text" class="form-control" id="nombresF" name="nombresF" :value="DatosFacturacion[0].invoice_name" readonly style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-12">
-                                    <label for="Nombres">Domicilio fiscal</label>
-                                    <input type="text" class="form-control" id="DomicilioF" name="DomicilioF" :value="DatosFacturacion[0].invoice_address" readonly style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">RFC</label>
-                                    <input type="text" class="form-control" id="RFC" name="RFC" :value="DatosFacturacion[0].invoice_rfc" readonly style="text-transform: capitalize;">
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="emailF" name="emailF" :value="DatosFacturacion[0].invoice_email" readonly>
-                                </div>
-                                <div class="form-group  was-validated col-6">
-                                    <label for="Nombres">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telF" name="telF" :value="DatosFacturacion[0].invoice_phone" readonly>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="Factura">Factura</label>
-                                    <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required @change="cargarPdf($event,'Factura')">
-                                </div>
-                            </div>
                             <div class="row justify-content-end">
-                                <div class="col-md-3 col-6 p-0">
 
+                                <div class="col-3 p-0">
                                     <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar comprobante</button>
                                     <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
                                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -578,22 +447,110 @@
                                     </button>
 
                                 </div>
+                            </div>
+                        </div><!--Fin del cuerpo del modal-->
+                    </form>
+                    
+                </div><!--Cierre del contenido del modal-->
+
+            </div>
+        </div><!--Cierre de modal para enviar la ficha de pago-->
+
+
+
+        <!--Modal para ver la informacion de facturacion y enviar factura-->
+        <div class="modal fade" id="EnviarFactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="DatosFacturacion!=''">
+            <div class="modal-dialog modal-lg">
+
+                <!--Contenido del modal-->
+                <div class="modal-content">
+
+                    <!--Encabezado del modal-->
+                    <div class="modal-header bg-primary" id="modalComprobante">
+                        <h5 class="modal-title mx-auto text-white">Enviar Factura</h5>
+
+                        <!--Boton para cerrar el modaL-->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Cuerpo del modal-->
+                    <div class="modal-body bg-white">
+                        <form @submit.prevent="MandarFacturaPago('{{json_encode($user)}}')" method="post">
+                            <div class="modal-body bg-white">
+
+                                <!--Notificacion de envio exitoso de la factura de pago-->
+                                <div class="col-12" v-if="asistenciaExito">
+                                    <div class="alert alert-success text-center" role="alert">
+                                        ¡¡Enviado con exito!!
+                                    </div>
+                                </div>
+                                
+                                <!--Formulario con los datos de facturacion-->
+                                <h5 class="modal-title3 font-weight-bold text-black" id="exampleModalLabel">Datos de facturación</h5>
+                                <div class="form-row ">
+
+                                    <div class="form-group  was-validated col-12">
+                                        <label for="Nombres">Nombre Completo o razón social</label>
+                                        <input type="text" class="form-control" id="nombresF" name="nombresF" :value="DatosFacturacion[0].invoice_name" readonly style="text-transform: capitalize;">
+                                    </div>
+
+                                    <div class="form-group  was-validated col-12">
+                                        <label for="Nombres">Domicilio fiscal</label>
+                                        <input type="text" class="form-control" id="DomicilioF" name="DomicilioF" :value="DatosFacturacion[0].invoice_address" readonly style="text-transform: capitalize;">
+                                    </div>
+
+                                    <div class="form-group  was-validated col-6">
+                                        <label for="Nombres">RFC</label>
+                                        <input type="text" class="form-control" id="RFC" name="RFC" :value="DatosFacturacion[0].invoice_rfc" readonly style="text-transform: capitalize;">
+                                    </div>
+
+                                    <div class="form-group  was-validated col-6">
+                                        <label for="Nombres">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="emailF" name="emailF" :value="DatosFacturacion[0].invoice_email" readonly>
+                                    </div>
+
+                                    <div class="form-group  was-validated col-6">
+                                        <label for="Nombres">Teléfono</label>
+                                        <input type="tel" class="form-control" id="telF" name="telF" :value="DatosFacturacion[0].invoice_phone" readonly>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="Factura">Factura</label>
+                                        <input type="file" name="Factura" id="Factura" accept=".png, .jpg, .jpeg,.pdf" required @change="cargarPdf($event,'Factura')">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row justify-content-end">
+
+                                    <!--Boton para cargar y enviar la factura de pago-->
+                                    <div class="col-md-3 col-6 p-0">
+                                        <button class="btn btn-success" type="submit" value="Submit" v-if="!spinnerVisible">Enviar comprobante</button>
+                                        <button class="btn btn-primary" type="button" disabled v-if="spinnerVisible">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Enviando
+                                        </button>
+                                    </div>
+
+                                </div>
 
                             </div>
-                        </div>
 
-                    </form>
-                </div>
+                        </form>
+                    </div><!--Fin del cuerpo del modal-->
+                    
+                </div><!--Fin del contenido del modal-->
+
             </div>
-        </div>
-    </div>
+        </div><!--Cierre modal de factura-->
 
 
 
-</div>
-</div>
-
-
+    </div><!--Cierre de contenedor donde se carga el conetido de las pestañas-->
+</div><!--Cierre de contenedor padre-->
 
 
 
@@ -601,9 +558,12 @@
     const users = @json($users);
 </script>
 
+
+
 <script>
     var app = new Vue({
         el: '#apps',
+
         data: {
             users: [],
             user: [],
@@ -630,11 +590,10 @@
             ws_id: -1,
             Facturacion: [],
             Detalles: [],
-
         },
+
         methods: {
             enviarCorreo: function() {
-
                 const formData = new FormData();
                 formData.append('idUsuarioEnvio', '{{Auth::user()->id}}');
                 console.log(this.idUsuarioEnvio);
@@ -646,6 +605,7 @@
                 console.log(this.Asunto);
                 formData.append('Contenido', this.Contenido);
                 console.log(this.Contenido);
+
                 axios({
                     method: 'post',
                     url: '/sendEmail',
@@ -663,6 +623,8 @@
                     }
                 )
             },
+
+
             cargarModulos: function() {
                 axios.get('/api/getAllModules').then(res => {
                     this.modulos = res.data.modulos;
@@ -671,15 +633,18 @@
                     console.log(this.Correos);
                 })
             },
+
+
             RegistrarLunch: function(idUser) {
                 const formData = new FormData();
                 formData.append('idUsuario', idUser);
-                //console.log("soy lunch",this.Lunch);
+
                 if (this.Lunch == 'Si') {
                     formData.append('lunch', true);
                 } else {
                     formData.append('lunch', false);
                 }
+
                 axios({
                     method: 'post',
                     url: '/actualizaLunchUsuario',
@@ -695,6 +660,8 @@
                     console.log("Falso")
                 })
             },
+
+
             ConfirmarPago: function(user, ws_id) {
                 this.cargarUser(user);
                 let obj = eval('(' + user + ')');
@@ -703,6 +670,7 @@
                     "nuevoEstadoPago": true,
                     "user_workshop_id": ws_id
                 };
+
                 axios({
                     method: 'post',
                     url: '/cambiaStatusPago',
@@ -713,23 +681,28 @@
                     console.log(err.data)
                 })
             },
+
+
             cargarDatosFacturacion: function(user) {
                 let obj = eval('(' + user + ')');
                 this.cargarUser(obj),
-                    this.DatosFacturacion = [],
-                    this.DatosFacturacion.push(obj),
-                    console.log("Hola",
-                        this.DatosFacturacion[0].name);
+                this.DatosFacturacion = [],
+                this.DatosFacturacion.push(obj),
+                    //console.log("Hola",
+                        //this.DatosFacturacion[0].name);
             },
+
+
             MandarPagoUnirodada: function() {
-                console.log("hola");
+                //console.log("hola");
                 this.spinnerVisible = true;
                 // Los datos necesitan ser enviados con form data
                 var formData = new FormData();
                 formData.append("idUser", this.user[0].id);
                 formData.append("file", this.file);
                 formData.append("ws_id", this.ws_id);
-                console.log(this.ws_id);
+                //console.log(this.ws_id);
+
                 axios({
                     method: 'post',
                     url: '/EnviaFicha',
@@ -750,6 +723,8 @@
                     }
                 )
             },
+
+
             MandarFacturaPago: function(user) {
                 console.log("enviar datos");
                 // Los datos necesitan ser enviados con form data
@@ -779,14 +754,8 @@
                     }
                 )
             },
-            cargarDetalles: function(user) {
-    let obj = JSON.parse(user);
-    this.Detalles = [];
-    if (obj) {
-        this.Detalles.push(obj);
-        //console.log("Hola", this.Detalles[0]);
-    }
-},
+            
+
             RegistrarAsistencia: function() {
                 this.spinnerVisible = true
                 let headers = {
@@ -796,6 +765,7 @@
                     "idUser": this.user[0].id,
                     "idWorkshop": this.cursoAsistencia,
                 }
+
                 axios.post('/RegistraAsistencia', data).then(response => (
                     console.log("completo"),
                     this.spinnerVisible = false,
@@ -807,10 +777,14 @@
                         console.log("error")
                 })
             },
+
+
             cargarPdf: function(e, index) {
                 this.file = '';
                 this.file = e.target.files[0];
             },
+
+
             cargarUser: function(user, ws_id = -1) {
                 console.log(ws_id),
                     this.ws_id = ws_id,
@@ -832,21 +806,17 @@
                 var data = {
                     "id": user.id,
                 }
-
-
             }
+
         },
-        created() {
-            console.log('created 2');
-        },
-        mounted() {
-            console.log('created con el mounted');
-        }
     })
 </script>
 
-@push('stylesheets')
 
+
+
+@push('stylesheets')
+<!--Importacion de Booststrap-->
 <link rel="stylesheet" href="{{asset('/css/DataTable/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Buttons/css/buttons.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('/css/DataTable/Responsive/css/responsive.bootstrap4.min.css')}}">
@@ -864,20 +834,22 @@
 <script src="{{asset('/css/DataTable/Buttons/js/buttons.colVis.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+
+
+<!--Este script contiene todo lo relacionado a los estilos de booststrap para la vista, aqui se puede encontrar los botones para exportar la tabla a diferentes formatos,
+    la paginacion y estilos de la tabla, el filtro de busqueda, etc-->
 <script>
     $(document).ready(function() {
         $('#example').DataTable({
             "language": {
-                "aria": {
-                    "sortAscending": "Activar para ordenar la columna de manera ascendente",
-                    "sortDescending": "Activar para ordenar la columna de manera descendente"
-                },
+
                 "autoFill": {
                     "cancel": "Cancelar",
                     "fill": "Rellene todas las celdas con <i>%d&lt;\\\/i&gt;<\/i>",
                     "fillHorizontal": "Rellenar celdas horizontalmente",
                     "fillVertical": "Rellenar celdas verticalmente"
                 },
+
                 "buttons": {
                     "collection": "Colección",
                     "colvis": "Visibilidad",
@@ -898,6 +870,7 @@
                     "pdf": "PDF",
                     "print": "Imprimir"
                 },
+
                 "decimal": ",",
                 "emptyTable": "No se encontraron resultados",
                 "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
@@ -906,12 +879,14 @@
                 "infoThousands": ",",
                 "lengthMenu": "Mostrar _MENU_ registros",
                 "loadingRecords": "Cargando...",
+
                 "paginate": {
                     "first": "Primero",
                     "last": "Último",
                     "next": "Siguiente",
                     "previous": "Anterior"
                 },
+
                 "processing": "Procesando...",
                 "search": "Buscar:",
                 "searchBuilder": {
@@ -975,6 +950,7 @@
                         }
                     }
                 },
+
                 "searchPanes": {
                     "clearMessage": "Borrar todo",
                     "collapse": {
@@ -987,6 +963,7 @@
                     "title": "Filtros Activos - %d",
                     "countFiltered": "{shown} ({total})"
                 },
+
                 "select": {
                     "cells": {
                         "1": "1 celda seleccionada",
@@ -997,6 +974,7 @@
                         "_": "%d columnas seleccionadas"
                     }
                 },
+
                 "thousands": ",",
                 "zeroRecords": "No se encontraron resultados",
                 "datetime": {
@@ -1011,41 +989,13 @@
                     ],
                     "next": "Siguiente"
                 },
-                "editor": {
-                    "close": "Cerrar",
-                    "create": {
-                        "button": "Nuevo",
-                        "title": "Crear Nuevo Registro",
-                        "submit": "Crear"
-                    },
-                    "edit": {
-                        "button": "Editar",
-                        "title": "Editar Registro",
-                        "submit": "Actualizar"
-                    },
-                    "remove": {
-                        "button": "Eliminar",
-                        "title": "Eliminar Registro",
-                        "submit": "Eliminar",
-                        "confirm": {
-                            "_": "¿Está seguro que desea eliminar %d filas?",
-                            "1": "¿Está seguro que desea eliminar 1 fila?"
-                        }
-                    },
-                    "error": {
-                        "system": "Ha ocurrido un error en el sistema (<a target=\"\\\" rel=\"\\ nofollow\" href=\"\\\">Más información&lt;\\\\\\\/a&gt;).&lt;\\\/a&gt;<\/a>"
-                    },
-                    "multi": {
-                        "title": "Múltiples Valores",
-                        "info": "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
-                        "restore": "Deshacer Cambios",
-                        "noMulti": "Este registro puede ser editado individualmente, pero no como parte de un grupo."
-                    }
-                }
+
+                
+
             },
             "responsive": true,
             "lengthChange": false,
-            "autoWidth": false,
+            "autoWidth": true,
             dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
                 "<'row'<'col-sm-22'tr>>" +
                 "<'row'<'col-sm-4'i><'col-sm-4 text-center'l><'col-sm-4'p>>",

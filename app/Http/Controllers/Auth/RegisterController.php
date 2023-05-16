@@ -102,6 +102,9 @@ class RegisterController extends Controller
             # Etnia
             'ethnicity' => $data['GEtnico'] ?? null,
 
+            # Lengua indigena
+            'lengua_indig' => $data['LengIndigena'] ?? null,
+
             # Género
             'gender' => isset($data['OtroGenero']) && $data['OtroGenero'] !== null
                     ? $data['Genero'].' - '.$data['OtroGenero']
