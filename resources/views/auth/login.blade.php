@@ -122,7 +122,7 @@
         <div class="modal-content px-xl-5 px-lg-5 px-md-4 px-sm-3 px-2" style="background-color: #8b96a8">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">Registro</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: 12px; margin-right: 5px">
                     <span aria-hidden="true">X</span>
                 </button>
             </div>
@@ -134,18 +134,18 @@
                    </ul>
                   </div>
                   <div class="alert alert-success" role="alert" v-else-if="banRegistro?!banError?true:false:false">
-                    <p>Tu registro se a realizado con exito, verifica tu correo y podras acceder a Mi portal.</p>
+                    <p>Su registro se ha realizado con éxito, verifique su correo y podrá acceder a Mi Portal.</p>
                   </div>
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group mr-3">
-                            <label for="inputPertenecesUASLP ">¿Perteneces a la comunidad de la UASLP?</label>
+                        <div class="form-group col-md-12 col-sm-12 col-12 mb-0">
+                            <label for="inputPertenecesUASLP ">¿Pertenece a la comunidad de la UASLP?</label>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group col-md-6 col-sm-4 col-6 was-validated">
                             <select id="inputPertenecesUASLP" class="form-control" v-model="PerteneceUaslp" required
                                 v-on:change="RestableceValores()">
-                                <option disabled value="">Opción</option>
+                                <option disabled value="">Seleccione una opción</option>
                                 <option>Si</option>
                                 <option>No</option>
                             </select>
@@ -153,10 +153,9 @@
                     </div>
                     <div class="form-row" v-if="PerteneceUaslp === 'Si'">
                         <div class="form-group col-md-12 col-sm-12 col-12 mb-0">
-                            <label for="email">Ingresa tu RPE/clave única de alumno ó correo Institucional y da clic al
-                                botón con el icono de lupa</label>
+                            <label for="email">Ingrese su clave única/RPE o correo institucional</label>
                         </div>
-                        <div class="form-group col-md-4 col-sm-4 col-6 was-validated">
+                        <div class="form-group col-md-6 col-sm-4 col-10 was-validated">
                             <input type="text" class="form-control" id="emailR" v-model="emailR" name="email" :readonly="uaslpUpdated" required>
                             <span class="text-danger" role="alert" v-if="Errores[0].Visible">
                                 @{{Errores[0].Mensaje}}
@@ -176,8 +175,8 @@
                         </div>
                     </div>
                     <div class="form-row" v-if="blockCampos==false?PerteneceUaslp === 'Si'?true:false:false">
-                        <div class="form-group col-md-10  was-validated">
-                            <label for="CorreoAlterno ">Correo alternativo</label>
+                        <div class="form-group col-md-6  was-validated">
+                            <label for="CorreoAlterno ">Correo electrónico alternativo</label>
                             <input type="email" class="form-control" id="CorreoAlterno" name="CorreoAlterno" required
                                 name="CorreoAlterno" v-model='CorreoAlterno'>
                         </div>
@@ -185,7 +184,7 @@
 
                     <div class="form-row" v-if="PerteneceUaslp === 'No'">
                         <div class="form-group col-md-12 was-validated">
-                            <label for="email">Ingresa un correo electrónico</label>
+                            <label for="email">Correo electrónico</label>
                             <input type="email" class="form-control" id="emailR" name="email" required v-model="emailR">
                         </div>
                         <div class="form-group col-md-6 was-validated">
@@ -194,7 +193,7 @@
                                 v-model="password" v-on:change="VerificarContraseña()" minlength="8">
                         </div>
                         <div class="form-group col-md-6 was-validated">
-                            <label for="passwordR">Repite tu Contraseña</label>
+                            <label for="passwordR">Confirme su contraseña</label>
                             <input type="password" class="form-control" id="passwordR" name="passwordR" required
                                 v-model="passwordR" v-on:change="VerificarContraseña()" minlength="8">
                         </div>
@@ -209,7 +208,6 @@
                             <label for="inputPertenecesUASLP ">País de origen</label>
                             <select id="Pais" class="form-control" v-model="Pais" required name="Pais">
                                 <option disabled value="">País</option>
-                                <option value="Elegir" id="AF">Elegir opción</option>
                                 <option value="Afganistán" id="AF">Afganistán</option>
                                 <option value="Albania" id="AL">Albania</option>
                                 <option value="Alemania" id="DE">Alemania</option>
@@ -461,7 +459,6 @@
                             <label for="LugarResidencia ">País de residencia</label>
                             <select id="LugarResidencia" class="form-control" v-model="LugarResidencia" required name="LugarResidencia">
                                 <option disabled value="">País</option>
-                                <option value="Elegir" id="AF">Elegir opción</option>
                                 <option value="Afganistán" id="AF">Afganistán</option>
                                 <option value="Albania" id="AL">Albania</option>
                                 <option value="Alemania" id="DE">Alemania</option>
@@ -721,7 +718,7 @@
 
                             @error('CURP')
                             <div class="invalid-feedback">
-                                Tu CURP no es válido
+                                Su CURP no es válida
                             </div>
                             @enderror
                         </div>
@@ -745,11 +742,12 @@
                                 style="text-transform: capitalize;">
                         </div>
                     </div>
+
+                    
                     <div class="form-row was-validated" v-if="!blockCampos">
-                        <div class=" form-group col-md-2">
+                        <div class="form-group col-md-4">
                             <label for="Edad">Edad</label>
-                            <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1"
-                                max="100" required>
+                            <input type="number" name="Edad" id="Edad" v-model="Edad" class="form-control" min="1" max="100" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Genero">Género</label>
@@ -761,59 +759,53 @@
                                 <option value="NoEspecificar" id="NE">No Especificar</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-6" v-if="Genero=='Otro'">
-                            <label for="inputCity">Especificar</label>
-                            <input type="text" class="form-control" id="OtroGenero" v-model="OtroGenero"
-                                name="OtroGenero" autocomplete="OtroGenero">
+                        <div class="form-group col-md-4" v-if="Genero=='Otro'">
+                            <label for="OtroGenero">Especifique</label>
+                            <input type="text" class="form-control" id="OtroGenero" v-model="OtroGenero" name="OtroGenero" autocomplete="OtroGenero" required>
                         </div>
-
-
                     </div>
 
-                    <div class="form-group row was-validated" v-if="!blockCampos">
-                        <div class="form-group col-md-4 was-validated">
-                            <label for="inputCity">Teléfono de contacto</label>
+                    <div class="form-row was-validated" v-if="!blockCampos">
+                        <div class="form-group col-md-4">
+                            <label for="Tel">Teléfono de contacto</label>
                             <input type="tel" class="form-control" id="Tel" required name="Tel" autocomplete="Tel" v-model="Celular">
                         </div>
-                        <div class="col-md-4 ">
-                            <label for="CP">Codigo Postal</label>
+                        <div class="form-group col-md-4">
+                            <label for="CP">Código postal</label>
                             <input type="number" class="form-control" id="CP" required name="CP" v-model="CP">
                         </div>
-
-                        <div class="col-md-4">
-                            <label for="LugarResidencia">Ocupación</label>
-                            <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion"
-                                v-model="Ocupacion" placeholder="estudiante, profesor, administrativo, otro">
+                        <div class="form-group col-md-4">
+                            <label for="Ocupacion">Ocupación</label>
+                            <input type="text" class="form-control" id="Ocupacion" required name="Ocupacion" v-model="Ocupacion" placeholder="Estudiante, Profesor, Administrativo, otro">
                         </div>
-
-
                     </div>
-                    <div class="form-group row was-validated" v-if="!blockCampos">
-                        <div class="col-6">
-                            <label for="GEtnico">Grupo étnico</label>
+
+
+                    <div class="form-row was-validated" v-if="!blockCampos">
+                        <div class="form-group col-md-6">
+                            <label for="GEtnico">Grupo étnico (Zapoteco, Pame, etc)</label>
                             <input id="GEtnico" type="text" name="GEtnico" class="form-control" id="GEtnico" v-model="GEtnico"
-                                placeholder="Grupo étnico (Zapoteco, Pame, etc)">
+                                placeholder="En caso de no pertenecer a ningún grupo étnico, dejar en blanco">
                         </div>
 
-                        <div class="col-6">
-                            <label for="isDiscapacidad">¿Tienes alguna
-                                discapacidad?</label>
+                        <div class="form-group col-md-6">
+                            <label for="isDiscapacidad">¿Tiene alguna discapacidad?</label>
                             <select id="isDiscapacidad" class="form-control" v-model="isDiscapacidad" required
                                 name="isDiscapacidad">
-                                <option disabled value="">Opción</option>
+                                <option disabled value="">Seleccione una opción</option>
                                 <option value="Si" id="Si">Si</option>
                                 <option value="No" id="No">No</option>
                             </select>
                         </div>
 
-                        <div class="col-md-6" v-if="GEtnico != ''">
-                            <label for="GEtnico">Lengua indigena</label>
+                        <div class="form-group col-md-6" v-if="GEtnico != ''">
+                            <label for="GEtnico">Lengua indígena</label>
                             <input type="text" class="form-control" id="LengIndigena" required name="LengIndigena"
                                 required v-model="LengIndigena">
                         </div>
 
-                        <div class="col-md-6" v-if="isDiscapacidad=='Si'">
-                            <label for="Discapacidad">De ser afirmativivo,¿Cúal?</label>
+                        <div class="form-group col-md-6" v-if="isDiscapacidad=='Si'">
+                            <label for="Discapacidad">¿Cuál es su tipo de discapacidad o condición?</label>
                             <input type="text" class="form-control" id="Discapacidad" required name="Discapacidad"
                                 required v-model="Discapacidad">
                         </div>
@@ -824,9 +816,8 @@
                             <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
                                 Al enviar la información confirmo que he leido y acepto el <a
-                                    href="http://transparencia.uaslp.mx/avisodeprivacidad" style="color: #fecc56;;">
-                                    aviso
-                                    de privacidad.</a>
+                                    href="https://transparencia.uaslp.mx/Paginas/AVISO-DE-PRIVACIDAD/3150#gsc.tab=0" style="color: #fecc56;;">
+                                    aviso de privacidad.</a>
                             </label>
                         </div>
                     </div>
@@ -888,7 +879,7 @@
   this.$nextTick(function () {
     this.Pais='México';
     this.ChecarUrl(),
-    this.Errores.push({Mensaje:" Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
+    this.Errores.push({Mensaje:"Lo sentimos tu RPE/Clave unica ó correo Institucional no se encuentra.",Visible:false});
     this.Errores.push({Mensaje:"Las contraseñas no coinciden",Visible:false});
   })
 },

@@ -107,7 +107,7 @@ class RegisterController extends Controller
 
             # Género
             'gender' => isset($data['OtroGenero']) && $data['OtroGenero'] !== null
-                    ? $data['Genero'].' - '.$data['OtroGenero']
+                    ? $data['OtroGenero']
                     : $data['Genero'] ?? null,
 
             # Lugar de residencia
