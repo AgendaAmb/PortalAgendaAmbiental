@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="carousel-item" data-interval="4000">
+        <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
@@ -90,7 +90,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -173,7 +173,7 @@
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Mar2023.png')}}" class="imgCaoursel "
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_May2023.png')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
@@ -283,7 +283,7 @@
           </div>
         </div>
 
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href="{{route('Unibici',['nombreModal'=> 'RCentenario'])}}">
               <img src="{{ asset('/storage/imagenes/Unibici/B_RCentenario1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
@@ -305,7 +305,7 @@
               <img src="{{ asset('/storage/imagenes/ConcursoFotografia/B_ConFoto1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>
+        </div>-->
 
         <div class="carousel-item ">
           <div class="slide-box">
@@ -351,7 +351,7 @@
         <div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Mar2023.png')}}"
+              <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_May2023.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
