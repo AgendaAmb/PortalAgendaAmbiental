@@ -82,19 +82,19 @@
           <th scope="row">
             <center>7205</center>
           </th>
-          <td style="text-align: left;">C.P. Carla Gabriela Morán Flores</td>
+          <td style="text-align: left;">MBA Claudia de los Ángeles Torres Castañeda</td>
           <td style="text-align: left;">Asistente Administración</td>
           <td></td>
-          <td>carla.moran@uaslp.mx</td>
+          <td>claudia.torres@uaslp.mx</td>
         </tr>
         <tr>
           <th scope="row">
             <center>7206</center>
           </th>
-          <td style="text-align: left;">Dra.Paola Elizabeth Díaz Flores</td>
+          <td style="text-align: left;">Dra. Anuschka Johanna María van't Hooft</td>
           <td style="text-align: left;">Coordinación PMPCA</td>
           <td></td>
-          <td>jjesus@uaslp.mx</td>
+          <td>avanthooft@uaslp.mx</td>
         </tr>
         <tr>
           <th scope="row">
@@ -151,7 +151,7 @@
           <td>miguel.gonzalez@uaslp.mx
           </td>
         </tr>
-        <tr>
+        <!--<tr>
           <th scope="row">
             <center>7213</center>
           </th>
@@ -176,7 +176,7 @@
           <td style="text-align: left;">Diseño Gráfico</td>
           <td></td>
           <td>imagen.agenda@uaslp.mx</td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
   </div>
