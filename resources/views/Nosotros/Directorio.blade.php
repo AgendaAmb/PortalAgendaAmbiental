@@ -91,7 +91,7 @@
           <th scope="row">
             <center>7206</center>
           </th>
-          <td style="text-align: left;">Dra. Anuschka Johanna María van't Hooft</td>
+          <td style="text-align: left;">Dra. Anuschka van 't Hooft</td>
           <td style="text-align: left;">Coordinación PMPCA</td>
           <td></td>
           <td>avanthooft@uaslp.mx</td>
