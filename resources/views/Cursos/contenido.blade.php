@@ -70,6 +70,7 @@
 
         </div>
     </div>
+    <br><br>
 </div>
 
 <div class="modal fade" id="RI" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -104,6 +105,7 @@
 
         </div>
     </div>
+    <br><br>
 </div>
 
 <div class="modal fade" id="SCMU" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -138,6 +140,7 @@
 
         </div>
     </div>
+    <br><br>
 </div>
 
 @endsection
