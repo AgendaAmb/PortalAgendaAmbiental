@@ -23,12 +23,12 @@
     </div>
 
     <div class="col-4 ">
-        <a href="#" data-toggle="modal" data-target="#REG" data-modalname="RI">
+        <a href="#" data-toggle="modal" data-target="#RI" data-modalname="RI">
             <img src="{{asset('storage/imagenes/Cursos/B_RI_2023.jpg')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
     <div class="col-4 ">
-        <a href="#" data-toggle="modal" data-target="#REG" data-modalname="SCMU">
+        <a href="#" data-toggle="modal" data-target="#SCMU" data-modalname="SCMU">
             <img src="{{asset('storage/imagenes/Cursos/B_SCMU_2023.jpg')}}" class="img-fluid" alt="" srcset=""></a>
     </div>
 
