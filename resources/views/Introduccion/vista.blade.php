@@ -92,7 +92,7 @@
           </div>
         </div>-->
 
-        <!--<div class="carousel-item" data-interval="4000">
+        <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="{{route('Cursos')}}">
@@ -105,7 +105,7 @@
               </a>
             </div>
           </div>
-        </div>-->
+        </div>
 
         <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -281,6 +281,7 @@
                   alt="First slide">
                </a>
           </div>
+        </div>
 
 
         <!--<div class="carousel-item ">
@@ -374,6 +375,7 @@
                   alt="First slide">
                </a>
           </div>
+         </div>
 
           
 
@@ -406,7 +408,7 @@
           </div>
         </div>
       </div>
-    </div>
+</div>
       <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -418,7 +420,7 @@
     </div>
   </div>
 </div>
-</div>
+
 
 <div class="modal fade" id="CompetenciasProfesionales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
