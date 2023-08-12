@@ -18,18 +18,18 @@
 <div class="row justify-content-center" style="width:100%">
     <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#REG" data-modalname="REG">
-            <img src="{{asset('storage/imagenes/Cursos/B_REG_2023.jpg')}}" class="img-fluid" alt="" srcset="">
+            <img src="{{asset('storage/imagenes/Cursos/B_REG_2023.png')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
 
     <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#RI" data-modalname="RI">
-            <img src="{{asset('storage/imagenes/Cursos/B_RI_2023.jpg')}}" class="img-fluid" alt="" srcset="">
+            <img src="{{asset('storage/imagenes/Cursos/B_RI_2023.png')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
     <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#SCMU" data-modalname="SCMU">
-            <img src="{{asset('storage/imagenes/Cursos/B_SCMU_2023.jpg')}}" class="img-fluid" alt="" srcset="">
+            <img src="{{asset('storage/imagenes/Cursos/B_SCMU_2023.png')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
 </div>
@@ -59,6 +59,7 @@
                         <div class="col-6 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/Cursos/Cartel_REG_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_REG_2023.jpg">CARTEL GENERAL</a>
                         </div>
+                        <br><br>
                     </div>
                 </div>
             </div>
@@ -89,6 +90,7 @@
                         <div class="col-6 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/Cursos/Cartel_RI_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_RI_2023.jpg">CARTEL GENERAL</a>
                         </div>
+                        <br><br>
                     </div>
                 </div>
             </div>
@@ -118,6 +120,7 @@
                         <div class="col-6 col-md-6 col-sm-6">
                             <a href="{{asset('storage/imagenes/Cursos/Cartel_SCMU_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_SCMU_2023.jpg">CARTEL GENERAL</a>
                         </div>
+                        <br><br>
                     </div>
                 </div>
             </div>
