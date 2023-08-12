@@ -5,6 +5,7 @@
 </div>
 <div class="col-xl-8 col-lg-8 col-md-8">
     <p class="text-justify pSize pt-3 pt-xl-3 pt-lg-3  pt-md-0 my-5">
+        <br><br>
         Son programas de actualización profesional, formación general o especializada en temas ambientales. Se dirige hacia la capacitación para el manejo de los instrumentos de gestión ambiental (evaluación de impacto ambiental, planeación y ordenamientos ecológicos, manejo de áreas naturales protegidas), normativas vigentes o conceptos, metodologías y técnicas de educación ambiental.
         <br><br>
 
@@ -57,9 +58,9 @@
                             <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
                         <div class="col-6 col-md-6 col-sm-6">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_REG_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_REG_2023.jpg">CARTEL GENERAL</a>
+                            <a href="{{asset('storage/doc/Curso_REG_2023II.pdf')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Curso_REG_2023II.pdf">PROGRAMA</a>
                         </div>
-                        <br><br>
+                        <br><br><br>
                     </div>
                 </div>
             </div>
@@ -88,9 +89,9 @@
                             <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
                         <div class="col-6 col-md-6 col-sm-6">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_RI_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_RI_2023.jpg">CARTEL GENERAL</a>
+                            <a href="{{asset('storage/doc/Curso_RI_2023II.pdf')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Curso_RI_2023II.pdf">PROGRAMA</a>
                         </div>
-                        <br><br>
+                        <br><br><br>
                     </div>
                 </div>
             </div>
@@ -118,9 +119,9 @@
                             <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
                         <div class="col-6 col-md-6 col-sm-6">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_SCMU_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_SCMU_2023.jpg">CARTEL GENERAL</a>
+                            <a href="{{asset('storage/doc/Curso_SCMU_2023II.pdf)}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Curso_SCMU_2023II.pdf">PROGRAMA</a>
                         </div>
-                        <br><br>
+                        <br><br><br>
                     </div>
                 </div>
             </div>

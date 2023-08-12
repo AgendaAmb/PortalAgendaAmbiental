@@ -95,19 +95,19 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="{{asset('storage/doc/Conv_ SeImpulsanIdeas2023.pdf')}}">
-                <img src="{{asset('/storage/imagenes/Eventos/B_Bepensa1.png')}}" class="imgCaoursel "
+              <a href="{{route('Cursos')}}">
+                <img src="{{asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href="{{asset('storage/doc/Conv_ SeImpulsanIdeas2023.pdf')}}">
-                <img src="{{asset('/storage/imagenes/Eventos/B_Bepensa2.png')}}" class="imgCaoursel "
+              <a href="{{route('Cursos')}}">
+                <img src="{{asset('/storage/imagenes/Cursos/B2_CA2023_II.jpg')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
           </div>
         </div>
 
-        <div class="carousel-item" data-interval="4000">
+        <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="{{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}">
@@ -151,7 +151,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -184,7 +184,7 @@
           </div>
         </div>
 
-        <div class="carousel-item" data-interval="4000">
+        <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
@@ -197,7 +197,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -309,13 +309,13 @@
 
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href="{{asset('storage/doc/Conv_ SeImpulsanIdeas2023.pdf')}}">
-              <img src="{{ asset('/storage/imagenes/Eventos/B_Bepensa1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            <a href="{{route('Cursos')}}">
+              <img src="{{ asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
         </div>
 
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href="{{route('Educacion',['nombreModal'=> 'CartelPromotores'])}}">
               <img src="{{ asset('/storage/imagenes/Promotores/B1_PromAmb23.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
@@ -337,7 +337,7 @@
               <img src="{{asset('/storage/imagenes/Jandiekua/B_Jandiekua1.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>
+        </div>-->
 
         <!--<div class="carousel-item ">
           <div class="slide-box">
@@ -357,14 +357,14 @@
           </div>
         </div>
 
-        <div class="carousel-item ">
+        <!--<div class="carousel-item ">
           <div class="slide-box">
             <a href={{route('Unihuerto',['nombreModal'=> 'modalUnitrueque2022'])}}>
               <img src="{{ asset('storage/imagenes/Unitrueque/B_UniTrueque2023_1.png')}}"
                 class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
-        </div>
+        </div>-->
 
       <div class="carousel-inner">
         <div class="carousel-item">
