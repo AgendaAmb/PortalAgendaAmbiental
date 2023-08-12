@@ -95,11 +95,11 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="{{route('Cursos')}}">
+              <a href="{{route('Cursos',['nombreModal'=> 'REG'])}}">
                 <img src="{{asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
-              <a href="{{route('Cursos')}}">
+              <a href="{{route('Cursos',['nombreModal'=> 'REG'])}}">
                 <img src="{{asset('/storage/imagenes/Cursos/B2_CA2023_II.jpg')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
@@ -309,7 +309,7 @@
 
         <div class="carousel-item ">
           <div class="slide-box">
-            <a href="{{route('Cursos')}}">
+            <a href="{{route('Cursos',['nombreModal'=> 'REG'])}}">
               <img src="{{ asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
             </a>
           </div>
@@ -366,7 +366,7 @@
           </div>
         </div>-->
 
-      <div class="carousel-inner">
+
         <div class="carousel-item">
           <div class="slide-box">
               <a href="https://greenmetric.ui.ac.id/rankings/overall-rankings-2021">
@@ -374,7 +374,6 @@
                   alt="First slide">
                </a>
           </div>
-        </div>
 
           
 
