@@ -116,10 +116,10 @@
                     </div>
                     <div class="row justify-content-around mx-3 mt-2">
                         <div class="col-6 col-md-6 col-sm-6">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
+                            <a href={{route('Bienvenida',['nombreModal'=>'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
                         <div class="col-6 col-md-6 col-sm-6">
-                            <a href="{{asset('storage/doc/Curso_SCMU_2023II.pdf)}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Curso_SCMU_2023II.pdf">PROGRAMA</a>
+                            <a href="{{asset('storage/doc/Curso_SCMU_2023II.pdf')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Curso_SCMU_2023II.pdf">PROGRAMA</a>
                         </div>
                         <br><br><br>
                     </div>

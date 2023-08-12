@@ -25,7 +25,7 @@
             </b-form-select>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Comentarios o suguerencias" label-for="input-2">
+        <b-form-group id="input-group-2" label="Comentarios o sugerencias" label-for="input-2">
             <b-form-textarea v-model="estadistic_data.comments" id="textarea" placeholder="..." rows="3" max-rows="6">
             </b-form-textarea>
         </b-form-group>
