@@ -1,7 +1,6 @@
 <template>
     <div>
-        <b-form-checkbox-group v-model="selectedCursos" :options="cursos" name="flavour-2a" stacked></b-form-checkbox-group>
-        <p>Seleccionado: {{ selectedCursos }}</p>
+        <b-form-checkbox-group :options="cursos" name="flavour-2a" stacked></b-form-checkbox-group>
     </div>
 </template>
   
@@ -26,11 +25,7 @@ export default {
     },
     computed: {
         selectedCursos() {
-            const result = {};
-            this.cursos_actualizacion_data.forEach((item) => {
-                result[item] = true;
-            });
-            return result;
+            return "hola";
         },
     },
 };

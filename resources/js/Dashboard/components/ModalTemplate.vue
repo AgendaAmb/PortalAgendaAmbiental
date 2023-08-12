@@ -43,7 +43,7 @@
             <hr v-if="ws.payment_required == 1">
             <statistics-section v-bind:estadistic_data="estadistic_data"></statistics-section>
         </b-form>
-        </div>
+    
     </b-modal>
 </template>
 

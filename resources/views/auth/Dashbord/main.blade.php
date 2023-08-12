@@ -11,7 +11,8 @@
   const is_ce = @json($is_ce);
 
   // Additional data
-  console.log(cursos_act);
+  cursos_act.type = 'cursos_actualizacion';
+  cursos_act.payment_required = 1;
   const url = '{{env('
   APP_URL ')}}';
   // const url = 'https://ambiental.uaslp.mx/'
