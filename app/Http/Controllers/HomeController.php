@@ -100,11 +100,18 @@ class HomeController extends Controller
             array_push($user_unregistered_whorkshops_ids, $workshop['id']);
         }
         
-        $cursos_actualizacion = Workshop::where('type', '=', 'cursos_actualizacion')->where('end_date', '>=', Carbon::now())->get()->values()->toArray();
-         foreach ($cursos_actualizacion as &$workshop) {
-            $workshop["registered"] = false;
+        $cursos_actualizacion = Workshop::where('type', '=', 'cursos_actualizacion')
+        ->where('end_date', '>=', Carbon::now())
+        ->whereNotIn('id', $user_registered_whorkshops_ids) // Excluye los cursos registrados
+        ->get()
+        ->values()
+        ->toArray();
+
+        foreach ($cursos_actualizacion as &$workshop) {
+            $workshop["registered"] = False; // Marca los cursos de actualización como no registrados
             array_push($cursos_actualizacion_ids, $workshop['id']);
         }
+
         $object_ca = (object)$cursos_actualizacion; 
         $reutronic = Workshop::where('type', '=', 'reutronic')->where('end_date', '>=', Carbon::now())->get()->values()->toArray();
 

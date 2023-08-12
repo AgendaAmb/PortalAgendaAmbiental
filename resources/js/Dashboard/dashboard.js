@@ -37,6 +37,7 @@ const app = new Vue({
         modal: modal,       //abrir modal de redirección
         url: url,           //url del app definida en el .env
         modules: Modulos,
+        cursos_act:cursos_act,
         user_workshops: user_workshops,
         workshops: workshops,
         noreg_workshops: noreg_workshops,
@@ -65,7 +66,8 @@ const app = new Vue({
             kidslength: 1,
         },
         unirodada_data: { health_condition: null, contact_name: '', contact_tel: '', group: '' },
-        cursos_actualizacion_data: {},
+        cursos_actualizacion_data: { cursos: [] },
+
     },
     mounted() {
         this.getCalendarEventDays();
@@ -194,13 +196,13 @@ const app = new Vue({
             let headers = {
                 'Content-Type': 'application/json;charset=utf-8'
             };
-            console.log("Cursos: ", this.cursos_actualizacion_data);
 
             let data = {
                 "workshop_id": ws.id,
                 "workshop_type": ws.type,
                 "estadistic_data": this.estadistic_data,
                 "invoice_data": this.invoice_data,
+                "cursos_act": this.cursos_actualizacion_data,
             };
             // ! Additional data 
 
@@ -223,7 +225,7 @@ const app = new Vue({
                 default:
                     break;
             }
-            //console.log(data["additional_data"]);
+            console.log("Subiendo2: ", data);
             axios.post(this.url + 'WorkshopUserRegister', data).then(response => (
                 console.log("subiendo: ", response.data)
             )).catch((err) => {

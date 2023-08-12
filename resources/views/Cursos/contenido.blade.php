@@ -15,33 +15,31 @@
 @endsection
 
 @section('BannerBotones')
-<div class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
-    <div class="col-4">
+<div class="row justify-content-center" style="width:100%">
+    <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#REG" data-modalname="REG">
             <img src="{{asset('storage/imagenes/Cursos/B_REG_2023.jpg')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
 
-    <div class="col-4 ">
+    <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#RI" data-modalname="RI">
             <img src="{{asset('storage/imagenes/Cursos/B_RI_2023.jpg')}}" class="img-fluid" alt="" srcset="">
         </a>
     </div>
-    <div class="col-4 ">
+    <div class="col-4 d-flex justify-content-center align-items-center">
         <a href="#" data-toggle="modal" data-target="#SCMU" data-modalname="SCMU">
-            <img src="{{asset('storage/imagenes/Cursos/B_SCMU_2023.jpg')}}" class="img-fluid" alt="" srcset=""></a>
+            <img src="{{asset('storage/imagenes/Cursos/B_SCMU_2023.jpg')}}" class="img-fluid" alt="" srcset="">
+        </a>
     </div>
-
 </div>
-
 @endsection
 
 
 @section('Modales')
 <div class="modal fade" id="REG" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-
             <div class="modal-body py-0">
                 <div class="col-12 mb-4 ml-3 p-0">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -50,33 +48,28 @@
                 </div>
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                        <div class="col-12 col-md-10 col-sm-10">
                             <img src="{{asset('storage/imagenes/Cursos/Cartel_REG_2023.jpg')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2 ">
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRAR</a>
+                    <div class="row justify-content-around mx-3 mt-2">
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_REG_2023.jpg')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button" download="Cartel_REG_2023.jpg">CARTEL GENERAL </a>
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href="{{asset('storage/imagenes/Cursos/Cartel_REG_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_REG_2023.jpg">CARTEL GENERAL</a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-    <br><br>
 </div>
 
-<div class="modal fade" id="RI" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
-        <div class="modal-content">
 
+<div class="modal fade" id="RI" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
             <div class="modal-body py-0">
                 <div class="col-12 mb-4 ml-3 p-0">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -85,33 +78,27 @@
                 </div>
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                        <div class="col-12 col-md-10 col-sm-10">
                             <img src="{{asset('storage/imagenes/Cursos/Cartel_RI_2023.jpg')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2">
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRAR</a>
+                    <div class="row justify-content-around mx-3 mt-2">
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_RI_2023.jpg')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button" download="Cartel_RI_2023.jpg">CARTEL GENERAL </a>
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href="{{asset('storage/imagenes/Cursos/Cartel_RI_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_RI_2023.jpg">CARTEL GENERAL</a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-    <br><br>
 </div>
 
 <div class="modal fade" id="SCMU" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-
             <div class="modal-body py-0">
                 <div class="col-12 mb-4 ml-3 p-0">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -120,27 +107,22 @@
                 </div>
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                        <div class="col-12 col-md-10 col-sm-10">
                             <img src="{{asset('storage/imagenes/Cursos/Cartel_SCMU_2023.jpg')}}" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <div class="row justify-content-around justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-3 mx-lg-5 mx-xl-5  mx-md-5 mx-sm-5 mt-2 ">
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light  text-muted downloadBtn " role="button">REGISTRAR</a>
+                    <div class="row justify-content-around mx-3 mt-2">
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href={{route('Bienvenida',['nombreModal'=> 'CursosActualizacion'])}} class="btn btn-secondary bg-light text-muted downloadBtn w-100" role="button">REGISTRAR</a>
                         </div>
-
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes/Cursos/Cartel_SCMU_2023.jpg')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button" download="Cartel_SCMU_2023.jpg">CARTEL GENERAL </a>
+                        <div class="col-6 col-md-6 col-sm-6">
+                            <a href="{{asset('storage/imagenes/Cursos/Cartel_SCMU_2023.jpg')}}" class="btn btn-secondary bg-light text-muted downloadBtn w-100" href="#" role="button" download="Cartel_SCMU_2023.jpg">CARTEL GENERAL</a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-    <br><br>
 </div>
 
 @endsection

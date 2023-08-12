@@ -13,6 +13,7 @@
   // Additional data
   cursos_act.type = 'cursos_actualizacion';
   cursos_act.payment_required = 1;
+  console.log(cursos_act);
   const url = '{{env('
   APP_URL ')}}';
   // const url = 'https://ambiental.uaslp.mx/'
@@ -100,7 +101,7 @@
               <h6 class="px-2 py-2 m-0" style="font-weight:bold">PANEL DE REGISTRO</h6>
             </div>
           </b-col>
-          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-if="Object.keys(cursos_act).length !== 0">
+          <b-col order="3" xl="2" lg="3" md="4" sm="6" cols="6" style="margin-top:20px;" v-if="Object.keys(cursos_act).length !== 2">
             <b-card img-src="{{asset('/storage/imagenes/Cursos/R_CA2023_II.jpg')}}" style="max-width: 200px;" class="text-center position-relative mx-1 my-2 p-1 border-0 _card" img-alt="evento.png" img-top no-body header-bg-variant="white" header-border-variant="white" @click="openRegisterModal(cursos_act)">
               <template class="_card-header" #header>
                 <div>

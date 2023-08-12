@@ -310,6 +310,98 @@ class WorkshopController extends Controller
                 $user->comments = $request['estadistic_data']['comments'];
             }
             $user->save();
+            if(!empty($request['cursos_act']))
+            {
+                foreach ($request['cursos_act']['cursos'] as $curso) {
+                    switch ($curso) {
+                        case 50:
+                            echo "reg";
+                            $user_workshop = UserWorkshop::create([
+                                'user_id' => $user->id,
+                                'user_type' => $user->type,
+                                'workshop_id' => 50,
+                                'sent' => false,
+                                'paid' => false,
+                                'invoice_data' => $request['invoice_data']['required'] == "Si" ? true : false,
+                                'payment_type' => $request['invoice_data']['payment_type']
+                            ]);
+                            if ($request['invoice_data']['required'] === 'Si' || $request['invoice_data']['required'] === 'si') {
+                                DB::table('invoice_data')
+                                    ->updateOrInsert(
+                                        [
+                                            'user_id' => $user->id,
+                                            'user_type' => $user->type
+                                        ],
+                                        [
+                                            'rfc' => $request['invoice_data']['rfc'],
+                                            'name' => $request['invoice_data']['name'],
+                                            'email' => $request['invoice_data']['email'],
+                                            'address' =>  $request['invoice_data']['addr'],
+                                            'phone' => $request['invoice_data']['tel']
+                                        ]
+                                    );
+                            }
+                            break;
+                            case 51:
+                                echo "rei";
+                                $user_workshop = UserWorkshop::create([
+                                    'user_id' => $user->id,
+                                    'user_type' => $user->type,
+                                    'workshop_id' => 51,
+                                    'sent' => false,
+                                    'paid' => false,
+                                    'invoice_data' => $request['invoice_data']['required'] == "Si" ? true : false,
+                                    'payment_type' => $request['invoice_data']['payment_type']
+                                ]);
+                                if ($request['invoice_data']['required'] === 'Si' || $request['invoice_data']['required'] === 'si') {
+                                    DB::table('invoice_data')
+                                        ->updateOrInsert(
+                                            [
+                                                'user_id' => $user->id,
+                                                'user_type' => $user->type
+                                            ],
+                                            [
+                                                'rfc' => $request['invoice_data']['rfc'],
+                                                'name' => $request['invoice_data']['name'],
+                                                'email' => $request['invoice_data']['email'],
+                                                'address' =>  $request['invoice_data']['addr'],
+                                                'phone' => $request['invoice_data']['tel']
+                                            ]
+                                        );
+                                }
+                                break;
+                                case 52:
+                                    echo "scmu";
+                                    $user_workshop = UserWorkshop::create([
+                                        'user_id' => $user->id,
+                                        'user_type' => $user->type,
+                                        'workshop_id' => 52,
+                                        'sent' => false,
+                                        'paid' => false,
+                                        'invoice_data' => $request['invoice_data']['required'] == "Si" ? true : false,
+                                        'payment_type' => $request['invoice_data']['payment_type']
+                                    ]);
+                                    if ($request['invoice_data']['required'] === 'Si' || $request['invoice_data']['required'] === 'si') {
+                                        DB::table('invoice_data')
+                                            ->updateOrInsert(
+                                                [
+                                                    'user_id' => $user->id,
+                                                    'user_type' => $user->type
+                                                ],
+                                                [
+                                                    'rfc' => $request['invoice_data']['rfc'],
+                                                    'name' => $request['invoice_data']['name'],
+                                                    'email' => $request['invoice_data']['email'],
+                                                    'address' =>  $request['invoice_data']['addr'],
+                                                    'phone' => $request['invoice_data']['tel']
+                                                ]
+                                            );
+                                    }
+                                    break;
+                    }
+                }
+                }
+        
             # Busca el curso por su nombre.
             $workshop_model = Workshop::firstWhere('id', $request->workshop_id);
             # Registra al usuario al workshop
@@ -404,7 +496,8 @@ class WorkshopController extends Controller
                 } catch (Exception $e) {
                     echo "error";
                 }
-            }
+            
+    }
         } catch (Exception $e) {
             return response()->json(['data' => "Error de procesamiento"], JsonResponse::HTTP_OK);
         }
