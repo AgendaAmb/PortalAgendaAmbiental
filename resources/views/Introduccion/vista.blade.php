@@ -92,7 +92,7 @@
           </div>
         </div>-->
 
-        <div class="carousel-item" data-interval="4000">
+        <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="{{route('Cursos')}}">
@@ -105,7 +105,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
@@ -178,6 +178,21 @@
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
                 <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_2023.png')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href="{{route('Cursos')}}">
+                <img src="{{asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel "
+                  alt="First slide">
+              </a>
+              <a href="{{route('Cursos')}}">
+                <img src="{{asset('/storage/imagenes/Cursos/B2_CA2023_II.jpg')}}" class="imgCaoursel "
                   alt="First slide">
               </a>
             </div>
@@ -261,10 +276,6 @@
           </div>
         </div>
 
- </div>
-
-
-
       </div>
       <button class="carousel-control-prev" type="button" data-target="#carouselMain" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -285,7 +296,6 @@
                   alt="First slide">
                </a>
           </div>
-        </div>
 
 
         <!--<div class="carousel-item ">
@@ -379,7 +389,6 @@
                   alt="First slide">
                </a>
           </div>
-         </div>
 
           
 
@@ -412,7 +421,7 @@
           </div>
         </div>
       </div>
-</div>
+    </div>
       <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -424,7 +433,7 @@
     </div>
   </div>
 </div>
-
+</div>
 
 <div class="modal fade" id="CompetenciasProfesionales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
