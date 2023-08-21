@@ -29,7 +29,7 @@
 <div
     class="row justify-content-center justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between">
     <div class="col-12 ">
-        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_CR.png')}}" class="img-fluid" alt="" srcset="">
+        <img src="{{asset('storage/imagenes/ConsumoResponsable/Banner_CR_2.jpg')}}" class="img-fluid" alt="" srcset="">
     </div>
 
 </div>
@@ -186,7 +186,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 text-center ">
-                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Jun2023.png')}}"
+                            <img src="{{asset('storage/imagenes/ConsumoResponsable/Cartel_ECR_Ago2023.jpg')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                         class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
                         <br><br>
                         <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023.png')}}"
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023_2.jpg')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="CartelECR_semestral.png">CARTEL SEMESTRAL</a>
                         </div>
