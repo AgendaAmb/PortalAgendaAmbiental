@@ -467,7 +467,7 @@ class HomeController extends Controller
 
     private function getHelperUsersNew(){
         $users = DB::select('CALL getWorkshopsUsers()', array());
-        $workshop_ids = [40,41,42,43,44,45];
+        $workshop_ids = [50,51,52];
         $users = collect($users)->whereIn('workshop_id', $workshop_ids);
         return $users;
     }
