@@ -194,7 +194,7 @@
                         class="row justify-content-end justify-content-sm-end justify-content-md-center justify-content-lg-end justify-content-xl-end mt-2">
                         <br><br>
                         <div class=" col-6 col-xl-4 col-lg-4 col-md-6 col-sm-6 px-0 mr-4 ">
-                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023_2.jpg')}}"
+                            <a href="{{asset('storage/imagenes/ConsumoResponsable/CartelECR_semestral2023_2.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
                                 download="CartelECR_semestral.jpg">CARTEL SEMESTRAL</a>
                         </div>
