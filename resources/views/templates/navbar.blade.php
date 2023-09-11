@@ -4,6 +4,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="{{route('panel')}}">Inicio</b-nav-item>
+        <b-nav-item href="https://apps.powerapps.com/play/e/default-60681658-0f2d-4a4e-aaf1-6fd5f2dba33f/a/cf4c2f6d-8328-49ab-9881-ce3ae30da8c9?tenantId=60681658-0f2d-4a4e-aaf1-6fd5f2dba33f&hint=d9449612-ac5a-4155-9deb-3ccd9a1d5b56&sourcetime=1694458177132">Instalaciones</b-nav-item>
         @foreach ($Modulos as $Modulo)
                     @if($Modulo->name=='Control Escolar' || $Modulo->id == 2 )
                         <li class="nav-item ">
