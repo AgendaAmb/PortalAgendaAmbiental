@@ -15,8 +15,6 @@
             <ul class="navbar-nav w-100 justify-content-md-start">
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('panel')}}">Inicio<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="https://apps.powerapps.com/play/e/default-60681658-0f2d-4a4e-aaf1-6fd5f2dba33f/a/cf4c2f6d-8328-49ab-9881-ce3ae30da8c9?tenantId=60681658-0f2d-4a4e-aaf1-6fd5f2dba33f&hint=d9449612-ac5a-4155-9deb-3ccd9a1d5b56&sourcetime=1694406393065">Solicitud instalaciones<span class="sr-only"></span></a>
                 </li>
 
