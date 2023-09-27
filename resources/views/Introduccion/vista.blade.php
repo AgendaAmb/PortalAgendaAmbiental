@@ -47,11 +47,11 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="{{route('Cursos')}}">
+              <a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">
                 <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
-              <a href="{{route('Cursos')}}">
-                <img src="{{asset('/storage/imagenes/Cursos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide">
+              <a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
             </div>
           </div>
@@ -60,10 +60,10 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">
+              <a href="{{route('Cursos')}}">
                 <img src="{{asset('/storage/imagenes/Cursos/B1_CA2023_II.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
-              <a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">
+              <a href="{{route('Cursos')}}">
                 <img src="{{asset('/storage/imagenes/Cursos/B2_CA2023_II.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
             </div>
