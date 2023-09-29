@@ -391,6 +391,51 @@
     </div>
   </div>
 
+  <div class="modal fade" id="SemanaSostenible" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row justify-content-center justify-content-sm-between justify-content-md-center justify-content-lg-end justify-content-xl-end mx-xl-5 mx-2 mt-2">
+                        <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  px-0 px-xl-3">
+                            <a href="{{route('login')}}" class="btn btn-secondary bg-light  text-muted  " id="botones"
+                                role="button" id="botones">REGISTRO FORO</a>
+                        </div>
+                        <div class=" col-4 col-xl-4 col-lg-3 col-md-6 col-sm-6  ">
+                            <a href="{{asset('storage/imagenes/Eventos/Programa_general.pdf')}}"
+                                class="btn btn-secondary bg-light  text-muted  " role="button" id="botones"
+                                download="Bases17gemas.pdf">PROGRAMA </a>
+                        </div>
+                        <div class=" col-4 col-xl-3 col-lg-3 col-md-6 col-sm-6 mr-xl-3 ">
+                            <a href="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}"
+                                class="btn btn-secondary bg-light  text-muted  mr-xl-3 mb-2" href="#" role="button"
+                                id="botones" download="Cartel_semana_UASLPSostenible.png">CARTEL </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
   <script>
     if ('{{$NombreM}}' != '') {
       $('#{{$NombreM}}').modal('show');
