@@ -414,7 +414,7 @@
                             <a href="{{asset('storage/imagenes/Eventos/Programa_general.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="ProgramaSemanaSostenible.png">PROGRAMA</a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-2 mt-lg-0">
-                            <a href="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="Cartel_semana_UASLPSostenible.png">CARTEL</a>
+                            <a href="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="Cartel_semana_UASLPSostenible.png">CARTEL</a><br><br>
                         </div>
                     </div>
                 </div>
