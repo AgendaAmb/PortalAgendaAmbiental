@@ -182,6 +182,7 @@
     <cursos-actualizacion-section v-if="selected.type == 'cursos_actualizacion'" v-bind:cursos_actualizacion_data="cursos_actualizacion_data"></cursos-actualizacion-section>
     <uniruta-section v-if="selected.type == 'uniruta'" v-bind:uniruta_data="uniruta_data"></uniruta-section>
     <unirodada-section v-if="selected.type == 'unirodada'" v-bind:unirodada_data="unirodada_data"></unirodada-section>
+    <foro-section v-if="selected.type == 'foro'" v-bind:foro_data="foro_data"></foro-section>
   </template>
 </modal-template>
 @endverbatim

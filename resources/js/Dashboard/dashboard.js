@@ -8,6 +8,7 @@ import CursosActualizacionSection from './components/CursosActualizacionSection.
 import UnirutaSection from './components/UnirutaSection.vue';
 import MiniRodadaSection from './components/MiniRodadaSection.vue';
 import UnirodadaSection from './components/UnirodadaSection.vue';
+import ForoSection from './components/foroSection.vue'
 
 window.Vue = require('vue').default
 
@@ -16,6 +17,7 @@ Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.component('minirodada-section', MiniRodadaSection);
 Vue.component('unirodada-section', UnirodadaSection);
+Vue.component('foro-section', ForoSection);
 
 const app = new Vue({
     el: '#app',
@@ -27,6 +29,7 @@ const app = new Vue({
         UnirutaSection: UnirutaSection,
         MiniRodadaSection: MiniRodadaSection,
         UnirodadaSection: UnirodadaSection,
+        ForoSection:ForoSection,
     },
     data: {
         // UI
@@ -67,6 +70,7 @@ const app = new Vue({
         },
         unirodada_data: { health_condition: null, contact_name: '', contact_tel: '', group: '' },
         cursos_actualizacion_data: { cursos: [] },
+        foro_data: {options:[]},
 
     },
     mounted() {
