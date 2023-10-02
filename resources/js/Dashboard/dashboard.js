@@ -70,7 +70,7 @@ const app = new Vue({
         },
         unirodada_data: { health_condition: null, contact_name: '', contact_tel: '', group: '' },
         cursos_actualizacion_data: { cursos: [] },
-        foro_data: {options:[]},
+        foro_data: {options:null},
 
     },
     mounted() {
@@ -226,6 +226,8 @@ const app = new Vue({
                 case 'unirodada':
                     data["additional_data"] = this.unirodada_data;
                     break;
+                case 'foro':
+                    data["additional_data"] = this.foro_data;
                 default:
                     break;
             }

@@ -412,7 +412,9 @@ class WorkshopController extends Controller
                 'sent' => false,
                 'paid' => false,
                 'invoice_data' => $request['invoice_data']['required'] == "Si" ? true : false,
-                'payment_type' => $request['invoice_data']['payment_type']
+                'payment_type' => $request['invoice_data']['payment_type'],
+                'additional_data' => in_array($request['additional_data']['options'], ["pon", "mesdiag", "all"]) ? $request['additional_data']['options'] : false,
+
             ]);
 
             if ($request['invoice_data']['required'] === 'Si' || $request['invoice_data']['required'] === 'si') {
