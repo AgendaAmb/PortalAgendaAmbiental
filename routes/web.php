@@ -19,9 +19,10 @@ use Illuminate\Http\Request;
 // ROUTE TO TEST CONECTION WITH FINANCES SERVICE
 Route::get('/soap_finances', 'TestingController@test')->name('test_soap');
 
-Route::get('/{nombreModal?}', function ($NombreM = null) {
-    return view('Introduccion.vista')->with('NombreM', $NombreM);
-})->name('Index');
+Route::view('/', 'Introduccion.vista', ['NombreM' => null])->name('Index');
+//Route::get('/{nombreModal?}', function ($NombreM = null) {//
+    //return view('Introduccion.vista')->with('NombreM', $NombreM);
+//})->name('Index');//
 
 Route::view('/Concurso17gemas', '17Gemas.contenido', ['NombreM' => null])->name('Gemas');
 
