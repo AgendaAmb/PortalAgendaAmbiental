@@ -34,12 +34,8 @@
         <div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <a href="http://wp.uaslp.mx/centenario/">
-                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-              <a href="http://wp.uaslp.mx/centenario/">
-                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_2.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
+              <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
             </div>
           </div>
         </div>
@@ -47,8 +43,12 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
-                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
+              <a href="http://wp.uaslp.mx/centenario/">
+                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href="http://wp.uaslp.mx/centenario/">
+                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
             </div>
           </div>
         </div>
