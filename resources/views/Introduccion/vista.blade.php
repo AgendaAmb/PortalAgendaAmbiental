@@ -399,18 +399,21 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center" >
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10">
-                            <img src="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="img-fluid" alt=""><br>
+                            <img src="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="img-fluid" alt=""><br><br>
                         </div>
                     </div>
                     <div class="row justify-content-center mt-2">
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-                            <a href="{{route('login')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones">REGISTRO FORO</a>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <a href="{{route('login')}}" class="btn btn-secondary btn-xl btn-block" role="button" id="botones">REGISTRO FORO</a>
                         </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-2 mt-md-0">
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-2 mt-md-0">
                             <a href="{{asset('storage/imagenes/Eventos/Programa_general.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="ProgramaSemanaSostenible.png">PROGRAMA</a>
                         </div>
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-2 mt-lg-0">
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-2 mt-lg-0">
                             <a href="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="Cartel_semana_UASLPSostenible.png">CARTEL</a><br><br>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-2 mt-lg-0">
+                            <a href="http://a.uaslp.mx/Sostenible" class="btn btn-secondary btn-lg btn-block" role="button" id="botones">REGISTRO EVENTO</a><br><br>
                         </div>
                     </div>
                 </div>
