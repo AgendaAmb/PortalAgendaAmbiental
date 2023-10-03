@@ -73,7 +73,7 @@
                 <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Oct2023.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_2023_2.jpg')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_2023_2.png')}}" class="imgCaoursel " alt="First slide">
               </a>
             </div>
           </div>
@@ -413,7 +413,7 @@
                             <a href="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="Cartel_semana_UASLPSostenible.png">CARTEL</a><br><br>
                         </div>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-2 mt-lg-0">
-                            <a href="http://a.uaslp.mx/Sostenible" class="btn btn-secondary btn-lg btn-block" role="button" id="botones">REGISTRO EVENTO</a><br><br>
+                            <a href="http://a.uaslp.mx/Sostenible" class="btn btn-secondary btn-xl btn-block" role="button" id="botones">REGISTRO EVENTO</a><br><br>
                         </div>
                     </div>
                 </div>
