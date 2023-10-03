@@ -47,12 +47,8 @@
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <!--<a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">-->
                 <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
-              <!--</a>
-              <a href="{{asset('storage/doc/Lineamientos_carteles.pdf')}}">-->
                 <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
-              <!--</a>-->
             </div>
           </div>
         </div>
@@ -74,7 +70,7 @@
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Sep2023.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Oct2023.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
                 <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_2023_2.jpg')}}" class="imgCaoursel " alt="First slide">
@@ -162,7 +158,7 @@
       <div class="carousel-item ">
         <div class="slide-box">
           <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-            <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Sep2023.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
+            <img src="{{ asset('storage/imagenes/ConsumoResponsable/B_ECR_Oct2023.png')}}" class="imgCaoursel w-100 p-0 p-0 " alt="First slide">
           </a>
         </div>
       </div>
@@ -403,12 +399,12 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center" >
                         <div class="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-10">
-                            <img src="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('storage/imagenes/Eventos/Cartel_semana_UASLPSostenible.png')}}" class="img-fluid" alt=""><br>
                         </div>
                     </div>
                     <div class="row justify-content-center mt-2">
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-                            <a href="{{route('login')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones">REGISTRO</a>
+                            <a href="{{route('login')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones">REGISTRO FORO</a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-2 mt-md-0">
                             <a href="{{asset('storage/imagenes/Eventos/Programa_general.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="ProgramaSemanaSostenible.png">PROGRAMA</a>
