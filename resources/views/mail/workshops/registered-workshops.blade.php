@@ -13,6 +13,6 @@ Muchas gracias por registrarse a las siguientes actividades :<br><br>
     @endif
 
 
-Agradecemos su preregistro. Se le enviará un correo con las indicaciones para la actividad registrada. <br><br><br>
+Agradecemos su registro.<br><br><br>
 Saludos cordiales. <br>
 @endcomponent
