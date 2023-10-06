@@ -120,7 +120,11 @@ Route::get('/Bienvenida/{nombreModal?}', function (Request $request, $NombreM = 
 })->middleware(['guest:web', 'guest:students', 'guest:workers'])
     ->name('Bienvenida');
 
-
+Route::get('/UASLPSostenible/{nombreModal?}', function ($NombreM = null) {
+    return view('UASLPSostenible.contenido')->with('NombreM', $NombreM);
+})->name('UASLPSostenible');
+    
+    
 Route::get('/pruebacorreo', 'HomeController@pruebacorreo');
 
 # Rutas de autenticación.

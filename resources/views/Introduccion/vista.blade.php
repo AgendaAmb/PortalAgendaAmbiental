@@ -404,7 +404,7 @@
                     </div>
                     <div class="row justify-content-center mt-2">
                         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <a href="{{route('login')}}" class="btn btn-secondary btn-xl btn-block" role="button" id="botones">REGISTRO FORO</a>
+                            <a href="{{route('Bienvenida')}}" class="btn btn-secondary btn-xl btn-block" role="button" id="botones">REGISTRO FORO</a>
                         </div>
                         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-2 mt-md-0">
                             <a href="{{asset('storage/imagenes/Eventos/Programa_general.png')}}" class="btn btn-secondary btn-lg btn-block" role="button" id="botones" download="ProgramaSemanaSostenible.png">PROGRAMA</a>
