@@ -47,18 +47,10 @@
 
 @section('ObjetivosTexto')
 <div class="pSize text-justify mt-5">
-    <h3 style="color: #5c94d7;">Registro</h3>
-    <p style="text-align: justify;">Los interesados en participar en las actividades de la Primera semana #UASLPSostenible, favor de <a href="http://a.uaslp.mx/Sostenible"">registrarse</a><br>
-    Para participar en el Foro "Presa de San José", deberá llenar el siguiente <a href="{{route('Bienvenida')}}">registro</a>.
+    <h3 style="color: #5c94d7;">&nbsp;&nbsp;Registro</h3>
+    <p style="text-align: justify;">&nbsp;&nbsp;Los interesados en participar en las actividades de la Primera semana #UASLPSostenible, favor de <a href="http://a.uaslp.mx/Sostenible"">registrarse</a><br><br>
+    &nbsp;&nbsp;Para participar en el Foro "Presa de San José", deberá llenar el siguiente <a href="{{route('Bienvenida')}}">registro</a>.
     </p><br>
-    <h3 style="color: #5c94d7;">Colaboraciones</h3>
-    <p style="font-size: 14px !important;"><strong>Agenda Ambiental de la UASLP</strong><br><a
-            href="mailto:agenda.ambiental@uaslp.mx">agenda.ambiental@uaslp.mx</a></p>
-    <p><strong>División de Servicios Estudiantiles</strong><br><a
-            href="mailto:servicios.estudiantiles@uaslp.mx">servicios.estudiantiles@uaslp.mx</a></p>
-    <p><strong>Unisalud</strong><br><a href="mailto:unisalud@uaslp.mx">unisalud@uaslp.mx</a></p>
-    <p><strong>División de Difusión Cultural<br></strong><a
-            href="mailto:difusion.cultural@uaslp.mx">difusion.cultural@uaslp.mx</a></p>
 </div>
 @endsection
 
