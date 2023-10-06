@@ -106,12 +106,12 @@
                             <p>Horario: 9:00 - 12:00<br>
                             Lugar: Corredor Aula Magna | Facultad de Ingeniería</p>
                             <p></p><br></li>
-                            <li><h5 style="color:white">Unitrueque<br>Cambalache de libros<br>Demostración de actividades Museo Laberinto de las Ciencias y las Artes</h5>
+                            <li><h5 style="color:white">Cambalache de libros<br>Demostración de actividades Museo Laberinto de las Ciencias y las Artes</h5>
                             <p>Horario: 9:00 - 12:00<br>
                             Lugar: Corredor Aula Magna | Facultad de Ingeniería</p>
                             <p></p><br></li>
-                            <li><h5 style="color:white">Biciescuelas</h5>
-                            <p>Horario: 10:00 - 11:00<br>Intructor: Luis Enrique Mejía Estrada<br>
+                            <li><h5 style="color:white">Taller Biciescuelas</h5>
+                            <p>Horario: 10:00 - 11:00<br>Instructor: Luis Enrique Mejía Estrada<br>
                             Lugar: Corredor Aula Magna | Facultad de Ingeniería</p>
                             <p></p><br></li>
                             <li><h5 style="color:white">Slow Race</h5>
@@ -130,8 +130,8 @@
                             <ul>
                                 <li>Dra. Anuschka van ´t Hooft<br>Coordinadora Académica del PMCPA</li><br>
                                 <li>Dr. Carlos Renato Ramos Palacios<br>Coordinador Académico de IMaREC</li><br>
-                                <li>Dra. María Cecilia Costero Garbarino<br>Coordinadora de la Maestría en Asuntos Politicos Internacionales COLSAN</li><br>
-                                <li>Dra. Elisabeth Huber Sannwald<br>Jefa de la División de Ciencias Ambientales IPICYT</li><br>
+                                <li>Dra. María Cecilia Costero Garbarino<br>Coordinadora de la Licenciatura en Relaciones Internacionales y Profesora investigadora del Programa de Estudios Políticos e Internaciones | COLSAN</li><br>
+                                <li>Dra. Elisabeth Huber Sannwald<br>Jefa de la División de Ciencias Ambientales | IPICYT</li><br>
                             </ul></p>
                             
                             <p></p><br></li>                                                                                                                
@@ -165,11 +165,10 @@
                     </div>
                     <div
                     class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
-                        <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="https://www.youtube.com/watch?v=Pva3mXR6NvM" target="blank">
-                                <img src="{{ asset('storage/imagenes/Logos/Youtube.png') }}" alt="">
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Eventos/Programa_Foro.png')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button" download="Programa_Foro.png">PROGRAMA</a>
                             </a>
-                        </div>-->
+                        </div>
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{route('Bienvenida')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button">REGISTRO</a>
@@ -182,11 +181,12 @@
                             </h4><br>
                             <ul>
                                 <li><h5 style="color:white">Date un respiro</h5>
-                                    <p>Horario: 9:00 - 9:30<br>
-                                    Lugar: Unitecho</p>
+                                    <p>Horario: 9:00 - 9:30<br>Instructora: Dra. Blanca Patricia Salazar Chávez, Docente Facultad de Contaduría y Administración UASLP<br>
+                                    Lugar: Unitecho<br>
+                                </p>
                                 <p></p><br></li>
                                 <li><h5 style="color:white">Taller pesticidas naturales</h5>
-                                    <p>Horario: 9:45 - 11:00<br>
+                                    <p>Horario: 9:45 - 11:00<br>Instructor: MPA. Emmanuel Martínez Castro, Docente Facultad de Agronomía y Veterianaria<br>
                                     Lugar: Unitecho</p>
                                     <p></p><br></li>
                                 <li><h5 style="color:white">Foro "Presa San José"</h5>
@@ -240,7 +240,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Eventos/B_11Oct.jpg')}}"
+                            <img src="{{asset('storage/imagenes/Eventos/B_11Oct.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -262,25 +262,25 @@
                             <p></p>
                             <ul>
                             <li><h5 style="color:white">Date un respiro</h5>
-                            <p>Horario: 9:00 - 9:30<br>
+                            <p>Horario: 9:00 - 9:30<br>Instructora: Laura Daniela Hernández Rodríguez<br>
                             Unitecho</p>
                             <p></p><br></li>
                             <li><h5 style="color:white">Taller clasificación RSU y composta</h5>
-                            <p>Horario: 10:00 - 12:00<br>
+                            <p>Horario: 10:00 - 12:00<br>Instructor: Mtro. Raúl Jiménez Guerrero<br>
                             Lugar: Unitecho</p>
                             <p></p><br></li>
-                            <li><h5 style="color:white">Conferencia INEGI</h5>
+                            <li><h5 style="color:white">Conferencia Información Estadística y Geográfica para un ambiente sostenible</h5>
                             <p>Horario: 10:00 - 11:00<br>
                             Lugar: Aula Magna | Facultad de Ingeniería<br><br>
                             Ponente: Ing. Geomático Rafael Gaytán Martínez &nbsp; | &nbsp; INEGI</p>
                             <p></p><br></li>
                             <li><h5 style="color:white">Panel "Cultura y desarrollo sostenible: un potencial aún sin explorar"</h5>
-                            <p>Horario: 11:30 - 13:00<br>Lugar: Corredor Aula Magna | Facultad de Ingenieríaz<br><br>Moderador: Jonathan Ignacio Gamboa Herrera &nbsp; | &nbsp; UASLP<br><br>
+                            <p>Horario: 11:30 - 13:00<br>Lugar: Aula Magna | Facultad de Ingeniería<br><br>Moderador: Jonathan Ignacio Gamboa Herrera &nbsp; | &nbsp; UASLP<br><br>
                             Panelistas:<br>
                             <ul>
                                 <li>Nadia B. Garza Ramírez &nbsp; | &nbsp; Museo de Arte Contemporáneo</li>
-                                <li>Ecomuseo &nbsp; | &nbsp; Parque Tangamanda</li>
-                                <li>Ivón &nbsp; | &nbsp; Museo Federico Silva</li>
+                                <li>Lic. Enrique Alfonso Obregón &nbsp; | &nbsp; Ecomuseo Parque Tangamanga</li>
+                                <li>Ivonne Neusete Argaez Tenorio &nbsp; | &nbsp; Museo Federico Silva</li>
                                 <li>L.C.C. Cynthia Valle Meade &nbsp; | &nbsp; UASLP</li>
                             </p>                                                                                                             
 
@@ -307,7 +307,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Eventos/B_12Oct.jpg')}}"
+                            <img src="{{asset('storage/imagenes/Eventos/B_12Oct.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -342,7 +342,7 @@
                             <p>Horario: 12:00 - 13:00<br>
                             Lugar: Auditorio | Facultad de Ingeniería<br><br>
                             <p>Conferencia magistral:<br>
-                            Dra. Elisabeth Huber Sannwald &nbsp; | &nbsp; Facultad de IPICYT</p>
+                            Dra. Elisabeth Huber Sannwald &nbsp; | &nbsp; IPICYT</p>
                             <p></p><br></li> 
                         </div>
                     </div>
