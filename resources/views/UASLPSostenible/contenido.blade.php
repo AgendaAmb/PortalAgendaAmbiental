@@ -39,6 +39,9 @@
            
             <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:14px; " data-target="#Viernes" role="tab" aria-controls="nav-profile"
             aria-selected="false">   Viernes 13 de octubre</a>
+
+            <a class="nav-link w-25 p-1 pt-2 m-0 py-2" data-toggle="modal"  style="font-size:14px; " data-target="#Programa" role="tab" aria-controls="nav-profile"
+            aria-selected="false">   Programa general</a>
            
     </div>
 </div>
@@ -73,19 +76,19 @@
                                 class="img-fluid" alt="">
                         </div>
                     </div>
-                    <!--<div
-                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-between justify-content-xl-between mx-5 mt-2">
-                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                        <!--<div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="https://www.youtube.com/watch?v=Pva3mXR6NvM" target="blank">
                                 <img src="{{ asset('storage/imagenes/Logos/Youtube.png') }}" alt="">
                             </a>
-                        </div>
+                        </div>-->
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                            <a href="{{asset('storage/imagenes//Eventos/B_9Oct.png')}}"
+                            <a href="{{asset('storage/imagenes/Eventos/Programa_9Oct.png')}}"
                                 class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
-                                download="Cartel_Conferencias.jpg">CARTEL</a>
+                                download="Programa_9Oct.png">PROGRAMA</a>
                         </div>
-                    </div>-->
+                    </div>
                     <div class="row justify-content-center">
                         <div class="col-10"
                             style="color:white; font-size:14px; padding-top: 3%; text-align: justify; font-family: 'Myraid light';'">
@@ -156,7 +159,7 @@
                         </div>
                     </div>
                     <div
-                    class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+                    class="row justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between justify-content-xl-between mx-5 mt-2">
                         <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
                             <a href="{{asset('storage/imagenes/Eventos/Programa_Foro.png')}}" class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button" download="Programa_Foro.png">PROGRAMA</a>
                             </a>
@@ -205,7 +208,7 @@
                                             <li>Arq. Javier Ernesto Flores Navarro &nbsp; | &nbsp; IMPLAN</li> 
                                             <li>Dr. Rodolfo Cisneros Almazán &nbsp; | &nbsp; UASLP</li>
                                             <li>Dr. Francisco Javier Peña de Paz &nbsp; | &nbsp; COLSAN</li>
-                                            <li>Dr. Braulio Gutiérrez Medina &nbsp; | &nbsp; IPICyT</li> 
+                                            <li>Dr. Braulio Gutiérrez Medina &nbsp; | &nbsp; IPICYT</li> 
                                             <li>Ing. Joel Félix Díaz &nbsp; | &nbsp; CONAGUA</li>
                                     </p>
                                     <p></p><br></li>
@@ -359,7 +362,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
-                            <img src="{{asset('storage/imagenes/Eventos/B_13Oct.jpg')}}"
+                            <img src="{{asset('storage/imagenes/Eventos/B_13Oct.png')}}"
                                 class="img-fluid" alt="">
                         </div>
                     </div>
@@ -402,6 +405,70 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="Programa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body py-0">
+                <div class="col-12 mb-4 ml-3 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 ">
+                            <img src="{{asset('storage/imagenes/Eventos/Programa_general.png')}}"
+                                class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div
+                        class="row justify-content-center justify-content-sm-end justify-content-md-end justify-content-lg-end justify-content-xl-end mx-5 mt-2">
+
+                        <div class=" col-5 col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
+                            <a href="{{asset('storage/imagenes/Eventos/Programa_general.png')}}"
+                                class="btn btn-secondary bg-light  text-muted downloadBtn " href="#" role="button"
+                                download="Programa_general.png">PROGRAMA </a><br><br>
+                        </div>
+
+                    </div>
+                    <!--<div class="row justify-content-center">
+                        <div class="col-10"
+                            style="color:white; font-size:14px; padding-top: 3%; font-family: 'Myraid light';'">
+                            <h4><strong>Programa de actividades<br>JUEVES 12 DE OCTUBRE DE 2023</strong>
+                            </h4><br>
+                            <p></p>
+                            <ul>
+                            <li><h5 style="color:white">Ceremonia 25 años Agenda Ambiental</h5>
+                            <p>Horario: 9:30 - 10:20<br>
+                            Auditorio | Facultad de Ingeniería</p>
+                            <p></p><br></li>
+                            <li><h5 style="color:white">Cátedra Pedro Medellín Milán</h5>
+                            <p>Horario: 10:30 - 11:30<br>
+                            Lugar: Auditorio | Facultad de Ingeniería</p>
+                            <p>Conferencia magistral:<br>
+                            Dr. Fernando Díaz-Barriga Martínez &nbsp; | &nbsp; Facultad de Medicina/CIACyT</p>
+                            <p></p><br></li>
+                            <li><h5 style="color:white">Cátedra Pedro Medellín Milán</h5>
+                            <p>Horario: 12:00 - 13:00<br>
+                            Lugar: Auditorio | Facultad de Ingeniería<br><br>
+                            <p>Conferencia magistral:<br>
+                            Dra. Elisabeth Huber Sannwald &nbsp; | &nbsp; IPICYT</p>
+                            <p></p><br></li> 
+                        </div>
+                    </div>-->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    //console.log({{$NombreM}});
+     $('#{{$NombreM}}').modal('show')
+ </script>
 @endsection
 @push('stylesheets')
 <link href="{{ asset('css/nav-tabs_contenido.css') }}" rel="stylesheet" type="text/css">

@@ -34,13 +34,44 @@
         <div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
-              <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
-                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide" data-toggle="modal" data-target="#SemanaSostenible">
+              <a href={{route('UASLPSostenible')}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide">
+              </a>
+                <!--<img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-target="#SemanaSostenible">-->
+              <a href={{route('UASLPSostenible')}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide">
+              </a>
             </div>
           </div>
         </div>
 
         <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href={{route('UASLPSostenible',['nombreModal'=> 'Lunes'])}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href={{route('UASLPSostenible',['nombreModal'=> 'Lunes'])}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_SostenibilidadCarteles.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href={{route('UASLPSostenible',['nombreModal'=> 'Martes'])}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href={{route('UASLPSostenible',['nombreModal'=> 'Martes'])}}>
+                <img src="{{asset('/storage/imagenes/Eventos/B_SostenibilidadForo.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="http://wp.uaslp.mx/centenario/">
@@ -117,7 +148,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
       <button class="carousel-control-prev" type="button" data-target="#carouselMain" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -129,7 +160,7 @@
       </button>
     </div>
   </div>
-  <div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
+ <!--<div id="carouselResponse" class="carousel slide d-block d-xl-none d-lg-none d-md-block d-sm-none px-0" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="slide-box">
@@ -184,7 +215,7 @@
             <img src="{{ asset('storage/imagenes/DateUnRespiro/BannerDateRespiro1.png')}}" class="imgCaoursel  w-100 p-0 " alt="First slide">
           </a>
         </div>
-      </div>
+      </div>-->
     </div>
     <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
