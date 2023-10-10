@@ -217,16 +217,6 @@
           </a>
         </div>
       </div>-->
-    </div>
-    <a class="carousel-control-prev" href="#carouselResponse" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselResponse" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
 </div>
   <div class="modal fade" id="CompetenciasProfesionales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -382,7 +372,7 @@
                 <a href="{{asset('storage/imagenes/17Gemas/Cartel17Gemas.png')}}" class="btn btn-secondary bg-light  text-muted  pr-0 mr-xl-3" href="#" role="button" id="botones" download="Cartel17Gemas.png">CARTEL </a>
               </div>
               <div class="row justify-content-center">
-                <div class="col-10" style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';' ">
+                <div class="col-10" style="color:white; font-size:15px; padding-top: 3%; font-family: 'Myraid light';">
                   <br>
                   <p class="h4 font-weight-bold text-justify" style=" color: #5c94d7;">¡Ayúdanos a encontrar las 17 gemas
                     de la sostenibilidad y lograr la mejor
