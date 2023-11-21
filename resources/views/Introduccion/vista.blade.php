@@ -31,6 +31,18 @@
 
     <div id="carouselMain" class="carousel carousel-fade slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       <div class="carousel-inner">
+        <div class="carousel-item active" data-interval="4000">
+          <div class="d-block">
+            <div class="slide-box">
+              <a href="http://wp.uaslp.mx/centenario/">
+                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+              <a href="http://wp.uaslp.mx/centenario/">
+                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_2.png')}}" class="imgCaoursel " alt="First slide">
+              </a>
+            </div>
+          </div>
+        </div>
        <!--<div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
@@ -71,18 +83,6 @@
           </div>
         </div>-->
 
-        <div class="carousel-item" data-interval="4000">
-          <div class="d-block">
-            <div class="slide-box">
-              <a href="http://wp.uaslp.mx/centenario/">
-                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_1.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-              <a href="http://wp.uaslp.mx/centenario/">
-                <img src="{{ asset('/storage/imagenes/introduccion/UASLP100_2.png')}}" class="imgCaoursel " alt="First slide">
-              </a>
-            </div>
-          </div>
-        </div>
 
         <div class="carousel-item" data-interval="4000">
           <div class="d-block">
