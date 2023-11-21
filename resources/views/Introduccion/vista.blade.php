@@ -31,7 +31,7 @@
 
     <div id="carouselMain" class="carousel carousel-fade slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       <div class="carousel-inner">
-       <div class="carousel-item active" data-interval="4000">
+       <!--<div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('UASLPSostenible')}}>
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <!--<div class="carousel-item" data-interval="4000">
+        <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('UASLPSostenible',['nombreModal'=> 'Lunes'])}}>
