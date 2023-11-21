@@ -31,13 +31,13 @@
 
     <div id="carouselMain" class="carousel carousel-fade slide d-none d-xl-block d-lg-block d-md-none d-sm-block" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" data-interval="4000">
+       <!--<div class="carousel-item active" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('UASLPSostenible')}}>
                 <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
-                <!--<img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-target="#SemanaSostenible">-->
+                <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad1.jpg')}}" class="imgCaoursel " alt="First slide" data-target="#SemanaSostenible">
               <a href={{route('UASLPSostenible')}}>
                 <img src="{{asset('/storage/imagenes/Eventos/B_Sostenibilidad2.jpg')}}" class="imgCaoursel " alt="First slide">
               </a>
@@ -69,9 +69,9 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
 
-        <!--<div class="carousel-item" data-interval="4000">
+        <div class="carousel-item" data-interval="4000">
           <div class="d-block">
             <div class="slide-box">
               <a href="http://wp.uaslp.mx/centenario/">
@@ -101,7 +101,7 @@
           <div class="d-block">
             <div class="slide-box">
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
-                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Oct2023.png')}}" class="imgCaoursel " alt="First slide">
+                <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_Nov2023.png')}}" class="imgCaoursel " alt="First slide">
               </a>
               <a href={{route('ConsumoResponsable',['nombreModal'=> 'CartelEspacioConsumo'])}}>
                 <img src="{{ asset('/storage/imagenes/ConsumoResponsable/B_ECR_2023_2.png')}}" class="imgCaoursel " alt="First slide">
@@ -148,7 +148,7 @@
               </a>
             </div>
           </div>
-        </div>-->
+        </div>
 
       </div>
       <button class="carousel-control-prev" type="button" data-target="#carouselMain" data-slide="prev">
