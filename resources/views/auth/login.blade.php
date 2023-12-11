@@ -1021,6 +1021,6 @@
     }
 })
 
-$(document).ready (Alert('Mantenimiento'));
+window.onload(Alert('Mantenimiento'));
 </script>
 @endsection
