@@ -1020,5 +1020,7 @@
          }
     }
 })
+
+$(document).ready (Alert('Mantenimiento'));
 </script>
 @endsection
