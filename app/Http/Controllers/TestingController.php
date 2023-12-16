@@ -22,7 +22,7 @@ class TestingController extends Controller
         $base_url=''; // * Produccion
         $soap_url='https://www.finanzas.uaslp.mx/ConsultasFinanzas/Agenda.asmx?wsdl';
         
-        if(env('APP_ENV') != 'production')$base_url = 'http://148.224.134.150:6987/load/?url=';
+        if(env('APP_ENV') != 'production')$base_url = 'http://148.224.252.204:6987/load/?url=';
 
         $url = $base_url . $soap_url;
 
